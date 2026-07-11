@@ -1,0 +1,1 @@
+let o=null;const t="dv:tour-intent";function i(n){o=n,typeof window<"u"&&window.dispatchEvent(new CustomEvent(t))}function r(){return o}function u(n){if(typeof window>"u")return()=>{};const e=()=>n();return window.addEventListener(t,e),()=>window.removeEventListener(t,e)}export{r as g,u as o,i as s};

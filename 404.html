@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Not found · InboundOnSteroids</title>
+    <script>
+      // /scan/* deep links: freshly built scans exist in Supabase before the next
+      // mirror sync lands their prerendered file. Hand the path to the scan app at
+      // /scan/ (same-domain SPA restore — the URL stays inboundonsteroids.com/scan/<slug>).
+      (function (l) {
+        if (l.pathname.indexOf('/scan/') === 0 && l.pathname !== '/scan/') {
+          l.replace(
+            l.protocol + '//' + l.hostname + '/scan/?/' +
+            l.pathname.slice(6).replace(/&/g, '~and~').replace(/\/+$/, '') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+          );
+        }
+      })(window.location);
+    </script>
+    <style>
+      body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #fff; color: #131210; font-family: "Schibsted Grotesk", system-ui, sans-serif; }
+      main { text-align: center; padding: 2rem; }
+      a { color: #C8361B; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Page not found.</h1>
+      <p><a href="/">inboundonsteroids.com</a></p>
+    </main>
+  </body>
+</html>
