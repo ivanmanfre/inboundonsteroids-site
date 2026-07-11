@@ -179,7 +179,7 @@ p { margin: 0; }
 .h1 {
   margin: 0;
   font-weight: 800;
-  font-size: clamp(37px, calc(16.57px + 5.238vw), 92px);
+  font-size: clamp(42px, calc(18px + 5.5vw), 100px);
   line-height: 0.99;
   letter-spacing: -0.035em;
   color: var(--ink);
@@ -213,10 +213,10 @@ p { margin: 0; }
 }
 
 .warn-row { display: flex; align-items: center; gap: 14px; }
-.warn-sq { width: 17px; height: 17px; background: var(--ink); flex-shrink: 0; }
+.warn-sq { width: 14px; height: 14px; background: var(--ink); flex-shrink: 0; }
 .warn-head {
   font-weight: 800;
-  font-size: clamp(20px, 2.6vw, 27px);
+  font-size: clamp(16px, 2vw, 22px);
   letter-spacing: 0.05em;
   color: var(--ink);
 }
