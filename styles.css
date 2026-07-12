@@ -182,12 +182,14 @@ p { margin: 0; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(14px, 1.8vw, 22px);
+  /* Ref (Landing Page.dc.html): 64px gap between headline and box. Keep a real
+     gap so the h1 breathes above the warning, scaled down for small screens. */
+  gap: clamp(36px, 5vw, 64px);
 }
 .h1 {
   margin: 0;
   font-weight: 800;
-  font-size: clamp(38px, calc(18px + 3.8vw), 72px);
+  font-size: clamp(42px, calc(16px + 5.2vw), 96px);
   line-height: 0.99;
   letter-spacing: -0.035em;
   color: var(--ink);
