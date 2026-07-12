@@ -65,7 +65,7 @@ p { margin: 0; }
 .rule-top { border-top: 2.5px solid var(--ink); }
 /* No hard rule directly under the hero — let the headline + box own the fold
    and flow softly into the first section (other section dividers stay). */
-.hero + .rule-top { border-top: none; }
+.hero + .rule-top { border-top: none; padding-top: clamp(22px, 2.8vw, 34px); }
 
 .sec-label {
   font-weight: 800;
@@ -174,7 +174,7 @@ p { margin: 0; }
 /* ---- HERO ---- */
 .hero {
   padding-top: clamp(14px, 1.8vw, 24px);
-  padding-bottom: clamp(30px, 4vw, 48px);
+  padding-bottom: clamp(14px, 1.8vw, 22px);
   display: flex;
   flex-direction: column;
   gap: clamp(14px, 1.8vw, 22px);
