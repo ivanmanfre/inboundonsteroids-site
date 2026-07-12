@@ -198,10 +198,10 @@ p { margin: 0; }
 .hero-box {
   flex: 1 1 460px;
   min-width: 0;
-  padding: 20px clamp(18px, 2vw, 26px) 0;
+  padding: 15px clamp(18px, 2vw, 26px) 0;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 9px;
   transform: rotate(-0.6deg);
 }
 .hero-side {
@@ -219,11 +219,11 @@ p { margin: 0; }
 .warn-sq { width: 12px; height: 12px; background: var(--ink); flex-shrink: 0; }
 /* Hero: smaller warning square so it reads as a marker, not a block competing
    with the headline (the h1 should dominate the fold). */
-.hero-box .warn-row { gap: 9px; }
-.hero-box .warn-sq { width: 9px; height: 9px; }
+.hero-box .warn-row { gap: 8px; }
+.hero-box .warn-sq { width: 8px; height: 8px; }
 .warn-head {
   font-weight: 800;
-  font-size: clamp(13.5px, 1.5vw, 16px);
+  font-size: clamp(12.5px, 1.3vw, 14.5px);
   letter-spacing: 0.05em;
   color: var(--ink);
 }
@@ -231,13 +231,13 @@ p { margin: 0; }
 
 .hero-lede {
   font-weight: 400;
-  font-size: clamp(14px, 1.4vw, 15.5px);
+  font-size: clamp(13px, 1.2vw, 14px);
   line-height: 1.5;
   color: var(--ink);
   max-width: 720px;
 }
-.effects { display: flex; flex-direction: column; gap: 6px; }
-.effect { font-weight: 700; font-size: clamp(14px, 1.5vw, 16px); color: var(--ink); }
+.effects { display: flex; flex-direction: column; gap: 5px; }
+.effect { font-weight: 700; font-size: clamp(13px, 1.3vw, 14.5px); color: var(--ink); }
 
 .admin {
   display: flex;
@@ -246,7 +246,7 @@ p { margin: 0; }
 }
 .admin-cell {
   flex: 1;
-  padding: 10px 0 11px clamp(18px, 2vw, 26px);
+  padding: 8px 0 9px clamp(18px, 2vw, 26px);
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -256,11 +256,11 @@ p { margin: 0; }
 .admin-cell--pad { padding-left: 26px; padding-right: 26px; border-left: 1px solid var(--ink); }
 .admin-label {
   font-weight: 700;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.14em;
   color: var(--muted);
 }
-.admin-val { font-weight: 600; font-size: 14.5px; color: var(--ink); }
+.admin-val { font-weight: 600; font-size: 13.5px; color: var(--ink); }
 
 .rx-row { display: flex; align-items: baseline; gap: 16px; }
 .rx-mark { font-family: var(--serif); font-size: 58px; line-height: 1; color: var(--ink); }
