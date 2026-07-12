@@ -173,10 +173,15 @@ p { margin: 0; }
 
 /* ---- HERO ---- */
 .hero {
+  /* Fill the viewport below the ~91px nav so the next section never peeks into
+     the fold; content centers vertically and the hero grows if it ever exceeds
+     the viewport on very short screens. */
+  min-height: calc(100svh - 92px);
   padding-top: clamp(14px, 1.8vw, 24px);
   padding-bottom: clamp(14px, 1.8vw, 22px);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: clamp(14px, 1.8vw, 22px);
 }
 .h1 {
