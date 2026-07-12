@@ -171,7 +171,7 @@ p { margin: 0; }
 /* ---- HERO ---- */
 .hero {
   padding-top: clamp(14px, 1.8vw, 24px);
-  padding-bottom: clamp(14px, 1.8vw, 22px);
+  padding-bottom: clamp(30px, 4vw, 48px);
   display: flex;
   flex-direction: column;
   gap: clamp(14px, 1.8vw, 22px);
