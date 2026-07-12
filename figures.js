@@ -51,11 +51,12 @@
       '@keyframes drawCurve { to { stroke-dashoffset: 0; } }',
       '@keyframes arrowIn { to { opacity: 1; } }',
       '@keyframes dashMarch { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -56; } }',
-      // flat press: dot snaps out then restocks, mechanical (steps timing)
-      '@keyframes flatPress { 0% { opacity: 1; } 2.5% { opacity: 0; } 88% { opacity: 0; } 94% { opacity: 1; } 100% { opacity: 1; } }',
+      // dose press: a visible "press" ripples across the strip left-to-right —
+      // each dot snaps down then pops back, staggered so a pulse travels the row.
+      '@keyframes dosePress { 0%, 100% { transform: scale(1); } 7% { transform: scale(0.3); } 17% { transform: scale(1.12); } 26% { transform: scale(1); } }',
       '.ios-dose-strip { display: flex; gap: 10px; flex-wrap: wrap; }',
       '.ios-dose-cell { box-sizing: border-box; width: 30px; height: 30px; border: 2px solid #131210; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }',
-      '.ios-dose-dot { width: 11px; height: 11px; border-radius: 50%; animation: flatPress 13s steps(1, end) infinite both; }',
+      '.ios-dose-dot { width: 11px; height: 11px; border-radius: 50%; transform-origin: center; animation: dosePress 2.6s ease-in-out infinite; }',
       '.ios-dash { animation: dashMarch 2.6s linear infinite; }',
       '.ios-curve { stroke-dasharray: 1; stroke-dashoffset: 1; }',
       '.ios-arrow { opacity: 0; }',
@@ -82,7 +83,8 @@
       var dot = document.createElement('span');
       dot.className = 'ios-dose-dot';
       dot.style.background = leadSet[i] ? '#C8361B' : '#131210';
-      dot.style.animationDelay = (i * 0.32) + 's'; // spec stagger
+      // stagger ~ cycle/count so one press pulse travels the row continuously
+      dot.style.animationDelay = (i * 0.085) + 's';
       cell.appendChild(dot);
       strip.appendChild(cell);
     }
