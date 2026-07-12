@@ -63,6 +63,9 @@ p { margin: 0; }
   padding-right: var(--pad);
 }
 .rule-top { border-top: 2.5px solid var(--ink); }
+/* No hard rule directly under the hero — let the headline + box own the fold
+   and flow softly into the first section (other section dividers stay). */
+.hero + .rule-top { border-top: none; }
 
 .sec-label {
   font-weight: 800;
@@ -214,6 +217,10 @@ p { margin: 0; }
 
 .warn-row { display: flex; align-items: center; gap: 11px; }
 .warn-sq { width: 12px; height: 12px; background: var(--ink); flex-shrink: 0; }
+/* Hero: smaller warning square so it reads as a marker, not a block competing
+   with the headline (the h1 should dominate the fold). */
+.hero-box .warn-row { gap: 9px; }
+.hero-box .warn-sq { width: 9px; height: 9px; }
 .warn-head {
   font-weight: 800;
   font-size: clamp(13.5px, 1.5vw, 16px);
