@@ -170,11 +170,11 @@ p { margin: 0; }
 
 /* ---- HERO ---- */
 .hero {
-  padding-top: clamp(18px, 2.4vw, 30px);
-  padding-bottom: clamp(30px, 4vw, 44px);
+  padding-top: clamp(14px, 1.8vw, 24px);
+  padding-bottom: clamp(14px, 1.8vw, 22px);
   display: flex;
   flex-direction: column;
-  gap: clamp(18px, 2.4vw, 30px);
+  gap: clamp(14px, 1.8vw, 22px);
 }
 .h1 {
   margin: 0;
@@ -284,8 +284,8 @@ p { margin: 0; }
 
 /* ---- DOSE STRIP BAND ---- */
 .dose-band {
-  padding-top: clamp(40px, 6vw, 64px);
-  padding-bottom: clamp(40px, 6vw, 64px);
+  padding-top: clamp(16px, 2.2vw, 26px);
+  padding-bottom: clamp(32px, 5vw, 52px);
   display: flex;
   flex-direction: column;
   gap: 12px;
