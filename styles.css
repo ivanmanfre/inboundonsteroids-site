@@ -541,6 +541,32 @@ p { margin: 0; }
   .hero-side { align-items: flex-start; }
 }
 
+/* Phone hero: flow from the top and let the box own the fold.
+   Fixes three things vs. the desktop rules inherited on mobile:
+   1. the nav CTA wrapped into a stray black slab under the wordmark AND
+      duplicated the hero's red CTA one scroll down — drop it on phones so the
+      nav is just the clean wordmark and the red button owns the fold action;
+   2. justify-content:center stranded the headline mid-screen, far from the
+      nav — flow from the top instead (min-height goes inert since the stacked
+      content already exceeds the viewport);
+   3. loose vertical rhythm — tighten the headline/box/side gaps. */
+@media (max-width: 700px) {
+  .nav { flex-wrap: nowrap; }
+  .nav .btn-ink { display: none; }
+
+  .hero {
+    min-height: 0;
+    justify-content: flex-start;
+    padding-top: clamp(18px, 5vw, 28px);
+    padding-bottom: clamp(28px, 7vw, 40px);
+    gap: clamp(24px, 6vw, 34px);
+  }
+  .hero-cols { gap: clamp(24px, 6vw, 32px); }
+  .hero-side { gap: 18px; }
+  /* Full-width red CTA: big tap target that closes the fold decisively. */
+  .btn-red { width: 100%; }
+}
+
 /* Two-column grids collapse */
 @media (max-width: 760px) {
   .grid-2 { grid-template-columns: 1fr; }
