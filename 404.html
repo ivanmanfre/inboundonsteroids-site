@@ -17,6 +17,18 @@
             l.hash
           );
         }
+        // /client/* deep links: freshly generated demo boards exist in Supabase
+        // before the next client-mirror sync lands their prerendered file. Hand the
+        // path to the client app at /client/ (same-domain SPA restore — the URL stays
+        // inboundonsteroids.com/client/<slug>). The ?k=<token> query is preserved.
+        else if (l.pathname.indexOf('/client/') === 0 && l.pathname !== '/client/') {
+          l.replace(
+            l.protocol + '//' + l.hostname + '/client/?/' +
+            l.pathname.slice(8).replace(/&/g, '~and~').replace(/\/+$/, '') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+          );
+        }
       })(window.location);
     </script>
     <style>
