@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Configurations | InboundOnSteroids</title>
+  <meta name="description" content="Two ways to run the engine.">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* /compare tier comparison, reuses the Black Box tokens + the-box grammar */
+    .cmp-head { margin-bottom: clamp(28px, 4vw, 44px); }
+    .cmp-grid {
+      display: flex;
+      gap: clamp(16px, 2.4vw, 26px);
+      align-items: stretch;
+    }
+    .cmp-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      /* horizontal padding must match .admin's negative margin (clamp 18-26px)
+         so the admin bar bleeds exactly to the frame, no stub overhang */
+      padding: clamp(22px, 2.4vw, 32px) clamp(18px, 2vw, 26px) clamp(18px, 2vw, 24px);
+    }
+    .cmp-tier {
+      font-family: var(--sans);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: clamp(24px, 2.6vw, 31px);
+      line-height: 1.02;
+      color: var(--ink);
+      margin: 16px 0 2px;
+    }
+    .cmp-priceline { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+    .cmp-price {
+      font-family: var(--sans);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      font-size: clamp(42px, 5.2vw, 58px);
+      line-height: 0.95;
+      color: var(--ink);
+    }
+    .cmp-per { font-family: var(--sans); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    .cmp-lede { font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--body-2); margin: 10px 0 18px; }
+    .cmp-inc { list-style: none; margin: 0 0 18px; padding: 0; }
+    .cmp-inc li {
+      position: relative;
+      padding: 11px 0 11px 22px;
+      border-top: 1px solid var(--hairline);
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 14.5px;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+    .cmp-inc li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 17px;
+      width: 8px; height: 8px;
+      background: var(--ink);
+    }
+    .cmp-inc li.cmp-inc--all { font-weight: 700; }
+    .cmp-inc li.cmp-inc--new::before { background: var(--red); }
+    .cmp-spacer { flex: 1; }
+    .cmp-est {
+      border-top: 1px solid var(--ink);
+      padding-top: 14px;
+      margin-top: 6px;
+    }
+    .cmp-est-label {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .cmp-est-fig {
+      font-family: var(--sans);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: clamp(19px, 2.1vw, 23px);
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .cmp-est-fig .num { color: var(--red); }
+    .cmp-est-note { font-family: var(--serif); font-style: italic; font-size: 13px; line-height: 1.45; color: var(--muted); margin-top: 7px; }
+    .cmp-foot {
+      margin-top: clamp(26px, 3.4vw, 40px);
+      padding-top: 18px;
+      border-top: 1px solid var(--hairline);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .cmp-foot .warn-sq { width: 10px; height: 10px; margin-top: 5px; }
+    .cmp-foot p { font-family: var(--serif); font-size: 14px; line-height: 1.55; color: var(--body-2); max-width: 760px; }
+    .cmp-foot strong { font-weight: 700; color: var(--ink); }
+    @media (max-width: 860px) {
+      .cmp-grid { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Primary">
+      <span class="wordmark"><span class="wm-a">INBOUND</span><span class="wm-on">ON</span><span class="wm-b">STEROIDS</span></span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" aria-label="Configurations">
+      <div class="cmp-head">
+        <div class="sec-label">PRESCRIBING INFORMATION &middot; TWO CONFIGURATIONS</div>
+        <h1 class="h1">Two ways to run it.</h1>
+        <p class="sec-strap">Both run your content and your own audience end to end to booked calls. The larger configuration adds the hunt: cold acquisition of net-new prospects.</p>
+      </div>
+
+      <div class="cmp-grid">
+
+        <!-- CONFIGURATION A -->
+        <div class="the-box cmp-box">
+          <div class="warn-row">
+            <span class="warn-sq" aria-hidden="true"></span>
+            <span class="warn-head">CONFIGURATION A</span>
+          </div>
+          <div class="cmp-tier">Inbound Engine</div>
+          <div class="cmp-priceline">
+            <span class="cmp-price">$2,000</span>
+            <span class="cmp-per">/ month</span>
+          </div>
+          <p class="cmp-lede">Everything that turns your own feed and audience into booked calls, run for you.</p>
+          <ul class="cmp-inc">
+            <li>Daily content in your voice</li>
+            <li>Lead magnets that capture named leads</li>
+            <li>Newsletter nurture on a list you own</li>
+            <li>Warm outreach to every reader who raises a hand, run end to end to a booked call</li>
+          </ul>
+
+          <div class="admin">
+            <div class="admin-cell">
+              <div class="admin-label">ADMINISTRATION</div>
+              <div class="admin-val">Once daily</div>
+            </div>
+            <div class="admin-cell admin-cell--wide">
+              <div class="admin-label">SCOPE</div>
+              <div class="admin-val">Your own audience</div>
+            </div>
+            <div class="admin-cell admin-cell--pad">
+              <div class="admin-label">MEASURED IN</div>
+              <div class="admin-val">Booked calls</div>
+            </div>
+          </div>
+
+          <div class="cmp-spacer"></div>
+
+          <div class="cmp-est">
+            <div class="cmp-est-label">Estimated booked calls</div>
+            <div class="cmp-est-fig"><span class="num">~8-12</span> / month by month 3</div>
+            <p class="cmp-est-note">Compounding ramp: a few in month one, building from there. Calls, not closed deals.</p>
+          </div>
+        </div>
+
+        <!-- CONFIGURATION B -->
+        <div class="the-box cmp-box">
+          <div class="warn-row">
+            <span class="warn-sq" aria-hidden="true"></span>
+            <span class="warn-head">CONFIGURATION B</span>
+          </div>
+          <div class="cmp-tier">Inbound + Outbound Engine</div>
+          <div class="cmp-priceline">
+            <span class="cmp-price">$3,000</span>
+            <span class="cmp-per">/ month</span>
+          </div>
+          <p class="cmp-lede">Everything in the Inbound Engine, plus the hunt: cold acquisition of prospects who are not in your world yet.</p>
+          <ul class="cmp-inc">
+            <li class="cmp-inc--all">Everything in the Inbound Engine</li>
+            <li class="cmp-inc--new">Cold outreach to net-new prospects: connections, DMs and InMail on your Sales Navigator seat</li>
+            <li class="cmp-inc--new">A personalized resource on every cold touch</li>
+            <li class="cmp-inc--new">Every conversation run to a call on your calendar, plus shared Slack and a monthly review</li>
+          </ul>
+
+          <div class="admin">
+            <div class="admin-cell">
+              <div class="admin-label">ADMINISTRATION</div>
+              <div class="admin-val">Daily + cold cadence</div>
+            </div>
+            <div class="admin-cell admin-cell--wide">
+              <div class="admin-label">SCOPE</div>
+              <div class="admin-val">Your audience + net-new</div>
+            </div>
+            <div class="admin-cell admin-cell--pad">
+              <div class="admin-label">MEASURED IN</div>
+              <div class="admin-val">Booked calls</div>
+            </div>
+          </div>
+
+          <div class="cmp-spacer"></div>
+
+          <div class="cmp-est">
+            <div class="cmp-est-label">Estimated booked calls</div>
+            <div class="cmp-est-fig">Inbound, plus <span class="num">~4-8</span> cold / month</div>
+            <p class="cmp-est-note">Cold produces from month one. Capacity is fixed: 50 InMails and ~400 safe connection requests a month. Reply rate calibrates in the first batch.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cmp-foot">
+        <span class="warn-sq" aria-hidden="true"></span>
+        <p><strong>Estimates, not guarantees.</strong> We hold to booked calls, not closed deals; your offer and close rate are yours. Cold is additive volume on top of inbound, never a guaranteed quota, and it runs on your own Sales Navigator seat at safe, conservative volume.</p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
