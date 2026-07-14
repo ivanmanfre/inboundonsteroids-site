@@ -559,8 +559,14 @@ p { margin: 0; }
     justify-content: flex-start;
     padding-top: clamp(18px, 5vw, 28px);
     padding-bottom: clamp(28px, 7vw, 40px);
-    gap: clamp(24px, 6vw, 34px);
+    /* Bigger headline + more air below it: the H1 owns the fold and the warning
+       box sits lower, reached after the headline has landed. */
+    gap: clamp(34px, 9vw, 46px);
   }
+  /* Push the mobile H1 up from the 42px floor toward the desktop register so it
+     dominates the small screen. Capped so the unbreakable "$15k-$50k/mo" token
+     never overflows the column at 360px. */
+  .h1 { font-size: clamp(46px, 12.6vw, 58px); line-height: 0.96; }
   .hero-cols { gap: clamp(24px, 6vw, 32px); }
   .hero-side { gap: 18px; }
   /* Full-width red CTA: big tap target that closes the fold decisively. */
