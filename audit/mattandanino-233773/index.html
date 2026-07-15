@@ -83,6 +83,19 @@
       margin-top: 14px; max-width: 760px;
     }
 
+    /* Grade scale: our bands for consumer-brand buyer density in a read network */
+    .aud-scale {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--hairline); border-left: 1px solid var(--hairline);
+      margin-top: 20px;
+    }
+    .aud-band { padding: clamp(12px, 1.8vw, 16px); border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+    .aud-band--on { background: #E9E4D6; } /* Black Box flash tone */
+    .aud-band-r { font-family: var(--sans); font-weight: 800; letter-spacing: -0.01em; font-size: clamp(14px, 1.6vw, 16px); color: var(--ink); }
+    .aud-band-w { font-family: var(--serif); font-size: clamp(12.5px, 1.4vw, 14px); line-height: 1.4; color: var(--body-2); margin-top: 4px; }
+    .aud-band-y { font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 10px; color: var(--ink); margin-top: 8px; }
+    @media (max-width: 640px) { .aud-scale { grid-template-columns: 1fr; } }
+
     /* Named ICP grid */
     .aud-names {
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -204,6 +217,22 @@
           <span class="aud-th"><b>Good.</b> 46 buyers verified by name in the 997 connections we read. The full list likely holds around 150. Nobody is talking to them.</span>
         </div>
       </div>
+      <div class="aud-scale" aria-label="How rooms grade">
+        <div class="aud-band">
+          <div class="aud-band-r">Under 1%</div>
+          <div class="aud-band-w">Background noise. Almost every room starts here.</div>
+        </div>
+        <div class="aud-band">
+          <div class="aud-band-r">1 to 2%</div>
+          <div class="aud-band-w">A typical room. Some buyers, mostly peers.</div>
+        </div>
+        <div class="aud-band aud-band--on">
+          <div class="aud-band-r">Above 2%</div>
+          <div class="aud-band-w">Raw material worth working.</div>
+          <div class="aud-band-y">His · 4.6%</div>
+        </div>
+      </div>
+      <p class="aud-cap" style="margin-top:12px;">Scale: share of the connections we read that are consumer-brand decision makers, from the rooms we have audited. Roughly 1 in 100 is the background rate on LinkedIn.</p>
       <p class="aud-cap">Read: his reach is fine, the content is aimed at the wrong crowd, and aim is fixable. Buyers in the connections but none in the comments means three moves: content built for what these 150 care about, resources that capture them by name, and the same 150 as the warm outreach list.</p>
     </section>
 
