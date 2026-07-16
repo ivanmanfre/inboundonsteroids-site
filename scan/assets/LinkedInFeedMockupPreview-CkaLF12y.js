@@ -1,0 +1,11 @@
+import{j as e}from"./vendor-motion-Bb7jJ0MV.js";import{L as a}from"./LinkedInFeedMockup-BhDDyJ9-.js";import"./vendor-react-CBNdsNPG.js";import"./LinkedInPostPreview-D3mGqJ9s.js";import"./globe-CW0Bg4DB.js";import"./index-C4lJ4LdF.js";import"./vendor-supabase-yKjPlrCh.js";import"./thumbs-up-CIG-a6Ld.js";import"./repeat-2-BmgVH81Z.js";import"./send-CkYMq2C0.js";import"./chevron-left-teDDjj6p.js";import"./chevron-right-td_1_sCU.js";const o={profile:{name:"Jordan Vega",headline:"Founder & CEO at Northwind Creative · Brand systems for B2B",avatarUrl:"https://i.pravatar.cc/150?img=12"},posts:[{type:"text",body:`Most agencies pitch "brand strategy" and deliver a logo.
+
+The gap isn't talent. It's that strategy lives in a deck nobody reads after kickoff.
+
+We started shipping a one-page operating brief instead — the 3 decisions every asset has to honor. Adoption went from "sometimes" to "every time."
+
+Deliverables don't change behavior. Constraints do.`,reactions:214,comments:18},{type:"text",body:`A client asked last week why our retainer costs more than the shop down the street.
+
+Simple: they're paying for the shop's busywork. We deleted 40% of ours.
+
+The most expensive thing in any agency is work that looks like progress.`,reactions:176,comments:11},{type:"image",body:"The 3-layer brand system we install for every founder-led B2B account. Save this one.",imageUrl:"https://placehold.co/1200x900/2A8F65/FFFFFF/png?text=Brand+System",reactions:309,comments:27}],lmCard:{coverUrl:"https://placehold.co/800x1000/1A1A1A/F7F4EF/png?text=Founder+Brand+Playbook",title:"The Founder Brand Playbook",pages:9}},u=()=>{const t=new URLSearchParams(window.location.search).get("mode")==="full"?"full":"tease",r=o.profile.name.split(" ")[0];return e.jsx("div",{className:"min-h-screen w-full",style:{backgroundColor:"var(--color-paper)"},children:e.jsxs("div",{className:"max-w-2xl mx-auto px-6 py-16",children:[e.jsxs("p",{className:"text-[12px] uppercase tracking-[0.2em] mb-2",style:{fontFamily:"var(--font-mono)",color:"var(--color-ink-mute)"},children:["Preview · ",t==="full"?"full reveal":"their feed, leveled up"]}),e.jsxs("h1",{className:"text-4xl mb-10",style:{fontFamily:"var(--font-display)",color:"var(--color-ink)"},children:["What ",r,"'s feed could be doing"]}),e.jsx(a,{spec:o,mode:t})]})})};export{u as default};
