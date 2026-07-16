@@ -840,3 +840,13 @@ p { margin: 0; }
   .course-row { flex-direction: column; gap: 10px; }
   .course-key { width: auto; max-width: none; }
 }
+
+/* PATIENT INFORMATION FILM */
+.film-frame { position: relative; margin-top: 18px; border: 2.5px solid var(--ink); background: var(--paper); }
+.film-frame video { display: block; width: 100%; height: auto; cursor: pointer; }
+.film-btn {
+  position: absolute; right: 14px; bottom: 14px;
+  font-family: var(--sans); font-weight: 800; font-size: 13px; letter-spacing: 0.06em;
+  color: var(--paper); background: var(--ink); border: none; padding: 8px 14px; cursor: pointer;
+}
+.film-btn:hover { background: var(--red); }
