@@ -76,9 +76,9 @@
 
     <!-- 0b PATIENT INFORMATION FILM -->
     <section class="section rule-top reveal" aria-label="Patient information film">
-      <div class="sec-label">PATIENT INFORMATION FILM &middot; 61 SECONDS</div>
       <div class="film-frame">
         <video id="deskfilm" src="assets/the-desk.mp4" poster="assets/the-desk-poster.webp" muted playsinline preload="metadata" aria-label="InboundOnSteroids case film"></video>
+        <div id="filmscrub" class="film-scrub" role="slider" aria-label="Film position"><div id="filmfill" class="film-scrub-fill"></div></div>
         <button id="filmsound" class="film-btn" type="button">SOUND ON</button>
       </div>
     </section>
@@ -543,6 +543,20 @@
         b.textContent = v.muted ? 'SOUND ON' : 'SOUND OFF';
         if (!v.muted && v.paused) { v.play().catch(function () {}); }
       });
+      var scrub = document.getElementById('filmscrub');
+      var fill = document.getElementById('filmfill');
+      v.addEventListener('timeupdate', function () {
+        if (v.duration) { fill.style.width = (v.currentTime / v.duration * 100) + '%'; }
+      });
+      function seekTo(ev) {
+        var r = scrub.getBoundingClientRect();
+        var x = Math.min(Math.max(ev.clientX - r.left, 0), r.width);
+        if (v.duration) { v.currentTime = (x / r.width) * v.duration; }
+      }
+      var dragging = false;
+      scrub.addEventListener('pointerdown', function (ev) { dragging = true; scrub.setPointerCapture(ev.pointerId); seekTo(ev); });
+      scrub.addEventListener('pointermove', function (ev) { if (dragging) { seekTo(ev); } });
+      scrub.addEventListener('pointerup', function () { dragging = false; });
     })();
   </script>
   <script src="figures.js" defer></script>
