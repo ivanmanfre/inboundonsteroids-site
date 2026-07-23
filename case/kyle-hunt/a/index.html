@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kyle Hunt owns the machine that runs his feed. A case study.</title>
+<meta name="description" content="Kyle Hunt is an 8-figure agency COO. He interviewed four builders for his content engine and picked me. It has run his whole LinkedIn feed in his voice since early 2026. The feed is public. The receipts are real.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kyle Hunt owns the machine that runs his feed">
+<meta property="og:description" content="He vets agencies for a living. He interviewed four builders, picked one, and has run his entire LinkedIn presence on the engine since early 2026. Within 90 days his coaching business went from $30k to $80k a month.">
+<meta property="og:image" content="assets/kyle-photo-800.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15130F;
+    --ink-soft:#4A453D;
+    --line:#E4E1DA;
+    --paper:#FFFFFF;
+    --band:#F3F2EE;
+    --red:#C8361B;
+    --red-deep:#A62A12;
+    --dark:#141210;
+    --display:'Space Grotesk',-apple-system,sans-serif;
+    --body:'Inter',-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 28px}
+
+  /* ---------- reveal (degrades gracefully) ---------- */
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .js .reveal{opacity:1;transform:none;transition:none}
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .wordmark{
+    font-family:var(--display);font-weight:700;
+    font-size:15px;letter-spacing:.14em;text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .wordmark .on{color:var(--red)}
+  .tag{
+    font-family:var(--display);font-weight:500;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(46px,7vw,88px) 0 clamp(30px,4vw,50px)}
+  .kicker{
+    font-family:var(--display);font-weight:600;
+    font-size:13px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--red);margin-bottom:26px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .kicker::before{content:"";width:34px;height:2px;background:var(--red);display:inline-block}
+  h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(3.05rem,10.6vw,9.6rem);
+    line-height:.9;letter-spacing:-.035em;
+    color:var(--ink);
+    max-width:14ch;
+  }
+  h1 .accent{color:var(--red)}
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;
+    gap:clamp(28px,4vw,60px);
+    align-items:end;
+    margin-top:clamp(34px,4.5vw,58px);
+  }
+  .dek{font-size:clamp(1.06rem,1.5vw,1.35rem);color:var(--ink-soft);max-width:42ch;font-weight:400}
+  .dek strong{color:var(--ink);font-weight:600}
+  .byline{
+    margin-top:26px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:14px;color:var(--ink-soft);
+  }
+  .byline b{color:var(--ink);font-weight:600}
+  .hero-money{
+    margin-top:clamp(30px,4vw,50px);
+    border:1px solid var(--line);border-left:5px solid var(--red);
+    border-radius:14px;background:var(--band);
+    padding:clamp(20px,2.8vw,30px) clamp(20px,3vw,36px);
+    display:flex;align-items:center;gap:clamp(20px,3.4vw,52px);flex-wrap:wrap;
+  }
+  .hero-money .hm-fig{display:flex;align-items:baseline;gap:clamp(8px,1.4vw,16px);font-family:var(--display);font-weight:700;letter-spacing:-.035em;line-height:.9;white-space:nowrap}
+  .hero-money .hm-from{font-size:clamp(1.9rem,4vw,3rem);color:var(--ink-soft)}
+  .hero-money .hm-arrow{font-size:clamp(1.4rem,2.6vw,2rem);color:var(--red)}
+  .hero-money .hm-to{font-size:clamp(2.5rem,5.4vw,4.1rem);color:var(--red)}
+  .hero-money .hm-mo{font-family:var(--display);font-weight:500;font-size:clamp(.95rem,1.3vw,1.15rem);color:var(--ink-soft);letter-spacing:0}
+  .hero-money .hm-line{font-size:clamp(.98rem,1.25vw,1.16rem);color:var(--ink);font-weight:500;max-width:36ch;flex:1;min-width:250px}
+  .portrait-figure{position:relative}
+  .portrait-figure .frame{
+    position:relative;border-radius:6px;overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(20,16,12,.4);
+  }
+  .portrait-figure img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 20%}
+  .portrait-figure .frame::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--red);
+  }
+  figcaption{
+    margin-top:14px;font-family:var(--display);font-weight:500;
+    font-size:13px;letter-spacing:.02em;color:var(--ink-soft);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  }
+  figcaption .who{color:var(--ink)}
+
+  /* ---------- scene ---------- */
+  section{scroll-margin-top:82px}
+  .scene{padding:clamp(52px,7vw,96px) 0}
+  .scene + .scene{border-top:1px solid var(--line)}
+  .scene-head{display:flex;gap:clamp(16px,2.4vw,34px);align-items:baseline;margin-bottom:30px}
+  .scene-num{
+    font-family:var(--display);font-weight:500;font-size:clamp(1rem,1.4vw,1.25rem);
+    color:var(--red);flex:none;padding-top:.35em;letter-spacing:.02em;
+  }
+  .scene-title{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(1.9rem,4.4vw,3.5rem);line-height:1.02;letter-spacing:-.02em;
+    max-width:16ch;
+  }
+  .scene-body{
+    display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);
+    max-width:none;
+  }
+  .prose{font-size:clamp(1.06rem,1.35vw,1.28rem);color:var(--ink);max-width:52ch;font-weight:400}
+  .prose p + p{margin-top:1.05em}
+  .prose .lead{font-weight:500}
+
+  /* two-col scene with rail */
+  .scene-cols{display:grid;grid-template-columns:1.35fr .9fr;gap:clamp(30px,4vw,64px);align-items:start}
+  .rail-figure{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper)}
+  .rail-figure img{width:100%}
+  .rail-figure .rf-cap{padding:12px 16px;border-top:1px solid var(--line);font-family:var(--display);font-weight:500;font-size:12.5px;color:var(--ink-soft)}
+  .side-portrait .frame{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .side-portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 14%;filter:grayscale(1) contrast(1.06)}
+  .side-portrait .frame::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--red)}
+
+  /* ---------- pull stats ---------- */
+  .stat-rail{display:grid;gap:16px}
+  .stat{
+    border:1px solid var(--line);border-radius:14px;background:var(--paper);
+    padding:22px 24px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+  }
+  .stat:hover{transform:translateY(-3px);box-shadow:0 18px 30px -22px rgba(20,16,12,.35);border-color:#D6D2C9}
+  .stat .n{
+    font-family:var(--display);font-weight:700;color:var(--red);
+    font-size:clamp(2.3rem,4.6vw,3.4rem);line-height:.95;letter-spacing:-.03em;
+  }
+  .stat .l{margin-top:8px;font-size:13.5px;color:var(--ink-soft);font-weight:500;line-height:1.35}
+
+  /* inline big number strip */
+  .megastat{
+    margin-top:clamp(30px,4vw,44px);
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  }
+  .megastat .cell{background:var(--paper);padding:clamp(20px,2.6vw,30px)}
+  .megastat .n{font-family:var(--display);font-weight:700;color:var(--red);font-size:clamp(2.1rem,4.6vw,3.3rem);line-height:.92;letter-spacing:-.03em}
+  .megastat .l{margin-top:10px;font-size:13px;color:var(--ink-soft);font-weight:500}
+
+  /* ---------- post cards ---------- */
+  .feed-label{
+    font-family:var(--display);font-weight:600;font-size:12.5px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+    margin-bottom:22px;display:flex;align-items:center;gap:12px;
+  }
+  .feed-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
+  .cards{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  }
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;
+    padding:20px 20px 16px;display:flex;flex-direction:column;
+    transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 24px 40px -26px rgba(20,16,12,.4);border-color:#D6D2C9}
+  .card-top{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+  .card-top img{width:42px;height:42px;border-radius:50%;object-fit:cover;flex:none}
+  .card-id .nm{font-weight:600;font-size:14.5px;color:var(--ink);line-height:1.15}
+  .card-id .mt{font-size:12px;color:var(--ink-soft);margin-top:2px}
+  .card-text{font-size:14.6px;line-height:1.5;color:var(--ink);flex:1}
+  .card-foot{
+    margin-top:16px;padding-top:12px;border-top:1px solid var(--line);
+    display:flex;gap:16px;font-size:12.5px;color:var(--ink-soft);font-weight:500;
+  }
+  .card-foot span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block}
+
+  /* ---------- LM plate ---------- */
+  .plate{margin-top:clamp(30px,4vw,44px)}
+  .plate-frame{
+    border-radius:16px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 40px 70px -40px rgba(20,16,12,.5);background:var(--dark);
+  }
+  .plate-frame img{width:100%}
+  .plate cap,.plate .cap{
+    display:block;margin-top:14px;font-family:var(--display);font-weight:500;
+    font-size:13px;color:var(--ink-soft);
+  }
+
+  /* ---------- outcome band ---------- */
+  .outcome{background:var(--dark);color:#F6F3EE;position:relative;overflow:hidden}
+  .outcome .tex{
+    position:absolute;inset:0;background:url('assets/kyle-photo-800.jpg') center 18%/cover no-repeat;
+    filter:grayscale(1) contrast(1.05);opacity:.1;
+  }
+  .outcome .tex::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 20%,rgba(20,18,16,.55))}
+  .outcome .wrap{position:relative}
+  .outcome .scene-num{color:#F0774F}
+  .outcome-inner{padding:clamp(56px,8vw,110px) 0}
+  .outcome h2{
+    font-family:var(--display);font-weight:700;color:#fff;
+    font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.02;letter-spacing:-.02em;max-width:18ch;
+  }
+  .money{
+    display:flex;align-items:center;gap:clamp(14px,3vw,40px);flex-wrap:wrap;
+    margin:clamp(30px,4vw,48px) 0 22px;
+  }
+  .money .fig{font-family:var(--display);font-weight:700;letter-spacing:-.04em;line-height:.9}
+  .money .from{font-size:clamp(2.6rem,7vw,5rem);color:#8C857B}
+  .money .arrow{font-size:clamp(1.8rem,4vw,3rem);color:#F0774F}
+  .money .to{font-size:clamp(3.4rem,10vw,7.4rem);color:#F0774F}
+  .money .win{font-family:var(--display);font-weight:500;font-size:clamp(1rem,1.6vw,1.35rem);color:#CFC8BE;align-self:flex-end;padding-bottom:.6em}
+  .outcome .note{font-size:clamp(1.02rem,1.4vw,1.24rem);color:#CFC8BE;max-width:48ch}
+
+  /* ---------- CTA ---------- */
+  .cta-row{
+    display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+    margin-top:clamp(30px,4vw,44px);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--red);color:#fff;text-decoration:none;
+    font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.01em;
+    padding:17px 30px;border-radius:12px;
+    transition:background .25s ease,transform .25s ease,box-shadow .25s ease;
+    box-shadow:0 14px 26px -14px rgba(200,54,27,.7);
+  }
+  .btn:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 20px 34px -16px rgba(200,54,27,.75)}
+  .btn .ar{transition:transform .25s ease}
+  .btn:hover .ar{transform:translateX(4px)}
+  .quiet{font-size:14px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .25s,border-color .25s}
+  .quiet:hover{color:var(--ink);border-color:var(--ink-soft)}
+  .outcome .quiet{color:#B7AFA4;border-color:rgba(255,255,255,.2)}
+  .outcome .quiet:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+
+  /* ---------- close ---------- */
+  .close{padding:clamp(56px,8vw,104px) 0;text-align:left}
+  .close h2{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(2rem,5.4vw,4.2rem);line-height:1.0;letter-spacing:-.025em;max-width:15ch;
+  }
+  .close h2 .accent{color:var(--red)}
+  .close p{margin-top:26px;font-size:clamp(1.08rem,1.5vw,1.35rem);color:var(--ink-soft);max-width:50ch}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:34px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .foot .wordmark{font-size:13px}
+  .foot small{font-size:12.5px;color:var(--ink-soft);letter-spacing:.01em}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr}
+    .portrait-figure{order:-1}
+    .portrait-figure img{aspect-ratio:4/3;object-position:50% 18%}
+    .scene-cols{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 20px}
+    .bar{height:56px}
+    .wordmark{font-size:12.5px;letter-spacing:.1em}
+    .tag{display:none}
+    h1{font-size:clamp(2.7rem,13vw,4rem);max-width:12ch}
+    .megastat{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr}
+    .money{gap:6px 16px}
+    .money .win{padding-bottom:0}
+    .scene-head{flex-direction:column;gap:6px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="wordmark">Inbound <span class="on">On</span> Steroids</div>
+    <div class="tag">Case Study</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Case study · Agency operator</div>
+    <h1>Kyle owns the <span class="accent">machine</span> that runs his feed.</h1>
+
+    <div class="hero-grid">
+      <div>
+        <p class="dek reveal">He audits agencies for a living. In December 2025 he interviewed <strong>four builders</strong> for his content engine and picked me. It has run his whole LinkedIn presence in his voice since <strong>early 2026</strong>. He still runs it today, on his own n8n instance.</p>
+        <div class="byline reveal">Built and run by <b>Ivan Manfredi</b>, Inbound On Steroids. Every number below is on his live feed.</div>
+      </div>
+      <figure class="portrait-figure reveal">
+        <div class="frame">
+          <img src="assets/kyle-photo-800.jpg" alt="Kyle Hunt, 8-figure agency COO" width="800" height="800">
+        </div>
+        <figcaption>
+          <span class="who">Kyle Hunt</span>
+          <span>8-figure agency COO · 28,845 followers</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="hero-money reveal">
+      <div class="hm-fig">
+        <span class="hm-from">$30k</span>
+        <span class="hm-arrow">→</span>
+        <span class="hm-to">$80k</span>
+        <span class="hm-mo">a month</span>
+      </div>
+      <p class="hm-line">Within 90 days, his coaching business went from $30k to $80k a month. The full story is below.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SCENE 01 -->
+<section class="scene" id="who">
+  <div class="wrap">
+    <div class="scene-cols">
+      <div>
+        <div class="scene-head">
+          <div class="scene-num">01</div>
+          <h2 class="scene-title reveal">He vets operators for a living</h2>
+        </div>
+        <div class="prose reveal">
+          <p class="lead">Kyle Hunt is an 8-figure agency COO. He coaches ecomm and digital-marketing agency owners.</p>
+          <p>His LinkedIn headline is the whole pitch: a 7-figure agency exit, $5M/yr self-managing profit machines. So when he wanted a content engine of his own, he ran it like one of his audits. Four builders in the room. He picked one.</p>
+          <p>That is a hard buyer to win. He knows what a real system looks like, and he knows what a demo dressed up as one looks like.</p>
+        </div>
+      </div>
+      <div class="stat-rail reveal">
+        <div class="stat">
+          <div class="n">28,845</div>
+          <div class="l">LinkedIn followers, July 2026</div>
+        </div>
+        <div class="stat">
+          <div class="n">4 → 1</div>
+          <div class="l">Builders interviewed in December 2025. He picked me.</div>
+        </div>
+        <figure class="rail-figure">
+          <img src="assets/kyle-bg.jpg" alt="Kyle Hunt's LinkedIn banner: helping ecomm and B2B lead gen agency owners scale to $5M/yr" width="800" height="200">
+          <figcaption class="rf-cap">His LinkedIn banner, July 2026</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE 02 -->
+<section class="scene" id="build">
+  <div class="wrap">
+    <div class="scene-cols">
+      <div>
+        <div class="scene-head">
+          <div class="scene-num">02</div>
+          <h2 class="scene-title reveal">He owns the build</h2>
+        </div>
+        <div class="prose reveal">
+          <p class="lead">The engine has run on Kyle's own n8n instance since early 2026. He owns the machine outright.</p>
+          <p>The post engine is a 49-node workflow. The lead-magnet engine runs 131 nodes. 100% of his content goes through the system, drafted in his voice. It is not a tool he rents. It sits on his infrastructure and keeps running while he coaches.</p>
+        </div>
+      </div>
+      <figure class="side-portrait reveal">
+        <div class="frame">
+          <img src="assets/kyle-photo-800.jpg" alt="Kyle Hunt" width="800" height="800">
+        </div>
+        <figcaption>
+          <span class="who">Still running it today</span>
+          <span>July 2026</span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="megastat reveal">
+      <div class="cell">
+        <div class="n">49</div>
+        <div class="l">Nodes in the post engine</div>
+      </div>
+      <div class="cell">
+        <div class="n">131</div>
+        <div class="l">Nodes in the lead-magnet engine</div>
+      </div>
+      <div class="cell">
+        <div class="n">100%</div>
+        <div class="l">Of his content run by the system, in his voice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE 03 -->
+<section class="scene" id="feed">
+  <div class="wrap">
+    <div class="scene-head">
+      <div class="scene-num">03</div>
+      <h2 class="scene-title reveal">The feed is public</h2>
+    </div>
+    <div class="prose reveal">
+      <p class="lead">He posts 1 to 2 times a day at two fixed slots. 20 posts in the last 13 days.</p>
+      <p>You can open his feed and count them yourself. Here are six, pulled straight from it.</p>
+    </div>
+
+    <div class="plate" style="margin-top:clamp(30px,4vw,44px)">
+      <div class="feed-label reveal">From his live feed, July 2026</div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-top">
+            <img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="42" height="42">
+            <div class="card-id"><div class="nm">Kyle Hunt</div><div class="mt">Jul 20, 2026</div></div>
+          </div>
+          <div class="card-text">A $2.6M creative agency 2x'ed revenue in 4 months. The founder asked me what to focus on next.</div>
+          <div class="card-foot"><span><span class="dot"></span>16 reactions</span><span>4 comments</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="42" height="42">
+            <div class="card-id"><div class="nm">Kyle Hunt</div><div class="mt">Jul 11, 2026</div></div>
+          </div>
+          <div class="card-text">&ldquo;My worst mistake of the last 12 months was hiring 3 creative strategists from a mastermind group.&rdquo;</div>
+          <div class="card-foot"><span><span class="dot"></span>18 reactions</span><span>3 comments</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="42" height="42">
+            <div class="card-id"><div class="nm">Kyle Hunt</div><div class="mt">Jul 18, 2026</div></div>
+          </div>
+          <div class="card-text">We fired a director who barely showed up to work. Three clients called that night asking why we let go of their guy.</div>
+          <div class="card-foot"><span><span class="dot"></span>14 reactions</span><span>2 comments</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="42" height="42">
+            <div class="card-id"><div class="nm">Kyle Hunt</div><div class="mt">Jul 15, 2026</div></div>
+          </div>
+          <div class="card-text">I told a $1.5M agency owner last month to kill their hiring plan for Q3. On paper, they looked capacity-constrained.</div>
+          <div class="card-foot"><span><span class="dot"></span>12 reactions</span><span>5 comments</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="42" height="42">
+            <div class="card-id"><div class="nm">Kyle Hunt</div><div class="mt">Jul 19, 2026</div></div>
+          </div>
+          <div class="card-text">I pulled up a 60k/mo agency's client list last week. 19 clients. Only 1 bought their full-service package.</div>
+          <div class="card-foot"><span><span class="dot"></span>11 reactions</span><span>4 comments</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="42" height="42">
+            <div class="card-id"><div class="nm">Kyle Hunt</div><div class="mt">Jul 13, 2026</div></div>
+          </div>
+          <div class="card-text">I talked to a $2.3M paid social agency owner last week who was ready to replace his $120k/yr head of performance.</div>
+          <div class="card-foot"><span><span class="dot"></span>12 reactions</span><span>5 comments</span></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE 04 -->
+<section class="scene" id="magnets">
+  <div class="wrap">
+    <div class="scene-cols">
+      <div>
+        <div class="scene-head">
+          <div class="scene-num">04</div>
+          <h2 class="scene-title reveal">The magnets stack up</h2>
+        </div>
+        <div class="prose reveal">
+          <p class="lead">59 lead magnets sit in his pipeline right now. 48 of them are full guides.</p>
+          <p>His comment-gated posts have pulled around 300 comments. Top posts have cleared 30K impressions. The page on the right is one of the 59, built and published by the system.</p>
+        </div>
+      </div>
+      <div class="stat-rail reveal">
+        <div class="stat"><div class="n">59</div><div class="l">Lead magnets in his pipeline</div></div>
+        <div class="stat"><div class="n">48</div><div class="l">Of them are full guides</div></div>
+        <div class="stat"><div class="n">~300</div><div class="l">Comments pulled by his comment-gated posts</div></div>
+        <div class="stat"><div class="n">30K</div><div class="l">Impressions cleared by top posts</div></div>
+      </div>
+    </div>
+
+    <div class="plate reveal">
+      <div class="plate-frame">
+        <img src="assets/kyle-guides.webp" alt="Kyle Hunt's $500k/mo Creative Video Agency Operations Guide, a lead-magnet page built by the system" width="1920" height="1018">
+      </div>
+      <span class="cap">One of 59 lead magnets. Built and published by the system, on his own page.</span>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOME BAND -->
+<section class="outcome" id="outcome">
+  <div class="tex" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="outcome-inner">
+      <div class="scene-head">
+        <div class="scene-num">05</div>
+        <h2 class="reveal">The 90 days</h2>
+      </div>
+      <div class="money reveal">
+        <span class="fig from">$30k</span>
+        <span class="fig arrow">→</span>
+        <span class="fig to">$80k</span>
+        <span class="win">a month</span>
+      </div>
+      <p class="note reveal">Within 90 days, his coaching business went from $30k to $80k a month. He still runs the engine today. The feed is public, the board is live, none of this is a mockup.</p>
+
+      <div class="cta-row reveal">
+        <a class="btn" href="https://calendly.com/im-ivanmanfredi/30min">Book a call <span class="ar">→</span></a>
+        <a class="quiet" href="https://inboundonsteroids.com">inboundonsteroids.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="close">
+  <div class="wrap">
+    <h2 class="reveal">You can run the <span class="accent">same machine</span>, or keep writing posts by hand.</h2>
+    <p class="reveal">Kyle kept his time and got a feed that compounds while he coaches. The engine drafts in his voice, drops named leads in his inbox, and runs on hardware he owns. You can put the same one on your agency, or watch operators like him pull ahead one post at a time. Your call.</p>
+    <div class="cta-row reveal">
+      <a class="btn" href="https://calendly.com/im-ivanmanfredi/30min">Book a call <span class="ar">→</span></a>
+      <a class="quiet" href="https://inboundonsteroids.com">inboundonsteroids.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="wordmark">Inbound <span class="on">On</span> Steroids</div>
+    <small>Case study published July 2026. Numbers as of July 2026.</small>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root=document.documentElement;
+    root.classList.add('js');
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(e){e.classList.add('in')});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+
+</body>
+</html>

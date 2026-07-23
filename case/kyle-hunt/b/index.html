@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kyle Hunt | Inbound On Steroids case study</title>
+<meta name="description" content="A machine runs Kyle Hunt's entire LinkedIn, drafted in his voice, on his own n8n. Real posts, real numbers, all public. This is the wall of receipts.">
+<meta property="og:title" content="A machine runs Kyle Hunt's whole LinkedIn">
+<meta property="og:description" content="8-figure agency COO. 28,845 followers. 59 lead magnets. Within 90 days his coaching business went from $30k to $80k a month. The feed is public. Here are the receipts.">
+<meta property="og:image" content="assets/kyle-photo-800.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1116;
+    --ink-2:#20252D;
+    --mut:#5B626C;
+    --mut-2:#868D97;
+    --line:#E6E8EC;
+    --surf:#FFFFFF;
+    --surf-2:#F4F5F7;
+    --surf-3:#EEF0F3;
+    --red:#C8361B;
+    --red-soft:rgba(200,54,27,0.12);
+    --radius:16px;
+    --shadow:0 1px 2px rgba(14,17,22,.04), 0 12px 30px rgba(14,17,22,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:var(--ink);
+    background:#FBFBFC;
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    font-style:normal;
+    overflow-x:hidden;
+  }
+  a{color:inherit}
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:1220px;margin:0 auto;padding:0 24px}
+
+  /* ---------- header ---------- */
+  header.top{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,251,252,.86);
+    backdrop-filter:saturate(150%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .wordmark{
+    font-family:"Space Grotesk",sans-serif;
+    font-weight:700;letter-spacing:.14em;font-size:13px;
+    text-transform:uppercase;color:var(--ink);
+  }
+  .wordmark .on{color:var(--red)}
+  .top-tag{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut-2);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 40px}
+  .hero-grid{
+    display:grid;grid-template-columns:1.35fr .9fr;gap:44px;align-items:center;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:"Space Grotesk",sans-serif;font-weight:700;
+    font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--red);margin-bottom:22px;
+  }
+  .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block}
+  h1{
+    font-family:"Archivo",sans-serif;font-weight:900;
+    font-size:clamp(2.7rem,8.4vw,6.6rem);
+    line-height:.94;letter-spacing:-.025em;margin:0 0 24px;color:var(--ink);
+  }
+  h1 .thin{color:var(--ink-2);font-weight:800}
+  .lede{font-size:clamp(1rem,1.25vw,1.18rem);color:var(--ink-2);max-width:44ch;margin:0}
+  .lede b{font-weight:600;color:var(--ink)}
+
+  .hero-photo{position:relative}
+  .hero-photo .frame{
+    border-radius:20px;overflow:hidden;
+    box-shadow:var(--shadow);border:1px solid var(--line);background:#fff;
+  }
+  .hero-photo img{width:100%;aspect-ratio:1/1;object-fit:cover}
+  .photo-tag{
+    position:absolute;left:14px;bottom:14px;right:14px;
+    background:rgba(14,17,22,.82);color:#fff;border-radius:12px;
+    padding:11px 14px;display:flex;align-items:center;gap:11px;
+    backdrop-filter:blur(4px);
+  }
+  .photo-tag .nm{font-family:"Archivo",sans-serif;font-weight:800;font-size:15px;letter-spacing:-.01em;line-height:1.1}
+  .photo-tag .rl{font-size:11.5px;color:#C9CDD4;margin-top:2px}
+  .photo-tag .badge{
+    margin-left:auto;font-family:"Space Grotesk",sans-serif;font-weight:700;
+    font-size:11px;letter-spacing:.06em;color:#fff;
+    border:1px solid rgba(255,255,255,.28);border-radius:20px;padding:5px 10px;white-space:nowrap;
+  }
+
+  /* ---------- wall ---------- */
+  .wall-head{padding:28px 0 20px}
+  .wall-head h2{
+    font-family:"Archivo",sans-serif;font-weight:800;
+    font-size:clamp(1.5rem,3.4vw,2.3rem);letter-spacing:-.02em;margin:0 0 8px;
+  }
+  .wall-head p{margin:0;color:var(--mut);max-width:52ch;font-size:15.5px}
+
+  .wall{
+    display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+    gap:14px;grid-auto-flow:dense;padding-bottom:16px;
+  }
+  .card{
+    background:var(--surf);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;position:relative;min-width:0;box-shadow:0 1px 2px rgba(14,17,22,.03);
+    display:flex;flex-direction:column;
+  }
+  .s2{grid-column:span 2}
+  .s3{grid-column:span 3}
+  .s4{grid-column:span 4}
+  .s6{grid-column:span 6}
+
+  /* annotation mark: bold red, marker-style, NEVER italic */
+  .mark{
+    font-family:"Space Grotesk",sans-serif;font-weight:700;
+    font-size:13.5px;line-height:1.35;color:var(--red);
+    letter-spacing:.005em;margin-top:auto;padding-top:14px;
+  }
+  .mark .hl{
+    background:linear-gradient(transparent 58%, var(--red-soft) 58%);
+    padding:0 1px;
+  }
+  .blocklabel{
+    font-family:"Space Grotesk",sans-serif;font-weight:700;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-2);
+    margin-bottom:6px;display:block;
+  }
+
+  /* big number card */
+  .bignum{
+    background:var(--ink);color:#fff;border-color:var(--ink);
+    padding:26px 24px;overflow:hidden;
+  }
+  .bignum .blocklabel{color:#8B93A0}
+  .bignum .figure{
+    font-family:"Archivo",sans-serif;font-weight:900;letter-spacing:-.03em;
+    line-height:.92;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+    margin:6px 0 2px;
+  }
+  .bignum .from{font-size:clamp(2.4rem,6vw,4.4rem);color:#7E8794}
+  .bignum .arrow{font-size:clamp(1.6rem,3.4vw,2.6rem);color:var(--red);font-weight:800}
+  .bignum .to{font-size:clamp(3rem,8.2vw,6.6rem);color:#fff}
+  .bignum .cap{color:#C4C9D0;font-size:15px;margin-top:8px;max-width:34ch}
+  .bignum .cap b{color:#fff;font-weight:600}
+  .bignum .mark{color:#FF7A5E}
+  .bignum .mark .hl{background:linear-gradient(transparent 58%, rgba(255,122,94,.16) 58%)}
+
+  /* stat card */
+  .stat .num{
+    font-family:"Archivo",sans-serif;font-weight:900;letter-spacing:-.03em;
+    font-size:clamp(2.4rem,4.6vw,3.6rem);line-height:1;color:var(--ink);
+  }
+  .stat .sub{color:var(--mut);font-size:14px;margin-top:8px}
+  .stat .sub .accent{color:var(--red);font-weight:600}
+
+  /* profile strip */
+  .profcard{padding:0;overflow:hidden}
+  .profcard .cover{height:78px;background:#dfe3e8;position:relative}
+  .profcard .cover img{width:100%;height:100%;object-fit:cover}
+  .profcard .body{padding:0 18px 18px}
+  .profcard .av{
+    width:64px;height:64px;border-radius:50%;border:3px solid #fff;
+    margin-top:-32px;overflow:hidden;box-shadow:0 2px 8px rgba(14,17,22,.12);background:#fff;
+  }
+  .profcard .nm{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;margin-top:10px;letter-spacing:-.01em}
+  .profcard .hl{color:var(--mut);font-size:13px;line-height:1.4;margin-top:3px}
+  .profcard .flw{margin-top:9px;font-size:13px;color:var(--ink-2)}
+  .profcard .flw b{font-family:"Archivo",sans-serif;font-weight:800}
+
+  /* post card */
+  .post .phead{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+  .post .pav{width:44px;height:44px;border-radius:50%;overflow:hidden;flex:0 0 44px;background:var(--surf-2)}
+  .post .pmeta{min-width:0}
+  .post .pname{font-weight:700;font-size:14.5px;color:var(--ink);line-height:1.15;display:flex;align-items:center;gap:6px}
+  .post .pname .deg{color:var(--mut-2);font-weight:500;font-size:12px}
+  .post .prole{font-size:11.5px;color:var(--mut);line-height:1.3;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .post .pdate{font-size:11.5px;color:var(--mut-2);margin-top:1px}
+  .post .ptext{font-size:14.5px;color:var(--ink-2);line-height:1.5;margin:0 0 14px}
+  .post .pstats{
+    display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mut);
+    border-top:1px solid var(--line);padding-top:11px;
+  }
+  .post .rx{display:inline-flex;align-items:center}
+  .post .rx span{width:17px;height:17px;border-radius:50%;display:inline-block;margin-left:-5px;border:1.5px solid #fff}
+  .post .rx span:first-child{margin-left:0}
+  .rx .like{background:#3B82F6}
+  .rx .cel{background:var(--red)}
+  .rx .love{background:#F59E0B}
+  .post .cmts{margin-left:auto}
+
+  /* cadence strip */
+  .cadence .grid{
+    display:flex;align-items:flex-end;gap:8px;margin:16px 0 6px;flex-wrap:nowrap;overflow:hidden;
+  }
+  .cad-col{display:flex;flex-direction:column;gap:5px;flex:1 1 0;min-width:0;align-items:center}
+  .cad-slot{width:100%;max-width:34px;height:26px;border-radius:6px;background:var(--surf-3)}
+  .cad-slot.on{background:var(--ink)}
+  .cad-slot.on.am{background:var(--red)}
+  .cad-day{font-family:"Space Grotesk",sans-serif;font-size:10.5px;color:var(--mut-2);font-weight:500}
+  .cad-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--mut);margin-top:4px}
+  .cad-legend span{display:inline-flex;align-items:center;gap:7px}
+  .cad-legend .sw{width:13px;height:13px;border-radius:4px;display:inline-block}
+  .cad-legend .sw.am{background:var(--red)}
+  .cad-legend .sw.pm{background:var(--ink)}
+  .cad-legend .sw.off{background:var(--surf-3);border:1px solid var(--line)}
+
+  /* screenshot / browser frame */
+  .shot{padding:0;overflow:hidden;background:var(--surf-2);grid-row:span 2}
+  .browser{padding:14px 14px 0}
+  .bbar{display:flex;align-items:center;gap:12px;padding:0 2px 12px}
+  .dots{display:flex;gap:6px}
+  .dots span{width:11px;height:11px;border-radius:50%;background:#D3D7DD;display:inline-block}
+  .url{
+    flex:1;background:#fff;border:1px solid var(--line);border-radius:8px;
+    font-family:"Space Grotesk",sans-serif;font-size:12px;color:var(--mut);
+    padding:6px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .shot .img{border-top:1px solid var(--line)}
+  .shot .img img{width:100%;display:block}
+  .shot .foot{padding:16px 20px 20px}
+
+  /* story card */
+  .story .big{
+    font-family:"Archivo",sans-serif;font-weight:800;letter-spacing:-.015em;
+    font-size:clamp(1.15rem,1.7vw,1.4rem);line-height:1.28;color:var(--ink);margin:0 0 4px;
+  }
+  .story .big .r{color:var(--red)}
+
+  /* CTA */
+  .cta-band{
+    background:linear-gradient(180deg,#0E1116,#171C24);color:#fff;border-color:#0E1116;
+    display:grid;grid-template-columns:1.4fr auto;gap:24px;align-items:center;padding:30px 30px;
+  }
+  .cta-band h3{
+    font-family:"Archivo",sans-serif;font-weight:800;letter-spacing:-.02em;
+    font-size:clamp(1.3rem,2.6vw,2rem);line-height:1.12;margin:0 0 8px;
+  }
+  .cta-band p{margin:0;color:#B9BFC8;font-size:15px;max-width:46ch}
+  .cta-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--red);color:#fff;text-decoration:none;
+    font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:15px;letter-spacing:.01em;
+    padding:14px 26px;border-radius:12px;white-space:nowrap;
+    box-shadow:0 8px 22px rgba(200,54,27,.34);transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(200,54,27,.42)}
+  .btn .ar{font-size:17px}
+  .quiet{
+    font-family:"Space Grotesk",sans-serif;font-size:12.5px;letter-spacing:.04em;
+    color:#8B93A0;text-decoration:none;
+  }
+  .quiet:hover{color:#C9CDD4}
+
+  /* footer */
+  footer.foot{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 46px}
+  .foot .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .foot .fmark{font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:.14em;font-size:12px;text-transform:uppercase}
+  .foot .fmark .on{color:var(--red)}
+  .foot .fnote{font-size:12.5px;color:var(--mut-2)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:30px}
+    .hero-photo{max-width:420px}
+    .wall{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .s3{grid-column:span 2}
+    .s4{grid-column:span 4}
+    .s6{grid-column:span 4}
+    .shot{grid-row:auto}
+  }
+  @media (max-width:640px){
+    body{font-size:16px}
+    .wrap{padding:0 18px}
+    .hero{padding:40px 0 26px}
+    .wall{grid-template-columns:1fr;gap:12px}
+    .s2,.s3,.s4,.s6{grid-column:span 1}
+    .cta-band{grid-template-columns:1fr;padding:24px 20px}
+    .cad-slot{height:22px}
+    .photo-tag{position:static;margin-top:12px;border-radius:12px}
+    .hero-photo .frame{border-radius:16px}
+    /* crop the guide screenshot to its readable top fold on small screens */
+    .shot .img{aspect-ratio:4/3;max-height:400px;overflow:hidden}
+    .shot .img img{width:100%;height:100%;object-fit:cover;object-position:top}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="wordmark">INBOUND <span class="on">ON</span> STEROIDS</div>
+    <div class="top-tag">Case study</div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="kicker"><span class="dot"></span>Kyle Hunt · live on his feed</span>
+        <h1>A machine runs<br>Kyle Hunt's <span class="thin">whole</span> LinkedIn.</h1>
+        <p class="lede">He is an 8-figure agency COO who coaches agency owners for a living. In December 2025 he interviewed four builders for his content engine and picked me. Since early 2026 the engine has run his entire feed, drafted in his voice, on his own n8n. <b>Everything below is public and real.</b></p>
+      </div>
+      <div class="hero-photo reveal">
+        <div class="frame"><img src="assets/kyle-photo-800.jpg" alt="Kyle Hunt" width="800" height="800"></div>
+        <div class="photo-tag">
+          <div>
+            <div class="nm">Kyle Hunt</div>
+            <div class="rl">8-figure agency COO</div>
+          </div>
+          <span class="badge">Still runs it today</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WALL ===== -->
+<section class="wrap">
+  <div class="wall-head">
+    <h2>The wall of receipts</h2>
+    <p>No slides. The proof is his own feed, his own board, his own numbers. Scroll it.</p>
+  </div>
+
+  <div class="wall">
+
+    <!-- profile strip -->
+    <div class="card profcard s2 reveal">
+      <div class="cover"><img src="assets/kyle-bg.jpg" alt="Kyle Hunt profile banner"></div>
+      <div class="body">
+        <div class="av"><img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="400" height="400"></div>
+        <div class="nm">Kyle Hunt</div>
+        <div class="hl">7-figure agency exit · $5M/yr self-managing profit machines</div>
+        <div class="flw"><b>28,845</b> followers</div>
+        <div class="mark"><span class="hl">his real profile. the whole feed runs on the engine.</span></div>
+      </div>
+    </div>
+
+    <!-- big revenue number -->
+    <div class="card bignum s4 reveal">
+      <span class="blocklabel">His coaching business</span>
+      <div class="figure">
+        <span class="from">$30k</span>
+        <span class="arrow">&rarr;</span>
+        <span class="to">$80k</span>
+      </div>
+      <p class="cap">Within 90 days, his coaching business went from <b>$30k to $80k a month</b>.</p>
+      <div class="mark"><span class="hl">a month. public number, no rounding.</span></div>
+    </div>
+
+    <!-- post 1 -->
+    <div class="card post s2 reveal">
+      <span class="blocklabel">From his live feed · Jul 2026</span>
+      <div class="phead">
+        <div class="pav"><img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="400" height="400"></div>
+        <div class="pmeta">
+          <div class="pname">Kyle Hunt <span class="deg">· 1st</span></div>
+          <div class="prole">7-figure agency exit · $5M/yr machines</div>
+          <div class="pdate">Jul 20, 2026</div>
+        </div>
+      </div>
+      <p class="ptext">A $2.6M creative agency 2x'ed revenue in 4 months. The founder asked me what to focus on next.</p>
+      <div class="pstats">
+        <span class="rx"><span class="like"></span><span class="cel"></span><span class="love"></span></span>
+        <span>16</span>
+        <span class="cmts">4 comments</span>
+      </div>
+      <div class="mark"><span class="hl">drafted by the machine. reads like Kyle.</span></div>
+    </div>
+
+    <!-- followers stat -->
+    <div class="card stat s2 reveal">
+      <span class="blocklabel">LinkedIn following</span>
+      <div class="num">28,845</div>
+      <div class="sub">followers, <span class="accent">as of July 2026</span></div>
+      <div class="mark"><span class="hl">an audience he owns, not one he rents.</span></div>
+    </div>
+
+    <!-- cadence strip (full width) -->
+    <div class="card cadence s6 reveal">
+      <span class="blocklabel">Posting cadence · last 13 days</span>
+      <div id="cad" class="grid"></div>
+      <div class="cad-legend">
+        <span><span class="sw am"></span> morning slot</span>
+        <span><span class="sw pm"></span> afternoon slot</span>
+        <span><span class="sw off"></span> no post</span>
+      </div>
+      <div class="mark"><span class="hl">1 to 2 posts a day at two fixed slots. 20 in the last 13 days. count them on his feed.</span></div>
+    </div>
+
+    <!-- LM screenshot -->
+    <div class="card shot s4 reveal">
+      <div class="browser">
+        <div class="bbar">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <div class="url">kyle's live board · Creative Video Agency Operations Guide</div>
+        </div>
+      </div>
+      <div class="img"><img src="assets/kyle-guides.webp" alt="Kyle Hunt lead magnet page, the $500k/mo Creative Video Agency Operations Guide" width="1920" height="1018"></div>
+      <div class="foot">
+        <p class="cap" style="margin:0;color:var(--mut);font-size:14px">The $500k/mo Creative Video Agency Operations Guide, live on his site.</p>
+        <div class="mark"><span class="hl">one of his 59. built and published by the system.</span></div>
+      </div>
+    </div>
+
+    <!-- 59 LMs stat -->
+    <div class="card stat s2 reveal">
+      <span class="blocklabel">Lead-magnet pipeline</span>
+      <div class="num">59</div>
+      <div class="sub">lead magnets in his pipeline, <span class="accent">48 are full guides</span></div>
+      <div class="mark"><span class="hl">a growing library, all in his voice.</span></div>
+    </div>
+
+    <!-- post 2 -->
+    <div class="card post s2 reveal">
+      <span class="blocklabel">From his live feed · Jul 2026</span>
+      <div class="phead">
+        <div class="pav"><img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="400" height="400"></div>
+        <div class="pmeta">
+          <div class="pname">Kyle Hunt <span class="deg">· 1st</span></div>
+          <div class="prole">7-figure agency exit · $5M/yr machines</div>
+          <div class="pdate">Jul 11, 2026</div>
+        </div>
+      </div>
+      <p class="ptext">My worst mistake of the last 12 months was hiring 3 creative strategists from a mastermind group.</p>
+      <div class="pstats">
+        <span class="rx"><span class="like"></span><span class="love"></span></span>
+        <span>18</span>
+        <span class="cmts">3 comments</span>
+      </div>
+      <div class="mark"><span class="hl">his voice, his mistake. the system just typed it.</span></div>
+    </div>
+
+    <!-- engine stat -->
+    <div class="card stat s2 reveal">
+      <span class="blocklabel">The engine</span>
+      <div class="num">49<span style="font-size:.42em;color:var(--mut);font-family:Inter;font-weight:600"> nodes</span></div>
+      <div class="sub">the post engine. the lead-magnet engine runs <span class="accent">131 nodes</span></div>
+      <div class="mark"><span class="hl">runs on his own n8n. he owns the machine.</span></div>
+    </div>
+
+    <!-- post 3 -->
+    <div class="card post s2 reveal">
+      <span class="blocklabel">From his live feed · Jul 2026</span>
+      <div class="phead">
+        <div class="pav"><img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="400" height="400"></div>
+        <div class="pmeta">
+          <div class="pname">Kyle Hunt <span class="deg">· 1st</span></div>
+          <div class="prole">7-figure agency exit · $5M/yr machines</div>
+          <div class="pdate">Jul 18, 2026</div>
+        </div>
+      </div>
+      <p class="ptext">We fired a director who barely showed up to work. Three clients called that night asking why we let go of their guy.</p>
+      <div class="pstats">
+        <span class="rx"><span class="like"></span><span class="cel"></span></span>
+        <span>14</span>
+        <span class="cmts">2 comments</span>
+      </div>
+      <div class="mark"><span class="hl">he approves it. he doesn't write it.</span></div>
+    </div>
+
+    <!-- reach stat -->
+    <div class="card stat s2 reveal">
+      <span class="blocklabel">What the feed pulled</span>
+      <div class="num">~300</div>
+      <div class="sub">comments on his comment-gated posts. top posts have cleared <span class="accent">30K impressions</span></div>
+      <div class="mark"><span class="hl">real people, real threads, all public.</span></div>
+    </div>
+
+    <!-- post 4 -->
+    <div class="card post s2 reveal">
+      <span class="blocklabel">From his live feed · Jul 2026</span>
+      <div class="phead">
+        <div class="pav"><img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="400" height="400"></div>
+        <div class="pmeta">
+          <div class="pname">Kyle Hunt <span class="deg">· 1st</span></div>
+          <div class="prole">7-figure agency exit · $5M/yr machines</div>
+          <div class="pdate">Jul 19, 2026</div>
+        </div>
+      </div>
+      <p class="ptext">I pulled up a 60k/mo agency's client list last week. 19 clients. Only 1 bought their full-service package.</p>
+      <div class="pstats">
+        <span class="rx"><span class="like"></span><span class="cel"></span><span class="love"></span></span>
+        <span>11</span>
+        <span class="cmts">4 comments</span>
+      </div>
+      <div class="mark"><span class="hl">one of 20 posts in 13 days.</span></div>
+    </div>
+
+    <!-- story card -->
+    <div class="card story s2 reveal">
+      <span class="blocklabel">Why it matters</span>
+      <p class="big">He audits agencies for a living. He vetted <span class="r">four builders</span> and picked this one.</p>
+      <div class="mark"><span class="hl">100% of his content is run by the system now. he still runs it today.</span></div>
+    </div>
+
+    <!-- post 5 -->
+    <div class="card post s2 reveal">
+      <span class="blocklabel">From his live feed · Jul 2026</span>
+      <div class="phead">
+        <div class="pav"><img src="assets/kyle-portrait.webp" alt="Kyle Hunt" width="400" height="400"></div>
+        <div class="pmeta">
+          <div class="pname">Kyle Hunt <span class="deg">· 1st</span></div>
+          <div class="prole">7-figure agency exit · $5M/yr machines</div>
+          <div class="pdate">Jul 15, 2026</div>
+        </div>
+      </div>
+      <p class="ptext">I told a $1.5M agency owner last month to kill their hiring plan for Q3. On paper, they looked capacity-constrained.</p>
+      <div class="pstats">
+        <span class="rx"><span class="like"></span><span class="love"></span></span>
+        <span>12</span>
+        <span class="cmts">5 comments</span>
+      </div>
+      <div class="mark"><span class="hl">published to a fixed slot. no hand on the keyboard.</span></div>
+    </div>
+
+    <!-- CTA (single, end of wall) -->
+    <div class="card cta-band s6 reveal">
+      <div>
+        <h3>Kyle stopped writing posts. His pipeline kept filling.</h3>
+        <p>He owns his audience, his list, and a machine that drafts in his voice. You can keep writing posts by hand, or have the same machine running your feed by next month.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn" href="https://calendly.com/im-ivanmanfredi/30min">Book a call <span class="ar">&rarr;</span></a>
+        <a class="quiet" href="https://inboundonsteroids.com">inboundonsteroids.com</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fmark">INBOUND <span class="on">ON</span> STEROIDS</div>
+    <div class="fnote">Case study published July 2026. Numbers as of July 2026.</div>
+  </div>
+</footer>
+
+<script>
+  // cadence: last 13 days, [morning, afternoon] filled = a real post. 20 of 26 slots.
+  (function(){
+    var days = [
+      {d:8,am:1,pm:1},{d:9,am:1,pm:0},{d:10,am:1,pm:1},{d:11,am:1,pm:1},
+      {d:12,am:0,pm:1},{d:13,am:1,pm:1},{d:14,am:1,pm:0},{d:15,am:1,pm:1},
+      {d:16,am:0,pm:1},{d:17,am:1,pm:1},{d:18,am:1,pm:1},{d:19,am:1,pm:0},
+      {d:20,am:0,pm:1}
+    ];
+    var root = document.getElementById('cad');
+    if(!root) return;
+    days.forEach(function(x){
+      var col = document.createElement('div');
+      col.className = 'cad-col';
+      var am = document.createElement('div');
+      am.className = 'cad-slot am' + (x.am ? ' on' : '');
+      var pm = document.createElement('div');
+      pm.className = 'cad-slot' + (x.pm ? ' on' : '');
+      var lab = document.createElement('div');
+      lab.className = 'cad-day';
+      lab.textContent = 'Jul ' + x.d;
+      col.appendChild(am); col.appendChild(pm); col.appendChild(lab);
+      root.appendChild(col);
+    });
+  })();
+
+  // reveal on scroll
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    },{threshold:0.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+
+</body>
+</html>
