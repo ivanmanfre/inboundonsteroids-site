@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kyle Hunt runs his whole LinkedIn on a machine he owns</title>
-<meta name="description" content="Kyle Hunt is an 8-figure agency COO. Since early 2026 a content engine on his own n8n instance has run his entire LinkedIn in his voice. The feed is public and the receipts are real.">
-<meta property="og:title" content="Kyle Hunt runs his whole LinkedIn on a machine he owns">
-<meta property="og:description" content="An 8-figure agency COO vetted four builders and picked one. Since early 2026 the engine has run his whole feed in his voice. Within 90 days his coaching went from $30k to $80k a month.">
+<title>Kyle Hunt: $30k to $80k a month in 90 days</title>
+<meta name="description" content="Kyle Hunt is an 8-figure agency COO. Since early 2026 an inbound engine has run his entire LinkedIn in his voice: posts, lead magnets, warm engagement. He approves drafts. The feed is public and the receipts are real.">
+<meta property="og:title" content="Kyle Hunt: $30k to $80k a month in 90 days">
+<meta property="og:description" content="An 8-figure agency COO vetted four builders and picked one. The engine runs his feed in his voice, builds lead magnets under his brand, and works his readers into inbound calls. Within 90 days, his coaching business went from $30k to $80k a month.">
 <meta property="og:image" content="assets/kyle-photo-800.jpg">
 <meta property="og:type" content="website">
 <script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>
@@ -95,15 +95,16 @@
   .lead .num{color:var(--red)}
   .say{margin-top:22px;max-width:46ch;color:var(--ink-2);font-size:19px}
   .say strong{color:var(--ink);font-weight:600}
+  .lane{font-family:var(--disp);font-weight:600;font-size:13px;letter-spacing:.06em;color:var(--red);margin-bottom:18px;text-transform:uppercase}
 
   /* ---- who ---- */
   .who{background:var(--bg-alt)}
   .who-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
   .who-portrait{border-radius:12px;overflow:hidden;box-shadow:0 20px 50px -28px rgba(20,20,25,.45);max-width:360px}
   .who-portrait img{width:100%}
-  .follow{margin-top:28px;display:flex;align-items:baseline;gap:12px}
+  .follow{margin-top:28px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
   .follow .fnum{font-family:var(--disp);font-weight:700;font-size:clamp(2.6rem,6vw,4.2rem);color:var(--red);letter-spacing:-.03em;line-height:1}
-  .follow .flabel{font-size:16px;color:var(--muted);font-weight:500}
+  .follow .flabel{font-size:16px;color:var(--muted);font-weight:500;max-width:26ch}
 
   /* ---- pick ---- */
   .pick-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
@@ -118,16 +119,26 @@
   .pcard.picked .who-name{color:#fff;font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:-.01em}
   .pick-note{margin-top:26px;color:var(--muted);font-size:15px}
 
-  /* ---- engine stats ---- */
-  .engine{background:var(--ink);color:#fff}
-  .engine .lead{color:#fff}
-  .engine .say{color:#c9c9cf}
-  .engine .say strong{color:#fff}
-  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
-  .stat{border-top:2px solid rgba(255,255,255,.16);padding-top:22px}
-  .stat .snum{font-family:var(--disp);font-weight:700;font-size:clamp(2.8rem,6.4vw,4.6rem);line-height:1;letter-spacing:-.03em}
-  .stat.red .snum{color:#ff6a4d}
-  .stat .slabel{margin-top:14px;color:#b6b6bd;font-size:15.5px;max-width:26ch}
+  /* ---- loop (dark) ---- */
+  .loop{background:var(--ink);color:#fff}
+  .loop .lead{color:#fff}
+  .loop .say{color:#c9c9cf}
+  .loop .say strong{color:#fff}
+  .loop-head{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end}
+  .loop-stat{text-align:right}
+  .loop-stat .snum{font-family:var(--disp);font-weight:700;font-size:clamp(2.8rem,6.4vw,4.6rem);line-height:1;letter-spacing:-.03em;color:#ff6a4d}
+  .loop-stat .slabel{margin-top:12px;color:#b6b6bd;font-size:15px;max-width:26ch;margin-left:auto}
+  .rail{height:3px;background:rgba(255,255,255,.14);border-radius:2px;margin-top:58px;overflow:hidden}
+  .rail-fill{height:100%;background:#ff6a4d;border-radius:2px;transform:scaleX(1);transform-origin:left}
+  .js .rail-fill{transform:scaleX(0)}
+  .js .loop.go .rail-fill{transform:scaleX(1);transition:transform 2.4s cubic-bezier(.3,.6,.2,1)}
+  .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:22px}
+  .fstep{border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:18px 16px;background:rgba(255,255,255,.045);min-height:118px}
+  .js .fstep{opacity:0;transform:translateY(18px)}
+  .fstep.lit{opacity:1;transform:none;transition:opacity .5s ease, transform .55s cubic-bezier(.2,.7,.2,1)}
+  .fstep .fn{font-family:var(--disp);font-weight:700;font-size:12.5px;color:#ff6a4d;letter-spacing:.06em}
+  .fstep .ft{margin-top:10px;font-family:var(--disp);font-weight:600;font-size:15.5px;line-height:1.25;letter-spacing:-.01em}
+  .loop-cap{margin-top:34px;font-family:var(--disp);font-weight:600;font-size:15px;color:#ff6a4d;letter-spacing:.01em}
 
   /* ---- phone ---- */
   .feed-wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
@@ -190,16 +201,19 @@
   .js .cell.on{opacity:0;transform:scale(.3)}
   .cell.on.pop{opacity:1;transform:none;transition:opacity .4s ease, transform .5s cubic-bezier(.2,.9,.2,1.4)}
   .cad-axis{display:flex;justify-content:space-between;margin-top:12px;font-size:12.5px;color:var(--muted);min-width:520px}
+  @media(max-width:640px){.cad-grid,.cad-axis{min-width:0}.cad-grid{gap:5px}.cad-day{gap:5px}}
 
-  /* ---- browser ---- */
-  .browser-sec{background:var(--bg-alt)}
-  .browser{border-radius:12px;overflow:hidden;box-shadow:0 34px 70px -30px rgba(20,20,25,.5);border:1px solid var(--line);background:#fff;margin-top:44px}
-  .b-bar{display:flex;align-items:center;gap:10px;padding:12px 16px;background:#e9e9e6;border-bottom:1px solid var(--line)}
+  /* ---- lead magnet duo ---- */
+  .lm-sec{background:var(--bg-alt)}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;align-items:start}
+  .duo .offset{margin-top:52px}
+  .browser{border-radius:12px;overflow:hidden;box-shadow:0 34px 70px -30px rgba(20,20,25,.5);border:1px solid var(--line);background:#fff}
+  .b-bar{display:flex;align-items:center;gap:10px;padding:11px 14px;background:#e9e9e6;border-bottom:1px solid var(--line)}
   .b-dots{display:flex;gap:7px}
   .b-dots span{width:11px;height:11px;border-radius:50%;background:#c7c7c2}
-  .b-url{flex:1;background:#fff;border-radius:7px;padding:6px 14px;font-size:13px;color:#6b6b70;font-family:var(--disp);font-weight:500}
+  .b-url{flex:1;background:#fff;border-radius:7px;padding:5px 13px;font-size:12.5px;color:#6b6b70;font-family:var(--disp);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .b-shot img{width:100%;display:block}
-  .b-cap{margin-top:22px;color:var(--muted);font-size:15px;max-width:52ch}
+  .b-cap{margin-top:26px;color:var(--muted);font-size:15px;max-width:56ch}
   .b-cap b{color:var(--ink);font-weight:600}
 
   /* ---- engagement ---- */
@@ -207,12 +221,30 @@
   .eng-card{border:1px solid var(--line);border-radius:14px;padding:32px 30px}
   .eng-card .enum{font-family:var(--disp);font-weight:700;font-size:clamp(3rem,7vw,5rem);color:var(--red);line-height:1;letter-spacing:-.03em}
   .eng-card .elabel{margin-top:16px;color:var(--ink-2);font-size:17px;max-width:34ch}
+  .eng-cap{margin-top:36px;font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);max-width:34ch}
 
-  /* ---- close ---- */
+  /* ---- own split ---- */
+  .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+  .scard{border:1px solid var(--line);border-radius:14px;padding:34px 32px;background:var(--bg)}
+  .scard.keep{border-top:4px solid var(--red)}
+  .scard.run{border-top:4px solid var(--ink)}
+  .scard .stitle{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:-.01em}
+  .scard .sbody{margin-top:16px;color:var(--ink-2);font-size:17px}
+  .scard .sbody strong{color:var(--ink);font-weight:600}
+
+  /* ---- close / plan ---- */
   .close{background:var(--ink);color:#fff;text-align:center}
   .close .lead{color:#fff;margin:0 auto;max-width:24ch}
-  .close .say{color:#c9c9cf;margin:26px auto 40px;max-width:52ch;font-size:19px}
+  .close .say{color:#c9c9cf;margin:26px auto 0;max-width:52ch;font-size:19px}
   .close .say strong{color:#fff}
+  .plan{max-width:560px;margin:44px auto 0;text-align:left;border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:34px 34px 30px;background:rgba(255,255,255,.04)}
+  .plan-item{display:flex;gap:14px;align-items:flex-start;font-size:17.5px;color:#e7e7ea;padding:9px 0}
+  .plan-item .arrow{color:#ff6a4d;font-family:var(--disp);font-weight:700;flex:none}
+  .plan-job{margin-top:18px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);font-size:17px;color:#c9c9cf}
+  .plan-job strong{color:#fff;font-weight:600}
+  .plan-price{margin-top:14px;font-family:var(--disp);font-weight:700;font-size:26px;letter-spacing:-.01em;color:#fff}
+  .plan-price .num{color:#ff6a4d}
+  .close .btn{margin-top:40px}
   .close .quiet{color:#9a9aa2}
   .close .quiet:hover{color:#fff}
 
@@ -224,25 +256,36 @@
   /* ---- responsive ---- */
   @media (max-width:900px){
     section{padding:72px 0}
-    .hero-grid,.who-grid,.feed-wrap{grid-template-columns:1fr;gap:40px}
+    .hero-grid,.who-grid,.feed-wrap,.duo,.split-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+    .browser{min-width:0;max-width:100%}
+    .b-url{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}
+    .b-shot img{width:100%;height:auto;display:block}
     .hero{padding-top:48px}
     .hero-photo{max-width:420px}
     .who-portrait{margin:0 auto}
-    .stat-row{grid-template-columns:1fr;gap:20px}
-    .stat{padding-top:18px}
+    .loop-head{grid-template-columns:1fr;gap:28px}
+    .loop-stat{text-align:left}
+    .loop-stat .slabel{margin-left:0}
+    .flow{grid-template-columns:1fr 1fr;gap:12px}
+    .fstep{min-height:0}
+    .duo .offset{margin-top:0}
     .pick-cards{grid-template-columns:1fr 1fr;gap:12px}
     .eng-grid{grid-template-columns:1fr;gap:24px}
     .feed-copy{order:-1}
+    .plan{padding:28px 24px 24px}
   }
   @media (max-width:520px){
     .wrap{padding:0 20px}
     body{font-size:17px}
     .pick-cards{grid-template-columns:1fr 1fr}
     .hero-sub,.say{font-size:17px}
+    .flow{grid-template-columns:1fr 1fr}
   }
   @media (prefers-reduced-motion: reduce){
     .js .reveal{opacity:1;transform:none}
     .js .cell.on{opacity:1;transform:none}
+    .js .fstep{opacity:1;transform:none}
+    .js .rail-fill{transform:scaleX(1)}
     *{transition:none !important;animation:none !important}
   }
 </style>
@@ -266,7 +309,7 @@
           <span class="big"><span class="num count" data-from="30" data-to="80" data-prefix="$" data-suffix="k">$80k</span></span>
           <span class="big"><span class="to">a month.</span></span>
         </h1>
-        <p class="hero-sub reveal d2">Kyle Hunt went from <strong>$30k to $80k a month</strong> in that window. The same stretch, a content engine on his own servers ran his whole LinkedIn in his voice. He owns the machine. His name is on it.</p>
+        <p class="hero-sub reveal d2">Kyle Hunt went from <strong>$30k to $80k a month</strong> in that window. The same stretch, an inbound engine ran his whole LinkedIn in his voice: posts, lead magnets, warm engagement. His part was reading drafts and saying yes.</p>
       </div>
       <figure class="hero-photo reveal d1">
         <img src="assets/kyle-photo-800.jpg" alt="Kyle Hunt" width="800" height="800">
@@ -288,7 +331,7 @@
         <p class="say reveal d1">Kyle is an <strong>8-figure agency COO</strong>. He coaches ecomm and digital-marketing agency owners, the ones he calls Agency Operators. His LinkedIn headline says it plain: a 7-figure agency exit, $5M a year self-managing profit machines.</p>
         <div class="follow reveal d2">
           <span class="fnum count" data-to="28845">28,845</span>
-          <span class="flabel">followers, as of July 2026</span>
+          <span class="flabel">followers, as of July 2026. That audience is his, for good.</span>
         </div>
       </div>
     </div>
@@ -299,7 +342,7 @@
 <section class="pick">
   <div class="wrap">
     <h2 class="lead reveal">In December 2025 he interviewed <span class="num">four</span> builders. He picked one.</h2>
-    <p class="say reveal d1">He needed his own content machine. So he sat with four people who could build it, then chose.</p>
+    <p class="say reveal d1">He wanted his feed bringing in calls without writing it himself. So he sat with four people who could run that, then chose.</p>
     <div class="pick-cards">
       <div class="pcard reveal">
         <div class="slot">Builder 01</div>
@@ -318,33 +361,37 @@
         <div class="state">Passed</div>
       </div>
     </div>
-    <p class="pick-note reveal">Four in the room. One build shipped.</p>
+    <p class="pick-note reveal">Four in the room. One got the job.</p>
   </div>
 </section>
 
-<!-- ENGINE -->
-<section class="engine">
+<!-- THE LOOP -->
+<section class="loop" id="loop">
   <div class="wrap">
-    <h2 class="lead reveal">It runs on Kyle's own n8n. He owns the machine.</h2>
-    <p class="say reveal d1">Running since early 2026 on his own instance. <strong>100% of his content</strong> goes through the system, drafted in his voice, before anything posts.</p>
-    <div class="stat-row">
-      <div class="stat red reveal">
-        <div class="snum count" data-to="49">49</div>
-        <div class="slabel">nodes in the post engine that writes his feed</div>
+    <div class="loop-head">
+      <div>
+        <h2 class="lead reveal">One loop runs his whole presence.</h2>
+        <p class="say reveal d1">Since early 2026, <strong>100% of his content</strong> has run through the system, drafted in his voice. He reads the drafts and signs off. Everything else is done for him.</p>
       </div>
-      <div class="stat red reveal d1">
-        <div class="snum count" data-to="131">131</div>
-        <div class="slabel">nodes in the lead-magnet engine that builds his guides</div>
-      </div>
-      <div class="stat red reveal d2">
+      <div class="loop-stat reveal d2">
         <div class="snum count" data-to="100" data-suffix="%">100%</div>
         <div class="slabel">of his content run by the system, in his voice</div>
       </div>
     </div>
+    <div class="rail"><div class="rail-fill"></div></div>
+    <div class="flow" id="flow">
+      <div class="fstep"><div class="fn">01</div><div class="ft">His takes, his voice</div></div>
+      <div class="fstep"><div class="fn">02</div><div class="ft">Drafts written for him</div></div>
+      <div class="fstep"><div class="fn">03</div><div class="ft">He approves</div></div>
+      <div class="fstep"><div class="fn">04</div><div class="ft">Posts ship at fixed slots</div></div>
+      <div class="fstep"><div class="fn">05</div><div class="ft">Readers comment and opt in</div></div>
+      <div class="fstep"><div class="fn">06</div><div class="ft">Calls land on his calendar</div></div>
+    </div>
+    <p class="loop-cap reveal">This is the inbound engine Kyle uses to book calls.</p>
   </div>
 </section>
 
-<!-- PHONE FEED -->
+<!-- LANE 1: PHONE FEED -->
 <section class="feed-sec">
   <div class="wrap">
     <div class="feed-wrap">
@@ -393,8 +440,9 @@
         </div>
       </div>
       <div class="feed-copy">
+        <div class="lane reveal">Lane 1 &middot; Content engine</div>
         <h2 class="lead reveal">This is his real feed.</h2>
-        <p class="say reveal d1">Every card here came off his live LinkedIn. Real dates, real reactions, real comments. The engine drafted all of it in his voice, and it reads like him.</p>
+        <p class="say reveal d1">Every card here came off his live LinkedIn. Real dates, real reactions. Each one was drafted in his voice, he signed off, it shipped.</p>
         <span class="caption reveal d2">From his live feed, July 2026</span>
       </div>
     </div>
@@ -416,7 +464,7 @@
     <div class="cadence-head">
       <div>
         <h2 class="lead reveal"><span class="num">20</span> posts in the last 13 days.</h2>
-        <p class="say reveal d1">One to two posts a day, at two fixed time slots. All of it public on his feed, so you can go count.</p>
+        <p class="say reveal d1">1-2 posts a day at two fixed time slots. All of it public on his feed, so you can go count.</p>
       </div>
       <div class="cad-legend reveal d1">
         <span class="leg-item"><span class="swatch lon"></span>posted</span>
@@ -430,27 +478,42 @@
   </div>
 </section>
 
-<!-- BROWSER / LM -->
-<section class="browser-sec">
+<!-- LANE 2: LEAD MAGNETS -->
+<section class="lm-sec">
   <div class="wrap">
-    <h2 class="lead reveal">The same machine builds his guide pages.</h2>
-    <p class="say reveal d1">His lead-magnet engine writes and publishes full guides. Here is one of them, live.</p>
-    <div class="browser reveal d1">
-      <div class="b-bar">
-        <div class="b-dots"><span></span><span></span><span></span></div>
-        <div class="b-url">kyle-hunt.com &middot; Operations Guide</div>
+    <div class="lane reveal">Lane 2 &middot; Lead magnets</div>
+    <h2 class="lead reveal"><span class="num">59</span> lead magnets in his pipeline.</h2>
+    <p class="say reveal d1">48 of them full guides, from a June audit of his live board. Written, designed and published for him. His name on every page.</p>
+    <div class="duo">
+      <div class="reveal">
+        <div class="browser">
+          <div class="b-bar">
+            <div class="b-dots"><span></span><span></span><span></span></div>
+            <div class="b-url">Claude + Agency Operations Collections</div>
+          </div>
+          <div class="b-shot"><img src="assets/kyle-lm-claude-ops.png" alt="Kyle Hunt's Claude + Agency Operations Collections guide page, built and published under his brand" width="1600" height="875"></div>
+        </div>
       </div>
-      <div class="b-shot"><img src="assets/kyle-guides.webp" alt="Kyle Hunt's $500k/mo Creative Video Agency Operations Guide, a lead-magnet page built by the engine" width="1920" height="1018"></div>
+      <div class="offset reveal d1">
+        <div class="browser">
+          <div class="b-bar">
+            <div class="b-dots"><span></span><span></span><span></span></div>
+            <div class="b-url">$500k/mo Creative Video Agency Operations Guide</div>
+          </div>
+          <div class="b-shot"><img src="assets/kyle-lm-500k-guide.png" alt="Kyle Hunt's $500k/mo Creative Video Agency Operations Guide page, built and published under his brand" width="1600" height="878"></div>
+        </div>
+      </div>
     </div>
-    <p class="b-cap reveal">His <b>$500k/mo Creative Video Agency Operations Guide</b>. Built and published by the system.</p>
+    <p class="b-cap reveal">Two of the <b>59 in his pipeline</b>. Built and published under his brand.</p>
   </div>
 </section>
 
-<!-- ENGAGEMENT + LM COUNTS -->
+<!-- LANE 3: WARM ENGAGEMENT -->
 <section class="engagement">
   <div class="wrap">
-    <h2 class="lead reveal"><span class="num">59</span> lead magnets in his pipeline.</h2>
-    <p class="say reveal d1">48 of them full guides, from a June audit of his live board. The engine keeps building them while he coaches.</p>
+    <div class="lane reveal">Lane 3 &middot; Warm engagement</div>
+    <h2 class="lead reveal">Readers raise a hand. Calls come in.</h2>
+    <p class="say reveal d1">His comment-gated lead-magnet posts have pulled <strong>~300 comments</strong>. Each comment is a reader asking for the guide, by name, in public.</p>
     <div class="eng-grid">
       <div class="eng-card reveal">
         <div class="enum count" data-prefix="~" data-to="300">~300</div>
@@ -461,14 +524,39 @@
         <div class="elabel">impressions cleared by his top posts</div>
       </div>
     </div>
+    <p class="eng-cap reveal">This is the inbound engine Kyle uses to book calls.</p>
   </div>
 </section>
 
-<!-- CLOSE -->
+<!-- OWN SPLIT -->
+<section class="split">
+  <div class="wrap">
+    <h2 class="lead reveal">What Kyle keeps.</h2>
+    <div class="split-grid">
+      <div class="scard keep reveal">
+        <div class="stitle">His, for good</div>
+        <p class="sbody">The audience: <strong>28,845 followers</strong>, as of July 2026. The email list his guides capture. Both stay his.</p>
+      </div>
+      <div class="scard run reveal d1">
+        <div class="stitle">Done for him</div>
+        <p class="sbody">The drafting, the publishing, the guides, the warm engagement. All of it in <strong>his voice, under his brand</strong>. His job is a yes on each draft.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE / PLAN -->
 <section class="close">
   <div class="wrap">
-    <h2 class="lead reveal">He still runs it today.</h2>
-    <p class="say reveal d1">On his own infrastructure. The feed is public, go read it. You can have the same machine, or keep writing posts by hand while people like Kyle <strong>compound</strong>.</p>
+    <h2 class="lead reveal">The same engine, run for you.</h2>
+    <p class="say reveal d1">Kyle still runs it today. His feed is public, go read it. You can have the same setup, or keep writing posts by hand while people like Kyle <strong>compound</strong>.</p>
+    <div class="plan reveal d1">
+      <div class="plan-item"><span class="arrow">&rarr;</span><span>1-2 posts a day, drafted in your voice</span></div>
+      <div class="plan-item"><span class="arrow">&rarr;</span><span>Lead magnets built and published under your brand</span></div>
+      <div class="plan-item"><span class="arrow">&rarr;</span><span>Warm engagement working your readers into inbound calls</span></div>
+      <div class="plan-job">You approve drafts. <strong>That is the whole job.</strong></div>
+      <div class="plan-price"><span class="num">$2k a month</span>, fixed.</div>
+    </div>
     <a class="btn reveal d2" href="https://calendly.com/im-ivanmanfredi/30min">Book a call</a>
     <a class="quiet reveal d2" href="https://inboundonsteroids.com">inboundonsteroids.com</a>
   </div>
@@ -528,6 +616,24 @@
     counts.forEach(function(el){ co.observe(el); });
   } else {
     counts.forEach(function(el){ runCount(el); });
+  }
+
+  // ---- loop flow: rail draw + sequential step light-up ----
+  var loopSec = document.getElementById('loop');
+  var flow = document.getElementById('flow');
+  if(loopSec && flow){
+    var steps = flow.querySelectorAll('.fstep');
+    function lightUp(){
+      loopSec.classList.add('go');
+      if(reduce){ steps.forEach(function(s){ s.classList.add('lit'); }); return; }
+      steps.forEach(function(s,i){ setTimeout(function(){ s.classList.add('lit'); }, 220 + i*340); });
+    }
+    if('IntersectionObserver' in window){
+      var lo = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ lightUp(); lo.disconnect(); } });
+      },{threshold:.3});
+      lo.observe(flow);
+    } else { lightUp(); }
   }
 
   // ---- cadence grid: 13 days x 2 slots, 20 posted ----
