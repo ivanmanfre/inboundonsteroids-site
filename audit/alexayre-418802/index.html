@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Audience Audit · Alex Ayre | InboundOnSteroids</title>
+  <meta name="description" content="Audience audit prepared from public engagement data.">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* Audience audit one-pager. Reuses Black Box tokens + the-box grammar. */
+    .aud-section { padding-top: clamp(30px, 4vw, 48px); padding-bottom: clamp(30px, 4vw, 48px); }
+    .aud-rule { border-top: 2px solid var(--ink); }
+
+    /* Doc header */
+    .aud-doc { padding-top: clamp(20px, 3vw, 30px); padding-bottom: clamp(26px, 3.4vw, 40px); }
+    .aud-h1 { margin: 12px 0 0; }
+    .aud-subject {
+      font-family: var(--serif); font-style: italic;
+      font-size: clamp(15px, 1.8vw, 17px); line-height: 1.55; color: var(--muted);
+      margin-top: 14px; max-width: 760px;
+    }
+
+    /* THE BOX verdict */
+    .aud-verdict { padding: clamp(28px, 3.2vw, 40px) clamp(24px, 2.8vw, 40px); }
+    .aud-verdict .warn-head { font-size: clamp(19px, 2.6vw, 27px); letter-spacing: 0.03em; }
+    .aud-verdict .warn-sq { width: 16px; height: 16px; }
+
+    /* Two headline figures */
+    .aud-figures {
+      display: flex; align-items: stretch; gap: clamp(18px, 2.6vw, 34px); margin-top: 8px;
+    }
+    .aud-fig { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+    .aud-fig-label {
+      font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+    }
+    .aud-fig-val {
+      font-family: var(--sans); font-weight: 800; letter-spacing: -0.035em;
+      font-size: clamp(52px, 8vw, 92px); line-height: 0.86; color: var(--ink);
+    }
+    .aud-fig-val--red { color: var(--red); }
+    .aud-fig-sub {
+      font-weight: 400; font-size: clamp(15px, 1.7vw, 17px); line-height: 1.45; color: var(--ink); max-width: 380px;
+    }
+    .aud-vs {
+      align-self: center; flex-shrink: 0;
+      font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+      padding: 0 clamp(2px, 1vw, 10px);
+    }
+
+    /* Ruled composition table (admin register) */
+    .aud-table { border-top: 2px solid var(--ink); }
+    .aud-tr {
+      display: flex; align-items: baseline; gap: 16px;
+      padding: 13px 0; border-bottom: 1px solid var(--hairline);
+    }
+    .aud-tr--icp { border-bottom: 2px solid var(--ink); }
+    .aud-th {
+      flex: 1; min-width: 0;
+      font-weight: 700; font-size: clamp(15px, 1.7vw, 17px); color: var(--ink);
+    }
+    .aud-tn {
+      width: 64px; flex-shrink: 0; text-align: right;
+      font-weight: 600; font-size: clamp(15px, 1.7vw, 17px); color: var(--ink); font-variant-numeric: tabular-nums;
+    }
+    .aud-tp {
+      width: 84px; flex-shrink: 0; text-align: right;
+      font-weight: 800; font-size: clamp(15px, 1.7vw, 17px); color: var(--ink); font-variant-numeric: tabular-nums;
+    }
+    .aud-cap {
+      font-family: var(--serif); font-style: italic;
+      font-size: clamp(14px, 1.6vw, 15.5px); line-height: 1.55; color: var(--muted);
+      margin-top: 14px; max-width: 760px;
+    }
+
+    /* Named grid */
+    .aud-names {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 clamp(28px, 4vw, 56px); margin-top: 6px;
+    }
+    .aud-name-row {
+      display: flex; flex-direction: column; gap: 3px;
+      padding: 12px 0; border-top: 1px solid var(--hairline);
+    }
+    .aud-name { font-weight: 700; font-size: clamp(15.5px, 1.7vw, 17px); color: var(--ink); }
+    .aud-role { font-weight: 400; font-size: clamp(13.5px, 1.5vw, 14.5px); line-height: 1.4; color: var(--body-2); }
+    .aud-tag {
+      font-weight: 700; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--red); margin-top: 2px;
+    }
+
+    /* Vitals row */
+    .aud-vitals {
+      display: flex; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+    }
+    .aud-vital {
+      flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px;
+      padding: 18px clamp(14px, 2vw, 22px) 20px 0;
+    }
+    .aud-vital + .aud-vital { padding-left: clamp(16px, 2vw, 24px); border-left: 1px solid var(--hairline); }
+    .aud-vital-val {
+      font-family: var(--sans); font-weight: 800; letter-spacing: -0.02em;
+      font-size: clamp(28px, 3.4vw, 42px); line-height: 1; color: var(--ink);
+    }
+    .aud-vital-label {
+      font-weight: 400; font-size: clamp(12.5px, 1.4vw, 14px); line-height: 1.35; color: var(--body-2);
+    }
+
+    /* Profile findings */
+    .aud-find { display: flex; gap: clamp(14px, 2.2vw, 24px); padding: 18px 0; border-top: 1px solid var(--hairline); align-items: baseline; }
+    .aud-find-state {
+      flex: 0 0 96px; font-weight: 700; font-size: 11px; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--red);
+    }
+    .aud-find-state--ok { color: var(--muted); }
+    .aud-find-body { flex: 1; min-width: 0; }
+    .aud-find-t { font-weight: 700; font-size: clamp(15.5px, 1.75vw, 17.5px); color: var(--ink); }
+    .aud-find-d { font-weight: 400; font-size: clamp(14.5px, 1.6vw, 16px); line-height: 1.5; color: var(--body-2); margin-top: 5px; max-width: 660px; }
+
+    /* Engine fold */
+    .aud-steps { display: flex; flex-direction: column; }
+    .aud-step {
+      display: flex; gap: clamp(16px, 2.4vw, 28px); align-items: baseline;
+      padding: 20px 0; border-top: 1px solid var(--hairline);
+    }
+    .aud-step-n {
+      flex-shrink: 0; width: 40px;
+      font-family: var(--sans); font-weight: 800; letter-spacing: -0.02em;
+      font-size: clamp(24px, 2.6vw, 32px); line-height: 1; color: var(--ink);
+    }
+    .aud-step-body { font-weight: 400; font-size: clamp(16px, 1.8vw, 18.5px); line-height: 1.5; color: var(--ink); max-width: 720px; }
+    .aud-close {
+      margin-top: 26px; font-weight: 700; font-size: clamp(17px, 2vw, 20px); line-height: 1.4; color: var(--ink); max-width: 720px;
+    }
+
+    /* Footer register */
+    .aud-footer {
+      border-top: 1px solid var(--hairline);
+      padding-top: 30px; padding-bottom: 44px;
+      display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 14px;
+    }
+    .aud-foot-meta { font-weight: 400; font-size: 14px; color: var(--muted); }
+
+    @media (max-width: 720px) {
+      .aud-figures { flex-direction: column; gap: clamp(20px, 6vw, 30px); }
+      .aud-vs { align-self: flex-start; padding: 0; }
+      .aud-names { grid-template-columns: 1fr; }
+      .aud-name-row:first-child + .aud-name-row { border-top: 1px solid var(--hairline); }
+      .aud-find { flex-direction: column; gap: 6px; }
+      .aud-find-state { flex: none; }
+    }
+    @media (max-width: 560px) {
+      .aud-vitals { flex-wrap: wrap; }
+      .aud-vital { flex: 1 1 46%; border-top: 1px solid var(--hairline); padding: 16px 0 16px 0; }
+      .aud-vital + .aud-vital { border-left: 0; padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Primary">
+      <span class="wordmark"><span class="wm-a">INBOUND</span><span class="wm-on">ON</span><span class="wm-b">STEROIDS</span></span>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- DOC HEADER -->
+    <section class="section aud-doc" aria-label="Audience audit header">
+      <div class="sec-label">AUDIENCE AUDIT</div>
+      <h1 class="h1 aud-h1">Your competitors are your audience.</h1>
+      <p class="aud-subject">Subject: Alex Ayre. Audited 2026-07-25. We read every person who reacted to or commented on the last 20 posts, then checked each candidate buyer against their live profile. All public data, read only.</p>
+    </section>
+
+    <!-- THE BOX VERDICT -->
+    <section class="section aud-section" aria-label="Verdict">
+      <div class="the-box aud-verdict">
+        <div class="warn-row">
+          <span class="warn-sq" aria-hidden="true"></span>
+          <span class="warn-head">WARNING: THE ROOM IS FULL OF PEOPLE WHO SELL WHAT YOU SELL.</span>
+        </div>
+        <div class="aud-figures" style="margin-top:18px;">
+          <div class="aud-fig">
+            <div class="aud-fig-label">Could actually hire you</div>
+            <div class="aud-fig-val">4<span style="font-size:.45em;font-weight:700"> of 108</span></div>
+            <p class="aud-fig-sub">Four people in your entire readership hold a marketing budget at a company that is not an agency. Each one reacted a single time and never came back.</p>
+          </div>
+          <div class="aud-vs">versus</div>
+          <div class="aud-fig">
+            <div class="aud-fig-label">Agency people and consultants</div>
+            <div class="aud-fig-val aud-fig-val--red">50<span style="font-size:.45em;font-weight:700"> of 108</span></div>
+            <p class="aud-fig-sub">Agency staff, owners, freelancers and consultants selling the same senior paid-media read you sell. Count the tool and data vendors too and it reaches 62.</p>
+          </div>
+        </div>
+        <p class="aud-cap" style="margin-top:14px;">Your most loyal reader reacted to 11 of your 20 posts. She is an Associate Director at Walz Tetrick Advertising.</p>
+      </div>
+    </section>
+
+    <!-- THE VERDICT -->
+    <section class="section aud-section aud-rule" aria-label="The verdict">
+      <div class="sec-label">THE VERDICT</div>
+      <div class="aud-table" style="margin-top: 18px;">
+        <div class="aud-tr">
+          <span class="aud-th" style="flex:0 0 220px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:12px;">The writing</span>
+          <span class="aud-th"><b>Good.</b> The measurement posts land, they carry a real point of view, and the audit anecdotes are the kind of thing a buyer remembers. Nothing here needs a ghostwriter.</span>
+        </div>
+        <div class="aud-tr">
+          <span class="aud-th" style="flex:0 0 220px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:12px;">The aim</span>
+          <span class="aud-th"><b>Off.</b> 20 posts over nine months produced four buyer reactions, one each. The rest went to the industry. Your feed is professional recognition and it returns nothing you can invoice.</span>
+        </div>
+        <div class="aud-tr">
+          <span class="aud-th" style="flex:0 0 220px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:12px;">The capture</span>
+          <span class="aud-th"><b>Missing.</b> Every post ends on a framework and stops there. No resource, no list, no next step. The four buyers who did react had nowhere to go.</span>
+        </div>
+      </div>
+      <p class="aud-cap" style="margin-top:12px;">One honest limit on this read: we are not connected to you, and LinkedIn only shows a connection list to first-degree contacts. So we counted the people who engage, and we make no claim about the 1,315 people connected to you. Anyone quoting a number for that list is guessing.</p>
+    </section>
+
+    <!-- ENGAGER COMPOSITION TABLE -->
+    <section class="section aud-section aud-rule" aria-label="Engager composition">
+      <div class="sec-label">WHO ENGAGES YOUR POSTS</div>
+      <div class="aud-table" style="margin-top: 18px;">
+        <div class="aud-tr">
+          <span class="aud-th">Agency staff, owners, freelancers, consultants</span>
+          <span class="aud-tn">50</span>
+          <span class="aud-tp">46.3%</span>
+        </div>
+        <div class="aud-tr">
+          <span class="aud-th">Irrelevant and other</span>
+          <span class="aud-tn">37</span>
+          <span class="aud-tp">34.3%</span>
+        </div>
+        <div class="aud-tr">
+          <span class="aud-th">Tool, data and AI vendors selling to marketers</span>
+          <span class="aud-tn">12</span>
+          <span class="aud-tp">11.1%</span>
+        </div>
+        <div class="aud-tr">
+          <span class="aud-th">In-house marketers below buying authority</span>
+          <span class="aud-tn">5</span>
+          <span class="aud-tp">4.6%</span>
+        </div>
+        <div class="aud-tr aud-tr--icp">
+          <span class="aud-th">People who could hire you</span>
+          <span class="aud-tn">4</span>
+          <span class="aud-tp">3.7%</span>
+        </div>
+      </div>
+      <p class="aud-cap">Source: the last 20 posts, 166 reactions and 34 comments, 108 different people. Everyone was judged first on their headline, then every buyer candidate was checked against their live profile and current role. 11 of 15 candidates were struck at that step, mostly for running their own consultancy or sitting between jobs.</p>
+    </section>
+
+    <!-- THE FOUR -->
+    <section class="section aud-section aud-rule" aria-label="The four buyers">
+      <div class="sec-label">THE FOUR, BY NAME</div>
+      <p class="sec-strap" style="margin-top: 10px; max-width: 760px;">Every one of them holds budget at a company that buys media. Every one of them reacted exactly once across all 20 posts.</p>
+      <div class="aud-names">
+        <div class="aud-name-row">
+          <span class="aud-name">Megan Quillin</span>
+          <span class="aud-role">Senior Director, Marketing at GoHealth Urgent Care, since 2022</span>
+          <span class="aud-tag">1 reaction · never returned</span>
+        </div>
+        <div class="aud-name-row">
+          <span class="aud-name">Gabe Larsen</span>
+          <span class="aud-role">CRO at Atonom. Formerly CMO at Kustomer and Director of Marketing at Meta</span>
+          <span class="aud-tag">1 reaction · never returned</span>
+        </div>
+        <div class="aud-name-row">
+          <span class="aud-name">Jimmy Lai</span>
+          <span class="aud-role">CEO at Lai &amp; Turner Law Firm. Immigration practice, a category that lives on paid search</span>
+          <span class="aud-tag">1 reaction · never returned</span>
+        </div>
+        <div class="aud-name-row">
+          <span class="aud-name">Kevin D. Meyer</span>
+          <span class="aud-role">Head of Strategy &amp; Growth at Humancore. Formerly LinkedIn and BetterUp</span>
+          <span class="aud-tag">1 reaction · never returned</span>
+        </div>
+      </div>
+      <p class="aud-cap">Four buyers, four total interactions, zero repeat. Meanwhile 46 people engaged with you more than once, and the top of that list is your own industry.</p>
+    </section>
+
+    <!-- THE LOYAL READERS -->
+    <section class="section aud-section aud-rule" aria-label="Loyal readers">
+      <div class="sec-label">THE PEOPLE ACTUALLY READING YOU</div>
+      <p class="sec-strap" style="margin-top: 10px; max-width: 760px;">14 of your 108 engagers work at a named agency. Your old rooms never left.</p>
+      <div class="aud-names">
+        <div class="aud-name-row"><span class="aud-name">Geeta Soriano</span><span class="aud-role">Associate Director, Walz Tetrick Advertising</span><span class="aud-tag">11 reactions · your #1 reader</span></div>
+        <div class="aud-name-row"><span class="aud-name">Bryan Herrman</span><span class="aud-role">Chief Brand Officer, Walz Tetrick</span></div>
+        <div class="aud-name-row"><span class="aud-name">Shaun Hughes</span><span class="aud-role">Director, Strategy and Activation, Starcom</span></div>
+        <div class="aud-name-row"><span class="aud-name">Antonio Marquez</span><span class="aud-role">Executive Director, Client Investment Lead, OMD</span></div>
+        <div class="aud-name-row"><span class="aud-name">Justin Shaw</span><span class="aud-role">SVP, CX, BarkleyOKRP</span></div>
+        <div class="aud-name-row"><span class="aud-name">Jimmy Keown</span><span class="aud-role">VP, Growth, BarkleyOKRP</span></div>
+        <div class="aud-name-row"><span class="aud-name">Britt Hankins</span><span class="aud-role">Director of Discoverability, VML</span></div>
+        <div class="aud-name-row"><span class="aud-name">Lesley Carlisle</span><span class="aud-role">Media Director, VML</span></div>
+        <div class="aud-name-row"><span class="aud-name">Itzy Neveau</span><span class="aud-role">Director, Digital Media, OMD</span></div>
+        <div class="aud-name-row"><span class="aud-name">Kristen Doyle</span><span class="aud-role">Human Resources Director, Walz Tetrick Advertising</span></div>
+      </div>
+      <p class="aud-cap">Plus Maya Dubrey at VML, Brook Schuler at Celtic Chicago, Peter Damicone at HawkSEM, and Ryan Davidson, ex-Publicis and Dentsu. Good people to know. None of them will ever sign an invoice.</p>
+    </section>
+
+    <!-- ENGAGEMENT VITALS -->
+    <section class="section aud-section aud-rule" aria-label="Engagement vitals">
+      <div class="sec-label">THE NUMBERS</div>
+      <div class="aud-vitals" style="margin-top: 18px;">
+        <div class="aud-vital">
+          <span class="aud-vital-val">20</span>
+          <span class="aud-vital-label">posts analyzed, over 279 days</span>
+        </div>
+        <div class="aud-vital">
+          <span class="aud-vital-val">0.5</span>
+          <span class="aud-vital-label">posts per week</span>
+        </div>
+        <div class="aud-vital">
+          <span class="aud-vital-val">8.3</span>
+          <span class="aud-vital-label">average reactions per post</span>
+        </div>
+        <div class="aud-vital">
+          <span class="aud-vital-val">1,331</span>
+          <span class="aud-vital-label">followers against 1,315 connections</span>
+        </div>
+      </div>
+      <p class="aud-cap">Followers and connections sitting one to one means the reach has not travelled past people you already know. July was your heaviest month yet at 6 posts, so the effort is already going in.</p>
+    </section>
+
+    <!-- PROFILE AUDIT -->
+    <section class="section aud-section aud-rule" aria-label="Profile audit">
+      <div class="sec-label">WHERE THE TRAFFIC LANDS</div>
+      <p class="sec-strap" style="margin-top: 10px; max-width: 760px;">Every post sends its readers to one page. Read against what converts on LinkedIn in 2026, here is what that page does with them.</p>
+
+      <div style="margin-top:16px;">
+        <div class="aud-find">
+          <span class="aud-find-state">Absent</span>
+          <div class="aud-find-body">
+            <div class="aud-find-t">Merci does not exist on your profile</div>
+            <p class="aud-find-d">Your current listed role is "Digital Marketing Coach and Advisor at Freelance". The last dated position is VP, Paid Search at Tombras, ended September 2023. A reader who wants to know what to hire, and what it is called, has nothing to read. You booked this call from a Merci address.</p>
+          </div>
+        </div>
+        <div class="aud-find">
+          <span class="aud-find-state">Half built</span>
+          <div class="aud-find-body">
+            <div class="aud-find-t">The headline opens on a job title</div>
+            <p class="aud-find-d">"Digital Marketing Leader | $50MM+ Managed | Turning Ad Spend into Measurable Business Growth". The number is real and it earns its place. What is missing is who this is for. Every profile we measured that converts opens on the offer and names the buyer.</p>
+          </div>
+        </div>
+        <div class="aud-find">
+          <span class="aud-find-state--ok aud-find-state">Strong</span>
+          <div class="aud-find-body">
+            <div class="aud-find-t">The About section is the best asset you have</div>
+            <p class="aud-find-d">It opens on the hook rather than a biography, it carries Frigidaire, Bridgestone, Wingstop, Hallmark, Orangetheory and Blue Cross, and it lands on a real diagnosis. It closes on "let's talk" and a bare carrd link. No booking link, no keyword, no resource.</p>
+          </div>
+        </div>
+        <div class="aud-find">
+          <span class="aud-find-state">Empty</span>
+          <div class="aud-find-body">
+            <div class="aud-find-t">The trust layer is blank</div>
+            <p class="aud-find-d">Zero recommendations received. Zero certifications. Zero projects. Two recommendations given, both in 2014. A decade of work at Barkley, VML and Tombras and not one line of it is corroborated by another human on the page.</p>
+          </div>
+        </div>
+        <div class="aud-find">
+          <span class="aud-find-state">Thin</span>
+          <div class="aud-find-body">
+            <div class="aud-find-t">Nothing to capture the ones who are not ready</div>
+            <p class="aud-find-d">A reader who likes the measurement post but is not booking a call today has exactly one option, which is to leave. There is no resource, no assessment, no list to join. That is the leak the four buyers fell through.</p>
+          </div>
+        </div>
+      </div>
+      <p class="aud-cap">Read from your live profile on 2026-07-25 through the LinkedIn API. Featured section is not visible to a non-connection, so it is excluded from this read rather than assumed empty.</p>
+    </section>
+
+    <!-- ENGINE FOLD -->
+    <section class="section aud-section aud-rule" aria-label="What the engine does">
+      <div class="sec-label">WHAT THE ENGINE DOES WITH THIS</div>
+      <div class="aud-steps" style="margin-top: 14px;">
+        <div class="aud-step">
+          <span class="aud-step-n">1</span>
+          <p class="aud-step-body">Content written for the people who hold the budget, at the cadence the channel actually rewards, so the room fills with buyers instead of the industry.</p>
+        </div>
+        <div class="aud-step">
+          <span class="aud-step-n">2</span>
+          <p class="aud-step-body">Lead magnets built for a paid-media buyer, so the reader who is not ready today lands on a list you own and keep.</p>
+        </div>
+        <div class="aud-step">
+          <span class="aud-step-n">3</span>
+          <p class="aud-step-body">Every buyer who engages gets worked to a booked call on your calendar, handled end to end.</p>
+        </div>
+      </div>
+      <p class="aud-close">You already write well enough. The four people who could hire you saw it once and had nowhere to go.</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="section aud-footer" aria-label="Footer">
+      <span class="wordmark wordmark--sm"><span class="wm-a">INBOUND</span><span class="wm-on">ON</span><span class="wm-b">STEROIDS</span></span>
+      <span class="aud-foot-meta">Audience audit · prepared 2026-07-25 · public engagement data, read-only.</span>
+    </footer>
+
+  </main>
+
+</body>
+</html>
