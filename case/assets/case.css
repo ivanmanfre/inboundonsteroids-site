@@ -352,3 +352,106 @@
   @media(max-width:520px){
     .strip-grid{grid-template-columns:1fr}
   }
+
+  /* ============================================================
+     v2 art direction — editorial pass (2026-07-25 evening).
+     Ghost numerals, swipe underlines, marquee bands, framed
+     plates, big outcome typography. Kyle keeps his own inline kit.
+     ============================================================ */
+
+  section{position:relative}
+
+  /* ---- ghost section numerals ---- */
+  html{overflow-x:clip}
+  .ghost{
+    position:absolute;top:8px;right:0;z-index:0;pointer-events:none;
+    font-family:var(--disp);font-weight:700;line-height:1;
+    font-size:clamp(9rem,22vw,19rem);letter-spacing:-.04em;
+    color:transparent;-webkit-text-stroke:1.5px var(--line);
+    user-select:none;
+  }
+  .loop .ghost, .close .ghost{-webkit-text-stroke:1.5px rgba(255,255,255,.12)}
+  .wrap{position:relative;z-index:1}
+
+  /* ---- red swipe underline ---- */
+  .swipe{position:relative;display:inline-block;white-space:nowrap}
+  .swipe svg{position:absolute;left:-2%;bottom:-.1em;width:104%;height:.34em;overflow:visible}
+  .swipe svg path{stroke:var(--red);stroke-width:10;fill:none;stroke-linecap:round;opacity:.92}
+  .js .swipe svg path{stroke-dasharray:320;stroke-dashoffset:320}
+  .swipe.is-in svg path,.reveal.is-in .swipe svg path{animation:swipe-draw .7s .45s cubic-bezier(.4,.1,.2,1) forwards}
+  @keyframes swipe-draw{to{stroke-dashoffset:0}}
+  .loop .swipe svg path,.close .swipe svg path{stroke:#ff6a4d}
+
+  /* ---- marquee ticker band ---- */
+  .marq{background:var(--ink);overflow:hidden;padding:20px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+  .marq.red{background:var(--red)}
+  .marq-track{display:flex;width:max-content;animation:marq 26s linear infinite}
+  .marq-chunk{display:flex;flex:none;align-items:center}
+  .marq span{font-family:var(--disp);font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#fff;padding:0 26px;white-space:nowrap}
+  .marq .tick{color:#ff6a4d;padding:0}
+  .marq.red .tick{color:#161618}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){.marq-track{animation:none}}
+
+  /* ---- framed portrait plates ---- */
+  .fplate{position:relative;display:inline-block;max-width:100%}
+  .fplate::before{
+    content:"";position:absolute;inset:0;transform:translate(16px,16px);
+    border:2px solid var(--red);border-radius:14px;z-index:0;
+  }
+  .fplate figure,.fplate>img{position:relative;z-index:1;border-radius:14px;overflow:hidden;display:block;
+    box-shadow:0 30px 70px -30px rgba(20,20,25,.5);margin:0}
+  .fplate img{width:100%;height:auto;display:block}
+  .fplate .fcap{
+    position:absolute;left:18px;bottom:18px;z-index:2;
+    background:var(--ink);color:#fff;font-family:var(--disp);font-weight:600;
+    font-size:13px;letter-spacing:.02em;padding:9px 14px;border-radius:7px;
+  }
+  .fplate .fcap b{color:#ff6a4d;font-weight:700}
+
+  /* ---- editorial section head with hairline + index ---- */
+  .shead{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-top:2px solid var(--ink);padding-top:26px;margin-bottom:44px}
+  .loop .shead,.close .shead{border-top-color:rgba(255,255,255,.3)}
+  .shead .lane{margin-bottom:0}
+  .shead .sidxn{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--muted);letter-spacing:.08em}
+
+  /* ---- big outcome band v2 ---- */
+  .outcome2{background:var(--ink);color:#fff;text-align:left;overflow:hidden}
+  .outcome2 .o2-kick{font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:.05em;color:#ff6a4d;text-transform:uppercase}
+  .outcome2 .o2-big{
+    font-family:var(--disp);font-weight:700;letter-spacing:-.035em;line-height:.94;
+    font-size:clamp(3.4rem,11vw,9.6rem);margin-top:22px;color:#fff;
+  }
+  .outcome2 .o2-big .dim{color:#6d6d74}
+  .outcome2 .o2-big .hot{color:#ff6a4d}
+  .outcome2 .o2-sub{margin-top:30px;color:#c9c9cf;font-size:19px;max-width:52ch}
+  .outcome2 .o2-sub strong{color:#fff}
+
+  /* ---- oversized hero numeral pair ---- */
+  .hero .hnum{display:flex;align-items:baseline;gap:.14em;flex-wrap:wrap}
+  .hero .hnum .to{color:var(--ink-2);font-weight:500;font-size:.4em;letter-spacing:-.01em}
+
+  /* ---- stat strip v2: hairline table ---- */
+  .strip2{margin-top:52px;border-top:2px solid var(--ink)}
+  .strip2 .srow2{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .strip2 .slab2{font-size:17px;color:var(--ink-2);max-width:44ch}
+  .strip2 .slab2 strong{color:var(--ink);font-weight:600}
+  .strip2 .snum3{font-family:var(--disp);font-weight:700;font-size:clamp(2.2rem,5vw,3.6rem);color:var(--red);letter-spacing:-.03em;line-height:1;white-space:nowrap}
+
+  /* ---- index hero v2 ---- */
+  .idx-hero .lead{max-width:26ch}
+  .cases-5{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px}
+  @media(max-width:900px){.cases-5{grid-template-columns:1fr}}
+
+  /* ---- browser plate tone strip ---- */
+  .b-bar .b-live{font-family:var(--disp);font-weight:700;font-size:10.5px;letter-spacing:.1em;color:#fff;background:var(--red);border-radius:5px;padding:4px 8px;text-transform:uppercase;flex:none}
+
+  .flow.cols-3{grid-template-columns:repeat(3,1fr)}
+  .flow.cols-4{grid-template-columns:repeat(4,1fr)}
+  .flow.cols-5{grid-template-columns:repeat(5,1fr)}
+  @media(max-width:900px){
+    .flow.cols-3,.flow.cols-4,.flow.cols-5{grid-template-columns:1fr 1fr}
+    .ghost{font-size:clamp(7rem,26vw,11rem);right:0}
+    .fplate::before{transform:translate(10px,10px)}
+    .shead{flex-direction:column;gap:8px}
+  }

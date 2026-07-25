@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lemonade: one engine writing in two founders' voices</title>
-<meta name="description" content="Lemonade is a London growth agency with two founders who both publish. We built them one content and lead-magnet engine that writes as either man, handed it over, and it has been running in their hands since February 2026.">
-<meta property="og:title" content="Lemonade: one engine writing in two founders' voices">
-<meta property="og:description" content="Two founders, one shared brand, one engine that drafts as either of them. Built, handed over, and running in their own hands since February 2026.">
+<title>Lemonade: two founders, one engine, both voices</title>
+<meta name="description" content="Lemonade is a London growth agency with two founders who both publish. One engine drafts as either man, in his own voice, to his own account. Live since February 2026.">
+<meta property="og:title" content="Lemonade: two founders, one engine, both voices">
+<meta property="og:description" content="Two founders, one shared brand, one engine that drafts as either man. Live since February 2026.">
 <meta property="og:image" content="assets/david-dinsmore.webp">
 <meta property="og:type" content="website">
 <meta name="robots" content="index,follow">
@@ -16,15 +16,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/case.css">
 <style>
-  .duo-photo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .duo-photo figure{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(20,20,25,.5);aspect-ratio:5/6;background:var(--bg-alt)}
-  .duo-photo img{width:100%;height:100%;object-fit:cover}
-  .duo-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 14px 12px;background:linear-gradient(0deg,rgba(15,15,18,.84),rgba(15,15,18,0));color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.01em}
-  .duo-photo .second{margin-top:32px}
-  @media(max-width:900px){.duo-photo .second{margin-top:0}}
+  .duo-photo{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .duo-photo .fplate.second{margin-top:44px}
+  .duo-photo .fplate figure{aspect-ratio:5/6}
+  .duo-photo .fplate img{height:100%;object-fit:cover}
+  @media(max-width:900px){.duo-photo .fplate.second{margin-top:0}}
   .voices{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
   .vcard{border:1px solid var(--line);border-radius:14px;padding:30px 28px;background:var(--bg)}
-  .vcard .vname{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-.01em}
+  .vcard.a{border-top:4px solid var(--red)}
+  .vcard.b{border-top:4px solid var(--ink)}
+  .vcard .vname{font-family:var(--disp);font-weight:700;font-size:26px;letter-spacing:-.015em}
   .vcard .vrole{margin-top:4px;font-size:14px;color:var(--muted)}
   .vcard .vbody{margin-top:16px;color:var(--ink-2);font-size:16px}
   @media(max-width:900px){.voices{grid-template-columns:1fr}}
@@ -44,39 +45,50 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="kicker reveal">Built for two founders, handed over, and running in their own hands since</div>
+        <div class="kicker reveal">Two founders. One engine. Running since February.</div>
         <h1 class="hero-h1 reveal d1">
-          <span class="big"><span class="num">February.</span></span>
+          <span class="big">Both</span>
+          <span class="big"><span class="num swipe">voices.<svg viewBox="0 0 300 24" aria-hidden="true"><path d="M6 16 C 70 6, 180 4, 294 12"/></svg></span></span>
         </h1>
-        <p class="hero-sub reveal d2">Lemonade is a London growth agency with <strong>two founders who both publish</strong>. We built them one engine that drafts as either man, taught it both voices, and handed them the keys. It has run without us ever since.</p>
+        <p class="hero-sub reveal d2">Lemonade is a London growth agency with <strong>two founders who both publish</strong>. One engine runs for the pair of them, drafting as either man, in his own voice, to his own account. Live since February 2026.</p>
       </div>
       <div class="duo-photo reveal d1">
-        <figure>
-          <img src="assets/david-dinsmore.webp" alt="David Dinsmore, co-founder of Lemonade" width="500" height="560">
-          <figcaption>David Dinsmore</figcaption>
-        </figure>
-        <figure class="second">
-          <img src="assets/billy-mackie.webp" alt="Billy Mackie, co-founder of Lemonade" width="500" height="559">
-          <figcaption>Billy Mackie</figcaption>
-        </figure>
+        <div class="fplate">
+          <figure><img src="assets/david-dinsmore.webp" alt="David Dinsmore, co-founder of Lemonade" width="500" height="560"></figure>
+          <div class="fcap"><b>David</b> Dinsmore</div>
+        </div>
+        <div class="fplate second">
+          <figure><img src="assets/billy-mackie.webp" alt="Billy Mackie, co-founder of Lemonade" width="500" height="559"></figure>
+          <div class="fcap"><b>Billy</b> Mackie</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <div class="marq-chunk"><span>David's voice</span><span class="tick">&bull;</span><span>Billy's voice</span><span class="tick">&bull;</span><span>One shared brand</span><span class="tick">&bull;</span><span>Six lead magnet formats</span><span class="tick">&bull;</span><span>Every commenter scored</span><span class="tick">&bull;</span></div>
+    <div class="marq-chunk"><span>David's voice</span><span class="tick">&bull;</span><span>Billy's voice</span><span class="tick">&bull;</span><span>One shared brand</span><span class="tick">&bull;</span><span>Six lead magnet formats</span><span class="tick">&bull;</span><span>Every commenter scored</span><span class="tick">&bull;</span></div>
+  </div>
+</div>
+
 <!-- WHO -->
 <section class="who">
+  <div class="ghost">01</div>
   <div class="wrap">
+    <div class="shead reveal"><div class="lane">The problem</div><div class="sidxn">01 / 05</div></div>
     <h2 class="lead reveal">The two-founder problem.</h2>
     <p class="say reveal d1">David and Billy run Lemonade together. Both of them post. Both of them sell. The brand has <strong>one point of view</strong>, but the two of them do not sound remotely alike, and a feed where they blur into one another is a feed nobody believes.</p>
-    <p class="say reveal d1">Most content tooling has exactly one voice setting. That is the thing that had to be solved before anything else was worth building.</p>
+    <p class="say reveal d1">Most content tooling has exactly one voice setting. That is the thing that had to be solved before anything else was worth running.</p>
     <div class="voices">
-      <div class="vcard reveal">
+      <div class="vcard a reveal">
         <div class="vname">David</div>
         <div class="vrole">Co-founder &middot; his own voice profile</div>
         <p class="vbody">Drafts written as David publish to David's account, on David's schedule.</p>
       </div>
-      <div class="vcard reveal d1">
+      <div class="vcard b reveal d1">
         <div class="vname">Billy</div>
         <div class="vrole">Co-founder &middot; his own voice profile</div>
         <p class="vbody">Drafts written as Billy publish to Billy's account, on Billy's schedule.</p>
@@ -87,7 +99,9 @@
 
 <!-- THE VOICE STACK -->
 <section class="loop" id="loop">
+  <div class="ghost">02</div>
   <div class="wrap">
+    <div class="shead reveal"><div class="lane" style="color:#ff6a4d">The voice stack</div><div class="sidxn">02 / 05</div></div>
     <div class="loop-head">
       <div>
         <h2 class="lead reveal">Three layers, so both men sound like themselves.</h2>
@@ -99,7 +113,7 @@
       </div>
     </div>
     <div class="rail"><div class="rail-fill"></div></div>
-    <div class="flow" id="flow" style="grid-template-columns:repeat(3,1fr)">
+    <div class="flow cols-3" id="flow">
       <div class="fstep"><div class="fn">Layer 1 &middot; Brand</div><div class="ft">Lemonade's shared point of view. What the company argues, what it will never say.</div></div>
       <div class="fstep"><div class="fn">Layer 2 &middot; Author</div><div class="ft">David's voice or Billy's voice. Their own rhythm, their own tells, their own words.</div></div>
       <div class="fstep"><div class="fn">Layer 3 &middot; Task</div><div class="ft">What this particular piece has to do. Hook, format, angle, length.</div></div>
@@ -110,8 +124,9 @@
 
 <!-- POST ENGINE -->
 <section>
+  <div class="ghost">03</div>
   <div class="wrap">
-    <div class="lane reveal">Engine 1 &middot; Posts</div>
+    <div class="shead reveal"><div class="lane">Engine 1 &middot; Posts</div><div class="sidxn">03 / 05</div></div>
     <h2 class="lead reveal">Idea to scheduled post, with four checks on the way.</h2>
     <p class="say reveal d1">Topics arrive on their own. A draft is written in the right man's voice. It gets graded before either founder ever reads it. <strong>Their job is to approve.</strong></p>
     <div class="stack">
@@ -123,17 +138,18 @@
       <div class="srow reveal"><div class="sidx">06</div><div class="sname">Scheduled</div><div class="sdesc">Approved posts go to the right founder's account at the time they set. One move, done.</div></div>
     </div>
     <div class="note reveal">
-      <b>The steering rule they liked most.</b> One sentence of direction on a task overrides the editorial take entirely. Say nothing and it runs on its own read. That single behaviour is what made it something they actually kept using.
+      <b>The steering rule they use most.</b> One sentence of direction on a task overrides the editorial take entirely. Say nothing and it runs on its own read. Either way a draft is waiting, in the right voice.
     </div>
   </div>
 </section>
 
 <!-- LM ENGINE -->
 <section class="lm-sec">
+  <div class="ghost">04</div>
   <div class="wrap">
-    <div class="lane reveal">Engine 2 &middot; Lead magnets</div>
-    <h2 class="lead reveal"><span class="num">6</span> formats, built end to end.</h2>
-    <p class="say reveal d1">Not a document with a cover on it. Approve a lead magnet and every piece of it is produced at once: the asset itself, the launch post, the email, the page copy, the DM replies and the cover.</p>
+    <div class="shead reveal"><div class="lane">Engine 2 &middot; Lead magnets</div><div class="sidxn">04 / 05</div></div>
+    <h2 class="lead reveal"><span class="num swipe">6<svg viewBox="0 0 300 24" aria-hidden="true"><path d="M6 16 C 70 6, 180 4, 294 12"/></svg></span> formats, built end to end.</h2>
+    <p class="say reveal d1">Not a document with a cover on it. When a lead magnet is approved, every piece of it is produced at once: the asset itself, the launch post, the email, the page copy, the DM replies and the cover.</p>
     <div class="trio">
       <div class="tcard reveal">
         <div class="ttitle">Calculators, checklists, templates</div>
@@ -148,14 +164,15 @@
         <p class="tbody">A self-scoring tool a reader actually completes, which is the version that earns an email address worth having.</p>
       </div>
     </div>
-    <p class="b-cap reveal">When a lead magnet goes live, <b>its promotional post is created for them automatically</b> and lands in the post engine, ready to approve.</p>
+    <p class="b-cap reveal">When a lead magnet goes live, <b>its promotional post is created automatically</b> and lands in the post engine, ready to approve.</p>
   </div>
 </section>
 
 <!-- LEAD CAPTURE -->
 <section class="strip">
+  <div class="ghost">05</div>
   <div class="wrap">
-    <div class="lane reveal">Engine 3 &middot; Capture</div>
+    <div class="shead reveal"><div class="lane">Engine 3 &middot; Capture</div><div class="sidxn">05 / 05</div></div>
     <h2 class="lead reveal">Every commenter scored, not just collected.</h2>
     <p class="say reveal d1">When a post asks readers to comment for the asset, everyone who does gets it. Then the interesting half of the job starts.</p>
     <div class="trio">
@@ -175,19 +192,27 @@
   </div>
 </section>
 
-<!-- OWN SPLIT -->
-<section>
+<!-- OUTCOME BAND -->
+<section class="outcome2">
   <div class="wrap">
-    <h2 class="lead reveal">Then we handed it over.</h2>
-    <p class="say reveal d1">This one was a build, not a run-for-you plan. They wanted to own the thing and operate it themselves, so that is what they bought.</p>
+    <div class="o2-kick reveal">Since February 2026</div>
+    <div class="o2-big reveal d1">Two feeds. Two voices.<br><span class="hot">One engine.</span></div>
+    <p class="o2-sub reveal d2">Running for both founders since February. Topics arrive, drafts land in the right voice, lead magnets ship under their brand, commenters get scored into their list. <strong>Their job is a yes.</strong></p>
+  </div>
+</section>
+
+<!-- OWN SPLIT -->
+<section class="who">
+  <div class="wrap">
+    <h2 class="lead reveal">What Lemonade keeps.</h2>
     <div class="split-grid">
       <div class="scard keep reveal">
-        <div class="stitle">Theirs</div>
-        <p class="sbody">The engine, the accounts, the domain, the list, the voice documents. Written in plain language they can edit without asking anyone. <strong>No lock-in of any kind.</strong></p>
+        <div class="stitle">Theirs, for good</div>
+        <p class="sbody">Both accounts, both audiences, the domain the resources sit on and <strong>the email list the engine captures</strong>. All of it stays theirs.</p>
       </div>
       <div class="scard run reveal d1">
-        <div class="stitle">The proof</div>
-        <p class="sbody">It has been <strong>running in their hands since February 2026</strong>, without us in the loop. A build that survives the handover is the only kind that counts.</p>
+        <div class="stitle">Handled for them</div>
+        <p class="sbody">The topics, the drafting in two voices, the lead magnets across six formats, the scoring of every commenter. <strong>Run for the pair of them</strong> since February.</p>
       </div>
     </div>
     <!-- QUOTE SLOT. Layout is ready and styled. Uncomment and paste David's or Billy's
@@ -205,15 +230,15 @@
 <!-- CLOSE -->
 <section class="close">
   <div class="wrap">
-    <h2 class="lead reveal">Two ways to have this.</h2>
-    <p class="say reveal d1">Lemonade bought the build and run it themselves. Most people would rather never touch it, and have the whole thing run for them instead.</p>
+    <h2 class="lead reveal">The same plan, run for you.</h2>
+    <p class="say reveal d1">One founder or two, the engine does not care. Your voice, your brand, your list, and nothing on your plate but a yes.</p>
     <div class="plan reveal d1">
       <div class="plan-item"><span class="arrow">&rarr;</span><span>Posts in your voice, or in each founder's voice</span></div>
       <div class="plan-item"><span class="arrow">&rarr;</span><span>Lead magnets built end to end, published on your domain</span></div>
       <div class="plan-item"><span class="arrow">&rarr;</span><span>Commenters scored against your ICP before they hit your list</span></div>
-      <div class="plan-item"><span class="arrow">&rarr;</span><span>Run for you monthly, or built and handed to you outright</span></div>
-      <div class="plan-job">Either way, <strong>the audience and the list are yours</strong>.</div>
-      <div class="plan-price">Run for you from <span class="num">$2k a month</span>. Builds quoted per scope.</div>
+      <div class="plan-item"><span class="arrow">&rarr;</span><span>A newsletter working the list the engine captures</span></div>
+      <div class="plan-job">Nothing for you to <strong>write, design or schedule</strong>.</div>
+      <div class="plan-price">From <span class="num">$2k a month</span>, fixed.</div>
     </div>
     <a class="btn reveal d2" href="https://calendly.com/im-ivanmanfredi/30min">Book a call</a>
     <a class="quiet reveal d2" href="/case-studies/">See the other case studies</a>
@@ -223,7 +248,7 @@
 <footer class="site">
   <div class="wrap">
     <div class="mark">INBOUND <span class="on">ON</span> STEROIDS</div>
-    <div class="fnote">Case study published July 2026. Engine live in the client's hands since February 2026.</div>
+    <div class="fnote">Case study published July 2026. Engine live since February 2026.</div>
   </div>
 </footer>
 
