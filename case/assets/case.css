@@ -513,3 +513,26 @@
   }
   .nextcase .arrow{color:#ff6a4d;display:inline-block;margin-left:.12em;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
   .nextcase:hover .arrow{transform:translateX(16px)}
+
+  /* ============================================================
+     v4 — de-card pass: boxes become editorial columns/rules.
+     ============================================================ */
+  .tcard{border:none;border-radius:0;background:transparent;padding:26px 0 0;border-top:2px solid var(--ink)}
+  .strip .tcard,.lm-sec .tcard{background:transparent}
+  .tcard .ttitle{font-size:20px}
+
+  .fstep{background:transparent;border:none;border-radius:0;border-left:2px solid rgba(255,255,255,.25);padding:4px 0 6px 18px;min-height:0}
+
+  .scard{border:none;border-radius:0;background:transparent;padding:26px 0 0}
+  .scard.keep{border-top:3px solid var(--red)}
+  .scard.run{border-top:3px solid var(--ink)}
+
+  .note{border:none;border-radius:0;background:transparent;border-left:3px solid var(--red);padding:6px 0 6px 24px}
+
+  .close .plan{border:none;border-radius:0;background:transparent;padding:0;max-width:520px}
+  .close .plan-item{border-bottom:1px solid rgba(255,255,255,.12);padding:13px 0}
+  .close .plan-job{border-top:none;margin-top:22px;padding-top:0}
+
+  .vcard{border:none !important;border-radius:0 !important;background:transparent !important;padding:26px 0 0 !important}
+  .vcard.a{border-top:3px solid var(--red) !important}
+  .vcard.b{border-top:3px solid var(--ink) !important}
