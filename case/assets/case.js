@@ -88,3 +88,16 @@
     } else { start(); }
   }
 })();
+
+// ---- index list: cursor-follow image reveal ----
+(function(){
+  if(!(window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches)) return;
+  document.querySelectorAll('.crow').forEach(function(row){
+    var img = row.querySelector('.cr-img');
+    if(!img) return;
+    row.addEventListener('mousemove', function(e){
+      img.style.left = (e.clientX + 36) + 'px';
+      img.style.top = (e.clientY - 110) + 'px';
+    });
+  });
+})();
