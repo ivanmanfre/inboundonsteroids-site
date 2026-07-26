@@ -125,7 +125,7 @@
 
     svg.appendChild(svgel('circle', { cx: 210, cy: 362, r: 5.5, fill: '#131210' }));
     svg.appendChild(T(224, 350, 'daily administration begins', { 'font-family': SERIF, 'font-weight': 400, 'font-style': 'italic', 'font-size': 17, 'text-anchor': 'start' }));
-    svg.appendChild(T(316, 268, 'the machine, daily', { 'font-family': SERIF, 'font-weight': 400, 'font-style': 'italic', 'font-size': 17, fill: '#C8361B', 'text-anchor': 'start', transform: 'rotate(-40 316 268)' }));
+    svg.appendChild(T(316, 268, 'run for you, daily', { 'font-family': SERIF, 'font-weight': 400, 'font-style': 'italic', 'font-size': 17, fill: '#C8361B', 'text-anchor': 'start', transform: 'rotate(-40 316 268)' }));
 
     mount.appendChild(svg);
 
@@ -185,7 +185,7 @@
     svg.appendChild(R(247, 117, 156, 96, { 'stroke-width': 1, fill: 'none' }));
     svg.appendChild(T(325, 158, 'CONTENT', { 'font-size': 17 }));
     svg.appendChild(T(325, 180, 'BRAIN', { 'font-size': 17 }));
-    svg.appendChild(T(325, 245, 'decides what to post', { 'font-family': SERIF, 'font-style': 'italic', 'font-weight': 400, 'font-size': 13.5, fill: '#6B675E' }));
+    svg.appendChild(T(325, 245, 'we decide what to post', { 'font-family': SERIF, 'font-style': 'italic', 'font-weight': 400, 'font-size': 13.5, fill: '#6B675E' }));
 
     // steps
     var stepNames = ['CONTEXT', 'FORMAT', 'HOOK', 'WRITE', 'QA', 'DE-SLOP'];
