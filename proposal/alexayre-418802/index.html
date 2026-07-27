@@ -30,8 +30,9 @@
     .pr-seclabel { font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
     .pr-seclabel .n { color: var(--red); margin-right: 8px; }
     .pr-sechead { font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.025em; line-height: 1.05; color: var(--ink); margin: 0 0 10px; }
-    .pr-secstrap { font-size: 15px; line-height: 1.55; color: var(--body-2); max-width: 760px; margin: 0 0 22px; }
+    .pr-secstrap { font-size: 15px; line-height: 1.55; color: var(--body-2); max-width: 780px; margin: 0 0 22px; }
     .pr-secstrap b { font-weight: 700; color: var(--ink); }
+    .pr-secstrap a { color: var(--red); font-weight: 800; text-decoration: none; }
 
     /* ---- option boxes ---- */
     .pr-grid { display: flex; gap: clamp(18px, 2.6vw, 30px); align-items: stretch; }
@@ -59,10 +60,12 @@
     .pr-terms b { font-weight: 700; color: var(--ink); }
 
     .pr-paylinks { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
-    .pr-pay { display: inline-block; padding: 12px 18px; font-weight: 800; font-size: 13.5px; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: 3px solid var(--ink); color: var(--ink); background: var(--paper); }
+    .pr-pay { display: inline-block; padding: 12px 18px; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: 3px solid var(--ink); color: var(--ink); background: var(--paper); }
     .pr-pay:hover { background: var(--ink); color: var(--paper); }
     .pr-pay--red { border-color: var(--red); color: var(--red); }
     .pr-pay--red:hover { background: var(--red); color: var(--paper); }
+    .pr-pay .sub { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--muted); margin-top: 3px; }
+    .pr-pay:hover .sub { color: inherit; opacity: 0.75; }
 
     /* ---- drawn plate: who does what ---- */
     .pr-plate {
@@ -86,7 +89,6 @@
 
     /* ---- screenshot cards ---- */
     .pr-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 24px); }
-    .pr-shots--two { grid-template-columns: 1.35fr 1fr; }
     .pr-shot { border: 4px solid var(--ink); outline: 1px solid var(--ink); outline-offset: 3px; background: var(--paper); }
     .pr-shot img { display: block; width: 100%; height: auto; }
     .pr-shot figcaption { padding: 12px 14px 13px; border-top: 2px solid var(--ink); }
@@ -110,7 +112,7 @@
 
     @media (max-width: 960px) {
       .pr-grid { flex-direction: column; }
-      .pr-shots, .pr-shots--two { grid-template-columns: 1fr; }
+      .pr-shots { grid-template-columns: 1fr; }
       .pr-steps { grid-template-columns: 1fr 1fr; }
       .pr-price { min-width: 100px; }
       .pr-wtable td .sub { display: none; }
@@ -133,17 +135,17 @@
           <div class="pr-for">Prepared for Alex Ayre &middot; from our call, Jul 27</div>
           <div class="pr-links">
             <a href="/audit/alexayre-418802/">Your <b>audience audit</b> &rarr;</a>
-            <a href="/compare/alexayre-418802/">The two configs, <b>side by side</b> &rarr;</a>
+            <a href="/compare/alexayre-418802/">The two plans, <b>side by side</b> &rarr;</a>
           </div>
         </div>
-        <div class="sec-label">BOTH OPTIONS, IN WRITING</div>
-        <h1 class="h1">Everything from the call.</h1>
-        <p class="sec-strap">Same numbers I said out loud, nothing new hiding in here. I run it for you month to month, or I build the machine into your stack once and it&rsquo;s yours. The part we didn&rsquo;t get to on the call is further down.</p>
+        <div class="sec-label">YOUR PROPOSAL</div>
+        <h1 class="h1">Your LinkedIn, run to booked calls.</h1>
+        <p class="sec-strap">Two plans, same numbers I said out loud on the call. On run-for-you I carry all of it: the writing, the resources, the outreach, the replies, the infra. On the build I wire the same system into your stack once, and it&rsquo;s yours.</p>
       </div>
 
       <!-- 01 · the two options -->
       <div class="pr-sec">
-        <div class="pr-seclabel"><span class="n">01</span>THE TWO OPTIONS</div>
+        <div class="pr-seclabel"><span class="n">01</span>PICK YOUR PLAN</div>
 
         <div class="pr-grid">
 
@@ -154,31 +156,32 @@
               <span class="warn-head">RUN FOR YOU &middot; MONTHLY</span>
             </div>
 
-            <p class="pr-lede">I take care of the content, the resources, the strategy, and the conversations. <b>Every tool and every AI cost runs on my side.</b> Your time in it is about 30 minutes a month with me, plus a shared Slack. Your agency stays out of the copy until January, exactly as we discussed.</p>
+            <p class="pr-lede">I write, I build, I send, I answer. <b>Every tool and infra cost runs on my side.</b> Your time in it is about 30 minutes a month plus a shared Slack, and your agency stays out of the copy until January, exactly as we discussed.</p>
 
             <div class="pr-rows">
               <div class="pr-row">
                 <div class="pr-price">$2,000<span class="u">/ mo</span></div>
                 <div>
-                  <div class="pr-rowname">Inbound Engine</div>
-                  <div class="pr-rowsub">Content, resources, list, profile. The compounding asset.</div>
+                  <div class="pr-rowname">Inbound</div>
+                  <div class="pr-rowsub">Reach and audience built first, then buyers captured by name. The asset that compounds and stays yours.</div>
                 </div>
               </div>
               <div class="pr-row">
                 <div class="pr-price pr-price--red">$3,000<span class="u">/ mo</span></div>
                 <div>
                   <div class="pr-rowname">Inbound + Outbound</div>
-                  <div class="pr-rowsub">Everything in the engine, <b>plus outreach from day one</b>. First calls land in month one rather than waiting on the ramp.</div>
+                  <div class="pr-rowsub">Everything in inbound, <b>plus first booked calls in month one</b> while the audience builds, compounding toward <b>6&ndash;12 calls a month</b>.</div>
                 </div>
               </div>
             </div>
 
             <div class="pr-spacer"></div>
 
-            <div class="pr-terms">Month to month, no build fee, cancel whenever. <b>3 months upfront takes 10% off</b>, ask me and I&rsquo;ll send that link instead. With outbound in, expect the first calls in month one, compounding toward <b>6&ndash;12 a month</b> as the inbound side catches up.
+            <div class="pr-terms">Month to month, no build fee, cancel whenever. The reallocation math you mentioned works in your favor here: every tool and infra dollar inside the monthly is mine, so the line this replaces on your side is the whole line.
               <div class="pr-paylinks">
                 <a class="pr-pay" href="https://buy.stripe.com/14A4grbmHcvTbxc2D9fEk17">Start &middot; $2k inbound</a>
-                <a class="pr-pay pr-pay--red" href="https://buy.stripe.com/eVq00b1M7cvTgRw7XtfEk18">Start &middot; $3k full engine</a>
+                <a class="pr-pay pr-pay--red" href="https://buy.stripe.com/eVq00b1M7cvTgRw7XtfEk18">Start &middot; $3k full</a>
+                <a class="pr-pay pr-pay--red" href="https://buy.stripe.com/3cIfZ962nanL8l0a5BfEk19">90 days &middot; $8,100<span class="sub">3 months upfront, 10% off</span></a>
               </div>
             </div>
           </div>
@@ -190,7 +193,7 @@
               <span class="warn-head">THE BUILD &middot; ONE-TIME</span>
             </div>
 
-            <p class="pr-lede">Same machine, built into your stack, and <b>you own it</b>: the automated post writing and the resource generation keep running for you, and the outreach sending stays automated. What sits with you after handover is the operating: you review and approve the content, you set the strategy, you run the DM conversations, and the tool costs sit on your side. <b>I stay the first month</b> testing it beside you on real sends, then hand over the keys.</p>
+            <p class="pr-lede">The same system, built into your stack, and <b>you own it</b>: post writing and resource generation keep producing for you, and the outreach sending keeps firing on schedule. What sits with you after handover is the operating: reviewing and approving content, setting strategy, and running the DM conversations, <b>two to three hours a week</b>. Tool costs sit on your side. <b>I stay the first month</b> running it beside you on real sends, then hand over the keys.</p>
 
             <div class="pr-rows">
               <div class="pr-row">
@@ -204,14 +207,14 @@
                 <div class="pr-price">$8,000</div>
                 <div>
                   <div class="pr-rowname">Inbound build</div>
-                  <div class="pr-rowsub">The content system: posts, resources, lead magnets, newsletter.</div>
+                  <div class="pr-rowsub">The content side: posts, resources, lead magnets, newsletter.</div>
                 </div>
               </div>
               <div class="pr-row">
                 <div class="pr-price pr-price--red">$12,000</div>
                 <div>
                   <div class="pr-rowname">Both</div>
-                  <div class="pr-rowsub">The full machine. <b>12 rather than 14</b> for taking it whole.</div>
+                  <div class="pr-rowsub">The whole thing. <b>12 rather than 14</b> for taking it whole.</div>
                 </div>
               </div>
             </div>
@@ -227,14 +230,14 @@
       <!-- 02 · who does what -->
       <div class="pr-sec">
         <div class="pr-seclabel"><span class="n">02</span>WHO DOES WHAT, EXACTLY</div>
-        <h2 class="pr-sechead">The machine is the same. The operator changes.</h2>
-        <p class="pr-secstrap">This is the line I drew on the call, in writing so there is no surprise later. On the build, <b>generation stays automated</b>, and the human work moves to your desk: a few hours a week. On run-for-you, that desk is mine.</p>
+        <h2 class="pr-sechead">One of us operates it. Pick which.</h2>
+        <p class="pr-secstrap">The line I drew on the call, in writing so nothing surprises you later. On run-for-you every row below is mine. On the build, production keeps running for you and the operating is yours, <b>two to three hours a week</b>.</p>
 
         <div class="pr-plate">
           <div class="pr-legend">
             <span class="pr-leg"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#131210"/></svg> ME</span>
             <span class="pr-leg"><svg width="14" height="14" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg> YOU</span>
-            <span class="pr-leg"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5 12.5 7 7 12.5 1.5 7Z" fill="none" stroke="#131210" stroke-width="2"/></svg> AUTOMATED</span>
+            <span class="pr-leg"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5 12.5 7 7 12.5 1.5 7Z" fill="none" stroke="#131210" stroke-width="2"/></svg> RUNS ON ITS OWN, IN YOUR STACK</span>
           </div>
           <table class="pr-wtable">
             <tr>
@@ -243,9 +246,14 @@
               <th class="c">The build</th>
             </tr>
             <tr>
-              <td>Posts + resources, written and produced<span class="sub">the engine drafts daily, in your voice, from your material</span></td>
+              <td>Posts + resources, written and produced<span class="sub">daily content in your voice, resources your ICP shares</span></td>
+              <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#131210"/></svg></td>
               <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5 12.5 7 7 12.5 1.5 7Z" fill="none" stroke="#131210" stroke-width="2"/></svg></td>
-              <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5 12.5 7 7 12.5 1.5 7Z" fill="none" stroke="#131210" stroke-width="2"/></svg></td>
+            </tr>
+            <tr>
+              <td>Strategy<span class="sub">what gets made, for whom, when to gate, where the reach goes next</span></td>
+              <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#131210"/></svg></td>
+              <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg></td>
             </tr>
             <tr>
               <td>Review + approval before anything posts</td>
@@ -253,13 +261,8 @@
               <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg></td>
             </tr>
             <tr>
-              <td>Content strategy, formats, what gets made<span class="sub">what to post, which resource to build next, when to gate</span></td>
+              <td>Outreach: sourcing, filtering, sends<span class="sub">connections, DMs, InMails from your seat, under the ceilings</span></td>
               <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#131210"/></svg></td>
-              <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg></td>
-            </tr>
-            <tr>
-              <td>Outreach sends + sequences<span class="sub">connections, DMs, InMails firing on schedule from your seat</span></td>
-              <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5 12.5 7 7 12.5 1.5 7Z" fill="none" stroke="#131210" stroke-width="2"/></svg></td>
               <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1.5 12.5 7 7 12.5 1.5 7Z" fill="none" stroke="#131210" stroke-width="2"/></svg></td>
             </tr>
             <tr>
@@ -268,7 +271,7 @@
               <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg></td>
             </tr>
             <tr>
-              <td>Tools, AI, infra costs</td>
+              <td>Tools + infra costs</td>
               <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#131210"/></svg></td>
               <td class="c"><svg width="14" height="14" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg></td>
             </tr>
@@ -280,31 +283,38 @@
             <tr>
               <td><b>Your time in it</b></td>
               <td class="c" style="font-weight:800">~30 min / month</td>
-              <td class="c" style="font-weight:800; color:var(--red)">a few hours / week</td>
+              <td class="c" style="font-weight:800; color:var(--red)">2&ndash;3 hours / week</td>
             </tr>
           </table>
         </div>
       </div>
 
-      <!-- 03 · already built -->
+      <!-- 03 · resources -->
       <div class="pr-sec">
-        <div class="pr-seclabel"><span class="n">03</span>ALREADY BUILT, WAITING FOR YOU</div>
-        <h2 class="pr-sechead">Your first resource exists.</h2>
-        <p class="pr-secstrap">I built it before we ever talked and we ran out of call before I could open it. <b>The Paid Media Maturity Score</b>: fifteen scored questions across five categories, and the material is yours, pulled from your own posts. The conversion-status change, the 120-leads-at-$40 campaign, the running back and the offensive line. Open it and read one question: <a href="https://resources.ivanmanfredi.com/merci-paid-media-maturity-score/" style="color:var(--red);font-weight:800;text-decoration:none">the live version &rarr;</a></p>
+        <div class="pr-seclabel"><span class="n">03</span>THE RESOURCES</div>
+        <h2 class="pr-sechead">Resources like this, under your name.</h2>
+        <p class="pr-secstrap">The free-tools play I showed you on the call, at full size. Below is a client&rsquo;s live tools hub: <b>25 calculators, no email gate</b>, built to get shared, and every share puts his name in front of buyers. Yours get built the same way, for people who hold a media budget. And your first one already exists: <a href="https://resources.ivanmanfredi.com/merci-paid-media-maturity-score/">open it &rarr;</a></p>
 
-        <div class="pr-shots pr-shots--two">
+        <div class="pr-shots">
           <figure class="pr-shot" style="margin:0">
-            <img src="assets/lm-hero.jpg" alt="The Paid Media Maturity Score, live" loading="lazy">
+            <img src="assets/rise-tools-hero.jpg" alt="A client's live free tools hub" loading="lazy">
             <figcaption>
-              <div class="cap-t">Live right now</div>
-              <div class="cap-s">Scores the reader, names the two categories worth fixing first, and captures the email on the way. On a go it ships under your domain, and if it needs to stay agency-silent until January, it skins to your personal brand instead.</div>
+              <div class="cap-t">A client&rsquo;s hub, live now</div>
+              <div class="cap-s">25 calculators in the browser, 9 more that run in Claude, <b>zero email required</b>. Ungated is what grows reach at your stage; capture comes once the room is worth gating.</div>
             </figcaption>
           </figure>
           <figure class="pr-shot" style="margin:0">
-            <img src="assets/lm-question.jpg" alt="One of the fifteen questions" loading="lazy">
+            <img src="assets/rise-tools-grid.jpg" alt="Custom-drawn tools, family by family" loading="lazy">
             <figcaption>
-              <div class="cap-t">Built from your posts</div>
-              <div class="cap-s">Every question reads like you because the source material is you. This is what the engine does with a client&rsquo;s own writing.</div>
+              <div class="cap-t">Custom, drawn, his brand</div>
+              <div class="cap-s">Every tool designed for his buyer&rsquo;s actual questions. This caliber is the point: peers share it, buyers use it, and both put his name around.</div>
+            </figcaption>
+          </figure>
+          <figure class="pr-shot" style="margin:0">
+            <img src="assets/lm-hero.jpg" alt="The Paid Media Maturity Score, live" loading="lazy">
+            <figcaption>
+              <div class="cap-t">Yours, already live</div>
+              <div class="cap-s">The Paid Media Maturity Score: 15 scored questions built from <b>your own posts</b>. <a href="https://resources.ivanmanfredi.com/merci-paid-media-maturity-score/">Read one question &rarr;</a> On a go it ships under your domain, agency-silent until January if you want.</div>
             </figcaption>
           </figure>
         </div>
@@ -314,14 +324,14 @@
       <div class="pr-sec">
         <div class="pr-seclabel"><span class="n">04</span>WHAT YOU SAW ON THE CALL</div>
         <h2 class="pr-sechead">Your panel, already carrying your name.</h2>
-        <p class="pr-secstrap">The panel I walked you through, on your own demo board. This is the surface you supervise from: the week ahead, every piece reviewable before it goes out, and the outreach program with nothing hidden. <b>You can open it yourself</b>, same link as the call.</p>
+        <p class="pr-secstrap">The panel I walked you through, on your own demo board. This is where your 30 minutes a month happen: the week ahead visible, every piece reviewable before it goes out, and the outreach program with nothing hidden. <b>Open it yourself</b>, same link as the call.</p>
 
         <div class="pr-shots">
           <figure class="pr-shot" style="margin:0">
             <img src="assets/board-week.jpg" alt="The week view" loading="lazy">
             <figcaption>
               <div class="cap-t">The week, built ahead</div>
-              <div class="cap-s">Four to five pieces a week in your voice, formats rotated. Review is optional: a small edit if you want, approval and it goes.</div>
+              <div class="cap-s">4&ndash;5 pieces a week in your voice, formats rotated. Review is optional: a small edit if you want, or it just goes.</div>
             </figcaption>
           </figure>
           <figure class="pr-shot" style="margin:0">
@@ -350,15 +360,16 @@
           <div class="the-box pr-box">
             <div class="warn-row">
               <span class="warn-sq" aria-hidden="true"></span>
-              <span class="warn-head">THE INBOUND ENGINE &middot; BOTH CONFIGS</span>
+              <span class="warn-head">INBOUND &middot; IN BOTH PLANS</span>
             </div>
-            <p class="pr-lede" style="margin-bottom:16px">Built for where you are: ~500 connections, four buyers in the room per your audit, agency-silent until January.</p>
+            <p class="pr-lede" style="margin-bottom:16px">Built for where you are: ~500 connections, four buyers in the room per your audit, agency-silent until January. Job one is reach, then buyers.</p>
             <ul class="pr-inc">
+              <li>Content strategy planned for you <span>&middot; reach and following first, then aimed at the people who hold budget</span></li>
               <li>4&ndash;5 posts a week in your voice <span>&middot; text, carousels, and video scripts when you want to start shooting</span></li>
-              <li>Free ungated resources for your ICP first <span>&middot; that is what grows reach at your stage, gated comes once it compounds</span></li>
-              <li>Full LinkedIn audit + profile revamp, included <span>&middot; headline first, you called the current one a 30-minute version yourself</span></li>
-              <li>Newsletter on a list you own, once there is an audience to send to</li>
-              <li>Nurture on the people who engage <span>&middot; the warm room your audit says you don&rsquo;t have yet</span></li>
+              <li>Free ungated resources for your ICP <span>&middot; the growth lever at your stage, and every share travels your name</span></li>
+              <li>Full LinkedIn audit + profile revamp, included <span>&middot; so the profile converts the visits the content creates</span></li>
+              <li>Newsletter on a list you own, once there is an audience worth mailing</li>
+              <li>Nurture on the people who engage <span>&middot; engagers worked toward the calendar, by name</span></li>
               <li>The panel: week view, calendar, every piece reviewable, KPIs, leads, performance, strategy <span>&middot; invite whoever you want into it</span></li>
               <li>Shared Slack, and about 30 minutes a month of your time</li>
             </ul>
@@ -367,17 +378,16 @@
           <div class="the-box pr-box">
             <div class="warn-row">
               <span class="warn-sq" aria-hidden="true"></span>
-              <span class="warn-head">THE OUTBOUND LAYER &middot; $3K CONFIG</span>
+              <span class="warn-head">OUTBOUND &middot; $3K PLAN</span>
             </div>
-            <p class="pr-lede" style="margin-bottom:16px">From your Sales Navigator seat, at volumes that keep the seat safe, warm before cold.</p>
+            <p class="pr-lede" style="margin-bottom:16px">From your Sales Navigator seat, warm before cold, at volumes that keep the seat safe. This is the lane that books calls while inbound compounds.</p>
             <ul class="pr-inc">
-              <li class="pr-inc--new">~400 connection requests a month, 100 a week <span>&middot; the LinkedIn ceiling, run under on purpose</span></li>
-              <li class="pr-inc--new">50 InMails a month on the Sales Nav seat</li>
-              <li class="pr-inc--new">Warm outreach first: people engaging your posts, and your clients&rsquo; posts <span>&middot; the move I used on you, and you booked</span></li>
+              <li class="pr-inc--new">First booked calls in month one <span>&middot; compounding toward 6&ndash;12 a month combined as inbound catches up</span></li>
+              <li class="pr-inc--new">Warm outreach first: people engaging your posts, and your clients&rsquo; posts <span>&middot; the same move that got you and me talking</span></li>
+              <li class="pr-inc--new">~400 connection requests a month, 100 a week, plus 50 InMails <span>&middot; run under LinkedIn&rsquo;s ceiling on purpose</span></li>
               <li class="pr-inc--new">Every prospect filtered against the bar before anything sends <span>&middot; agency staff and recruiters cut</span></li>
-              <li class="pr-inc--new">Sequences fire automatically, I run the replies end to end <span>&middot; you get a Slack ping only when something needs you, and the system learns from it</span></li>
               <li class="pr-inc--new">A personalized resource on every cold touch <span>&middot; the same scan that got your attention</span></li>
-              <li class="pr-inc--new">First calls in month one, compounding toward 6&ndash;12 a month combined</li>
+              <li class="pr-inc--new">I run the replies end to end <span>&middot; you get a Slack ping only when something needs you</span></li>
             </ul>
           </div>
         </div>
@@ -391,27 +401,27 @@
         <div class="pr-steps">
           <div class="pr-step">
             <div class="num">01</div>
-            <div class="t">You chew on it</div>
-            <div class="s">Until <b>Thursday or Friday</b>, like you said. Everything on this page holds until then. The tool-budget math you mentioned is exactly the right frame: inside the monthly, every tool and AI dollar is mine.</div>
+            <div class="t">Pick a plan</div>
+            <div class="s">You said <b>Thursday or Friday</b>. Both plans and all numbers on this page hold until then.</div>
           </div>
           <div class="pr-step">
             <div class="num">02</div>
             <div class="t">Answer on the DMs</div>
-            <div class="s">A config name is enough. Questions are also a fine answer, I&rsquo;d rather handle them now than have them sit.</div>
+            <div class="s">A plan name is enough. Questions are also a fine answer, I&rsquo;d rather handle them now than have them sit.</div>
           </div>
           <div class="pr-step">
             <div class="num">03</div>
             <div class="t">Payment, panel, go</div>
-            <div class="s">Stripe link above, or the <b>90-day link with 10% off</b> if you want it. You get panel access the same day.</div>
+            <div class="s">Any of the three links above. <b>You get panel access the same day.</b></div>
           </div>
           <div class="pr-step">
             <div class="num">04</div>
-            <div class="t">We start next week</div>
-            <div class="s">First weeks go to reach, following, and the profile revamp. <b>With outbound in, the outreach starts day one</b>, warm before cold, from your seat.</div>
+            <div class="t">Onboarding call</div>
+            <div class="s">One working session: <b>we lock your ICP together</b>, who exactly the content courts and the outreach hunts. Seat connect takes 2 minutes, zero passwords. Photos, voice notes, brand guardrails. Content starts the week after, <b>outreach day one</b> if outbound is in.</div>
           </div>
         </div>
 
-        <p class="pr-buildnote"><b>If you go the build route instead:</b> first thing that happens is scope and acceptance criteria in writing, so done means the same thing to both of us. Then the invoice, then the build, then a month of me running it beside you on real sends, then the keys. After that it is your machine, your data, your audience, and no monthly to me.</p>
+        <p class="pr-buildnote"><b>If you go the build route instead:</b> first thing that happens is scope and acceptance criteria in writing, so done means the same thing to both of us. Then the invoice, then the build, then a month of me running it beside you on real sends, then the keys. After that it is yours: your stack, your data, your audience, no monthly to me.</p>
       </div>
 
       <div class="pr-colophon">Prepared by InboundOnSteroids &middot; run by Iv&aacute;n Manfredi &middot; Jul 27, 2026</div>
