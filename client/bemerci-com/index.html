@@ -86,18 +86,54 @@
         }
       }(window.location))
     </script>
-  <script type="module" crossorigin="" src="/client/assets/index-DZdHNU3A.js"></script>
+  <script type="module" crossorigin="" src="/client/assets/index-BSnZ4DLG.js"></script>
   <link rel="modulepreload" crossorigin="" href="/client/assets/vendor-react-CBNdsNPG.js">
   <link rel="modulepreload" crossorigin="" href="/client/assets/vendor-motion-Bb7jJ0MV.js">
   <link rel="modulepreload" crossorigin="" href="/client/assets/vendor-supabase-yKjPlrCh.js">
-  <link rel="stylesheet" crossorigin="" href="/client/assets/index-bQ2CdseV.css">
-<link rel="manifest" href="/client/manifest.webmanifest"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/ClientBoardPage-sX6OvgEW.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/LiveAssessmentEmbed-dVoL6P33.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/LinkedInPostPreview-BYc99Jb2.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/useGoogleFonts-CcXDFqkX.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/globe-CziBkZla.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/thumbs-up-DmmlhuCH.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/repeat-2-BXJf7iVP.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/send-C15BVl-6.js"><link id="client-board-ui-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;display=swap"><link id="client-board-blackbox-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,600&amp;display=swap"><link id="client-board-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&amp;display=swap"><meta name="robots" content="noindex, nofollow"><meta name="x-prerendered" content="2026-08-01T12:00:51.289Z"></head>
+  <link rel="stylesheet" crossorigin="" href="/client/assets/index-LspO1L1G.css">
+<link rel="manifest" href="/client/manifest.webmanifest"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/ClientBoardPage-DT3cxKPk.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/LiveAssessmentEmbed-dVoL6P33.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/LinkedInPostPreview-Di9APpKt.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/useGoogleFonts-CcXDFqkX.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/globe-aoi2aux6.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/thumbs-up-CEJH14Vt.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/repeat-2-BK6onqLM.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/send-cI9Uj5_M.js"><link id="client-board-ui-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;display=swap"><link id="client-board-desk-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@300;400;500;600;700;800&amp;display=swap"><link id="client-board-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&amp;display=swap"><link id="client-board-blackbox-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,600&amp;display=swap"><meta name="robots" content="noindex, nofollow"><meta name="x-prerendered" content="2026-08-01T16:43:49.891Z"></head>
   <body>
     <div id="root"><style>
 @keyframes cb-pulse { 0%,100% { opacity:1; transform:scale(1) } 50% { opacity:.35; transform:scale(.72) } }
 .cb-pulse { animation: cb-pulse 1.6s ease-in-out infinite; }
 @keyframes cb-rowgrow { 0% { opacity:0; transform:translateY(-10px) scaleY(.92) } 100% { opacity:1; transform:translateY(0) scaleY(1) } }
 @media (prefers-reduced-motion: reduce) { .cb-pulse { animation: none !important } }
+
+/* ============ DESK skin composition overrides (scoped) ============ */
+/* The drawn content-desk look. Same trick as blackbox: compiled Tailwind radii/shadows and
+   inline styles cannot be reached by CSS vars, so structure is enforced here rather than by
+   editing hundreds of class strings. Rule of the skin: soft rounded paper, hairline rules,
+   no shadows, and numbers set in the display face big enough to read across a room. */
+[data-skin="desk"] * { box-shadow: none !important; }
+[data-skin="desk"] .cb-linkedin-preview { box-shadow: 0 1px 2px rgba(17,17,17,0.06) !important; }
+/* Paper corners: generous on cards, pill on chips/buttons. Tailwind's rounded-* utilities
+   are normalized so a card never renders half-square next to a drawn one. */
+[data-skin="desk"] .rounded, [data-skin="desk"] .rounded-md, [data-skin="desk"] .rounded-lg,
+[data-skin="desk"] .rounded-xl, [data-skin="desk"] .rounded-2xl, [data-skin="desk"] .rounded-3xl { border-radius: 25px !important; }
+[data-skin="desk"] .rounded-full { border-radius: 9999px !important; }
+[data-skin="desk"] .cb-linkedin-preview { border-radius: 14px !important; }
+[data-skin="desk"] .cb-linkedin-preview .rounded-full { border-radius: 9999px !important; }
+/* Eyebrows: the micro-label that opens every block. Wide tracking, heavy, muted. */
+[data-skin="desk"] .uppercase { font-weight: 800 !important; letter-spacing: 0.14em; }
+/* Numerals are the point of this board: display face, upright, tabular so columns line up. */
+[data-skin="desk"] .cb-num-serif { font-style: normal !important; font-weight: 700; font-variant-numeric: tabular-nums; }
+[data-skin="desk"] .cb-accent-phrase { font-style: normal !important; font-weight: 700; }
+/* Headlines: display face, light weight carrying the sentence, bold carrying the verdict. */
+[data-skin="desk"] h1, [data-skin="desk"] h2, [data-skin="desk"] h3,
+[data-skin="desk"] .cb-display { font-weight: 300 !important; letter-spacing: -0.015em; }
+[data-skin="desk"] h1 b, [data-skin="desk"] h2 b, [data-skin="desk"] h3 b,
+[data-skin="desk"] h1 strong, [data-skin="desk"] h2 strong, [data-skin="desk"] .cb-display b { font-weight: 700 !important; }
+/* The dark proof plate: one per panel, carrying that panel's single most important number. */
+[data-skin="desk"] .cb-plate { background: var(--cb-plate, #333) !important; color: var(--cb-plate-ink, #fff) !important; border-color: var(--cb-plate, #333) !important; }
+[data-skin="desk"] .cb-plate .cb-plate-mute { color: var(--cb-plate-mute, #96968F) !important; }
+[data-skin="desk"] .cb-plate hr, [data-skin="desk"] .cb-plate .cb-plate-rule { border-color: var(--cb-plate-line, rgba(255,255,255,0.14)) !important; }
+/* Honest blanks read as drawn placeholders, never as a zero. */
+[data-skin="desk"] .cb-blank { border: 2px dashed var(--cb-line-bold) !important; background: repeating-linear-gradient(45deg, rgba(17,17,17,0.045) 0 4px, rgba(17,17,17,0) 4px 9px) !important; }
+/* Motion is a courtesy, not a feature: quiet lift on the things you can actually click. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-skin="desk"] .cb-liftable { transition: transform .15s ease, border-color .15s ease; }
+  [data-skin="desk"] .cb-liftable:hover { transform: translateY(-1px); }
+}
 
 /* ============ BLACK BOX skin composition overrides (scoped) ============ */
 /* Tailwind rounded and shadow utilities plus inline radii are compiled, so CSS vars
