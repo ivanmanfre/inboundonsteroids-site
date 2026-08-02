@@ -86,12 +86,12 @@
         }
       }(window.location))
     </script>
-  <script type="module" crossorigin="" src="/client/assets/index-CwLk1reA.js"></script>
+  <script type="module" crossorigin="" src="/client/assets/index-BXtWpdYC.js"></script>
   <link rel="modulepreload" crossorigin="" href="/client/assets/vendor-react-CBNdsNPG.js">
   <link rel="modulepreload" crossorigin="" href="/client/assets/vendor-motion-Bb7jJ0MV.js">
   <link rel="modulepreload" crossorigin="" href="/client/assets/vendor-supabase-yKjPlrCh.js">
   <link rel="stylesheet" crossorigin="" href="/client/assets/index-C2e9m2ab.css">
-<link rel="manifest" href="/client/manifest.webmanifest"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/ClientBoardPage-BCJcO363.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/LiveAssessmentEmbed-dVoL6P33.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/LinkedInPostPreview-D2nUogxN.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/useGoogleFonts-CcXDFqkX.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/globe-DGrADvhJ.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/thumbs-up--t_PGEKU.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/repeat-2-hW-tidYX.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/send-Cw412rB_.js"><link id="client-board-ui-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;display=swap"><link id="client-board-desk-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@300;400;500;600;700;800&amp;display=swap"><link id="client-board-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&amp;display=swap"><link id="client-board-blackbox-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,600&amp;display=swap"><meta name="robots" content="noindex, nofollow"><meta name="x-prerendered" content="2026-08-02T15:08:18.026Z"></head>
+<link rel="manifest" href="/client/manifest.webmanifest"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/ClientBoardPage-DKVdazHa.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/LiveAssessmentEmbed-dVoL6P33.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/LinkedInPostPreview-VRv5KhoO.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/useGoogleFonts-CcXDFqkX.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/globe-WG8H8ywy.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/thumbs-up-ICOsozW1.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/repeat-2-DOcOtKeZ.js"><link rel="modulepreload" as="script" crossorigin="" href="/client/assets/send-WzJM9T6O.js"><link id="client-board-ui-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;display=swap"><link id="client-board-desk-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@300;400;500;600;700;800&amp;display=swap"><link id="client-board-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&amp;display=swap"><link id="client-board-blackbox-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,600&amp;display=swap"><meta name="robots" content="noindex, nofollow"><meta name="x-prerendered" content="2026-08-02T16:56:37.079Z"></head>
   <body>
     <div id="root"><style>
 @keyframes cb-pulse { 0%,100% { opacity:1; transform:scale(1) } 50% { opacity:.35; transform:scale(.72) } }
@@ -131,11 +131,21 @@
 [data-skin="desk"] .cb-plate hr, [data-skin="desk"] .cb-plate .cb-plate-rule { border-color: var(--cb-plate-line, rgba(255,255,255,0.14)) !important; }
 /* Honest blanks read as drawn placeholders, never as a zero. */
 [data-skin="desk"] .cb-blank { border: 2px dashed var(--cb-line-bold) !important; background: repeating-linear-gradient(45deg, rgba(17,17,17,0.045) 0 4px, rgba(17,17,17,0) 4px 9px) !important; }
-/* Motion is a courtesy, not a feature: quiet lift on the things you can actually click. */
+/* Motion, ported 1:1 from the approved static demo: cards lift -2px with a border shift,
+   the dark plate lifts with a shadow (re-granted past the skin's shadow kill), clickable
+   pills nudge -1px, sidebar items slide right, tab content fades in, bars grow (kit CSS).
+   All behind reduced-motion. */
 @media (prefers-reduced-motion: no-preference) {
-  [data-skin="desk"] .cb-liftable { transition: transform .15s ease, border-color .15s ease; }
+  [data-skin="desk"] .card, [data-skin="desk"] .cb-plate { transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+  [data-skin="desk"] .card:hover { transform: translateY(-2px); border-color: var(--cb-line-bold, #c9c9c2); }
+  [data-skin="desk"] .cb-plate:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(17,17,17,0.16) !important; }
+  [data-skin="desk"] .cb-liftable { transition: transform .15s ease, background .15s ease, border-color .15s ease; }
   [data-skin="desk"] .cb-liftable:hover { transform: translateY(-1px); }
+  [data-skin="desk"] aside nav button { transition: background .15s ease, padding-left .15s ease; }
+  [data-skin="desk"] aside nav button:hover { padding-left: 28px; }
+  [data-skin="desk"] main [data-surface] { animation: cb-tabin .28s ease-out; }
 }
+@keyframes cb-tabin { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
 
 /* ============ BLACK BOX skin composition overrides (scoped) ============ */
 /* Tailwind rounded and shadow utilities plus inline radii are compiled, so CSS vars
