@@ -852,3 +852,17 @@ p { margin: 0; }
 .film-btn:hover { background: var(--red); }
 .film-scrub { height: 9px; background: rgba(19,18,16,.12); cursor: pointer; touch-action: none; }
 .film-scrub-fill { height: 100%; width: 0; background: var(--ink); }
+
+/* ---- OPEN LOOP (section seam that pulls into the next one) ---- */
+.openloop {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(17px, 1.8vw, 19px);
+  line-height: 1.5;
+  color: var(--body-2);
+  max-width: 52ch;
+  margin-top: clamp(28px, 3.2vw, 42px);
+  padding-left: 16px;
+  border-left: 3px solid var(--red);
+}
+.openloop-arrow { font-style: normal; color: var(--red); }
