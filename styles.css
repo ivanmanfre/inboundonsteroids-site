@@ -397,7 +397,7 @@ p { margin: 0; }
   font-family: var(--serif);
   font-size: 16.5px;
   color: var(--ink);
-  max-width: 720px;
+  max-width: 68ch;
 }
 .fig-num { font-weight: 700; }
 .fig-it { font-style: italic; }
