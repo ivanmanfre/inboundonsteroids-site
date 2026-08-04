@@ -79,6 +79,7 @@ p { margin: 0; }
   font-size: clamp(16px, 1.7vw, 18px);
   line-height: 1.5;
   color: var(--body-2);
+  max-width: 68ch;
 }
 
 .display-lg {
@@ -263,7 +264,7 @@ p { margin: 0; }
 .admin-cell--pad { padding-left: 26px; padding-right: 26px; border-left: 1px solid var(--ink); }
 .admin-label {
   font-weight: 700;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.14em;
   color: var(--muted);
 }
@@ -327,13 +328,24 @@ p { margin: 0; }
 }
 .rule-top { display: flex; flex-direction: column; gap: 34px; }
 
+/* Cadence. Visual beats (film, synthesis, specimens, case studies, close) get
+   room; prose-only passages compress. A dense passage earns a quiet one. */
+.section--beat {
+  padding-top: clamp(60px, 8.4vw, 108px);
+  padding-bottom: clamp(60px, 8.4vw, 108px);
+}
+.section--tight {
+  padding-top: clamp(32px, 3.6vw, 44px);
+  padding-bottom: clamp(32px, 3.6vw, 44px);
+}
+
 /* ---- 1 PRESENTING SYMPTOMS ---- */
 .two-flex { display: flex; gap: clamp(40px, 6vw, 80px); flex-wrap: wrap; }
 .sym-left { flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 .sym-right { flex: 1.2 1 440px; min-width: 0; display: flex; flex-direction: column; }
 .sym-item {
   font-weight: 400;
-  font-size: clamp(16.5px, 1.8vw, 18.5px);
+  font-size: clamp(16px, 1.7vw, 18px);
   line-height: 1.55;
   color: var(--ink);
   padding: 16px 0;
@@ -370,7 +382,7 @@ p { margin: 0; }
 .dose-key--red { color: var(--red); }
 .dose-body {
   font-weight: 400;
-  font-size: clamp(16.5px, 1.8vw, 18.5px);
+  font-size: clamp(16px, 1.7vw, 18px);
   line-height: 1.55;
   color: var(--ink);
   max-width: 760px;
@@ -400,7 +412,7 @@ p { margin: 0; }
 .mech-left { flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
 .mech-body {
   font-weight: 400;
-  font-size: clamp(16.5px, 1.8vw, 18.5px);
+  font-size: clamp(16px, 1.7vw, 18px);
   line-height: 1.6;
   color: var(--ink);
 }
@@ -425,7 +437,7 @@ p { margin: 0; }
 .faq-grid { gap: 42px clamp(40px, 6vw, 80px); }
 
 .mech-card { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--hairline); padding-top: 18px; }
-.card-head { font-weight: 800; font-size: clamp(19px, 2.1vw, 22px); color: var(--ink); }
+.card-head { font-weight: 800; font-size: clamp(19px, 2vw, 21px); color: var(--ink); }
 .card-body { font-weight: 400; font-size: clamp(16px, 1.7vw, 18px); line-height: 1.6; color: var(--body-2); }
 
 /* ---- Outcomes ---- */
@@ -451,7 +463,7 @@ p { margin: 0; }
 }
 .prepared-body { flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
 .prepared-name { font-weight: 800; font-size: clamp(28px, 3.2vw, 36px); letter-spacing: -0.02em; color: var(--ink); }
-.prepared-text { font-weight: 400; font-size: clamp(16.5px, 1.8vw, 18.5px); line-height: 1.6; color: var(--ink); max-width: 620px; }
+.prepared-text { font-weight: 400; font-size: clamp(16px, 1.7vw, 18px); line-height: 1.6; color: var(--ink); max-width: 620px; }
 .prepared-link {
   font-weight: 700;
   font-size: 19px;
@@ -780,7 +792,7 @@ p { margin: 0; }
   padding: 26px clamp(22px, 3vw, 34px);
   display: flex; flex-direction: column; gap: 14px;
 }
-.course-box-body { font-weight: 400; font-size: clamp(16.5px, 1.8vw, 18.5px); line-height: 1.5; color: var(--ink); max-width: 760px; }
+.course-box-body { font-weight: 400; font-size: clamp(16px, 1.7vw, 18px); line-height: 1.5; color: var(--ink); max-width: 760px; }
 .course-fig { font-weight: 800; color: var(--red); letter-spacing: -0.01em; }
 
 /* --- RUNNING LIVE case rows --- */
@@ -808,7 +820,7 @@ p { margin: 0; }
 .case-dot:nth-child(3) { background: rgba(255,255,255,0.10); }
 .case-frame img { display: block; width: 100%; height: auto; max-height: 540px; object-fit: cover; object-position: top; }
 .case-shotcap {
-  font-weight: 700; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 400; font-size: 13.5px; line-height: 1.45;
   color: var(--muted); text-align: center; margin-top: 12px;
 }
 .case-body { min-width: 0; display: flex; flex-direction: column; gap: 14px; }
