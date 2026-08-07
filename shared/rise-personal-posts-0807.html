@@ -1,41 +1,64 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>RISE DTC — personal posts for review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#0a66c2;--line:#e6e3dd}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f3f2ef;margin:0 auto;padding:30px 18px 70px;color:#191919;max-width:680px}
-.brand{font-size:10.5px;font-weight:800;letter-spacing:.24em;color:#8a8a8a;text-transform:uppercase;margin-bottom:16px}
-h1{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
-.small{font-size:12px;color:#777}
-.banner{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px;padding:13px 16px;font-size:13px;color:#555;line-height:1.55;margin-top:12px}
-.card{margin:32px 0}
-.chead{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
-.week{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--blue);color:#fff;border-radius:20px;padding:4px 11px}
-.ctitle{font-weight:650;font-size:14px;color:#3c3c3c;flex:1}
-.btn{font-size:12px;font-weight:600;border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:16px;padding:5px 13px;cursor:pointer;transition:background .12s,color .12s,border-color .12s}
-.btn:hover{background:#eaf3fb}
-.btn:active{background:var(--blue);color:#fff}
+:root{--ink:#131210;--red:#C8361B;--line:#e7e5e1}
+*{box-sizing:border-box}
+body{font-family:'Source Serif 4',Georgia,serif;background:#fff;margin:0;color:var(--ink)}
+.hero{background:var(--ink);color:#fff;padding:44px 24px 40px}
+.hwrap{max-width:1160px;margin:0 auto}
+.brand{font-family:'Schibsted Grotesk',sans-serif;font-size:11px;font-weight:800;letter-spacing:.26em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(28px,4.4vw,44px);line-height:1.04;margin:0;letter-spacing:-.015em}
+.swipe{position:relative;white-space:nowrap}
+.swipe i{font-style:normal;position:relative;z-index:1}
+.swipe::before{content:"";position:absolute;left:-.18em;right:-.18em;top:.5em;bottom:-.02em;background:var(--red);transform:skew(-6deg) rotate(-.6deg);z-index:0}
+.hero p{font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.78);max-width:640px;margin:16px 0 0}
+.hero b{color:#fff}
+.grid{max-width:1160px;margin:0 auto;padding:38px 24px 90px;display:grid;grid-template-columns:1fr 1fr;gap:34px 30px}
+@media(max-width:920px){.grid{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column}
+.chead{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.week{font-family:'Schibsted Grotesk',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:#fff;border-radius:20px;padding:5px 12px}
+.ctitle{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:14px;color:#3d3b38;flex:1}
+.btn{font-family:'Schibsted Grotesk',sans-serif;font-size:12px;font-weight:700;border:1.5px solid var(--ink);color:var(--ink);background:#fff;border-radius:18px;padding:5px 14px;cursor:pointer;transition:all .15s}
+.btn:hover{background:var(--ink);color:#fff}
 .btn.saved{background:#e8f5ec;border-color:#2e8b57;color:#2e8b57}
-.post{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.phead{display:flex;gap:11px;align-items:center;margin-bottom:11px}
-.avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#0a66c2,#0e4f92);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
-.sub{color:#777;font-size:12px}
-.pbody{font-size:14.5px;line-height:1.55;white-space:pre-wrap;outline:none;border-radius:8px;padding:6px;margin:-6px}
-.pbody:hover{background:#fcfbf7}
+.post{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 16px 8px;box-shadow:0 8px 30px rgba(19,18,16,.08);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;flex:1;display:flex;flex-direction:column}
+.phead{display:flex;gap:10px;margin-bottom:10px}
+.avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#0a66c2,#0e4f92);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0}
+.pmeta{display:flex;flex-direction:column;line-height:1.35;flex:1;min-width:0}
+.pname{font-size:14px;font-weight:600;color:rgba(0,0,0,.9)}
+.pdeg{font-weight:400;color:rgba(0,0,0,.55);font-size:13px}
+.psub{font-size:12px;color:rgba(0,0,0,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ptime{font-size:12px;color:rgba(0,0,0,.6);display:flex;align-items:center;gap:3px}
+.pdots{color:rgba(0,0,0,.55);font-weight:700;letter-spacing:1px}
+.pbody{font-size:14px;line-height:1.5;color:rgba(0,0,0,.9);white-space:pre-wrap;outline:none;border-radius:8px;padding:6px;margin:-6px}
+.pbody:hover{background:#faf9f6}
 .pbody:focus{background:#fbfaf2;box-shadow:0 0 0 2px #e5d67f inset}
-.pimgs{margin-top:12px;display:flex;gap:8px}
-.pimgs img{flex:1;min-width:0;max-width:49%;height:230px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
-.pimgs img:only-child{max-width:100%}
-.meta{font-size:12px;color:#6b6b6b;margin-top:8px;padding-left:10px;border-left:3px solid var(--line);line-height:1.5}
-@media(max-width:480px){.pimgs img{height:160px}}
+.pimgs{margin:12px -16px 0;display:flex;gap:2px}
+.pimgs:empty{display:none}
+.pimgs img{flex:1;min-width:0;height:250px;object-fit:cover}
+.pactions{display:flex;justify-content:space-around;border-top:1px solid var(--line);margin:10px -16px 0;padding:4px 8px 2px}
+.pactions span{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:rgba(0,0,0,.6);padding:8px 10px;border-radius:6px}
+.pactions span:hover{background:#f3f2ef}
+.pactions svg{opacity:.75}
 </style></head><body>
-<div class="brand">Inbound on Steroids</div>
-<h1>Personal posts — for your review</h1>
-<div class="banner">One personal post per week. Every line comes from things you've said on our calls or posted on your Instagram. Click into any post to edit it directly. It saves as you type, and the <b>Save</b> button confirms it. <b>Copy text</b> grabs your edited version for LinkedIn. If a detail is off, change it or tell us. The feed preview cuts around 210 characters.</div>
-
+<div class="hero"><div class="hwrap">
+  <div class="brand">Inbound on Steroids</div>
+  <h1>Your personal posts, ready to review. <span class="swipe"><i>One per week.</i></span></h1>
+  <p>Every line comes from your calls or your own Instagram. Click into any post and edit it right here: it saves as you type, <b>Save</b> confirms it, <b>Copy</b> grabs your edited version for LinkedIn. The feed preview cuts around 210 characters.</p>
+</div></div>
+<div class="grid">
 <div class="card" id="c1">
   <div class="chead"><span class="week">Week 1</span><span class="ctitle">Me and LinkedIn, honestly</span>
-    <button class="btn savebtn" onclick="saveNow('c1')">Save</button><button class="btn copybtn" onclick="copyPost('c1')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('c1')">Save</button><button class="btn copybtn" onclick="copyPost('c1')">Copy</button></div>
   <div class="post">
-    <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
+    <div class="phead">
+      <div class="avatar">MD</div>
+      <div class="pmeta"><span class="pname">Mattan Danino <span class="pdeg">· 1st</span></span>
+        <span class="psub">CEO @ RISE DTC</span>
+        <span class="ptime">2h · <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm4.9 6.5h-2a10.4 10.4 0 00-.7-3.4A5.6 5.6 0 0112.9 7.5zM8 13.6a9.6 9.6 0 01-1.4-4.7h2.8A9.6 9.6 0 018 13.6zM6.6 7.5a9.6 9.6 0 011.4-4.7 9.6 9.6 0 011.4 4.7zM5.8 4.1a10.4 10.4 0 00-.7 3.4h-2A5.6 5.6 0 015.8 4.1zM3.1 8.9h2a10.4 10.4 0 00.7 3.4A5.6 5.6 0 013.1 8.9zm7.1 3.4a10.4 10.4 0 00.7-3.4h2A5.6 5.6 0 0110.2 12.3z"/></svg></span></div>
+      <div class="pdots">···</div>
+    </div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-c1">The truth about me and LinkedIn 😅
 
 I do it for a couple months. Then I give up for six months. Then I do it again for a few weeks.
@@ -52,15 +75,22 @@ I can&#x27;t keep doing that, and I don&#x27;t have an ego about it.
 
 So this time you&#x27;ll see me here every week. Hold me to it 😅</div>
     <div class="pimgs"><img src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-photos/risedtc-com/ig-2017-03-04-digital-marketing-growth-strategy-main.jpg"></div>
-    
+    <div class="pactions">
+      <span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M12.9 8.1L9.4 12.5c-.3.4-.8.6-1.3.6H4.7c-.9 0-1.6-.7-1.6-1.6V7.3c0-.4.1-.7.4-1L7 2.3c.2-.3.6-.4.9-.2.5.2.8.8.7 1.3l-.6 2.5h4c.9 0 1.6.7 1.6 1.6 0 .2-.1.4-.2.6z"/></svg> Like</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M5 8h6M5 5.5h6M8 1C4.1 1 1 3.6 1 6.8c0 1.8 1 3.4 2.6 4.5L3 15l3.5-2c.5.1 1 .1 1.5.1 3.9 0 7-2.6 7-5.8S11.9 1 8 1z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg> Comment</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6V4.5A1.5 1.5 0 015.5 3H14m0 0l-2.5-2.5M14 3l-2.5 2.5M12 10v1.5a1.5 1.5 0 01-1.5 1.5H2m0 0l2.5 2.5M2 13l2.5-2.5"/></svg> Repost</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M1.5 1.5l13 6.5-13 6.5L4 8z"/></svg> Send</span>
+    </div>
   </div>
-  <div class="meta"><span class="counter" id="count-c1"></span> · Opens the series: it explains why you are suddenly here weekly. Photo: you mid-workshop, 2017.</div>
 </div>
 <div class="card" id="p3">
   <div class="chead"><span class="week">Week 2</span><span class="ctitle">The valuation trap</span>
-    <button class="btn savebtn" onclick="saveNow('p3')">Save</button><button class="btn copybtn" onclick="copyPost('p3')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('p3')">Save</button><button class="btn copybtn" onclick="copyPost('p3')">Copy</button></div>
   <div class="post">
-    <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
+    <div class="phead">
+      <div class="avatar">MD</div>
+      <div class="pmeta"><span class="pname">Mattan Danino <span class="pdeg">· 1st</span></span>
+        <span class="psub">CEO @ RISE DTC</span>
+        <span class="ptime">2h · <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm4.9 6.5h-2a10.4 10.4 0 00-.7-3.4A5.6 5.6 0 0112.9 7.5zM8 13.6a9.6 9.6 0 01-1.4-4.7h2.8A9.6 9.6 0 018 13.6zM6.6 7.5a9.6 9.6 0 011.4-4.7 9.6 9.6 0 011.4 4.7zM5.8 4.1a10.4 10.4 0 00-.7 3.4h-2A5.6 5.6 0 015.8 4.1zM3.1 8.9h2a10.4 10.4 0 00.7 3.4A5.6 5.6 0 013.1 8.9zm7.1 3.4a10.4 10.4 0 00.7-3.4h2A5.6 5.6 0 0110.2 12.3z"/></svg></span></div>
+      <div class="pdots">···</div>
+    </div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-p3">I&#x27;ve had a few pretty good conversations with buyers about selling my agency (they all ended the same way).
 
 Every one came back to the same issue 🤯
@@ -81,14 +111,22 @@ The trap is building an agency where everything runs through you. I only found o
 
 It&#x27;s still my fear on the agency side.</div>
     <div class="pimgs"><img src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-photos/risedtc-com/ig-2018-08-02-attention-is-the-asset-main.jpg"></div>
+    <div class="pactions">
+      <span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M12.9 8.1L9.4 12.5c-.3.4-.8.6-1.3.6H4.7c-.9 0-1.6-.7-1.6-1.6V7.3c0-.4.1-.7.4-1L7 2.3c.2-.3.6-.4.9-.2.5.2.8.8.7 1.3l-.6 2.5h4c.9 0 1.6.7 1.6 1.6 0 .2-.1.4-.2.6z"/></svg> Like</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M5 8h6M5 5.5h6M8 1C4.1 1 1 3.6 1 6.8c0 1.8 1 3.4 2.6 4.5L3 15l3.5-2c.5.1 1 .1 1.5.1 3.9 0 7-2.6 7-5.8S11.9 1 8 1z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg> Comment</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6V4.5A1.5 1.5 0 015.5 3H14m0 0l-2.5-2.5M14 3l-2.5 2.5M12 10v1.5a1.5 1.5 0 01-1.5 1.5H2m0 0l2.5 2.5M2 13l2.5-2.5"/></svg> Repost</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M1.5 1.5l13 6.5-13 6.5L4 8z"/></svg> Send</span>
+    </div>
   </div>
-  <div class="meta"><span class="counter" id="count-p3"></span> · Photo: you presenting, agency era.</div>
 </div>
 <div class="card" id="p1">
   <div class="chead"><span class="week">Week 3</span><span class="ctitle">The pilot license</span>
-    <button class="btn savebtn" onclick="saveNow('p1')">Save</button><button class="btn copybtn" onclick="copyPost('p1')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('p1')">Save</button><button class="btn copybtn" onclick="copyPost('p1')">Copy</button></div>
   <div class="post">
-    <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
+    <div class="phead">
+      <div class="avatar">MD</div>
+      <div class="pmeta"><span class="pname">Mattan Danino <span class="pdeg">· 1st</span></span>
+        <span class="psub">CEO @ RISE DTC</span>
+        <span class="ptime">2h · <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm4.9 6.5h-2a10.4 10.4 0 00-.7-3.4A5.6 5.6 0 0112.9 7.5zM8 13.6a9.6 9.6 0 01-1.4-4.7h2.8A9.6 9.6 0 018 13.6zM6.6 7.5a9.6 9.6 0 011.4-4.7 9.6 9.6 0 011.4 4.7zM5.8 4.1a10.4 10.4 0 00-.7 3.4h-2A5.6 5.6 0 015.8 4.1zM3.1 8.9h2a10.4 10.4 0 00.7 3.4A5.6 5.6 0 013.1 8.9zm7.1 3.4a10.4 10.4 0 00.7-3.4h2A5.6 5.6 0 0110.2 12.3z"/></svg></span></div>
+      <div class="pdots">···</div>
+    </div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-p1">It took me a little over three years to get my private pilot license 🛫
 
 Started lessons back in 2020 at Santa Monica. A year and a half of flying before they let me solo. Then more hours, a written exam and a checkride before the license finally came, end of 2023.
@@ -97,14 +135,22 @@ Nobody else could put in the hours for me, and there was no way to buy a shortcu
 
 The photos are from day one and from the day I got the license 🛩</div>
     <div class="pimgs"><img src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-photos/risedtc-com/ig-2020-08-04-pilot-training-day-1-main.jpg"><img src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-photos/risedtc-com/ig-2023-10-24-officially-a-private-pilot-main.jpg"></div>
+    <div class="pactions">
+      <span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M12.9 8.1L9.4 12.5c-.3.4-.8.6-1.3.6H4.7c-.9 0-1.6-.7-1.6-1.6V7.3c0-.4.1-.7.4-1L7 2.3c.2-.3.6-.4.9-.2.5.2.8.8.7 1.3l-.6 2.5h4c.9 0 1.6.7 1.6 1.6 0 .2-.1.4-.2.6z"/></svg> Like</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M5 8h6M5 5.5h6M8 1C4.1 1 1 3.6 1 6.8c0 1.8 1 3.4 2.6 4.5L3 15l3.5-2c.5.1 1 .1 1.5.1 3.9 0 7-2.6 7-5.8S11.9 1 8 1z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg> Comment</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6V4.5A1.5 1.5 0 015.5 3H14m0 0l-2.5-2.5M14 3l-2.5 2.5M12 10v1.5a1.5 1.5 0 01-1.5 1.5H2m0 0l2.5 2.5M2 13l2.5-2.5"/></svg> Repost</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M1.5 1.5l13 6.5-13 6.5L4 8z"/></svg> Send</span>
+    </div>
   </div>
-  <div class="meta"><span class="counter" id="count-p1"></span> · Photos: day one and license day.</div>
 </div>
 <div class="card" id="p2">
   <div class="chead"><span class="week">Week 4</span><span class="ctitle">The 30-employee agency</span>
-    <button class="btn savebtn" onclick="saveNow('p2')">Save</button><button class="btn copybtn" onclick="copyPost('p2')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('p2')">Save</button><button class="btn copybtn" onclick="copyPost('p2')">Copy</button></div>
   <div class="post">
-    <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
+    <div class="phead">
+      <div class="avatar">MD</div>
+      <div class="pmeta"><span class="pname">Mattan Danino <span class="pdeg">· 1st</span></span>
+        <span class="psub">CEO @ RISE DTC</span>
+        <span class="ptime">2h · <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm4.9 6.5h-2a10.4 10.4 0 00-.7-3.4A5.6 5.6 0 0112.9 7.5zM8 13.6a9.6 9.6 0 01-1.4-4.7h2.8A9.6 9.6 0 018 13.6zM6.6 7.5a9.6 9.6 0 011.4-4.7 9.6 9.6 0 011.4 4.7zM5.8 4.1a10.4 10.4 0 00-.7 3.4h-2A5.6 5.6 0 015.8 4.1zM3.1 8.9h2a10.4 10.4 0 00.7 3.4A5.6 5.6 0 013.1 8.9zm7.1 3.4a10.4 10.4 0 00.7-3.4h2A5.6 5.6 0 0110.2 12.3z"/></svg></span></div>
+      <div class="pdots">···</div>
+    </div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-p2">I used to have 29 or 30 employees, servicing about 100 clients.
 
 Sounds like a win, right?
@@ -121,14 +167,22 @@ I already ran the bigger version of this. I&#x27;m not trying to get back there.
 
 These days I just want us to be known as the guys who do this ONE thing, for the hundreds of brands who need that one thing.</div>
     <div class="pimgs"><img src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-photos/risedtc-com/ig-2017-09-28-the-webitmd-team-representing-main.jpg"><img src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-photos/risedtc-com/ig-2017-04-25-9-years-strong-and-main.jpg"></div>
+    <div class="pactions">
+      <span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M12.9 8.1L9.4 12.5c-.3.4-.8.6-1.3.6H4.7c-.9 0-1.6-.7-1.6-1.6V7.3c0-.4.1-.7.4-1L7 2.3c.2-.3.6-.4.9-.2.5.2.8.8.7 1.3l-.6 2.5h4c.9 0 1.6.7 1.6 1.6 0 .2-.1.4-.2.6z"/></svg> Like</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M5 8h6M5 5.5h6M8 1C4.1 1 1 3.6 1 6.8c0 1.8 1 3.4 2.6 4.5L3 15l3.5-2c.5.1 1 .1 1.5.1 3.9 0 7-2.6 7-5.8S11.9 1 8 1z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg> Comment</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6V4.5A1.5 1.5 0 015.5 3H14m0 0l-2.5-2.5M14 3l-2.5 2.5M12 10v1.5a1.5 1.5 0 01-1.5 1.5H2m0 0l2.5 2.5M2 13l2.5-2.5"/></svg> Repost</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M1.5 1.5l13 6.5-13 6.5L4 8z"/></svg> Send</span>
+    </div>
   </div>
-  <div class="meta"><span class="counter" id="count-p2"></span> · Photos from your Instagram, 2017. Use one or both.</div>
 </div>
 <div class="card" id="lg1">
   <div class="chead"><span class="week">Week 5</span><span class="ctitle">Client 50 of 50</span>
-    <button class="btn savebtn" onclick="saveNow('lg1')">Save</button><button class="btn copybtn" onclick="copyPost('lg1')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('lg1')">Save</button><button class="btn copybtn" onclick="copyPost('lg1')">Copy</button></div>
   <div class="post">
-    <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
+    <div class="phead">
+      <div class="avatar">MD</div>
+      <div class="pmeta"><span class="pname">Mattan Danino <span class="pdeg">· 1st</span></span>
+        <span class="psub">CEO @ RISE DTC</span>
+        <span class="ptime">2h · <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm4.9 6.5h-2a10.4 10.4 0 00-.7-3.4A5.6 5.6 0 0112.9 7.5zM8 13.6a9.6 9.6 0 01-1.4-4.7h2.8A9.6 9.6 0 018 13.6zM6.6 7.5a9.6 9.6 0 011.4-4.7 9.6 9.6 0 011.4 4.7zM5.8 4.1a10.4 10.4 0 00-.7 3.4h-2A5.6 5.6 0 015.8 4.1zM3.1 8.9h2a10.4 10.4 0 00.7 3.4A5.6 5.6 0 013.1 8.9zm7.1 3.4a10.4 10.4 0 00.7-3.4h2A5.6 5.6 0 0110.2 12.3z"/></svg></span></div>
+      <div class="pdots">···</div>
+    </div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-lg1">I once paid a lead gen agency 2,500 or 3,000 a month. Can&#x27;t even remember the exact number 😅
 
 Yes, an agency owner paying another agency for leads. I know.
@@ -143,14 +197,22 @@ And look, we run a playbook at RISE too, every brand we take gets the same core 
 
 The wild part is it worked, 50 clients say it worked. I still didn&#x27;t want to be one of them.</div>
     <div class="pimgs"><img src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-photos/risedtc-com/ig-2018-03-10-thrilled-to-introduce-to-main.jpg"></div>
+    <div class="pactions">
+      <span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M12.9 8.1L9.4 12.5c-.3.4-.8.6-1.3.6H4.7c-.9 0-1.6-.7-1.6-1.6V7.3c0-.4.1-.7.4-1L7 2.3c.2-.3.6-.4.9-.2.5.2.8.8.7 1.3l-.6 2.5h4c.9 0 1.6.7 1.6 1.6 0 .2-.1.4-.2.6z"/></svg> Like</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M5 8h6M5 5.5h6M8 1C4.1 1 1 3.6 1 6.8c0 1.8 1 3.4 2.6 4.5L3 15l3.5-2c.5.1 1 .1 1.5.1 3.9 0 7-2.6 7-5.8S11.9 1 8 1z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg> Comment</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6V4.5A1.5 1.5 0 015.5 3H14m0 0l-2.5-2.5M14 3l-2.5 2.5M12 10v1.5a1.5 1.5 0 01-1.5 1.5H2m0 0l2.5 2.5M2 13l2.5-2.5"/></svg> Repost</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M1.5 1.5l13 6.5-13 6.5L4 8z"/></svg> Send</span>
+    </div>
   </div>
-  <div class="meta"><span class="counter" id="count-lg1"></span> · Even better picture if you have it: an old invoice or email from that agency, screenshot with their name blurred. Until then this one runs with the photo above.</div>
 </div>
 <div class="card" id="nb1">
   <div class="chead"><span class="week">Week 6</span><span class="ctitle">The baby post</span>
-    <button class="btn savebtn" onclick="saveNow('nb1')">Save</button><button class="btn copybtn" onclick="copyPost('nb1')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('nb1')">Save</button><button class="btn copybtn" onclick="copyPost('nb1')">Copy</button></div>
   <div class="post">
-    <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
+    <div class="phead">
+      <div class="avatar">MD</div>
+      <div class="pmeta"><span class="pname">Mattan Danino <span class="pdeg">· 1st</span></span>
+        <span class="psub">CEO @ RISE DTC</span>
+        <span class="ptime">2h · <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor"><path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm4.9 6.5h-2a10.4 10.4 0 00-.7-3.4A5.6 5.6 0 0112.9 7.5zM8 13.6a9.6 9.6 0 01-1.4-4.7h2.8A9.6 9.6 0 018 13.6zM6.6 7.5a9.6 9.6 0 011.4-4.7 9.6 9.6 0 011.4 4.7zM5.8 4.1a10.4 10.4 0 00-.7 3.4h-2A5.6 5.6 0 015.8 4.1zM3.1 8.9h2a10.4 10.4 0 00.7 3.4A5.6 5.6 0 013.1 8.9zm7.1 3.4a10.4 10.4 0 00.7-3.4h2A5.6 5.6 0 0110.2 12.3z"/></svg></span></div>
+      <div class="pdots">···</div>
+    </div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-nb1">We just had our first baby 💙
 
 My wife had a C-section, last minute. Baby&#x27;s doing well, everything&#x27;s good, but the recovery from that is no joke. So I got to step up as the husband.
@@ -161,10 +223,12 @@ I&#x27;m juggling getting back to work at the same time. We&#x27;re learning eve
 
 Finding our rhythm.</div>
     <div class="pimgs"><img src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-photos/risedtc-com/ig-2026-05-08-oh-baby-main.jpg"></div>
+    <div class="pactions">
+      <span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M12.9 8.1L9.4 12.5c-.3.4-.8.6-1.3.6H4.7c-.9 0-1.6-.7-1.6-1.6V7.3c0-.4.1-.7.4-1L7 2.3c.2-.3.6-.4.9-.2.5.2.8.8.7 1.3l-.6 2.5h4c.9 0 1.6.7 1.6 1.6 0 .2-.1.4-.2.6z"/></svg> Like</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M5 8h6M5 5.5h6M8 1C4.1 1 1 3.6 1 6.8c0 1.8 1 3.4 2.6 4.5L3 15l3.5-2c.5.1 1 .1 1.5.1 3.9 0 7-2.6 7-5.8S11.9 1 8 1z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg> Comment</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6V4.5A1.5 1.5 0 015.5 3H14m0 0l-2.5-2.5M14 3l-2.5 2.5M12 10v1.5a1.5 1.5 0 01-1.5 1.5H2m0 0l2.5 2.5M2 13l2.5-2.5"/></svg> Repost</span><span><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M1.5 1.5l13 6.5-13 6.5L4 8z"/></svg> Send</span>
+    </div>
   </div>
-  <div class="meta"><span class="counter" id="count-nb1"></span> · Written from what you already tell people on calls. Edit it to sound exactly like you, this one most of all. Photo is the maternity shoot from your own feed — swap in a baby photo whenever you have one you want public, that is entirely your call.</div>
 </div>
-</body>
+</div>
 <script>
 const SB="https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/shared_page_edits";
 const ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI";
@@ -182,15 +246,12 @@ function copyPost(k){
 const timers={};
 async function doSave(k){
   const body=textOf(document.getElementById('body-'+k));
-  const c=document.getElementById('count-'+k);
   let ok=false;
   try{
     const r=await fetch(SB,{method:'POST',headers:{...H,'Prefer':'resolution=merge-duplicates'},
       body:JSON.stringify({page_slug:SLUG,item_key:k,body})});
     ok=r.ok;
   }catch(e){ ok=false; }
-  c.dataset.saved = ok ? 'Saved \u2713' : 'Not saved!';
-  refresh(k);
   return ok;
 }
 function save(k){
@@ -201,16 +262,11 @@ async function saveNow(k){
   clearTimeout(timers[k]);
   const b=document.querySelector('#'+k+' .savebtn');
   const ok=await doSave(k);
-  if(b){ const o=b.textContent;
+  if(b){
     b.textContent = ok ? 'Saved \u2713' : 'Retry';
     b.classList.toggle('saved', ok);
     setTimeout(()=>{ b.textContent='Save'; b.classList.remove('saved'); },1600);
   }
-}
-function refresh(k){
-  const t=textOf(document.getElementById('body-'+k));
-  const c=document.getElementById('count-'+k);
-  c.textContent=t.length+' chars'+(c.dataset.saved?' \u00b7 '+c.dataset.saved:'');
 }
 async function hydrate(){
   try{
@@ -221,9 +277,8 @@ async function hydrate(){
     }
   }catch(e){}
   for(const k of KEYS){
-    refresh(k);
-    document.getElementById('body-'+k).addEventListener('input',()=>{refresh(k);save(k);});
+    document.getElementById('body-'+k).addEventListener('input',()=>save(k));
   }
 }
 hydrate();
-</script></html>
+</script></body></html>
