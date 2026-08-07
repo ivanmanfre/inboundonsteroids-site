@@ -1,29 +1,39 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>RISE DTC — personal posts for review</title>
 <style>
-body{font-family:-apple-system,Segoe UI,sans-serif;background:#f3f2ef;margin:0;padding:24px;color:#191919;max-width:680px;margin:auto}
-h1{font-size:20px} .small{font-size:12px;color:#777}
-.card{margin:22px 0}
-.chead{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.week{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:#0a66c2;color:#fff;border-radius:20px;padding:3px 10px}
-.ctitle{font-weight:600;font-size:14px;color:#444;flex:1}
-.copybtn{font-size:12px;border:1px solid #0a66c2;color:#0a66c2;background:#fff;border-radius:16px;padding:4px 12px;cursor:pointer}
-.copybtn:active{background:#0a66c2;color:#fff}
-.post{background:#fff;border:1px solid #ddd;border-radius:10px;padding:16px}
-.phead{display:flex;gap:10px;align-items:center;margin-bottom:10px}
-.avatar{width:44px;height:44px;border-radius:50%;background:#0a66c2;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+:root{--blue:#0a66c2;--line:#e6e3dd}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f3f2ef;margin:0 auto;padding:30px 18px 70px;color:#191919;max-width:680px}
+.brand{font-size:10.5px;font-weight:800;letter-spacing:.24em;color:#8a8a8a;text-transform:uppercase;margin-bottom:16px}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+.small{font-size:12px;color:#777}
+.banner{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px;padding:13px 16px;font-size:13px;color:#555;line-height:1.55;margin-top:12px}
+.card{margin:32px 0}
+.chead{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.week{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--blue);color:#fff;border-radius:20px;padding:4px 11px}
+.ctitle{font-weight:650;font-size:14px;color:#3c3c3c;flex:1}
+.btn{font-size:12px;font-weight:600;border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:16px;padding:5px 13px;cursor:pointer;transition:background .12s,color .12s,border-color .12s}
+.btn:hover{background:#eaf3fb}
+.btn:active{background:var(--blue);color:#fff}
+.btn.saved{background:#e8f5ec;border-color:#2e8b57;color:#2e8b57}
+.post{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.phead{display:flex;gap:11px;align-items:center;margin-bottom:11px}
+.avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#0a66c2,#0e4f92);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
 .sub{color:#777;font-size:12px}
-.pbody{font-size:14.5px;line-height:1.5;white-space:pre-wrap;outline:none;border-radius:6px;padding:4px}
-.pbody:focus{background:#fbfbf4;box-shadow:0 0 0 2px #e8d98a inset}
-.pimgs{margin-top:10px;display:flex;gap:8px} .pimgs img{max-width:49%;border-radius:8px}
-.meta{font-size:12px;color:#666;margin-top:6px}
-.banner{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px 14px;font-size:12.5px;color:#555}
+.pbody{font-size:14.5px;line-height:1.55;white-space:pre-wrap;outline:none;border-radius:8px;padding:6px;margin:-6px}
+.pbody:hover{background:#fcfbf7}
+.pbody:focus{background:#fbfaf2;box-shadow:0 0 0 2px #e5d67f inset}
+.pimgs{margin-top:12px;display:flex;gap:8px}
+.pimgs img{flex:1;min-width:0;max-width:49%;height:230px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.pimgs img:only-child{max-width:100%}
+.meta{font-size:12px;color:#6b6b6b;margin-top:8px;padding-left:10px;border-left:3px solid var(--line);line-height:1.5}
+@media(max-width:480px){.pimgs img{height:160px}}
 </style></head><body>
+<div class="brand">Inbound on Steroids</div>
 <h1>Personal posts — for your review</h1>
-<div class="banner">One personal post per week. Every line comes from things you've said on our calls or posted on your Instagram. Click into any post to edit it directly, it saves automatically, and <b>Copy text</b> grabs your edited version for LinkedIn. If a detail is off, change it or tell us. The feed preview cuts around 210 characters.</div>
+<div class="banner">One personal post per week. Every line comes from things you've said on our calls or posted on your Instagram. Click into any post to edit it directly. It saves as you type, and the <b>Save</b> button confirms it. <b>Copy text</b> grabs your edited version for LinkedIn. If a detail is off, change it or tell us. The feed preview cuts around 210 characters.</div>
 
 <div class="card" id="c1">
   <div class="chead"><span class="week">Week 1</span><span class="ctitle">Me and LinkedIn, honestly</span>
-    <button class="copybtn" onclick="copyPost('c1')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('c1')">Save</button><button class="btn copybtn" onclick="copyPost('c1')">Copy text</button></div>
   <div class="post">
     <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-c1">The truth about me and LinkedIn 😅
@@ -48,7 +58,7 @@ So this time you&#x27;ll see me here every week. Hold me to it 😅</div>
 </div>
 <div class="card" id="p3">
   <div class="chead"><span class="week">Week 2</span><span class="ctitle">The valuation trap</span>
-    <button class="copybtn" onclick="copyPost('p3')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('p3')">Save</button><button class="btn copybtn" onclick="copyPost('p3')">Copy text</button></div>
   <div class="post">
     <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-p3">I&#x27;ve had a few pretty good conversations with buyers about selling my agency (they all ended the same way).
@@ -76,7 +86,7 @@ It&#x27;s still my fear on the agency side.</div>
 </div>
 <div class="card" id="p1">
   <div class="chead"><span class="week">Week 3</span><span class="ctitle">The pilot license</span>
-    <button class="copybtn" onclick="copyPost('p1')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('p1')">Save</button><button class="btn copybtn" onclick="copyPost('p1')">Copy text</button></div>
   <div class="post">
     <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-p1">It took me a little over three years to get my private pilot license 🛫
@@ -92,7 +102,7 @@ The photos are from day one and from the day I got the license 🛩</div>
 </div>
 <div class="card" id="p2">
   <div class="chead"><span class="week">Week 4</span><span class="ctitle">The 30-employee agency</span>
-    <button class="copybtn" onclick="copyPost('p2')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('p2')">Save</button><button class="btn copybtn" onclick="copyPost('p2')">Copy text</button></div>
   <div class="post">
     <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-p2">I used to have 29 or 30 employees, servicing about 100 clients.
@@ -103,9 +113,9 @@ It was quite a headache 😅
 
 That was WEBITMD, the agency I started back in 2008. It&#x27;s still running today. Full service, a bit of everything, too many services under one roof. Every client pulled the team in a different direction, and nobody gets really good at one craft that way.
 
-RISE is me doing the opposite. We do paid ads for DTC brands, and that&#x27;s the whole menu.
+RISE is me doing the opposite. One type of client, one job: paid ads for DTC brands. The creative, the tracking, the financial modeling, all of it exists to make the ads perform.
 
-When it&#x27;s the only thing you do, the reps add up fast... every account makes the next one sharper, because it&#x27;s the same craft every single day.
+When it&#x27;s the only outcome you sell, the reps add up fast... every account makes the next one sharper, because it&#x27;s the same craft every single day.
 
 I already ran the bigger version of this. I&#x27;m not trying to get back there. I don&#x27;t want that, actually.
 
@@ -116,7 +126,7 @@ These days I just want us to be known as the guys who do this ONE thing, for the
 </div>
 <div class="card" id="lg1">
   <div class="chead"><span class="week">Week 5</span><span class="ctitle">Client 50 of 50</span>
-    <button class="copybtn" onclick="copyPost('lg1')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('lg1')">Save</button><button class="btn copybtn" onclick="copyPost('lg1')">Copy text</button></div>
   <div class="post">
     <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-lg1">I once paid a lead gen agency 2,500 or 3,000 a month. Can&#x27;t even remember the exact number 😅
@@ -138,7 +148,7 @@ The wild part is it worked, 50 clients say it worked. I still didn&#x27;t want t
 </div>
 <div class="card" id="nb1">
   <div class="chead"><span class="week">Week 6</span><span class="ctitle">The baby post</span>
-    <button class="copybtn" onclick="copyPost('nb1')">Copy text</button></div>
+    <button class="btn savebtn" onclick="saveNow('nb1')">Save</button><button class="btn copybtn" onclick="copyPost('nb1')">Copy text</button></div>
   <div class="post">
     <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
     <div class="pbody" contenteditable="true" spellcheck="true" id="body-nb1">We just had our first baby 💙
@@ -170,18 +180,32 @@ function copyPost(k){
   });
 }
 const timers={};
+async function doSave(k){
+  const body=textOf(document.getElementById('body-'+k));
+  const c=document.getElementById('count-'+k);
+  let ok=false;
+  try{
+    const r=await fetch(SB,{method:'POST',headers:{...H,'Prefer':'resolution=merge-duplicates'},
+      body:JSON.stringify({page_slug:SLUG,item_key:k,body})});
+    ok=r.ok;
+  }catch(e){ ok=false; }
+  c.dataset.saved = ok ? 'Saved \u2713' : 'Not saved!';
+  refresh(k);
+  return ok;
+}
 function save(k){
   clearTimeout(timers[k]);
-  timers[k]=setTimeout(async ()=>{
-    const body=textOf(document.getElementById('body-'+k));
-    const c=document.getElementById('count-'+k);
-    try{
-      const r=await fetch(SB,{method:'POST',headers:{...H,'Prefer':'resolution=merge-duplicates'},
-        body:JSON.stringify({page_slug:SLUG,item_key:k,body})});
-      c.dataset.saved = r.ok ? 'Saved \u2713' : 'Not saved!';
-    }catch(e){ c.dataset.saved='Not saved!'; }
-    refresh(k);
-  },700);
+  timers[k]=setTimeout(()=>doSave(k),700);
+}
+async function saveNow(k){
+  clearTimeout(timers[k]);
+  const b=document.querySelector('#'+k+' .savebtn');
+  const ok=await doSave(k);
+  if(b){ const o=b.textContent;
+    b.textContent = ok ? 'Saved \u2713' : 'Retry';
+    b.classList.toggle('saved', ok);
+    setTimeout(()=>{ b.textContent='Save'; b.classList.remove('saved'); },1600);
+  }
 }
 function refresh(k){
   const t=textOf(document.getElementById('body-'+k));
