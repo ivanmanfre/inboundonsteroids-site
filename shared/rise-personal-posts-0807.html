@@ -19,7 +19,7 @@ h1{font-size:20px} .small{font-size:12px;color:#777}
 .banner{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px 14px;font-size:12.5px;color:#555}
 </style></head><body>
 <h1>Personal posts — for your review</h1>
-<div class="banner">One personal post per week, three weeks queued. Every line comes from things you've said on our calls or posted on your Instagram. Click into any post to edit it directly, then <b>Copy text</b> grabs your edited version for LinkedIn. If a detail is off, change it or tell us. The feed preview cuts around 210 characters.</div>
+<div class="banner">One personal post per week, three weeks queued. Every line comes from things you've said on our calls or posted on your Instagram. Click into any post to edit it directly, it saves automatically, and <b>Copy text</b> grabs your edited version for LinkedIn. If a detail is off, change it or tell us. The feed preview cuts around 210 characters.</div>
 
 <div class="card" id="p3">
   <div class="chead"><span class="week">Week 1</span><span class="ctitle">The valuation trap</span>
@@ -89,17 +89,49 @@ These days I&#x27;m trying to stay in our lane and be known as the guys who do t
 </div>
 </body>
 <script>
+const SB="https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/shared_page_edits";
+const ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI";
+const SLUG="rise-personal-posts-0807";
+const H={"apikey":ANON,"Authorization":"Bearer "+ANON,"Content-Type":"application/json"};
 function textOf(el){ return el.innerText.replace(/\u00a0/g,' ').trim(); }
 function copyPost(k){
   const t=textOf(document.getElementById('body-'+k));
   navigator.clipboard.writeText(t).then(()=>{
     const b=document.querySelector('#'+k+' .copybtn');
-    const o=b.textContent; b.textContent='Copied ✓'; setTimeout(()=>b.textContent=o,1400);
+    const o=b.textContent; b.textContent='Copied \u2713'; setTimeout(()=>b.textContent=o,1400);
   });
 }
-for (const k of ['p3','p1','p2']){
-  const el=document.getElementById('body-'+k);
-  const f=()=>{const t=textOf(el);document.getElementById('count-'+k).textContent=t.length+' chars';};
-  f(); el.addEventListener('input',f);
+const timers={};
+function save(k){
+  clearTimeout(timers[k]);
+  timers[k]=setTimeout(async ()=>{
+    const body=textOf(document.getElementById('body-'+k));
+    const c=document.getElementById('count-'+k);
+    try{
+      const r=await fetch(SB,{method:'POST',headers:{...H,'Prefer':'resolution=merge-duplicates'},
+        body:JSON.stringify({page_slug:SLUG,item_key:k,body})});
+      c.dataset.saved = r.ok ? 'Saved \u2713' : 'Not saved!';
+    }catch(e){ c.dataset.saved='Not saved!'; }
+    refresh(k);
+  },700);
 }
+function refresh(k){
+  const t=textOf(document.getElementById('body-'+k));
+  const c=document.getElementById('count-'+k);
+  c.textContent=t.length+' chars'+(c.dataset.saved?' \u00b7 '+c.dataset.saved:'');
+}
+async function hydrate(){
+  try{
+    const r=await fetch(SB+'?page_slug=eq.'+SLUG+'&select=item_key,body',{headers:H});
+    for(const row of await r.json()){
+      const el=document.getElementById('body-'+row.item_key);
+      if(el && row.body) el.innerText=row.body;
+    }
+  }catch(e){}
+  for(const k of ['p3','p1','p2']){
+    refresh(k);
+    document.getElementById('body-'+k).addEventListener('input',()=>{refresh(k);save(k);});
+  }
+}
+hydrate();
 </script></html>
