@@ -19,10 +19,32 @@ h1{font-size:20px} .small{font-size:12px;color:#777}
 .banner{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px 14px;font-size:12.5px;color:#555}
 </style></head><body>
 <h1>Personal posts — for your review</h1>
-<div class="banner">One personal post per week, three weeks queued. Every line comes from things you've said on our calls or posted on your Instagram. Click into any post to edit it directly, it saves automatically, and <b>Copy text</b> grabs your edited version for LinkedIn. If a detail is off, change it or tell us. The feed preview cuts around 210 characters.</div>
+<div class="banner">One personal post per week. Every line comes from things you've said on our calls or posted on your Instagram. Click into any post to edit it directly, it saves automatically, and <b>Copy text</b> grabs your edited version for LinkedIn. If a detail is off, change it or tell us. The feed preview cuts around 210 characters.</div>
 
+<div class="card" id="c1">
+  <div class="chead"><span class="week">Week 1</span><span class="ctitle">Me and LinkedIn, honestly</span>
+    <button class="copybtn" onclick="copyPost('c1')">Copy text</button></div>
+  <div class="post">
+    <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
+    <div class="pbody" contenteditable="true" spellcheck="true" id="body-c1">The truth about me and LinkedIn 😅
+
+I do it for a couple months. Then I give up for six months. Then I do it again for a few weeks.
+
+It&#x27;s hard to do it consistent. It&#x27;s hard, period.
+
+And I do believe in it, because I see it working for other people. The proof is everywhere.
+
+Then I stand looking at myself in the mirror six months later and I haven&#x27;t made much progress on it.
+
+I can&#x27;t keep doing that, and I don&#x27;t have an ego about it.
+
+So this time you&#x27;ll see me here every week. Hold me to it 😅</div>
+    
+  </div>
+  <div class="meta"><span class="counter" id="count-c1"></span> · Opens the series: it explains why you are suddenly here weekly. No image.</div>
+</div>
 <div class="card" id="p3">
-  <div class="chead"><span class="week">Week 1</span><span class="ctitle">The valuation trap</span>
+  <div class="chead"><span class="week">Week 2</span><span class="ctitle">The valuation trap</span>
     <button class="copybtn" onclick="copyPost('p3')">Copy text</button></div>
   <div class="post">
     <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
@@ -50,7 +72,7 @@ It&#x27;s still my fear on the agency side.</div>
   <div class="meta"><span class="counter" id="count-p3"></span> · Photo: you presenting, agency era.</div>
 </div>
 <div class="card" id="p1">
-  <div class="chead"><span class="week">Week 2</span><span class="ctitle">The pilot license</span>
+  <div class="chead"><span class="week">Week 3</span><span class="ctitle">The pilot license</span>
     <button class="copybtn" onclick="copyPost('p1')">Copy text</button></div>
   <div class="post">
     <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
@@ -66,7 +88,7 @@ The photos are from day one and from the day I got the license 🛩</div>
   <div class="meta"><span class="counter" id="count-p1"></span> · Photos: day one and license day.</div>
 </div>
 <div class="card" id="p2">
-  <div class="chead"><span class="week">Week 3</span><span class="ctitle">The 30-employee agency</span>
+  <div class="chead"><span class="week">Week 4</span><span class="ctitle">The 30-employee agency</span>
     <button class="copybtn" onclick="copyPost('p2')">Copy text</button></div>
   <div class="post">
     <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
@@ -85,11 +107,48 @@ These days I&#x27;m trying to stay in our lane and be known as the guys who do t
   </div>
   <div class="meta"><span class="counter" id="count-p2"></span> · Photos from your Instagram, 2017. Use one or both.</div>
 </div>
+<div class="card" id="lg1">
+  <div class="chead"><span class="week">Week 5</span><span class="ctitle">Client 50 of 50</span>
+    <button class="copybtn" onclick="copyPost('lg1')">Copy text</button></div>
+  <div class="post">
+    <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
+    <div class="pbody" contenteditable="true" spellcheck="true" id="body-lg1">I once paid a lead gen agency 2,500 or 3,000 a month. Can&#x27;t even remember the exact number 😅
+
+Here&#x27;s what I got. An initial person who takes the call. A closer. Then you&#x27;re inside a copy-paste GoHighLevel system with a couple of basic looking ads.
+
+And they run it 50 times over. The guy had something like 50 clients on the same setup. Do the math, that&#x27;s over 120K a month.
+
+We ended up not working with him because I realized it&#x27;s sort of a joke. He didn&#x27;t care. He moved on to the next one.
+
+The crazy part is that it worked, 50 clients say it worked. And it still felt like a joke to be one of them.</div>
+    
+  </div>
+  <div class="meta"><span class="counter" id="count-lg1"></span> · No image.</div>
+</div>
+<div class="card" id="nb1">
+  <div class="chead"><span class="week">Your call</span><span class="ctitle">The baby post</span>
+    <button class="copybtn" onclick="copyPost('nb1')">Copy text</button></div>
+  <div class="post">
+    <div class="phead"><div class="avatar">MD</div><div><b>Mattan Danino</b><br><span class="sub">CEO @ RISE DTC</span></div></div>
+    <div class="pbody" contenteditable="true" spellcheck="true" id="body-nb1">We just had our first baby 💙
+
+My wife had a C-section, last minute. Baby&#x27;s doing well, everything&#x27;s good, but the recovery from that is no joke. So I got to step up as the husband.
+
+Which is fine. I&#x27;m okay to do that. But it&#x27;s hard to do it while working. Not sleeping much either 😅
+
+I&#x27;m juggling getting back to work at the same time. We&#x27;re learning every day, it&#x27;s our first, of course.
+
+Finding our rhythm.</div>
+    
+  </div>
+  <div class="meta"><span class="counter" id="count-nb1"></span> · Only if you want this out there. Written from what you already tell people on calls. Delete it from this page if not, no questions.</div>
+</div>
 </body>
 <script>
 const SB="https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/shared_page_edits";
 const ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI";
 const SLUG="rise-personal-posts-0807";
+const KEYS=['c1', 'p3', 'p1', 'p2', 'lg1', 'nb1'];
 const H={"apikey":ANON,"Authorization":"Bearer "+ANON,"Content-Type":"application/json"};
 function textOf(el){ return el.innerText.replace(/\u00a0/g,' ').trim(); }
 function copyPost(k){
@@ -126,7 +185,7 @@ async function hydrate(){
       if(el && row.body) el.innerText=row.body;
     }
   }catch(e){}
-  for(const k of ['p3','p1','p2']){
+  for(const k of KEYS){
     refresh(k);
     document.getElementById('body-'+k).addEventListener('input',()=>{refresh(k);save(k);});
   }
