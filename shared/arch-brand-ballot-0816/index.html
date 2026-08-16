@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>BALLOT · ARCH brand fidelity · 2026-08-16</title>
+<style>
+  :root { --ink:#111; --sub:#666; --line:#e3e3e3; --ok:#0a7a3d; --warn:#a15c00; --bad:#b3261e; --bg:#fafafa; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font:15px/1.5 -apple-system, "Helvetica Neue", sans-serif; color:var(--ink); background:var(--bg); padding:32px 4vw 120px; }
+  h1 { font-size:26px; margin-bottom:4px; }
+  h2 { font-size:19px; margin:44px 0 6px; padding-top:20px; border-top:2px solid var(--ink); }
+  h3 { font-size:15px; margin:18px 0 6px; }
+  p.sub { color:var(--sub); margin-bottom:6px; }
+  .strip { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 18px; margin:18px 0; display:flex; gap:28px; flex-wrap:wrap; }
+  .strip b { display:block; font-size:13px; color:var(--sub); font-weight:600; text-transform:uppercase; letter-spacing:.03em; }
+  .strip span { font-size:17px; font-weight:700; }
+  .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px; margin:14px 0; }
+  .row { display:flex; gap:14px; flex-wrap:wrap; }
+  .row > div { flex:1 1 300px; min-width:280px; }
+  .imglabel { font-size:12px; color:var(--sub); text-transform:uppercase; letter-spacing:.04em; margin:6px 0 4px; font-weight:600; }
+  img.art { width:100%; height:auto; border:1px solid var(--line); border-radius:6px; display:block; background:#fff; }
+  .vote { display:flex; gap:14px; margin-top:10px; align-items:center; flex-wrap:wrap; }
+  .vote label { display:inline-flex; align-items:center; gap:6px; cursor:pointer; font-weight:600; font-size:14px; padding:6px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; }
+  .vote input:checked + span { text-decoration:underline; }
+  .vote label:has(input:checked) { border-color:var(--ink); background:#111; color:#fff; }
+  .flag { border-left:4px solid var(--warn); background:#fff8ec; padding:10px 14px; border-radius:0 8px 8px 0; margin:10px 0; font-size:14px; }
+  .slider { position:relative; overflow:hidden; border:1px solid var(--line); border-radius:6px; background:#fff; }
+  .slider img { width:100%; display:block; }
+  .slider .top { position:absolute; inset:0; overflow:hidden; }
+  .slider .top img { width:100%; }
+  .slider input[type=range] { position:absolute; inset:auto 0 8px 0; width:60%; margin:0 20%; z-index:5; }
+  .slider .tag { position:absolute; top:8px; font-size:11px; font-weight:700; letter-spacing:.05em; padding:3px 8px; border-radius:4px; background:rgba(0,0,0,.72); color:#fff; z-index:4; }
+  .slider .tag.old { left:8px; } .slider .tag.new { right:8px; }
+  .scroll { max-height:520px; overflow-y:auto; }
+  code { background:#eee; padding:1px 5px; border-radius:4px; font-size:13px; }
+  #copybar { position:fixed; bottom:0; left:0; right:0; background:#111; color:#fff; padding:12px 4vw; display:flex; gap:18px; align-items:center; z-index:50; }
+  #copybar button { background:#fff; color:#111; font-weight:700; border:0; border-radius:999px; padding:10px 22px; font-size:14px; cursor:pointer; }
+  #copyout { color:#9be49b; font-size:13px; }
+  a { color:inherit; }
+  .gridimgs { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; }
+</style>
+</head>
+<body>
+
+<h1>ARCH brand fidelity — ballot</h1>
+<p class="sub">2026-08-16 · run: <code>arch-brand-fidelity-2026-08-16</code> · every artifact below passed the deterministic brand instrument (palette ΔE vs the 7 book hexes, wordmark = extracted master only, DM Sans, no gradients/shadows) and two judge seats calibrated on the book's own Do/Don't pages. Nothing here is live; approving applies it.</p>
+
+<div class="strip">
+  <div><b>Instrument</b><span class="ok">19/19 green</span></div>
+  <div><b>Art director</b><span class="ok">0 dead · fixes applied</span></div>
+  <div><b>AI-slop skeptic</b><span class="ok">fake-rich disease gone</span></div>
+  <div><b>Canon rows</b><span class="warn">staged only, zero mutated</span></div>
+  <div><b>Wordmark</b><span class="ok">extracted from the book PDF, never redrawn</span></div>
+</div>
+
+<!-- ============ A. FEATURED ============ -->
+<h2>A · LinkedIn Featured cards — old vs rebuilt (pick a field per item, or reject)</h2>
+<p class="sub">Content verbatim from the current cards (his own published numbers). Old cards: gradient AI art, letterspaced fake wordmark, off-palette greens. New: flat book rails, master wordmark, book icon registers.</p>
+
+<div class="card">
+  <h3>A1 · Wargaming case study</h3>
+  <div class="row">
+    <div><div class="imglabel">Old (live now)</div><img class="art" src="img/wargaming-featured.png"></div>
+    <div><div class="imglabel">New — navy</div><img class="art" src="img/featured-wargaming-navy.png"></div>
+    <div><div class="imglabel">New — yellow</div><img class="art" src="img/featured-wargaming-yellow.png"></div>
+  </div>
+  <div class="vote" data-item="A1-featured-wargaming">
+    <label><input type="radio" name="A1" value="navy"><span>SHIP NAVY</span></label>
+    <label><input type="radio" name="A1" value="yellow"><span>SHIP YELLOW</span></label>
+    <label><input type="radio" name="A1" value="reject"><span>REJECT</span></label>
+  </div>
+</div>
+
+<div class="card">
+  <h3>A2 · Match Masters case study</h3>
+  <div class="row">
+    <div><div class="imglabel">Old (live now)</div><img class="art" src="img/match-masters-featured.png"></div>
+    <div><div class="imglabel">New — navy</div><img class="art" src="img/featured-matchmasters-navy.png"></div>
+    <div><div class="imglabel">New — yellow</div><img class="art" src="img/featured-matchmasters-yellow.png"></div>
+  </div>
+  <div class="flag">⚑ One text ADDITION on both new versions: "during our campaigns" under the #1 claim — required by the standing numbers-gate canon (the qualifier ships with the ranking). Delete one div to remove. Approve or strike below.</div>
+  <div class="vote" data-item="A2-featured-matchmasters">
+    <label><input type="radio" name="A2" value="navy"><span>SHIP NAVY</span></label>
+    <label><input type="radio" name="A2" value="yellow"><span>SHIP YELLOW</span></label>
+    <label><input type="radio" name="A2" value="reject"><span>REJECT</span></label>
+  </div>
+  <div class="vote" data-item="A2b-qualifier">
+    <label><input type="radio" name="A2b" value="keep"><span>KEEP QUALIFIER</span></label>
+    <label><input type="radio" name="A2b" value="strike"><span>STRIKE IT</span></label>
+  </div>
+</div>
+
+<div class="card">
+  <h3>A3 · Book 30 minutes (Davorin card)</h3>
+  <div class="row">
+    <div><div class="imglabel">Old (live now)</div><img class="art" src="img/book-a-call-featured.png"></div>
+    <div><div class="imglabel">New — navy</div><img class="art" src="img/featured-bookacall-navy.png"></div>
+    <div><div class="imglabel">New — yellow</div><img class="art" src="img/featured-bookacall-yellow.png"></div>
+  </div>
+  <div class="vote" data-item="A3-featured-bookacall">
+    <label><input type="radio" name="A3" value="navy"><span>SHIP NAVY</span></label>
+    <label><input type="radio" name="A3" value="yellow"><span>SHIP YELLOW</span></label>
+    <label><input type="radio" name="A3" value="reject"><span>REJECT</span></label>
+  </div>
+</div>
+
+<div class="card">
+  <h3>A4 · At LinkedIn's real crop (tile scale, all six)</h3>
+  <img class="art" src="img/featured-tiles-desktop.png">
+</div>
+
+<!-- ============ B. BANNER ============ -->
+<h2>B · LinkedIn profile banner (1584×396)</h2>
+<div class="card">
+  <div class="row">
+    <div><div class="imglabel">Banner</div><img class="art" src="img/linkedin-banner-navy.png"></div>
+    <div>
+      <div class="imglabel">Desktop crop + avatar keep-out</div><img class="art" src="img/banner-desktop-crop.png">
+      <div class="imglabel">Mobile crop (390px, 1x)</div><img class="art" src="img/banner-mobile-crop.png">
+    </div>
+  </div>
+  <div class="flag">⚑ Ruling made mid-run: the wordmark runs 148px — larger than the house 22%-of-short-edge cap — because at mobile 1x the capped size rendered 21px wide and read as a smudge. New rule: identity banner ≤12% of the LONG edge, legibility proven at mobile crop (above). The book itself never states a number. Overrule if you want the smaller mark.</div>
+  <div class="vote" data-item="B1-banner">
+    <label><input type="radio" name="B1" value="ship"><span>SHIP</span></label>
+    <label><input type="radio" name="B1" value="smaller"><span>REDO SMALLER MARK</span></label>
+    <label><input type="radio" name="B1" value="reject"><span>REJECT</span></label>
+  </div>
+</div>
+
+<!-- ============ C. CAROUSEL ============ -->
+<h2>C · Carousel template system ("very safe", locked)</h2>
+<p class="sub">7 masters at 1080×1350. Sample copy is verbatim from the approved Wargaming deck. Cover ships in BOTH legal fields — pick the default. Visible <code>{{…}}</code> tokens are deliberate: an unfilled slot must be seen, and the instrument now fails any ship-as-is artifact carrying one.</p>
+<div class="card">
+  <div class="gridimgs">
+    <div><div class="imglabel">cover — navy</div><img class="art" src="img/carousel-cover-navy.png"></div>
+    <div><div class="imglabel">cover — yellow</div><img class="art" src="img/carousel-cover-yellow.png"></div>
+    <div><div class="imglabel">body</div><img class="art" src="img/carousel-body.png"></div>
+    <div><div class="imglabel">list</div><img class="art" src="img/carousel-list.png"></div>
+    <div><div class="imglabel">stat</div><img class="art" src="img/carousel-stat.png"></div>
+    <div><div class="imglabel">quote</div><img class="art" src="img/carousel-quote.png"></div>
+    <div><div class="imglabel">closer</div><img class="art" src="img/carousel-closer.png"></div>
+  </div>
+  <div class="vote" data-item="C1-carousel-system">
+    <label><input type="radio" name="C1" value="ship"><span>ADOPT SYSTEM</span></label>
+    <label><input type="radio" name="C1" value="fix"><span>NEEDS CHANGES (note below)</span></label>
+  </div>
+  <div class="vote" data-item="C2-default-cover">
+    <label><input type="radio" name="C2" value="navy"><span>DEFAULT COVER: NAVY</span></label>
+    <label><input type="radio" name="C2" value="yellow"><span>DEFAULT COVER: YELLOW</span></label>
+    <label><input type="radio" name="C2" value="perdeck"><span>PICK PER DECK</span></label>
+  </div>
+</div>
+
+<!-- ============ D. RESKINS ============ -->
+<h2>D · Re-skins of the live docs (content byte-identical — drag the slider)</h2>
+
+<div class="card">
+  <h3>D1 · Profile audit (inboundonsteroids.com/shared/arch-profile-audit-0814)</h3>
+  <div class="slider" id="s1"><img src="img/new-profile-audit.png"><div class="top"><img src="img/old-profile-audit.png"></div><span class="tag old">OLD</span><span class="tag new">NEW</span><input type="range" min="0" max="100" value="50"></div>
+  <div class="vote" data-item="D1-profile-audit"><label><input type="radio" name="D1" value="ship"><span>SHIP</span></label><label><input type="radio" name="D1" value="reject"><span>REJECT</span></label></div>
+</div>
+
+<div class="card">
+  <h3>D2 · Company cross-off list</h3>
+  <div class="slider" id="s2"><img src="img/new-company-list.png"><div class="top"><img src="img/old-company-list.png"></div><span class="tag old">OLD</span><span class="tag new">NEW</span><input type="range" min="0" max="100" value="50"></div>
+  <div class="flag">⚑ Two em-dashes live in the LOCKED source copy (H1 + intro). The no-em-dash canon says recast; content-lock said don't touch. One-line amendment ready — approve to apply.</div>
+  <div class="vote" data-item="D2-company-list"><label><input type="radio" name="D2" value="ship"><span>SHIP</span></label><label><input type="radio" name="D2" value="reject"><span>REJECT</span></label></div>
+  <div class="vote" data-item="D2b-emdash-amend"><label><input type="radio" name="D2b" value="fix"><span>ALSO RECAST THE 2 EM-DASHES</span></label><label><input type="radio" name="D2b" value="leave"><span>LEAVE TEXT UNTOUCHED</span></label></div>
+</div>
+
+<div class="card">
+  <h3>D3 · Onboarding doc (resources.ivanmanfredi.com/arch-onboarding)</h3>
+  <div class="slider" id="s3"><img src="img/new-onboarding-index.png"><div class="top"><img src="img/old-onboarding-index.png"></div><span class="tag old">OLD</span><span class="tag new">NEW</span><input type="range" min="0" max="100" value="50"></div>
+  <div class="flag">⚑ Locked copy contains a doubled word: "walk you through your your first lead magnet". One-word fix ready — approve to apply.</div>
+  <div class="vote" data-item="D3-onboarding-index"><label><input type="radio" name="D3" value="ship"><span>SHIP</span></label><label><input type="radio" name="D3" value="reject"><span>REJECT</span></label></div>
+  <div class="vote" data-item="D3b-typo-amend"><label><input type="radio" name="D3b" value="fix"><span>ALSO FIX "your your"</span></label><label><input type="radio" name="D3b" value="leave"><span>LEAVE</span></label></div>
+</div>
+
+<div class="card">
+  <h3>D4 · Onboarding steps page</h3>
+  <div class="slider" id="s4"><img src="img/new-onboarding-steps.png"><div class="top"><img src="img/old-onboarding-steps.png"></div><span class="tag old">OLD</span><span class="tag new">NEW</span><input type="range" min="0" max="100" value="50"></div>
+  <div class="vote" data-item="D4-onboarding-steps"><label><input type="radio" name="D4" value="ship"><span>SHIP</span></label><label><input type="radio" name="D4" value="reject"><span>REJECT</span></label></div>
+</div>
+
+<!-- ============ E. STAGED CANON ============ -->
+<h2>E · Staged canon (nothing applied — proof: both rows still v2, pre-run timestamps)</h2>
+<div class="card">
+  <h3>E1 · <code>arch-brand-visual</code> v2 → v3 — kills "yellow = secondary grey", white-only surfaces, CDN logo URL</h3>
+  <p class="sub"><a href="staged-canon/DIFF-arch-brand-visual.html" target="_blank">open side-by-side diff</a></p>
+  <div class="vote" data-item="E1-brand-visual-v3"><label><input type="radio" name="E1" value="apply"><span>APPLY v3</span></label><label><input type="radio" name="E1" value="hold"><span>HOLD</span></label></div>
+</div>
+<div class="card">
+  <h3>E2 · <code>arch-carousel-craft</code> v2 → v3 — tokens re-grounded in the book; content/voice/QA sections word-identical; adds X17 brand-instrument gate</h3>
+  <p class="sub"><a href="staged-canon/DIFF-arch-carousel-craft.html" target="_blank">open side-by-side diff</a></p>
+  <div class="vote" data-item="E2-carousel-craft-v3"><label><input type="radio" name="E2" value="apply"><span>APPLY v3</span></label><label><input type="radio" name="E2" value="hold"><span>HOLD</span></label></div>
+</div>
+<div class="card">
+  <h3>E3 · madebyarch.com audit-engine token patch — 7 invented navy-scale hexes → book colors</h3>
+  <p class="sub"><a href="staged-canon/STAGED-arch-audit-engine-token-patch.md" target="_blank">open patch</a> · ⚠ applies only AFTER the open whiteout-v2 ballot closes (re-coloring a page mid-judgment is wrong)</p>
+  <div class="vote" data-item="E3-audit-engine-patch"><label><input type="radio" name="E3" value="apply"><span>APPLY AFTER v2 BALLOT</span></label><label><input type="radio" name="E3" value="hold"><span>HOLD</span></label></div>
+</div>
+
+<!-- ============ F. FLAGS ============ -->
+<h2>F · Open flags (no build blocked on these)</h2>
+<div class="card">
+  <ul style="margin-left:18px; display:grid; gap:8px;">
+    <li><b>n8n ARCH Post Generation (born-dead)</b>: its image-brief prompt orders "sharp-cornered, never pill shapes" — Ivan-brand rule, anti-ARCH (book is pill-everything). Patch via API PUT before that lane ever arms.</li>
+    <li><b>Unposted week-1 singles/decks</b> carry strays (<code>#191919</code>, one missing wordmark): anything still queued should regen through the new templates.</li>
+    <li><b>Questions only Davorin can answer</b> (from the book): CMYK values (book prints the word "CMYK", no numbers) · exact clearspace ratio · white wordmark legality at logo scale · yellow RGB row typo (hex wins for now) · "30 experts" (book p11) vs standing "25 people" rule.</li>
+    <li><b>Photo slots</b>: templates carry named placeholders ({{ARCH_PHOTO_*}}, {{ARCH_AVATAR_*}}, {{ARCH_3D_ASSET_*}}) — his uploads pending ("I will try to find some photos... TBD").</li>
+    <li><b>Weekly report template</b>: one off-book hex (<code>#6C7699</code> → <code>#666666</code>) at next report generation.</li>
+    <li><b>Client board shell</b> (Inter font, operator palette) renders for arch-agency tenant: per-tenant board theming is an architecture decision, not done in this run.</li>
+  </ul>
+</div>
+
+<div id="copybar">
+  <button onclick="copyDecisions()">Copy decisions</button>
+  <span id="copyout"></span>
+</div>
+
+<script>
+  document.querySelectorAll('.slider').forEach(sl => {
+    const top = sl.querySelector('.top'), range = sl.querySelector('input[type=range]');
+    const set = v => { top.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)'; };
+    set(range.value);
+    range.addEventListener('input', e => set(e.target.value));
+  });
+  function copyDecisions() {
+    const lines = ['ARCH brand fidelity ballot — decisions ' + new Date().toISOString().slice(0,10)];
+    document.querySelectorAll('.vote').forEach(v => {
+      const item = v.dataset.item;
+      const sel = v.querySelector('input:checked');
+      lines.push(item + ': ' + (sel ? sel.value.toUpperCase() : '(no vote)'));
+    });
+    const txt = lines.join('\n');
+    navigator.clipboard.writeText(txt).then(() => {
+      document.getElementById('copyout').textContent = 'Copied ' + (lines.length - 1) + ' decisions.';
+    });
+  }
+</script>
+</body>
+</html>
