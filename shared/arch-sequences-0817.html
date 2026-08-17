@@ -48,6 +48,8 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
 .path .av{flex:0 0 34px;width:34px;height:34px;font-size:9.5px}
 .path .bub{font-size:15px;padding:13px 16px;border-radius:4px 16px 16px 16px}
 
+.ablabel{margin:14px 0 6px 44px;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--lime)}
+.ablabel:first-of-type{margin-top:0}
 .ex{margin:14px 0 0 44px;border-left:2px solid var(--lime);padding-left:12px}
 .ex .exlabel{margin:0 0 8px;font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--lime)}
 .ex .exbub{background:rgba(255,255,255,.94);font-size:13.5px}
@@ -123,15 +125,23 @@ Curious - how are you guys doing on the creator side for <span class="tok">{game
 </div>
 <div class="path">
 
-  <div class="stop"><span class="when">Right after the accept &middot; DM 1</span>
-    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="dm1">Hey <span class="tok">{first}</span>
+  <div class="stop"><span class="when">Right after the accept &middot; DM 1 &middot; half get A, half get B</span>
+    <p class="ablabel">A</p>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="dm1_a">Hey <span class="tok">{first}</span>
+How are you?
+
+We run creator scans for games and apps. For <span class="tok">{game}</span> it would show who covers it, what carries a paid label, and who should be covering it.
+
+Should I put one together and send it over? &#128512;</div></div>
+    <p class="ablabel">B</p>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="dm1_b">Hey <span class="tok">{first}</span>
 How are you?
 
 We ran a creator audit of <span class="tok">{game}</span>. One thing from it: <span class="tok">{finding}</span>.
 
 Should I send you the full audit? &#128512;</div></div>
     <div class="ex">
-      <p class="exlabel">How it lands, filled</p>
+      <p class="exlabel">How B lands, filled</p>
       <div class="msg"><span class="av">ARCH.</span><div class="bub exbub">Hey Maria
 How are you?
 
@@ -193,7 +203,7 @@ If yes, you are covered and I stop here. If nobody is - book the 30 minutes and 
       localStorage.setItem(LS,JSON.stringify(store));
     });
   });
-  function label(k){return {games_note:'Games studios / invite note',apps_note:'Apps / invite note',eng_note:'Industry engagers / invite note',warm_note:'Warm / invite note',warm_dm1:'Warm / DM 1',dm1:'Shared path / DM 1',nudge:'Shared path / 3-day nudge',deliver:'Shared path / audit delivery',fu:'Shared path / follow-up'}[k]||k;}
+  function label(k){return {games_note:'Games studios / invite note',apps_note:'Apps / invite note',eng_note:'Industry engagers / invite note',warm_note:'Warm / invite note',warm_dm1:'Warm / DM 1',dm1_a:'Shared path / DM 1 version A',dm1_b:'Shared path / DM 1 version B',nudge:'Shared path / 3-day nudge',deliver:'Shared path / audit delivery',fu:'Shared path / follow-up'}[k]||k;}
   document.getElementById('copyseq').addEventListener('click',function(){
     var L=['ARCH outreach sequences ('+new Date().toISOString().slice(0,10)+')',''];
     bubs.forEach(function(b){
