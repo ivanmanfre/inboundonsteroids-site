@@ -124,30 +124,20 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
 </div>
 <div class="path">
 
-  <div class="stop"><span class="when">Right after the accept &middot; DM 1 &middot; half get A, half get B</span>
-    <p class="ablabel">A</p>
+  <div class="stop"><span class="when">Right after the accept &middot; DM 1</span>
+    <p class="ablabel">A &middot; audit ready</p>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="dm1_a">Hey <span class="tok">{first}</span>
 How are you?
 
-Took the liberty of pulling one of our creator audits on <span class="tok">{game}</span>. It shows who already covers it, what carries a paid label, and who is missing.
+Took the liberty of pulling one of our creator audits on <span class="tok">{game}</span> - who covers it, what carries a paid label, who is missing.
 
-May I send it over? &#128512;</div></div>
-    <p class="ablabel">B</p>
+Would you be opposed to me sending it over? &#128512;</div></div>
+    <p class="ablabel">B &middot; no audit material</p>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="dm1_b">Hey <span class="tok">{first}</span>
-How are you?
 
-Took the liberty of pulling one of our creator audits on <span class="tok">{game}</span>. One thing that came out: <span class="tok">{finding}</span>.
+I'm founder of ARCH. influencer agency. We're specialised in performance influencer marketing, mostly for mobile games and apps. Some of our clients: Candivore, Wargaming, Ten Square, Surfshark...
 
-Want me to send it over? &#128512;</div></div>
-    <div class="ex">
-      <p class="exlabel">How B lands, filled</p>
-      <div class="msg"><span class="av">ARCH.</span><div class="bub exbub">Hey Maria
-How are you?
-
-Took the liberty of pulling one of our creator audits on Whiteout Survival. One thing that came out: Strat Game Sloth pulls 200,000-view guides on Kingshot, your other title, and has zero Whiteout coverage.
-
-Want me to send it over? &#128512;</div></div>
-    </div>
+How are you handling the creator side for <span class="tok">{game}</span> at the moment?</div></div>
   </div>
 
   <div class="stop"><span class="when">3 days, no reply &middot; DM 2</span>
@@ -214,7 +204,7 @@ Want me to send it over?</div></div>
       localStorage.setItem(LS,JSON.stringify(store));
     });
   });
-  function label(k){return {games_note:'Games studios / invite note',apps_note:'Apps / invite note',eng_note:'Industry engagers / invite note',dm1_a:'Shared path / DM 1 version A',dm1_b:'Shared path / DM 1 version B',nudge:'Shared path / DM 2 model ask',deliver:'Shared path / audit delivery',fu:'Shared path / audit follow-up',dm3:'Shared path / DM 3',recycle:'Shared path / 60-day fresh start'}[k]||k;}
+  function label(k){return {games_note:'Games studios / invite note',apps_note:'Apps / invite note',eng_note:'Industry engagers / invite note',dm1_a:'Shared path / DM 1 audit ready',dm1_b:'Shared path / DM 1 no audit',nudge:'Shared path / DM 2 model ask',deliver:'Shared path / audit delivery',fu:'Shared path / audit follow-up',dm3:'Shared path / DM 3',recycle:'Shared path / 60-day fresh start'}[k]||k;}
   document.getElementById('copyseq').addEventListener('click',function(){
     var L=['ARCH outreach sequences ('+new Date().toISOString().slice(0,10)+')',''];
     bubs.forEach(function(b){
