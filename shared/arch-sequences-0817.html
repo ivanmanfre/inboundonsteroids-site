@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ARCH — outreach sequences, draft 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#000F41;--lime:#F2FF82;--cobalt:#3562FF;--paper:#FFFFFF;--mist:#EDEDED;--ink:#000F41}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"DM Sans",-apple-system,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:48px 24px 80px}
+.kick{display:inline-block;background:var(--lime);color:var(--navy);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+h1{font-size:clamp(28px,4.5vw,42px);font-weight:800;letter-spacing:-.01em;margin-bottom:10px}
+.lede{font-size:17px;max-width:660px;color:#2a3357;margin-bottom:8px}
+.status{display:inline-block;margin:14px 0 34px;background:#FFF3CD;border:1px solid #E6D9A0;color:#6b5d1f;font-size:14px;font-weight:500;padding:8px 14px;border-radius:10px}
+h2{font-size:21px;font-weight:800;margin:46px 0 4px}
+.lanewhy{color:#4a5378;font-size:15px;max-width:660px;margin-bottom:18px}
+.step{border:1px solid var(--mist);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.step .head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;padding:12px 18px;background:#F7F8FB;border-bottom:1px solid var(--mist)}
+.step .head .lbl{font-weight:800;font-size:15px}
+.step .head .when{color:#4a5378;font-size:13.5px}
+.step .head .keyid{margin-left:auto;font-size:12px;color:#8a91ad;font-family:ui-monospace,Menlo,monospace}
+.body{padding:16px 18px;white-space:pre-wrap;font-size:15.5px;background:#fff}
+.body .tok{color:var(--cobalt);font-weight:700}
+.tokens{padding:10px 18px 14px;border-top:1px dashed var(--mist);font-size:13.5px;color:#4a5378}
+.tokens b{color:var(--cobalt);font-family:ui-monospace,Menlo,monospace;font-weight:700}
+.charcount{font-size:12.5px;color:#8a91ad;padding:0 18px 12px;background:#fff}
+.note{background:var(--navy);color:#fff;border-radius:14px;padding:22px 24px;margin-top:52px;font-size:15px}
+.note b{color:var(--lime)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <span class="kick">ARCH. outreach</span>
+  <h1>Outreach sequences, draft 1</h1>
+  <p class="lede">Every message the system would send, laid out end to end: who gets it, when it fires, and the exact copy with the fill-in fields highlighted. The free creator audit (like <a href="https://madebyarch.com/whiteout-survival/" style="color:var(--cobalt)">this live sample</a>) is the give that earns the reply.</p>
+  <span class="status">DRAFT — nothing here is active. You review first, then we refine with your voice doc, then Ivan switches it on lane by lane.</span>
+
+  <h2>Cold lane — games studios</h2>
+  <p class="lanewhy">The reviewed lead list. One ranked contact per company, influencer and UA titles first.</p>
+
+  <div class="step">
+    <div class="head"><span class="lbl">Connection note</span><span class="when">fires: with the invite</span><span class="keyid">arch_cold_note_v1</span></div>
+    <div class="body">Hey <span class="tok">{first}</span>, we run influencer UA for studios like Candivore and Wargaming. <span class="tok">{game}</span> caught my eye, figured worth a hello.</div>
+    <div class="charcount">~120 chars with average fills · LinkedIn cap 200</div>
+    <div class="tokens"><b>{first}</b> prospect first name · <b>{game}</b> their flagship title</div>
+  </div>
+
+  <div class="step">
+    <div class="head"><span class="lbl">DM 1 — the offer</span><span class="when">fires: after accept</span><span class="keyid">arch_dm1_cold_v1</span></div>
+    <div class="body">Hey <span class="tok">{first}</span> 🙂
+
+We ran a quick creator-footprint audit on <span class="tok">{game}</span>: who's already making videos around it, where paid integrations are landing, and where the gaps are. Want me to send it over?</div>
+    <div class="tokens"><b>{first}</b> first name · <b>{game}</b> the title we audited</div>
+  </div>
+
+  <div class="step">
+    <div class="head"><span class="lbl">DM 2a — nudge</span><span class="when">fires: 3 days of silence after DM 1</span><span class="keyid">arch_dm2_nudge_v1</span></div>
+    <div class="body">Hey <span class="tok">{first}</span>, still happy to send that creator audit of <span class="tok">{game}</span>, just say yes 🙂 It's how we show our work before asking for anything.</div>
+    <div class="tokens"><b>{first}</b> first name · <b>{game}</b> the title</div>
+  </div>
+
+  <div class="step">
+    <div class="head"><span class="lbl">DM 2b — deliver</span><span class="when">fires: when they say yes</span><span class="keyid">arch_dm2_deliver_v1</span></div>
+    <div class="body">Made you that audit of <span class="tok">{game}</span>, <span class="tok">{first}</span> 🙂
+
+What creators are already doing around it, and what we'd run: <span class="tok">{audit_url}</span>
+
+Have a look. If it maps to your plans, I'll walk you through it live: https://meetings-eu1.hubspot.com/davorin-smit/30-minute-sales-call</div>
+    <div class="tokens"><b>{game}</b> the title · <b>{first}</b> first name · <b>{audit_url}</b> their finished audit page</div>
+  </div>
+
+  <div class="step">
+    <div class="head"><span class="lbl">Follow-up — after deliver</span><span class="when">fires: 4 days after the audit, no reply</span><span class="keyid">arch_fu1_v1</span></div>
+    <div class="body">Hey <span class="tok">{first}</span>, did any of the audit map to how you're thinking about <span class="tok">{game}</span>'s UA?</div>
+    <div class="tokens"><b>{first}</b> first name · <b>{game}</b> the title</div>
+  </div>
+
+  <h2>Cold lane — apps</h2>
+  <p class="lanewhy">Same steps as games, proof swapped to the apps side of the roster.</p>
+
+  <div class="step">
+    <div class="head"><span class="lbl">Connection note</span><span class="when">fires: with the invite</span><span class="keyid">arch_cold_note_apps_v1</span></div>
+    <div class="body">Hey <span class="tok">{first}</span>, we run influencer UA for apps like Surfshark and Revolut. What <span class="tok">{company}</span> is building caught my eye, figured worth a hello.</div>
+    <div class="charcount">~125 chars with average fills · LinkedIn cap 200</div>
+    <div class="tokens"><b>{first}</b> first name · <b>{company}</b> their company</div>
+  </div>
+
+  <h2>Client orbit</h2>
+  <p class="lanewhy">People at companies you already work with. Warm intro register, never the cold pitch.</p>
+
+  <div class="step">
+    <div class="head"><span class="lbl">Connection note</span><span class="when">fires: with the invite</span><span class="keyid">arch_orbit_v1</span></div>
+    <div class="body">Hey <span class="tok">{first}</span>, we already run creator campaigns with <span class="tok">{anchor}</span> on your side. Felt wrong not to be connected.</div>
+    <div class="tokens"><b>{first}</b> first name · <b>{anchor}</b> the person or team at their company you work with</div>
+  </div>
+
+  <div class="step">
+    <div class="head"><span class="lbl">DM 1</span><span class="when">fires: after accept</span><span class="keyid">arch_orbit_dm1_v1</span></div>
+    <div class="body">Hey <span class="tok">{first}</span> 🙂
+
+We run the creator campaigns with <span class="tok">{anchor}</span> over at <span class="tok">{company}</span>. If influencer UA touches your desk too, happy to show you what's running and the numbers behind it.</div>
+    <div class="tokens"><b>{first}</b> first name · <b>{anchor}</b> your contact there · <b>{company}</b> the company</div>
+  </div>
+
+  <h2>Warm — your own audience</h2>
+  <p class="lanewhy">People who engage with your posts once content is running.</p>
+
+  <div class="step">
+    <div class="head"><span class="lbl">Connection note</span><span class="when">fires: with the invite</span><span class="keyid">arch_warm_v1</span></div>
+    <div class="body">Hey <span class="tok">{first}</span>, you keep showing up around my posts so figured I'd actually say hi 🙂</div>
+    <div class="tokens"><b>{first}</b> first name</div>
+  </div>
+
+  <div class="note">
+    <b>How to review this:</b> same as the lead list. Mark anything that doesn't sound like you, and anything your industry would roll their eyes at. Wording is fully yours to change; the step structure (note, offer, nudge, deliver, one follow-up) is what the numbers support. Nothing sends until you approve and we switch it on together.
+  </div>
+</main>
+</body>
+</html>
