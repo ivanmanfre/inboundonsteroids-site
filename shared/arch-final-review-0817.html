@@ -35,7 +35,91 @@ button{background:var(--acc);color:#111;border:0;border-radius:999px;padding:11p
 <div class="note">Every draft is built from your own material. The three marked <b>from your calls</b> come from your own internal calls this week. Every line in them was checked back against the recording, and anything we could not find in what you actually said was cut. No client is named. <b>One describes a creator you dropped: he is not named, but tell us if that is still too close.</b> Mark anything you want changed, hit the button at the bottom, send Ivan the paste.</div>
 <div class="grid">
 <div class="slot">
-<p class="label">1. A campaign of ten</p>
+<p class="label">1. One bad video <span class="tag">from your calls</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+  </div>
+  <div class="pbody">We dropped a creator this year over one video.
+
+Big Polish channel. The video before it grew hard, the kind of number you screenshot. Then the next one landed badly, low views, a run of things going wrong at once, and he&#x27;s off the list. Nobody has called him since.
+
+I was in the conversation where it happened. It took about a minute.
+
+The thing is, he can obviously perform. The video before says so. One flop is one data point, and we treated it as a verdict.
+
+There is a whole tier of creators sitting in that spot right now. Proven once, unlucky once, priced like a risk by everyone at the same time.
+
+We are trying incentive deals on some of them instead. Smaller flat fee, bonus once installs pass an agreed number. If the flop was bad luck the second video says so cheaply, and if it wasn&#x27;t, the miss costs almost nothing.
+
+Ask me in three months whether it worked.</div>
+  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
+  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
+</div>
+<textarea rows="2" data-label="POST 8. One bad video" placeholder="Anything to change? Blank means fine as is."></textarea>
+</div>
+<div class="slot">
+<p class="label">2. Where the threshold sits <span class="tag">from your calls</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+  </div>
+  <div class="pbody">We are testing a pay shape on creator deals: a smaller flat fee, plus a bonus once installs pass an agreed number.
+
+The reasoning is dull. A flat fee buys a video. It doesn&#x27;t buy anything after the video is up, and what happens after the video is up is most of the result.
+
+The part we have not solved is where the number goes.
+
+Put it low and it&#x27;s a fee with extra paperwork, and everyone knows it. Put it high and the creator reads the bonus as decoration and prices the flat fee as if the bonus does not exist. Which they should, if it doesn&#x27;t.
+
+I do not have a rule for it yet. Right now we are setting it per campaign, off what that creator did last time, which works and does not scale.
+
+If you have run these, I want to know what you anchored the threshold to.</div>
+  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
+  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
+</div>
+<textarea rows="2" data-label="POST 9. Where the threshold sits" placeholder="Anything to change? Blank means fine as is."></textarea>
+</div>
+<div class="slot">
+<p class="label">3. In Serbia it is Viber <span class="tag">from your calls</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+  </div>
+  <div class="pbody">Every community playbook says the same thing. WhatsApp groups, broadcast channels, that is where the audience nobody is buying sits.
+
+We went through our own markets last week to check.
+
+In the Balkans, WhatsApp communities mostly are not there. What people actually use is Discord, Facebook, sometimes Telegram. Instagram broadcast channels, yes, those work.
+
+And in Serbia the number one chat app is Viber. My own relatives there install WhatsApp only so they can talk to us.
+
+Some of our creators have run Viber groups. That is not in anybody&#x27;s deck.
+
+If a plan for that region says WhatsApp communities, nobody checked.</div>
+  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
+  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
+</div>
+<textarea rows="2" data-label="POST 10. In Serbia, it is Viber" placeholder="Anything to change? Blank means fine as is."></textarea>
+</div>
+</div>
+</div><div class="bar"><span class="barhint">Mark anything, then</span><button id="cp" onclick="collect()">Copy my notes</button></div><script>
+function collect(){
+  var out=[];
+  document.querySelectorAll('textarea').forEach(function(t){
+    if(t.value.trim()){out.push('### '+t.dataset.label+'\n'+t.value.trim());}
+  });
+  var txt=out.length?out.join('\n\n'):'(nothing marked)';
+  navigator.clipboard.writeText(txt).then(function(){
+    var b=document.getElementById('cp');b.textContent='Copied. Paste it to Ivan.';
+    setTimeout(function(){b.textContent='Copy my notes';},2600);
+  });
+}
+</script></body></html><div class="slot">
+<p class="label">4. A campaign of ten</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -58,7 +142,7 @@ Adding 30 more names would have bought us numbers we did not need, from people t
 <textarea rows="2" data-label="POST 3. A campaign of ten" placeholder="Anything to change? Blank means fine as is."></textarea>
 </div>
 <div class="slot">
-<p class="label">2. The four things, and nothing else</p>
+<p class="label">5. The four things, and nothing else</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -79,7 +163,7 @@ It is a narrower promise than most agencies make. Fine by me.</div>
 <textarea rows="2" data-label="POST 4. The four things, and nothing else" placeholder="Anything to change? Blank means fine as is."></textarea>
 </div>
 <div class="slot">
-<p class="label">3. Seven empty chairs</p>
+<p class="label">6. Seven empty chairs</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -110,7 +194,7 @@ Ours shows the shape of the year instead. Fourteen campaign managers, and seven 
 <textarea rows="2" data-label="POST 5. Seven empty chairs" placeholder="Anything to change? Blank means fine as is."></textarea>
 </div>
 <div class="slot">
-<p class="label">4. Five years of this</p>
+<p class="label">7. Five years of this</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -139,7 +223,7 @@ So, still the unfashionable version, just smaller: mostly, this is booking.</div
 <textarea rows="2" data-label="POST 6. Five years of this" placeholder="Anything to change? Blank means fine as is."></textarea>
 </div>
 <div class="slot">
-<p class="label">5. One city, thirty countries</p>
+<p class="label">8. One city, thirty countries</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -165,88 +249,3 @@ Would you take that trade in your market, or is there something local you wouldn
 </div>
 <textarea rows="2" data-label="POST 7. One city, thirty countries" placeholder="Anything to change? Blank means fine as is."></textarea>
 </div>
-<div class="slot">
-<p class="label">6. One bad video <span class="tag">from your calls</span></p>
-<div class="post">
-  <div class="phead">
-    <div class="avatar">DS</div>
-    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
-  </div>
-  <div class="pbody">We dropped a creator this year over one video.
-
-Big Polish channel. The video before it grew hard, the kind of number you screenshot. Then the next one landed badly, low views, a run of things going wrong at once, and he&#x27;s off the list. Nobody has called him since.
-
-I was in the conversation where it happened. It took about a minute.
-
-The thing is, he can obviously perform. The video before says so. One flop is one data point, and we treated it as a verdict.
-
-There is a whole tier of creators sitting in that spot right now. Proven once, unlucky once, priced like a risk by everyone at the same time.
-
-We are trying incentive deals on some of them instead. Smaller flat fee, bonus once installs pass an agreed number. If the flop was bad luck the second video says so cheaply, and if it wasn&#x27;t, the miss costs almost nothing.
-
-Ask me in three months whether it worked.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
-</div>
-<textarea rows="2" data-label="POST 8. One bad video" placeholder="Anything to change? Blank means fine as is."></textarea>
-</div>
-<div class="slot">
-<p class="label">7. Where the threshold sits <span class="tag">from your calls</span></p>
-<div class="post">
-  <div class="phead">
-    <div class="avatar">DS</div>
-    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
-  </div>
-  <div class="pbody">We are testing a pay shape on creator deals: a smaller flat fee, plus a bonus once installs pass an agreed number.
-
-The reasoning is dull. A flat fee buys a video. It doesn&#x27;t buy anything after the video is up, and what happens after the video is up is most of the result.
-
-The part we have not solved is where the number goes.
-
-Put it low and it&#x27;s a fee with extra paperwork, and everyone knows it. Put it high and the creator reads the bonus as decoration and prices the flat fee as if the bonus does not exist. Which they should, if it doesn&#x27;t.
-
-I do not have a rule for it yet. Right now we are setting it per campaign, off what that creator did last time, which works and does not scale.
-
-If you have run these, I want to know what you anchored the threshold to.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
-</div>
-<textarea rows="2" data-label="POST 9. Where the threshold sits" placeholder="Anything to change? Blank means fine as is."></textarea>
-</div>
-<div class="slot">
-<p class="label">8. In Serbia it is Viber <span class="tag">from your calls</span></p>
-<div class="post">
-  <div class="phead">
-    <div class="avatar">DS</div>
-    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
-  </div>
-  <div class="pbody">Every community playbook says the same thing. WhatsApp groups, broadcast channels, that is where the audience nobody is buying sits.
-
-We went through our own markets last week to check.
-
-In the Balkans, WhatsApp communities mostly are not there. What people actually use is Discord, Facebook, sometimes Telegram. Instagram broadcast channels, yes, those work.
-
-And in Serbia the number one chat app is Viber. My own relatives there install WhatsApp only so they can talk to us.
-
-Some of our creators have run Viber groups. That is not in anybody&#x27;s deck.
-
-A plan that says &quot;WhatsApp communities&quot; for that region was written on another continent and nobody checked. Before you budget a geo, find out where people in that country message each other, then build the channel list from the answer.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
-</div>
-<textarea rows="2" data-label="POST 10. In Serbia, it is Viber" placeholder="Anything to change? Blank means fine as is."></textarea>
-</div>
-</div>
-</div><div class="bar"><span class="barhint">Mark anything, then</span><button id="cp" onclick="collect()">Copy my notes</button></div><script>
-function collect(){
-  var out=[];
-  document.querySelectorAll('textarea').forEach(function(t){
-    if(t.value.trim()){out.push('### '+t.dataset.label+'\n'+t.value.trim());}
-  });
-  var txt=out.length?out.join('\n\n'):'(nothing marked)';
-  navigator.clipboard.writeText(txt).then(function(){
-    var b=document.getElementById('cp');b.textContent='Copied. Paste it to Ivan.';
-    setTimeout(function(){b.textContent='Copy my notes';},2600);
-  });
-}
-</script></body></html>
