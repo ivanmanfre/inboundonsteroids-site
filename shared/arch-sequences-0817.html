@@ -37,6 +37,16 @@ h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime
 .bar span{font-size:13.5px;font-weight:500}
 .blbtn{border:2px solid var(--ink);background:var(--ink);color:var(--lime);border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
 .blbtn.ghost{background:transparent;color:var(--ink)}
+
+.wrap{max-width:1560px}
+.lanes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;align-items:start}
+.lane h2{margin-top:18px}
+.lanes .msg{max-width:none}
+.lanes .bub{font-size:14px;padding:11px 13px}
+.lanes .sys{margin-left:0;margin-top:8px}
+.lanes .av{flex:0 0 28px;width:28px;height:28px;font-size:8.5px}
+@media(max-width:1280px){.lanes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.lanes{grid-template-columns:1fr}}
 </style></head><body>
 <header><svg class="wm" xmlns="http://www.w3.org/2000/svg" viewBox="701.000 473.691 518.398 134.375">
 <!-- ARCH. wordmark master - extracted verbatim from ARCH-Visual-identity-guidelines.pdf page 1 (vector, no redraw). Color via #F2FF82. -->
@@ -51,8 +61,8 @@ h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime
 <p class="lede">Exactly what each person gets and when. Line breaks shown as they send. Nothing is live until you sign it off.</p>
 </header>
 <div class="wrap">
-
-<h2>Cold &middot; games studios</h2>
+<div class="lanes">
+<section class="lane"><h2>Cold &middot; games studios</h2>
 <div class="path">
   <div class="stop"><span class="when">Day 0 &middot; invite</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="cold_note">Hey <span class="tok">{first}</span>, we run influencer campaigns for studios like Candivore, Wargaming and Ten Square. <span class="tok">{game}</span> is on our radar, so connecting.</div></div>
@@ -84,7 +94,8 @@ If you want the full picture on a call: meetings-eu1.hubspot.com/davorin-smit/30
   </div>
 </div>
 
-<h2>Cold &middot; apps</h2>
+</section>
+<section class="lane"><h2>Cold &middot; apps</h2>
 <div class="path">
   <div class="stop"><span class="when">Day 0 &middot; invite</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="apps_note">Hey <span class="tok">{first}</span>, we run influencer campaigns for apps like Surfshark and Revolut. What <span class="tok">{company}</span> is building is on our radar, so connecting.</div></div>
@@ -92,7 +103,8 @@ If you want the full picture on a call: meetings-eu1.hubspot.com/davorin-smit/30
   </div>
 </div>
 
-<h2>Client orbit &middot; companies ARCH already works with</h2>
+</section>
+<section class="lane"><h2>Client orbit &middot; companies ARCH already works with</h2>
 <div class="path">
   <div class="stop"><span class="when">Day 0 &middot; invite</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="orbit_note">Hey <span class="tok">{first}</span>, we already run creator campaigns with <span class="tok">{anchor}</span> on your side. Felt wrong not to be connected.</div></div>
@@ -105,7 +117,8 @@ We run the creator campaigns with <span class="tok">{anchor}</span> over at <spa
   </div>
 </div>
 
-<h2>Warm &middot; people engaging with your posts</h2>
+</section>
+<section class="lane"><h2>Warm &middot; people engaging with your posts</h2>
 <div class="path">
   <div class="stop"><span class="when">Day 0 &middot; invite</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="warm_note">Hey <span class="tok">{first}</span>, you keep showing up around my posts so figured I would actually say hi &#128578;</div></div>
@@ -113,6 +126,8 @@ We run the creator campaigns with <span class="tok">{anchor}</span> over at <spa
   </div>
 </div>
 
+</section>
+</div>
 <p class="legend">The blue fields fill per person: <b>{first}</b> first name &middot; <b>{game}</b> their title &middot; <b>{company}</b> their company &middot; <b>{anchor}</b> your contact there &middot; <b>{audit_url}</b> their audit, like <a href="https://madebyarch.com/whiteout-survival/" style="color:var(--lime)">this live sample</a></p>
 
 </div>
