@@ -55,6 +55,15 @@ p.lede strong{color:#fff}
 .out{max-width:820px;margin:0 auto;padding:0 14px}
 .out textarea{width:100%;min-height:170px;font-size:13.5px;white-space:pre;display:none;border-radius:14px;border:1px solid #24357e;background:#0a1a5c;color:#fff;font-family:inherit;padding:12px 13px}
 @media(max-width:560px){h1{font-size:22px}.pbody{font-size:15px}.wc{margin-left:0;width:100%}}
+
+.wrap{max-width:1240px}
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.pgrid .post{margin:0}
+.pgrid .pbody{max-height:300px;overflow:auto;padding-right:6px}
+.sgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.sgrid .q{margin:0;height:100%}
+@media(max-width:1000px){.pgrid,.sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.pgrid,.sgrid{grid-template-columns:1fr}}
 </style></head><body>
 <header><svg class="wm" xmlns="http://www.w3.org/2000/svg" viewBox="701.000 473.691 518.398 134.375">
 <!-- ARCH. wordmark master - extracted verbatim from ARCH-Visual-identity-guidelines.pdf page 1 (vector, no redraw). Color via #F2FF82. -->
@@ -76,6 +85,7 @@ p.lede strong{color:#fff}
 <div class="flag"><b>The [DAVORIN: ...] line inside post 04:</b> where we do not know a fact about how ARCH actually works, we ask you instead of inventing it. Those brackets are a question for you. They are not a typo, and they never ship in a published post. Post 04 has its own answer box under it.</div>
 
 <h2>The seven</h2>
+<div class="pgrid">
 <div class="post" data-post="p1">
 <div class="phead"><span class="slabel">Post 01</span><span class="tag primary">primary</span><span class="wc">341 words</span></div>
 <h3>Two CPIs, one name, two different denominators</h3>
@@ -252,6 +262,7 @@ I don&#x27;t have a clean way to settle that one.</div>
 
 </div>
 
+</div>
 <h2>Four things only you can settle</h2>
 <p class="lede">Four open questions in the source material. Each one changes what we are allowed to publish. The first one is time sensitive, because that post is currently scheduled for Tuesday 25 August.</p>
 
@@ -283,35 +294,37 @@ I don&#x27;t have a clean way to settle that one.</div>
 <textarea id="a3" placeholder="Optional note on this one."></textarea></div>
 
 <h2>The outreach sequences</h2>
-<p class="lede">Every message the outreach system would send, end to end: when it fires and the exact copy. The <b>{curly}</b> fields fill per person. The free creator audit (like <a href="https://madebyarch.com/whiteout-survival/" style="color:var(--lime)">this live sample</a>) is the give that earns the reply. <strong>Nothing is active.</strong> You review the wording here the same way you review the posts above.</p>
+<p class="lede">Every message the outreach system would send: when it fires and the exact copy. The {curly} fields fill per person. The creator audit (like <a href="https://madebyarch.com/whiteout-survival/" style="color:var(--lime)">this live sample</a>) is the give that earns the reply. <strong>Nothing is active.</strong> Mark wording the same way you mark the posts.</p>
 
-<div class="q"><p class="qt">Cold, games studios &middot; connection note (sent with the invite)</p>
-<p class="qn">Hey {first}, we run influencer UA for studios like Candivore and Wargaming. {game} caught my eye, figured worth a hello.</p></div>
+<div class="sgrid">
+<div class="q"><p class="qt">Cold, games &middot; invite note</p>
+<p class="qn">Hey {first}, we run influencer UA for studios like Candivore and Wargaming. Following what's happening around {game}, worth being connected.</p></div>
 
-<div class="q"><p class="qt">Cold &middot; DM 1, the offer (after they accept)</p>
-<p class="qn">Hey {first} &#128578;<br><br>We ran a quick creator-footprint audit on {game}: who's already making videos around it, where paid integrations are landing, and where the gaps are. Want me to send it over?</p></div>
+<div class="q"><p class="qt">Cold &middot; DM 1, the audit offer (after accept)</p>
+<p class="qn">Hey {first} &#128578;<br><br>Took the liberty of running a creator audit on {game}. It shows who's already making videos on it, which ones carry a paid label, and the two spots where a paid integration would land next.<br><br>Want me to send it over?</p></div>
 
-<div class="q"><p class="qt">Cold &middot; DM 2a, nudge (3 days of silence)</p>
-<p class="qn">Hey {first}, still happy to send that creator audit of {game}, just say yes &#128578; It's how we show our work before asking for anything.</p></div>
+<div class="q"><p class="qt">Cold &middot; DM 2a, the model (3 days of silence, new information)</p>
+<p class="qn">Hey {first}, btw:<br><br>Influencer UA for games and apps is all we do. The model is hybrid, a flat part and a performance part paid on installs the creators actually drive, so nobody gets paid for posting into the void.<br><br>Would you be against seeing how that would look for {game}?</p></div>
 
 <div class="q"><p class="qt">Cold &middot; DM 2b, deliver (when they say yes)</p>
-<p class="qn">Made you that audit of {game}, {first} &#128578;<br><br>What creators are already doing around it, and what we'd run: {audit_url}<br><br>Have a look. If it maps to your plans, I'll walk you through it live: meetings-eu1.hubspot.com/davorin-smit/30-minute-sales-call</p></div>
+<p class="qn">Made you that audit of {game}, {first} &#128578;<br><br>Who's already covering it, what carries a paid label, and what we'd run: {audit_url}<br><br>If it maps to your plans, I'll walk you through it live: meetings-eu1.hubspot.com/davorin-smit/30-minute-sales-call</p></div>
 
-<div class="q"><p class="qt">Cold &middot; follow-up (4 days after the audit, no reply)</p>
+<div class="q"><p class="qt">Cold &middot; follow-up (4 days after the audit)</p>
 <p class="qn">Hey {first}, did any of the audit map to how you're thinking about {game}'s UA?</p></div>
 
-<div class="q"><p class="qt">Cold, apps &middot; connection note (same steps as games, proof swapped)</p>
-<p class="qn">Hey {first}, we run influencer UA for apps like Surfshark and Revolut. What {company} is building caught my eye, figured worth a hello.</p></div>
+<div class="q"><p class="qt">Cold, apps &middot; invite note (same steps, proof swapped)</p>
+<p class="qn">Hey {first}, we run influencer UA for apps like Surfshark and Revolut. Following what {company} is building, worth being connected.</p></div>
 
-<div class="q"><p class="qt">Client orbit &middot; people at companies you already work with</p>
+<div class="q"><p class="qt">Client orbit &middot; companies you already work with</p>
 <p class="qn">Note: Hey {first}, we already run creator campaigns with {anchor} on your side. Felt wrong not to be connected.<br><br>DM after accept: Hey {first} &#128578; We run the creator campaigns with {anchor} over at {company}. If influencer UA touches your desk too, happy to show you what's running and the numbers behind it.</p></div>
 
 <div class="q"><p class="qt">Warm &middot; people engaging with your posts</p>
 <p class="qn">Hey {first}, you keep showing up around my posts so figured I'd actually say hi &#128578;</p></div>
 
 <div class="q"><p class="qt">Your read on the sequences</p>
-<p class="qn">Anything that doesn't sound like you, anything your industry would roll their eyes at, any step you'd cut. Wording is fully yours; the step structure (note, offer, nudge, deliver, one follow-up) is what reply-rate data supports.</p>
+<p class="qn">Anything that doesn't sound like you, anything your industry would roll their eyes at, any step you'd cut.</p>
 <textarea id="seqnotes" placeholder="The cold note is too soft. I would never say ..."></textarea></div>
+</div>
 
 <h2>Anything else</h2>
 <div class="q"><p class="qn">A topic you would never post about, a fact you want checked again, an order you would rather run them in. Anything here comes back with your answers.</p>
