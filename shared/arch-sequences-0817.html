@@ -1,0 +1,126 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARCH. outreach sequences for your review</title>
+<style>
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;
+src:url('assets/fonts/dm-sans-latin.woff2') format('woff2');}
+:root{--navy:#000F41;--lime:#F2FF82;--cobalt:#3562FF;--ink:#000F41;--gray:#666}
+*{box-sizing:border-box}
+body{margin:0;font-family:"DM Sans",-apple-system,system-ui,sans-serif;background:var(--navy);color:#fff;-webkit-text-size-adjust:100%}
+header{padding:22px 20px 6px;max-width:820px;margin:0 auto}
+svg.wm{width:112px;height:29px;display:block;margin:0 0 18px}
+h1{font-size:25px;line-height:1.12;margin:0 0 10px;letter-spacing:.01em;text-transform:uppercase}
+h2{font-size:14px;letter-spacing:.07em;text-transform:uppercase;color:var(--lime);margin:34px 2px 6px}
+.wrap{max-width:820px;margin:0 auto;padding:0 14px 150px}
+p.lede{color:#c8cfe8;font-size:15px;line-height:1.6;margin:0 0 12px}
+p.lede strong{color:#fff}
+.time{display:inline-block;background:#0a1a5c;border:1px solid #24357e;border-radius:999px;padding:6px 13px;font-size:12.5px;color:#c8cfe8;margin:2px 0 8px}
+.why{color:#c8cfe8;font-size:14.5px;line-height:1.6;margin:14px 2px 6px;border-left:3px solid var(--cobalt);padding-left:12px}
+.why b{color:#fff}
+.flag{background:#fff8e1;color:#6b5300;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.5;margin:12px 0}
+.flag b{color:#4a3900}
+.post{background:#fff;color:var(--ink);border-radius:18px;padding:15px 16px 14px;margin:12px 0}
+.post.on{outline:4px solid var(--lime)}
+.phead{margin:0 0 10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.slabel{display:inline-block;background:var(--ink);color:var(--lime);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.tag{display:inline-block;border-radius:999px;padding:3px 10px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.tag.primary{background:var(--cobalt);color:#fff}
+.tag.bench{background:#eceffb;color:#40497a;border:1px solid #d5daf0}
+.wc{font-size:12px;color:#8b93bd;margin-left:auto}
+.post h3{margin:0 0 9px;font-size:18px;line-height:1.25}
+.pbody{white-space:pre-wrap;font-size:15.5px;line-height:1.55;border-left:3px solid #e7eaf6;padding:2px 0 2px 13px;overflow-wrap:anywhere}
+.choices{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.copt{border:2px solid #d5daf0;background:#fff;color:#40497a;border-radius:12px;padding:12px 14px;font:inherit;font-size:14.5px;font-weight:700;text-align:left;cursor:pointer;line-height:1.35;width:100%}
+.copt.on{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.copt.edits.on{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.copt.kill.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.notelab{display:block;font-size:12.5px;color:#6c76a6;margin:12px 0 5px;letter-spacing:.02em}
+.post textarea{width:100%;min-height:62px;border-radius:12px;border:1px solid #d5daf0;background:#f5f7fd;color:var(--ink);font:inherit;font-size:15px;padding:10px 12px;line-height:1.5}
+.post textarea::placeholder{color:#9aa3ca}
+.askbox{background:var(--lime);color:var(--ink);border-radius:14px;padding:12px 13px;margin-top:12px}
+.askbox .al{font-size:13px;font-weight:700;margin:0 0 6px;line-height:1.4}
+.askbox textarea{background:rgba(0,15,65,.06);border:1px solid rgba(0,15,65,.18)}
+.q{background:#0a1a5c;border:1px solid #24357e;border-radius:18px;padding:14px;margin:9px 0}
+.q .qt{font-size:15.5px;font-weight:700;margin:0 0 5px;line-height:1.3}
+.q .qn{font-size:14px;color:#c2c9e6;line-height:1.55;margin:0 0 10px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.opt{border:2px solid #24357e;background:#000F41;color:#dfe4f7;border-radius:12px;padding:12px 14px;font:inherit;font-size:14.5px;text-align:left;cursor:pointer;line-height:1.35}
+.opt.on{background:var(--lime);color:var(--ink);border-color:var(--lime);font-weight:700}
+.q textarea{width:100%;min-height:80px;border-radius:14px;border:1px solid #24357e;background:#000F41;color:#fff;font:inherit;font-size:15px;padding:11px 13px;line-height:1.5}
+.q textarea::placeholder{color:#7f8cc0}
+.bar{position:fixed;bottom:0;left:0;right:0;background:var(--lime);color:var(--ink);padding:11px 14px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:5}
+.bar strong{font-size:14px}
+.blbtn{border:2px solid var(--ink);background:var(--ink);color:var(--lime);border-radius:999px;padding:11px 20px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:inherit}
+.out{max-width:820px;margin:0 auto;padding:0 14px}
+.out textarea{width:100%;min-height:170px;font-size:13.5px;white-space:pre;display:none;border-radius:14px;border:1px solid #24357e;background:#0a1a5c;color:#fff;font-family:inherit;padding:12px 13px}
+@media(max-width:560px){h1{font-size:22px}.pbody{font-size:15px}.wc{margin-left:0;width:100%}}
+
+.wrap{max-width:1240px}
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.pgrid .post{margin:0}
+.pgrid .pbody{max-height:300px;overflow:auto;padding-right:6px}
+.sgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.sgrid .q{margin:0;height:100%}
+@media(max-width:1000px){.pgrid,.sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.pgrid,.sgrid{grid-template-columns:1fr}}
+</style></head><body>
+<header><svg class="wm" xmlns="http://www.w3.org/2000/svg" viewBox="701.000 473.691 518.398 134.375">
+<!-- ARCH. wordmark master - extracted verbatim from ARCH-Visual-identity-guidelines.pdf page 1 (vector, no redraw). Color via #F2FF82. -->
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 781.710938 604.332031 L 805.027344 604.332031 L 752.898438 474 L 701 604.332031 L 724.472656 604.332031 L 730.035156 589.742188 L 775.820312 589.757812 Z M 737.140625 571.394531 C 742.398438 556.796875 747.648438 542.195312 752.910156 527.59375 C 758.183594 542.207031 763.457031 556.820312 768.730469 571.433594 C 758.203125 571.425781 747.671875 571.410156 737.140625 571.394531 Z M 737.140625 571.394531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 891.851562 604.332031 L 917.578125 604.332031 L 882.1875 549.363281 C 882.1875 549.363281 906.378906 544.375 910.023438 522.378906 C 910.023438 522.378906 919.394531 480.035156 867.453125 477.519531 L 823.765625 477.519531 L 823.765625 498.875 L 844.414062 530.304688 L 844.414062 530.441406 L 823.765625 530.441406 L 823.765625 604.332031 L 845.609375 604.332031 L 845.609375 551.59375 L 858.105469 551.59375 L 858.117188 551.617188 L 858.140625 551.617188 Z M 849.785156 498.875 L 868.402344 498.875 C 891.070312 500.597656 888.847656 514.660156 888.847656 514.660156 C 889.085938 529.675781 869.882812 530.167969 869.882812 530.167969 Z M 849.785156 498.875 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 845.609375 551.59375 L 845.609375 604.332031 L 845.683594 604.332031 L 845.683594 551.617188 L 858.117188 551.617188 L 858.105469 551.59375 Z M 845.609375 551.59375 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1032.863281 509.28125 L 1048.28125 494.386719 C 1048.28125 494.386719 1031.785156 475.757812 1002.527344 475.695312 C 1002.527344 475.695312 967.269531 473.691406 947.484375 503.203125 C 947.484375 503.203125 922.816406 540.652344 947.484375 578.421875 C 947.484375 578.421875 964.621094 606.121094 1001.46875 606.121094 C 1001.46875 606.121094 1027.335938 608.066406 1048.28125 587.707031 L 1032.734375 572.589844 C 1032.734375 572.589844 1021.753906 584.90625 1002.953125 584.960938 C 1002.953125 584.960938 960.96875 586.1875 958.925781 542.15625 C 958.925781 542.15625 956.222656 495.847656 1005.234375 497.132812 C 1005.230469 497.132812 1020.605469 497.25 1032.863281 509.28125 Z M 1032.863281 509.28125 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1150.6875 477.519531 L 1150.6875 530.160156 L 1096.546875 530.160156 L 1096.546875 477.519531 L 1074.679688 477.519531 L 1074.679688 604.332031 L 1096.546875 604.332031 L 1096.546875 551.332031 L 1150.6875 551.332031 L 1150.6875 604.332031 L 1172.46875 604.332031 L 1172.46875 477.519531 Z M 1150.6875 477.519531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1207.65625 605.519531 C 1214.144531 605.519531 1219.398438 600.40625 1219.398438 594.101562 C 1219.398438 587.796875 1214.144531 582.6875 1207.65625 582.6875 C 1201.171875 582.6875 1195.914062 587.796875 1195.914062 594.101562 C 1195.914062 600.40625 1201.171875 605.519531 1207.65625 605.519531 Z M 1207.65625 605.519531 "/>
+</svg>
+<h1>The outreach sequences, for your review</h1>
+
+<span class="time">Seven taps, roughly ten minutes on a phone</span>
+</header>
+<div class="wrap">
+<h2>The outreach sequences</h2>
+<p class="lede">Every message the outreach system would send: when it fires and the exact copy. The {curly} fields fill per person. The creator audit (like <a href="https://madebyarch.com/whiteout-survival/" style="color:var(--lime)">this live sample</a>) is the give that earns the reply. <strong>Nothing is active.</strong> Mark wording the same way you mark the posts.</p>
+
+<div class="sgrid">
+<div class="q"><p class="qt">Cold, games &middot; invite note</p>
+<p class="qn">Hey {first}, we run influencer UA for studios like Candivore and Wargaming. Following what's happening around {game}, worth being connected.</p></div>
+
+<div class="q"><p class="qt">Cold &middot; DM 1, the audit offer (after accept)</p>
+<p class="qn">Hey {first} &#128578;<br><br>Took the liberty of running a creator audit on {game}. It shows who's already making videos on it, which ones carry a paid label, and the two spots where a paid integration would land next.<br><br>Want me to send it over?</p></div>
+
+<div class="q"><p class="qt">Cold &middot; DM 2a, the model (3 days of silence, new information)</p>
+<p class="qn">Hey {first}, btw:<br><br>Influencer UA for games and apps is all we do. The model is hybrid, a flat part and a performance part paid on installs the creators actually drive, so nobody gets paid for posting into the void.<br><br>Would you be against seeing how that would look for {game}?</p></div>
+
+<div class="q"><p class="qt">Cold &middot; DM 2b, deliver (when they say yes)</p>
+<p class="qn">Made you that audit of {game}, {first} &#128578;<br><br>Who's already covering it, what carries a paid label, and what we'd run: {audit_url}<br><br>If it maps to your plans, I'll walk you through it live: meetings-eu1.hubspot.com/davorin-smit/30-minute-sales-call</p></div>
+
+<div class="q"><p class="qt">Cold &middot; follow-up (4 days after the audit)</p>
+<p class="qn">Hey {first}, did any of the audit map to how you're thinking about {game}'s UA?</p></div>
+
+<div class="q"><p class="qt">Cold, apps &middot; invite note (same steps, proof swapped)</p>
+<p class="qn">Hey {first}, we run influencer UA for apps like Surfshark and Revolut. Following what {company} is building, worth being connected.</p></div>
+
+<div class="q"><p class="qt">Client orbit &middot; companies you already work with</p>
+<p class="qn">Note: Hey {first}, we already run creator campaigns with {anchor} on your side. Felt wrong not to be connected.<br><br>DM after accept: Hey {first} &#128578; We run the creator campaigns with {anchor} over at {company}. If influencer UA touches your desk too, happy to show you what's running and the numbers behind it.</p></div>
+
+<div class="q"><p class="qt">Warm &middot; people engaging with your posts</p>
+<p class="qn">Hey {first}, you keep showing up around my posts so figured I'd actually say hi &#128578;</p></div>
+
+<div class="q"><p class="qt">Your read on the sequences</p>
+<p class="qn">Anything that doesn't sound like you, anything your industry would roll their eyes at, any step you'd cut.</p>
+<textarea id="seqnotes" placeholder="The cold note is too soft. I would never say ..."></textarea></div>
+</div>
+
+</div>
+<div class="bar"><strong>Mark anything off, then</strong><button class="blbtn" id="copybtn">Copy my notes</button></div>
+<script>
+document.getElementById('copybtn').addEventListener('click',function(){
+  var v=(document.getElementById('seqnotes')||{value:''}).value.trim();
+  var txt='ARCH outreach sequences - Davorin ('+new Date().toISOString().slice(0,10)+')\n\nSequences feedback: '+(v||'-');
+  var btn=this;
+  function ok(){btn.textContent='Copied \u2713';setTimeout(function(){btn.textContent='Copy my notes';},1800);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok);}
+});
+</script>
+</body></html>
