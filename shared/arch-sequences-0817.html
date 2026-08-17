@@ -39,7 +39,7 @@ h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime
 .blbtn.ghost{background:transparent;color:var(--ink)}
 
 .wrap{max-width:1560px}
-.lanes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;align-items:start}
+.lanes{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:20px;align-items:start}
 .lane h2{margin-top:18px}
 .lanes .msg{max-width:none}
 .lanes .bub{font-size:14px;padding:11px 13px}
@@ -118,6 +118,20 @@ We run the creator campaigns with <span class="tok">{anchor}</span> over at <spa
 </div>
 
 </section>
+<section class="lane"><h2>Industry engagers &middot; people active around the big UA voices</h2>
+<div class="path">
+  <div class="stop"><span class="when">Day 0 &middot; invite</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="eng_note">Hey <span class="tok">{first}</span>, keep seeing you around <span class="tok">{anchor}</span>'s posts. We run in the same corner of gaming UA, so connecting.</div></div>
+    <p class="sys">These come from the harvester: people reacting and commenting on the industry accounts we track. They already care about the topic before we ever write to them.</p>
+  </div>
+  <div class="stop"><span class="when">They accept &middot; DM 1</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="eng_dm1">Hey <span class="tok">{first}</span> &#128578;
+
+We run influencer campaigns for Candivore, Wargaming and Ten Square. If the creator side of <span class="tok">{game}</span> is on your plate, we built an audit on it: who covers it, what carries a paid label. Want it?</div></div>
+    <p class="sys">From the yes onward it joins the cold path: deliver, then the one follow-up.</p>
+  </div>
+</div>
+</section>
 <section class="lane"><h2>Warm &middot; people engaging with your posts</h2>
 <div class="path">
   <div class="stop"><span class="when">Day 0 &middot; invite</span>
@@ -128,7 +142,7 @@ We run the creator campaigns with <span class="tok">{anchor}</span> over at <spa
 
 </section>
 </div>
-<p class="legend">The blue fields fill per person: <b>{first}</b> first name &middot; <b>{game}</b> their title &middot; <b>{company}</b> their company &middot; <b>{anchor}</b> your contact there &middot; <b>{audit_url}</b> their audit, like <a href="https://madebyarch.com/whiteout-survival/" style="color:var(--lime)">this live sample</a></p>
+<p class="legend">The blue fields fill per person: <b>{first}</b> first name &middot; <b>{game}</b> their title &middot; <b>{company}</b> their company &middot; <b>{anchor}</b> your contact there, or the industry account they engage with &middot; <b>{audit_url}</b> their audit, like <a href="https://madebyarch.com/whiteout-survival/" style="color:var(--lime)">this live sample</a></p>
 
 </div>
 <div class="bar"><span>Click any message to edit it. Edits save on this device.</span><button class="blbtn" id="copyseq">Copy the sequences</button><button class="blbtn ghost" id="resetseq">Reset my edits</button></div>
@@ -148,7 +162,7 @@ We run the creator campaigns with <span class="tok">{anchor}</span> over at <spa
       localStorage.setItem(LS,JSON.stringify(store));
     });
   });
-  function label(k){return {cold_note:'Cold games / invite note',cold_dm1:'Cold / DM 1',cold_nudge:'Cold / 3-day nudge',cold_deliver:'Cold / deliver',cold_fu:'Cold / follow-up',apps_note:'Cold apps / invite note',orbit_note:'Orbit / invite note',orbit_dm1:'Orbit / DM 1',warm_note:'Warm / invite note'}[k]||k;}
+  function label(k){return {cold_note:'Cold games / invite note',cold_dm1:'Cold / DM 1',cold_nudge:'Cold / 3-day nudge',cold_deliver:'Cold / deliver',cold_fu:'Cold / follow-up',apps_note:'Cold apps / invite note',eng_note:'Industry engagers / invite note',eng_dm1:'Industry engagers / DM 1',orbit_note:'Orbit / invite note',orbit_dm1:'Orbit / DM 1',warm_note:'Warm / invite note'}[k]||k;}
   document.getElementById('copyseq').addEventListener('click',function(){
     var L=['ARCH outreach sequences ('+new Date().toISOString().slice(0,10)+')',''];
     bubs.forEach(function(b){
