@@ -1,74 +1,63 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ARCH. outreach: five ways in, one conversation</title>
+<title>ARCH. outreach: four ways in, one conversation</title>
 <style>
 @font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;
 src:url('assets/fonts/dm-sans-latin.woff2') format('woff2');}
-:root{--navy:#000F41;--lime:#F2FF82;--cobalt:#3562FF;--ink:#000F41;--maxw:1380px}
+:root{--navy:#000F41;--lime:#F2FF82;--cobalt:#3562FF;--ink:#000F41;--maxw:1240px}
 *{box-sizing:border-box}
 html{background:var(--navy)}
 body{margin:0;font-family:"DM Sans",-apple-system,system-ui,sans-serif;background:transparent;color:#fff;-webkit-text-size-adjust:100%}
 body::before{content:"";position:fixed;inset:0;z-index:-1;opacity:.05;pointer-events:none;
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
-header{padding:30px 20px 0;max-width:var(--maxw);margin:0 auto}
-svg.wm{width:112px;height:29px;display:block;margin:0 0 20px}
+header{padding:34px 20px 0;max-width:var(--maxw);margin:0 auto}
+svg.wm{width:112px;height:29px;display:block;margin:0 0 22px}
 h1{font-size:clamp(24px,3.2vw,38px);line-height:1.04;margin:0 0 10px;letter-spacing:.01em;text-transform:uppercase;font-weight:800}
 h1 em{font-style:normal;color:var(--lime)}
-p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:640px;line-height:1.5}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:34px 20px 140px}
+p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:44px 20px 150px}
 
-/* ---- doors ---- */
-.kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:700;margin:0 0 14px;display:flex;align-items:center;gap:10px}
-.kicker::after{content:"";flex:1;height:1px;background:rgba(242,255,130,.25)}
-.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;position:relative;z-index:2;align-items:start}
-@media(max-width:1219px){.doors{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:760px){.doors{grid-template-columns:1fr}}
-.door{display:flex;flex-direction:column;background:rgba(53,98,255,.09);border:1px solid rgba(242,255,130,.22);border-radius:16px;padding:16px 15px 14px}
-.door .num{font-size:11px;font-weight:800;letter-spacing:.1em;color:rgba(255,255,255,.45)}
-.door h2{font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--lime);margin:4px 0 12px;line-height:1.3;min-height:2.6em}
-.when{display:inline-block;background:var(--cobalt);color:#fff;font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 12px;margin:0 0 9px;align-self:flex-start}
+.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;position:relative;z-index:2;align-items:start}
+@media(max-width:1070px){.doors{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.doors{grid-template-columns:1fr}}
+.door{display:flex;flex-direction:column;background:rgba(53,98,255,.09);border:1px solid rgba(242,255,130,.2);border-radius:18px;padding:18px 16px}
+.door h2{font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--lime);margin:0 0 14px;line-height:1.35}
+.when{display:inline-block;background:var(--cobalt);color:#fff;font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 12px;margin:0 0 10px;align-self:flex-start}
 .msg{display:flex;gap:9px;align-items:flex-start}
 .av{flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:var(--cobalt);color:#fff;font-size:8.5px;font-weight:800;display:flex;align-items:center;justify-content:center;letter-spacing:.03em;margin-top:2px}
-.bub{background:#fff;color:var(--ink);border-radius:4px 14px 14px 14px;padding:11px 13px;font-size:14px;line-height:1.5;white-space:pre-line;overflow-wrap:anywhere;width:100%}
+.bub{background:#fff;color:var(--ink);border-radius:4px 14px 14px 14px;padding:12px 14px;font-size:14px;line-height:1.5;white-space:pre-line;overflow-wrap:anywhere;width:100%}
 .bub .tok{color:var(--cobalt);font-weight:700}
-.sys{color:#8b93bd;font-size:12.5px;line-height:1.45;margin:9px 0 0}
-.door .tail{margin-top:auto;padding-top:14px}
-.chip{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;border-radius:999px;padding:5px 11px}
-.chip.join{background:var(--lime);color:var(--ink)}
-.chip.stop{background:transparent;border:1px solid rgba(255,255,255,.3);color:#c8cfe8}
-.door .extra{margin-top:14px;border-top:1px dashed rgba(242,255,130,.25);padding-top:14px}
+.door .extra{margin-top:16px;border-top:1px dashed rgba(242,255,130,.25);padding-top:16px}
 
-/* ---- convergence ---- */
 .mapzone{position:relative}
 #wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
 #wires path{fill:none;stroke:var(--lime);stroke-width:2;opacity:.8}
-.node{position:relative;z-index:2;width:max-content;margin:52px auto 0;background:var(--navy);border:2px solid var(--lime);color:var(--lime);font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:9px 20px}
+.node{position:relative;z-index:2;width:max-content;margin:56px auto 0;background:var(--navy);border:2px solid var(--lime);color:var(--lime);font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:9px 20px}
 
-/* ---- trunk ---- */
-.trunkwrap{position:relative;z-index:2;max-width:660px;margin:0 auto;padding-top:26px}
-.trunkhead{text-align:center;margin:0 0 6px}
+.trunkwrap{position:relative;z-index:2;max-width:640px;margin:0 auto;padding-top:28px}
+.trunkhead{text-align:center;margin:0 0 24px}
 .trunkhead h2{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);margin:0 0 10px}
-.trunkhead .lanes-on{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.trunkhead .lanes-on{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .lanes-on span{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;border:1px solid rgba(242,255,130,.4);color:var(--lime);border-radius:999px;padding:4px 11px}
 .path{position:relative;margin-left:8px;padding-left:34px;border-left:2px solid var(--lime)}
-.stop{position:relative;margin:0 0 30px}
+.stop{position:relative;margin:0 0 34px}
 .stop:last-child{margin-bottom:6px}
 .path .when{position:relative;font-size:12.5px;padding:6px 14px;margin:0 0 10px}
 .path .when::before{content:"";position:absolute;left:-41px;top:50%;width:26px;height:2px;background:var(--lime)}
 .path .av{flex:0 0 34px;width:34px;height:34px;font-size:9.5px}
-.path .bub{font-size:15px;padding:12px 15px;border-radius:4px 16px 16px 16px}
-.path .sys{margin:7px 0 0 44px;font-size:13.5px}
-
-.legend{color:#8b93bd;font-size:13px;margin:44px 2px 0;line-height:1.6}
-.legend b{color:#c8cfe8;font-family:ui-monospace,Menlo,monospace;font-weight:600}
-.legend a{color:var(--lime)}
+.path .bub{font-size:15px;padding:13px 16px;border-radius:4px 16px 16px 16px}
 
 .ex{margin:14px 0 0 44px;border-left:2px solid var(--lime);padding-left:12px}
 .ex .exlabel{margin:0 0 8px;font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--lime)}
 .ex .exbub{background:rgba(255,255,255,.94);font-size:13.5px}
 .ex .av{opacity:.75}
-@media(max-width:700px){.ex{margin-left:0}}
+@media(max-width:700px){.ex{margin-left:0}.node{margin-top:36px}.path{padding-left:24px}.path .when::before{left:-31px;width:18px}}
+
+.legend{color:#8b93bd;font-size:13px;margin:48px 2px 0;line-height:1.7}
+.legend b{color:#c8cfe8;font-family:ui-monospace,Menlo,monospace;font-weight:600}
+.legend a{color:var(--lime)}
+
 .bub[contenteditable]{outline:none;cursor:text}
 .bub:focus{box-shadow:0 0 0 3px var(--cobalt)}
 .bub.edited{box-shadow:0 0 0 3px var(--lime)}
@@ -77,13 +66,6 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:640px;line-height:1.5}
 .bar span{font-size:13.5px;font-weight:500}
 .blbtn{border:2px solid var(--ink);background:var(--ink);color:var(--lime);border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
 .blbtn.ghost{background:transparent;color:var(--ink)}
-
-@media(max-width:700px){
-  .door h2{min-height:0}
-  .node{margin-top:34px}
-  .path{padding-left:24px}
-  .path .when::before{left:-31px;width:18px}
-}
 </style></head><body>
 <header><svg class="wm" xmlns="http://www.w3.org/2000/svg" viewBox="701.000 473.691 518.398 134.375">
 <!-- ARCH. wordmark master - extracted verbatim from ARCH-Visual-identity-guidelines.pdf page 1 (vector, no redraw). Color via #F2FF82. -->
@@ -94,53 +76,31 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:640px;line-height:1.5}
   <path fill="#F2FF82" fill-rule="nonzero" d="M 1150.6875 477.519531 L 1150.6875 530.160156 L 1096.546875 530.160156 L 1096.546875 477.519531 L 1074.679688 477.519531 L 1074.679688 604.332031 L 1096.546875 604.332031 L 1096.546875 551.332031 L 1150.6875 551.332031 L 1150.6875 604.332031 L 1172.46875 604.332031 L 1172.46875 477.519531 Z M 1150.6875 477.519531 "/>
   <path fill="#F2FF82" fill-rule="nonzero" d="M 1207.65625 605.519531 C 1214.144531 605.519531 1219.398438 600.40625 1219.398438 594.101562 C 1219.398438 587.796875 1214.144531 582.6875 1207.65625 582.6875 C 1201.171875 582.6875 1195.914062 587.796875 1195.914062 594.101562 C 1195.914062 600.40625 1201.171875 605.519531 1207.65625 605.519531 Z M 1207.65625 605.519531 "/>
 </svg>
-<h1>Five ways in. <em>One conversation.</em></h1>
-<p class="lede">Every lane opens its own door. After the yes, three of them land in the same conversation, written once, in the middle. Click any message to edit it. Nothing is live until you sign it off.</p>
+<h1>Four ways in. <em>One conversation.</em></h1>
+<p class="lede">Click any message to edit it. Nothing goes out until you sign it off.</p>
 </header>
 <div class="wrap">
 <div class="mapzone">
 <svg id="wires" aria-hidden="true"></svg>
 
-<p class="kicker">The doors</p>
 <div class="doors">
 
-<section class="door" data-join="1"><span class="num">01</span><h2>Cold &middot; games studios</h2>
+<section class="door" data-join="1"><h2>Games studios</h2>
   <span class="when">Day 0 &middot; invite</span>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="games_note">Hey <span class="tok">{first}</span>, Davorin here :) We run influencer campaigns for studios like Candivore, Wargaming and Ten Square. <span class="tok">{game}</span> is on my radar. Would be great to connect.</div></div>
-  <p class="sys">Sent with the connection request. LinkedIn caps it at 300 characters.</p>
-  <div class="tail"><span class="chip join">Joins the path &darr;</span></div>
 </section>
 
-<section class="door" data-join="1"><span class="num">02</span><h2>Cold &middot; apps</h2>
+<section class="door" data-join="1"><h2>Apps</h2>
   <span class="when">Day 0 &middot; invite</span>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="apps_note">Hey <span class="tok">{first}</span>, Davorin here :) Are you looking to expand <span class="tok">{company}</span>'s influencer campaigns into new countries? We've booked 5k influencers for apps and games brands across Europe and the Americas.</div></div>
-  <p class="sys">Your own opener - the line you already send. The audit is built on the app instead of the game.</p>
-  <div class="tail"><span class="chip join">Joins the path &darr;</span></div>
 </section>
 
-<section class="door" data-join="1"><span class="num">03</span><h2>Industry engagers &middot; around the big UA voices</h2>
+<section class="door" data-join="1"><h2>Industry engagers &middot; around the big UA voices</h2>
   <span class="when">Day 0 &middot; invite</span>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="eng_note">Hey <span class="tok">{first}</span>, Davorin here :) I keep seeing you around <span class="tok">{anchor}</span>'s posts. We're in the same corner of gaming UA, so I figured we should connect.</div></div>
-  <p class="sys">From the harvester: people reacting and commenting on the industry accounts we track. They already care about the topic.</p>
-  <div class="tail"><span class="chip join">Joins the path &darr;</span></div>
 </section>
 
-<section class="door"><span class="num">04</span><h2>Existing clients &middot; other people at companies you already work with</h2>
-  <span class="when">Day 0 &middot; invite</span>
-  <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="orbit_note">Hey <span class="tok">{first}</span>, Davorin from ARCH. here :) We book the creators for <span class="tok">{game}</span> together with <span class="tok">{anchor}</span>. I just saw that we are not connected - felt strange, so here is the invite.</div></div>
-  <div class="extra">
-    <span class="when">They accept &middot; DM 1</span>
-    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="orbit_dm1">Hey <span class="tok">{first}</span>
-
-We run the creator campaigns for <span class="tok">{game}</span> with <span class="tok">{anchor}</span>. The numbers cross my desk every week.
-
-Would you be against me walking you through what is running and what it brings? If influencer UA is not your desk, tell me and I stop here. &#128512;</div></div>
-    <p class="sys">A second contact inside a live client - {anchor} is who we already work with there. One message, no chasing.</p>
-  </div>
-  <div class="tail"><span class="chip stop">One message &middot; done</span></div>
-</section>
-
-<section class="door"><span class="num">05</span><h2>Warm &middot; people engaging with your posts</h2>
+<section class="door"><h2>Warm &middot; people engaging with your posts</h2>
   <span class="when">Day 0 &middot; invite</span>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="warm_note">Hey <span class="tok">{first}</span>, saw you around my content, figured I would say hi &#128512;</div></div>
   <div class="extra">
@@ -149,9 +109,7 @@ Would you be against me walking you through what is running and what it brings? 
 How is it going?
 
 Curious - how are you guys doing on the creator side for <span class="tok">{game}</span>? Running anything at the moment?</div></div>
-    <p class="sys">No pitch. The question is real - whatever they answer, you take it from there.</p>
   </div>
-  <div class="tail"><span class="chip stop">Hello, then one real question</span></div>
 </section>
 
 </div>
@@ -169,10 +127,18 @@ Curious - how are you guys doing on the creator side for <span class="tok">{game
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="dm1">Hey <span class="tok">{first}</span>
 How are you?
 
-We put together a creator audit of <span class="tok">{game}</span> - who already covers it, which videos carry a paid label, and where the next integration would land.
+We ran a creator audit of <span class="tok">{game}</span>. One thing from it: <span class="tok">{finding}</span>.
 
-Should I send it over? &#128512;</div></div>
-    <p class="sys">Same message whichever door they came through - the invite already did the introduction.</p>
+Should I send you the full audit? &#128512;</div></div>
+    <div class="ex">
+      <p class="exlabel">How it lands, filled</p>
+      <div class="msg"><span class="av">ARCH.</span><div class="bub exbub">Hey Maria
+How are you?
+
+We ran a creator audit of Whiteout Survival. One thing from it: Strat Game Sloth pulls 200,000-view guides on Kingshot, your other title, and has zero Whiteout coverage.
+
+Should I send you the full audit? &#128512;</div></div>
+    </div>
   </div>
 
   <div class="stop"><span class="when">3 days, no reply</span>
@@ -181,66 +147,39 @@ Should I send it over? &#128512;</div></div>
 Have you given up on the creator side of <span class="tok">{game}</span>?
 
 If yes, tell me and I stop writing. If not, reply with one word - audit - and I send it over this week.</div></div>
-    <p class="sys">The no-oriented ask: a "no" is easy to give and either answer moves things. If this also goes quiet, the lead rests and recycles after 60 days.</p>
   </div>
 
   <div class="stop"><span class="when">They say yes &middot; the audit</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="deliver">Hey <span class="tok">{first}</span>
 
-Here is the <span class="tok">{game}</span> audit: <span class="tok">{audit_url}</span>
-
-Start with <span class="tok">{finding}</span> - that is the first thing I would fix.
+Here is the full audit: <span class="tok">{audit_url}</span>
 
 If you want to go over it together, you can pick a time here - meetings-eu1.hubspot.com/davorin-smit/30-minute-sales-call
 
 Let me know what you think! &#128515;</div></div>
-    <p class="sys">The audit is built per game or app - live sample below. {finding} is the top roster pick from it, with its numbers, so the message proves someone actually looked.</p>
-    <div class="ex">
-      <p class="exlabel">How it lands &middot; filled with the live Whiteout Survival sample</p>
-      <div class="msg"><span class="av">ARCH.</span><div class="bub exbub">Hey Maria
-
-Here is the Whiteout Survival audit: madebyarch.com/whiteout-survival/
-
-Start with Strat Game Sloth - three Kingshot guides above 200,000 views, your exact audience on your own other title, and zero Whiteout coverage. That is the first thing I would fix.
-
-If you want to go over it together, you can pick a time here - meetings-eu1.hubspot.com/davorin-smit/30-minute-sales-call
-
-Let me know what you think! &#128515;</div></div>
-    </div>
   </div>
 
-  <div class="stop"><span class="when">4 days after the audit, no reply</span>
+  <div class="stop"><span class="when">4 days later, no reply</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="fu">Hey <span class="tok">{first}</span>
 
 Last one from me, promise.
 
-<span class="tok">{finding}</span> - is someone on your side already on that?
+<span class="tok">{finding}</span> - is someone on your side already on it?
 
 If yes, you are covered and I stop here. If nobody is - book the 30 minutes and I show you what I would do.</div></div>
-    <p class="sys">Last touch, anchored on the audit's own finding. No reply here means the lead goes quiet, no chasing.</p>
-    <div class="ex">
-      <p class="exlabel">How it lands &middot; same lead, four days later</p>
-      <div class="msg"><span class="av">ARCH.</span><div class="bub exbub">Hey Maria
-
-Last one from me, promise.
-
-Strat Game Sloth - is someone on your side already booking him?
-
-If yes, you are covered and I stop here. If nobody is - book the 30 minutes and I show you what I would do.</div></div>
-    </div>
   </div>
 
 </div>
 </div>
 </div>
 
-<p class="legend">The blue fields fill per person: <b>{first}</b> first name &middot; <b>{game}</b> their game or app &middot; <b>{company}</b> their company &middot; <b>{anchor}</b> your contact there, or the industry account they engage with &middot; <b>{audit_url}</b> their audit, like <a href="https://madebyarch.com/whiteout-survival/">this live sample</a> &middot; <b>{finding}</b> the top roster pick from that audit, named: e.g. "Strat Game Sloth already builds your exact audience on Kingshot and has zero Whiteout coverage"</p>
+<p class="legend"><b>{first}</b> their name &middot; <b>{game}</b> their game or app &middot; <b>{company}</b> their company &middot; <b>{anchor}</b> the account they engage with &middot; <b>{audit_url}</b> their audit, like <a href="https://madebyarch.com/whiteout-survival/">this live sample</a> &middot; <b>{finding}</b> the top roster pick from that audit</p>
 
 </div>
 <div class="bar"><span>Click any message to edit it. Edits save on this device.</span><button class="blbtn" id="copyseq">Copy the sequences</button><button class="blbtn ghost" id="resetseq">Reset my edits</button></div>
 <script>
 (function(){
-  var LS='arch-seq-0817-v2', orig={}, store={};
+  var LS='arch-seq-0817-v3', orig={}, store={};
   try{store=JSON.parse(localStorage.getItem(LS)||'{}')}catch(e){store={}}
   var bubs=document.querySelectorAll('.bub[data-key]');
   bubs.forEach(function(b){
@@ -254,7 +193,7 @@ If yes, you are covered and I stop here. If nobody is - book the 30 minutes and 
       localStorage.setItem(LS,JSON.stringify(store));
     });
   });
-  function label(k){return {games_note:'Cold games / invite note',apps_note:'Cold apps / invite note',eng_note:'Industry engagers / invite note',orbit_note:'Existing clients / invite note',orbit_dm1:'Existing clients / DM 1',warm_note:'Warm / invite note',warm_dm1:'Warm / DM 1',dm1:'Shared path / DM 1',nudge:'Shared path / 3-day nudge',deliver:'Shared path / audit delivery',fu:'Shared path / follow-up'}[k]||k;}
+  function label(k){return {games_note:'Games studios / invite note',apps_note:'Apps / invite note',eng_note:'Industry engagers / invite note',warm_note:'Warm / invite note',warm_dm1:'Warm / DM 1',dm1:'Shared path / DM 1',nudge:'Shared path / 3-day nudge',deliver:'Shared path / audit delivery',fu:'Shared path / follow-up'}[k]||k;}
   document.getElementById('copyseq').addEventListener('click',function(){
     var L=['ARCH outreach sequences ('+new Date().toISOString().slice(0,10)+')',''];
     bubs.forEach(function(b){
@@ -273,7 +212,6 @@ If yes, you are covered and I stop here. If nobody is - book the 30 minutes and 
     bubs.forEach(function(b){b.innerText=orig[b.getAttribute('data-key')];b.classList.remove('edited');});
   });
 
-  /* wires: only when all five doors share one row */
   var zone=document.querySelector('.mapzone'),svg=document.getElementById('wires'),
       node=document.getElementById('mergenode'),doors=document.querySelectorAll('.door');
   function draw(){
