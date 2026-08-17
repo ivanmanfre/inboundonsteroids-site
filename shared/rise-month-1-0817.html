@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RISE DTC — Month 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1F1F1F; --gold:#FFC71D; --paper:#FBFAF7; --line:#E4E0D6;
+  --mut:#6B6660; --up:#3FBF7F; --card:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Manrope,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:48px 32px 96px}
+h1,h2,h3,.fig{font-family:Sora,system-ui,sans-serif}
+
+/* masthead */
+.mast{display:flex;justify-content:space-between;align-items:baseline;
+  border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:38px;gap:20px;flex-wrap:wrap}
+.mast h1{font-size:26px;font-weight:700;letter-spacing:-.02em}
+.mast .win{font-size:12px;color:var(--mut);letter-spacing:.09em;text-transform:uppercase;font-weight:600}
+
+/* hero */
+.hero{display:grid;grid-template-columns:8fr 4fr;gap:26px;margin-bottom:42px}
+@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.plate{background:var(--ink);color:#fff;border-radius:14px;padding:30px 32px}
+.plate .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+  font-weight:700;margin-bottom:16px}
+.heroline{font-family:Sora;font-size:30px;line-height:1.22;font-weight:600;letter-spacing:-.02em}
+.heroline b{color:var(--gold);font-weight:700}
+.herosub{margin-top:16px;font-size:14px;color:#BDB8B0;max-width:46ch}
+.next{background:var(--gold);border-radius:14px;padding:26px 24px;display:flex;
+  flex-direction:column;justify-content:center}
+.next .kick{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  margin-bottom:12px;color:#6A5200}
+.next ul{list-style:none;font-size:14px;font-weight:600;line-height:1.75}
+.next li:before{content:"→ ";font-weight:700}
+
+/* section */
+section{margin-bottom:44px}
+.shead{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;
+  border-bottom:1px solid var(--line);padding-bottom:9px}
+.snum{font-family:Sora;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.1em}
+.shead h2{font-size:17px;font-weight:600;letter-spacing:-.01em}
+
+/* kpi */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px 16px}
+.kpi .v{font-family:Sora;font-size:38px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.kpi .l{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+  font-weight:700;margin-top:9px}
+.kpi .s{font-size:12px;color:var(--mut);margin-top:5px}
+.kpi.acc{border-color:var(--gold);border-width:2px}
+
+/* trend */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--mut);font-weight:700;padding:0 10px 9px 0;border-bottom:1px solid var(--line)}
+td{padding:11px 10px 11px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+td.n{font-family:Sora;font-weight:600}
+tr:last-child td{border-bottom:none}
+tr.peak td{background:#FFF9E3}
+.bar{display:inline-block;height:7px;background:var(--gold);border-radius:4px;
+  vertical-align:middle;margin-right:8px}
+.tscroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:820px){
+  .tscroll table{font-size:12px;min-width:0}
+  .tscroll th{padding-right:6px;font-size:9px}
+  .tscroll td{padding:9px 6px 9px 0}
+  .bar{display:none}
+}
+
+/* w2 */
+.w2{display:grid;gap:14px}
+.w2row{background:var(--card);border:1px solid var(--line);border-radius:11px;
+  padding:18px 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+@media(max-width:820px){.w2row{grid-template-columns:1fr;gap:12px}}
+.w2c .h{font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:700;
+  color:var(--mut);margin-bottom:6px}
+.w2c .b{font-size:14px;line-height:1.55}
+.w2c.moved .h{color:#2E8F60}
+
+/* lanes */
+.lane{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;
+  padding:13px 0;border-bottom:1px solid var(--line)}
+.lane:last-child{border-bottom:none}
+.lane .nm{font-weight:600;font-size:14px}
+.lane .nm span{display:block;font-size:12px;color:var(--mut);font-weight:400;margin-top:2px}
+.pill{font-family:Sora;font-size:13px;font-weight:700;padding:5px 11px;border-radius:20px;
+  background:#F1EEE6;white-space:nowrap}
+.pill.good{background:var(--gold)}
+
+.note{font-size:12.5px;color:var(--mut);margin-top:14px;line-height:1.6}
+.foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--mut);line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="mast">
+    <h1>RISE DTC &mdash; Month One</h1>
+    <div class="win">17 Jul &ndash; 16 Aug 2026 &middot; 31 days</div>
+  </div>
+
+  <div class="hero">
+    <div class="plate">
+      <div class="kick">Where month one landed</div>
+      <div class="heroline">
+        <b>611</b> invitations out. <b>159</b> accepted.<br>
+        <b>35</b> replied. <b>2</b> calls booked.
+      </div>
+      <div class="herosub">
+        Built from a standing start. No outbound lane existed before 17 July.
+        Both booked calls are traced end to end, from first message to booking.
+      </div>
+    </div>
+    <div class="next">
+      <div class="kick">Next month</div>
+      <ul>
+        <li>200+ invites a week</li>
+        <li>Work the reply-to-call step</li>
+        <li>2&ndash;2&ndash;1 content split</li>
+        <li>Reuse a proven winner weekly</li>
+      </ul>
+    </div>
+  </div>
+
+  <section>
+    <div class="shead"><span class="snum">01</span><h2>The scoreboard</h2></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">611</div><div class="l">Invites sent</div><div class="s">265 in the final week</div></div>
+      <div class="kpi acc"><div class="v">26.0%</div><div class="l">Accept rate</div><div class="s">30.1% on the warm lane</div></div>
+      <div class="kpi"><div class="v">159</div><div class="l">Accepted</div><div class="s">74 in the final week</div></div>
+      <div class="kpi"><div class="v">35</div><div class="l">People replied</div><div class="s">20 in the final week</div></div>
+      <div class="kpi"><div class="v">255</div><div class="l">Messages sent</div><div class="s">185 direct &middot; 70 InMail</div></div>
+      <div class="kpi"><div class="v">2</div><div class="l">Calls booked</div><div class="s">Both traced to our outreach</div></div>
+      <div class="kpi"><div class="v">21</div><div class="l">Posts published</div><div class="s">2 in the prior 12 months</div></div>
+      <div class="kpi"><div class="v">6,500</div><div class="l">Post impressions</div><div class="s">Median 204 a post</div></div>
+    </div>
+    <p class="note">
+      Accept rate is accepted invitations over invitations sent inside the window. It keeps rising for
+      about a week after any reading, because acceptances land late, so 26.0% is a floor rather than a
+      final figure. Calls booked counts only meetings we can trace from our own first message through to
+      the booking; meetings you sourced yourself are not counted here.
+    </p>
+  </section>
+
+  <section>
+    <div class="shead"><span class="snum">02</span><h2>How the month moved</h2></div>
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Week</th><th>Invites</th><th>Accepted</th><th>Messages</th><th>Replied</th><th>Calls</th></tr></thead>
+      <tbody>
+        <tr><td>20 &ndash; 26 Jul</td><td class="n"><span class="bar" style="width:13px"></span>34</td><td class="n">2</td><td class="n">44</td><td class="n">2</td><td class="n">&ndash;</td></tr>
+        <tr><td>27 Jul &ndash; 2 Aug</td><td class="n"><span class="bar" style="width:59px"></span>156</td><td class="n">50</td><td class="n">159</td><td class="n">6</td><td class="n">&ndash;</td></tr>
+        <tr><td>3 &ndash; 9 Aug</td><td class="n"><span class="bar" style="width:59px"></span>156</td><td class="n">33</td><td class="n">204</td><td class="n">7</td><td class="n">1</td></tr>
+        <tr class="peak"><td><b>10 &ndash; 16 Aug</b></td><td class="n"><span class="bar" style="width:100px"></span><b>265</b></td><td class="n"><b>74</b></td><td class="n"><b>352</b></td><td class="n"><b>20</b></td><td class="n"><b>1</b></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">
+      The final week was the largest on every line. Invites rose 70% against the previous week and
+      replies tripled. That is the shape we are holding into month two.
+    </p>
+  </section>
+
+  <section>
+    <div class="shead"><span class="snum">03</span><h2>What we saw, what we changed, what it moved</h2></div>
+    <div class="w2">
+
+      <div class="w2row">
+        <div class="w2c"><div class="h">What we saw</div><div class="b">
+          Cold prospecting was accepting at 8%. The warm lane, people already active around
+          DTC conversations, was accepting at 30%.</div></div>
+        <div class="w2c"><div class="h">What we changed</div><div class="b">
+          Retired the cold engine on 15 August and moved the whole budget to warm.</div></div>
+        <div class="w2c moved"><div class="h">What it moved</div><div class="b">
+          One acceptance now costs 3.3 invitations instead of 12.4. Same effort, close to four
+          times the connections.</div></div>
+      </div>
+
+      <div class="w2row">
+        <div class="w2c"><div class="h">What we saw</div><div class="b">
+          Posts were running long and reading like agency marketing rather than like you talking
+          to a store owner.</div></div>
+        <div class="w2c"><div class="h">What we changed</div><div class="b">
+          Audited all 242 pieces in the library, rewrote the voice rules, and rebuilt the
+          generator against them.</div></div>
+        <div class="w2c moved"><div class="h">What it moved</div><div class="b">
+          New posts ship shorter and in your register. The two strongest posts this month both
+          carried a hard number and a clear position.</div></div>
+      </div>
+
+      <div class="w2row">
+        <div class="w2c"><div class="h">What we saw</div><div class="b">
+          Nothing in the content plan said what each post was for, so the feed had no shape.</div></div>
+        <div class="w2c"><div class="h">What we changed</div><div class="b">
+          Every post now declares its job: two for reach, two for trust, one for buyers, each week.</div></div>
+        <div class="w2c moved"><div class="h">What it moved</div><div class="b">
+          The board shows the balance live and flags a week that drifts off it.</div></div>
+      </div>
+
+      <div class="w2row">
+        <div class="w2c"><div class="h">What we saw</div><div class="b">
+          A booking arrived with no context, so prep started from a blank page.</div></div>
+        <div class="w2c"><div class="h">What we changed</div><div class="b">
+          A booking now builds you a briefing page automatically: their store scanned, their paid
+          media read, and the gaps between what they told us and what we measured.</div></div>
+        <div class="w2c moved"><div class="h">What it moved</div><div class="b">
+          On the first one, the prospect said he was spending across Meta, Google and TikTok while
+          his Meta account showed no active ads and Google had been quiet 14 days.</div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="shead"><span class="snum">04</span><h2>Where the pipeline stands</h2></div>
+    <div class="lane">
+      <div class="nm">Competitor engagers<span>People active on your competitors' content</span></div>
+      <div class="pill good">30% accept</div><div class="pill">25 replied</div>
+    </div>
+    <div class="lane">
+      <div class="nm">Inbound requests<span>People who asked to connect with you</span></div>
+      <div class="pill good">100% reply</div><div class="pill">5 replied</div>
+    </div>
+    <div class="lane">
+      <div class="nm">Client orbit<span>Networks around your existing clients</span></div>
+      <div class="pill good">50% accept</div><div class="pill">2 replied</div>
+    </div>
+    <div class="lane">
+      <div class="nm">Cold prospecting<span>Retired 15 August</span></div>
+      <div class="pill">8% accept</div><div class="pill">3 replied</div>
+    </div>
+    <p class="note">
+      Reply counts are unique people who wrote back inside the window, counted from the message
+      records rather than a status field. The inbound lane is small by nature and its rate reflects
+      five conversations.
+    </p>
+  </section>
+
+  <section>
+    <div class="shead"><span class="snum">05</span><h2>Month two</h2></div>
+    <div class="w2">
+      <div class="w2row" style="grid-template-columns:1fr">
+        <div class="w2c"><div class="h">The number we are working on</div><div class="b">
+          Today one booked call costs about 306 invitations. Volume alone takes that from two calls
+          to roughly three. The step change sits in the conversation after someone replies, so that
+          is where month two goes: 35 people replied this month and 2 booked, and lifting that
+          single percentage does more than any amount of extra volume.
+        </div></div>
+      </div>
+      <div class="w2row" style="grid-template-columns:1fr 1fr">
+        <div class="w2c"><div class="h">Outbound</div><div class="b">
+          Hold 200 or more invitations a week on the warm lane, and keep the prospect reservoir
+          filled so the volume is sustainable rather than a spike.
+        </div></div>
+        <div class="w2c"><div class="h">Content</div><div class="b">
+          Two reach, two trust, one buyer post a week. A detector now flags your winning posts on
+          conversation rather than impressions, and one proven winner gets reworked for your
+          audience each week.
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    Prepared 17 August 2026. Window 17 July to 16 August, closing Sunday.
+    Outreach figures are read from live records at build time; acceptance and reply figures continue
+    to rise for several days after any reading. Impressions are lifetime totals as of the most recent
+    daily capture. Calls booked counts only meetings traceable from our own first contact.
+  </div>
+
+</div>
+</body>
+</html>
