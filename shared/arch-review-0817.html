@@ -1,0 +1,377 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARCH. week one: posts + outreach sequences for your approval</title>
+<style>
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;
+src:url('assets/fonts/dm-sans-latin.woff2') format('woff2');}
+:root{--navy:#000F41;--lime:#F2FF82;--cobalt:#3562FF;--ink:#000F41;--gray:#666}
+*{box-sizing:border-box}
+body{margin:0;font-family:"DM Sans",-apple-system,system-ui,sans-serif;background:var(--navy);color:#fff;-webkit-text-size-adjust:100%}
+header{padding:22px 20px 6px;max-width:820px;margin:0 auto}
+svg.wm{width:112px;height:29px;display:block;margin:0 0 18px}
+h1{font-size:25px;line-height:1.12;margin:0 0 10px;letter-spacing:.01em;text-transform:uppercase}
+h2{font-size:14px;letter-spacing:.07em;text-transform:uppercase;color:var(--lime);margin:34px 2px 6px}
+.wrap{max-width:820px;margin:0 auto;padding:0 14px 150px}
+p.lede{color:#c8cfe8;font-size:15px;line-height:1.6;margin:0 0 12px}
+p.lede strong{color:#fff}
+.time{display:inline-block;background:#0a1a5c;border:1px solid #24357e;border-radius:999px;padding:6px 13px;font-size:12.5px;color:#c8cfe8;margin:2px 0 8px}
+.why{color:#c8cfe8;font-size:14.5px;line-height:1.6;margin:14px 2px 6px;border-left:3px solid var(--cobalt);padding-left:12px}
+.why b{color:#fff}
+.flag{background:#fff8e1;color:#6b5300;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.5;margin:12px 0}
+.flag b{color:#4a3900}
+.post{background:#fff;color:var(--ink);border-radius:18px;padding:15px 16px 14px;margin:12px 0}
+.post.on{outline:4px solid var(--lime)}
+.phead{margin:0 0 10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.slabel{display:inline-block;background:var(--ink);color:var(--lime);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.tag{display:inline-block;border-radius:999px;padding:3px 10px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.tag.primary{background:var(--cobalt);color:#fff}
+.tag.bench{background:#eceffb;color:#40497a;border:1px solid #d5daf0}
+.wc{font-size:12px;color:#8b93bd;margin-left:auto}
+.post h3{margin:0 0 9px;font-size:18px;line-height:1.25}
+.pbody{white-space:pre-wrap;font-size:15.5px;line-height:1.55;border-left:3px solid #e7eaf6;padding:2px 0 2px 13px;overflow-wrap:anywhere}
+.choices{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.copt{border:2px solid #d5daf0;background:#fff;color:#40497a;border-radius:12px;padding:12px 14px;font:inherit;font-size:14.5px;font-weight:700;text-align:left;cursor:pointer;line-height:1.35;width:100%}
+.copt.on{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.copt.edits.on{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.copt.kill.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.notelab{display:block;font-size:12.5px;color:#6c76a6;margin:12px 0 5px;letter-spacing:.02em}
+.post textarea{width:100%;min-height:62px;border-radius:12px;border:1px solid #d5daf0;background:#f5f7fd;color:var(--ink);font:inherit;font-size:15px;padding:10px 12px;line-height:1.5}
+.post textarea::placeholder{color:#9aa3ca}
+.askbox{background:var(--lime);color:var(--ink);border-radius:14px;padding:12px 13px;margin-top:12px}
+.askbox .al{font-size:13px;font-weight:700;margin:0 0 6px;line-height:1.4}
+.askbox textarea{background:rgba(0,15,65,.06);border:1px solid rgba(0,15,65,.18)}
+.q{background:#0a1a5c;border:1px solid #24357e;border-radius:18px;padding:14px;margin:9px 0}
+.q .qt{font-size:15.5px;font-weight:700;margin:0 0 5px;line-height:1.3}
+.q .qn{font-size:14px;color:#c2c9e6;line-height:1.55;margin:0 0 10px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.opt{border:2px solid #24357e;background:#000F41;color:#dfe4f7;border-radius:12px;padding:12px 14px;font:inherit;font-size:14.5px;text-align:left;cursor:pointer;line-height:1.35}
+.opt.on{background:var(--lime);color:var(--ink);border-color:var(--lime);font-weight:700}
+.q textarea{width:100%;min-height:80px;border-radius:14px;border:1px solid #24357e;background:#000F41;color:#fff;font:inherit;font-size:15px;padding:11px 13px;line-height:1.5}
+.q textarea::placeholder{color:#7f8cc0}
+.bar{position:fixed;bottom:0;left:0;right:0;background:var(--lime);color:var(--ink);padding:11px 14px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:5}
+.bar strong{font-size:14px}
+.blbtn{border:2px solid var(--ink);background:var(--ink);color:var(--lime);border-radius:999px;padding:11px 20px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:inherit}
+.out{max-width:820px;margin:0 auto;padding:0 14px}
+.out textarea{width:100%;min-height:170px;font-size:13.5px;white-space:pre;display:none;border-radius:14px;border:1px solid #24357e;background:#0a1a5c;color:#fff;font-family:inherit;padding:12px 13px}
+@media(max-width:560px){h1{font-size:22px}.pbody{font-size:15px}.wc{margin-left:0;width:100%}}
+</style></head><body>
+<header><svg class="wm" xmlns="http://www.w3.org/2000/svg" viewBox="701.000 473.691 518.398 134.375">
+<!-- ARCH. wordmark master - extracted verbatim from ARCH-Visual-identity-guidelines.pdf page 1 (vector, no redraw). Color via #F2FF82. -->
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 781.710938 604.332031 L 805.027344 604.332031 L 752.898438 474 L 701 604.332031 L 724.472656 604.332031 L 730.035156 589.742188 L 775.820312 589.757812 Z M 737.140625 571.394531 C 742.398438 556.796875 747.648438 542.195312 752.910156 527.59375 C 758.183594 542.207031 763.457031 556.820312 768.730469 571.433594 C 758.203125 571.425781 747.671875 571.410156 737.140625 571.394531 Z M 737.140625 571.394531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 891.851562 604.332031 L 917.578125 604.332031 L 882.1875 549.363281 C 882.1875 549.363281 906.378906 544.375 910.023438 522.378906 C 910.023438 522.378906 919.394531 480.035156 867.453125 477.519531 L 823.765625 477.519531 L 823.765625 498.875 L 844.414062 530.304688 L 844.414062 530.441406 L 823.765625 530.441406 L 823.765625 604.332031 L 845.609375 604.332031 L 845.609375 551.59375 L 858.105469 551.59375 L 858.117188 551.617188 L 858.140625 551.617188 Z M 849.785156 498.875 L 868.402344 498.875 C 891.070312 500.597656 888.847656 514.660156 888.847656 514.660156 C 889.085938 529.675781 869.882812 530.167969 869.882812 530.167969 Z M 849.785156 498.875 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 845.609375 551.59375 L 845.609375 604.332031 L 845.683594 604.332031 L 845.683594 551.617188 L 858.117188 551.617188 L 858.105469 551.59375 Z M 845.609375 551.59375 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1032.863281 509.28125 L 1048.28125 494.386719 C 1048.28125 494.386719 1031.785156 475.757812 1002.527344 475.695312 C 1002.527344 475.695312 967.269531 473.691406 947.484375 503.203125 C 947.484375 503.203125 922.816406 540.652344 947.484375 578.421875 C 947.484375 578.421875 964.621094 606.121094 1001.46875 606.121094 C 1001.46875 606.121094 1027.335938 608.066406 1048.28125 587.707031 L 1032.734375 572.589844 C 1032.734375 572.589844 1021.753906 584.90625 1002.953125 584.960938 C 1002.953125 584.960938 960.96875 586.1875 958.925781 542.15625 C 958.925781 542.15625 956.222656 495.847656 1005.234375 497.132812 C 1005.230469 497.132812 1020.605469 497.25 1032.863281 509.28125 Z M 1032.863281 509.28125 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1150.6875 477.519531 L 1150.6875 530.160156 L 1096.546875 530.160156 L 1096.546875 477.519531 L 1074.679688 477.519531 L 1074.679688 604.332031 L 1096.546875 604.332031 L 1096.546875 551.332031 L 1150.6875 551.332031 L 1150.6875 604.332031 L 1172.46875 604.332031 L 1172.46875 477.519531 Z M 1150.6875 477.519531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1207.65625 605.519531 C 1214.144531 605.519531 1219.398438 600.40625 1219.398438 594.101562 C 1219.398438 587.796875 1214.144531 582.6875 1207.65625 582.6875 C 1201.171875 582.6875 1195.914062 587.796875 1195.914062 594.101562 C 1195.914062 600.40625 1201.171875 605.519531 1207.65625 605.519531 Z M 1207.65625 605.519531 "/>
+</svg>
+<h1>Week one: seven posts + the outreach sequences</h1>
+<p class="lede"><strong>The first one would go out Monday 24 August.</strong> These seven are rebuilt after your feedback that the earlier drafts read generic and obviously AI-generated. Every fact in them was re-verified against primary sources this week, four factual errors turned up and were fixed in the process, and nothing is scheduled until you say yes to it.</p>
+<span class="time">Seven taps, roughly ten minutes on a phone</span>
+</header>
+<div class="wrap">
+
+<p class="why"><b>On length.</b> These run from 82 words to 341. The spread is deliberate. A feed reads a run of same-length posts as a template, so the set is built to vary.</p>
+
+<div class="flag"><b>The [DAVORIN: ...] line inside post 04:</b> where we do not know a fact about how ARCH actually works, we ask you instead of inventing it. Those brackets are a question for you. They are not a typo, and they never ship in a published post. Post 04 has its own answer box under it.</div>
+
+<h2>The seven</h2>
+<div class="post" data-post="p1">
+<div class="phead"><span class="slabel">Post 01</span><span class="tag primary">primary</span><span class="wc">341 words</span></div>
+<h3>Two CPIs, one name, two different denominators</h3>
+<div class="pbody">Two CPIs on the same slide, and the same word on both of them.
+
+One is a paid network&#x27;s number. It counts the installs it can attribute to its own click, inside its own window. It also counts people who never clicked. TikTok&#x27;s default gives a click seven days and a view one day. Google App campaigns count an engaged view, where somebody watched enough of the video and converted later. Meta took the view out of its default for new ad sets after ATT, so there it&#x27;s click only until you change it.
+
+The other one is your creator line. A video sits in a feed with a link under it, so a click is the only thing there is to attribute. A player watches it, remembers the name, opens the store two days later and installs. Nobody clicked. That install lands in your organic row with no cost against it.
+
+Same word on both numbers, different populations underneath.
+
+Then there&#x27;s the player who had the game before, deleted it, saw the video and came back. In AppsFlyer that&#x27;s a reinstall inside your re-attribution window, and it isn&#x27;t counted as a new install. Re-attribution needs a retargeting media source, and a creator UA link isn&#x27;t one. Adjust is the same, one install per device unless its redownload rules fire. So the person the video brought back sits outside the number you divide creator spend by.
+
+Measuring a creator campaign on CPI is fine by me, and we&#x27;re graded on it too. What I&#x27;d argue with is putting the two numbers beside each other as if they came off the same instrument.
+
+So what does yours actually say? Open your MMP, take the last period a creator line was live, and look at three things:
+
+- What your re-attribution window is set to
+- Whether view-through is on for the paid source you&#x27;re comparing against
+- How many installs in that period were logged as reinstalls
+
+Two of those are settings somebody picked once. The third one is just a count.</div>
+<div class="choices">
+<button class="copt" data-group="p1" data-value="Approve">Approve</button>
+<button class="copt edits" data-group="p1" data-value="Approve with edits">Approve with edits</button>
+<button class="copt kill" data-group="p1" data-value="Kill">Kill</button>
+</div>
+<label class="notelab" for="n1">Edit note for post 01, optional</label>
+<textarea id="n1" placeholder="What to change, or a line to cut."></textarea>
+
+</div>
+<div class="post" data-post="p2">
+<div class="phead"><span class="slabel">Post 02</span><span class="tag primary">primary</span><span class="wc">178 words</span></div>
+<h3>Ten cuts off one shoot, still one person</h3>
+<div class="pbody">An editor can get ten cuts out of one shoot by Friday.
+
+Hook swaps, a new endcard, a six second version, a static pulled off one frame. Real work, and cheap. We ask for it constantly.
+
+On the creator&#x27;s own feed those cuts land in front of the people who follow that creator. Run the same asset as a Spark Ad and the targeting is yours, so the audience behind the face becomes whatever you bought.
+
+What no edit adds is another person. Another account, another set of people who trust it enough to install something. For that you book somebody, and the booking carries a date on their calendar.
+
+Match Masters ran across 1,500 influencers. That count caps how many genuinely different variants the campaign could carry. The edit list doesn&#x27;t touch it.
+
+So check the last creator contract you signed. Where may that video run, in which ad account, in which market, for how long? If the paperwork doesn&#x27;t say, some of those cuts are not yours to put spend behind.</div>
+<div class="choices">
+<button class="copt" data-group="p2" data-value="Approve">Approve</button>
+<button class="copt edits" data-group="p2" data-value="Approve with edits">Approve with edits</button>
+<button class="copt kill" data-group="p2" data-value="Kill">Kill</button>
+</div>
+<label class="notelab" for="n2">Edit note for post 02, optional</label>
+<textarea id="n2" placeholder="What to change, or a line to cut."></textarea>
+
+</div>
+<div class="post" data-post="p3">
+<div class="phead"><span class="slabel">Post 03</span><span class="tag primary">primary</span><span class="wc">266 words</span></div>
+<h3>Roblox guided its own bookings down, and said why</h3>
+<div class="pbody">On 30 July Roblox told its shareholders that Q2 bookings grew 8 percent. Low end of its own guidance.
+
+Then it guided Q3 bookings down 14 to 18 percent. It also stopped giving a full year number, a quarter earlier than planned.
+
+Its first reason is a mix shift. Players moved off the high monetising viral games of 2025, onto newer and evergreen ones that earn less per hour.
+
+The second reason is the one worth reading twice. That mix shift, the letter says, was compounded by changes to the Recommended For You algorithm. The company started deploying them in April, to optimise for long term retention. The system now judges a player over 28 days instead of 7. It reads play through rate and first play bounce rate in that window, together with spend days and Robux spent per user.
+
+The letter is direct about the trade. Highly retentive games get shown to more players, and near term monetisation pays for it. On younger players in Q2 that ran bigger than the company expected. For Q3 it points at foundational changes across safety and discovery, so the age check rollout sits in that number too.
+
+Sponsored tiles are on sale through their ads manager, and Roblox has publicly tested putting sponsored experiences inside the Recommended For You sort itself. The ranking around them is the part no budget buys, and it&#x27;s a 28 day read on how long somebody stays and what they spend.
+
+How much of your plan there assumes a sort order you don&#x27;t set?
+
+Read the letter before you plan a quarter.</div>
+<div class="choices">
+<button class="copt" data-group="p3" data-value="Approve">Approve</button>
+<button class="copt edits" data-group="p3" data-value="Approve with edits">Approve with edits</button>
+<button class="copt kill" data-group="p3" data-value="Kill">Kill</button>
+</div>
+<label class="notelab" for="n3">Edit note for post 03, optional</label>
+<textarea id="n3" placeholder="What to change, or a line to cut."></textarea>
+
+</div>
+<div class="post" data-post="p4">
+<div class="phead"><span class="slabel">Post 04</span><span class="tag primary">primary</span><span class="wc">192 words</span></div>
+<h3>Your schedule is other people&#x27;s calendars</h3>
+<div class="pbody">Your schedule is other people&#x27;s calendars.
+
+Somebody moves a launch date in a spreadsheet, and every creator who&#x27;s booked still has the old one.
+
+A booked campaign is a list of agreements with named people, and each agreement carries a date that person agreed to. Changing it means asking each of them. One person at a time. I don&#x27;t know a faster version of that.
+
+Take the size of the Wargaming campaign, 550 influencers across 30 countries. Move one date over that list, in as many time zones as it covers, and count the messages.
+
+[DAVORIN: name one campaign where the date actually moved, and how many creators were booked on it. One example is enough.]
+
+The part I&#x27;m tired of is the version of this conversation where a slip is an admin problem. Admin for who? It&#x27;s a week of somebody&#x27;s working life, and it&#x27;s the same week that person owes the next campaign.
+
+So how many live agreements would a two week slip touch on your side? If you know a quicker way to do it, tell me 🤞
+
+Also, the spreadsheet is the only place that date has moved.</div>
+<div class="choices">
+<button class="copt" data-group="p4" data-value="Approve">Approve</button>
+<button class="copt edits" data-group="p4" data-value="Approve with edits">Approve with edits</button>
+<button class="copt kill" data-group="p4" data-value="Kill">Kill</button>
+</div>
+<label class="notelab" for="n4">Edit note for post 04, optional</label>
+<textarea id="n4" placeholder="What to change, or a line to cut."></textarea>
+<div class="askbox"><p class="al">Your answer to the [DAVORIN: ...] line above</p><textarea id="q4" placeholder="One campaign where the date moved, and roughly how many creators were booked on it."></textarea></div>
+</div>
+<div class="post" data-post="p5">
+<div class="phead"><span class="slabel">Post 05</span><span class="tag primary">primary</span><span class="wc">82 words</span></div>
+<h3>Take the uplift off the target</h3>
+<div class="pbody">Paid creators make organic installs as well. Everybody agrees with that one!
+
+Then the ROAS target stays exactly where it was.
+
+There&#x27;s a division for it. Pick a market with low organic volume, run the push there, and count the installs you did not buy. A thousand paid and a hundred and fifty on top puts your K at 1.15, and a 12 percent D7 target is really 10.4.
+
+Whose number is the target you&#x27;re working to, and did anybody divide it?</div>
+<div class="choices">
+<button class="copt" data-group="p5" data-value="Approve">Approve</button>
+<button class="copt edits" data-group="p5" data-value="Approve with edits">Approve with edits</button>
+<button class="copt kill" data-group="p5" data-value="Kill">Kill</button>
+</div>
+<label class="notelab" for="n5">Edit note for post 05, optional</label>
+<textarea id="n5" placeholder="What to change, or a line to cut."></textarea>
+
+</div>
+<div class="post" data-post="p6">
+<div class="phead"><span class="slabel">Post 06</span><span class="tag bench">bench</span><span class="wc">219 words</span></div>
+<h3>Gross or net, and net of which rate</h3>
+<div class="pbody">A purchase that leaves a US app through an external link costs the developer nothing at the store today. It&#x27;s been zero since the contempt ruling in the Epic case in April 2025.
+
+On 13 August Apple filed a proposal to put a number back on it. 15 percent on those external link purchases, 10 percent for the partner programmes and for subscription renewals, 5 percent for apps in the Small Business Program. Epic points at Apple&#x27;s own filing, which concedes that a costs-only rate would be zero. The court has decided nothing.
+
+A booking agency reads a court filing because a ROI target only means something once you know which side of the store cut it sits on.
+
+Nobody pays a flat 30 anyway. There&#x27;s the standard rate, 15 for a developer under a million dollars in proceeds in the Small Business Program, 15 on a subscription after the first year, and the EU sits on its own terms again. Apple&#x27;s own subscription page then puts &quot;minus applicable taxes&quot; after all of it.
+
+So when a target arrives, the boring question goes first. Gross or net, and net of which rate?
+
+I&#x27;d ask it before the campaign, because the answer moves your break-even without anybody touching a creative.</div>
+<div class="choices">
+<button class="copt" data-group="p6" data-value="Approve">Approve</button>
+<button class="copt edits" data-group="p6" data-value="Approve with edits">Approve with edits</button>
+<button class="copt kill" data-group="p6" data-value="Kill">Kill</button>
+</div>
+<label class="notelab" for="n6">Edit note for post 06, optional</label>
+<textarea id="n6" placeholder="What to change, or a line to cut."></textarea>
+
+</div>
+<div class="post" data-post="p7">
+<div class="phead"><span class="slabel">Post 07</span><span class="tag bench">bench</span><span class="wc">212 words</span></div>
+<h3>A campaign underperformed. Which half?</h3>
+<div class="pbody">A campaign underperformed. Which half of it?
+
+There are two conversion steps hiding under that word and they break for different reasons. Store page to install, then install to payer.
+
+If people arrive at the store page and don&#x27;t install, the listing, the audience the video sat in front of and what the creative promised are where I&#x27;d look. That half is ours to move.
+
+Install to payer is where I&#x27;d like to tell you the rest is yours. Onboarding, the price, the offer, what the first session asks of somebody.
+
+It doesn&#x27;t hold. Creative sets what a player expects before they ever open the game, and an over-promising video buys you a clean CPI and a cohort that never pays. That shows up in the second rate, on your side of the line I just drew, and the cause was ours.
+
+So here&#x27;s the uncomfortable part, and I&#x27;ll say it because an agency drawing this line is also drawing itself a shield. Weak creative can look exactly like a product problem from a dashboard, and the split I just gave you can&#x27;t tell you which one you&#x27;re holding. Retention between those two steps gets closer to it than either rate does.
+
+I don&#x27;t have a clean way to settle that one.</div>
+<div class="choices">
+<button class="copt" data-group="p7" data-value="Approve">Approve</button>
+<button class="copt edits" data-group="p7" data-value="Approve with edits">Approve with edits</button>
+<button class="copt kill" data-group="p7" data-value="Kill">Kill</button>
+</div>
+<label class="notelab" for="n7">Edit note for post 07, optional</label>
+<textarea id="n7" placeholder="What to change, or a line to cut."></textarea>
+
+</div>
+
+<h2>Four things only you can settle</h2>
+<p class="lede">Four open questions in the source material. Each one changes what we are allowed to publish. The first one is time sensitive, because that post is currently scheduled for Tuesday 25 August.</p>
+
+<div class="q"><p class="qt">1. The Wargaming carousel, scheduled for 25 August</p>
+<p class="qn">Two of its slides describe how the two special campaigns actually worked, and we cannot find those mechanics written down in any ARCH document. It looks like they were worked out from the campaign names rather than from a source, and the draft itself carries a note asking you to confirm them. We have no record of an answer.</p>
+<p class="qn">So we are holding that carousel until you tell us. Are the two mechanics described on those slides correct? If they are not, tell us what actually happened and we will re-render. The rest of that carousel checks out: 550 influencers, 1,500 activations and 30 countries all match your report and your website exactly.</p>
+<div class="opts">
+<button class="opt" data-group="q0" data-value="The mechanics are right, ship it">The mechanics are right, ship it</button>
+<button class="opt" data-group="q0" data-value="Not right, see my note">Not right, see my note</button>
+<button class="opt" data-group="q0" data-value="Hold it, I will explain properly">Hold it, I will explain properly</button>
+</div>
+<textarea id="a0" placeholder="If the mechanics are wrong, what actually happened in those two campaigns?"></textarea></div>
+
+<div class="q"><p class="qt">2. Which activation numbers are right</p>
+<p class="qn">Our report PDF says 2,500 activations for the Candivore campaign. The ARCH website says 2,000. Same split on SuperPlay: 1,500 in the report against 1,900 on the site. The influencer counts agree on both. No activation figure is used in these seven posts until this is settled.</p>
+<textarea id="a1" placeholder="The right activation figures for Candivore and SuperPlay."></textarea></div>
+
+<div class="q"><p class="qt">3. What year do we cite that report as</p>
+<p class="qn">The report PDF has no year printed anywhere in it, and the file itself was created in October 2024. Tell us the year to cite, or tell us to cite it with no year at all.</p>
+<textarea id="a2" placeholder="Cite it as 20XX, or cite it with no year."></textarea></div>
+
+<div class="q"><p class="qt">4. Post 02 and a post already on your board</p>
+<p class="qn">There is an existing post on your board, "Creative volume is a supply problem". Post 02 covers nearby ground. Do you want the older one retired, or should we park post 02?</p>
+<div class="opts">
+<button class="opt" data-group="q3" data-value="Retire the older post, ship post 02">Retire the older post, ship post 02</button>
+<button class="opt" data-group="q3" data-value="Keep the older post, park post 02">Keep the older post, park post 02</button>
+<button class="opt" data-group="q3" data-value="Something else, see note">Something else, see note</button>
+</div>
+<textarea id="a3" placeholder="Optional note on this one."></textarea></div>
+
+<h2>The outreach sequences</h2>
+<p class="lede">Every message the outreach system would send, end to end: when it fires and the exact copy. The <b>{curly}</b> fields fill per person. The free creator audit (like <a href="https://madebyarch.com/whiteout-survival/" style="color:var(--lime)">this live sample</a>) is the give that earns the reply. <strong>Nothing is active.</strong> You review the wording here the same way you review the posts above.</p>
+
+<div class="q"><p class="qt">Cold, games studios &middot; connection note (sent with the invite)</p>
+<p class="qn">Hey {first}, we run influencer UA for studios like Candivore and Wargaming. {game} caught my eye, figured worth a hello.</p></div>
+
+<div class="q"><p class="qt">Cold &middot; DM 1, the offer (after they accept)</p>
+<p class="qn">Hey {first} &#128578;<br><br>We ran a quick creator-footprint audit on {game}: who's already making videos around it, where paid integrations are landing, and where the gaps are. Want me to send it over?</p></div>
+
+<div class="q"><p class="qt">Cold &middot; DM 2a, nudge (3 days of silence)</p>
+<p class="qn">Hey {first}, still happy to send that creator audit of {game}, just say yes &#128578; It's how we show our work before asking for anything.</p></div>
+
+<div class="q"><p class="qt">Cold &middot; DM 2b, deliver (when they say yes)</p>
+<p class="qn">Made you that audit of {game}, {first} &#128578;<br><br>What creators are already doing around it, and what we'd run: {audit_url}<br><br>Have a look. If it maps to your plans, I'll walk you through it live: meetings-eu1.hubspot.com/davorin-smit/30-minute-sales-call</p></div>
+
+<div class="q"><p class="qt">Cold &middot; follow-up (4 days after the audit, no reply)</p>
+<p class="qn">Hey {first}, did any of the audit map to how you're thinking about {game}'s UA?</p></div>
+
+<div class="q"><p class="qt">Cold, apps &middot; connection note (same steps as games, proof swapped)</p>
+<p class="qn">Hey {first}, we run influencer UA for apps like Surfshark and Revolut. What {company} is building caught my eye, figured worth a hello.</p></div>
+
+<div class="q"><p class="qt">Client orbit &middot; people at companies you already work with</p>
+<p class="qn">Note: Hey {first}, we already run creator campaigns with {anchor} on your side. Felt wrong not to be connected.<br><br>DM after accept: Hey {first} &#128578; We run the creator campaigns with {anchor} over at {company}. If influencer UA touches your desk too, happy to show you what's running and the numbers behind it.</p></div>
+
+<div class="q"><p class="qt">Warm &middot; people engaging with your posts</p>
+<p class="qn">Hey {first}, you keep showing up around my posts so figured I'd actually say hi &#128578;</p></div>
+
+<div class="q"><p class="qt">Your read on the sequences</p>
+<p class="qn">Anything that doesn't sound like you, anything your industry would roll their eyes at, any step you'd cut. Wording is fully yours; the step structure (note, offer, nudge, deliver, one follow-up) is what reply-rate data supports.</p>
+<textarea id="seqnotes" placeholder="The cold note is too soft. I would never say ..."></textarea></div>
+
+<h2>Anything else</h2>
+<div class="q"><p class="qn">A topic you would never post about, a fact you want checked again, an order you would rather run them in. Anything here comes back with your answers.</p>
+<textarea id="notes" placeholder="Run 03 first. Nobody in gaming says ..."></textarea></div>
+
+<p class="why"><b>Posts 06 and 07 are bench.</b> They are finished and week one does not need them. They are there if you kill something.</p>
+
+<div class="out"><textarea id="fallback" readonly></textarea></div>
+</div>
+<div class="bar"><strong id="tally">0 of 7 posts decided</strong><button class="blbtn" id="copybtn">Copy my answers</button></div>
+<script>
+var POSTS=[{"id": "p1", "n": "01", "t": "Two CPIs, one name, two different denominators", "s": "primary"}, {"id": "p2", "n": "02", "t": "Ten cuts off one shoot, still one person", "s": "primary"}, {"id": "p3", "n": "03", "t": "Roblox guided its own bookings down, and said why", "s": "primary"}, {"id": "p4", "n": "04", "t": "Your schedule is other people's calendars", "s": "primary"}, {"id": "p5", "n": "05", "t": "Take the uplift off the target", "s": "primary"}, {"id": "p6", "n": "06", "t": "Gross or net, and net of which rate", "s": "bench"}, {"id": "p7", "n": "07", "t": "A campaign underperformed. Which half?", "s": "bench"}];
+var picks={};
+function setPick(group,value){
+  if(picks[group]===value){delete picks[group];}else{picks[group]=value;}
+  document.querySelectorAll('[data-group="'+group+'"]').forEach(function(b){
+    var on=picks[group]===b.getAttribute('data-value');
+    b.classList.toggle('on',on);
+    if(b.classList.contains('copt')){b.closest('.post').classList.toggle('on',!!picks[group]);}
+  });
+  tally();
+}
+document.querySelectorAll('button.copt,button.opt').forEach(function(b){
+  b.addEventListener('click',function(){setPick(b.getAttribute('data-group'),b.getAttribute('data-value'));});
+});
+function tally(){
+  var n=0;POSTS.forEach(function(p){if(picks[p.id])n++;});
+  document.getElementById('tally').textContent=n+' of 7 posts decided';
+}
+function val(id){var e=document.getElementById(id);return e?e.value.trim():'';}
+function block(){
+  var L=['ARCH week one slate - Davorin ('+new Date().toISOString().slice(0,10)+')',''];
+  POSTS.forEach(function(p){
+    L.push('POST '+p.n+' ['+p.s+'] '+p.t);
+    L.push('  Decision: '+(picks[p.id]||'no answer yet'));
+    L.push('  Edit note: '+(val('n'+parseInt(p.n,10))||'-'));
+    if(p.n==='04'){L.push('  Answer to [DAVORIN: ...]: '+(val('q4')||'-'));}
+    L.push('');
+  });
+  L.push('THREE THINGS');
+  L.push('1. Wargaming carousel (25 Aug) mechanics: '+(picks['q0']||'no answer yet'));
+  L.push('   note: '+(val('a0')||'-'));
+  L.push('2. Activation counts (report says 2,500 and 1,500, site says 2,000 and 1,900): '+(val('a1')||'-'));
+  L.push('3. Report year (no year printed, file created October 2024): '+(val('a2')||'-'));
+  L.push('4. "Creative volume is a supply problem" and post 02: '+(picks['q3']||'no answer yet'));
+  L.push('   Note: '+(val('a3')||'-'));
+  L.push('');
+  L.push('Sequences feedback: '+(val('seqnotes')||'-'));
+  L.push('');
+  L.push('Anything else: '+(val('notes')||'-'));
+  return L.join('\n');
+}
+document.getElementById('copybtn').addEventListener('click',function(){
+  var btn=this,txt=block();
+  function ok(){btn.textContent='Copied \u2713';setTimeout(function(){btn.textContent='Copy my answers';},1800);}
+  function fail(){var f=document.getElementById('fallback');f.style.display='block';f.value=txt;f.focus();f.select();
+    btn.textContent='Copy the box above';setTimeout(function(){btn.textContent='Copy my answers';},2600);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fail);}
+  else{fail();}
+});
+tally();
+</script>
+</body></html>
