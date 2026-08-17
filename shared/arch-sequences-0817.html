@@ -50,6 +50,9 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
 
 .ablabel{margin:14px 0 6px 44px;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--lime)}
 .ablabel:first-of-type{margin-top:0}
+.door .ablabel{margin-left:37px}
+.door .ablabel:first-of-type{margin-top:0}
+.blanknote{margin:0 0 0 37px;color:#8b93bd;font-size:12.5px;font-style:italic}
 .ex{margin:14px 0 0 44px;border-left:2px solid var(--lime);padding-left:12px}
 .ex .exlabel{margin:0 0 8px;font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--lime)}
 .ex .exbub{background:rgba(255,255,255,.94);font-size:13.5px}
@@ -88,18 +91,27 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
 <div class="doors">
 
 <section class="door" data-join="1"><h2>Games studios</h2>
-  <span class="when">Day 0 &middot; invite</span>
+  <span class="when">Day 0 &middot; invite &middot; A/B</span>
+  <p class="ablabel">A</p>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="games_note">Hey <span class="tok">{first}</span>, Davorin here :) We run influencer campaigns for studios like Candivore, Wargaming and Ten Square. <span class="tok">{game}</span> is on my radar. Would be great to connect.</div></div>
+  <p class="ablabel">B</p>
+  <p class="blanknote">Blank invite, no note. Half go out this way.</p>
 </section>
 
 <section class="door" data-join="1"><h2>Apps</h2>
-  <span class="when">Day 0 &middot; invite</span>
+  <span class="when">Day 0 &middot; invite &middot; A/B</span>
+  <p class="ablabel">A</p>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="apps_note">Hey <span class="tok">{first}</span>, Davorin here :) Are you looking to expand <span class="tok">{company}</span>'s influencer campaigns into new countries? We've booked 5k influencers for apps and games brands across Europe and the Americas.</div></div>
+  <p class="ablabel">B</p>
+  <p class="blanknote">Blank invite, no note. Half go out this way.</p>
 </section>
 
 <section class="door" data-join="1"><h2>Industry engagers &middot; around the big UA voices</h2>
-  <span class="when">Day 0 &middot; invite</span>
+  <span class="when">Day 0 &middot; invite &middot; A/B</span>
+  <p class="ablabel">A</p>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="eng_note">Hey <span class="tok">{first}</span>, Davorin here :) I keep seeing you around <span class="tok">{anchor}</span>'s posts. We're in the same corner of gaming UA, so I figured we should connect.</div></div>
+  <p class="ablabel">B</p>
+  <p class="blanknote">Blank invite, no note. Half go out this way.</p>
 </section>
 
 <section class="door"><h2>Warm &middot; people engaging with your posts</h2>
@@ -130,33 +142,39 @@ Curious - how are you guys doing on the creator side for <span class="tok">{game
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="dm1_a">Hey <span class="tok">{first}</span>
 How are you?
 
-We run creator scans for games and apps. For <span class="tok">{game}</span> it would show who covers it, what carries a paid label, and who should be covering it.
+I put together a creator audit of <span class="tok">{game}</span> - who covers it, what carries a paid label, who is missing - so you can see how we work before we ever talk.
 
-Should I put one together and send it over? &#128512;</div></div>
+Want me to send it over? &#128512;</div></div>
     <p class="ablabel">B</p>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="dm1_b">Hey <span class="tok">{first}</span>
 How are you?
 
-We ran a creator audit of <span class="tok">{game}</span>. One thing from it: <span class="tok">{finding}</span>.
+Took a look at <span class="tok">{game}</span> before reaching out: <span class="tok">{finding}</span>.
 
-Should I send you the full audit? &#128512;</div></div>
+I put the full audit together so you can see how we work before we ever talk.
+
+Want me to send it over? &#128512;</div></div>
     <div class="ex">
       <p class="exlabel">How B lands, filled</p>
       <div class="msg"><span class="av">ARCH.</span><div class="bub exbub">Hey Maria
 How are you?
 
-We ran a creator audit of Whiteout Survival. One thing from it: Strat Game Sloth pulls 200,000-view guides on Kingshot, your other title, and has zero Whiteout coverage.
+Took a look at Whiteout Survival before reaching out: Strat Game Sloth pulls 200,000-view guides on Kingshot, your other title, and has zero Whiteout coverage.
 
-Should I send you the full audit? &#128512;</div></div>
+I put the full audit together so you can see how we work before we ever talk.
+
+Want me to send it over? &#128512;</div></div>
     </div>
   </div>
 
-  <div class="stop"><span class="when">3 days, no reply</span>
-    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="nudge">Hey <span class="tok">{first}</span>
+  <div class="stop"><span class="when">3 days, no reply &middot; DM 2</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="nudge">Hey <span class="tok">{first}</span> - btw:
 
-Have you given up on the creator side of <span class="tok">{game}</span>?
+Influencer campaigns for games and apps are all we do. Candivore, Wargaming and Ten Square are with us. Mostly fixed fees, CPI deals when it fits.
 
-If yes, tell me and I stop writing. If not, reply with one word - audit - and I send it over this week.</div></div>
+Would you be against seeing what this would look like for <span class="tok">{game}</span>?
+
+Cheers!</div></div>
   </div>
 
   <div class="stop"><span class="when">They say yes &middot; the audit</span>
@@ -169,14 +187,26 @@ If you want to go over it together, you can pick a time here - meetings-eu1.hubs
 Let me know what you think! &#128515;</div></div>
   </div>
 
-  <div class="stop"><span class="when">4 days later, no reply</span>
+  <div class="stop"><span class="when">4 days after the audit, no reply</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="fu">Hey <span class="tok">{first}</span>
-
-Last one from me, promise.
 
 <span class="tok">{finding}</span> - is someone on your side already on it?
 
-If yes, you are covered and I stop here. If nobody is - book the 30 minutes and I show you what I would do.</div></div>
+If nobody is - book the 30 minutes and I show you what I would do.</div></div>
+  </div>
+
+  <div class="stop"><span class="when">30-45 days, still nothing &middot; DM 3</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="dm3">Hey <span class="tok">{first}</span>
+
+Still have that <span class="tok">{game}</span> audit here. If the creator side is not your desk, whose is it? Happy to send it there instead.</div></div>
+  </div>
+
+  <div class="stop"><span class="when">60 days &middot; one more try</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" contenteditable="true" spellcheck="false" data-key="recycle">Hey <span class="tok">{first}</span> &#128512;
+
+Been a couple of months since I brought up the <span class="tok">{game}</span> audit. Offer stands - who covers it, what carries a paid label, who is missing.
+
+Want me to send it over?</div></div>
   </div>
 
 </div>
@@ -203,7 +233,7 @@ If yes, you are covered and I stop here. If nobody is - book the 30 minutes and 
       localStorage.setItem(LS,JSON.stringify(store));
     });
   });
-  function label(k){return {games_note:'Games studios / invite note',apps_note:'Apps / invite note',eng_note:'Industry engagers / invite note',warm_note:'Warm / invite note',warm_dm1:'Warm / DM 1',dm1_a:'Shared path / DM 1 version A',dm1_b:'Shared path / DM 1 version B',nudge:'Shared path / 3-day nudge',deliver:'Shared path / audit delivery',fu:'Shared path / follow-up'}[k]||k;}
+  function label(k){return {games_note:'Games studios / invite note',apps_note:'Apps / invite note',eng_note:'Industry engagers / invite note',warm_note:'Warm / invite note',warm_dm1:'Warm / DM 1',dm1_a:'Shared path / DM 1 version A',dm1_b:'Shared path / DM 1 version B',nudge:'Shared path / DM 2 model ask',deliver:'Shared path / audit delivery',fu:'Shared path / audit follow-up',dm3:'Shared path / DM 3',recycle:'Shared path / 60-day recycle'}[k]||k;}
   document.getElementById('copyseq').addEventListener('click',function(){
     var L=['ARCH outreach sequences ('+new Date().toISOString().slice(0,10)+')',''];
     bubs.forEach(function(b){
