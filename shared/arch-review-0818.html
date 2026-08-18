@@ -1,46 +1,45 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>ARCH. Six drafts, four kept</title>
+<title>ARCH. Six drafts for review</title>
 <style>
 :root{--bg:#0d1030;--card:#151a45;--ink:#f2f3ff;--dim:#a6abd8;--acc:#eaff6b;--line:#2a3070}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;padding-bottom:96px}
-.wrap{max-width:1180px;margin:0 auto;padding:26px 20px}
-h1{font-size:27px;margin:0 0 6px;letter-spacing:-.4px}
-.sub{color:var(--dim);margin:0 0 22px;font-size:14.5px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-@media(max-width:860px){.grid{grid-template-columns:1fr}}
-.slot{display:flex;flex-direction:column;gap:8px}
-.label{margin:0;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.07em}
-.tag{background:var(--acc);color:#111;border-radius:999px;padding:1px 9px;font-weight:700;letter-spacing:0;text-transform:none;font-size:11.5px;margin-left:6px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;padding-bottom:110px}
+.wrap{max-width:660px;margin:0 auto;padding:28px 18px}
+h1{font-size:26px;margin:0 0 10px;letter-spacing:-.4px}
+.sub{color:var(--dim);margin:0 0 26px;font-size:15px}
+.slot{margin:0 0 34px}
+.label{margin:0 0 6px;font-size:15px;font-weight:700}
+.num{color:var(--acc);margin-right:8px}
+.src{color:var(--dim);font-size:13px;margin:0 0 8px;line-height:1.5}
 .post{background:#fff;color:rgba(0,0,0,.9);border-radius:10px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.35)}
 .phead{display:flex;gap:10px;padding:14px 16px 8px}
 .avatar{width:48px;height:48px;border-radius:50%;background:#173a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;flex:0 0 48px}
 .pwho{display:flex;flex-direction:column;line-height:1.35}
 .pname{font-weight:600;font-size:14.5px;color:rgba(0,0,0,.9)}
 .psub{font-size:12px;color:rgba(0,0,0,.55)}
-.pbody{white-space:pre-wrap;padding:4px 16px 12px;font-size:14px;line-height:1.5}
-.pfoot{display:flex;justify-content:space-between;padding:8px 16px;border-top:1px solid rgba(0,0,0,.08);color:rgba(0,0,0,.55);font-size:12px}
-.pactions{display:flex;justify-content:space-around;padding:6px 8px;border-top:1px solid rgba(0,0,0,.08);color:rgba(0,0,0,.6);font-size:13px;font-weight:600}
-.pactions span{padding:6px 10px;border-radius:6px}
-.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 22px;color:var(--dim);font-size:14px}
-textarea{width:100%;background:#10143a;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 10px;font:14px/1.5 inherit;resize:vertical}
-.bar{position:fixed;left:0;right:0;bottom:0;background:#10143a;border-top:1px solid var(--line);padding:12px 20px;display:flex;gap:14px;align-items:center;justify-content:center}
-button{background:var(--acc);color:#111;border:0;border-radius:999px;padding:11px 24px;font-weight:700;font-size:15px;cursor:pointer}
-.barhint{color:var(--dim);font-size:13.5px}
-
-.src{color:var(--dim);font-size:12.5px;margin:-2px 0 2px;line-height:1.45}
-h1{margin-top:26px}
-.note ol{margin:8px 0 10px 18px;padding:0}
-.note li{margin:0 0 6px}
+.pbody{white-space:pre-wrap;padding:4px 16px 14px;font-size:15px;line-height:1.55}
+.notelabel{margin:10px 0 4px;font-size:13.5px;color:var(--dim)}
+textarea{width:100%;min-height:64px;background:#10143a;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px;font:15px/1.5 inherit;resize:vertical}
+textarea:focus{outline:2px solid var(--acc);border-color:var(--acc)}
+.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 24px;color:var(--dim);font-size:14.5px}
+.note strong{color:var(--ink)}
+.note ol{margin:10px 0 12px 18px;padding:0}
+.note li{margin:0 0 7px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#10143a;border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+button{background:var(--acc);color:#111;border:0;border-radius:999px;padding:12px 26px;font-weight:700;font-size:15px;cursor:pointer}
+.barhint{color:var(--dim);font-size:13px}
+#modal{display:none;position:fixed;inset:0;background:rgba(6,8,28,.86);z-index:9;align-items:center;justify-content:center;padding:18px}
+#modalbox{background:var(--card);border:1px solid var(--line);border-radius:12px;max-width:640px;width:100%;padding:16px}
+#modaltext{min-height:220px}
+#modalbox p{margin:0 0 8px;font-size:14px;color:var(--dim)}
 </style></head><body><div class='wrap'>
-<h1>Six drafts for review.</h1>
-<p class="sub">All built from your calls. The line under each says where the facts come from and what the post is for. Blank box means fine as is.</p>
-<div class="grid">
+<h1>Six drafts for your review</h1>
+<p class="sub">Read each post. If you want something changed, type it in the box under that post; an empty box means good to post. The grey line above each post says where its facts come from and what the post is for. Your notes save automatically on this device; when you are done, press the yellow button and send the notes to Ivan.</p>
 <div class="slot">
-<p class="label">DRAFT 1 &middot; The rule was simple <span class="tag">from your calls</span></p>
-<p class="src">Your internal call, 17 Aug. The dropped-creators review. Point: proven creators sit blacklisted industry-wide off one bad video, and re-testing them on incentive deals keeps being wrong cheap.</p>
+<p class="label"><span class="num">Post 1 of 6</span> The rule was simple</p>
+<p class="src">From your internal call, 17 Aug, the dropped-creators review. Point: proven creators sit blacklisted industry-wide off one bad video, and re-testing them on incentive deals keeps being wrong cheap.</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -55,14 +54,12 @@ I think we were wrong about a lot of them.
 Every agency prunes on the same week, with the same logic, off the same number. So the same proven creators sit blacklisted everywhere at once, priced like beginners.
 
 I want to re-test a part of that list with incentive deals, so being wrong a second time stays cheap. Some will flop again. That&#x27;s what the deal shape is there for.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
 </div>
-<textarea rows="2" data-label="DRAFT 1 (The rule was simple)" placeholder="Anything to change? Blank means fine as is."></textarea>
-</div>
-<div class="slot">
-<p class="label">DRAFT 2 &middot; We do not send a client the same video twice <span class="tag">from your calls</span></p>
-<p class="src">Your internal call, 17 Aug. The one-pass review flow, client name kept out. Point: one consolidated feedback pass, so a client never reviews the same video twice.</p>
+<p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
+<textarea rows="3" data-label="POST 1 (The rule was simple)" placeholder="Anything you would change, in any language..."></textarea>
+</div><div class="slot">
+<p class="label"><span class="num">Post 2 of 6</span> We do not send a client the same video twice</p>
+<p class="src">From your internal call, 17 Aug, the one-pass review flow. Client name kept out. Point: one consolidated feedback pass, so a client never reviews the same video twice.</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -75,14 +72,12 @@ This is how we run it with one of our biggest clients. All feedback goes onto th
 Narrower than &quot;unlimited revisions&quot;, on purpose. Every extra round adds days and changes little.
 
 You may disagree with this one. All good.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
 </div>
-<textarea rows="2" data-label="DRAFT 2 (We do not send a client the same video twice)" placeholder="Anything to change? Blank means fine as is."></textarea>
-</div>
-<div class="slot">
-<p class="label">DRAFT 3 &middot; Two Slack threads <span class="tag">from your calls</span></p>
-<p class="src">Your internal call, 17 Aug. The two Slack threads, pitches and date confirmations. Point: the state of a campaign readable in one scroll, without status meetings.</p>
+<p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
+<textarea rows="3" data-label="POST 2 (We do not send a client the same video twice)" placeholder="Anything you would change, in any language..."></textarea>
+</div><div class="slot">
+<p class="label"><span class="num">Post 3 of 6</span> Two Slack threads</p>
+<p class="src">From your internal call, 17 Aug, the two Slack threads. Point: the state of a campaign readable in one scroll, without status meetings.</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -99,14 +94,12 @@ That&#x27;s the whole system! No dashboard, no tool, nothing to &quot;implement&
 The reason it works is boring. Both threads carry events only, one comment per event, and every discussion lives somewhere else. So scrolling one thread tells you the exact state of the campaign, which no status meeting ever managed for me.
 
 What&#x27;s changed from day one is visibility. You can see who&#x27;s actually moving without asking anyone.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
 </div>
-<textarea rows="2" data-label="DRAFT 3 (Two Slack threads)" placeholder="Anything to change? Blank means fine as is."></textarea>
-</div>
-<div class="slot">
-<p class="label">DRAFT 4 &middot; A quiet inbox <span class="tag">from your calls</span></p>
-<p class="src">Your internal call, 17 Aug. Replies under expectation; no numbers, no client, no deadline in the post. Point: when replies drop, fix the sending side before blaming the platform.</p>
+<p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
+<textarea rows="3" data-label="POST 3 (Two Slack threads)" placeholder="Anything you would change, in any language..."></textarea>
+</div><div class="slot">
+<p class="label"><span class="num">Post 4 of 6</span> A quiet inbox</p>
+<p class="src">From your internal call, 17 Aug. No numbers, no client, no deadline in the post. Point: when replies drop, fix the sending side before blaming the platform.</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -121,14 +114,12 @@ The fix is on our side. When replies drop, the sending side has to grow. So we p
 To be honest, none of this is clever, and there&#x27;s no way around it that we know of.
 
 If the rate stays low after the volume doubles, then the list itself is wrong, and that&#x27;s a different, harder problem. If your replies dropped this summer too, look at the sending side first.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
 </div>
-<textarea rows="2" data-label="DRAFT 4 (A quiet inbox)" placeholder="Anything to change? Blank means fine as is."></textarea>
-</div>
-<div class="slot">
-<p class="label">DRAFT 5 &middot; The check has an expiry date <span class="tag">from your calls</span></p>
-<p class="src">Your internal call, 17 Aug. The every-video check on new campaigns. Point: the senior check is deliberate and temporary, it expires once both sides read quality the same way.</p>
+<p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
+<textarea rows="3" data-label="POST 4 (A quiet inbox)" placeholder="Anything you would change, in any language..."></textarea>
+</div><div class="slot">
+<p class="label"><span class="num">Post 5 of 6</span> The check has an expiry date</p>
+<p class="src">From your internal call, 17 Aug, the every-video check on new campaigns. Point: the senior check is deliberate and temporary, it expires once both sides read quality the same way.</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -139,14 +130,12 @@ If the rate stays low after the volume doubles, then the list itself is wrong, a
 We run it anyway, with one difference. The check has an expiry date. Every video gets reviewed for roughly the first two months, while we and the client are still aligning on what &quot;good&quot; means for them. After that the check is gone by design, because keeping it longer would mean the alignment never happened.
 
 Your interest in speed is right. Full speed from day one just costs you the alignment, and you pay for that later, in revisions.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
 </div>
-<textarea rows="2" data-label="DRAFT 5 (The check has an expiry date)" placeholder="Anything to change? Blank means fine as is."></textarea>
-</div>
-<div class="slot">
-<p class="label">DRAFT 6 &middot; Hours, mostly <span class="tag">from your calls</span></p>
-<p class="src">Your internal call, 17 Aug. Scouting platforms against manual work, the 800-name list, your suggested-feed observation. No tool named. Point: finding creators is hours and criteria, the software is the small part.</p>
+<p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
+<textarea rows="3" data-label="POST 5 (The check has an expiry date)" placeholder="Anything you would change, in any language..."></textarea>
+</div><div class="slot">
+<p class="label"><span class="num">Post 6 of 6</span> Hours, mostly</p>
+<p class="src">From your internal call, 17 Aug, scouting platforms against manual work. No tool named. Point: finding creators is hours and criteria, the software is the small part.</p>
 <div class="post">
   <div class="phead">
     <div class="avatar">DS</div>
@@ -166,124 +155,53 @@ Hours, mostly.
 I searched one of our categories on YouTube myself a while back, like a viewer would, and my own suggested feed has been showing me herds of creators who fit ever since. Nobody configured a scouting tool to do that. I just looked at the category the way the audience does.
 
 No offence to the platform teams, truly. The bases are real, the biggest one we&#x27;ve used is genuinely deep, and we still run searches there. It&#x27;s the quick part of a slow job.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
 </div>
-<textarea rows="2" data-label="DRAFT 6 (Hours, mostly)" placeholder="Anything to change? Blank means fine as is."></textarea>
-</div>
-</div>
-<h1>Already reviewed, unchanged.</h1>
-<p class="sub">These four stay from the last page.</p>
-<div class="grid">
-<div class="slot">
-<p class="label">KEPT 1 &middot; Every video went through me first</p>
-<p class="src">Stays as is from the last page.</p>
-<div class="post">
-  <div class="phead">
-    <div class="avatar">DS</div>
-    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
-  </div>
-  <div class="pbody">Before we grew, no video left the agency until I watched it.
-
-I had the most context in the building, so I could usually tell which ones would underperform before there was any data on them. A creator can follow a brief exactly and still hand you something that will do nothing.
-
-I can&#x27;t be that filter anymore. So it moved. On a new client, someone senior watches every single video for the first two months, before the client sees a frame of it. After that we loosen it, once we know we&#x27;re reading quality the same way they are.
-
-It costs hours we don&#x27;t bill.
-
-I haven&#x27;t found the version of this that scales.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
-</div>
-<textarea rows="2" data-label="KEPT 1 (Every video went through me first)" placeholder="Still fine? Blank means yes."></textarea>
-</div>
-<div class="slot">
-<p class="label">KEPT 2 &middot; The coupon code is not for the discount</p>
-<p class="src">Stays as is from the last page.</p>
-<div class="post">
-  <div class="phead">
-    <div class="avatar">DS</div>
-    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
-  </div>
-  <div class="pbody">Every campaign we set up now ships with a coupon code, and it&#x27;s there for one reason. So the installs can be told apart from organic.
-
-Without it the numbers arrive as a lump. Downloads went up during the campaign window. Some of that was us, some was the store, some was whatever else the studio had running that week, and nobody can separate them afterwards. Then the campaign gets judged on a figure that was never ours to claim or to answer for.
-
-Surfshark runs a code. That is where we took it from.
-
-If you can&#x27;t tie an install back to a specific video, what you have at the end of the month is a month. It won&#x27;t tell you which creator to book again.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
-</div>
-<textarea rows="2" data-label="KEPT 2 (The coupon code is not for the discount)" placeholder="Still fine? Blank means yes."></textarea>
-</div>
-<div class="slot">
-<p class="label">KEPT 3 &middot; In Serbia it is Viber</p>
-<p class="src">Stays as is from the last page.</p>
-<div class="post">
-  <div class="phead">
-    <div class="avatar">DS</div>
-    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
-  </div>
-  <div class="pbody">Last week WhatsApp communities came up as a channel idea and nobody in the room pushed back on it.
-
-In the Balkans WhatsApp communities barely exist. What people are actually in is Discord, Facebook, sometimes Telegram. Instagram broadcast channels, yes, those are everywhere.
-
-And in Serbia the number one chat app is Viber. I have a lot of relatives there and they install WhatsApp only so they can talk to us.
-
-I know creators who have run Viber groups. It is not in anybody&#x27;s channel deck.</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
-</div>
-<textarea rows="2" data-label="KEPT 3 (In Serbia it is Viber)" placeholder="Still fine? Blank means yes."></textarea>
-</div>
-<div class="slot">
-<p class="label">KEPT 4 &middot; Nobody is charging for broadcast channels yet</p>
-<p class="src">Stays as is from the last page.</p>
-<div class="post">
-  <div class="phead">
-    <div class="avatar">DS</div>
-    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
-  </div>
-  <div class="pbody">Has anybody worked out what an Instagram broadcast channel is actually worth?
-
-It is a dedicated group, everyone in it opted in, and when a creator posts there I&#x27;d guess the open rate is close to everyone. Nothing else that creator owns behaves like that.
-
-I haven&#x27;t seen one price it as a deliverable. Most will drop your link in there if you ask nicely, as a favour on top of the video they were already paid for.
-
-I don&#x27;t think that lasts. The first agency that starts paying for placement in those channels sets the rate for everybody.
-
-Until then it is free reach sitting inside a deal you already signed. 📈</div>
-  <div class="pfoot"><span>&#128077;&#10084;&#65039;&#128161; 47</span><span>6 comments</span></div>
-  <div class="pactions"><span>&#128077; Like</span><span>&#128172; Comment</span><span>&#128257; Repost</span><span>&#128228; Send</span></div>
-</div>
-<textarea rows="2" data-label="KEPT 4 (Nobody is charging for broadcast channels yet)" placeholder="Still fine? Blank means yes."></textarea>
-</div>
-</div>
-
-<div class="note">
-<strong>One question that decides what we write about, before anything else on this list.</strong>
-<p>We write these for UA leads at mobile game studios and apps. Correct us if that is off. And: name 2 or 3 people whose content you actually rate in this space, any platform. The ones you read and think, that is how it should be done.</p>
-<textarea rows="3" data-label="AUDIENCE: reader correction + accounts you rate" placeholder="The accounts you rate, and anything off about the reader."></textarea>
+<p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
+<textarea rows="3" data-label="POST 6 (Hours, mostly)" placeholder="Anything you would change, in any language..."></textarea>
 </div>
 <div class="note">
-<strong>Eight more that make every future batch better, whenever you have ten minutes.</strong>
+<strong>One question that matters more than all the posts.</strong>
+<p>We write these for UA leads at mobile game studios and apps. Correct us if that is off. And: name 2 or 3 people whose content you actually rate in this space, any platform.</p>
+<textarea rows="3" data-label="AUDIENCE: reader correction + accounts you rate" placeholder="The accounts you rate, and anything off about the reader..."></textarea>
+</div>
+<div class="note">
+<strong>Eight more, whenever you have ten minutes. One line each is enough.</strong>
 <ol><li>The four months with the business developer. What did you try, what did they actually do, and what was the moment you knew it was not working?</li><li>A campaign that missed its target. Which one, by how much, and what did you tell the client?</li><li>The Incogni campaign was ten creators. Who decided ten and not a hundred, and did the client push back?</li><li>The last time a creator&#x27;s paperwork stopped a campaign. What did the brand want to do with the video, and how did it end?</li><li>When you went back to 200 influencers for Domino Dreams, how many said no, and did anyone raise their price?</li><li>The 2x salary over two years. Can we publish that, and can you date the two years?</li><li>“Lack of stupid mistakes.” What is the stupid mistake you are actually thinking of?</li><li>One thing ARCH used to do for clients and does not any more, and why.</li></ol>
-<p>Voice answers are perfect, one line each is enough. Two more: a link to your Notion voice doc if it exists, and a short skip-list, creators or companies we should never reference.</p>
-<textarea rows="6" data-label="ANSWERS + voice doc + skip-list" placeholder="Answers to any of the above, in any order. Skip what you want."></textarea>
+<p>Also welcome: a link to your Notion voice doc if it exists, and a short skip-list, creators or companies we should never reference.</p>
+<textarea rows="5" data-label="ANSWERS + voice doc + skip-list" placeholder="Answers to any of the above, in any order. Skip what you want..."></textarea>
 </div>
-<div class="bar"><span class="barhint">Mark anything, then</span>
+<div class="bar"><span class="barhint" id="savehint">Your notes save automatically on this device.</span>
 <button id="cp" onclick="collect()">Copy my notes</button></div>
+<div id="modal"><div id="modalbox">
+<p>Copy this text and send it to Ivan:</p>
+<textarea id="modaltext"></textarea>
+<p style="text-align:right;margin-top:8px"><button onclick="closemodal()">Close</button></p>
+</div></div>
 <script>
-function collect(){
+var NS='arch-review-0818::';
+function slots(){return Array.prototype.slice.call(document.querySelectorAll('textarea')).filter(function(t){return t.id!=='modaltext'});}
+function hint(msg){var s=document.getElementById('savehint');s.textContent=msg;clearTimeout(window.__sh);window.__sh=setTimeout(function(){s.textContent='Your notes save automatically on this device.';},2200);}
+slots().forEach(function(t){
+  var k=NS+t.dataset.label;
+  var v=localStorage.getItem(k); if(v){t.value=v;}
+  t.addEventListener('input',function(){localStorage.setItem(k,t.value);hint('Saved.');});
+});
+function collectText(){
   var out=[];
-  document.querySelectorAll('textarea').forEach(function(t){
-    if(t.value.trim()){out.push('### '+t.dataset.label+'\n'+t.value.trim());}
-  });
-  var txt=out.length?out.join('\n\n'):'(nothing marked)';
-  navigator.clipboard.writeText(txt).then(function(){
-    var b=document.getElementById('cp');b.textContent='Copied. Paste it to Ivan.';
-    setTimeout(function(){b.textContent='Copy my notes';},2600);
-  });
+  slots().forEach(function(t){if(t.value.trim()){out.push('### '+t.dataset.label+'\n'+t.value.trim());}});
+  return out.length?out.join('\n\n'):'(nothing marked, all fine as is)';
 }
+function collect(){
+  var txt=collectText(), b=document.getElementById('cp');
+  function ok(){b.textContent='Copied. Paste it to Ivan.';setTimeout(function(){b.textContent='Copy my notes';},3000);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(ok,function(){fallback(txt);});
+  }else{fallback(txt);}
+}
+function fallback(txt){
+  var m=document.getElementById('modal'),ta=document.getElementById('modaltext');
+  ta.value=txt;m.style.display='flex';ta.focus();ta.select();
+  try{document.execCommand('copy');hint('Copied.');}catch(e){}
+}
+function closemodal(){document.getElementById('modal').style.display='none';}
 </script></body></html>
