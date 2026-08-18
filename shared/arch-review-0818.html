@@ -17,8 +17,12 @@ h1{font-size:22px;margin:0 0 8px;letter-spacing:-.3px}
 .label{font-size:13.5px;font-weight:700}
 .num{color:var(--acc);margin-right:7px}
 .src{color:var(--dim);font-size:12px;line-height:1.45}
-.post{background:#fff;color:rgba(0,0,0,.9);border-radius:10px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+.post{background:#fff;color:rgba(0,0,0,.9);border-radius:10px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.35);align-self:start}
 .phead{display:flex;gap:9px;padding:12px 14px 6px}
+.pmore{margin-left:auto;color:rgba(0,0,0,.55);font-weight:700;letter-spacing:1px}
+.pactions{display:flex;border-top:1px solid rgba(0,0,0,.08);margin-top:2px}
+.pactions span{flex:1;text-align:center;padding:9px 0;font-size:12px;font-weight:600;color:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;gap:5px}
+.pactions svg{width:15px;height:15px;fill:none;stroke:rgba(0,0,0,.6);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .avatar{width:40px;height:40px;border-radius:50%;background:#173a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex:0 0 40px}
 .pwho{display:flex;flex-direction:column;line-height:1.3}
 .pname{font-weight:600;font-size:13px;color:rgba(0,0,0,.9)}
@@ -45,6 +49,7 @@ button{background:var(--acc);color:#111;border:0;border-radius:999px;padding:11p
   <div class="phead">
     <div class="avatar">DS</div>
     <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
   </div>
   <div class="pbody">The rule was simple. One bad campaign and the creator comes off the roster, ours and probably yours too.
 
@@ -55,6 +60,12 @@ I think we were wrong about a lot of them.
 Every agency prunes on the same week, with the same logic, off the same number. So the same proven creators sit blacklisted everywhere at once, priced like beginners.
 
 I want to re-test a part of that list with incentive deals, so being wrong a second time stays cheap. Some will flop again. That&#x27;s what the deal shape is there for.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
 </div>
 <p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
 <textarea rows="3" data-label="POST 1 (The rule was simple)" placeholder="Anything you would change, in any language..."></textarea>
@@ -65,6 +76,7 @@ I want to re-test a part of that list with incentive deals, so being wrong a sec
   <div class="phead">
     <div class="avatar">DS</div>
     <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
   </div>
   <div class="pbody">We do not send a client the same video twice.
 
@@ -73,6 +85,12 @@ This is how we run it with one of our biggest clients. All feedback goes onto th
 Narrower than &quot;unlimited revisions&quot;, on purpose. Every extra round adds days and changes little.
 
 You may disagree with this one. All good.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
 </div>
 <p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
 <textarea rows="3" data-label="POST 2 (We do not send a client the same video twice)" placeholder="Anything you would change, in any language..."></textarea>
@@ -83,6 +101,7 @@ You may disagree with this one. All good.</div>
   <div class="phead">
     <div class="avatar">DS</div>
     <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
   </div>
   <div class="pbody">Creator replies came in low this month, and the miss was ours.
 
@@ -93,6 +112,12 @@ The fix is on our side. When replies drop, the sending side has to grow. So we p
 To be honest, none of this is clever, and there&#x27;s no way around it that we know of.
 
 If the rate stays low after the volume doubles, then the list itself is wrong, and that&#x27;s a different, harder problem. If your replies dropped this summer too, look at the sending side first.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
 </div>
 <p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
 <textarea rows="3" data-label="POST 3 (A quiet inbox)" placeholder="Anything you would change, in any language..."></textarea>
@@ -103,12 +128,19 @@ If the rate stays low after the volume doubles, then the list itself is wrong, a
   <div class="phead">
     <div class="avatar">DS</div>
     <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
   </div>
   <div class="pbody">When a campaign is new, someone senior on our side watches every creator video before the client sees a frame. From outside that looks like an agency bottleneck. Fair. It does not scale. It slows the first weeks down.
 
 We run it anyway, with one difference. The check has an expiry date. Every video gets reviewed for roughly the first two months, while we and the client are still aligning on what &quot;good&quot; means for them. After that the check is gone by design, because keeping it longer would mean the alignment never happened.
 
 Your interest in speed is right. Full speed from day one just costs you the alignment, and you pay for that later, in revisions.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
 </div>
 <p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
 <textarea rows="3" data-label="POST 4 (The check has an expiry date)" placeholder="Anything you would change, in any language..."></textarea>
@@ -119,6 +151,7 @@ Your interest in speed is right. Full speed from day one just costs you the alig
   <div class="phead">
     <div class="avatar">DS</div>
     <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
   </div>
   <div class="pbody">800 names, give or take, sit on one scouting list of ours, so take this as experience talking: manual scouting finds better creators than the platforms do.
 
@@ -134,6 +167,12 @@ Hours, mostly.
 I searched one of our categories on YouTube myself a while back, like a viewer would, and my own suggested feed has been showing me herds of creators who fit ever since. Nobody configured a scouting tool to do that. I just looked at the category the way the audience does.
 
 No offence to the platform teams, truly. The bases are real, the biggest one we&#x27;ve used is genuinely deep, and we still run searches there. It&#x27;s the quick part of a slow job.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
 </div>
 <p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
 <textarea rows="3" data-label="POST 5 (Hours, mostly)" placeholder="Anything you would change, in any language..."></textarea>
@@ -144,6 +183,7 @@ No offence to the platform teams, truly. The bases are real, the biggest one we&
   <div class="phead">
     <div class="avatar">DS</div>
     <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
   </div>
   <div class="pbody">A creator asked us for $17,000 this week and took $7,500 on the first counter.
 
@@ -152,6 +192,12 @@ Same campaign sheet, another ask at $6,000 closed at $3,500. A few rows under bo
 I get why the asks run high, honestly. Nobody knows what a slot on their channel is worth, so some just go high and see what happens.
 
 Still, more than half of that first ask disappeared in one reply, and the creator was fine with it. So now every ask on our lists gets one counter, in the same message as the posting date question. This week it kept getting accepted.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
 </div>
 <p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
 <textarea rows="3" data-label="POST 6 (The ask and the first counter)" placeholder="Anything you would change, in any language..."></textarea>
@@ -162,6 +208,7 @@ Still, more than half of that first ask disappeared in one reply, and the creato
   <div class="phead">
     <div class="avatar">DS</div>
     <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
   </div>
   <div class="pbody">We countered a creator&#x27;s price this week and the price went up.
 
@@ -170,6 +217,12 @@ The ask was $1,900. We came back lower, and the reply came back at $2,500. The n
 So that&#x27;s $600 the wrong way. The $1,900 was apparently already the whole price for them, no room in it at all, and the counter just told them we didn&#x27;t rate the deal the way they did.
 
 Counters saved us thousands on the same sheet this week, so I&#x27;m still sending them. I just can&#x27;t tell yet, before sending, which creator has room and which one gets offended. If you have a tell for that, I want it.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
 </div>
 <p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
 <textarea rows="3" data-label="POST 7 (The counter that raised the price)" placeholder="Anything you would change, in any language..."></textarea>
@@ -180,12 +233,19 @@ Counters saved us thousands on the same sheet this week, so I&#x27;m still sendi
   <div class="phead">
     <div class="avatar">DS</div>
     <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
   </div>
   <div class="pbody">When a creator crosses 80 percent return, we rebook them. Nobody rewatches the video first, the next booking just happens.
 
 We set it up like that because winners kept sitting in the sheet, waiting for someone to have a free afternoon and a good memory. Now the budget goes back to what already worked.
 
 It&#x27;s a blunt bar, honestly. A creator at 79 gets nothing from it, and I don&#x27;t have a clean answer for those yet.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
 </div>
 <p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
 <textarea rows="3" data-label="POST 8 (Over 80 percent, rebooked)" placeholder="Anything you would change, in any language..."></textarea>
@@ -196,6 +256,7 @@ It&#x27;s a blunt bar, honestly. A creator at 79 gets nothing from it, and I don
   <div class="phead">
     <div class="avatar">DS</div>
     <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
   </div>
   <div class="pbody">One of our campaigns looked like it cratered overnight, and nobody here believed the number.
 
@@ -204,6 +265,12 @@ Took some digging, and most of the drop turned out to be tracking. Instagram som
 We only caught it because the drop was too big to be real. A smaller one would have sailed through, and I keep wondering how many already have.
 
 If a creator campaign of yours ever falls off a cliff overnight, check the DMs before you blame the creative.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
 </div>
 <p class="notelabel">Your notes for this post (optional). Empty means good to post.</p>
 <textarea rows="3" data-label="POST 9 (The drop that was a broken pipe)" placeholder="Anything you would change, in any language..."></textarea>
