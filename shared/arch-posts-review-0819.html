@@ -50,13 +50,18 @@ button{background:var(--acc);color:#fff;border:0;border-radius:999px;padding:11p
 </style>
 
 <style>
-.pbody[contenteditable]{outline:none;border-radius:6px;padding:2px 4px;margin:0 -4px;
-  transition:background .15s,box-shadow .15s;cursor:text}
+/* affordance only: inset shadow + background never change layout, so the
+   card's own 14px text alignment and its overflow:hidden stay intact. An
+   earlier version used padding:2px 4px + margin:0 -4px and pushed every
+   .post 4px past its own box at every viewport. */
+.pbody[contenteditable]{outline:none;cursor:text;overflow-wrap:anywhere;
+  transition:background .15s,box-shadow .15s}
 .pbody[contenteditable]:hover{background:#fbfaf8;box-shadow:inset 0 0 0 1px var(--line)}
-.pbody[contenteditable]:focus{background:#fff;box-shadow:inset 0 0 0 2px var(--acc)}
+.pbody[contenteditable]:focus{background:#fdfdff;box-shadow:inset 0 0 0 2px var(--acc)}
 .slot.removed{opacity:.4}
 .slot.removed .post{filter:grayscale(1)}
-.slotbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px}
+.slotbar{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  margin:8px 0 30px;flex-wrap:wrap}
 .rm{font:inherit;font-size:12px;color:#a33;background:none;border:1px solid var(--line);
   border-radius:6px;padding:4px 10px;cursor:pointer}
 .rm:hover{border-color:#a33}
@@ -66,11 +71,11 @@ button{background:var(--acc);color:#fff;border:0;border-radius:999px;padding:11p
 #log h2{font:600 15px/1.3 var(--disp);margin:0 0 4px}
 #log p.sub2{font-size:13px;color:var(--dim);margin:0 0 12px}
 #logrows{font-size:13px;max-height:340px;overflow:auto}
-.lr{display:grid;grid-template-columns:74px 1fr;gap:10px;padding:7px 0;
+.lr{display:grid;grid-template-columns:74px minmax(0,1fr);gap:10px;padding:7px 0;
   border-bottom:1px solid var(--line)}
 .lr time{color:var(--dim);font-variant-numeric:tabular-nums;font-size:12px}
 .lr .what b{color:var(--ink)}
-.lr .diff{color:var(--dim);font-size:12px;margin-top:2px}
+.lr .diff{color:var(--dim);font-size:12px;margin-top:2px;overflow-wrap:anywhere}
 .lr .diff s{opacity:.65}
 </style>
 </head><body>
@@ -119,7 +124,7 @@ What did yours come to?</div>
 </div>
 </div>
 <p class="q">The 62% watch time and the 2M / 40k view numbers are placeholders. What are the real ones?</p>
-<textarea rows="3" data-field="note" data-label="POST 1 (The tracking refusal)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 1 (The tracking refusal)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="P2">
 <p class="label"><span class="num">Post 2</span><span class="src">From your DMs</span></p>
@@ -162,7 +167,7 @@ If they won&#x27;t tell you, it&#x27;s coming out of the talent. 🙂</div>
 </div>
 </div>
 <p class="q">Is 6 negotiations right, and is 30 the real number of creators who matter in a niche?</p>
-<textarea rows="3" data-field="note" data-label="POST 2 (The non-negotiable)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 2 (The non-negotiable)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="P3">
 <p class="label"><span class="num">Post 3</span><span class="src">From your DMs</span></p>
@@ -205,7 +210,7 @@ I&#x27;d just rather you decided from your own numbers than from a forum post th
 </div>
 </div>
 <p class="q">Comfortable putting your name to the rewarded position publicly?</p>
-<textarea rows="3" data-field="note" data-label="POST 3 (The controversial position, held)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 3 (The controversial position, held)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="P4">
 <p class="label"><span class="num">Post 4</span><span class="src">From your call, 17 Aug</span></p>
@@ -248,7 +253,7 @@ Keeping a dead geo funded is the most polite way I know to lose a quarter.</div>
 </div>
 </div>
 <p class="q">Happy naming Italy, or should it stay as an unnamed market?</p>
-<textarea rows="3" data-field="note" data-label="POST 4 (Cut the geo)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 4 (Cut the geo)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="P5">
 <p class="label"><span class="num">Post 5</span><span class="src">From your call, 17 Aug</span></p>
@@ -285,7 +290,7 @@ Move them into the campaign column and re-run your cost per install with them co
 </div>
 </div>
 <div class="qempty"></div>
-<textarea rows="3" data-field="note" data-label="POST 5 (Installs misread as organic)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 5 (Installs misread as organic)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="N1">
 <p class="label"><span class="num">Post 6</span><span class="src">From your call, 19 Aug</span></p>
@@ -324,7 +329,7 @@ Count how many columns it has past the channel link.</div>
 </div>
 </div>
 <div class="qempty"></div>
-<textarea rows="3" data-field="note" data-label="POST 6 (Throwing the work back at the client)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 6 (Throwing the work back at the client)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="N2">
 <p class="label"><span class="num">Post 7</span><span class="src">From your call, 19 Aug</span></p>
@@ -363,7 +368,7 @@ Open the last creator list you were sent and check whether the top 5 are names y
 </div>
 </div>
 <p class="q">Your client&#x27;s actual words were about specific big channels. Fine to keep it vague, or name them?</p>
-<textarea rows="3" data-field="note" data-label="POST 7 (The vetting tell)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 7 (The vetting tell)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="N3">
 <p class="label"><span class="num">Post 8</span><span class="src">From your call, 19 Aug</span></p>
@@ -404,7 +409,7 @@ If you&#x27;re briefing creators this month, go count how many messages you sent
 </div>
 </div>
 <div class="qempty"></div>
-<textarea rows="3" data-field="note" data-label="POST 8 (Same brief, different video)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 8 (Same brief, different video)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="N4">
 <p class="label"><span class="num">Post 9</span><span class="src">From your call, 19 Aug</span></p>
@@ -445,7 +450,7 @@ That&#x27;s your rate. Build the plan on that one.</div>
 </div>
 </div>
 <p class="q">$800 to $4,000 is his number from the call. OK to publish it unattributed?</p>
-<textarea rows="3" data-field="note" data-label="POST 9 (The rate you assumed)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 9 (The rate you assumed)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="N5">
 <p class="label"><span class="num">Post 10</span><span class="src">From your call, 19 Aug</span></p>
@@ -484,7 +489,7 @@ Before you open a new sourcing list next quarter, go price a 2nd booking with ev
 </div>
 </div>
 <div class="qempty"></div>
-<textarea rows="3" data-field="note" data-label="POST 10 (Fewer creators, deeper)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 10 (Fewer creators, deeper)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div><div class="slot" data-post="N6">
 <p class="label"><span class="num">Post 11</span><span class="src">From your call, 19 Aug</span></p>
@@ -523,7 +528,7 @@ She&#x27;s just changed what I&#x27;m willing to lose sleep over.</div>
 </div>
 </div>
 <p class="q">This one is personal rather than about UA. Say the word if it&#x27;s too much.</p>
-<textarea rows="3" data-field="note" data-label="POST 11 (Why not just take a job)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<textarea rows="3" style="margin-bottom:6px" data-field="note" data-label="POST 11 (Why not just take a job)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
 <div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
 </div>
 </div>
