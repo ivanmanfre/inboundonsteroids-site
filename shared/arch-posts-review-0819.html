@@ -534,7 +534,7 @@ She&#x27;s just changed what I&#x27;m willing to lose sleep over.</div>
 <div class="bar"><span class="barhint" id="savehint">Every change saves automatically.</span></div>
 
 <script>
-var DOC='review-davorin-0819b', URL='https://bjbvqvzbzczjbatgmccb.supabase.co', KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI';
+var DOC='review-arch-0819', URL='https://bjbvqvzbzczjbatgmccb.supabase.co', KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI';
 var H={apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'};
 var hintEl=document.getElementById('savehint');
 var last={}, timers={};
@@ -569,7 +569,8 @@ function persist(slot,field,val){
     .then(function(r){ hint(r.ok?'Saved.':'Save failed, your text is still on screen.'); })
     .catch(function(){ hint('Offline. Your text is still on screen.'); });
   post('client_review_events',[{doc_key:DOC,post_key:pk,field:field,
-       old_val:(prev===undefined?null:prev),new_val:val}],{Prefer:'return=minimal'});
+       old_val:(prev===undefined?null:prev),new_val:val}],{Prefer:'return=minimal'})
+    .then(function(){ setTimeout(loadLog,250); });
   markEdited(slot);
 }
 function markEdited(slot){
