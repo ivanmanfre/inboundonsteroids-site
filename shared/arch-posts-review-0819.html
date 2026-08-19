@@ -1,0 +1,648 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Drafts for review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f2ee;--ink:#1d2226;--dim:#6b6b6b;--acc:#0a66c2;--line:#d6d3cd;--gold:#FFC71D;--disp:"Sora","Helvetica Neue",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;padding-bottom:110px}
+.wrap{max-width:1150px;margin:0 auto;padding:22px 18px 26px}
+.mastbar{background:#111}
+.mastin{max-width:1150px;margin:0 auto;padding:15px 18px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.wordmark{font-family:var(--disp);font-weight:400;font-size:17px;letter-spacing:-.02em;text-transform:uppercase;line-height:1;color:#fff}
+.wordmark .on{font-weight:600;color:var(--gold)}
+.stamp{font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+h1{font-family:var(--disp);font-size:22px;margin:0 0 8px;letter-spacing:-.3px}
+.sub{color:var(--dim);margin:0 0 26px;font-size:14px;max-width:700px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.slot{display:grid;grid-template-rows:subgrid;grid-row:span 4}
+.slot>*{margin:0}
+.slot>textarea{margin-bottom:30px}
+.label{font-size:13px;padding-bottom:6px}
+.num{color:var(--ink);font-weight:700;margin-right:8px}
+.src{color:var(--dim);font-weight:400}
+.post{background:#fff;border:1px solid #e0dfdc;color:rgba(0,0,0,.9);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);align-self:start}
+.phead{display:flex;gap:9px;padding:12px 14px 6px}
+.pmore{margin-left:auto;color:rgba(0,0,0,.55);font-weight:700;letter-spacing:1px}
+.pactions{display:flex;border-top:1px solid rgba(0,0,0,.08);margin-top:2px}
+.pactions span{flex:1;text-align:center;padding:9px 0;font-size:12px;font-weight:600;color:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;gap:5px}
+.pactions svg{width:15px;height:15px;fill:none;stroke:rgba(0,0,0,.6);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.avatar{width:40px;height:40px;border-radius:50%;background:#173a5c;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex:0 0 40px}
+.pwho{display:flex;flex-direction:column;line-height:1.3}
+.pname{font-weight:600;font-size:13px;color:rgba(0,0,0,.9)}
+.psub{font-size:11px;color:rgba(0,0,0,.55)}
+.pbody{white-space:pre-wrap;padding:4px 14px 12px;font-size:13px;line-height:1.5}
+.q{font-size:13px;background:#fff8dc;border:1px solid #e8d48b;color:#6b5310;border-radius:8px;padding:8px 11px;margin:10px 0 0;align-self:start}
+.qempty{margin:0;padding:0}
+textarea{width:100%;min-height:52px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px;font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;resize:vertical;margin-top:10px}
+textarea::placeholder{color:#9a9a9a}
+textarea:focus{outline:2px solid var(--acc);border-color:var(--acc)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:11px 16px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+button{background:var(--acc);color:#fff;border:0;border-radius:999px;padding:11px 24px;font-weight:700;font-size:14px;cursor:pointer}
+.barhint{color:var(--dim);font-size:12.5px}
+#modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9;align-items:center;justify-content:center;padding:18px}
+#modalbox{background:#fff;border:1px solid var(--line);border-radius:12px;max-width:640px;width:100%;padding:16px}
+#modaltext{min-height:220px}
+#modalbox p{margin:0 0 8px;font-size:13px;color:var(--dim)}
+</style>
+
+<style>
+.pbody[contenteditable]{outline:none;border-radius:6px;padding:2px 4px;margin:0 -4px;
+  transition:background .15s,box-shadow .15s;cursor:text}
+.pbody[contenteditable]:hover{background:#fbfaf8;box-shadow:inset 0 0 0 1px var(--line)}
+.pbody[contenteditable]:focus{background:#fff;box-shadow:inset 0 0 0 2px var(--acc)}
+.slot.removed{opacity:.4}
+.slot.removed .post{filter:grayscale(1)}
+.slotbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px}
+.rm{font:inherit;font-size:12px;color:#a33;background:none;border:1px solid var(--line);
+  border-radius:6px;padding:4px 10px;cursor:pointer}
+.rm:hover{border-color:#a33}
+.edited{font-size:11px;color:var(--dim);letter-spacing:.04em;text-transform:uppercase}
+.edited b{color:var(--acc)}
+#log{margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+#log h2{font:600 15px/1.3 var(--disp);margin:0 0 4px}
+#log p.sub2{font-size:13px;color:var(--dim);margin:0 0 12px}
+#logrows{font-size:13px;max-height:340px;overflow:auto}
+.lr{display:grid;grid-template-columns:74px 1fr;gap:10px;padding:7px 0;
+  border-bottom:1px solid var(--line)}
+.lr time{color:var(--dim);font-variant-numeric:tabular-nums;font-size:12px}
+.lr .what b{color:var(--ink)}
+.lr .diff{color:var(--dim);font-size:12px;margin-top:2px}
+.lr .diff s{opacity:.65}
+</style>
+</head><body>
+<div class="mastbar"><div class="mastin"><span class="wordmark">INBOUND<span class="on">ON</span>STEROIDS</span><span class="stamp">Content review &middot; ARCH.</span></div></div>
+<div class='wrap'>
+<h1>Drafts for your review</h1>
+<p class="sub">Eleven posts, built from your calls and your own messages. Edit any post
+directly in the card, leave a note underneath, or mark one to be dropped. Everything
+saves as you type, so you can close this and come back to it. No need to send anything
+back.</p>
+<div class="grid">
+<div class="slot" data-post="P1">
+<p class="label"><span class="num">Post 1</span><span class="src">From your DMs</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">Nobody has ever asked me what our view counts look like.
+
+Not one client, not once.
+
+They ask how many installs landed and what each one cost. That&#x27;s the whole call.
+
+We tracked all of it anyway. Watch time, saves, comment sentiment, per creator, per week. The reports were beautiful.
+
+Then I checked what we&#x27;d ever done with any of it.
+
+Nothing. No decision we&#x27;ve made ever moved because a video held 62% watch time.
+
+So we cut the lot. We&#x27;re only tracking conversions now.
+
+You can run a video to 2M views and move zero installs. The one that pays for your campaign twice will do 40k and it&#x27;ll look like a failure on every slide in your deck.
+
+So open your last monthly report and count the lines you&#x27;d actually act on.
+
+Mine came to two. Installs, and cost per install.
+
+What did yours come to?</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<p class="q">The 62% watch time and the 2M / 40k view numbers are placeholders. What are the real ones?</p>
+<textarea rows="3" data-field="note" data-label="POST 1 (The tracking refusal)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="P2">
+<p class="label"><span class="num">Post 2</span><span class="src">From your DMs</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">I&#x27;ll give up our margin before I&#x27;ll shave a creator&#x27;s fee.
+
+That&#x27;s come up in 6 negotiations this year.
+
+My answer hasn&#x27;t moved once.
+
+It always arrives the same way. Budget gets cut mid-campaign. Someone has to find 15%. The fastest place to find it is the talent line, because it&#x27;s the biggest number on the sheet.
+
+I&#x27;d rather it came out of what we make.
+
+Not generosity. Arithmetic.
+
+A creator you underpaid once will price you 20% higher next time. Or just stop replying.
+
+And the good ones in your niche are maybe 30 people.
+
+You&#x27;ll be back.
+
+Your agency&#x27;s margin is a number you get to renegotiate every year.
+
+Your access to the 30 people who can actually move installs in your geo runs on whether they liked getting paid last time.
+
+So when someone offers you a discount mid-campaign, ask them which line it comes out of before you say yes.
+
+If they won&#x27;t tell you, it&#x27;s coming out of the talent. 🙂</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<p class="q">Is 6 negotiations right, and is 30 the real number of creators who matter in a niche?</p>
+<textarea rows="3" data-field="note" data-label="POST 2 (The non-negotiable)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="P3">
+<p class="label"><span class="num">Post 3</span><span class="src">From your DMs</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">Rewarded is still the dirty word in mobile UA.
+
+I keep booking it anyway.
+
+I know how that sounds. I&#x27;ve had this argument in my DMs maybe 20 times this year.
+
+The objection never changes. Fake users. Bots. Installs that never open the app twice.
+
+Some of that is fair.
+
+But when I ask what the objection is based on, I get 2019 back. I have had that exact exchange four times since May.
+
+Here&#x27;s what I actually see now. Basically every big gaming brand runs it. Quietly, but they run it.
+
+The channel got standardised while half the industry was still calling it a scam.
+
+Does it carry controversy and fake accusations? Yes. Every channel this size does.
+
+That&#x27;s a reason to check it carefully. It isn&#x27;t a reason to skip a source your competitors are already scaling in.
+
+So test it against your own attribution. 2 weeks, one geo, a budget you won&#x27;t miss.
+
+And if you&#x27;re not open to it, honestly, no problem.
+
+I&#x27;d just rather you decided from your own numbers than from a forum post that&#x27;s 6 years old.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<p class="q">Comfortable putting your name to the rewarded position publicly?</p>
+<textarea rows="3" data-field="note" data-label="POST 3 (The controversial position, held)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="P4">
+<p class="label"><span class="num">Post 4</span><span class="src">From your call, 17 Aug</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">Italy has been sitting on our plan for months and I&#x27;m now fairly sure we should drop it.
+
+It&#x27;s expensive. Approvals almost never come through. Barely any content ever ran there.
+
+It stayed on the roadmap because it was on the roadmap.
+
+I see the same thing in plans people send me.
+
+A geo earns its slot once, in a kickoff deck, and then nobody re-checks it.
+
+Meanwhile you&#x27;re holding budget for a market that hasn&#x27;t cleared a campaign in 5 months.
+
+Here&#x27;s the check I&#x27;d run on yours this week.
+
+For every geo: how many creators did you get approved and live in the last quarter?
+
+Not pitched. Live.
+
+If the answer is 0 or 1, that market isn&#x27;t expensive.
+
+It&#x27;s closed.
+
+Move the money to a cheaper country you&#x27;ve never tried, and for the same spend you learn something you didn&#x27;t know.
+
+Keeping a dead geo funded is the most polite way I know to lose a quarter.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<p class="q">Happy naming Italy, or should it stay as an unnamed market?</p>
+<textarea rows="3" data-field="note" data-label="POST 4 (Cut the geo)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="P5">
+<p class="label"><span class="num">Post 5</span><span class="src">From your call, 17 Aug</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">Your organic install number is probably lying to you, and it&#x27;s flattering you while it does it.
+
+Here&#x27;s the mechanic. A creator posts. Someone watches, doesn&#x27;t tap the link, opens the store an hour later and searches your game by name.
+
+That install lands in organic.
+
+You look at the report, see organic climbing, and conclude your brand is finally compounding. So you cut creator spend, because organic is free and creators aren&#x27;t.
+
+Then organic falls, and nobody can explain why.
+
+We put coupon codes and QR on campaigns for exactly this. Not for the discount. So the install has somewhere to go that isn&#x27;t the organic bucket.
+
+Do this before your next campaign.
+
+Write down your organic baseline for the 2 weeks before anything goes live. Then watch what organic does in the 2 weeks after.
+
+If that line tracks your creator calendar, those installs were theirs and you have been paying for them twice.
+
+Move them into the campaign column and re-run your cost per install with them counted.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<div class="qempty"></div>
+<textarea rows="3" data-field="note" data-label="POST 5 (Installs misread as organic)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="N1">
+<p class="label"><span class="num">Post 6</span><span class="src">From your call, 19 Aug</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">I hate it when an agency hands the client a list of 1,000 creators and calls that the work.
+
+Here&#x27;s the list. Review them all. Tell us who you want.
+
+That review is the job.
+
+It&#x27;s the part you&#x27;re paying for.
+
+So we do it before anything reaches a client now.
+
+Every row carries the previous brand partnerships, how many of those renewed, the CPM, and how far that CPM swings month to month.
+
+Slower to build. Sheets come out about 50% shorter.
+
+The client opens one and decides inside it the same day, instead of losing 3 days to work we already invoiced.
+
+If you run an agency and your sheet is names and links, you&#x27;re sending your homework to the customer.
+
+If you&#x27;re buying from one, open the last list you were sent.
+
+Count how many columns it has past the channel link.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<div class="qempty"></div>
+<textarea rows="3" data-field="note" data-label="POST 6 (Throwing the work back at the client)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="N2">
+<p class="label"><span class="num">Post 7</span><span class="src">From your call, 19 Aug</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">A client told me he can tell at a glance whether anyone vetted the list we sent him.
+
+He opens it. He looks at the top 5 names.
+
+If they&#x27;re the ones everybody in tech YouTube has heard of, he stops reading.
+
+Those are good channels. They&#x27;re also the ones you land on after 20 minutes in a category.
+
+He&#x27;s had the same handful arrive from more than one agency.
+
+So the list stops working as a recommendation. It starts working as evidence of how long we looked.
+
+We changed ours after that. Previous brand partnerships, how many renewed, the CPM, how far the CPM moves month to month.
+
+Half the names. About 4x the work.
+
+He got through the last one in a single sitting and sent counters back the same day.
+
+You can run this on your own suppliers today.
+
+Open the last creator list you were sent and check whether the top 5 are names you could&#x27;ve found yourself before lunch.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<p class="q">Your client&#x27;s actual words were about specific big channels. Fine to keep it vague, or name them?</p>
+<textarea rows="3" data-field="note" data-label="POST 7 (The vetting tell)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="N3">
+<p class="label"><span class="num">Post 8</span><span class="src">From your call, 19 Aug</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">2 agencies get the same brief, the same product, the same tier of creator.
+
+One of them keeps coming back with better videos.
+
+A brand-side buyer told me that this week. He&#x27;s pushed the identical brief through several agencies over the years and the gap shows up every time.
+
+Which means the brief isn&#x27;t producing it.
+
+What he thinks it is: whether anyone stayed in the conversation after the deal was signed.
+
+Some agencies treat the booking as the finish line. Money&#x27;s in, brief forwarded, see you at delivery.
+
+We drift there too when the month gets busy.
+
+It&#x27;s the easiest corner to cut, because nobody complains until the video lands and by then you&#x27;re arguing about a re-shoot.
+
+So on the current account we&#x27;re in the creator&#x27;s messages between signature and shoot.
+
+Answering product questions. Making sure they&#x27;ve actually used the thing before they film it.
+
+None of that shows up in a sheet, which is most of why it gets dropped.
+
+If you&#x27;re briefing creators this month, go count how many messages you sent between the contract and the first cut.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<div class="qempty"></div>
+<textarea rows="3" data-field="note" data-label="POST 8 (Same brief, different video)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="N4">
+<p class="label"><span class="num">Post 9</span><span class="src">From your call, 19 Aug</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">You budget the quarter at the rate you expect.
+
+Then the asks come back.
+
+A buyer I work with put a number on that this week. He looks at a channel, decides it&#x27;s a fit, expects the ask to land near $800.
+
+He gets $4,000.
+
+5x. On a channel he&#x27;d already approved on content alone.
+
+That gap is where content plans quietly die.
+
+The deck commits to a number of videos for the quarter. The number was built on an assumed rate. Nobody revisits it once the first replies land.
+
+We&#x27;ve watched a quarter&#x27;s unit count drop to a fraction of the plan on an unchanged budget, purely because the asks came back where the market actually sits.
+
+Nothing was overspent.
+
+The rate assumption was wrong, and it was wrong before the quarter started.
+
+You can price this properly in a week. Send 10 real outreach messages to channels you&#x27;d genuinely book, and collect 10 real asks.
+
+That&#x27;s your rate. Build the plan on that one.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<p class="q">$800 to $4,000 is his number from the call. OK to publish it unattributed?</p>
+<textarea rows="3" data-field="note" data-label="POST 9 (The rate you assumed)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="N5">
+<p class="label"><span class="num">Post 10</span><span class="src">From your call, 19 Aug</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">A client asked me to find him fewer creators this quarter. On purpose.
+
+His reasoning, and I think he&#x27;s right.
+
+Once a channel works, the cheapest video you&#x27;ll ever buy is the 2nd one from that same channel.
+
+You already know the audience converts. You already have the rate. You&#x27;ve already had the awkward conversation about usage rights and posting windows.
+
+A new name costs you all 3 again, and you still don&#x27;t know if it performs.
+
+So the plan moved from a long list of new channels to a short list we go deeper on.
+
+Monthly slot, dedicated video, review format, whatever that creator is actually good at.
+
+The part I didn&#x27;t expect is that the 2nd negotiation is easier. They&#x27;ve been paid, they were paid on time, and they know what working with us feels like.
+
+What I can&#x27;t tell you yet is where the ceiling sits.
+
+At some point an audience gets tired of hearing about the same product and the returns fall over. I don&#x27;t know where that point is.
+
+Before you open a new sourcing list next quarter, go price a 2nd booking with everyone who already performed.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<div class="qempty"></div>
+<textarea rows="3" data-field="note" data-label="POST 10 (Fewer creators, deeper)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div><div class="slot" data-post="N6">
+<p class="label"><span class="num">Post 11</span><span class="src">From your call, 19 Aug</span></p>
+<div class="post">
+  <div class="phead">
+    <div class="avatar">DS</div>
+    <div class="pwho"><span class="pname">Davorin Smit</span><span class="psub">Founder, ARCH &middot; Creator-led UA for games &amp; apps</span><span class="psub">1d &middot; &#127760;</span></div>
+    <div class="pmore">&middot;&middot;&middot;</div>
+  </div>
+  <div class="pbody" contenteditable="true" spellcheck="true" data-field="body">Someone asked me this week why I never just went and got a job at a brand.
+
+Genuinely fair question. He&#x27;s excellent at what he does, he&#x27;s employed, and the money is good. Offices. Trips. None of the risk.
+
+I opened a company because I was broke.
+
+That was the entire strategy. I had nothing, I had to do something, and this was the only option in front of me.
+
+I don&#x27;t think I&#x27;d make the same call today.
+
+If I&#x27;d been married with a kid five years ago, I&#x27;d never have done it. Not once.
+
+The office is full of people now. The decisions are still all mine, and so are the risks. You prosper or you die with your own decision.
+
+I can&#x27;t remember the last time I went to sleep without something unresolved in my head.
+
+It was easier while my brother was here. I&#x27;ve been running it alone this year and that&#x27;s the part I underestimated.
+
+My daughter is 9 months old. She hasn&#x27;t reduced the workload at all.
+
+She&#x27;s just changed what I&#x27;m willing to lose sleep over.</div>
+<div class="pactions">
+<span><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0 4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1 6.5A2.4 2.4 0 0 1 17.6 20H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.7A8 8 0 1 1 21 12z"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M21 6H8a4 4 0 0 0-4 4M7 22l-4-4 4-4M3 18h13a4 4 0 0 0 4-4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg>Send</span>
+</div>
+</div>
+<p class="q">This one is personal rather than about UA. Say the word if it&#x27;s too much.</p>
+<textarea rows="3" data-field="note" data-label="POST 11 (Why not just take a job)" placeholder="Change anything? Write it here, or rewrite the line your way. Empty = good to post."></textarea>
+<div class="slotbar"><span class="edited"></span><button class="rm" type="button">Remove this post</button></div>
+</div>
+</div>
+<div id="log"><h2>What you changed</h2>
+<p class="sub2">Every edit is listed here so nothing gets lost between us.</p>
+<div id="logrows"></div></div>
+</div>
+<div class="bar"><span class="barhint" id="savehint">Every change saves automatically.</span></div>
+
+<script>
+var DOC='review-davorin-0819b', URL='https://bjbvqvzbzczjbatgmccb.supabase.co', KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI';
+var H={apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'};
+var hintEl=document.getElementById('savehint');
+var last={}, timers={};
+
+function hint(m,hold){
+  hintEl.textContent=m; clearTimeout(window.__sh);
+  if(!hold) window.__sh=setTimeout(function(){
+    hintEl.textContent='Every change saves automatically.';},2200);
+}
+function stamp(d){
+  var x=new Date(d);
+  return x.toLocaleDateString(undefined,{day:'numeric',month:'short'})+' '+
+         x.toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'});
+}
+function trim(s,n){s=(s||'').replace(/\s+/g,' ').trim();return s.length>n?s.slice(0,n)+'...':s;}
+
+function post(path,body,extra){
+  var h={}; for(var k in H) h[k]=H[k];
+  if(extra) for(var k2 in extra) h[k2]=extra[k2];
+  return fetch(URL+'/rest/v1/'+path,{method:'POST',headers:h,body:JSON.stringify(body)});
+}
+
+function persist(slot,field,val){
+  var pk=slot.dataset.post, prev=last[pk+':'+field];
+  if(prev===val) return;
+  last[pk+':'+field]=val;
+  var row={doc_key:DOC,post_key:pk,updated_at:new Date().toISOString()};
+  row[field==='body'?'body_html':'note']=val;
+  row.deleted=slot.classList.contains('removed');
+  post('client_review_docs?on_conflict=doc_key,post_key',[row],
+       {Prefer:'resolution=merge-duplicates,return=minimal'})
+    .then(function(r){ hint(r.ok?'Saved.':'Save failed, your text is still on screen.'); })
+    .catch(function(){ hint('Offline. Your text is still on screen.'); });
+  post('client_review_events',[{doc_key:DOC,post_key:pk,field:field,
+       old_val:(prev===undefined?null:prev),new_val:val}],{Prefer:'return=minimal'});
+  markEdited(slot);
+}
+function markEdited(slot){
+  slot.querySelector('.edited').innerHTML='<b>Edited</b> just now';
+}
+function debounce(slot,field,fn){
+  var k=slot.dataset.post+field;
+  clearTimeout(timers[k]); timers[k]=setTimeout(fn,900);
+}
+
+document.querySelectorAll('.slot').forEach(function(slot){
+  var b=slot.querySelector('.pbody'), n=slot.querySelector('textarea');
+  last[slot.dataset.post+':body']=b.innerText;
+  last[slot.dataset.post+':note']='';
+  b.addEventListener('input',function(){
+    hint('Saving...',true);
+    debounce(slot,'body',function(){persist(slot,'body',b.innerText);});});
+  n.addEventListener('input',function(){
+    hint('Saving...',true);
+    debounce(slot,'note',function(){persist(slot,'note',n.value);});});
+  slot.querySelector('.rm').addEventListener('click',function(){
+    var off=slot.classList.toggle('removed');
+    this.textContent=off?'Put it back':'Remove this post';
+    post('client_review_docs?on_conflict=doc_key,post_key',
+      [{doc_key:DOC,post_key:slot.dataset.post,deleted:off,
+        updated_at:new Date().toISOString()}],
+      {Prefer:'resolution=merge-duplicates,return=minimal'});
+    post('client_review_events',[{doc_key:DOC,post_key:slot.dataset.post,
+      field:'removed',old_val:String(!off),new_val:String(off)}],{Prefer:'return=minimal'});
+    hint(off?'Marked as removed.':'Back in.');
+    loadLog();
+  });
+});
+
+function loadLog(){
+  fetch(URL+'/rest/v1/client_review_events?doc_key=eq.'+DOC+
+        '&select=post_key,field,old_val,new_val,created_at&order=created_at.desc&limit=60',
+        {headers:H})
+   .then(function(r){return r.json()})
+   .then(function(rows){
+      var el=document.getElementById('logrows');
+      if(!rows||!rows.length){el.innerHTML='<p class="sub2">No changes yet.</p>';return;}
+      var idx={}; document.querySelectorAll('.slot').forEach(function(s,i){
+        idx[s.dataset.post]=i+1;});
+      el.innerHTML=rows.map(function(r){
+        var what=r.field==='removed'
+          ? (r.new_val==='true'?'removed the post':'put the post back')
+          : (r.field==='note'?'left a note':'edited the post');
+        var diff='';
+        if(r.field!=='removed'){
+          diff='<div class="diff"><s>'+trim(r.old_val,90)+'</s><br>'+trim(r.new_val,90)+'</div>';
+        }
+        return '<div class="lr"><time>'+stamp(r.created_at)+'</time>'+
+               '<div class="what"><b>Post '+(idx[r.post_key]||'?')+'</b> &middot; '+what+diff+'</div></div>';
+      }).join('');
+   }).catch(function(){});
+}
+
+// restore anything already saved, then show the log
+fetch(URL+'/rest/v1/client_review_docs?doc_key=eq.'+DOC+
+      '&select=post_key,body_html,note,deleted',{headers:H})
+ .then(function(r){return r.json()})
+ .then(function(rows){
+   (rows||[]).forEach(function(row){
+     var slot=document.querySelector('.slot[data-post="'+row.post_key+'"]');
+     if(!slot) return;
+     if(row.body_html){slot.querySelector('.pbody').innerText=row.body_html;
+       last[row.post_key+':body']=row.body_html; markEdited(slot);}
+     if(row.note){slot.querySelector('textarea').value=row.note;
+       last[row.post_key+':note']=row.note;}
+     if(row.deleted){slot.classList.add('removed');
+       slot.querySelector('.rm').textContent='Put it back';}
+   });
+ }).catch(function(){}).then(loadLog);
+</script>
+</body></html>
