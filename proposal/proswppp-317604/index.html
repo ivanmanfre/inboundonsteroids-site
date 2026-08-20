@@ -89,22 +89,6 @@
     .th-b.them .th-who { color: var(--red); }
     .th-b b { font-weight: 700; color: var(--ink); }
 
-    /* ---------- profile audit ---------- */
-    .au { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 3px solid var(--ink); }
-    .au-h { font-weight: 800; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 12px 18px; border-bottom: 3px solid var(--ink); }
-    .au-h.now { background: var(--ink); color: var(--paper); }
-    .au-h.next { background: var(--red); color: var(--paper); }
-    .au-c { padding: 16px 18px; border-bottom: 1px solid var(--hairline); font-size: 14px; line-height: 1.5; color: var(--ink); }
-    .au-c:nth-child(4n+3) { border-right: 1px solid var(--hairline); }
-    .au-h.now { border-right: 1px solid rgba(255,255,255,.25); }
-    .au-lbl { font-weight: 800; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
-    .au-q { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1.5; color: var(--body-2); border-left: 3px solid var(--red); padding-left: 12px; }
-    .au-c b { font-weight: 700; }
-    .au-c .miss { color: var(--red); font-weight: 800; }
-    .au-stats { display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 24px; }
-    .au-stat .v { font-weight: 800; font-size: 26px; letter-spacing: -.03em; color: var(--ink); line-height: 1; }
-    .au-stat .k { font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
-
     /* ---------- pay button ---------- */
     .pr-pay { display: inline-block; padding: 15px 22px; font-weight: 800; font-size: 14px; letter-spacing: .05em; text-transform: uppercase; text-decoration: none; border: 3px solid var(--red); color: var(--paper); background: var(--red); }
     .pr-pay:hover { background: var(--ink); border-color: var(--ink); }
@@ -382,109 +366,13 @@
       <!-- 05 PROFILE -->
       <div class="pr-sec rv">
         <div class="pr-seclabel"><span class="n">05</span>INCLUDED, NO CHARGE</div>
-        <h2 class="pr-sechead">I pulled up your profile. Here it is.</h2>
-        <p class="pr-secstrap"><b>600 people a month are going to open this page</b> before deciding whether to accept. You are already posting, twice in the last week and both about SWPPP, so the effort is there. The page they land on is doing none of that work.</p>
+        <h2 class="pr-sechead">Your profile gets rebuilt first.</h2>
+        <p class="pr-secstrap"><b>600 people a month are going to open this page</b> before deciding whether to accept. I go through it properly and rebuild it before the first connect goes out, at no charge. It stays yours whether or not this lane keeps running.</p>
 
-        <figure style="margin:0 0 26px">
+        <figure style="margin:0">
           <img src="assets/derek-profile.png" alt="Derek Chinners LinkedIn profile, captured Aug 20 2026" style="display:block; width:100%; height:auto; border:4px solid var(--ink); outline:1px solid var(--ink); outline-offset:3px">
-          <figcaption style="margin-top:12px; font-size:12.5px; color:var(--muted)">Captured from your live profile, Aug 20 2026. Three things a stranger sees first: a <b style="color:var(--ink)">#HIRING</b> ring, a banner with the <b style="color:var(--ink)">S cut off</b>, and a headline that does not say what you sell.</figcaption>
+          <figcaption style="margin-top:12px; font-size:12.5px; color:var(--muted)">Your profile as it stands today, captured Aug 20 2026.</figcaption>
         </figure>
-
-        <div class="pr-plate">
-          <div class="au-stats">
-            <div class="au-stat"><div class="v">1,726</div><div class="k">Followers</div></div>
-            <div class="au-stat"><div class="v">1,711</div><div class="k">Connections</div></div>
-            <div class="au-stat"><div class="v">Premium</div><div class="k">Seat status</div></div>
-            <div class="au-stat"><div class="v" style="color:var(--red)">0</div><div class="k">Mentions of stormwater in About</div></div>
-          </div>
-
-          <div class="au">
-            <div class="au-h now">What&rsquo;s on it today</div>
-            <div class="au-h next">What I put there</div>
-
-            <div class="au-c">
-              <div class="au-lbl">Headline</div>
-              <div class="au-q">&ldquo;Stormwater Consultant, CPESC&rdquo;</div>
-              <div style="margin-top:8px">28 characters of the 220 you get. No company, no service, no states.</div>
-            </div>
-            <div class="au-c">
-              <div class="au-lbl">Headline</div>
-              The words an estimator types into search, plus what you actually sell and how fast. Company name, SWPPP and erosion control, nationwide coverage, the 72 hour guarantee.
-            </div>
-
-            <div class="au-c">
-              <div class="au-lbl">About</div>
-              <div class="au-q">&ldquo;An accomplished, results-driven Technical Sales Engineer with over 10 years of successful sales experience focused on selling large capital equipment &amp; engineered solutions to large Industrial, Petrochemical, and Oil &amp; Gas Industry customers&hellip;&rdquo;</div>
-              <div style="margin-top:8px"><span class="miss">This is your last career.</span> Nothing about stormwater, construction, or Pro SWPPP.</div>
-            </div>
-            <div class="au-c">
-              <div class="au-lbl">About</div>
-              What you do, which states, what it costs, how fast. Written for a PM who found you at 4pm because a permit is due and dirt moves Monday.
-            </div>
-
-            <div class="au-c">
-              <div class="au-lbl">Pro SWPPP role</div>
-              <div>Founder &amp; President, <span class="miss">description empty</span>.</div>
-              <div style="margin-top:8px">Your three previous jobs all carry written detail with numbers in them. The company you own carries none.</div>
-            </div>
-            <div class="au-c">
-              <div class="au-lbl">Pro SWPPP role</div>
-              The business in plain terms: what you file, where, for whom, and the turnaround guarantee that is already on your website.
-            </div>
-
-            <div class="au-c">
-              <div class="au-lbl">Certifications</div>
-              <div><span class="miss">Zero listed.</span></div>
-              <div style="margin-top:8px">CPESC sits in your headline and your email signature, and nowhere in the field built for it.</div>
-            </div>
-            <div class="au-c">
-              <div class="au-lbl">Certifications</div>
-              CPESC listed properly. This is a compliance purchase and the letters do real work with a safety lead.
-            </div>
-
-            <div class="au-c">
-              <div class="au-lbl">Skills</div>
-              <div class="au-q">Leadership &middot; B2B &middot; Sales Process &middot; Sales Operations &middot; Supply Chain Management &middot; Selling &middot; Energy</div>
-              <div style="margin-top:8px"><span class="miss">Not one is stormwater.</span></div>
-            </div>
-            <div class="au-c">
-              <div class="au-lbl">Skills</div>
-              SWPPP, erosion and sediment control, NPDES, construction general permits, environmental compliance. Search reads this field.
-            </div>
-
-            <div class="au-c">
-              <div class="au-lbl">Banner</div>
-              <div>The company logo stretched to fill it, <span class="miss">cropped so the S is missing</span> and soft at full width.</div>
-              <div style="margin-top:8px">It reads as a mistake before anyone reads a word.</div>
-            </div>
-            <div class="au-c">
-              <div class="au-lbl">Banner</div>
-              Built at the right ratio, carrying the 72 hour guarantee and the states you cover. The first thing on the page starts selling.
-            </div>
-
-            <div class="au-c">
-              <div class="au-lbl">Photo frame</div>
-              <div><span class="miss">#HIRING ring</span>, for an Executive Assistant role.</div>
-              <div style="margin-top:8px">Every estimator I connect with sees a recruiting badge before they see a stormwater company.</div>
-            </div>
-            <div class="au-c">
-              <div class="au-lbl">Photo frame</div>
-              Ring comes off, or swaps to something pointed at buyers. The job post stays live on the company page where it belongs.
-            </div>
-
-            <div class="au-c" style="border-bottom:none">
-              <div class="au-lbl">Featured</div>
-              <div><span class="miss">Empty.</span></div>
-              <div style="margin-top:8px">You post about SWPPP twice a week and none of it is pinned.</div>
-            </div>
-            <div class="au-c" style="border-bottom:none">
-              <div class="au-lbl">Featured</div>
-              The order form, the guarantee, and your best post pinned to the top, so the profile itself converts a visit.
-            </div>
-          </div>
-
-          <p class="pr-secstrap" style="margin:24px 0 0; font-size:14.5px">Done once, before the first connect goes out, at no charge. It stays yours whether or not this lane keeps running.</p>
-        </div>
       </div>
 
       <!-- 06 THE DEAL -->
