@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Proposal for Derek Chinners | InboundOnSteroids</title>
+  <meta name="description" content="LinkedIn as a second channel into your CMD pipeline.">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* /proposal — Black Box tokens + the-box grammar. Drawn plates, no stock art. */
+    body { font-family: var(--sans); }
+
+    /* ---------- scroll reveal ---------- */
+    .rv { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.22,.7,.3,1), transform .6s cubic-bezier(.22,.7,.3,1); }
+    .rv.in { opacity: 1; transform: none; }
+    .rv-d1 { transition-delay: .07s } .rv-d2 { transition-delay: .14s }
+    .rv-d3 { transition-delay: .21s } .rv-d4 { transition-delay: .28s }
+    @media (prefers-reduced-motion: reduce) { .rv { opacity:1; transform:none; transition:none } }
+
+    /* ---------- heading grammar ---------- */
+    .pr-head { margin-bottom: clamp(30px, 4vw, 48px); }
+    .pr-head .h1 { margin-bottom: 12px; }
+    .pr-for { font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+
+    .pr-sec { margin-top: clamp(46px, 6vw, 84px); }
+    .pr-seclabel { font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .pr-seclabel .n { color: var(--red); margin-right: 8px; }
+    .pr-sechead { font-weight: 800; font-size: clamp(25px, 3.1vw, 36px); letter-spacing: -.025em; line-height: 1.05; color: var(--ink); margin: 0 0 12px; }
+    .pr-secstrap { font-size: 15.5px; line-height: 1.55; color: var(--body-2); max-width: 760px; margin: 0 0 26px; }
+    .pr-secstrap b { font-weight: 700; color: var(--ink); }
+
+    /* ---------- number cards ---------- */
+    .pr-nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.8vw, 20px); }
+    .pr-num { border: 3px solid var(--ink); background: var(--paper); padding: 20px 18px 18px; }
+    .pr-num .fig { font-weight: 800; font-size: clamp(32px, 3.6vw, 42px); letter-spacing: -.03em; line-height: 1; color: var(--red); }
+    .pr-num .t { font-weight: 800; font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink); margin: 11px 0 6px; }
+    .pr-num .s { font-size: 13.5px; line-height: 1.45; color: var(--body-2); }
+    .pr-num .s b { font-weight: 700; color: var(--ink); }
+
+    /* ---------- drawn plate ---------- */
+    .pr-plate {
+      border: 4px solid var(--ink); outline: 1px solid var(--ink); outline-offset: 3px;
+      background: repeating-linear-gradient(-45deg, rgba(19,18,16,.028) 0 1px, transparent 1px 9px), var(--paper);
+      padding: clamp(24px, 2.8vw, 36px);
+    }
+
+    /* ---------- the pipeline ---------- */
+    .fl { display: flex; flex-direction: column; }
+    .fl-step { display: flex; gap: clamp(14px, 1.8vw, 22px); align-items: flex-start; }
+    .fl-rail { display: flex; flex-direction: column; align-items: center; flex: 0 0 auto; align-self: stretch; }
+    .fl-dot { width: 40px; height: 40px; border: 3px solid var(--ink); background: var(--paper); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; color: var(--ink); flex: 0 0 auto; }
+    .fl-dot.red { border-color: var(--red); color: var(--red); }
+    .fl-line { width: 3px; flex: 1; min-height: 26px; background: var(--ink); opacity: .22; }
+    .fl-body { padding-bottom: 22px; flex: 1; }
+    .fl-t { font-weight: 800; font-size: 16px; color: var(--ink); letter-spacing: -.01em; }
+    .fl-s { font-size: 14px; line-height: 1.5; color: var(--body-2); margin-top: 5px; max-width: 640px; }
+    .fl-s b { font-weight: 700; color: var(--ink); }
+    .fl-tag { display: inline-block; margin-top: 8px; font-weight: 700; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--red); border: 2px solid var(--red); padding: 3px 8px; }
+
+    /* ---------- funnel ---------- */
+    .fn { display: flex; flex-direction: column; gap: 14px; }
+    .fn-row { display: flex; align-items: center; gap: 16px; }
+    .fn-bar { height: 46px; background: var(--ink); display: flex; align-items: center; padding-left: 16px; color: var(--paper); font-weight: 800; font-size: 15px; letter-spacing: -.01em; flex: 0 0 auto; transform-origin: left center; transform: scaleX(.06); transition: transform .9s cubic-bezier(.2,.75,.3,1); }
+    .in .fn-bar { transform: scaleX(1); }
+    .fn-bar span { display: inline-block; }
+    .fn-bar.red { background: var(--red); }
+    .fn-cap { font-size: 13.5px; line-height: 1.45; color: var(--body-2); flex: 1; }
+    .fn-cap b { font-weight: 700; color: var(--ink); }
+    @media (prefers-reduced-motion: reduce) { .fn-bar { transform: none } }
+
+    /* ---------- checks grid ---------- */
+    .ck { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 26px; }
+    .ck-i { display: flex; gap: 12px; align-items: flex-start; }
+    .ck-i svg { flex: 0 0 auto; margin-top: 2px; }
+    .ck-t { font-weight: 700; font-size: 14.5px; color: var(--ink); }
+    .ck-s { font-size: 13px; line-height: 1.45; color: var(--muted); margin-top: 2px; }
+
+    /* ---------- thread mock ---------- */
+    .th { display: flex; flex-direction: column; gap: 12px; max-width: 620px; }
+    .th-b { padding: 13px 16px; font-size: 14px; line-height: 1.5; border: 2px solid var(--ink); background: var(--paper); }
+    .th-b.them { border-style: dashed; color: var(--body-2); margin-left: 46px; }
+    .th-who { font-weight: 800; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+    .th-b.them .th-who { color: var(--red); }
+    .th-b b { font-weight: 700; color: var(--ink); }
+
+    /* ---------- profile audit ---------- */
+    .au { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 3px solid var(--ink); }
+    .au-h { font-weight: 800; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 12px 18px; border-bottom: 3px solid var(--ink); }
+    .au-h.now { background: var(--ink); color: var(--paper); }
+    .au-h.next { background: var(--red); color: var(--paper); }
+    .au-c { padding: 16px 18px; border-bottom: 1px solid var(--hairline); font-size: 14px; line-height: 1.5; color: var(--ink); }
+    .au-c:nth-child(4n+3) { border-right: 1px solid var(--hairline); }
+    .au-h.now { border-right: 1px solid rgba(255,255,255,.25); }
+    .au-lbl { font-weight: 800; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .au-q { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1.5; color: var(--body-2); border-left: 3px solid var(--red); padding-left: 12px; }
+    .au-c b { font-weight: 700; }
+    .au-c .miss { color: var(--red); font-weight: 800; }
+    .au-stats { display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 24px; }
+    .au-stat .v { font-weight: 800; font-size: 26px; letter-spacing: -.03em; color: var(--ink); line-height: 1; }
+    .au-stat .k { font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+
+    /* ---------- pay button ---------- */
+    .pr-pay { display: inline-block; padding: 15px 22px; font-weight: 800; font-size: 14px; letter-spacing: .05em; text-transform: uppercase; text-decoration: none; border: 3px solid var(--red); color: var(--paper); background: var(--red); }
+    .pr-pay:hover { background: var(--ink); border-color: var(--ink); }
+    .pr-pay .sub { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; margin-top: 4px; opacity: .82; }
+    .st-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 1.8vw, 22px); margin-bottom: 26px; }
+    .st { border: 3px solid var(--ink); background: var(--paper); padding: 20px 20px 18px; display: flex; flex-direction: column; }
+    .st .num { font-weight: 800; font-size: 28px; letter-spacing: -.03em; color: var(--red); line-height: 1; }
+    .st .t { font-weight: 800; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink); margin: 10px 0 8px; }
+    .st .s { font-size: 13.5px; line-height: 1.5; color: var(--body-2); }
+    .st .s b { font-weight: 700; color: var(--ink); }
+    .st .s a { color: var(--red); font-weight: 800; text-decoration: none; border-bottom: 1px solid var(--red); }
+    .st .grow { flex: 1; min-height: 12px; }
+    .st .cost { margin-top: 12px; padding-top: 12px; border-top: 2px solid var(--ink); font-weight: 800; font-size: 13px; color: var(--ink); }
+    .st .cost span { font-weight: 600; color: var(--muted); }
+
+    /* ---------- close ---------- */
+    .cl { display: flex; gap: clamp(22px, 3vw, 44px); align-items: center; flex-wrap: wrap; }
+    .cl-n { font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); letter-spacing: -.03em; line-height: 1.1; color: var(--ink); flex: 1; min-width: 300px; }
+    .cl-n b { color: var(--red); }
+    .cl-s { flex: 1; min-width: 280px; font-size: 15px; line-height: 1.55; color: var(--body-2); }
+    .cl-s b { font-weight: 700; color: var(--ink); }
+
+    /* ---------- price ---------- */
+    .pr-box { padding: clamp(26px, 2.8vw, 36px) clamp(24px, 2.6vw, 34px); }
+    .pr-rows { display: flex; gap: clamp(22px, 3.4vw, 50px); margin: 18px 0 0; flex-wrap: wrap; }
+    .pr-row { display: flex; gap: 14px; align-items: baseline; flex: 1; min-width: 270px; }
+    .pr-price { font-weight: 800; letter-spacing: -.03em; font-size: clamp(34px, 3.8vw, 44px); line-height: 1; color: var(--ink); flex: 0 0 auto; }
+    .pr-price.red { color: var(--red); }
+    .pr-price .u { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-left: 2px; }
+    .pr-rowname { font-weight: 700; font-size: 15.5px; color: var(--ink); }
+    .pr-rowsub { font-size: 13.5px; line-height: 1.45; color: var(--muted); margin-top: 4px; }
+    .pr-rowsub b { font-weight: 700; color: var(--ink); }
+
+    /* ---------- math chain ---------- */
+    .pr-chain { display: flex; align-items: flex-start; gap: clamp(8px, 1.4vw, 20px); flex-wrap: wrap; }
+    .pr-link { text-align: center; }
+    .pr-link .v { font-weight: 800; font-size: clamp(25px, 3vw, 36px); letter-spacing: -.03em; line-height: 1; color: var(--ink); }
+    .pr-link .v.red { color: var(--red); }
+    .pr-link .k { font-weight: 700; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+    .pr-arrow { font-weight: 800; font-size: 20px; color: var(--red); line-height: 1; margin-top: 6px; }
+    .pr-mathnote { margin-top: 22px; padding-top: 18px; border-top: 2px solid var(--ink); }
+
+    /* ---------- bullets ---------- */
+    .pr-inc { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+    .pr-inc li { position: relative; padding-left: 26px; font-weight: 600; font-size: 15px; line-height: 1.45; color: var(--ink); }
+    .pr-inc li::before { content: ''; position: absolute; left: 0; top: 7px; width: 9px; height: 9px; background: var(--ink); }
+    .pr-inc li.red::before { background: var(--red); }
+    .pr-inc li span { font-weight: 400; color: var(--muted); }
+
+    .pr-nothing { display: flex; gap: clamp(24px, 3.4vw, 46px); align-items: flex-start; flex-wrap: wrap; }
+    .pr-nothing .big { font-weight: 800; font-size: clamp(52px, 7vw, 92px); letter-spacing: -.04em; line-height: .9; color: var(--red); flex: 0 0 auto; }
+    .pr-nothing .side { flex: 1; min-width: 300px; }
+
+    .pr-colophon { margin-top: clamp(44px, 5vw, 66px); padding-top: 16px; border-top: 1px solid var(--hairline); font-size: 12px; color: var(--muted); }
+
+    @media (max-width: 960px) {
+      .pr-nums { grid-template-columns: 1fr 1fr; }
+      .ck { grid-template-columns: 1fr; }
+      .fn-cap { font-size: 12.5px }
+      .th-b.them { margin-left: 20px }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Primary">
+      <span class="wordmark"><span class="wm-a">INBOUND</span><span class="wm-on">ON</span><span class="wm-b">STEROIDS</span></span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" aria-label="Proposal">
+
+      <div class="pr-head rv">
+        <div class="pr-for">Prepared for Derek Chinners &middot; Pro SWPPP &middot; Aug 20, 2026</div>
+        <h1 class="h1">A second shot at every job CMD flags.</h1>
+        <p class="sec-strap">LinkedIn puts you in front of the estimator directly, no inbox to get past and no bounce, and it gets you three or four people on the same project instead of one. You pay $500 only when a new company orders.</p>
+      </div>
+
+      <!-- 01 THE GAP -->
+      <div class="pr-sec rv" style="margin-top: clamp(28px, 3.5vw, 44px)">
+        <div class="pr-seclabel"><span class="n">01</span>THE ROOM TO WORK</div>
+        <h2 class="pr-sechead">Four numbers out of your own Pipedrive.</h2>
+
+        <div class="pr-nums">
+          <div class="pr-num rv rv-d1">
+            <div class="fig">~50%</div>
+            <div class="t">No verified email</div>
+            <div class="s">Half your live send queue has <b>no email your engine has confirmed</b>. Unverified, soft-failed, or bounced. LinkedIn does not care either way.</div>
+          </div>
+          <div class="pr-num rv rv-d2">
+            <div class="fig">788</div>
+            <div class="t">New companies / month</div>
+            <div class="s">Fresh from CMD, <b>never ordered from you</b>, repeat projects at the same GC already stripped out.</div>
+          </div>
+          <div class="pr-num rv rv-d3">
+            <div class="fig">~2</div>
+            <div class="t">Contacts per company</div>
+            <div class="s">All your CRM holds. That estimator has three or four colleagues sitting on the same job.</div>
+          </div>
+          <div class="pr-num rv rv-d4">
+            <div class="fig">~11</div>
+            <div class="t">New accounts / month</div>
+            <div class="s">What you win today across every channel. <b>80 new accounts</b> so far in 2026.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 HOW IT RUNS -->
+      <div class="pr-sec rv">
+        <div class="pr-seclabel"><span class="n">02</span>HOW IT RUNS</div>
+        <h2 class="pr-sechead">CMD flags the job. I get to the human.</h2>
+        <p class="pr-secstrap">Same trigger your email lane already uses, so the timing stays tied to the bid. Everything below happens without you touching it.</p>
+
+        <div class="pr-plate">
+          <div class="fl">
+
+            <div class="fl-step">
+              <div class="fl-rail"><div class="fl-dot">1</div><div class="fl-line"></div></div>
+              <div class="fl-body">
+                <div class="fl-t">CMD flags a live project</div>
+                <div class="fl-s">Bid date, apparent low bidder, award, start date. The company lands in Pipedrive the same way it does now.</div>
+              </div>
+            </div>
+
+            <div class="fl-step">
+              <div class="fl-rail"><div class="fl-dot">2</div><div class="fl-line"></div></div>
+              <div class="fl-body">
+                <div class="fl-t">The filter runs before anyone is touched</div>
+                <div class="fl-s">Cut: your <b>780 existing customers</b>, anyone your email engine can already reach, and every company on your do-not-contact list. What survives is a company with a live job that has never bought from you and cannot be emailed.</div>
+              </div>
+            </div>
+
+            <div class="fl-step">
+              <div class="fl-rail"><div class="fl-dot">3</div><div class="fl-line"></div></div>
+              <div class="fl-body">
+                <div class="fl-t">I find the humans, plural</div>
+                <div class="fl-s">The estimator on that bid, plus the PM, the super and the safety lead sitting on the same job. Your CRM carries about two people per company. I go wider, so one dead contact does not kill the account.</div>
+              </div>
+            </div>
+
+            <div class="fl-step">
+              <div class="fl-rail"><div class="fl-dot red">4</div><div class="fl-line"></div></div>
+              <div class="fl-body">
+                <div class="fl-t">Liveness check</div>
+                <div class="fl-s">Every profile gets screened before a connect is spent on it. Detail in the next section.</div>
+                <div class="fl-tag">Section 03</div>
+              </div>
+            </div>
+
+            <div class="fl-step">
+              <div class="fl-rail"><div class="fl-dot">5</div><div class="fl-line"></div></div>
+              <div class="fl-body">
+                <div class="fl-t">Connect, then a message about their job</div>
+                <div class="fl-s">Roughly 27 a day from your seat, under LinkedIn&rsquo;s ceiling on purpose. The opener names the actual project and the actual permit their state requires, so it does not read like a blast.</div>
+              </div>
+            </div>
+
+            <div class="fl-step">
+              <div class="fl-rail"><div class="fl-dot red">6</div><div class="fl-line"></div></div>
+              <div class="fl-body">
+                <div class="fl-t">I run the whole conversation</div>
+                <div class="fl-s">Questions, pricing, turnaround, state permit naming, objections. All of it answered in thread, by me.</div>
+                <div class="fl-tag">Section 04</div>
+              </div>
+            </div>
+
+            <div class="fl-step">
+              <div class="fl-rail"><div class="fl-dot red">7</div><div class="fl-line"></div></div>
+              <div class="fl-body">
+                <div class="fl-t">They order on proswppp.com</div>
+                <div class="fl-s">That is the finish line. No call to book, no quote to chase. The thread ends with them on your order form, and the confirmation hits <b>bids@</b> like every other order you take.</div>
+              </div>
+            </div>
+
+            <div class="fl-step">
+              <div class="fl-rail"><div class="fl-dot">8</div></div>
+              <div class="fl-body" style="padding-bottom:0">
+                <div class="fl-t">Pipedrive records where it came from</div>
+                <div class="fl-s">The record is created and stamped the moment the connect goes out, months before the order. Nothing depends on a rep remembering to log anything, and you get a saved filter to check my invoice against.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 LIVENESS -->
+      <div class="pr-sec rv">
+        <div class="pr-seclabel"><span class="n">03</span>THE LIVENESS CHECK</div>
+        <h2 class="pr-sechead">Construction is the deadest room on LinkedIn.</h2>
+        <p class="pr-secstrap">I measured it against 100 of your own target companies: <b>73,368 profiles, and 3% had posted recently.</b> Most estimators lurk or never sign in. A connect spent on a dormant profile is gone, and on this deal that waste is mine to eat. So every profile is screened first.</p>
+
+        <div class="pr-plate">
+          <div class="ck">
+            <div class="ck-i rv rv-d1">
+              <svg width="16" height="16" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg>
+              <div><div class="ck-t">Does the profile resolve at all</div><div class="ck-s">About a third of CRM contacts never had one, or it is under a different spelling.</div></div>
+            </div>
+            <div class="ck-i rv rv-d1">
+              <svg width="16" height="16" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg>
+              <div><div class="ck-t">Signs of life in the last 90 days</div><div class="ck-s">Posts, reactions, comments, profile edits. Any one of them means the account gets opened.</div></div>
+            </div>
+            <div class="ck-i rv rv-d2">
+              <svg width="16" height="16" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg>
+              <div><div class="ck-t">Paying for LinkedIn</div><div class="ck-s">21.6% of the profiles at your target companies run Premium. Somebody paying every month is somebody signing in.</div></div>
+            </div>
+            <div class="ck-i rv rv-d2">
+              <svg width="16" height="16" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg>
+              <div><div class="ck-t">Still at that company</div><div class="ck-s">Construction moves. A stale title means the message lands with someone who left.</div></div>
+            </div>
+            <div class="ck-i rv rv-d3">
+              <svg width="16" height="16" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg>
+              <div><div class="ck-t">Right seat for a SWPPP decision</div><div class="ck-s">Estimators, PMs, supers, safety and compliance. Office staff and recruiters cut.</div></div>
+            </div>
+            <div class="ck-i rv rv-d3">
+              <svg width="16" height="16" viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#C8361B"/></svg>
+              <div><div class="ck-t">Not already in a thread</div><div class="ck-s">Nobody at the company gets two of my messages, and nobody your team is already talking to gets one.</div></div>
+            </div>
+          </div>
+
+          <div class="fn rv" style="margin-top:30px; padding-top:26px; border-top:2px solid var(--ink)">
+            <div class="fn-row"><div class="fn-bar" style="width:100%"><span>788 companies</span></div></div>
+            <div class="fn-row"><div class="fn-bar" style="width:74%"><span>Never ordered, no reachable email</span></div><div class="fn-cap">after your 780 customers and the email-reachable are cut</div></div>
+            <div class="fn-row"><div class="fn-bar" style="width:52%"><span>Humans found on LinkedIn</span></div><div class="fn-cap">estimator plus colleagues on the same job</div></div>
+            <div class="fn-row"><div class="fn-bar red" style="width:34%"><span>600 connects sent</span></div><div class="fn-cap"><b>only the profiles that passed the check</b>, roughly 27 a day</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 THE CONVERSATION -->
+      <div class="pr-sec rv">
+        <div class="pr-seclabel"><span class="n">04</span>THE CONVERSATION</div>
+        <h2 class="pr-sechead">I answer everything, in thread, as your team.</h2>
+        <p class="pr-secstrap">An accepted connect is worth nothing on its own. What follows is the actual work: knowing which permit their state calls for, what you charge, how fast you turn it, and what to say when they push back. Shape of a live thread:</p>
+
+        <div class="pr-plate">
+          <div class="th">
+            <div class="th-b rv rv-d1">
+              <div class="th-who">Us, day of the award</div>
+              Saw you picked up the Somerset sidewalk job. You&rsquo;re over an acre so it needs a SWPPP filed before dirt moves. We do these across TX, 72 hours turnaround.
+            </div>
+            <div class="th-b them rv rv-d2">
+              <div class="th-who">Them</div>
+              We usually have our civil guy do it. What do you charge?
+            </div>
+            <div class="th-b rv rv-d3">
+              <div class="th-who">Us</div>
+              Most jobs this size run <b>$1,250</b>. Flat, includes the permit package and the NOI filing. If your civil is already on it, no problem. Worth knowing we&rsquo;re a <b>72 hour turnaround or it&rsquo;s free</b>, so when one comes in tight, that&rsquo;s the number to have.
+            </div>
+            <div class="th-b them rv rv-d3">
+              <div class="th-who">Them</div>
+              We&rsquo;ve got two more starting in Georgia next month.
+            </div>
+            <div class="th-b rv rv-d4">
+              <div class="th-who">Us</div>
+              Georgia calls it an ES&amp;PC Plan and wants Level 1B certified inspections, we cover both. Order form takes two minutes and we start same day: <b>proswppp.com</b>
+            </div>
+          </div>
+
+          <div style="margin-top:28px; padding-top:24px; border-top:2px solid var(--ink)">
+            <ul class="pr-inc">
+              <li>Every state named the way that state names it <span>&middot; TX CGP, Georgia ES&amp;PC and Level 1B, South Carolina CEPSCI</span></li>
+              <li>Your real terms quoted <span>&middot; flat pricing, 72 hour turnaround, the guarantee that&rsquo;s already on your site</span></li>
+              <li class="red">Objections handled without escalating to you <span>&middot; &ldquo;we have someone&rdquo;, &ldquo;not our scope&rdquo;, &ldquo;send pricing&rdquo;, &ldquo;call me next quarter&rdquo;</span></li>
+              <li>Next quarter means next quarter <span>&middot; the thread gets parked and reopened on the date, not dropped</span></li>
+              <li>Ends on your order page <span>&middot; the confirmation lands at bids@ exactly like every other order</span></li>
+              <li>Handed to your team only if they ask for a person</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 PROFILE -->
+      <div class="pr-sec rv">
+        <div class="pr-seclabel"><span class="n">05</span>INCLUDED, NO CHARGE</div>
+        <h2 class="pr-sechead">I pulled up your profile. Here it is.</h2>
+        <p class="pr-secstrap"><b>600 people a month are going to open this page</b> before deciding whether to accept. You are already posting, twice in the last week and both about SWPPP, so the effort is there. The page they land on is doing none of that work.</p>
+
+        <figure style="margin:0 0 26px">
+          <img src="assets/derek-profile.png" alt="Derek Chinners LinkedIn profile, captured Aug 20 2026" style="display:block; width:100%; height:auto; border:4px solid var(--ink); outline:1px solid var(--ink); outline-offset:3px">
+          <figcaption style="margin-top:12px; font-size:12.5px; color:var(--muted)">Captured from your live profile, Aug 20 2026. Three things a stranger sees first: a <b style="color:var(--ink)">#HIRING</b> ring, a banner with the <b style="color:var(--ink)">S cut off</b>, and a headline that does not say what you sell.</figcaption>
+        </figure>
+
+        <div class="pr-plate">
+          <div class="au-stats">
+            <div class="au-stat"><div class="v">1,726</div><div class="k">Followers</div></div>
+            <div class="au-stat"><div class="v">1,711</div><div class="k">Connections</div></div>
+            <div class="au-stat"><div class="v">Premium</div><div class="k">Seat status</div></div>
+            <div class="au-stat"><div class="v" style="color:var(--red)">0</div><div class="k">Mentions of stormwater in About</div></div>
+          </div>
+
+          <div class="au">
+            <div class="au-h now">What&rsquo;s on it today</div>
+            <div class="au-h next">What I put there</div>
+
+            <div class="au-c">
+              <div class="au-lbl">Headline</div>
+              <div class="au-q">&ldquo;Stormwater Consultant, CPESC&rdquo;</div>
+              <div style="margin-top:8px">28 characters of the 220 you get. No company, no service, no states.</div>
+            </div>
+            <div class="au-c">
+              <div class="au-lbl">Headline</div>
+              The words an estimator types into search, plus what you actually sell and how fast. Company name, SWPPP and erosion control, nationwide coverage, the 72 hour guarantee.
+            </div>
+
+            <div class="au-c">
+              <div class="au-lbl">About</div>
+              <div class="au-q">&ldquo;An accomplished, results-driven Technical Sales Engineer with over 10 years of successful sales experience focused on selling large capital equipment &amp; engineered solutions to large Industrial, Petrochemical, and Oil &amp; Gas Industry customers&hellip;&rdquo;</div>
+              <div style="margin-top:8px"><span class="miss">This is your last career.</span> Nothing about stormwater, construction, or Pro SWPPP.</div>
+            </div>
+            <div class="au-c">
+              <div class="au-lbl">About</div>
+              What you do, which states, what it costs, how fast. Written for a PM who found you at 4pm because a permit is due and dirt moves Monday.
+            </div>
+
+            <div class="au-c">
+              <div class="au-lbl">Pro SWPPP role</div>
+              <div>Founder &amp; President, <span class="miss">description empty</span>.</div>
+              <div style="margin-top:8px">Your three previous jobs all carry written detail with numbers in them. The company you own carries none.</div>
+            </div>
+            <div class="au-c">
+              <div class="au-lbl">Pro SWPPP role</div>
+              The business in plain terms: what you file, where, for whom, and the turnaround guarantee that is already on your website.
+            </div>
+
+            <div class="au-c">
+              <div class="au-lbl">Certifications</div>
+              <div><span class="miss">Zero listed.</span></div>
+              <div style="margin-top:8px">CPESC sits in your headline and your email signature, and nowhere in the field built for it.</div>
+            </div>
+            <div class="au-c">
+              <div class="au-lbl">Certifications</div>
+              CPESC listed properly. This is a compliance purchase and the letters do real work with a safety lead.
+            </div>
+
+            <div class="au-c">
+              <div class="au-lbl">Skills</div>
+              <div class="au-q">Leadership &middot; B2B &middot; Sales Process &middot; Sales Operations &middot; Supply Chain Management &middot; Selling &middot; Energy</div>
+              <div style="margin-top:8px"><span class="miss">Not one is stormwater.</span></div>
+            </div>
+            <div class="au-c">
+              <div class="au-lbl">Skills</div>
+              SWPPP, erosion and sediment control, NPDES, construction general permits, environmental compliance. Search reads this field.
+            </div>
+
+            <div class="au-c">
+              <div class="au-lbl">Banner</div>
+              <div>The company logo stretched to fill it, <span class="miss">cropped so the S is missing</span> and soft at full width.</div>
+              <div style="margin-top:8px">It reads as a mistake before anyone reads a word.</div>
+            </div>
+            <div class="au-c">
+              <div class="au-lbl">Banner</div>
+              Built at the right ratio, carrying the 72 hour guarantee and the states you cover. The first thing on the page starts selling.
+            </div>
+
+            <div class="au-c">
+              <div class="au-lbl">Photo frame</div>
+              <div><span class="miss">#HIRING ring</span>, for an Executive Assistant role.</div>
+              <div style="margin-top:8px">Every estimator I connect with sees a recruiting badge before they see a stormwater company.</div>
+            </div>
+            <div class="au-c">
+              <div class="au-lbl">Photo frame</div>
+              Ring comes off, or swaps to something pointed at buyers. The job post stays live on the company page where it belongs.
+            </div>
+
+            <div class="au-c" style="border-bottom:none">
+              <div class="au-lbl">Featured</div>
+              <div><span class="miss">Empty.</span></div>
+              <div style="margin-top:8px">You post about SWPPP twice a week and none of it is pinned.</div>
+            </div>
+            <div class="au-c" style="border-bottom:none">
+              <div class="au-lbl">Featured</div>
+              The order form, the guarantee, and your best post pinned to the top, so the profile itself converts a visit.
+            </div>
+          </div>
+
+          <p class="pr-secstrap" style="margin:24px 0 0; font-size:14.5px">Done once, before the first connect goes out, at no charge. It stays yours whether or not this lane keeps running.</p>
+        </div>
+      </div>
+
+      <!-- 06 THE DEAL -->
+      <div class="pr-sec rv">
+        <div class="pr-seclabel"><span class="n">06</span>THE DEAL</div>
+        <h2 class="pr-sechead">You pay when a new company orders.</h2>
+
+        <div class="the-box pr-box">
+          <div class="warn-row">
+            <span class="warn-sq" aria-hidden="true"></span>
+            <span class="warn-head">LINKEDIN OUTBOUND &middot; MONTH TO MONTH</span>
+          </div>
+          <div class="pr-rows">
+            <div class="pr-row">
+              <div class="pr-price">$1,000<span class="u">/ mo</span></div>
+              <div>
+                <div class="pr-rowname">To run it</div>
+                <div class="pr-rowsub">600 connections a month, the profile rebuild, and every conversation.</div>
+              </div>
+            </div>
+            <div class="pr-row">
+              <div class="pr-price red">$500<span class="u">/ customer</span></div>
+              <div>
+                <div class="pr-rowname">Once, on the first order</div>
+                <div class="pr-rowsub">Only a company that <b>has never ordered from you</b>. Every reorder after that is yours, free.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07 THE MATH -->
+      <div class="pr-sec rv">
+        <div class="pr-seclabel"><span class="n">07</span>THE MATH</div>
+        <h2 class="pr-sechead">Run it at one percent.</h2>
+
+        <div class="pr-plate">
+          <div class="pr-chain">
+            <div class="pr-link"><div class="v">600</div><div class="k">Connections</div></div>
+            <div class="pr-arrow">&rarr;</div>
+            <div class="pr-link"><div class="v">1%</div><div class="k">Close rate</div></div>
+            <div class="pr-arrow">&rarr;</div>
+            <div class="pr-link"><div class="v red">6</div><div class="k">New customers</div></div>
+            <div class="pr-arrow">&rarr;</div>
+            <div class="pr-link"><div class="v red">$7,500</div><div class="k">In orders that month</div></div>
+            <div class="pr-arrow">&rarr;</div>
+            <div class="pr-link"><div class="v">$4,000</div><div class="k">You pay, all in</div></div>
+          </div>
+
+          <div class="pr-mathnote">
+            <ul class="pr-inc">
+              <li>Six new accounts on top of your current eleven is <b>more than half again</b> on new business, in the same month.</li>
+              <li>Median first order across your 777 accounts is <b>$1,250</b>, so six is $7,500 in orders against $4,000 paid.</li>
+              <li>Reorders are free upside. <b>37% of your accounts come back</b>, and the ones that do average about four orders each. I only ever charge on the first.</li>
+              <li class="red">At half that close rate it&rsquo;s three customers, $3,750 in orders, and you pay $2,500. <b>No month costs you money without producing.</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 08 WHAT YOU DO -->
+      <div class="pr-sec rv">
+        <div class="pr-seclabel"><span class="n">08</span>WHAT YOU DO</div>
+        <h2 class="pr-sechead">Nothing, except keep Sales Navigator.</h2>
+
+        <div class="the-box pr-box">
+          <div class="pr-nothing">
+            <div class="big">1</div>
+            <div class="side">
+              <ul class="pr-inc">
+                <li class="red">Sales Navigator stays on your account <span>&middot; the one cost on your side, and you already pay it</span></li>
+                <li>Every other tool, seat and piece of infra runs on mine</li>
+                <li>I write, send and answer everything</li>
+                <li>I rebuild the profile before the first connect goes out</li>
+                <li>Your team keeps doing exactly what it does now <span>&middot; orders land on the site and get filled</span></li>
+              </ul>
+              <p class="pr-secstrap" style="margin:22px 0 0; font-size:14.5px">Approve messages if you want to. If you&rsquo;d rather not look at it, it runs, and the saved filter in your Pipedrive tells you what it produced.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09 START -->
+      <div class="pr-sec rv">
+        <div class="pr-seclabel"><span class="n">09</span>START</div>
+        <h2 class="pr-sechead">Say go.</h2>
+
+        <p class="pr-secstrap">I know your system. Nothing to onboard, nothing to hand over. Three things and the profile rebuild starts the same day.</p>
+
+        <div class="pr-plate">
+          <div class="st-steps">
+
+            <div class="st rv rv-d1">
+              <div class="num">01</div>
+              <div class="t">Start the retainer</div>
+              <div class="s">The $1,000 monthly, on card. Cancel any month with 30 days&rsquo; notice. The $500 per new customer gets invoiced separately at month end, against the filter in your own Pipedrive.</div>
+              <div class="grow"></div>
+              <a class="pr-pay" style="margin-top:16px" href="https://buy.stripe.com/cNi7sD4Yj0Nbat83HdfEk1a">Start &middot; $1,000 / mo<span class="sub">Secure checkout</span></a>
+            </div>
+
+            <div class="st rv rv-d2">
+              <div class="num">02</div>
+              <div class="t">Sales Navigator Core</div>
+              <div class="s">On your own card, since the seat has to live on your account. Go to <a href="https://business.linkedin.com/sell/sales-navigator/compare-plans">sales navigator plans</a>, take <b>Core</b>, monthly. Core is the right tier: it carries the search filters and the 50 InMails a month I need. Advanced adds team features you have no use for.</div>
+              <div class="grow"></div>
+              <div class="cost">$119.99 / mo <span>&middot; 30 day free trial on Core</span></div>
+            </div>
+
+            <div class="st rv rv-d3">
+              <div class="num">03</div>
+              <div class="t">Connect the account</div>
+              <div class="s">I send you one link. You click it, log into LinkedIn on LinkedIn&rsquo;s own screen, and it&rsquo;s done. <b>Two minutes, and I never see your password.</b> Same way your Pipedrive and Apollo got connected.</div>
+              <div class="grow"></div>
+              <div class="cost">Free <span>&middot; link comes in Slack</span></div>
+            </div>
+
+          </div>
+
+          <div class="cl" style="padding-top:24px; border-top:2px solid var(--ink)">
+            <div class="cl-n">Then the <b>profile rebuild starts the same day</b>.</div>
+            <div class="cl-s">
+              <ul class="pr-inc">
+                <li>Day 1 <span>&middot; payment through, seat connected, profile rebuilt</span></li>
+                <li>Day 5 <span>&middot; first connects going out on live CMD projects</span></li>
+                <li class="red">Week 3 <span>&middot; full speed at 600 a month, and the Pipedrive filter starts filling</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pr-colophon">Prepared by InboundOnSteroids &middot; run by Iv&aacute;n Manfredi &middot; Aug 20, 2026</div>
+
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.rv');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (e) { e.classList.add('in'); }); return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      els.forEach(function (e) { io.observe(e); });
+    })();
+  </script>
+
+</body>
+</html>
