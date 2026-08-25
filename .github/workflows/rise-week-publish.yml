@@ -1,14 +1,14 @@
 # Publishes the RISE weekly client report from the public render bucket to /shared/.
 # No secrets: the bucket allows unauthenticated object GET; this repo is the publish target.
-# Written by the rise-report-repair goal run 2026-08-25. Fires after the n8n builds:
-#   Fri 20:00 UTC early cut  -> 20:15 / 20:45 UTC
+# Written by the rise-report-repair goal run 2026-08-25. Fires after the n8n build:
 #   Mon 19:00 Europe/Warsaw  -> 17:15 / 18:15 / 19:15 UTC (covers CET and CEST)
+# The Friday early-cut crons were removed 2026-08-25 with the Friday trigger in
+# IHOpAedk4gJFNQo4: the report is a Sunday or Monday artifact, and a Friday poll
+# could only ever publish last week's file again.
 # Unchanged content is a no-op; a publish that never reaches HTTP 200 fails the job loudly.
 name: rise-week-publish
 on:
   schedule:
-    - cron: '15 20 * * 5'
-    - cron: '45 20 * * 5'
     - cron: '15 17 * * 1'
     - cron: '15 18 * * 1'
     - cron: '15 19 * * 1'
@@ -30,8 +30,10 @@ jobs:
       - name: Pull report and publish if changed
         run: |
           set -euo pipefail
-          # File Monday = next Monday on-or-after today (packet's own formula: on Mon -> today,
-          # on Fri -> the upcoming Monday). Window start = file Monday - 7d; page name uses it.
+          # File Monday = next Monday on-or-after today (the packet's own formula:
+          # on the Monday run, today). Window start = file Monday - 7d; the page
+          # name uses it. The formula is kept general on purpose, so a manual
+          # workflow_dispatch on any weekday still resolves the same file.
           DOW=$(date -u +%u)                       # 1=Mon..7=Sun
           ADD=$(( (8 - DOW) % 7 ))
           FILE_MON=$(date -u -d "+${ADD} days" +%F)
@@ -42,7 +44,7 @@ jobs:
           echo "file=${FILE_MON} window-start=${WSTART} -> ${DST}"
           CODE=$(curl -s -o /tmp/report.html -w '%{http_code}' "$SRC")
           if [ "$CODE" != "200" ]; then
-            echo "render not in bucket yet (HTTP $CODE) — nothing to publish"; exit 0
+            echo "render not in bucket yet (HTTP $CODE), nothing to publish"; exit 0
           fi
           # refuse to publish something that is not a full document
           grep -qi '</html>' /tmp/report.html || { echo 'truncated render, refusing'; exit 1; }
@@ -57,7 +59,7 @@ jobs:
             git push origin main && break
             git pull --rebase origin main
           done
-          # verify the live bundle — fail loudly if the page never appears
+          # verify the live bundle, fail loudly if the page never appears
           LIVE="https://inboundonsteroids.com/shared/rise-week-${MMDD}.html"
           for i in $(seq 1 20); do
             sleep 20
