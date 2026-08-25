@@ -30,13 +30,14 @@ jobs:
       - name: Pull report and publish if changed
         run: |
           set -euo pipefail
-          # File Monday = next Monday on-or-after today (the packet's own formula:
-          # on the Monday run, today). Window start = file Monday - 7d; the page
-          # name uses it. The formula is kept general on purpose, so a manual
-          # workflow_dispatch on any weekday still resolves the same file.
+          # File Monday = most recent Monday on-or-before today. The build runs
+          # ON the file Monday, so a Monday cron resolves today and a manual
+          # workflow_dispatch later in the week still resolves the file that
+          # exists. (The previous next-Monday formula was only correct on
+          # Mondays; a Tuesday dispatch reached for a file not yet rendered.)
           DOW=$(date -u +%u)                       # 1=Mon..7=Sun
-          ADD=$(( (8 - DOW) % 7 ))
-          FILE_MON=$(date -u -d "+${ADD} days" +%F)
+          SUB=$(( (DOW - 1) % 7 ))
+          FILE_MON=$(date -u -d "-${SUB} days" +%F)
           WSTART=$(date -u -d "${FILE_MON} -7 days" +%F)
           MMDD=$(date -u -d "${WSTART}" +%m%d)
           SRC="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-week-public/risedtc/${FILE_MON}.html"
