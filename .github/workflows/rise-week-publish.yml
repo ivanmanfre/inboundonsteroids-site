@@ -1,0 +1,68 @@
+# Publishes the RISE weekly client report from the public render bucket to /shared/.
+# No secrets: the bucket allows unauthenticated object GET; this repo is the publish target.
+# Written by the rise-report-repair goal run 2026-08-25. Fires after the n8n builds:
+#   Fri 20:00 UTC early cut  -> 20:15 / 20:45 UTC
+#   Mon 19:00 Europe/Warsaw  -> 17:15 / 18:15 / 19:15 UTC (covers CET and CEST)
+# Unchanged content is a no-op; a publish that never reaches HTTP 200 fails the job loudly.
+name: rise-week-publish
+on:
+  schedule:
+    - cron: '15 20 * * 5'
+    - cron: '45 20 * * 5'
+    - cron: '15 17 * * 1'
+    - cron: '15 18 * * 1'
+    - cron: '15 19 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rise-week-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull report and publish if changed
+        run: |
+          set -euo pipefail
+          # File Monday = next Monday on-or-after today (packet's own formula: on Mon -> today,
+          # on Fri -> the upcoming Monday). Window start = file Monday - 7d; page name uses it.
+          DOW=$(date -u +%u)                       # 1=Mon..7=Sun
+          ADD=$(( (8 - DOW) % 7 ))
+          FILE_MON=$(date -u -d "+${ADD} days" +%F)
+          WSTART=$(date -u -d "${FILE_MON} -7 days" +%F)
+          MMDD=$(date -u -d "${WSTART}" +%m%d)
+          SRC="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-week-public/risedtc/${FILE_MON}.html"
+          DST="shared/rise-week-${MMDD}.html"
+          echo "file=${FILE_MON} window-start=${WSTART} -> ${DST}"
+          CODE=$(curl -s -o /tmp/report.html -w '%{http_code}' "$SRC")
+          if [ "$CODE" != "200" ]; then
+            echo "render not in bucket yet (HTTP $CODE) — nothing to publish"; exit 0
+          fi
+          # refuse to publish something that is not a full document
+          grep -qi '</html>' /tmp/report.html || { echo 'truncated render, refusing'; exit 1; }
+          if [ -f "$DST" ] && cmp -s /tmp/report.html "$DST"; then
+            echo 'unchanged'; exit 0
+          fi
+          cp /tmp/report.html "$DST"
+          git add "$DST"
+          git -c user.name='rise-week-bot' -c user.email='noreply@ivanmanfredi.com' \
+            commit -m "rise weekly report: window starting ${WSTART}"
+          for i in 1 2 3 4 5; do
+            git push origin main && break
+            git pull --rebase origin main
+          done
+          # verify the live bundle — fail loudly if the page never appears
+          LIVE="https://inboundonsteroids.com/shared/rise-week-${MMDD}.html"
+          for i in $(seq 1 20); do
+            sleep 20
+            L=$(curl -s -o /dev/null -w '%{http_code}' "$LIVE")
+            echo "poll $i: $L"
+            [ "$L" = "200" ] && exit 0
+          done
+          echo "published but ${LIVE} never returned 200"; exit 1
