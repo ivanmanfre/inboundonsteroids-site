@@ -14,18 +14,20 @@ h1 em{font-style:normal;color:var(--lime)}
 p.lede{color:#c8cfe8;font-size:14.5px;margin:0;max-width:660px;line-height:1.5}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:38px 20px 110px}
 h2.sec{font-size:14px;letter-spacing:.09em;text-transform:uppercase;color:var(--lime);margin:0 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:44px}
-.card{background:rgba(53,98,255,.09);border:1px solid rgba(242,255,130,.25);border-radius:14px;padding:16px;cursor:pointer}
-.card.skip{opacity:.38}
-.card.skip .nm a{text-decoration:line-through}
-.cardhead{display:flex;gap:10px;align-items:flex-start}
-.cbox{flex:0 0 18px;width:18px;height:18px;border-radius:5px;border:2px solid var(--lime);background:transparent;cursor:pointer;margin-top:2px;padding:0}
-.card.skip .cbox{background:var(--lime)}
-.card .nm{margin:0 0 4px;font-size:16px;font-weight:800}
-.card .nm a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(242,255,130,.5)}
-.card .rl{margin:0 0 8px;color:#c8cfe8;font-size:13.5px}
-.card .src{margin:0;color:#8b93bd;font-size:12.5px}
-.card .src a{color:var(--lime)}
+.rowstack{margin-bottom:44px}
+.crow{background:rgba(53,98,255,.09);border:1px solid rgba(242,255,130,.25);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.crow.skip{opacity:.38}
+.crow.skip .cname{text-decoration:line-through}
+.chead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;cursor:pointer}
+.cbox{flex:0 0 18px;width:18px;height:18px;border-radius:5px;border:2px solid var(--lime);background:transparent;cursor:pointer;padding:0;align-self:center}
+.crow.skip .cbox{background:var(--lime)}
+.cname{font-size:16px;font-weight:800}
+.csrc{color:#8b93bd;font-size:12.5px}
+.csrc a{color:var(--lime)}
+.people{margin:8px 0 0 28px}
+.person{display:flex;gap:10px;align-items:baseline;padding:3px 0;font-size:13.5px;flex-wrap:wrap}
+.person a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(242,255,130,.35);font-weight:700}
+.person .ptitle{color:#c8cfe8;font-size:12.5px}
 .chip{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin-left:6px;vertical-align:2px}
 .chip.pre{background:var(--lime);color:var(--navy)}
 .chip.thin{border:1px dashed rgba(242,255,130,.5);color:var(--lime)}
@@ -57,271 +59,151 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
   <path fill="#F2FF82" fill-rule="nonzero" d="M 1207.65625 605.519531 C 1214.144531 605.519531 1219.398438 600.40625 1219.398438 594.101562 C 1219.398438 587.796875 1214.144531 582.6875 1207.65625 582.6875 C 1201.171875 582.6875 1195.914062 587.796875 1195.914062 594.101562 C 1195.914062 600.40625 1201.171875 605.519531 1207.65625 605.519531 Z M 1207.65625 605.519531 "/>
 </svg>
 <h1>Leads. <em>New ones up top.</em></h1>
-<p class="lede">Tap a card to skip someone — nobody gets a message while they sit here. When you're done, hit "Copy decisions" at the bottom and send it over. Everyone already approved is below, collapsed, with the date their first message went out.</p>
+<p class="lede">Tap a company to skip it (everyone under it skips with it) — nobody gets a message while they sit here. When you're done, hit "Copy decisions" at the bottom and send it over. Everyone already approved is below, collapsed, with the date their first message went out.</p>
 </header>
 <div class="wrap">
-<h2 class="sec">New this week &middot; engager harvest (4)</h2>
-<div class="grid">
-<div class="card" data-name="Anant Tyagi">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="https://www.linkedin.com/in/the-anant-tyagi/" target="_blank">Anant Tyagi</a> </p></div>
-  <p class="rl">Global Supply Partnerships · Mistplay</p>
-  <p class="src">reacted to <a href="https://www.linkedin.com/posts/felix-braberg-7a732b51_august-is-a-low-ecpm-month-on-mobile-everyone-activity-7498261202129838080-2aBY" target="_blank">Felix Braberg's post</a></p>
+<h2 class="sec">New this week &middot; engager harvest (4 companies &middot; 4 people)</h2>
+<div class="rowstack">
+<div class="crow" data-company="HitScale" data-section="engager">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">HitScale</span>
+    <span class="csrc">commented on <a href="https://www.linkedin.com/posts/felix-braberg-7a732b51_august-is-a-low-ecpm-month-on-mobile-everyone-activity-7498261202129838080-2aBY" target="_blank">Felix Braberg's post</a></span></div>
+  <div class="people"><div class="person"><a href="https://www.linkedin.com/in/ngo-thai-hoa/" target="_blank">Ngo Thai Hoa</a><span class="ptitle">Founder</span></div></div>
 </div>
-<div class="card" data-name="Ngo Thai Hoa">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="https://www.linkedin.com/in/ngo-thai-hoa/" target="_blank">Ngo Thai Hoa</a> </p></div>
-  <p class="rl">Founder · HitScale</p>
-  <p class="src">commented on <a href="https://www.linkedin.com/posts/felix-braberg-7a732b51_august-is-a-low-ecpm-month-on-mobile-everyone-activity-7498261202129838080-2aBY" target="_blank">Felix Braberg's post</a></p>
+<div class="crow" data-company="Jagex: The RuneScape Company" data-section="engager">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Jagex: The RuneScape Company</span>
+    <span class="csrc">commented on <a href="https://www.linkedin.com/posts/michailkatkoff_newzoos-latest-report-says-the-market-is-activity-7499752779549204480-GTe7" target="_blank">Michail Katkoff's post</a></span></div>
+  <div class="people"><div class="person"><a href="https://www.linkedin.com/in/jonathan-bellamy/" target="_blank">Jon Bellamy</a><span class="ptitle">CEO at Jagex: The RuneScape Company</span></div></div>
 </div>
-<div class="card" data-name="Eric Haight">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="https://www.linkedin.com/in/eric-haight-71582922/" target="_blank">Eric Haight</a> </p></div>
-  <p class="rl">President &amp; Founder · Kano Applications Inc.</p>
-  <p class="src">commented on <a href="https://www.linkedin.com/posts/matejlancaric_i-guess-skip-its-offer-is-working-but-i-activity-7497903099848663040-UT8P" target="_blank">Matej Lancaric's post</a></p>
+<div class="crow" data-company="Kano Applications Inc." data-section="engager">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Kano Applications Inc.</span>
+    <span class="csrc">commented on <a href="https://www.linkedin.com/posts/matejlancaric_i-guess-skip-its-offer-is-working-but-i-activity-7497903099848663040-UT8P" target="_blank">Matej Lancaric's post</a></span></div>
+  <div class="people"><div class="person"><a href="https://www.linkedin.com/in/eric-haight-71582922/" target="_blank">Eric Haight</a><span class="ptitle">President &amp; Founder</span></div></div>
 </div>
-<div class="card" data-name="Jon Bellamy">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="https://www.linkedin.com/in/jonathan-bellamy/" target="_blank">Jon Bellamy</a> </p></div>
-  <p class="rl">CEO at Jagex: The RuneScape Company · Jagex: The RuneScape Company</p>
-  <p class="src">commented on <a href="https://www.linkedin.com/posts/michailkatkoff_newzoos-latest-report-says-the-market-is-activity-7499752779549204480-GTe7" target="_blank">Michail Katkoff's post</a></p>
+<div class="crow" data-company="Mistplay" data-section="engager">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Mistplay</span>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/felix-braberg-7a732b51_august-is-a-low-ecpm-month-on-mobile-everyone-activity-7498261202129838080-2aBY" target="_blank">Felix Braberg's post</a></span></div>
+  <div class="people"><div class="person"><a href="https://www.linkedin.com/in/the-anant-tyagi/" target="_blank">Anant Tyagi</a><span class="ptitle">Global Supply Partnerships</span></div></div>
 </div>
 </div>
-<h2 class="sec">Sponsor-side &middot; from the YouTube sponsor mining + your sponsor list (39)</h2>
-<div class="grid">
-<div class="card" data-name="Pierre Martinel">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/pierre-martinel-0a5150135" target="_blank">Pierre Martinel</a> </p></div>
-  <p class="rl">Growth Partnerships · Sorare</p>
-  <p class="src">client sourced sponsor</p>
+<h2 class="sec">Sponsor-side &middot; from the YouTube sponsor mining + your sponsor list (15 companies &middot; 39 people)</h2>
+<div class="rowstack">
+<div class="crow" data-company="Bevel" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Bevel</span>
+    <span class="csrc">client sourced sponsor</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/jessicacjwang" target="_blank">Jessica Wang</a><span class="ptitle">Growth Marketing Manager</span></div></div>
 </div>
-<div class="card" data-name="Olivia Dardir">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/oliviadardir" target="_blank">Olivia Dardir</a> </p></div>
-  <p class="rl">Partnerships Manager · Sorare</p>
-  <p class="src">client sourced sponsor</p>
+<div class="crow" data-company="Boot.dev" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Boot.dev</span>
+    <span class="csrc">youtube sponsor mining</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/wagslane" target="_blank">Lane Wagner</a><span class="ptitle">Founder/Grand Magus (same Thing)</span></div></div>
 </div>
-<div class="card" data-name="Tony McGee">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/tony-mcgee-a65b901" target="_blank">Tony McGee</a> </p></div>
-  <p class="rl">Director Business Development / Strategic Partnerships · Privacy.com</p>
-  <p class="src">client sourced sponsor</p>
+<div class="crow" data-company="Chime" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Chime</span>
+    <span class="csrc">client sourced sponsor</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/jlamcdougall" target="_blank">Jaime McDougall</a><span class="ptitle">Head of Marketing &amp; Growth, Enterprise</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/vineetmehra1" target="_blank">Vineet Mehra</a><span class="ptitle">Chief Growth and Marketing Officer</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/vijay-sudhindar-3995561a" target="_blank">Vijay Sudhindar</a><span class="ptitle">Director, Brand &amp; Marketing Insights</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/jessica-martin-33415531" target="_blank">Jessica Martin</a><span class="ptitle">Director, Growth Marketing</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/alejandra-segovia-a72057a3" target="_blank">Alejandra Segovia</a><span class="ptitle">Mobile User Acquisition</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/johnhession" target="_blank">John Hession</a><span class="ptitle">Senior Director, Growth Marketing Media and Partnerships</span></div></div>
 </div>
-<div class="card" data-name="Bastien Revel">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/bastien-revel" target="_blank">Bastien Revel</a> </p></div>
-  <p class="rl">Partnerships and Brand Activation Lead · Sorare</p>
-  <p class="src">client sourced sponsor</p>
+<div class="crow" data-company="Cometeer" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Cometeer</span>
+    <span class="csrc">youtube sponsor mining</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/katherine-fernberg" target="_blank">Katie Fernberg</a><span class="ptitle">Growth Marketing Associate</span></div></div>
 </div>
-<div class="card" data-name="Benjamin Henrio">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/benjaminhenrio" target="_blank">Benjamin Henrio</a> </p></div>
-  <p class="rl">Strategic Partnerships Manager · Sorare</p>
-  <p class="src">client sourced sponsor</p>
+<div class="crow" data-company="CookUnity" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">CookUnity</span>
+    <span class="csrc">youtube sponsor mining</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/nick-zhou" target="_blank">Nick Zhou</a><span class="ptitle">Senior Marketing Director</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/evynblackwell" target="_blank">Evyn Blackwell</a><span class="ptitle">Strategic Partnerships</span></div></div>
 </div>
-<div class="card" data-name="Julien Fontan">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/julien-fontan-58843250" target="_blank">Julien Fontan</a> </p></div>
-  <p class="rl">Head of Marketing · Sorare</p>
-  <p class="src">client sourced sponsor</p>
+<div class="crow" data-company="Coupert" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Coupert</span>
+    <span class="csrc">client sourced sponsor</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/lucky-dai-a1aa7126a" target="_blank">Lucky Dai</a><span class="ptitle">Business Development Manager</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/jimmyzhao2008" target="_blank">Jimmy Zhao</a><span class="ptitle">Founder &amp; Board Member</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/lethe-wu-25719223b" target="_blank">Lethe Wu</a><span class="ptitle">BD Manager</span></div></div>
 </div>
-<div class="card" data-name="Hugo Mondiere">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/hugo-mondiere" target="_blank">Hugo Mondiere</a> </p></div>
-  <p class="rl">Brand Video Marketing · Sorare</p>
-  <p class="src">client sourced sponsor</p>
+<div class="crow" data-company="FARLIGHT GAMES" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">FARLIGHT GAMES</span>
+    <span class="csrc">client sourced sponsor</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/korbvut-apinanratanakul-3a6003179" target="_blank">Korbvut Apinanratanakul</a><span class="ptitle">Community &amp; Channel Manager (Thailand)</span></div></div>
 </div>
-<div class="card" data-name="Lane Wagner">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/wagslane" target="_blank">Lane Wagner</a> </p></div>
-  <p class="rl">Founder/Grand Magus (same Thing) · Boot.dev</p>
-  <p class="src">youtube sponsor mining</p>
+<div class="crow" data-company="Kettle &amp; Fire" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Kettle &amp; Fire</span>
+    <span class="csrc">youtube sponsor mining</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/armanijain" target="_blank">Armani Krishnan</a><span class="ptitle">Senior Influencer Marketing Manager</span></div></div>
 </div>
-<div class="card" data-name="Arpit Das">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/arpit-das-9566a7214" target="_blank">Arpit Das</a> </p></div>
-  <p class="rl">Growth · Wispr Flow</p>
-  <p class="src">youtube sponsor mining</p>
+<div class="crow" data-company="Made In Cookware" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Made In Cookware</span>
+    <span class="csrc">youtube sponsor mining</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/josh-kim" target="_blank">Joshua Kim</a><span class="ptitle">Vice President, Growth</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/mike-carmody-3a383216" target="_blank">Mike Carmody</a><span class="ptitle">Vice President, Performance Marketing</span></div></div>
 </div>
-<div class="card" data-name="Nick Zhou">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/nick-zhou" target="_blank">Nick Zhou</a> </p></div>
-  <p class="rl">Senior Marketing Director · CookUnity</p>
-  <p class="src">youtube sponsor mining</p>
+<div class="crow" data-company="Privacy.com" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Privacy.com</span>
+    <span class="csrc">client sourced sponsor</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/tony-mcgee-a65b901" target="_blank">Tony McGee</a><span class="ptitle">Director Business Development / Strategic Partnerships</span></div></div>
 </div>
-<div class="card" data-name="Katie Fernberg">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/katherine-fernberg" target="_blank">Katie Fernberg</a> </p></div>
-  <p class="rl">Growth Marketing Associate · Cometeer</p>
-  <p class="src">youtube sponsor mining</p>
+<div class="crow" data-company="SoFi" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">SoFi</span>
+    <span class="csrc">youtube sponsor mining</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/kevinheung" target="_blank">Kevin Heung</a><span class="ptitle">VP, Performance Marketing</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/alexandracartya" target="_blank">Ally Carty</a><span class="ptitle">Growth Marketing and Brand Strategy, Home Lending</span></div></div>
 </div>
-<div class="card" data-name="Kevin Heung">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/kevinheung" target="_blank">Kevin Heung</a> </p></div>
-  <p class="rl">VP, Performance Marketing · SoFi</p>
-  <p class="src">youtube sponsor mining</p>
+<div class="crow" data-company="Sorare" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Sorare</span>
+    <span class="csrc">client sourced sponsor</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/pierre-martinel-0a5150135" target="_blank">Pierre Martinel</a><span class="ptitle">Growth Partnerships</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/oliviadardir" target="_blank">Olivia Dardir</a><span class="ptitle">Partnerships Manager</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/bastien-revel" target="_blank">Bastien Revel</a><span class="ptitle">Partnerships and Brand Activation Lead</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/benjaminhenrio" target="_blank">Benjamin Henrio</a><span class="ptitle">Strategic Partnerships Manager</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/julien-fontan-58843250" target="_blank">Julien Fontan</a><span class="ptitle">Head of Marketing</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/hugo-mondiere" target="_blank">Hugo Mondiere</a><span class="ptitle">Brand Video Marketing</span></div></div>
 </div>
-<div class="card" data-name="Ally Carty">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/alexandracartya" target="_blank">Ally Carty</a> </p></div>
-  <p class="rl">Growth Marketing and Brand Strategy, Home Lending · SoFi</p>
-  <p class="src">youtube sponsor mining</p>
+<div class="crow" data-company="Whatnot" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Whatnot</span>
+    <span class="csrc">client sourced sponsor</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/michael-barbieri-nj" target="_blank">Michael Barbieri</a><span class="ptitle">Partnerships</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/nakanishiayami" target="_blank">Ayami Nakanishi</a><span class="ptitle">Influencer Marketing Associate</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/jamie-goldstone-9706b3154" target="_blank">Jamie Goldstone</a><span class="ptitle">Influencer Marketing</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/maddie-glumsic-834378b2" target="_blank">Maddie Glumsic</a><span class="ptitle">Influencer Marketing Manager</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/browndavis" target="_blank">Davis Brown</a><span class="ptitle">Performance Marketing</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/kendall-barnes-0099a2139" target="_blank">Kendall Barnes</a><span class="ptitle">Performance Marketing Manager</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/jason-dewn-2877a222" target="_blank">Jason Dewn</a><span class="ptitle">Director of Performance Marketing</span></div></div>
 </div>
-<div class="card" data-name="Joshua Kim">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/josh-kim" target="_blank">Joshua Kim</a> </p></div>
-  <p class="rl">Vice President, Growth · Made In Cookware</p>
-  <p class="src">youtube sponsor mining</p>
+<div class="crow" data-company="Wispr Flow" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">Wispr Flow</span>
+    <span class="csrc">youtube sponsor mining</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/arpit-das-9566a7214" target="_blank">Arpit Das</a><span class="ptitle">Growth</span></div></div>
 </div>
-<div class="card" data-name="Armani Krishnan">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/armanijain" target="_blank">Armani Krishnan</a> </p></div>
-  <p class="rl">Senior Influencer Marketing Manager · Kettle &amp; Fire</p>
-  <p class="src">youtube sponsor mining</p>
-</div>
-<div class="card" data-name="Evyn Blackwell">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/evynblackwell" target="_blank">Evyn Blackwell</a> </p></div>
-  <p class="rl">Strategic Partnerships · CookUnity</p>
-  <p class="src">youtube sponsor mining</p>
-</div>
-<div class="card" data-name="Mike Carmody">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/mike-carmody-3a383216" target="_blank">Mike Carmody</a> </p></div>
-  <p class="rl">Vice President, Performance Marketing · Made In Cookware</p>
-  <p class="src">youtube sponsor mining</p>
-</div>
-<div class="card" data-name="Lucky Dai">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/lucky-dai-a1aa7126a" target="_blank">Lucky Dai</a> </p></div>
-  <p class="rl">Business Development Manager · Coupert</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Jimmy Zhao">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/jimmyzhao2008" target="_blank">Jimmy Zhao</a> </p></div>
-  <p class="rl">Founder &amp; Board Member · Coupert</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Lethe Wu">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/lethe-wu-25719223b" target="_blank">Lethe Wu</a> </p></div>
-  <p class="rl">BD Manager · Coupert</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Jaime McDougall">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/jlamcdougall" target="_blank">Jaime McDougall</a> </p></div>
-  <p class="rl">Head of Marketing &amp; Growth, Enterprise · Chime</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Michael Barbieri">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/michael-barbieri-nj" target="_blank">Michael Barbieri</a> </p></div>
-  <p class="rl">Partnerships · Whatnot</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Korbvut Apinanratanakul">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/korbvut-apinanratanakul-3a6003179" target="_blank">Korbvut Apinanratanakul</a> </p></div>
-  <p class="rl">Community &amp; Channel Manager (Thailand) · FARLIGHT GAMES</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Ayami Nakanishi">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/nakanishiayami" target="_blank">Ayami Nakanishi</a> </p></div>
-  <p class="rl">Influencer Marketing Associate · Whatnot</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Robert Diak">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/robert-diak-a7912761" target="_blank">Robert Diak</a> </p></div>
-  <p class="rl">Lead, Strategic Partnerships · ZipRecruiter</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Itai Sutker">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/itai-sutker-3a71937" target="_blank">Itai Sutker</a> </p></div>
-  <p class="rl">Senior Vice President, Marketing · ZipRecruiter</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Jacob Lequire">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/jacob-lequire-5936941a7" target="_blank">Jacob Lequire</a> </p></div>
-  <p class="rl">Manager Strategic Partnerships · ZipRecruiter</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Jessica Wang">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/jessicacjwang" target="_blank">Jessica Wang</a> </p></div>
-  <p class="rl">Growth Marketing Manager · Bevel</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Vineet Mehra">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/vineetmehra1" target="_blank">Vineet Mehra</a> </p></div>
-  <p class="rl">Chief Growth and Marketing Officer · Chime</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Vijay Sudhindar">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/vijay-sudhindar-3995561a" target="_blank">Vijay Sudhindar</a> </p></div>
-  <p class="rl">Director, Brand &amp; Marketing Insights · Chime</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Jessica Martin">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/jessica-martin-33415531" target="_blank">Jessica Martin</a> </p></div>
-  <p class="rl">Director, Growth Marketing · Chime</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Jamie Goldstone">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/jamie-goldstone-9706b3154" target="_blank">Jamie Goldstone</a> </p></div>
-  <p class="rl">Influencer Marketing · Whatnot</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Maddie Glumsic">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/maddie-glumsic-834378b2" target="_blank">Maddie Glumsic</a> </p></div>
-  <p class="rl">Influencer Marketing Manager · Whatnot</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Davis Brown">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/browndavis" target="_blank">Davis Brown</a> </p></div>
-  <p class="rl">Performance Marketing · Whatnot</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Alejandra Segovia">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/alejandra-segovia-a72057a3" target="_blank">Alejandra Segovia</a> </p></div>
-  <p class="rl">Mobile User Acquisition · Chime</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Kendall Barnes">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/kendall-barnes-0099a2139" target="_blank">Kendall Barnes</a> </p></div>
-  <p class="rl">Performance Marketing Manager · Whatnot</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Josh Simon">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/josh-simon-74292632" target="_blank">Josh Simon</a> </p></div>
-  <p class="rl">Product Manager II, Enterprise Performance Marketing · ZipRecruiter</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="Jason Dewn">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/jason-dewn-2877a222" target="_blank">Jason Dewn</a> </p></div>
-  <p class="rl">Director of Performance Marketing · Whatnot</p>
-  <p class="src">client sourced sponsor</p>
-</div>
-<div class="card" data-name="John Hession">
-  <div class="cardhead"><button class="cbox" title="toggle: skip"></button>
-  <p class="nm"><a href="http://www.linkedin.com/in/johnhession" target="_blank">John Hession</a> </p></div>
-  <p class="rl">Senior Director, Growth Marketing Media and Partnerships · Chime</p>
-  <p class="src">client sourced sponsor</p>
+<div class="crow" data-company="ZipRecruiter" data-section="sponsor">
+  <div class="chead"><button class="cbox" title="toggle: skip"></button>
+    <span class="cname">ZipRecruiter</span>
+    <span class="csrc">client sourced sponsor</span></div>
+  <div class="people"><div class="person"><a href="http://www.linkedin.com/in/robert-diak-a7912761" target="_blank">Robert Diak</a><span class="ptitle">Lead, Strategic Partnerships</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/itai-sutker-3a71937" target="_blank">Itai Sutker</a><span class="ptitle">Senior Vice President, Marketing</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/jacob-lequire-5936941a7" target="_blank">Jacob Lequire</a><span class="ptitle">Manager Strategic Partnerships</span></div>
+<div class="person"><a href="http://www.linkedin.com/in/josh-simon-74292632" target="_blank">Josh Simon</a><span class="ptitle">Product Manager II, Enterprise Performance Marketing</span></div></div>
 </div>
 </div>
 <details>
@@ -504,21 +386,25 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 </div>
 <div class="bar"><span id="tally">0 changes</span><button id="copybtn">Copy decisions</button></div>
 <script>
-document.querySelectorAll('.card').forEach(function(cd){
-  cd.addEventListener('click',function(e){
+document.querySelectorAll('.crow').forEach(function(row){
+  row.querySelector('.chead').addEventListener('click',function(e){
     if(e.target.closest('a'))return;
-    cd.classList.toggle('skip');tally();
+    row.classList.toggle('skip');tally();
   });
 });
 function tally(){
-  var n=document.querySelectorAll('.card.skip').length;
+  var n=document.querySelectorAll('.crow.skip').length;
   document.getElementById('tally').textContent=n+' change'+(n===1?'':'s');
 }
 document.getElementById('copybtn').addEventListener('click',function(){
   var lines=['ARCH leads page decisions ('+new Date().toISOString().slice(0,10)+')'];
-  var sk=[];document.querySelectorAll('.card.skip').forEach(function(r){sk.push(r.getAttribute('data-name'))});
-  if(sk.length){lines.push('');lines.push('SKIP:');sk.forEach(function(n){lines.push('- '+n)});}
-  else lines.push('No changes - new batch approved as shown.');
+  var secs={};
+  document.querySelectorAll('.crow.skip').forEach(function(r){
+    var s=r.getAttribute('data-section');(secs[s]=secs[s]||[]).push(r.getAttribute('data-company'));
+  });
+  var names={engager:'SKIP (engager harvest)',sponsor:'SKIP (sponsor list)'};
+  Object.keys(secs).forEach(function(s){lines.push('');lines.push(names[s]||s);secs[s].forEach(function(c){lines.push('- '+c)})});
+  if(Object.keys(secs).length===0)lines.push('No changes - new batch approved as shown.');
   navigator.clipboard.writeText(lines.join('\n')).then(function(){
     document.getElementById('copybtn').textContent='Copied ✓';
     setTimeout(function(){document.getElementById('copybtn').textContent='Copy decisions'},1600);
