@@ -1,0 +1,308 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARCH. leads — review & pipeline</title>
+<style>
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('assets/fonts/dm-sans-latin.woff2') format('woff2');}
+:root{--navy:#000F41;--lime:#F2FF82;--cobalt:#3562FF;--maxw:1080px}
+*{box-sizing:border-box}html{background:var(--navy)}
+body{margin:0;font-family:"DM Sans",system-ui,sans-serif;color:#fff}
+header{padding:34px 20px 0;max-width:var(--maxw);margin:0 auto}
+svg.wm{width:112px;height:29px;display:block;margin:0 0 22px}
+h1{font-size:clamp(22px,3vw,34px);text-transform:uppercase;font-weight:800;margin:0 0 8px}
+h1 em{font-style:normal;color:var(--lime)}
+p.lede{color:#c8cfe8;font-size:14.5px;margin:0;max-width:640px;line-height:1.5}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:38px 20px 80px}
+h2.sec{font-size:14px;letter-spacing:.09em;text-transform:uppercase;color:var(--lime);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:44px}
+.card{background:rgba(53,98,255,.09);border:1px solid rgba(242,255,130,.25);border-radius:14px;padding:16px}
+.card .nm{margin:0 0 4px;font-size:16px;font-weight:800}
+.card .nm a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(242,255,130,.5)}
+.card .rl{margin:0 0 8px;color:#c8cfe8;font-size:13.5px}
+.card .src{margin:0;color:#8b93bd;font-size:12.5px}
+.card .src a{color:var(--lime)}
+.chip{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin-left:6px;vertical-align:2px}
+.chip.pre{background:var(--lime);color:var(--navy)}
+.chip.thin{border:1px dashed rgba(242,255,130,.5);color:var(--lime)}
+.chip.out{background:var(--cobalt);color:#fff}
+.chip.qd{border:1px solid rgba(200,207,232,.4);color:#c8cfe8}
+details{border:1px solid rgba(242,255,130,.2);border-radius:14px;background:rgba(53,98,255,.05)}
+summary{cursor:pointer;list-style:none;padding:16px 18px;font-size:13px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--lime)}
+summary::-webkit-details-marker{display:none}
+summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;margin-left:8px}
+.rows{padding:4px 18px 16px}
+.rowline{display:flex;align-items:baseline;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.06);font-size:14px;flex-wrap:wrap}
+.rowline a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(242,255,130,.35);font-weight:700}
+.rowline .rr{color:#8b93bd;font-size:12.5px;flex:1}
+.legend{color:#8b93bd;font-size:12.5px;margin-top:26px;line-height:1.7}
+</style></head><body>
+<header><svg class="wm" xmlns="http://www.w3.org/2000/svg" viewBox="701.000 473.691 518.398 134.375">
+<!-- ARCH. wordmark master - extracted verbatim from ARCH-Visual-identity-guidelines.pdf page 1 (vector, no redraw). Color via #F2FF82. -->
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 781.710938 604.332031 L 805.027344 604.332031 L 752.898438 474 L 701 604.332031 L 724.472656 604.332031 L 730.035156 589.742188 L 775.820312 589.757812 Z M 737.140625 571.394531 C 742.398438 556.796875 747.648438 542.195312 752.910156 527.59375 C 758.183594 542.207031 763.457031 556.820312 768.730469 571.433594 C 758.203125 571.425781 747.671875 571.410156 737.140625 571.394531 Z M 737.140625 571.394531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 891.851562 604.332031 L 917.578125 604.332031 L 882.1875 549.363281 C 882.1875 549.363281 906.378906 544.375 910.023438 522.378906 C 910.023438 522.378906 919.394531 480.035156 867.453125 477.519531 L 823.765625 477.519531 L 823.765625 498.875 L 844.414062 530.304688 L 844.414062 530.441406 L 823.765625 530.441406 L 823.765625 604.332031 L 845.609375 604.332031 L 845.609375 551.59375 L 858.105469 551.59375 L 858.117188 551.617188 L 858.140625 551.617188 Z M 849.785156 498.875 L 868.402344 498.875 C 891.070312 500.597656 888.847656 514.660156 888.847656 514.660156 C 889.085938 529.675781 869.882812 530.167969 869.882812 530.167969 Z M 849.785156 498.875 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 845.609375 551.59375 L 845.609375 604.332031 L 845.683594 604.332031 L 845.683594 551.617188 L 858.117188 551.617188 L 858.105469 551.59375 Z M 845.609375 551.59375 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1032.863281 509.28125 L 1048.28125 494.386719 C 1048.28125 494.386719 1031.785156 475.757812 1002.527344 475.695312 C 1002.527344 475.695312 967.269531 473.691406 947.484375 503.203125 C 947.484375 503.203125 922.816406 540.652344 947.484375 578.421875 C 947.484375 578.421875 964.621094 606.121094 1001.46875 606.121094 C 1001.46875 606.121094 1027.335938 608.066406 1048.28125 587.707031 L 1032.734375 572.589844 C 1032.734375 572.589844 1021.753906 584.90625 1002.953125 584.960938 C 1002.953125 584.960938 960.96875 586.1875 958.925781 542.15625 C 958.925781 542.15625 956.222656 495.847656 1005.234375 497.132812 C 1005.230469 497.132812 1020.605469 497.25 1032.863281 509.28125 Z M 1032.863281 509.28125 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1150.6875 477.519531 L 1150.6875 530.160156 L 1096.546875 530.160156 L 1096.546875 477.519531 L 1074.679688 477.519531 L 1074.679688 604.332031 L 1096.546875 604.332031 L 1096.546875 551.332031 L 1150.6875 551.332031 L 1150.6875 604.332031 L 1172.46875 604.332031 L 1172.46875 477.519531 Z M 1150.6875 477.519531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1207.65625 605.519531 C 1214.144531 605.519531 1219.398438 600.40625 1219.398438 594.101562 C 1219.398438 587.796875 1214.144531 582.6875 1207.65625 582.6875 C 1201.171875 582.6875 1195.914062 587.796875 1195.914062 594.101562 C 1195.914062 600.40625 1201.171875 605.519531 1207.65625 605.519531 Z M 1207.65625 605.519531 "/>
+</svg>
+<h1>Leads. <em>New ones up top.</em></h1>
+<p class="lede">Fresh candidates wait for your call before anyone gets a message. Everyone you already approved is below, collapsed, with the date their first message went out.</p>
+</header>
+<div class="wrap">
+<h2 class="sec">New this week &middot; engager harvest (5)</h2>
+<div class="grid">
+<div class="card">
+  <p class="nm"><a href="https://www.linkedin.com/in/the-anant-tyagi/" target="_blank">Anant Tyagi</a> </p>
+  <p class="rl">Global Supply Partnerships · Mistplay</p>
+  <p class="src">reacted to <a href="https://www.linkedin.com/posts/felix-braberg-7a732b51_august-is-a-low-ecpm-month-on-mobile-everyone-activity-7498261202129838080-2aBY" target="_blank">Felix Braberg's post</a></p>
+</div>
+<div class="card">
+  <p class="nm"><a href="https://www.linkedin.com/in/ngo-thai-hoa/" target="_blank">Ngo Thai Hoa</a> </p>
+  <p class="rl">Founder · HitScale</p>
+  <p class="src">commented on <a href="https://www.linkedin.com/posts/felix-braberg-7a732b51_august-is-a-low-ecpm-month-on-mobile-everyone-activity-7498261202129838080-2aBY" target="_blank">Felix Braberg's post</a></p>
+</div>
+<div class="card">
+  <p class="nm"><a href="https://www.linkedin.com/in/eric-haight-71582922/" target="_blank">Eric Haight</a> </p>
+  <p class="rl">President &amp; Founder · Kano Applications Inc.</p>
+  <p class="src">commented on <a href="https://www.linkedin.com/posts/matejlancaric_i-guess-skip-its-offer-is-working-but-i-activity-7497903099848663040-UT8P" target="_blank">Matej Lancaric's post</a></p>
+</div>
+<div class="card">
+  <p class="nm"><a href="https://www.linkedin.com/in/jonathan-bellamy/" target="_blank">Jon Bellamy</a> </p>
+  <p class="rl">CEO at Jagex: The RuneScape Company · Jagex: The RuneScape Company</p>
+  <p class="src">commented on <a href="https://www.linkedin.com/posts/michailkatkoff_newzoos-latest-report-says-the-market-is-activity-7499752779549204480-GTe7" target="_blank">Michail Katkoff's post</a></p>
+</div>
+<div class="card">
+  <p class="nm"><a href="https://www.linkedin.com/in/noam-gohary" target="_blank">Noam Gohary</a> <span class="chip thin">identity thin — keep or skip?</span></p>
+  <p class="rl"></p>
+  <p class="src">viewed Davorin's profile</p>
+</div>
+</div>
+<h2 class="sec">Sponsor-side &middot; from the YouTube sponsor mining + your sponsor list (39)</h2>
+<div class="grid">
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/oliviadardir" target="_blank">Olivia Dardir</a> </p>
+  <p class="rl">Partnerships Manager · Sorare</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/tony-mcgee-a65b901" target="_blank">Tony McGee</a> </p>
+  <p class="rl">Director Business Development / Strategic Partnerships · Privacy.com</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/bastien-revel" target="_blank">Bastien Revel</a> </p>
+  <p class="rl">Partnerships and Brand Activation Lead · Sorare</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/benjaminhenrio" target="_blank">Benjamin Henrio</a> </p>
+  <p class="rl">Strategic Partnerships Manager · Sorare</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/julien-fontan-58843250" target="_blank">Julien Fontan</a> </p>
+  <p class="rl">Head of Marketing · Sorare</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/hugo-mondiere" target="_blank">Hugo Mondiere</a> </p>
+  <p class="rl">Brand Video Marketing · Sorare</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/pierre-martinel-0a5150135" target="_blank">Pierre Martinel</a> </p>
+  <p class="rl">Growth Partnerships · Sorare</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/wagslane" target="_blank">Lane Wagner</a> </p>
+  <p class="rl">Founder/Grand Magus (same Thing) · Boot.dev</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/arpit-das-9566a7214" target="_blank">Arpit Das</a> </p>
+  <p class="rl">Growth · Wispr Flow</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/nick-zhou" target="_blank">Nick Zhou</a> </p>
+  <p class="rl">Senior Marketing Director · CookUnity</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/katherine-fernberg" target="_blank">Katie Fernberg</a> </p>
+  <p class="rl">Growth Marketing Associate · Cometeer</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/kevinheung" target="_blank">Kevin Heung</a> </p>
+  <p class="rl">VP, Performance Marketing · SoFi</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/alexandracartya" target="_blank">Ally Carty</a> </p>
+  <p class="rl">Growth Marketing and Brand Strategy, Home Lending · SoFi</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/josh-kim" target="_blank">Joshua Kim</a> </p>
+  <p class="rl">Vice President, Growth · Made In Cookware</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/armanijain" target="_blank">Armani Krishnan</a> </p>
+  <p class="rl">Senior Influencer Marketing Manager · Kettle &amp; Fire</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/evynblackwell" target="_blank">Evyn Blackwell</a> </p>
+  <p class="rl">Strategic Partnerships · CookUnity</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/mike-carmody-3a383216" target="_blank">Mike Carmody</a> </p>
+  <p class="rl">Vice President, Performance Marketing · Made In Cookware</p>
+  <p class="src">youtube sponsor mining</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/lucky-dai-a1aa7126a" target="_blank">Lucky Dai</a> </p>
+  <p class="rl">Business Development Manager · Coupert</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/jimmyzhao2008" target="_blank">Jimmy Zhao</a> </p>
+  <p class="rl">Founder &amp; Board Member · Coupert</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/lethe-wu-25719223b" target="_blank">Lethe Wu</a> </p>
+  <p class="rl">BD Manager · Coupert</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/jlamcdougall" target="_blank">Jaime McDougall</a> </p>
+  <p class="rl">Head of Marketing &amp; Growth, Enterprise · Chime</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/michael-barbieri-nj" target="_blank">Michael Barbieri</a> </p>
+  <p class="rl">Partnerships · Whatnot</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/korbvut-apinanratanakul-3a6003179" target="_blank">Korbvut Apinanratanakul</a> </p>
+  <p class="rl">Community &amp; Channel Manager (Thailand) · FARLIGHT GAMES</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/nakanishiayami" target="_blank">Ayami Nakanishi</a> </p>
+  <p class="rl">Influencer Marketing Associate · Whatnot</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/robert-diak-a7912761" target="_blank">Robert Diak</a> </p>
+  <p class="rl">Lead, Strategic Partnerships · ZipRecruiter</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/itai-sutker-3a71937" target="_blank">Itai Sutker</a> </p>
+  <p class="rl">Senior Vice President, Marketing · ZipRecruiter</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/jacob-lequire-5936941a7" target="_blank">Jacob Lequire</a> </p>
+  <p class="rl">Manager Strategic Partnerships · ZipRecruiter</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/jessicacjwang" target="_blank">Jessica Wang</a> </p>
+  <p class="rl">Growth Marketing Manager · Bevel</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/vineetmehra1" target="_blank">Vineet Mehra</a> </p>
+  <p class="rl">Chief Growth and Marketing Officer · Chime</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/vijay-sudhindar-3995561a" target="_blank">Vijay Sudhindar</a> </p>
+  <p class="rl">Director, Brand &amp; Marketing Insights · Chime</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/jessica-martin-33415531" target="_blank">Jessica Martin</a> </p>
+  <p class="rl">Director, Growth Marketing · Chime</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/jamie-goldstone-9706b3154" target="_blank">Jamie Goldstone</a> </p>
+  <p class="rl">Influencer Marketing · Whatnot</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/maddie-glumsic-834378b2" target="_blank">Maddie Glumsic</a> </p>
+  <p class="rl">Influencer Marketing Manager · Whatnot</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/browndavis" target="_blank">Davis Brown</a> </p>
+  <p class="rl">Performance Marketing · Whatnot</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/alejandra-segovia-a72057a3" target="_blank">Alejandra Segovia</a> </p>
+  <p class="rl">Mobile User Acquisition · Chime</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/kendall-barnes-0099a2139" target="_blank">Kendall Barnes</a> </p>
+  <p class="rl">Performance Marketing Manager · Whatnot</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/josh-simon-74292632" target="_blank">Josh Simon</a> </p>
+  <p class="rl">Product Manager II, Enterprise Performance Marketing · ZipRecruiter</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/jason-dewn-2877a222" target="_blank">Jason Dewn</a> </p>
+  <p class="rl">Director of Performance Marketing · Whatnot</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+<div class="card">
+  <p class="nm"><a href="http://www.linkedin.com/in/johnhession" target="_blank">John Hession</a> </p>
+  <p class="rl">Senior Director, Growth Marketing Media and Partnerships · Chime</p>
+  <p class="src">client sourced sponsor</p>
+</div>
+</div>
+<details>
+<summary>Approved · in outreach <span class="cnt">8 messaged · 15 in queue</span></summary>
+<div class="rows">
+<div class="rowline"><a href="https://www.linkedin.com/in/motasevic" target="_blank">Marko Otašević</a><span class="rr">Business Development Manager · Turing Studio</span><span class="chip out">OUTREACHED 2026-08-30</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/roman-nikulshin-68511b85" target="_blank">Roman Nikulshin</a><span class="rr">Zeptolab</span><span class="chip out">OUTREACHED 2026-08-30</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/assaf-r-shrim-1b9146245" target="_blank">Assaf R. Shrim</a><span class="rr">Overwolf</span><span class="chip out">OUTREACHED 2026-08-30</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/dusanpantic" target="_blank">Dusan Pantic</a><span class="rr">Nordeus</span><span class="chip out">OUTREACHED 2026-08-30</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/stephanie-lopez-4030502b8" target="_blank">Stephanie Lopez</a><span class="rr">Influencer Marketing Associate · Kettle &amp; Fire</span><span class="chip out">OUTREACHED 2026-08-30</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/jaderobinson100" target="_blank">Jade Robinson</a><span class="rr">Brand Marketing Manager - Brand Experience/Partnerships · CookUnity</span><span class="chip out">OUTREACHED 2026-08-30</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/margaret-furth" target="_blank">Margaret Furth</a><span class="rr">Senior Director, Social and Influencer Marketing · SoFi</span><span class="chip out">OUTREACHED 2026-08-27</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/gavin-j-parker" target="_blank">Gavin Parker</a><span class="rr">Chief Partnerships Officer · Skillz</span><span class="chip out">OUTREACHED 2026-08-27</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/joiehiers" target="_blank">Joie Hiers 🔜 Gamescom</a><span class="rr">Influencer Marketing Manager · ArenaNet</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/elishafronda" target="_blank">Elisha Fronda</a><span class="rr">Influencer Marketing · Whatnot</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/bclark" target="_blank">Brian Clark</a><span class="rr">Vice President, User Acquisition and Partner Management · ZipRecruiter</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/jolierosen" target="_blank">Jolie Rosen</a><span class="rr">Creator Partnerships Manager · Cometeer</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/gabriel-lewis-79791951" target="_blank">Gabriel Lewis</a><span class="rr">VP, Partnerships · Eneba</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/alperen-say%c4%b1n-9601761b7" target="_blank">Alperen Sayin</a><span class="rr">Growth Specialist · Velo Games</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/ismael-jorge-soler" target="_blank">Ismael Jorge Soler 🔜 Gamescom</a><span class="rr">BD Director - Strategic Partnerships &amp; Publishing · Entalto Publishing</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/deniz-can-kose" target="_blank">Deniz Can Kose 🔜 gamescom</a><span class="rr">TapNation</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/gustavpastucha" target="_blank">Gustav Pastucha 🔜 Gamescom NOT Gainzcom</a><span class="rr">Pixel Federation</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/koen-rebel" target="_blank">Koen Rebel🎮</a><span class="rr">Head of Influencer Marketing · tinyBuild GAMES</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/kirill-sorokin-826859238" target="_blank">Kirill Sorokin</a><span class="rr">Influencer Marketing &amp; Content Director · eSIMo</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/kimhientran" target="_blank">Hien Tran</a><span class="rr">Head of Growth &amp; Partnerships · Lihuhu Games</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="http://www.linkedin.com/in/svetlana-dulubova" target="_blank">Svetlana Dulubova</a><span class="rr">User Acquisition Manager · playducky.com</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/erikwessen" target="_blank">Erik Wessén</a><span class="rr">Riot Games</span><span class="chip qd">approved · in queue</span></div>
+<div class="rowline"><a href="https://www.linkedin.com/in/jayvian-hong-a8487685" target="_blank">Jayvian Hong</a><span class="rr">Miniclip</span><span class="chip qd">approved · in queue</span></div>
+</div>
+</details>
+<p class="legend">OUTREACHED = the first message left Davorin's seat on that date. "In queue" = approved, invite goes out when the weekly LinkedIn window allows. Sourced 2026-08-30, updates with every harvest cycle.</p>
+</div>
+</body></html>
