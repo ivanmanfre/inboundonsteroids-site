@@ -1,0 +1,67 @@
+# Publishes the ARCH weekly client report from the public render bucket to /shared/.
+# No secrets: the bucket allows unauthenticated object GET; this repo is the publish target.
+# Mirrors rise-week-publish.yml. Written 2026-08-30 when the ARCH report cadence
+# moved to Sunday night so Ivan can approve Monday morning. Fires after the n8n build:
+#   Sun 20:00 Europe/Warsaw -> 18:15 / 19:15 / 20:15 UTC (covers CET and CEST)
+# Unchanged content is a no-op; a publish that never reaches HTTP 200 fails the job loudly.
+name: arch-week-publish
+on:
+  schedule:
+    - cron: '15 18 * * 0'
+    - cron: '15 19 * * 0'
+    - cron: '15 20 * * 0'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: arch-week-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull report and publish if changed
+        run: |
+          set -euo pipefail
+          # File Sunday = most recent Sunday on-or-before today. The build runs ON
+          # the file Sunday, so a Sunday cron resolves today and a manual
+          # workflow_dispatch later in the week still resolves a file that exists.
+          DOW=$(date -u +%u)                       # 1=Mon..7=Sun
+          SUB=$(( DOW % 7 ))
+          FILE_SUN=$(date -u -d "-${SUB} days" +%F)
+          WSTART=$(date -u -d "${FILE_SUN} -7 days" +%F)
+          MMDD=$(date -u -d "${WSTART}" +%m%d)
+          SRC="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-week-public/arch/${FILE_SUN}.html"
+          DST="shared/arch-week-${MMDD}.html"
+          echo "file=${FILE_SUN} window-start=${WSTART} -> ${DST}"
+          CODE=$(curl -s -o /tmp/arch-report.html -w '%{http_code}' "$SRC")
+          if [ "$CODE" != "200" ]; then
+            echo "render not in bucket yet (HTTP $CODE), nothing to publish"; exit 0
+          fi
+          # refuse to publish something that is not a full document
+          grep -qi '</html>' /tmp/arch-report.html || { echo 'truncated render, refusing'; exit 1; }
+          if [ -f "$DST" ] && cmp -s /tmp/arch-report.html "$DST"; then
+            echo 'unchanged'; exit 0
+          fi
+          cp /tmp/arch-report.html "$DST"
+          git add "$DST"
+          git -c user.name='arch-week-bot' -c user.email='noreply@ivanmanfredi.com' \
+            commit -m "arch weekly report: window starting ${WSTART}"
+          for i in 1 2 3 4 5; do
+            git push origin main && break
+            git pull --rebase origin main
+          done
+          # verify the live bundle, fail loudly if the page never appears
+          LIVE="https://inboundonsteroids.com/shared/arch-week-${MMDD}.html"
+          for i in $(seq 1 20); do
+            sleep 20
+            L=$(curl -s -o /dev/null -w '%{http_code}' "$LIVE")
+            echo "poll $i: $L"
+            [ "$L" = "200" ] && exit 0
+          done
+          echo "published but ${LIVE} never returned 200"; exit 1
