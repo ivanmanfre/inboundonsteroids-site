@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ARCH. outreach: four ways in, two conversations</title>
+<title>ARCH. outreach: four ways in, each with its own path</title>
 <style>
 @font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;
 src:url('assets/fonts/dm-sans-latin.woff2') format('woff2');}
@@ -59,6 +59,17 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
 .ex .av{opacity:.75}
 @media(max-width:700px){.ex{margin-left:0}.node{margin-top:36px}.path{padding-left:24px}.path .when::before{left:-31px;width:18px}}
 
+.paths3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;position:relative;z-index:2}
+@media(max-width:1000px){.paths3{grid-template-columns:1fr}}
+.paths3 .trunkwrap{max-width:none;margin:0;padding-top:24px}
+.paths3 .node{margin:44px auto 0}
+.paths3 .bub{font-size:13.5px;padding:11px 13px}
+.paths3 .path .when{font-size:11px;padding:5px 11px}
+.paths3 .path{padding-left:24px}
+.paths3 .path .when::before{left:-31px;width:18px}
+.paths3 .av{flex:0 0 28px;width:28px;height:28px;font-size:8.5px}
+.paths3 .ablabel{margin-left:37px}
+.fastin{margin:10px auto 0;width:max-content;max-width:100%;text-align:center;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);border:1px dashed rgba(242,255,130,.5);border-radius:999px;padding:5px 12px}
 .legend{color:#8b93bd;font-size:13px;margin:48px 2px 0;line-height:1.7}
 .legend b{color:#c8cfe8;font-family:ui-monospace,Menlo,monospace;font-weight:600}
 .legend a{color:var(--lime)}
@@ -73,7 +84,7 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
   <path fill="#F2FF82" fill-rule="nonzero" d="M 1150.6875 477.519531 L 1150.6875 530.160156 L 1096.546875 530.160156 L 1096.546875 477.519531 L 1074.679688 477.519531 L 1074.679688 604.332031 L 1096.546875 604.332031 L 1096.546875 551.332031 L 1150.6875 551.332031 L 1150.6875 604.332031 L 1172.46875 604.332031 L 1172.46875 477.519531 Z M 1150.6875 477.519531 "/>
   <path fill="#F2FF82" fill-rule="nonzero" d="M 1207.65625 605.519531 C 1214.144531 605.519531 1219.398438 600.40625 1219.398438 594.101562 C 1219.398438 587.796875 1214.144531 582.6875 1207.65625 582.6875 C 1201.171875 582.6875 1195.914062 587.796875 1195.914062 594.101562 C 1195.914062 600.40625 1201.171875 605.519531 1207.65625 605.519531 Z M 1207.65625 605.519531 "/>
 </svg>
-<h1>Four ways in. <em>Two conversations.</em></h1>
+<h1>Four ways in. <em>Each door, its own path.</em></h1>
 </header>
 <div class="wrap">
 <div class="mapzone">
@@ -81,7 +92,7 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
 
 <div class="doors">
 
-<section class="door" data-join="1"><h2>Games studios</h2>
+<section class="door" data-path="g"><h2>Games studios</h2>
   <span class="when">Day 0 &middot; invite &middot; A/B</span>
   <p class="ablabel">A</p>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="games_note">Hey <span class="tok">{first}</span>, Davorin here :) We run influencer campaigns for studios like Candivore, SuperPlay and Ten Square Games. <span class="tok">{game}</span> is on my radar. Would be great to connect.</div></div>
@@ -89,7 +100,7 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
   <p class="blanknote">Blank invite, no note. Half go out this way.</p>
 </section>
 
-<section class="door" data-join="1"><h2>Apps</h2>
+<section class="door" data-path="a"><h2>Apps</h2>
   <span class="when">Day 0 &middot; invite &middot; A/B</span>
   <p class="ablabel">A</p>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="apps_note">Hey <span class="tok">{first}</span>, Davorin here :) We run influencer campaigns for apps like Surfshark and Revolut. Would love to connect.</div></div>
@@ -106,7 +117,7 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
   <p class="blanknote">Blank invite, no note. Half go out this way. EU expansion is only ever offered where the product can actually sell in the EU. This lane runs its own conversation, second path below.</p>
 </section>
 
-<section class="door" data-join="1"><h2>Industry engagers &middot; around the big UA voices</h2>
+<section class="door" data-path="e"><h2>Industry engagers &middot; around the big UA voices</h2>
   <span class="when">Day 0 &middot; invite &middot; A/B</span>
   <p class="ablabel">A</p>
   <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="eng_note">Hey <span class="tok">{first}</span>, Davorin here :) I keep seeing you around <span class="tok">{anchor}</span>'s posts. We're in the same corner of gaming UA, so I figured we should connect.</div></div>
@@ -116,14 +127,13 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
 
 </div>
 
-<div class="node" id="mergenode">They accept</div>
+<div class="paths3">
 
+<div>
+<div class="node" id="node-g">They accept</div>
 <div class="trunkwrap">
-<div class="trunkhead">
-  <h2>One conversation from here</h2>
-</div>
+<div class="trunkhead"><h2>Game studios</h2></div>
 <div class="path">
-
   <div class="stop"><span class="when">Right after the accept &middot; DM 1</span>
     <p class="ablabel">A &middot; audit ready</p>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="dm1_a">Hey <span class="tok">{first}</span>
@@ -131,20 +141,13 @@ p.lede{color:#c8cfe8;font-size:15px;margin:0;max-width:560px;line-height:1.5}
 Took the liberty of pulling one of our creator audits on <span class="tok">{game}</span> - who covers it, which videos carry a paid label, who is missing.
 
 Would you be opposed to me sending it over? :)</div></div>
-    <p class="ablabel">B &middot; no audit &middot; games lead</p>
+    <p class="ablabel">B &middot; no audit yet</p>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="dm1_b_games">Hey <span class="tok">{first}</span>
 
 I'm founder of ARCH. We help mobile game studios get real performance out of influencer marketing, we run it for Candivore, Wargaming and Ten Square Games. We can be of help for you.
 
 How are you handling the creator side for <span class="tok">{game}</span> at the moment?</div></div>
-    <p class="ablabel">B &middot; no audit &middot; app lead</p>
-    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="dm1_b_apps">Hey <span class="tok">{first}</span>
-
-I'm founder of ARCH. We help consumer apps get real performance out of influencer marketing, we run it for Surfshark, Revolut and BetterHelp. We can be of help for you.
-
-How are you handling the creator side for <span class="tok">{game}</span> at the moment?</div></div>
   </div>
-
   <div class="stop"><span class="when">3 days, no reply &middot; DM 2</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="nudge">Hey <span class="tok">{first}</span> - btw:
 
@@ -154,7 +157,6 @@ Would you be against seeing what this would look like for <span class="tok">{gam
 
 Cheers!</div></div>
   </div>
-
   <div class="stop"><span class="when">They say yes &middot; the audit</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="deliver">Hey <span class="tok">{first}</span>
 
@@ -162,7 +164,6 @@ Here is the full audit: <span class="tok">{audit_url}</span>
 
 Would it be a bad idea to take 30 minutes and see if we can help? You can pick a time here - meetings-eu1.hubspot.com/davorin-smit/30-minute-sales-call</div></div>
   </div>
-
   <div class="stop"><span class="when">4 days after the audit, no reply</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="fu">Hey <span class="tok">{first}</span>
 
@@ -170,13 +171,11 @@ Have you been able to check the audit?
 
 If nobody in your team's been covering this - happy to walk you through how we can help.</div></div>
   </div>
-
   <div class="stop"><span class="when">30-45 days, still nothing &middot; DM 3</span>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="dm3">Hey <span class="tok">{first}</span>
 
 Still have that <span class="tok">{game}</span> audit here. If the creator side is not your desk, whose is it? I can send it there instead.</div></div>
   </div>
-
   <div class="stop"><span class="when">60 days &middot; fresh start</span>
     <p class="ablabel">A &middot; audit ready</p>
     <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="recycle">Hey <span class="tok">{first}</span> :)
@@ -189,11 +188,106 @@ Want me to send it over?</div></div>
 
 Been a while. How are things going with <span class="tok">{game}</span> - running anything on the creator side at the moment?</div></div>
   </div>
-
 </div>
 </div>
 </div>
 
+<div>
+<div class="node" id="node-a">They accept</div>
+<div class="trunkwrap">
+<div class="trunkhead"><h2>Apps &amp; subscription brands</h2></div>
+<div class="path">
+  <div class="stop"><span class="when">Right after the accept &middot; DM 1</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="dm1_b_apps">Hey <span class="tok">{first}</span>
+
+I'm founder of ARCH. We help consumer apps get real performance out of influencer marketing, we run it for Surfshark, Revolut and BetterHelp. We can be of help for you.
+
+How are you handling the creator side for <span class="tok">{game}</span> at the moment?</div></div>
+  </div>
+  <div class="stop"><span class="when">3 days, no reply &middot; DM 2</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="nudge">Hey <span class="tok">{first}</span> - btw:
+
+Influencer campaigns for games and apps are all we do.
+
+Would you be against seeing what this would look like for <span class="tok">{game}</span>?
+
+Cheers!</div></div>
+  </div>
+  <div class="stop"><span class="when">60 days &middot; fresh start</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="recycle_b">Hey <span class="tok">{first}</span> :)
+
+Been a while. How are things going with <span class="tok">{game}</span> - running anything on the creator side at the moment?</div></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div>
+<div class="node" id="node-e">They accept</div>
+<p class="fastin">Already 1st-degree? No invite. DM 1 goes the same day.</p>
+<div class="trunkwrap">
+<div class="trunkhead"><h2>Industry engagers</h2><div class="lanes-on"><span>studio people &rarr; the games messages</span><span>app people &rarr; the apps messages</span></div></div>
+<div class="path">
+  <div class="stop"><span class="when">Right after the accept &middot; DM 1</span>
+    <p class="ablabel">A &middot; audit ready</p>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="dm1_a">Hey <span class="tok">{first}</span>
+
+Took the liberty of pulling one of our creator audits on <span class="tok">{game}</span> - who covers it, which videos carry a paid label, who is missing.
+
+Would you be opposed to me sending it over? :)</div></div>
+    <p class="ablabel">B &middot; no audit yet</p>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="dm1_b_games">Hey <span class="tok">{first}</span>
+
+I'm founder of ARCH. We help mobile game studios get real performance out of influencer marketing, we run it for Candivore, Wargaming and Ten Square Games. We can be of help for you.
+
+How are you handling the creator side for <span class="tok">{game}</span> at the moment?</div></div>
+  </div>
+  <div class="stop"><span class="when">3 days, no reply &middot; DM 2</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="nudge">Hey <span class="tok">{first}</span> - btw:
+
+Influencer campaigns for games and apps are all we do.
+
+Would you be against seeing what this would look like for <span class="tok">{game}</span>?
+
+Cheers!</div></div>
+  </div>
+  <div class="stop"><span class="when">They say yes &middot; the audit</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="deliver">Hey <span class="tok">{first}</span>
+
+Here is the full audit: <span class="tok">{audit_url}</span>
+
+Would it be a bad idea to take 30 minutes and see if we can help? You can pick a time here - meetings-eu1.hubspot.com/davorin-smit/30-minute-sales-call</div></div>
+  </div>
+  <div class="stop"><span class="when">4 days after the audit, no reply</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="fu">Hey <span class="tok">{first}</span>
+
+Have you been able to check the audit?
+
+If nobody in your team's been covering this - happy to walk you through how we can help.</div></div>
+  </div>
+  <div class="stop"><span class="when">30-45 days, still nothing &middot; DM 3</span>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="dm3">Hey <span class="tok">{first}</span>
+
+Still have that <span class="tok">{game}</span> audit here. If the creator side is not your desk, whose is it? I can send it there instead.</div></div>
+  </div>
+  <div class="stop"><span class="when">60 days &middot; fresh start</span>
+    <p class="ablabel">A &middot; audit ready</p>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="recycle">Hey <span class="tok">{first}</span> :)
+
+We refreshed our creator audit of <span class="tok">{game}</span> - who covers it now, which videos carry a paid label, who is missing.
+
+Want me to send it over?</div></div>
+    <p class="ablabel">B &middot; no audit material</p>
+    <div class="msg"><span class="av">ARCH.</span><div class="bub" data-key="recycle_b">Hey <span class="tok">{first}</span> :)
+
+Been a while. How are things going with <span class="tok">{game}</span> - running anything on the creator side at the moment?</div></div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+</div><!-- /mapzone -->
 
 <div class="trunkwrap" style="padding-top:56px">
 <div class="trunkhead">
@@ -268,19 +362,22 @@ Cheers!</div></div>
 <script>
 (function(){
   var zone=document.querySelector('.mapzone'),svg=document.getElementById('wires'),
-      node=document.getElementById('mergenode'),doors=document.querySelectorAll('.door');
+      doors=document.querySelectorAll('.door[data-path]');
   function draw(){
     var tops=[],oneRow=true;
-    doors.forEach(function(d){tops.push(d.offsetTop)});
+    document.querySelectorAll('.door').forEach(function(d){tops.push(d.offsetTop)});
     oneRow=tops.every(function(t){return Math.abs(t-tops[0])<4});
     svg.innerHTML='';
     if(!oneRow){svg.style.display='none';return}
     svg.style.display='block';
-    var zr=zone.getBoundingClientRect(),nr=node.getBoundingClientRect(),
-        nx=nr.left+nr.width/2-zr.left,ny=nr.top-zr.top;
+    var zr=zone.getBoundingClientRect();
     svg.setAttribute('viewBox','0 0 '+zr.width+' '+zone.offsetHeight);
-    document.querySelectorAll('.door[data-join]').forEach(function(d){
-      var r=d.getBoundingClientRect(),x=r.left+r.width/2-zr.left,y=r.bottom-zr.top,
+    doors.forEach(function(d){
+      var node=document.getElementById('node-'+d.getAttribute('data-path'));
+      if(!node)return;
+      var r=d.getBoundingClientRect(),nr=node.getBoundingClientRect(),
+          x=r.left+r.width/2-zr.left,y=r.bottom-zr.top,
+          nx=nr.left+nr.width/2-zr.left,ny=nr.top-zr.top,
           my=(y+ny)/2,p=document.createElementNS('http://www.w3.org/2000/svg','path');
       p.setAttribute('d','M '+x+' '+y+' C '+x+' '+my+', '+nx+' '+my+', '+nx+' '+ny);
       svg.appendChild(p);
