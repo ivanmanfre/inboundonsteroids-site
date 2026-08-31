@@ -30,6 +30,11 @@ jobs:
       - name: Pull report and publish if changed
         run: |
           set -euo pipefail
+          # Identity must be set for the REPO, not just the commit command:
+          # the retry path runs `git pull --rebase`, which needs a committer
+          # and dies with "empty ident name" when two publishes race.
+          git config user.name 'rise-week-bot'
+          git config user.email 'noreply@ivanmanfredi.com'
           # File Monday = most recent Monday on-or-before today. The build runs
           # ON the file Monday, so a Monday cron resolves today and a manual
           # workflow_dispatch later in the week still resolves the file that
@@ -54,8 +59,7 @@ jobs:
           fi
           cp /tmp/report.html "$DST"
           git add "$DST"
-          git -c user.name='rise-week-bot' -c user.email='noreply@ivanmanfredi.com' \
-            commit -m "rise weekly report: window starting ${WSTART}"
+          git commit -m "rise weekly report: window starting ${WSTART}"
           for i in 1 2 3 4 5; do
             git push origin main && break
             git pull --rebase origin main
