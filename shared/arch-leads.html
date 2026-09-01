@@ -89,8 +89,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
   <div class="people"><div class="person"><a href="https://www.linkedin.com/in/the-anant-tyagi/" target="_blank">Anant Tyagi</a><span class="ptitle">Global Supply Partnerships</span></div></div>
 </div>
 </div>
-<h2 class="sec">New verticals &middot; fintech + consumer app buyers (28 companies &middot; 29 people)</h2>
-<p class="lede" style="margin:0 0 16px;font-size:13px">The targeting now covers your 2026 industries alongside games: consumer fintech, consumer SaaS and privacy apps, health, edtech, subscription, travel. These are decision-makers at consumer app companies who engage with the big fintech and SaaS voices. Same rule as always: skip a company and nobody there hears from us.</p>
+<h2 class="sec">Apps-side &middot; engager harvest (28 companies &middot; 29 people)</h2>
 <div class="rowstack">
 <div class="crow" data-company="Achieve" data-section="verticals">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
@@ -575,7 +574,7 @@ document.getElementById('copybtn').addEventListener('click',function(){
   document.querySelectorAll('.crow.skip').forEach(function(r){
     var s=r.getAttribute('data-section');(secs[s]=secs[s]||[]).push(r.getAttribute('data-company'));
   });
-  var names={engager:'SKIP (engager harvest)',sponsor:'SKIP (sponsor list)',verticals:'SKIP (new verticals)'};
+  var names={engager:'SKIP (engager harvest)',sponsor:'SKIP (sponsor list)',verticals:'SKIP (apps-side)'};
   Object.keys(secs).forEach(function(s){lines.push('');lines.push(names[s]||s);secs[s].forEach(function(c){lines.push('- '+c)})});
   if(Object.keys(secs).length===0)lines.push('No changes - new batch approved as shown.');
   navigator.clipboard.writeText(lines.join('\n')).then(function(){
