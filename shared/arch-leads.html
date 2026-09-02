@@ -90,7 +90,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 </svg>
 <h1>Leads. <em>New ones up top.</em></h1>
 <p class="lede" style="margin:0 0 10px"><strong style="color:var(--lime)">Pending: 108 companies &middot; 165 people.</strong></p>
-<p class="lede">Tap a company to skip it, or the small box to skip one person. Sections are folded, tap a title to open it. Done: hit "Copy decisions" and paste it to Ivan.</p>
+<p class="lede">Tap a company to skip it, or the small box to skip one person. Sections are folded, tap a title to open it. Done: hit "Submit". Skips stop right away, everyone else goes ahead.</p>
 <div class="kpis"><div class="kpi act"><b>108</b><span>companies to review</span></div><div class="kpi"><b>119</b><span>in queue</span></div><div class="kpi"><b>67</b><span>outreached</span></div><div class="kpi"><b>6</b><span>replied</span></div></div>
 </header>
 <div class="wrap">
@@ -1936,7 +1936,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="pline"><span style="color:#c8cfe8">Zynga (Take-Two&#x27;s mobile unit)</span><span class="pt">casino exclusion</span></div></div></div></details>
 <p class="legend">OUTREACHED = first message left your seat on that date. In queue = goes out with the next weekly window. Held = under the bar. Your language = waits for the Croatian version. Updated 2026-09-02.</p>
 </div>
-<div class="bar"><span id="tally">0 changes</span><button id="copybtn">Copy decisions</button></div>
+<div class="bar"><span id="tally">0 changes</span><button id="submitbtn">Submit</button><button id="copybtn" style="background:transparent;color:var(--lime);border:1px solid var(--lime)">Copy instead</button></div>
 <script>
 document.querySelectorAll('.crow').forEach(function(row){
   row.querySelector('.chead').addEventListener('click',function(e){
@@ -1951,7 +1951,8 @@ function tally(){
   var n=document.querySelectorAll('.crow.skip').length+document.querySelectorAll('.crow:not(.skip) .person.pskip').length;
   document.getElementById('tally').textContent=n+' change'+(n===1?'':'s');
 }
-// Ivan 2026-09-02: copy only, no Submit - he reads every decision himself before anything is applied.
+// Ivan 2026-09-02 (evening): direct Submit is back - skips park + ledger instantly, Ivan gets the full
+// list on WhatsApp and a log entry the same second, and lifts anything he disagrees with.
 var NOTIFY_URL='https://n8n.ivanmanfredi.com/webhook/arch-leads-decisions?k=ald_7c3e91b2f4a54d0e8b6c2f1a9d3e5b70';
 function decisions(){
   var skipped=[],seen=[];
@@ -1963,6 +1964,16 @@ function decisions(){
   document.querySelectorAll('.crow:not(.skip) .person.pskip').forEach(function(p){var r=p.closest('.crow');people.push({name:p.getAttribute('data-name'),company:r.getAttribute('data-company'),section:r.getAttribute('data-section')})});
   return {skipped:skipped,seen:seen,skipped_people:people};
 }
+document.getElementById('submitbtn').addEventListener('click',function(){
+  var d=decisions(); var btn=this; btn.disabled=true; btn.textContent='Sending...';
+  fetch(NOTIFY_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+   .then(function(r){return r.json()}).then(function(j){
+     if(!j||!j.ok)throw new Error('bad');
+     btn.textContent='Done ✓ '+j.skipped_companies+' skipped · '+(j.parked_people||0)+' people · '+j.approved_rows+' approved';
+     try{localStorage.setItem('arch-leads-submitted-'+'2026-09-02',JSON.stringify(d))}catch(e){}
+     document.querySelectorAll('.crow').forEach(function(r){r.style.opacity='.35';r.querySelector('.cbox').disabled=true});
+   }).catch(function(){btn.disabled=false;btn.textContent='Failed - use Copy instead'});
+});
 document.getElementById('copybtn').addEventListener('click',function(){
   var lines=['ARCH leads page decisions ('+new Date().toISOString().slice(0,10)+')'];
   var secs={};
