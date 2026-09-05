@@ -885,7 +885,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">CreditBooster.AI</span>
     <span class="csrc">engages with Simon Taylor's posts</span></div><div class="why">CMO at CreditBooster.AI, explicitly consumer-facing credit app with three #1 App Store rankings — ratified fintech verti</div>
-  <div class="people"><div class="person" data-name="Ramis Iaparov"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/ramis-iaparov" target="_blank">Ramis Iaparov</a><span class="ptitle">Chief Marketing Officer</span><span class="ploc">US</span><span class="chip out dm">InMail sent 2026-09-04</span></div></div>
+  <div class="people"><div class="person" data-name="Ramis Iaparov"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/ramis-iaparov" target="_blank">Ramis Iaparov</a><span class="ptitle">Chief Marketing Officer</span><span class="ploc">US</span><span class="chip out invite">accepted 2026-09-04, DM1 next</span></div></div>
 </div>
 <div class="crow" data-company="Cricut" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
@@ -1597,7 +1597,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
     <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/johnwright1987_tell-me-you-were-at-jamesons-last-night-activity-7499057443042267136-gEIv" target="_blank">an industry's post</a></span></div><div class="why">Co-Founder at ZOE Studios</div>
   <div class="people"><div class="person" data-name="Itay Mashid"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/itay-mashid-389399177/" target="_blank">Itay Mashid</a><span class="ptitle">Co-Founder &amp; CPO</span><span class="ploc">Israel</span><span class="chip out dm">InMail sent 2026-09-03</span></div></div>
 </div></div></details>
-<details class="secd skip" id="sec-skipped"><summary><span class="tag">closed</span><span class="ttl">Skipped &middot; nobody here gets contacted</span><span class="cnt">481 companies</span></summary><div class="rowstack"><div class="rows" style="font-size:12px"><div class="pline"><span style="color:#c8cfe8">37Games</span><span class="pt">skipped on review</span></div>
+<details class="secd skip" id="sec-skipped"><summary><span class="tag">closed</span><span class="ttl">Skipped &middot; nobody here gets contacted</span><span class="cnt">482 companies</span></summary><div class="rowstack"><div class="rows" style="font-size:12px"><div class="pline"><span style="color:#c8cfe8">37Games</span><span class="pt">skipped on review</span></div>
 <div class="pline"><span style="color:#c8cfe8">52 Entertainment</span><span class="pt">vendor / agency / off-vertical</span></div>
 <div class="pline"><span style="color:#c8cfe8">8Great Games</span><span class="pt">inactive on LinkedIn</span></div>
 <div class="pline"><span style="color:#c8cfe8">a21.ai</span><span class="pt">vendor / agency / off-vertical</span></div>
@@ -1684,6 +1684,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="pline"><span style="color:#c8cfe8">Coupang</span><span class="pt">mega brand, no fit</span></div>
 <div class="pline"><span style="color:#c8cfe8">CrazyLabs</span><span class="pt">skipped on review</span></div>
 <div class="pline"><span style="color:#c8cfe8">Create Wellness</span><span class="pt">skipped on review</span></div>
+<div class="pline"><span style="color:#c8cfe8">Critical Force</span><span class="pt">skipped on review</span></div>
 <div class="pline"><span style="color:#c8cfe8">Cubic Games</span><span class="pt">skipped by Davorin</span></div>
 <div class="pline"><span style="color:#c8cfe8">Cygames</span><span class="pt">skipped on review</span></div>
 <div class="pline"><span style="color:#c8cfe8">Dailyhunt</span><span class="pt">blacklisted, reason not recorded</span></div>
@@ -2078,7 +2079,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="pline"><span style="color:#c8cfe8">Zvelto AI</span><span class="pt">vendor / agency / off-vertical</span></div>
 <div class="pline"><span style="color:#c8cfe8">Zynga</span><span class="pt">on your not-to-touch list</span></div>
 <div class="pline"><span style="color:#c8cfe8">Zynga (Take-Two&#x27;s mobile unit)</span><span class="pt">casino exclusion</span></div></div></div></details>
-<p class="legend">OUTREACHED = first message left your seat on that date. In queue = goes out with the next weekly window. Held = under the bar. Updated 2026-09-04.</p>
+<p class="legend">OUTREACHED = first message left your seat on that date. In queue = goes out with the next weekly window. Held = under the bar. Updated 2026-09-05.</p>
 </div>
 <div class="bar"><span id="tally">0 changes</span><button id="submitbtn">Submit</button><button id="copybtn" style="background:transparent;color:var(--lime);border:1px solid var(--lime)">Copy instead</button></div>
 <script>
@@ -2117,7 +2118,7 @@ document.getElementById('submitbtn').addEventListener('click',function(){
    .then(function(r){return r.json()}).then(function(j){
      if(!j||!j.ok)throw new Error('bad');
      btn.textContent='Done ✓ '+j.skipped_companies+' skipped · '+(j.parked_people||0)+' people · '+j.approved_rows+' approved'+((j.go_people||0)?' · '+j.go_people+' Balkan go':'');
-     try{localStorage.setItem('arch-leads-submitted-'+'2026-09-04',JSON.stringify(d))}catch(e){}
+     try{localStorage.setItem('arch-leads-submitted-'+'2026-09-05',JSON.stringify(d))}catch(e){}
      document.querySelectorAll('.crow').forEach(function(r){r.style.opacity='.35';r.querySelector('.cbox').disabled=true});
    }).catch(function(){btn.disabled=false;btn.textContent='Failed - use Copy instead'});
 });
