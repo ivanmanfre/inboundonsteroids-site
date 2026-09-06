@@ -53,11 +53,16 @@ jobs:
           fi
           # refuse to publish something that is not a full document
           grep -qi '</html>' /tmp/arch-report.html || { echo 'truncated render, refusing'; exit 1; }
-          if [ -f "$DST" ] && cmp -s /tmp/arch-report.html "$DST"; then
+          if [ -f "$DST" ] && cmp -s /tmp/arch-report.html "$DST" \
+             && [ -f shared/arch-week.html ] && cmp -s /tmp/arch-report.html shared/arch-week.html; then
             echo 'unchanged'; exit 0
           fi
           cp /tmp/arch-report.html "$DST"
-          git add "$DST"
+          # A STABLE URL that always serves the newest report. The dated files
+          # stay as the per-week archive, but the dated name moves every Sunday,
+          # so a bookmarked one silently goes stale. Ivan's link is this one.
+          cp /tmp/arch-report.html shared/arch-week.html
+          git add "$DST" shared/arch-week.html
           git commit -m "arch weekly report: window starting ${WSTART}"
           for i in 1 2 3 4 5; do
             git push origin main && break
