@@ -74,6 +74,21 @@ ul.b li::before{content:"";position:absolute;left:0;top:16px;width:10px;height:2
 .ink ul.b li{border-top-color:var(--wash);color:rgba(255,255,255,.86);}
 .ink ul.b li::before{background:var(--gold);}
 
+/* who */
+.exp{margin-top:12px;padding:10px 12px;background:rgba(31,31,31,.06);border-radius:var(--corner);font-size:14px;color:var(--ink-2);}
+.col.gold .exp{background:rgba(31,31,31,.12);color:var(--dark);}
+.who{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:36px;margin-top:22px;align-items:start;}
+.who ul.b{margin-top:0;}
+.wn{font-size:18px;line-height:1.45;color:rgba(255,255,255,.86);max-width:30em;}
+.wn span{display:block;font-family:var(--disp);font-weight:600;font-size:64px;line-height:.95;letter-spacing:-.04em;color:var(--gold);margin-bottom:8px;}
+.wl{margin-top:20px;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);}
+ul.names{list-style:none;padding:0;margin:8px 0 0;}
+ul.names li{padding:7px 0;border-top:1px solid var(--wash);font-size:14.5px;color:rgba(255,255,255,.72);}
+ul.names li:first-child{border-top:0;}
+ul.names b{display:block;color:#fff;font-size:15px;}
+.ws{margin-top:14px;font-size:15px;color:rgba(255,255,255,.62);}
+@media (max-width:720px){.who{grid-template-columns:1fr;gap:22px;}}
+
 /* steps */
 .steps{counter-reset:s;margin-top:26px;display:grid;gap:0;}
 .step{counter-increment:s;display:grid;grid-template-columns:64px 1fr;gap:18px;padding:20px 0;border-top:1px solid var(--hair);align-items:start;}
@@ -116,7 +131,7 @@ ul.b li::before{content:"";position:absolute;left:0;top:16px;width:10px;height:2
   </div>
   <section class="hero">
     <p class="eyebrow">NITIN &middot; SWAPNIL</p>
-    <h1>Nitin's LinkedIn, run to booked calls. <span class="hot">7 to 15 in month one.</span></h1>
+    <h1>Nitin's LinkedIn, run to booked calls with <span class="hot">the people who can hire Botpresso.</span></h1>
     <p class="sub">Content, lead magnets and outreach, all off his profile, all run by me. He records his calls and reviews what he wants to. Everything else is handled.</p>
   </section>
 </div></div>
@@ -128,6 +143,7 @@ ul.b li::before{content:"";position:absolute;left:0;top:16px;width:10px;height:2
   <div class="cols">
     <div class="col">
       <h3>Inbound <span class="price">$2,000<small>/ MO</small></span></h3>
+      <p class="exp">Month one: <b>3 to 7 booked calls</b>, climbing from month two</p>
       <ul class="b">
         <li>4 to 5 posts a week in Nitin's voice, sourced from his sales calls</li>
         <li>A lead magnet every 2 to 3 weeks, on your domain, gated for the email</li>
@@ -139,6 +155,7 @@ ul.b li::before{content:"";position:absolute;left:0;top:16px;width:10px;height:2
     </div>
     <div class="col gold">
       <h3>Inbound + Outbound <span class="price">$3,000<small>/ MO</small></span></h3>
+      <p class="exp">Month one: <b>7 to 15 booked calls</b>, climbing from month two</p>
       <ul class="b">
         <li>Everything on the left</li>
         <li>Cold outreach from Nitin's seat: ~400 connection requests and ~50 InMails a month</li>
@@ -151,19 +168,35 @@ ul.b li::before{content:"";position:absolute;left:0;top:16px;width:10px;height:2
   </div>
 </div></div>
 
-<!-- MONTH ONE -->
+<!-- WHO -->
 <div class="sec ink"><div class="shell">
-  <p class="eyebrow">MONTH ONE</p>
-  <h2>What I'm aiming at in the first 30 days.</h2>
-  <div class="figs">
-    <div class="fig"><p class="v hot">7-15</p><p class="l">Booked calls, month one</p><p class="s">Every one with a head of marketing, CMO or founder who fits the ICP we set on day one. Month one is the read; from month two the number climbs.</p></div>
-    <div class="fig"><p class="v">Warm</p><p class="l">From your audience</p><p class="s">People already engaging with Nitin, plus the ones who download the first lead magnet.</p></div>
-    <div class="fig"><p class="v">Cold</p><p class="l">From your competitors' engagers</p><p class="s">Worked from Nitin's seat with a real reason to reply. This lane is where the $3,000 plan earns its price.</p></div>
+  <p class="eyebrow">WHO WE'D BE BOOKING</p>
+  <h2>A first cut at your ICP, off your site and what you told me.</h2>
+  <div class="who">
+    <div>
+      <ul class="b">
+        <li>CMO, VP or Head of Marketing at a mid-market or enterprise brand, e-commerce or SaaS</li>
+        <li>Head of SEO or Director of Organic Growth in-house: the champion who brings you in</li>
+        <li>Founder or CEO of a funded brand where organic is a revenue line, in the &euro;5k to &euro;20k a month range you quoted</li>
+        <li>Europe, US and India first. We tighten this together on the onboarding call.</li>
+      </ul>
+    </div>
+    <div class="whonum">
+      <p class="wn"><span>72</span> people who fit that already engaged with Nitin's last 30 posts. 31 of them could sign a contract on their own.</p>
+      <p class="wl">A FEW OF THEM</p>
+      <ul class="names">
+        <li><b>Michelle Wrede</b> Head of Marketing Benelux &amp; Sweden, Trustpilot</li>
+        <li><b>Fabrizio Ballarini</b> Head of Organic Growth, Revolut</li>
+        <li><b>Ashley New</b> Organic Growth &amp; AI Discovery, Stripe</li>
+        <li><b>Poorna Doshi</b> Marketing Director, Shiseido</li>
+        <li><b>Arnoldo Cabrera</b> Digital Optimisation Manager, IKEA Group</li>
+        <li><b>Sourabh Mukherjee</b> Head of Marketing, Cleartrip</li>
+        <li><b>Manish Chauhan</b> SEO Head, Groww</li>
+        <li><b>Amina Loukili Kristensen</b> Global CMO</li>
+      </ul>
+      <p class="ws">None of them has had a message from Nitin. That is week one.</p>
+    </div>
   </div>
-  <ul class="b">
-    <li>You told me you get 2 to 3 inbound leads a month today, posting once every couple of weeks. The audience is already there. It's the cadence and the follow-up that are missing.</li>
-    <li>These are targets, not a contract. You see the real number every Monday, name by name.</li>
-  </ul>
 </div></div>
 
 <!-- NEXT STEPS -->
