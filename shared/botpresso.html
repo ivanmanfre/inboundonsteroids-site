@@ -89,6 +89,30 @@ ul.names b{display:block;color:#fff;font-size:15px;}
 .ws{margin-top:14px;font-size:15px;color:rgba(255,255,255,.62);}
 @media (max-width:720px){.who{grid-template-columns:1fr;gap:22px;}}
 
+/* today / how / lm */
+.callout{font-family:var(--disp);font-weight:400;font-size:clamp(22px,2.6vw,32px);line-height:1.2;letter-spacing:-.025em;max-width:28em;text-wrap:balance;}
+.callout b{font-weight:600;box-shadow:inset 0 -.28em 0 var(--gold);}
+.flow{margin-top:26px;display:grid;gap:14px;}
+.lane{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--hair);border-radius:var(--corner);padding:16px 18px;}
+.lane.cold{background:var(--dark);color:#fff;border-color:transparent;}
+.ln{font-weight:800;font-size:12px;letter-spacing:.15em;text-transform:uppercase;}
+.ln small{display:block;font-size:10px;letter-spacing:.12em;color:var(--gold);margin-top:3px;}
+.fx{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.fx span{font-size:14.5px;line-height:1.3;padding:9px 12px;background:var(--panel);border-radius:var(--corner);flex:1 1 150px;min-width:0;}
+.lane.cold .fx span{background:rgba(255,255,255,.08);}
+.lane.cold .fx span.end{background:var(--gold);color:var(--dark);}
+.fx span.end{background:var(--gold);color:var(--dark);font-weight:800;flex:0 0 auto;letter-spacing:.06em;text-transform:uppercase;font-size:12px;}
+.fx i{width:18px;height:2px;background:var(--hair-2);flex:0 0 auto;position:relative;}
+.fx i::after{content:"";position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left-color:var(--hair-2);}
+.lane.cold .fx i{background:rgba(255,255,255,.4);}
+.lane.cold .fx i::after{border-left-color:rgba(255,255,255,.4);}
+.flownote{margin-top:14px;font-size:15px;color:var(--muted);}
+.shot{display:block;margin-top:22px;border:1px solid var(--hair);border-radius:var(--corner);overflow:hidden;background:#fff;max-width:920px;}
+.shot img{display:block;width:100%;height:auto;}
+.shot span{display:block;padding:10px 14px;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-top:1px solid var(--hair);}
+.proof.kyle{margin-top:36px;padding-top:32px;border-top:1px solid var(--hair);}
+@media (max-width:720px){.lane{grid-template-columns:1fr;gap:10px;}.fx i{display:none;}.fx span{flex:1 1 100%;}}
+
 /* steps */
 .steps{counter-reset:s;margin-top:26px;display:grid;gap:0;}
 .step{counter-increment:s;display:grid;grid-template-columns:64px 1fr;gap:18px;padding:20px 0;border-top:1px solid var(--hair);align-items:start;}
@@ -168,6 +192,34 @@ ul.names b{display:block;color:#fff;font-size:15px;}
   </div>
 </div></div>
 
+<!-- TODAY -->
+<div class="sec band light"><div class="shell">
+  <p class="callout">You told me you get <b>2 to 3 inbound leads a month</b> today, posting once every couple of weeks. The audience is already there. The cadence and the follow-up are what's missing.</p>
+</div></div>
+
+<!-- HOW -->
+<div class="sec light"><div class="shell">
+  <p class="eyebrow">HOW IT RUNS</p>
+  <h2>Three lanes, one calendar.</h2>
+  <div class="flow">
+    <div class="lane"><div class="ln">POSTS</div>
+      <div class="fx"><span>4-5 posts a week, off Nitin's calls</span><i></i><span>Every engager scored against the ICP</span><i></i><span>The ones who pass get a message from Nitin</span><i></i><span class="end">Call booked</span></div></div>
+    <div class="lane"><div class="ln">LEAD MAGNETS</div>
+      <div class="fx"><span>One every 2-3 weeks, on your domain</span><i></i><span>Download for an email</span><i></i><span>Newsletter keeps the list warm</span><i></i><span class="end">Call booked</span></div></div>
+    <div class="lane cold"><div class="ln">COLD <small>$3,000 PLAN</small></div>
+      <div class="fx"><span>Your competitors' engagers, pulled and scored</span><i></i><span>Connect from Nitin's seat</span><i></i><span>A personalised insight, then a conversation</span><i></i><span class="end">Call booked</span></div></div>
+  </div>
+  <p class="flownote">I run every step. You see every name on the Monday report.</p>
+</div></div>
+
+<!-- LEAD MAGNET -->
+<div class="sec band light"><div class="shell">
+  <p class="eyebrow">A LEAD MAGNET, LIVE</p>
+  <h2>The one my screen froze on.</h2>
+  <p class="lead">15 Claude skills for DTC media buyers, built and published under RISE DTC's name in a week. Yours would be built for the head of marketing who buys search, on your domain, under your brand.</p>
+  <a class="shot" href="https://resources.risedtc.com/dtc-claude-skills" target="_blank" rel="noopener"><img src="/shared/assets/lm-rise-skills.jpg" alt="15 DTC skills for Claude, the live RISE DTC lead magnet"><span>resources.risedtc.com/dtc-claude-skills &rarr;</span></a>
+</div></div>
+
 <!-- WHO -->
 <div class="sec ink"><div class="shell">
   <p class="eyebrow">WHO WE'D BE BOOKING</p>
@@ -186,13 +238,13 @@ ul.names b{display:block;color:#fff;font-size:15px;}
       <p class="wl">A FEW OF THEM</p>
       <ul class="names">
         <li><b>Michelle Wrede</b> Head of Marketing Benelux &amp; Sweden, Trustpilot</li>
-        <li><b>Fabrizio Ballarini</b> Head of Organic Growth, Revolut</li>
-        <li><b>Ashley New</b> Organic Growth &amp; AI Discovery, Stripe</li>
-        <li><b>Poorna Doshi</b> Marketing Director, Shiseido</li>
-        <li><b>Arnoldo Cabrera</b> Digital Optimisation Manager, IKEA Group</li>
         <li><b>Sourabh Mukherjee</b> Head of Marketing, Cleartrip</li>
+        <li><b>Devendra Saini</b> Director Organic Growth, Amber</li>
+        <li><b>Samarjeet Chauhan</b> Associate Director Organic Growth, The Luxury Closet</li>
+        <li><b>Ciara Serrano Temprado</b> Head of Online Marketing, Urlaubstracker</li>
+        <li><b>Cici Chen</b> Marketing Director, CWILL</li>
         <li><b>Manish Chauhan</b> SEO Head, Groww</li>
-        <li><b>Amina Loukili Kristensen</b> Global CMO</li>
+        <li><b>Daniel Vanegas</b> CMO / VP Marketing, ex-Alibaba, Doctolib</li>
       </ul>
       <p class="ws">None of them has had a message from Nitin. That is week one.</p>
     </div>
@@ -207,7 +259,7 @@ ul.names b{display:block;color:#fff;font-size:15px;}
     <div class="step">
       <div>
         <h3>Pick a plan and pay the first month.</h3>
-        <p>Card or bank transfer. No contract term, stop any month. Either of you can pay it.</p>
+        <p>No contract term, stop any month.</p>
         <div class="btns">
           <a class="btn gold" href="https://buy.stripe.com/eVq00b1M7cvTgRw7XtfEk18">Inbound + Outbound &middot; $3,000</a>
           <a class="btn" href="https://buy.stripe.com/14A4grbmHcvTbxc2D9fEk17">Inbound &middot; $2,000</a>
@@ -240,10 +292,16 @@ ul.names b{display:block;color:#fff;font-size:15px;}
       <p class="lead">Founder-led, no sales team, everything off his own profile. Running on the $3,000 plan since July. All eleven came in his second month, all from the outbound lane, off a profile with a fraction of Nitin's reach. Each one is traced to the message that started it.</p>
     </div>
   </div>
+  <div class="proof kyle">
+    <p class="big">12-15<small>sales calls a month, seven months running</small></p>
+    <div>
+      <h2>Kyle Hunt. The $2,000 plan, inbound only.</h2>
+      <p class="lead">Agency operations coach, sells to agency owners. Posts and lead magnets off his own feed, no cold lane. His calendar held 12 to 15 sales calls every month from October through April, off his own call log. $30k to $80k a month across the first 90 days.</p>
+    </div>
+  </div>
   <div class="links">
     <a class="lk" href="/case/rise-dtc/"><b>RISE DTC case &rarr;</b><span>All five lanes, running for him</span></a>
-    <a class="lk" href="/case/kyle-hunt/"><b>Kyle Hunt case &rarr;</b><span>Agency operations, $2k plan</span></a>
-    <a class="lk" href="https://resources.risedtc.com/dtc-claude-skills"><b>A live lead magnet &rarr;</b><span>The one my screen froze on</span></a>
+    <a class="lk" href="/case/kyle-hunt/"><b>Kyle Hunt case &rarr;</b><span>The 90 days, in detail</span></a>
   </div>
 </div></div>
 
