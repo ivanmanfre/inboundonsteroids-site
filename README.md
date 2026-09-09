@@ -3,7 +3,7 @@
 Production landing for **inboundonsteroids.com**, the product front-door of InboundOnSteroids (the $2k/mo LinkedIn inbound engine for agency owners).
 
 - **Brand canon:** `~/Desktop/Ivan - Content System/inboundonsteroids-brand/03-brand-system.md` (v4 "Black Box") and `cd-final/` (the ratified Claude Design sheet + landing).
-- **Current homepage:** sales-v6 approved by Ivan on 2026-09-09. Revenue-led hero, qualification, animated service story, separate outreach scan/lead-magnet examples, expert section, $2k/$3k plans and client results. The repeated client paragraph in the expert section was removed before publishing.
-- **Stack:** plain static HTML/CSS/JS, no build step. Homepage entry is `index.html`; its self-contained fonts, images, styles and scripts are under `assets/home-v6/`. Existing case, scan, client and shared routes retain their assets.
+- **Current homepage:** sales-v7 approved by Ivan on 2026-09-09. Revenue-led hero, qualification statements in single rows, four service stages with LinkedIn carousel and DM examples, studio portrait, qualitative growth graphic, $2k/$3k plans and client results.
+- **Stack:** plain static HTML/CSS/JS, no build step. Homepage entry is `index.html`; its self-contained fonts, images, styles and scripts are under `assets/home-v7/`. Existing case, scan, client and shared routes retain their assets.
 - **Deploy:** git push to `main` deploys via GitHub Pages (`.github/workflows/deploy.yml`). Never use the gh-pages CLI. `CNAME` carries the custom domain; DNS records live in `~/Desktop/Ivan - Content System/inboundonsteroids-brand/cutover-plan.md`.
 - **Voice + claims law:** zero em dashes, the name never abbreviates, every number a verified receipt; fit-call copy says "one hour" because the live Calendly event is 60 minutes.
