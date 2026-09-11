@@ -23,8 +23,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .sec h2{font-size:clamp(34px,3.7vw,50px);line-height:1.1;letter-spacing:-.045em;max-width:22ch}
 .sec .strap{font-size:17px;line-height:1.75;color:var(--muted);max-width:62ch;margin-top:20px}
 .strap b,.strap strong,.story strong,.note strong{font-weight:750;color:var(--ink)}
-.story{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-top:30px}
-.story p{font-size:17px;line-height:1.8;color:#4e473f}
+.story{margin-top:28px;max-width:66ch}
+.story p{font-size:18px;line-height:1.75;color:#4e473f}.story p+p{margin-top:18px}
 .outcome{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:60px;align-items:end;background:var(--soft);border-radius:26px;padding:44px 48px;margin-top:30px}
 .outcome p{font-size:17px;line-height:1.8;color:var(--muted)}.outcome p+p{margin-top:16px}
 /* system */
@@ -47,7 +47,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .li-person>div{display:flex;flex-direction:column;gap:3px}.li-person strong{font-size:15px}.li-person span,.li-person small{font-size:11px;color:#62666a}
 .li-mark{font-family:Arial,sans-serif;background:#0a66c2;color:#fff;font-size:16px;font-weight:700;border-radius:2px;width:22px;height:22px;display:inline-grid;place-items:center;margin-left:auto;line-height:1}
 .li-post-text{padding:0 23px 16px;font-size:14px;line-height:1.55}
-.slides{margin:0 16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.slides img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.posts2{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}.posts2 .linkedin-post{max-width:none}.posts2 .li-person{padding:14px 16px 10px;gap:9px}.posts2 .li-avatar{width:36px;height:36px}.posts2 .li-person strong{font-size:13px}.posts2 .li-post-text{padding:0 16px 12px;font-size:12.5px}.posts2 .li-actions{padding:11px 8px;font-size:11px;margin-top:10px}.posts2 .visual-footnote{margin-top:12px}
+.slides{margin:0 12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.slides img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
 .li-actions{display:flex;justify-content:space-around;border-top:1px solid #e7e7e7;padding:14px 10px;font-size:12px;color:#62666a;margin-top:14px}
 /* resource demo */
 .resource-demo{height:445px;position:relative}
@@ -64,7 +65,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .dm-thread{padding:20px;display:flex;flex-direction:column;gap:14px}.dm-bubble{max-width:88%;padding:13px 15px;border-radius:9px;font-size:13px;line-height:1.5;background:#f1f3f5}.dm-bubble>span{display:block;font-size:11px;font-weight:700;margin-bottom:6px;color:#3d4852}.dm-bubble.sent{align-self:flex-end;background:#eaf2f9}.dm-bubble.received{align-self:flex-start}
 .dm-compose{margin:0 20px 20px;border:1px solid #d6d9dd;border-radius:6px;padding:14px;color:#62666a;font-size:12px;display:flex;justify-content:space-between}
 /* math figs */
-.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 26px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.figs3{grid-template-columns:repeat(3,minmax(0,1fr))!important}.figs3 .v{font-size:clamp(26px,2.4vw,34px)}.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 26px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
 .fig .v{font-size:clamp(30px,3vw,40px);font-weight:750;line-height:1;letter-spacing:-.05em;font-variant-numeric:tabular-nums}.fig .v.red{color:var(--red)}
 .fig .l{font-size:13px;font-weight:750;margin-top:8px}.fig .s{font-size:13px;line-height:1.55;color:var(--muted);margin-top:3px}
 /* lanes */
@@ -78,10 +79,17 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .note{font-size:15px;line-height:1.7;color:var(--muted);margin-top:22px;max-width:76ch}
 .compound{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;padding:60px 0 20px;align-items:center}
 .compound h3{font-size:clamp(30px,3.2vw,42px);line-height:1.15;letter-spacing:-.04em;margin-top:18px}.compound p{font-size:16px;color:var(--muted);line-height:1.75;margin-top:18px}
-.compound figure{margin:0}.compound svg{display:block;width:100%;overflow:visible}.compound figcaption{font-size:11px;color:var(--muted);text-align:center;margin-top:8px}
+.dash{margin:0;background:var(--ink);color:#fff;border-radius:22px;padding:22px 24px 20px;box-shadow:0 24px 60px #13121022}
+.dash-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#c8c1b5;padding-bottom:14px;border-bottom:1px solid #ffffff1f}.dash-tag{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:750;color:#ffb8a6}
+.dash-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}.dash-tiles div{background:#ffffff0d;border-radius:12px;padding:12px 14px}.dash-tiles b{display:block;font-size:26px;font-weight:750;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}.dash-tiles span{display:block;font-size:11.5px;color:#c8c1b5;margin-top:5px}
+.dash-chart{display:block;width:100%;margin-top:14px;overflow:visible}.dash-line{fill:none;stroke:var(--red);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:700;stroke-dashoffset:700}.dash-area{fill:url(#dg);opacity:0}.dash-dots circle{fill:var(--red);stroke:var(--ink);stroke-width:3;opacity:0}.dash-axis text{font:12px Manrope,Arial,sans-serif;fill:#a49c90}
+.dash.in .dash-line{animation:draw 2.2s cubic-bezier(.45,0,.2,1) forwards}.dash.in .dash-area{animation:fade .8s 1.6s forwards}.dash.in .dash-dots circle{animation:fade .4s forwards}.dash.in .dash-dots circle:nth-child(2){animation-delay:.7s}.dash.in .dash-dots circle:nth-child(3){animation-delay:1.3s}.dash.in .dash-dots circle:nth-child(4){animation-delay:2s}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}
+.dash-signals{margin-top:14px;padding-top:14px;border-top:1px solid #ffffff1f}.dash-sub{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:750;color:#c8c1b5}.dash-signals ul{list-style:none;padding:0;margin:8px 0 0}.dash-signals li{display:flex;gap:10px;align-items:center;font-size:13px;color:#e6e1d9;padding:6px 0}.dash-signals li i{width:8px;height:8px;background:var(--red);flex:none}
+@media(prefers-reduced-motion:reduce){.dash-line{stroke-dashoffset:0;animation:none!important}.dash-area,.dash-dots circle{opacity:1;animation:none!important}}
 /* room */
 .room{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:40px;margin-top:34px;background:var(--soft);border-radius:26px;padding:38px 40px}
-.chain{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}
+.chain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 20px}
 .num .v{font-size:clamp(38px,4vw,54px);font-weight:750;line-height:1;letter-spacing:-.05em;font-variant-numeric:tabular-nums}.num .v.red{color:var(--red)}.num .l{font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:8px;max-width:24ch}
 .wl{font-size:12px;font-weight:750;letter-spacing:.06em;text-transform:uppercase;color:var(--red-deep);margin-top:28px}
 .buyers{list-style:none;padding:0;margin:12px 0 0}.buyers li{display:flex;gap:12px;padding:10px 0;border-top:1px solid #dcd5cb;font-size:15px;line-height:1.55;color:#4e473f}.buyers li>span{color:var(--red);flex:none}
@@ -114,7 +122,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .expert-portrait figcaption{position:absolute;left:18px;bottom:18px;padding:11px 15px;background:#fff;color:var(--ink);font-size:16px;font-weight:700;border-left:4px solid var(--red)}
 .expert-copy h2{font-size:clamp(36px,4.2vw,54px);line-height:1.08;letter-spacing:-.045em}
 .expert-lead{font-size:20px;line-height:1.7;color:#29241f;margin-top:22px}.expert-copy>p{font-size:17px;line-height:1.75;color:var(--muted);margin-top:16px}
-.expert-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:26px;padding-top:24px;border-top:1px solid #d4d1ca}
+.expert-nums.two{grid-template-columns:repeat(2,minmax(0,1fr))}.expert-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:26px;padding-top:24px;border-top:1px solid #d4d1ca}
 .expert-nums strong{display:block;font-size:34px;font-weight:750;letter-spacing:-.05em;line-height:1}.expert-nums span{display:block;font-size:13px;color:var(--muted);margin-top:6px}
 .expert-capacity{border-top:1px solid #d4d1ca;padding-top:22px;margin-top:24px}.expert-capacity strong{font-size:18px;color:var(--red-deep);display:block}.expert-capacity span{font-size:16px;line-height:1.6;color:#29241f}
 /* results */
@@ -135,7 +143,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .closing small{display:block;font-size:13px;margin-top:18px;opacity:.85}
 .footer{padding:26px 0 34px;display:flex;justify-content:space-between;gap:20px;font-size:13px;color:var(--muted);flex-wrap:wrap}
 @media(max-width:1000px){.plans{grid-template-columns:1fr 1fr}.room{grid-template-columns:1fr}.chapter,.chapter.rev{grid-template-columns:1fr;gap:34px}.chapter.rev .copy{order:0}.chapter.rev .visual{order:0}.copy>p{max-width:none}.expert{grid-template-columns:1fr;gap:30px}.expert-portrait{max-width:360px}.managed{grid-template-columns:1fr;gap:26px}.compound{grid-template-columns:1fr;gap:26px}.outcome{grid-template-columns:1fr;gap:20px}.options-grid{grid-template-columns:1fr}.options-grid article+article{border-left:0;border-top:1px solid #ded9d2}}
-@media(max-width:760px){.wrap{width:calc(100% - 44px)}.mast{padding:22px 0 6px}.mast-note{display:none}.wordmark{font-size:18px}.head{padding:36px 0 6px}.head h1{font-size:clamp(38px,10.5vw,52px);max-width:none}.head .strap{font-size:17px}.sec{padding:46px 0 6px}.sec h2{font-size:clamp(30px,8.6vw,36px)}.story{grid-template-columns:1fr;gap:18px}.story p{font-size:16px}.outcome{padding:26px 22px;border-radius:20px}.chapter{padding:40px 0}.copy h3{font-size:32px}.resource-demo{height:350px}.resource-front{width:91%;top:0}.resource-second{width:79%;top:145px}.figs{grid-template-columns:1fr 1fr;gap:16px}.lane{grid-template-columns:1fr;gap:12px;padding:16px 18px}.fx i{display:none}.fx span{flex:1 1 100%}.room{padding:26px 22px;gap:26px}.chain{gap:18px}.plans{grid-template-columns:1fr;gap:18px}.plan{padding:26px}.plan-price strong{font-size:46px}.managed{padding:28px 24px;border-radius:20px}.managed ul{grid-template-columns:1fr}.results-grid{grid-template-columns:1fr;gap:20px}.result-case{padding:26px}.result-number strong{font-size:60px}.result-number>span{font-size:28px}.expert-nums{grid-template-columns:1fr 1fr}.closing{padding:60px 22px 66px;border-radius:26px 26px 0 0;margin-top:50px}.closing p{font-size:16px}.faq summary{font-size:16px}}
+@media(max-width:600px){.posts2{grid-template-columns:1fr}.dash-tiles b{font-size:22px}.dash-tiles span{font-size:11px}.dash{padding:18px 16px}}
+@media(max-width:760px){.wrap{width:calc(100% - 44px)}.mast{padding:22px 0 6px}.mast-note{display:none}.wordmark{font-size:18px}.head{padding:36px 0 6px}.head h1{font-size:clamp(38px,10.5vw,52px);max-width:none}.head .strap{font-size:17px}.sec{padding:46px 0 6px}.sec h2{font-size:clamp(30px,8.6vw,36px)}.story p{font-size:16px}.outcome{padding:26px 22px;border-radius:20px}.chapter{padding:40px 0}.copy h3{font-size:32px}.resource-demo{height:350px}.resource-front{width:91%;top:0}.resource-second{width:79%;top:145px}.figs{grid-template-columns:1fr 1fr;gap:16px}.lane{grid-template-columns:1fr;gap:12px;padding:16px 18px}.fx i{display:none}.fx span{flex:1 1 100%}.room{padding:26px 22px;gap:26px}.chain{gap:18px}.plans{grid-template-columns:1fr;gap:18px}.plan{padding:26px}.plan-price strong{font-size:46px}.managed{padding:28px 24px;border-radius:20px}.managed ul{grid-template-columns:1fr}.results-grid{grid-template-columns:1fr;gap:20px}.result-case{padding:26px}.result-number strong{font-size:60px}.result-number>span{font-size:28px}.expert-nums{grid-template-columns:1fr 1fr}.closing{padding:60px 22px 66px;border-radius:26px 26px 0 0;margin-top:50px}.closing p{font-size:16px}.faq summary{font-size:16px}}
 @page{size:A4;margin:12mm}
 @media print{body{font-size:11pt}.wrap{width:auto;max-width:none}.head{padding-top:6mm}.sec{padding-top:10mm}.chapter{padding:8mm 0;break-inside:avoid}.plan,.lane,.result-case,.room,.managed,.outcome,.expert,.options-grid,.compound,.linkedin-post,.linkedin-dm,.resource-demo{break-inside:avoid}h2,h3{break-after:avoid}.frame,.linkedin-post,.linkedin-dm{box-shadow:none}.plan-full,.managed,.closing,.fx span.end,.badge{-webkit-print-color-adjust:exact;print-color-adjust:exact}.closing{border-radius:0;margin-top:10mm;padding:16mm 10mm}}
 </style></head><body>
@@ -145,18 +154,18 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 
 <section class="head wrap">
   <span class="kicker">Prepared for Paolo Lipari · from our call, Sep 10</span>
-  <h1>Your LinkedIn, run to booked calls.</h1>
-  <p class="strap">Content, lead magnets, newsletter and outreach, off your profile, in Italian, run by me. You only take the calls.</p>
-  <div class="head-links"><a class="inline-link" href="#plans">The three plans <span aria-hidden="true">↓</span></a><a class="inline-link" href="#room">Your audience, by the numbers <span aria-hidden="true">↓</span></a><a class="inline-link" href="#magnets">The resources, with working samples <span aria-hidden="true">↓</span></a></div>
+  <h1>Your LinkedIn, on steroids.</h1>
+  <p class="strap">More booked calls for OutboundHub from the audience you already have. Content, lead magnets, newsletter and outreach, all run by me. You only take the calls.</p>
+  <div class="head-links"><a class="inline-link" href="#plans">The three plans <span aria-hidden="true">↓</span></a><a class="inline-link" href="#room">Your audience, by the numbers <span aria-hidden="true">↓</span></a><a class="inline-link" href="#magnets">The resources <span aria-hidden="true">↓</span></a></div>
 </section>
 
 <!-- 01 from our call -->
 <section class="sec wrap" id="call">
-  <span class="kicker">From our call</span>
-  <h2>Where you are, and what's missing.</h2>
+  <h2>What you told me.</h2>
   <div class="story">
-    <p>You post five days a week through a tool, one to two hours of your time, and LinkedIn already brings you <strong>about one qualified lead most days</strong>. Your account executive runs the sales cycle, mostly on cold calls. The buyers you want more of are <strong>Italian scale-ups testing a new product or market with a pilot</strong>, and the foreign tech companies entering Italy through <strong>Italy Launchpad</strong>.</p>
-    <p>What you've never had is the layer around the posts: <strong>lead magnets, a newsletter, nurture</strong>. You have the ideas, the steps to enter Italy and the campaigns you've already run for clients, and a thirty-page guide is a job you don't have time for. You tried an agency once and lost two months to messages you couldn't see. <strong>Every message I send opens with a resource built for that buyer</strong>, the way mine to you did, you agree the first ones with me, and you see every conversation. All of it in Italian, reviewed by you before it goes out.</p>
+    <p>You post five days a week through a tool and LinkedIn already brings you <strong>about one qualified lead most days</strong>. Your account executive runs the sales cycle, mostly on cold calls. The buyers you want more of are <strong>Italian scale-ups testing a new product or market with a pilot</strong>, and the foreign tech companies entering Italy through <strong>Italy Launchpad</strong>.</p>
+    <p>What you've never had is the layer around the posts: <strong>lead magnets, a newsletter, nurture</strong>. You have the ideas, the steps to enter Italy and what your best client campaigns have in common, and a thirty-page guide is a job you don't have time for.</p>
+    <p>You tried an agency once and lost two months to messages you couldn't see. <strong>Every message I send opens with a resource built for that buyer</strong>, the way mine to you did. You agree the first ones with me and you see every conversation.</p>
   </div>
 </section>
 
@@ -164,7 +173,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 <section class="sec wrap" id="changes">
   <div class="outcome">
     <div><span class="kicker">What changes for you</span><h2>Buyers arrive knowing why they need you.</h2></div>
-    <div><p>They've read your thinking in Italian, used a resource of yours and had a relevant conversation before the call your AE takes.</p><p>OutboundHub gets an ongoing way to find its next pilots while you and your team deliver the ones you already sold.</p></div>
+    <div><p>They've read your thinking, used a resource of yours and had a relevant conversation before the call your AE takes.</p><p>OutboundHub gets an ongoing way to find its next pilots while you and your team deliver the ones you already sold.</p></div>
   </div>
 </section>
 
@@ -176,49 +185,57 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
   <div class="strategy"><span aria-hidden="true">◎</span><div><strong>First, we lock who should buy.</strong><p>The scale-up CEO or Head of Sales who signs a pilot, and the foreign founder planning Italy. Your offer, your strongest proof, and the problems they bring to you.</p></div></div>
 
   <article class="chapter">
-    <div class="copy"><span class="stage-number">01 / Content</span><h3>Every working day, in your voice.</h3><p>Four to five posts a week. Topics come from your sales and internal calls, what you've already written, your competitors' best posts and what's moving in B2B sales that week. <strong>I write, design and publish from your profile.</strong></p><p>Text, carousels and the occasional personal post. You approve the Italian on the board.</p><span class="stage-detail">Full content, built around what you sell.</span></div>
-    <div class="visual mock"><div class="linkedin-post"><div class="li-person"><img class="li-avatar" src="assets/mattan.jpg" alt="Mattan Danino"><div><strong>Mattan Danino</strong><span>RISE DTC</span><small>Carousel design example</small></div><span class="li-mark" aria-hidden="true">in</span></div><div class="li-post-text">What stopped working for beauty brands in 2026.</div><div class="slides"><img src="assets/rise-slide-1.jpg" alt="RISE DTC carousel slide 1"><img src="assets/rise-slide-2.jpg" alt="RISE DTC carousel slide 2"><img src="assets/rise-slide-3.jpg" alt="RISE DTC carousel slide 3"></div><div class="li-actions" aria-hidden="true"><span>Like</span><span>Comment</span><span>Repost</span><span>Send</span></div></div><p class="visual-footnote">RISE DTC · a carousel from the content I run for Mattan.</p></div>
+    <div class="copy"><span class="stage-number">01 / Content</span><h3>Every working day, in your voice.</h3><p>Four to five posts a week. <strong>I write, design and publish from your profile.</strong> You approve the Italian on the board.</p><p>Topics come from your internal and sales calls, your own expertise, and what's trending with your competitors, on X, Reddit and the other places your buyers read.</p><span class="stage-detail">Text, carousels and the occasional personal post.</span></div>
+    <div class="visual mock"><div class="posts2">
+      <div><div class="linkedin-post"><div class="li-person"><img class="li-avatar" src="assets/kyle.jpg" alt="Kyle Hunt"><div><strong>Kyle Hunt</strong><span>Agency operations coach</span><small>Jun 2, 2026</small></div><span class="li-mark" aria-hidden="true">in</span></div><div class="li-post-text">I'm giving away 50 Claude prompts for running an ecom creative agency's operations.<br><br>Comment "prompts" and I'll send them over.</div><div class="li-actions" aria-hidden="true"><span>50 reactions</span><span>266 comments</span></div></div><p class="visual-footnote">Resource post. 266 comments asking for it.</p></div>
+      <div><div class="linkedin-post"><div class="li-person"><img class="li-avatar" src="assets/mattan.jpg" alt="Mattan Danino"><div><strong>Mattan Danino</strong><span>RISE DTC</span><small>Sep 2026</small></div><span class="li-mark" aria-hidden="true">in</span></div><div class="li-post-text">What stopped working for beauty brands in 2026.</div><div class="slides"><img src="assets/rise-slide-1.jpg" alt="RISE DTC carousel slide 1"><img src="assets/rise-slide-2.jpg" alt="RISE DTC carousel slide 2"><img src="assets/rise-slide-3.jpg" alt="RISE DTC carousel slide 3"></div><div class="li-actions" aria-hidden="true"><span>Like</span><span>Comment</span><span>Repost</span></div></div><p class="visual-footnote">Carousel, pulled from his own sales calls.</p></div>
+    </div></div>
   </article>
 
   <article class="chapter rev" id="magnets">
-    <div class="copy"><span class="stage-number">02 / Lead magnets</span><h3>Your ideas, built and shipped under your name.</h3><p>The two you named on the call, <strong>the steps to enter Italy</strong> and <strong>what your best client campaigns have in common</strong>, are the first two I'd build. Two a month, hosted on a resources subdomain of outboundhub with your design, and the winners reused for months of posts and inbound.</p><p>Requests in the comments answered by me, download for an email, and a newsletter that keeps the list warm. What performs best right now is your buyer plus Claude skills, so a skill pack for the executive planning an Italian entry sits in the first quarter.</p><span class="stage-detail">Working samples, built for your buyers: <a class="inline-link" href="pilot-assessment.html" style="min-height:0;padding:0 0 2px">Sales pilot assessment ↗</a> · <a class="inline-link" href="italy-planner.html" style="min-height:0;padding:0 0 2px">Italy Entry Planner ↗</a> · <a class="inline-link" href="claude-brief.html" style="min-height:0;padding:0 0 2px">Claude briefing skill ↗</a></span></div>
+    <div class="copy"><span class="stage-number">02 / Lead magnets</span><h3>Your ideas, built and shipped under your name.</h3><p>The two you named on the call, <strong>the steps to enter Italy</strong> and <strong>what your best client campaigns have in common</strong>, are the first two I'd build. Two a month on a resources subdomain of outboundhub, with your design, and the winners reused for months of posts and inbound. A resource post that lands brings 20 to 30 requests in the comments.</p><span class="stage-detail">Guides, interactive assessments, Claude skill packs and resources built for one buyer at a time. Delivered for an email, with a newsletter that keeps the list warm.</span></div>
     <div class="visual"><div class="resource-demo"><div class="frame resource-front"><div class="browser-bar"><span></span><span></span><span></span><small>Agency operations guide · Kyle Hunt</small></div><img src="assets/kyle-guide.png" alt="Kyle Hunt's agency operations guide"></div><div class="frame resource-second"><div class="browser-bar"><span></span><span></span><span></span><small>15 skills for Claude · RISE DTC</small></div><img src="assets/lm-rise-skills.jpg" alt="15 DTC skills for Claude, live for RISE DTC"></div><div class="capture-label"><span aria-hidden="true">↳</span>A reader joins your email list.</div></div></div>
   </article>
 
   <article class="chapter" id="outreach">
-    <div class="copy"><span class="stage-number">03 / Outreach</span><h3>Reach buyers with a reason to talk.</h3><p>Warm first: your engagers, your resource requests and the named people viewing your profile. Then the people active around your competitors. <strong>Every first message opens with a resource built for that buyer</strong>, the pilot assessment for a scale-up, the Italy planner for a foreign founder.</p><p>Today you send about 15 messages a day and land about one appointment per 15 conversations. The seat can carry more, and the targeting changes the response. The numbers I gave you on the call:</p>
-      <div class="figs"><div class="fig"><div class="v">200</div><div class="l">Invites a week</div><div class="s">What LinkedIn allows a healthy profile. 800 to 1,000 a month.</div></div><div class="fig"><div class="v red">30 to 40%</div><div class="l">Acceptance on signals</div><div class="s">A plain cold list runs near 7%.</div></div><div class="fig"><div class="v">~300</div><div class="l">Conversations a month</div><div class="s">Each opened with a resource, each run by me.</div></div><div class="fig"><div class="v red">~50%</div><div class="l">Reply rate on the opener</div><div class="s">The resource does the work the pitch can't.</div></div></div>
-      <span class="stage-detail">Volumes sit under LinkedIn's ceilings on purpose, so the seat stays safe. Your seat connects through a link, no password; I only see the outreach I sent and what comes back.</span></div>
-    <div class="visual mock"><div class="linkedin-dm"><div class="dm-heading"><span class="li-mark" aria-hidden="true">in</span><strong>Messaging</strong><span aria-hidden="true">···</span></div><div class="dm-person"><span class="dm-avatar" aria-hidden="true">↗</span><div><strong>Head of Sales, Italian scale-up</strong><small>Example conversation · sent in Italian</small></div></div><div class="dm-thread"><div class="dm-bubble sent"><span>Your profile</span><p>I've put together a short brief for deciding what an outsourced sales pilot should prove before you commit a team to it. Want me to send it over?</p></div><div class="dm-bubble received"><span>Head of Sales</span><p>Yes, send it. We're deciding exactly that for a new product in Q1.</p></div><div class="dm-bubble sent"><span>Your profile</span><p>Here it is. Which market is the pilot for?</p></div></div><div class="dm-compose">Write a message…<span aria-hidden="true">↗</span></div></div><p class="visual-footnote">Illustrative exchange. You saw the same opener in my message to you.</p></div>
+    <div class="copy"><span class="stage-number">03 / Outreach</span><h3>Reach buyers with a reason to talk.</h3><p>Warm first: your engagers, your resource requests and the named people viewing your profile. Then the people active around your competitors. <strong>Every first message opens with a resource built for that buyer</strong>, the pilot assessment for a scale-up, the Italy planner for a foreign founder.</p><p>Today you send about 15 messages a day. The seat can carry more, and the targeting changes the response. The numbers I gave you on the call:</p>
+      <div class="figs figs3"><div class="fig"><div class="v">200</div><div class="l">Invites a week</div><div class="s">What LinkedIn allows a healthy profile. 800 to 1,000 a month.</div></div><div class="fig"><div class="v red">30-40%</div><div class="l">Acceptance on signals</div><div class="s">A plain cold list runs near 7%.</div></div><div class="fig"><div class="v">~300</div><div class="l">Conversations a month</div><div class="s">Each opened with a resource, each run by me.</div></div></div>
+      <span class="stage-detail">Volumes sit under LinkedIn's ceilings on purpose, so the seat stays safe. Your seat connects through a link, no password. I only see the outreach I sent and what comes back.</span></div>
+    <div class="visual mock"><div class="linkedin-dm"><div class="dm-heading"><span class="li-mark" aria-hidden="true">in</span><strong>Messaging</strong><span aria-hidden="true">···</span></div><div class="dm-person"><span class="dm-avatar" aria-hidden="true">↗</span><div><strong>Head of Sales, Italian scale-up</strong><small>Example conversation</small></div></div><div class="dm-thread"><div class="dm-bubble sent"><span>Paolo</span><p>Ciao, saw you're hiring SDRs for the new product. I wrote a short brief on what a pilot should prove before you commit a team to it. Want it?</p></div><div class="dm-bubble received"><span>Head of Sales</span><p>Sure, send it over. We're deciding exactly that right now.</p></div><div class="dm-bubble sent"><span>Paolo</span><p>Here you go. Which market is the pilot for?</p></div><div class="dm-bubble received"><span>Head of Sales</span><p>Lombardy first, then Germany. Curious how you'd run the first 90 days.</p></div></div><div class="dm-compose">Write a message…<span aria-hidden="true">↗</span></div></div><p class="visual-footnote">Illustrative exchange. The same opener I used with you.</p></div>
   </article>
 
   <article class="chapter rev">
-    <div class="copy"><span class="stage-number">04 / Conversations</span><h3>Turn interest into a booked call.</h3><p>I run the LinkedIn conversations in Italian: share the resource, understand what the buyer needs, qualify, and move a suitable opportunity to a call. <strong>Your AE knows who they're meeting and what they want to discuss before the call opens.</strong></p><p>Every message is visible to you. The first messages we agree together. Every lead carries its source and its timeline, from invitation to chat to reply to booked call, and maps into your CRM once it's set.</p><span class="stage-detail">Messages, qualification and booking are handled. Shared Slack, weekly report, monthly review.</span></div>
+    <div class="copy"><span class="stage-number">04 / Conversations</span><h3>Turn interest into a booked call.</h3><p>I run the LinkedIn conversations: share the resource, understand what the buyer needs, qualify, and move a suitable opportunity to a call. <strong>Your AE knows who they're meeting and what they want to discuss before the call opens.</strong></p><p>Every message is visible to you. The first messages we agree together. Every lead carries its source and its timeline, from invitation to chat to reply to booked call, and maps into your CRM once it's set.</p><span class="stage-detail">Messages, qualification and booking are handled. Shared Slack, weekly report, monthly review.</span></div>
     <div class="visual"><div class="flow">
-      <div class="lane"><div class="ln">Posts</div><div class="fx"><span>4 to 5 a week, in Italian</span><i></i><span>Engagers and named visitors checked against your buyer</span><i></i><span class="end">Call booked</span></div></div>
+      <div class="lane"><div class="ln">Posts</div><div class="fx"><span>4 to 5 a week, off your calls</span><i></i><span>Engagers and named visitors checked against your buyer</span><i></i><span class="end">Call booked</span></div></div>
       <div class="lane"><div class="ln">Lead magnets</div><div class="fx"><span>Two a month, download for an email</span><i></i><span>Newsletter keeps the list warm, buyers messaged</span><i></i><span class="end">Call booked</span></div></div>
-      <div class="lane"><div class="ln">Outreach <small>Outreach or full service</small></div><div class="fx"><span>Signals, then a resource in the first message</span><i></i><span>Conversation in Italian, qualified, handed to your AE</span><i></i><span class="end">Call booked</span></div></div>
+      <div class="lane"><div class="ln">Outreach <small>Outreach or full service</small></div><div class="fx"><span>Signals, then a resource in the first message</span><i></i><span>Conversation run by me, qualified, handed to your AE</span><i></i><span class="end">Call booked</span></div></div>
     </div><p class="visual-footnote">Three lanes, one calendar. I run every step.</p></div>
   </article>
 
   <div class="compound">
-    <div><span class="kicker">Built over time</span><h3>Each month builds on the last.</h3><p>Your published content, your email list and what we learn about your buyers grow together. A useful guide keeps bringing people back long after the week it goes out.</p><p>I use what buyers read, ask and reply to shape the next content and outreach.</p></div>
-    <figure><svg viewBox="0 0 560 300" role="img" aria-label="Assets building month over month"><g stroke="#dedad4" stroke-width="1"><line x1="40" y1="260" x2="540" y2="260"/><line x1="40" y1="40" x2="40" y2="260"/></g><path d="M40 250 C 140 245, 200 230, 260 200 S 400 120, 540 60" fill="none" stroke="#C8361B" stroke-width="4" stroke-linecap="round"/><g fill="#C8361B" stroke="#fff" stroke-width="4"><circle cx="40" cy="250" r="7"/><circle cx="200" cy="228" r="7"/><circle cx="370" cy="150" r="7"/><circle cx="540" cy="60" r="7"/></g><g font-family="Manrope,Arial,sans-serif" font-size="14" fill="#514d47"><text x="40" y="285">Month 1</text><text x="180" y="285">Month 2</text><text x="345" y="285">Month 3</text><text x="490" y="285">Month 6</text><text x="46" y="222">First posts, first resource</text><text x="215" y="252">List builds, winners reused</text><text x="230" y="80">Newsletter, warm list working</text></g></svg><figcaption>How the assets build. Illustrative, with no forecast implied.</figcaption></figure>
+    <div><span class="kicker">Built over time</span><h3>Each month builds on the last.</h3><p>Your published content, your email list and what we learn about your buyers grow together. A useful guide keeps bringing people back long after the week it goes out.</p><p>Every week I see what your buyers read, request and reply to, and the next posts and messages come from that.</p></div>
+    <figure class="dash" aria-label="Illustrative performance dashboard">
+      <div class="dash-head"><span>Performance · OutboundHub</span><span class="dash-tag">Example figures</span></div>
+      <div class="dash-tiles"><div><b data-count="1240">0</b><span>Email list</span></div><div><b data-count="6">0</b><span>Resources live</span></div><div><b data-count="38">0</b><span>Buyer conversations</span></div></div>
+      <svg class="dash-chart" viewBox="0 0 520 190" role="img" aria-label="Email list growing month over month"><defs><linearGradient id="dg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C8361B" stop-opacity=".38"/><stop offset="1" stop-color="#C8361B" stop-opacity="0"/></linearGradient></defs><g stroke="#e4dfd7" stroke-width="1"><line x1="20" y1="40" x2="500" y2="40"/><line x1="20" y1="95" x2="500" y2="95"/><line x1="20" y1="150" x2="500" y2="150"/></g><path class="dash-area" d="M20 150 C 120 148, 190 135, 260 110 S 400 45, 500 22 L 500 150 Z"/><path class="dash-line" d="M20 150 C 120 148, 190 135, 260 110 S 400 45, 500 22"/><g class="dash-dots"><circle cx="20" cy="150" r="5"/><circle cx="180" cy="139" r="5"/><circle cx="340" cy="72" r="5"/><circle cx="500" cy="22" r="5"/></g><g class="dash-axis"><text x="20" y="178">Month 1</text><text x="160" y="178">Month 2</text><text x="322" y="178">Month 3</text><text x="464" y="178">Month 6</text></g></svg>
+      <div class="dash-signals"><span class="dash-sub">Signals this week</span><ul><li><i></i>14 competitor engagers matched your buyer</li><li><i></i>9 named profile views from CEOs and Heads of Sales</li><li><i></i>23 requests on the Italy guide post</li></ul></div>
+    </figure>
   </div>
-</section>
+</section></section>
 
 <!-- 04 room -->
 <section class="sec wrap" id="room">
   <span class="kicker">Who we'd be booking</span>
   <h2>Your room, by the numbers.</h2>
-  <p class="strap">I read the people reacting to your recent posts against the buyer you described on the call. <strong>Of the 222 who engaged, thirty could sign an SDR contract.</strong> None of your last 34 posts asks them for anything yet. The lead magnet is the ask, and those thirty are week one of warm outreach.</p>
+  <p class="strap">An estimate from a sample of your recent posts, read against the buyer you described on the call. <strong>Of the 222 people who engaged, about thirty could sign an SDR contract.</strong> Some may already be clients. None of your last 34 posts asks them for anything yet. The lead magnet is the ask, and those thirty are week one of warm outreach.</p>
   <div class="room">
     <div>
       <div class="chain">
         <div class="num"><div class="v">222</div><div class="l">people engaged your recent posts</div></div>
-        <div class="num"><div class="v red">30</div><div class="l">of those 222 could sign an SDR contract</div></div>
+        <div class="num"><div class="v red">~30</div><div class="l">of those 222 could sign an SDR contract</div></div>
         <div class="num"><div class="v">0 of 34</div><div class="l">recent posts with a link or an ask</div></div>
-        <div class="num"><div class="v">2</div><div class="l">working resources already built for them</div></div>
+        
       </div>
       <div class="wl">The buyer we'd work first</div>
       <ul class="buyers">
@@ -250,9 +267,9 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
   <p class="strap">Already getting attention from relevant buyers? Inbound turns it into resources, a list and calls. Outreach reaches the buyers who aren't reading you yet. <strong>Full service runs both on one calendar</strong>, and the lead magnets feed the outreach.</p>
   <div class="plans">
     <div class="plan"><span class="badge">Inbound</span><h3>Content, lead magnets, newsletter.</h3><div class="plan-price"><strong>$2,000</strong><span>/ month</span></div>
-      <ul><li><strong>Content every working day</strong><span>4 to 5 posts a week in your voice, in Italian</span></li><li><strong>Two lead magnets a month</strong><span>landing page, capture and delivery on your subdomain</span></li><li><strong>The newsletter</strong><span>two sends a month to start, on the list they build</span></li><li><strong>Warm outreach</strong><span>engagers and named profile visitors who fit, worked to a call</span></li><li><strong>Shared Slack, weekly report, monthly review</strong></li><li class="no">New prospect research and outreach: it's not included.</li></ul></div>
+      <ul><li><strong>Content every working day</strong><span>4 to 5 posts a week in your voice</span></li><li><strong>Two lead magnets a month</strong><span>landing page, capture and delivery on your subdomain</span></li><li><strong>The newsletter</strong><span>two sends a month to start, on the list they build</span></li><li><strong>Warm outreach</strong><span>engagers and named profile visitors who fit, worked to a call</span></li><li><strong>Shared Slack, weekly report, monthly review</strong></li><li class="no">New prospect research and outreach: it's not included.</li></ul></div>
     <div class="plan"><span class="badge">Outreach</span><h3>Warm and cold, run to the call.</h3><div class="plan-price"><strong>$2,000</strong><span>/ month</span></div>
-      <ul><li><strong>Outreach from your seat</strong><span>your signals first, then the competitors' engagers</span></li><li><strong>A resource on every first message</strong><span>one campaign resource, with landing page and delivery</span></li><li><strong>Every conversation run by me</strong><span>in Italian, qualified, booked for your AE with the context</span></li><li><strong>Every message visible to you</strong><span>first messages agreed together</span></li><li><strong>Shared Slack, weekly report, monthly review</strong></li><li class="no">Content and newsletter: it's not included.</li></ul></div>
+      <ul><li><strong>Outreach from your seat</strong><span>your signals first, then the competitors' engagers</span></li><li><strong>A resource on every first message</strong><span>one campaign resource, with landing page and delivery</span></li><li><strong>Every conversation run by me</strong><span>qualified, booked for your AE with the context</span></li><li><strong>Every message visible to you</strong><span>first messages agreed together</span></li><li><strong>Shared Slack, weekly report, monthly review</strong></li><li class="no">Content and newsletter: it's not included.</li></ul></div>
     <div class="plan plan-full"><span class="badge">Full service · recommended</span><h3>Both lanes on one calendar.</h3><div class="plan-price"><strong>$3,000</strong><span>/ month</span></div>
       <ul><li><strong>Everything in both</strong><span>content, lead magnets, newsletter, outreach</span></li><li><strong>The lead magnets feed the outreach</strong><span>and the outreach feeds the list</span></li><li><strong>Every lead in your CRM</strong><span>with its source and its timeline</span></li><li><strong>Board, messages, Slack</strong><span>weekly report, monthly review</span></li></ul></div>
   </div>
@@ -265,7 +282,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
       <li><i></i>Newsletter and nurture</li>
       <li><i></i>Strategy: what gets made, for whom, which resource opens which conversation</li>
       <li><i></i>Outreach: sourcing, filtering, sends from your seat</li>
-      <li><i></i>The conversations and the qualification, in Italian</li>
+      <li><i></i>The conversations and the qualification</li>
       <li><i></i>Tools, infra and every subscription behind it</li>
       <li><i></i>CRM mapping once yours is set</li>
       <li class="you"><i></i><div>Approving the Italian<small>on the board, before it goes out</small></div></li>
@@ -279,9 +296,9 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
   <span class="kicker">Your alternatives</span>
   <h2>Who will do the work?</h2>
   <div class="options-grid">
-    <article><h3>Do it yourself</h3><p>You write, publish, build the resources, find the buyers and manage the conversations. Tools cost extra. So does your time: the posts already take one to two hours a week, and the guide is the thirty pages waiting.</p></article>
+    <article><h3>Do it yourself</h3><p>You write, publish, build the resources, find the buyers and manage the conversations. Tools cost extra. So does your time: the posts already take one to two hours a week, and the guides never get written.</p></article>
     <article><h3>Hire for it</h3><p>A salary or an agency fee, a ramp, and a tool stack, usually for one lane at a time. Check who builds the resources, who runs the newsletter, who works the conversations to a call, and whether you can see the messages.</p><p class="option-note">You've run this experiment once already.</p></article>
-    <article class="option-ivan"><h3>Work with me</h3><strong class="option-price">$2k-$3k<span>/month</span></strong><p>I run the agreed content, resources and outreach in Italian, with every message visible to you. You review the Italian and take the calls.</p><a class="inline-link" href="#plans">Compare the plans <span aria-hidden="true">↑</span></a></article>
+    <article class="option-ivan"><h3>Work with me</h3><strong class="option-price">$2k-$3k<span>/month</span></strong><p>I run the agreed content, resources and outreach, with every message visible to you. You approve the Italian and take the calls.</p><a class="inline-link" href="#plans">Compare the plans <span aria-hidden="true">↑</span></a></article>
   </div>
 </section>
 
@@ -289,8 +306,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 <section class="wrap expert" id="ivan">
   <figure class="expert-portrait"><img src="assets/ivan.jpg" alt="Ivan Manfredi"><figcaption>Ivan Manfredi</figcaption></figure>
   <div class="expert-copy"><span class="kicker">The experience behind the work</span><h2>I make LinkedIn a revenue line for agency founders.</h2><p class="expert-lead">I build the strategy, create your content and run the conversations that bring relevant buyers to your calendar. One person, in your Slack, refining what goes out every week.</p>
-    <div class="expert-nums"><div><strong>50+</strong><span>brands served</span></div><div><strong>$2M</strong><span>client revenue generated</span></div><div><strong>$50M</strong><span>pipeline built</span></div></div>
-    <div class="expert-capacity"><strong>Limited slots.</strong><span>I only work with 10 clients at the same time. An October start holds one of them.</span></div>
+    <div class="expert-nums two"><div><strong>$2M</strong><span>client revenue generated</span></div><div><strong>$50M</strong><span>pipeline built</span></div></div>
+    <div class="expert-capacity"><strong>Limited slots.</strong><span>I only work with 10 clients at the same time.</span></div>
   </div>
 </section>
 
@@ -309,7 +326,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 <section class="sec wrap faq" id="faq">
   <h2>Before we speak again.</h2>
   <div class="faq-list">
-    <details><summary>Will the content read as native Italian?<span aria-hidden="true">+</span></summary><p>Drafts are written from your calls, your DMs and the posts you already wrote, then translated. You approve the Italian on the board before anything goes out, and we tune the first drafts together until the wording is yours.</p></details>
+    <details><summary>Will the content read as native Italian?<span aria-hidden="true">+</span></summary><p>Drafts come from your calls, your DMs and the posts you already wrote. You approve the Italian on the board before anything goes out, and we tune the first drafts together until the wording is yours.</p></details>
     <details><summary>How do you get into my profile?<span aria-hidden="true">+</span></summary><p>Through a connection link, the provider I use for every client. You connect your seat yourself, I never see your password, and in your inbox I only see the outreach I sent and what comes back.</p></details>
     <details><summary>What about the CRM?<span aria-hidden="true">+</span></summary><p>Every lead carries its source, its conversation and its timeline from invitation to booked call. Until your CRM is set, that lives on the board and in the weekly report. Once it's set, it maps in.</p></details>
     <details><summary>How much of my time does it take?<span aria-hidden="true">+</span></summary><p>An onboarding call, the calls you already record as source material, approving the Italian on the board, and the sales calls your AE already takes.</p></details>
@@ -322,10 +339,11 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 <section class="closing" id="close">
   <span class="close-tag">Work directly with Ivan</span>
   <h2>See you on October 15.</h2>
-  <p>11:00 Italian time. We settle the plan and the start date, and I'll show you the first resource built for your buyers. If you and your CFO are ready sooner, pick the plan here and we start that week.</p>
+  <p>11:00 Italian time. We settle the plan and the start date, and I'll show you the first resource built for your buyers. To hold one of the 10 slots before then, pick the plan here and we start on the 15th.</p>
   <div class="closing-actions"><a class="cta light" href="https://buy.stripe.com/eVq00b1M7cvTgRw7XtfEk18">Start full service · $3,000 <span aria-hidden="true">↗</span></a><a class="cta ghost" href="https://buy.stripe.com/14A4grbmHcvTbxc2D9fEk17">Start inbound · $2,000 <span aria-hidden="true">↗</span></a></div>
   <small>Outreach only is $2,000 a month; message me and I send that link the same day.</small>
 </section>
 </main>
+<script>(function(){var d=document.querySelector(".dash");if(!d)return;var rm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;function run(){d.classList.add("in");d.querySelectorAll("[data-count]").forEach(function(b){var t=+b.getAttribute("data-count"),s=performance.now(),dur=1600;if(rm){b.textContent=t.toLocaleString();return}function f(n){var p=Math.min(1,(n-s)/dur);p=1-Math.pow(1-p,3);b.textContent=Math.round(t*p).toLocaleString();if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}if(!("IntersectionObserver"in window)){run();return}var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){run();o.disconnect()}},{threshold:.35});o.observe(d)})();</script>
 <footer class="footer wrap"><span>Prepared by InboundOnSteroids · run by Iván Manfredi · Sep 10, 2026</span><span>im@inboundonsteroids.com</span></footer>
 </body></html>
