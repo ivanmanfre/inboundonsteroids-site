@@ -2436,7 +2436,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="pline"><span style="color:#c8cfe8">Zynga</span><span class="pt">on your not-to-touch list</span></div>
 <div class="pline"><span style="color:#c8cfe8">Zynga (Take-Two&#x27;s mobile unit)</span><span class="pt">casino exclusion</span></div>
 <div class="pline"><span style="color:#c8cfe8">주식회사 루덴스</span><span class="pt">vendor / agency / off-vertical</span></div></div></div></details>
-<p class="legend">OUTREACHED = first message left your seat on that date. In queue = goes out with the next weekly window. Held = under the bar. Updated 2026-09-11.</p>
+<p class="legend">OUTREACHED = first message left your seat on that date. In queue = goes out with the next weekly window. Held = under the bar. Updated 2026-09-12.</p>
 </div>
 <div class="bar"><span id="tally">0 changes</span><button id="submitbtn">Submit</button><button id="copybtn" style="background:transparent;color:var(--lime);border:1px solid var(--lime)">Copy instead</button></div>
 <script>
@@ -2475,7 +2475,7 @@ document.getElementById('submitbtn').addEventListener('click',function(){
    .then(function(r){return r.json()}).then(function(j){
      if(!j||!j.ok)throw new Error('bad');
      btn.textContent='Done ✓ '+j.skipped_companies+' skipped · '+(j.parked_people||0)+' people · '+j.approved_rows+' approved'+((j.go_people||0)?' · '+j.go_people+' Balkan go':'');
-     try{localStorage.setItem('arch-leads-submitted-'+'2026-09-11',JSON.stringify(d))}catch(e){}
+     try{localStorage.setItem('arch-leads-submitted-'+'2026-09-12',JSON.stringify(d))}catch(e){}
      document.querySelectorAll('.crow').forEach(function(r){r.style.opacity='.35';r.querySelector('.cbox').disabled=true});
    }).catch(function(){btn.disabled=false;btn.textContent='Failed - use Copy instead'});
 });
