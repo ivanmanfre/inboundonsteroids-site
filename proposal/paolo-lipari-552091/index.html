@@ -180,10 +180,17 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 @media(prefers-reduced-motion:reduce){.journey-demo.is-playing .journey-event{animation:none;opacity:1;transform:none}}
 @media print{.journey-demo{break-inside:avoid}.journey-replay{display:none}.journey-event{animation:none!important;opacity:1!important;transform:none!important}.resource-showcase{display:grid}.resource-showcase .preview-button img{height:55mm;object-fit:contain}.carousel-sample .slides{overflow:visible}.carousel-sample .slide-preview:not(:first-child){display:none}}
 
+
+/* Keep the title and introduction together on the opening screen. */
+:root{--mast-height:64px}.mast{min-height:var(--mast-height)}.opening-screen{min-height:calc(100svh - var(--mast-height));display:flex;flex-direction:column;justify-content:center;padding:36px 0 48px}.opening-screen>.head,.opening-screen>#call{margin:0 auto}.opening-screen>.head{padding-top:0}.opening-screen>#call{padding-top:32px}.opening-screen .story.big{padding-top:24px}
+@media(max-width:760px){:root{--mast-height:48px}.opening-screen{padding:24px 0 32px}.opening-screen>#call{padding-top:24px}.opening-screen .story.big{padding-top:20px}}
+@media print{.opening-screen{display:block;min-height:0;padding:0}.opening-screen>.head{padding-top:4mm}.opening-screen>#call{padding-top:8mm}.mast{min-height:0}}
+
 </style></head><body>
 
 <header class="mast wrap"><span class="wordmark">INBOUND<b>ON</b>STEROIDS</span><span class="mast-note">Paolo Lipari · OutboundHub · September 2026</span></header>
 <main>
+<div class="opening-screen">
 
 <section class="head wrap">
   <span class="kicker">Prepared for Paolo Lipari · September 2026</span>
@@ -201,11 +208,13 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 
 
 
+</div>
+
 <!-- 02 what changes -->
 <section class="sec wrap" id="changes">
   <div class="outcome">
     <div><span class="kicker">What changes for you</span><h2>Buyers arrive knowing why they need you.</h2></div>
-    <div><p>They've read your thinking, used a resource of yours and had a relevant conversation before your sales call.</p><p>OutboundHub gets an ongoing way to find its next pilots while you and your team deliver the ones you already sold.</p></div>
+    <div><p>They've read your thinking, used a resource of yours and had a relevant conversation before your sales call.</p></div>
   </div>
 </section>
 
