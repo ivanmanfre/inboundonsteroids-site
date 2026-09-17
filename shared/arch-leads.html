@@ -82,6 +82,14 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 .bar{position:fixed;bottom:0;left:0;right:0;background:rgba(0,15,65,.92);backdrop-filter:blur(6px);border-top:1px solid rgba(242,255,130,.3);padding:12px 20px;display:flex;gap:14px;align-items:center;justify-content:center;z-index:9}
 .bar #tally{color:#c8cfe8;font-size:13px}
 .bar button{background:var(--lime);color:var(--navy);font-family:inherit;font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;border:0;border-radius:999px;padding:10px 22px;cursor:pointer}
+/* budget fold (goal-run arch-spend-capacity-gate-2026-09-17) */
+.brow{background:rgba(53,98,255,.09);border:1px solid rgba(255,176,112,.25);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.budgetbox{width:16px;height:16px;border:2px solid #ffb070;border-radius:4px;background:transparent;cursor:pointer;flex:none;align-self:center;padding:0}
+.person.pbudget .budgetbox{background:#ffb070}
+.person.pbudget a{color:#ffb070}
+.secd.budget{border-left-color:rgba(255,176,112,.9)}
+.secd.budget summary{color:#ffb070}
+.secd.budget summary .tag{background:#ffb070;color:#0b1020}
 </style></head><body>
 <header><svg class="wm" xmlns="http://www.w3.org/2000/svg" viewBox="701.000 473.691 518.398 134.375">
 <!-- ARCH. wordmark master - extracted verbatim from ARCH-Visual-identity-guidelines.pdf page 1 (vector, no redraw). Color via #F2FF82. -->
@@ -93,9 +101,9 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
   <path fill="#F2FF82" fill-rule="nonzero" d="M 1207.65625 605.519531 C 1214.144531 605.519531 1219.398438 600.40625 1219.398438 594.101562 C 1219.398438 587.796875 1214.144531 582.6875 1207.65625 582.6875 C 1201.171875 582.6875 1195.914062 587.796875 1195.914062 594.101562 C 1195.914062 600.40625 1201.171875 605.519531 1207.65625 605.519531 Z M 1207.65625 605.519531 "/>
 </svg>
 <h1>Leads. <em>New ones up top.</em></h1>
-<p class="lede" style="margin:0 0 10px"><strong style="color:var(--lime)">Pending: 43 companies &middot; 47 people.</strong></p>
+<p class="lede" style="margin:0 0 10px"><strong style="color:var(--lime)">Pending: 42 companies &middot; 46 people.</strong></p>
 <p class="lede">Tap a company to skip it, or the small box to skip one person. Sections are folded, tap a title to open it. Done: hit "Submit". Skips stop right away, everyone else goes ahead.</p>
-<div class="kpis"><div class="kpi act"><b>43</b><span>companies to review</span></div><div class="kpi"><b>45</b><span>in queue</span></div><div class="kpi"><b>314</b><span>outreached</span></div><div class="kpi"><b>21</b><span>replied</span></div></div>
+<div class="kpis"><div class="kpi act"><b>42</b><span>companies to review</span></div><div class="kpi"><b>45</b><span>in queue</span></div><div class="kpi"><b>314</b><span>outreached</span></div><div class="kpi"><b>21</b><span>replied</span></div></div>
 </header>
 <div class="wrap">
 <details class="secd review" id="sec-engager"><summary><span class="tag">review</span><span class="ttl">New this week &middot; engager harvest</span><span class="cnt">12 companies &middot; 12 people</span></summary><div class="rowstack"><div class="crow" data-company="Casualino JSC" data-section="engager">
@@ -107,7 +115,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Coffee Stain Publishing" data-section="engager">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Coffee Stain Publishing</span><span class="chip new">new</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_this-doomer-clickbait-from-industry-media-activity-7504101573460135937-0-qB" target="_blank">Michail Katkoff's post</a></span></div><div class="why">scope of the &#x27;Publishing person&#x27; title — BD/deal-sourcing vs</div><div class="why">company page: no LinkedIn page matched this employer name</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_this-doomer-clickbait-from-industry-media-activity-7504101573460135937-0-qB" target="_blank">Michail Katkoff's post</a></span></div><div class="why">current &#x27;Publishing&#x27; role at Coffee Stain Publishing (Valheim, Satisfactory, Steam titles), 15 employees, non-giant</div><div class="why">company page: no LinkedIn page matched this employer name</div>
   <div class="people"><div class="person" data-name="Gustav Nisser 🔜 DICE"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/gustavnisser" target="_blank">Gustav Nisser 🔜 DICE</a><span class="ptitle">Publishing</span><span class="ploc">Sweden</span></div></div>
 </div>
 <div class="crow" data-company="Coleplay Games" data-section="engager">
@@ -125,31 +133,31 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Digital Hazard Studio" data-section="engager">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Digital Hazard Studio</span><span class="chip new">new</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_michal-nowakowski-joint-ceo-of-cd-projekt-activity-7505536856026030081-wdhL" target="_blank">Michail Katkoff's post</a></span></div><div class="why">Whether &#x27;Head of Studio&#x27; carries marketing/UA budget authority, Whether Digital Hazard has a shipped/live title and on w</div><div class="why">company page: no LinkedIn page matched this employer name</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_michal-nowakowski-joint-ceo-of-cd-projekt-activity-7505536856026030081-wdhL" target="_blank">Michail Katkoff's post</a></span></div><div class="why">Platform of the in-development title (mobile/PC/console) is not stated, No live/shipped product evidence — company is pr</div><div class="why">company page: no LinkedIn page matched this employer name</div>
   <div class="people"><div class="person" data-name="Pendragon Wachtel"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/pendragonwachtel" target="_blank">Pendragon Wachtel</a><span class="ptitle">Head of Studio</span><span class="ploc">United States</span></div></div>
 </div>
 <div class="crow" data-company="Feel Good Interactive" data-section="engager">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Feel Good Interactive</span><span class="chip new">new</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_this-doomer-clickbait-from-industry-media-activity-7504101573460135937-0-qB" target="_blank">Michail Katkoff's post</a></span></div><div class="why">Whether Feel Good Interactive&#x27;s revenue comes primarily from the B2C Mysh app or the B2B IP-licensing platform, Whether</div><div class="why">company page: no LinkedIn page matched this employer name</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_this-doomer-clickbait-from-industry-media-activity-7504101573460135937-0-qB" target="_blank">Michail Katkoff's post</a></span></div><div class="why">CEO/co-founder, live consumer kids&#x27; story-game app (Mysh), 8-person startup, marketing-background founder</div><div class="why">company page: no LinkedIn page matched this employer name</div>
   <div class="people"><div class="person" data-name="Neil Vidyarthi"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/neilv" target="_blank">Neil Vidyarthi</a><span class="ptitle">CEO, Co-Founder</span><span class="ploc">Canada</span></div></div>
 </div>
 <div class="crow" data-company="Mars Games" data-section="engager">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Mars Games</span><span class="chip new">new</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_this-doomer-clickbait-from-industry-media-activity-7504101573460135937-0-qB" target="_blank">Michail Katkoff's post</a></span></div><div class="why">No live/shipped consumer product evidenced — company states it is still seeking investment to complete the project, Plat</div><div class="why">company page: no LinkedIn page matched this employer name</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_this-doomer-clickbait-from-industry-media-activity-7504101573460135937-0-qB" target="_blank">Michail Katkoff's post</a></span></div><div class="why">Whether Mars Games has any live/shipped title or current UA/creator spend — role description implies pre-launch/fundrais</div><div class="why">company page: no LinkedIn page matched this employer name</div>
   <div class="people"><div class="person" data-name="Chris Keeling"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/chriskeeling" target="_blank">Chris Keeling</a><span class="ptitle">Chief Executive Officer</span><span class="ploc">Greater Orlando</span></div></div>
 </div>
 <div class="crow" data-company="Moai Games" data-section="engager">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Moai Games</span><span class="chip new">new</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_sf-vs-helsinki-vs-athens-an-honest-review-activity-7504954292676775937-lNXt" target="_blank">Michail Katkoff's post</a></span></div><div class="why">Whether Moai Games has a live/shipped title beyond the mission statement (website not verified)</div><div class="why">company page: no LinkedIn page matched this employer name</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_sf-vs-helsinki-vs-athens-an-honest-review-activity-7504954292676775937-lNXt" target="_blank">Michail Katkoff's post</a></span></div><div class="why">Co-founder/CEO, 7-employee mobile casual game studio (ratified games vertical)</div><div class="why">company page: no LinkedIn page matched this employer name</div>
   <div class="people"><div class="person" data-name="Amit Vainer"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/amit-vainer" target="_blank">Amit Vainer</a><span class="ptitle">Co-founder &amp; CEO</span><span class="ploc">Israel</span></div></div>
 </div>
 <div class="crow" data-company="Moon Beast Productions" data-section="engager">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Moon Beast Productions</span><span class="chip new">new</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_this-doomer-clickbait-from-industry-media-activity-7504101573460135937-0-qB" target="_blank">Michail Katkoff's post</a></span></div><div class="why">Platform (mobile/PC vs console-only) of Moon Beast Productions&#x27; games — determines games-vertical eligibility</div><div class="why">company page: no LinkedIn page matched this employer name</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_this-doomer-clickbait-from-industry-media-activity-7504101573460135937-0-qB" target="_blank">Michail Katkoff's post</a></span></div><div class="why">CEO/co-founder of 11-person ARPG studio building own IP</div><div class="why">company page: no LinkedIn page matched this employer name</div>
   <div class="people"><div class="person" data-name="Phil Shenk"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/pshenk" target="_blank">Phil Shenk</a><span class="ptitle">Co-Founder &amp; CEO</span><span class="ploc">Texas Metropolitan Area</span></div></div>
 </div>
 <div class="crow" data-company="ROUVY" data-section="engager">
@@ -182,7 +190,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow optin" data-company="Cyber Mages" data-section="balkan">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Cyber Mages</span><span class="chip new">new</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_sf-vs-helsinki-vs-athens-an-honest-review-activity-7504954292676775937-lNXt" target="_blank">Michail Katkoff's post</a></span></div><div class="why">current employer role, exact company identity, current company/product facts, headcount</div><div class="why">company page: no LinkedIn page matched this employer name</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_sf-vs-helsinki-vs-athens-an-honest-review-activity-7504954292676775937-lNXt" target="_blank">Michail Katkoff's post</a></span></div><div class="why">headcount</div><div class="why">company page: no LinkedIn page matched this employer name</div>
   <div class="people"><div class="person" data-name="Vitalii Abramov"><button class="gobox" title="GO: tick to outreach this person in English"></button><a href="https://www.linkedin.com/in/vitaly-abramov" target="_blank">Vitalii Abramov</a><span class="ptitle">Co-founder and co-CEO</span><span class="ploc">Serbia</span><span class="chip lang" title="Balkan person: goes only with your yes">Balkan &middot; your yes needed</span></div></div>
 </div>
 <div class="crow optin" data-company="DRAFA" data-section="balkan">
@@ -221,7 +229,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
     <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/johnwright1987_tell-me-you-were-at-jamesons-last-night-activity-7499057443042267136-gEIv" target="_blank">an industry's post</a></span></div><div class="why">CMO at XS Software, a verified F2P browser game producer/publisher (73 employees)</div>
   <div class="people"><div class="person" data-name="Boris B."><button class="gobox" title="GO: tick to outreach this person in English"></button><a href="https://www.linkedin.com/in/boris-balkandzhiyski/" target="_blank">Boris B.</a><span class="ptitle">Chief Marketing Officer</span><span class="ploc">Sofia Metropolitan Area</span><span class="chip lang" title="Balkan person: goes only with your yes">Balkan &middot; your yes needed</span></div></div>
 </div></div></details>
-<details class="secd review" id="sec-hiring"><summary><span class="tag">review</span><span class="ttl">Hiring right now &middot; companies with a live creator/UA job opening</span><span class="cnt">8 companies &middot; 11 people</span></summary><div class="rowstack"><div class="crow" data-company="Fleming" data-section="hiring">
+<details class="secd review" id="sec-hiring"><summary><span class="tag">review</span><span class="ttl">Hiring right now &middot; companies with a live creator/UA job opening</span><span class="cnt">7 companies &middot; 10 people</span></summary><div class="rowstack"><div class="crow" data-company="Fleming" data-section="hiring">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Fleming</span><span class="chip new">new</span>
     <span class="csrc">hiring: <a href="https://lt.linkedin.com/jobs/view/growth-manager-at-fleming-4438203517" target="_blank">Growth Manager</a></span></div><div class="why">Head of Growth at Fleming, live consumer health/wellness app (2M+ customers), 140 employees, mid-size, budget-owning tit</div>
@@ -232,12 +240,6 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
     <span class="cname">Hutch</span><span class="chip new">new</span>
     <span class="csrc">hiring: <a href="https://uk.linkedin.com/jobs/view/senior-marketing-analyst-at-hutch-4460471804" target="_blank">Senior Marketing Analyst | Performance Marketing</a></span></div><div class="why">Lead Performance Marketing Manager at Hutch, a verified mobile game studio — budget-adjacent buyer in ratified mobile ga</div>
   <div class="people"><div class="person" data-name="Stefan Voinea"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/stefan-voinea/" target="_blank">Stefan Voinea</a><span class="ptitle">Lead Performance Maketing Manager</span><span class="ploc">UK</span></div></div>
-</div>
-<div class="crow" data-company="Ingenio" data-section="hiring">
-  <div class="chead"><button class="cbox" title="toggle: skip"></button>
-    <span class="cname">Ingenio</span><span class="chip new">new</span>
-    <span class="csrc">hiring: <a href="https://www.linkedin.com/jobs/view/performance-marketing-manager-at-ingenio-4444021702" target="_blank">Performance Marketing Manager</a></span></div><div class="why">VP Performance Marketing, full-time, at Ingenio, spiritual/emotional wellness marketplace (Keen, Kasamba, Purple Garden)</div>
-  <div class="people"><div class="person" data-name="Felix Bernhoerster"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/felixbernhoerster/" target="_blank">Felix Bernhoerster</a><span class="ptitle">VP, Performance Marketing</span><span class="ploc">United States</span></div></div>
 </div>
 <div class="crow" data-company="Juvia&#x27;s Place LLC" data-section="hiring">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
@@ -364,7 +366,8 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
     <span class="csrc">cold title search</span></div><div class="why">Lead User Acquisition Manager at Verv, a health &amp; wellness consumer app company (120M+ users), 68 employees</div>
   <div class="people"><div class="person" data-name="Aleksandr Gusinets"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/aleksandr-gusinets-b62466125" target="_blank">Aleksandr Gusinets</a><span class="ptitle">Lead User Acquisition Manager</span><span class="ploc">PL</span></div></div>
 </div></div></details>
-<details class="secd status" id="sec-inqueue"><summary><span class="tag">status</span><span class="ttl">In queue &middot; approved, nothing sent yet. Tap one to pull it</span><span class="cnt">37 companies &middot; 45 people &middot; 21 next up</span></summary><div class="rowstack"><div class="crow" data-company="52 Entertainment" data-section="approved">
+
+<details class="secd status" id="sec-inqueue"><summary><span class="tag">status</span><span class="ttl">In queue &middot; approved, nothing sent yet. Tap one to pull it</span><span class="cnt">37 companies &middot; 45 people &middot; 20 next up</span></summary><div class="rowstack"><div class="crow" data-company="52 Entertainment" data-section="approved">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">52 Entertainment</span>
     <span class="csrc">hiring: <a href="https://fr.linkedin.com/jobs/view/ua-manager-at-52-entertainment-4446228348?position=1&amp;pageNum=0&amp;refId=TPnalomZD0r0KtYbhWpqWA%3D%3D&amp;trackingId=UqGl9eOMTNcTnPh%2BXqG%2F2w%3D%3D" target="_blank">UA Manager</a></span></div><div class="why">Marketing Director for 52 Entertainment&#x27;s Bridge/card-games unit</div>
@@ -423,8 +426,8 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Infold Games" data-section="approved">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Infold Games</span>
-    <span class="csrc">announced: <a href="https://gamingonphone.com/upcoming-mobile-games/" target="_blank">Ballad of Antara</a></span></div><div class="why">current Head of User Growth at Infold</div>
-  <div class="people"><div class="person" data-name="Jeffrey (Haojie) Zhang"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/haojiezhang/" target="_blank">Jeffrey (Haojie) Zhang</a><span class="ptitle"> Head of User Growth </span><span class="ploc">China</span><span class="chip qd">in queue · 9</span></div></div>
+    <span class="csrc">announced: <a href="https://gamingonphone.com/upcoming-mobile-games/" target="_blank">Ballad of Antara</a></span></div><div class="why">Asia-HQ mobile studio (Papergames/Infold)</div>
+  <div class="people"><div class="person" data-name="Jeffrey (Haojie) Zhang"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/haojiezhang/" target="_blank">Jeffrey (Haojie) Zhang</a><span class="ptitle"> Head of User Growth </span><span class="ploc">China</span><span class="chip held" title="geography: Asia-HQ mobile studio (Papergames/Infold); Head of User Growth role evidenced but no Western UA/creator spend shown">held · geography · 2</span></div></div>
 </div>
 <div class="crow" data-company="Iteration One GmbH" data-section="approved">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
@@ -490,7 +493,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Rahua Beauty" data-section="approved">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Rahua Beauty</span>
-    <span class="csrc">cold title search</span></div><div class="why">Current Rahua ecommerce director with a marketing background</div>
+    <span class="csrc">cold title search</span></div><div class="why">D2C: Director/Head of Ecommerce, DTC &amp; Digital Marketing at 127-employee haircare brand, repeat-consumable vertical, mid</div>
   <div class="people"><div class="person" data-name="Marilee Clark"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/marileecclark" target="_blank">Marilee Clark</a><span class="ptitle">Director of Ecommerce and Amazon </span><span class="ploc">US</span><span class="chip qd">in queue · 8</span></div></div>
 </div>
 <div class="crow" data-company="Sega of America, Inc." data-section="approved">
@@ -559,8 +562,8 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Women in Games" data-section="approved">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Women in Games</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/marion-balinoff_istanbul-october-7-8-first-time-on-activity-7501561698080747520-nebf" target="_blank">an industry's post</a></span></div><div class="why">No company evidence (website, product description, headcount, geography) was fetched for APPS / apps-teknoloji (company_</div>
-  <div class="people"><div class="person" data-name="Aleyna Cerrah"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/aleyna-cerrah" target="_blank">Aleyna Cerrah</a><span class="ptitle">Growth Marketing / User Acquisition Manager</span><span class="ploc">Türkiye</span><span class="chip qd">in queue · 6</span></div></div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/marion-balinoff_istanbul-october-7-8-first-time-on-activity-7501561698080747520-nebf" target="_blank">an industry's post</a></span></div><div class="why">APPS / Apps Teknoloji (company_id 10976801, linkedin.com/company/apps-teknoloji/) has no fetched company evidence — prod</div>
+  <div class="people"><div class="person" data-name="Aleyna Cerrah"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/aleyna-cerrah" target="_blank">Aleyna Cerrah</a><span class="ptitle">Growth Marketing / User Acquisition Manager</span><span class="ploc">Türkiye</span><span class="chip qd">in queue · 5</span></div></div>
 </div>
 <div class="crow" data-company="XS Software" data-section="approved">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
@@ -591,8 +594,8 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="주식회사 루덴스" data-section="approved">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">주식회사 루덴스</span>
-    <span class="csrc">commented on <a href="https://www.linkedin.com/posts/alifarha_3-countries-and-ive-packed-for-none-of-activity-7502636887967408128-rI26" target="_blank">an industry's post</a></span></div><div class="why">current employer role, exact company identity, current company/product facts, headcount</div>
-  <div class="people"><div class="person" data-name="JiHwan Jung"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/ianofludens" target="_blank">JiHwan Jung</a><span class="ptitle">CEO</span><span class="ploc">South Korea</span><span class="chip held" title="needs_verification: current employer role, exact company identity, current company/product facts, headcount">held · needs verification · 5</span></div></div>
+    <span class="csrc">commented on <a href="https://www.linkedin.com/posts/alifarha_3-countries-and-ive-packed-for-none-of-activity-7502636887967408128-rI26" target="_blank">an industry's post</a></span></div><div class="why">Korean-registered CEO (주식회사 Ludens), no evidence of Western UA/creator spend</div>
+  <div class="people"><div class="person" data-name="JiHwan Jung"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/ianofludens" target="_blank">JiHwan Jung</a><span class="ptitle">CEO</span><span class="ploc">South Korea</span><span class="chip held" title="geography: Korean-registered CEO (주식회사 Ludens), no evidence of Western UA/creator spend; vertical unconfirmed">held · geography · 2</span></div></div>
 </div></div></details>
 <details class="secd status" id="sec-outreached"><summary><span class="tag">status</span><span class="ttl">Outreached &middot; where each one stands</span><span class="cnt">248 companies &middot; 314 people &middot; 21 replied</span></summary><div class="rowstack"><div class="crow" data-company="10 Chambers" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
@@ -645,7 +648,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="All Hats" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">All Hats</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/gameanalytics_hot-off-the-press-what-47-billion-roblox-activity-7500862843131461632-BIUP" target="_blank">an industry's post</a></span></div><div class="why">Whether All Hats&#x27; revenue is primarily its own live Roblox titles (consumer UA buyer) or work-for-hire/co-development fo</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/gameanalytics_hot-off-the-press-what-47-billion-roblox-activity-7500862843131461632-BIUP" target="_blank">an industry's post</a></span></div><div class="why">Whether All Hats&#x27; revenue and current focus come primarily from its own live/shipped Roblox consumer titles (consumer UA</div>
   <div class="people"><div class="person" data-name="Olli Raudus"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/olliraudus" target="_blank">Olli Raudus</a><span class="ptitle">Chief Executive Officer</span><span class="ploc">Finland</span><span class="chip out dm">InMail sent 2026-09-09</span></div></div>
 </div>
 <div class="crow" data-company="Ares Interactive, Inc." data-section="outreached">
@@ -657,7 +660,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Artifex Mundi" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Artifex Mundi</span>
-    <span class="csrc">hiring: <a href="https://pl.linkedin.com/jobs/view/performance-creative-lead-at-artifex-mundi-4437812184" target="_blank">Performance Creative Lead</a></span></div><div class="why">Verified Senior Designer / Marketing Lead at Artifex Mundi</div>
+    <span class="csrc">hiring: <a href="https://pl.linkedin.com/jobs/view/performance-creative-lead-at-artifex-mundi-4437812184" target="_blank">Performance Creative Lead</a></span></div><div class="why">dual title Designer/Marketing Lead scored on marketing half</div>
   <div class="people"><div class="person" data-name="Tomasz Grudzinski"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/tomasz-grudzinski-5670182/" target="_blank">Tomasz Grudzinski</a><span class="ptitle">Senior Designer / Marketing Lead</span><span class="ploc">Poland</span><span class="chip out dm">InMail sent 2026-09-15</span></div></div>
 </div>
 <div class="crow" data-company="AS Beauty Group" data-section="outreached">
@@ -738,7 +741,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Bitget Wallet" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Bitget Wallet</span>
-    <span class="csrc">hiring: <a href="https://uk.linkedin.com/jobs/view/influencer-affiliate-marketing-growth-manager-%E2%80%93-en-markets-at-bitget-wallet-4462805302" target="_blank">Influencer&amp;Affiliate Marketing Growth Manager – EN Markets</a></span></div><div class="why">verified current PayFi Product Marketing Manager at Bitget Wallet</div>
+    <span class="csrc">hiring: <a href="https://uk.linkedin.com/jobs/view/influencer-affiliate-marketing-growth-manager-%E2%80%93-en-markets-at-bitget-wallet-4462805302" target="_blank">Influencer&amp;Affiliate Marketing Growth Manager – EN Markets</a></span></div><div class="why">Product Marketing Manager at Bitget Wallet, consumer crypto/web3 wallet (223 employees)</div>
   <div class="people"><div class="person" data-name="Jia Wei Ang"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/jiaweiang/" target="_blank">Jia Wei Ang</a><span class="ptitle">PayFi Product Marketing Manager</span><span class="ploc">Singapore</span><span class="chip out dm">InMail sent 2026-09-15</span></div></div>
 </div>
 <div class="crow" data-company="BLACKHUB GAMES" data-section="outreached">
@@ -856,7 +859,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Crooto Software Ltd." data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Crooto Software Ltd.</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/jeff-cohen-29930455_pvx-delta-activity-7502621863789899777-8wEr" target="_blank">an industry's post</a></span></div><div class="why">Current Crooto CEO personally leads its self-publishing and commercial market-expansion program, corroborated in recent</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/jeff-cohen-29930455_pvx-delta-activity-7502621863789899777-8wEr" target="_blank">an industry's post</a></span></div><div class="why">CEO/owner of Crooto Software, 7-person mobile F2P game studio with live App Store/Google Play titles — direct budget-own</div>
   <div class="people"><div class="person" data-name="Nikita Shamakov"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/nikita-shamakov-26a726a0" target="_blank">Nikita Shamakov</a><span class="ptitle">Chief Executive Officer</span><span class="ploc">Portugal</span><span class="chip out dm">InMail sent 2026-09-08</span></div></div>
 </div>
 <div class="crow" data-company="Current" data-section="outreached">
@@ -987,7 +990,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Foodvisor" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Foodvisor</span>
-    <span class="csrc">cold title search</span></div><div class="why">Current company-side User Acquisition Manager at Foodvisor, an active consumer nutrition app company</div>
+    <span class="csrc">cold title search</span></div><div class="why">UA Manager at Foodvisor (health/wellness nutrition app), 22 employees, verified current role — clear UA budget influence</div>
   <div class="people"><div class="person" data-name="Camille Pedrosa"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/camillepedrosa" target="_blank">Camille Pedrosa</a><span class="ptitle">User Acquisition Manager</span><span class="ploc">FR</span><span class="chip out dm">InMail sent 2026-09-03</span></div></div>
 </div>
 <div class="crow" data-company="Fortis Games" data-section="outreached">
@@ -1092,7 +1095,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Good Job Games" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Good Job Games</span>
-    <span class="csrc">in soft launch: <a href="https://www.pocketgamer.biz/the-latest-and-most-interesting-mobile-games-in-soft-launch-update/" target="_blank">Spook Escape! Match Villains</a> &middot; Brazil, Germany, Philippines &middot; since May 24th, 2026</span></div><div class="why">Current full-time Growth Manager at Good Job Games</div>
+    <span class="csrc">in soft launch: <a href="https://www.pocketgamer.biz/the-latest-and-most-interesting-mobile-games-in-soft-launch-update/" target="_blank">Spook Escape! Match Villains</a> &middot; Brazil, Germany, Philippines &middot; since May 24th, 2026</span></div><div class="why">Growth Manager at Good Job Games, verified mobile F2P studio, 272 employees, mid-size, on buying committee</div>
   <div class="people"><div class="person" data-name="Kubilay Ceylan"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/kubilay-ceylan-444255b5" target="_blank">Kubilay Ceylan</a><span class="ptitle">Growth Manager</span><span class="ploc">TR</span><span class="chip out dm">InMail sent 2026-09-16</span></div>
 <div class="person" data-name="Erdem Ustasüleyman"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/erdem-ustasüleyman-0b8666199" target="_blank">Erdem Ustasüleyman</a><span class="ptitle">Growth Manager</span><span class="ploc">TR</span><span class="chip out invite">accepted 2026-09-16, DM1 next</span></div></div>
 </div>
@@ -1167,7 +1170,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="HypeHype Inc." data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">HypeHype Inc.</span>
-    <span class="csrc">in soft launch: <a href="https://www.pocketgamer.biz/the-latest-and-most-interesting-mobile-games-in-soft-launch-update/" target="_blank">Altegro</a> &middot; Australia, Canada, Finland</span></div><div class="why">Current Marketing Director at exact HypeHype/Frogmind company</div>
+    <span class="csrc">in soft launch: <a href="https://www.pocketgamer.biz/the-latest-and-most-interesting-mobile-games-in-soft-launch-update/" target="_blank">Altegro</a> &middot; Australia, Canada, Finland</span></div><div class="why">Marketing Director at 29-person Helsinki mobile game studio, ratified vertical, mid-size, budget-owning marketing title</div>
   <div class="people"><div class="person" data-name="Jarno Kallunki"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/jarnokillikallunki" target="_blank">Jarno Kallunki</a><span class="ptitle">Marketing Director</span><span class="ploc">FI</span><span class="chip out dm">InMail sent 2026-09-15</span></div></div>
 </div>
 <div class="crow" data-company="Hypemasters" data-section="outreached">
@@ -1294,7 +1297,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="LeanGo Studio" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">LeanGo Studio</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/gameanalytics_gamescom-2026-is-about-to-start-and-im-warming-activity-7498045423236923392-UX-g" target="_blank">an industry's post</a></span></div><div class="why">Concurrent current position as CEO and Founder at Paeezan Game Studio — no company evidence (product, platform, headcoun</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/gameanalytics_gamescom-2026-is-about-to-start-and-im-warming-activity-7498045423236923392-UX-g" target="_blank">an industry's post</a></span></div><div class="why">Studio Director tops 9-person mobile studio LeanGo</div>
   <div class="people"><div class="person" data-name="Mohamad Zehtabi"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/mohamad-zehtabi-27b7295a" target="_blank">Mohamad Zehtabi</a><span class="ptitle">Studio Director</span><span class="ploc">Canada</span><span class="chip out dm">InMail sent 2026-09-09</span></div></div>
 </div>
 <div class="crow" data-company="LeapBlock" data-section="outreached">
@@ -1343,7 +1346,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Loora" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Loora</span>
-    <span class="csrc">new in role &middot; 3 months in</span></div><div class="why">Current company-side user acquisition role at live consumer AI language app</div>
+    <span class="csrc">new in role &middot; 3 months in</span></div><div class="why">no reasoned judgment supported by receipts tied to this identity</div>
   <div class="people"><div class="person" data-name="Ariel Dinur"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/ariel-dinur-745682ab" target="_blank">Ariel Dinur</a><span class="ptitle">User Acquisition</span><span class="ploc">IL</span><span class="chip out invite">accepted 2026-09-16, DM1 next</span></div></div>
 </div>
 <div class="crow" data-company="Luni" data-section="outreached">
@@ -1387,7 +1390,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Manta Games" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Manta Games</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_theres-something-profoundly-perverse-about-activity-7501534006572892160-CuLL" target="_blank">Michail Katkoff's post</a></span></div><div class="why">Founder &amp; CEO of Manta Games, a game studio</div><div class="why">company page: no LinkedIn page matched this employer name</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/michailkatkoff_theres-something-profoundly-perverse-about-activity-7501534006572892160-CuLL" target="_blank">Michail Katkoff's post</a></span></div><div class="why">fewer than 5 employees</div><div class="why">company page: no LinkedIn page matched this employer name</div>
   <div class="people"><div class="person" data-name="Liam Adams"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/liamadamsbusiness" target="_blank">Liam Adams</a><span class="ptitle">Founder &amp; CEO</span><span class="ploc">United States</span><span class="chip out dm">DM1 sent 2026-09-11</span></div></div>
 </div>
 <div class="crow" data-company="MANUAL" data-section="outreached">
@@ -1426,13 +1429,13 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Million Victories" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Million Victories</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/petrfodor_fake-mobile-game-ads-are-they-really-worth-activity-7502685255699623936-xjUq" target="_blank">Peter Fodor's post</a></span></div><div class="why">Verified Brand Manager owns marketing, influencer campaigns and ASO at Million Victories</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/petrfodor_fake-mobile-game-ads-are-they-really-worth-activity-7502685255699623936-xjUq" target="_blank">Peter Fodor's post</a></span></div><div class="why">Mobile F2P studio (Million Lords)</div>
   <div class="people"><div class="person" data-name="Rodrigue Magnindong"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/rodrigue-magnindong-474b3887" target="_blank">Rodrigue Magnindong</a><span class="ptitle">Brand Manager, ASO &amp; Partnerships</span><span class="ploc">Greater Lyon Area</span><span class="chip out dm">InMail sent 2026-09-09</span></div></div>
 </div>
 <div class="crow" data-company="Mindly Apps" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Mindly Apps</span>
-    <span class="csrc">cold title search</span></div><div class="why">Current full-time Head of UA explicitly runs paid acquisition for Mindly Apps B2C wellbeing products</div>
+    <span class="csrc">cold title search</span></div><div class="why">Head of UA running full-funnel Meta/Google/TikTok for b2c wellbeing apps at 8-person mental-health studio</div>
   <div class="people"><div class="person" data-name="Yauhen Ulyantsau"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/uliancev" target="_blank">Yauhen Ulyantsau</a><span class="ptitle">Head of User Acquisition</span><span class="ploc">PL</span><span class="chip out invite">accepted 2026-09-16, DM1 next</span></div></div>
 </div>
 <div class="crow" data-company="Minit Games" data-section="outreached">
@@ -1482,7 +1485,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Nanali Studios" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Nanali Studios</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/matejlancaric_%F0%9D%97%9F%F0%9D%97%A2%F0%9D%97%9F-%F0%9D%9F%AE%F0%9D%9F%B2-that-was-robot-breaker-on-activity-7502976600544673792-eZbE" target="_blank">Matej Lancaric's post</a></span></div><div class="why">Founder &amp; CEO of Nanali Studios, a game studio</div><div class="why">company page: no LinkedIn page matched this employer name</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/matejlancaric_%F0%9D%97%9F%F0%9D%97%A2%F0%9D%97%9F-%F0%9D%9F%AE%F0%9D%9F%B2-that-was-robot-breaker-on-activity-7502976600544673792-eZbE" target="_blank">Matej Lancaric's post</a></span></div><div class="why">Korea-HQ mobile game studio CEO</div><div class="why">company page: no LinkedIn page matched this employer name</div>
   <div class="people"><div class="person" data-name="JaeHwan Bak"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/jaehwan-bak-a2530970" target="_blank">JaeHwan Bak</a><span class="ptitle">Founder &amp; CEO</span><span class="ploc">South Korea</span><span class="chip out dm">DM1 sent 2026-09-11</span></div></div>
 </div>
 <div class="crow" data-company="NAPHORA GAME GROUP" data-section="outreached">
@@ -1518,7 +1521,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Night Zookeeper" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Night Zookeeper</span>
-    <span class="csrc">engages industry posts</span></div><div class="why">CEO corroborated by official company source and directly explains selection of paid acquisition tools</div>
+    <span class="csrc">engages industry posts</span></div><div class="why">Founder/MD, 20-person consumer edtech app (reading/writing for kids), live product, non-giant, Western (UK) market</div>
   <div class="people"><div class="person" data-name="Joshua Davidson"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/joshuaisdavidson" target="_blank">Joshua Davidson</a><span class="ptitle">Founder and Managing Director</span><span class="ploc">United Kingdom</span><span class="chip out dm">InMail sent 2026-09-01</span></div></div>
 </div>
 <div class="crow" data-company="Nocturnal Games" data-section="outreached">
@@ -1548,13 +1551,13 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="OddBytes" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">OddBytes</span>
-    <span class="csrc">cold title search</span></div><div class="why">Current full-time UA director explicitly acquires customers across portfolio including live owned mobile game</div>
+    <span class="csrc">cold title search</span></div><div class="why">Whether the OddBytes Director, User Acquisition role is dedicated in-house employment or a fractional/advisory engagemen</div>
   <div class="people"><div class="person" data-name="Josh Kolb"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/joshkolb" target="_blank">Josh Kolb</a><span class="ptitle">Director, User Acquisition</span><span class="ploc">US</span><span class="chip out dm">InMail sent 2026-09-16</span></div></div>
 </div>
 <div class="crow" data-company="Omnilux" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Omnilux</span>
-    <span class="csrc">new in role &middot; 3 months in</span></div><div class="why">Current VP Performance Marketing at own skincare brand with live repeat-consumable line</div>
+    <span class="csrc">new in role &middot; 3 months in</span></div><div class="why">VP Performance Marketing &amp; Ecommerce at Omnilux, D2C skincare (repeat-consumable vertical), 44 employees, mid-size, budg</div>
   <div class="people"><div class="person" data-name="Caleb Orion"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/caleborion" target="_blank">Caleb Orion</a><span class="ptitle">VP of Performance Marketing &amp; Ecommerce </span><span class="ploc">US</span><span class="chip out dm">InMail sent 2026-09-03</span></div></div>
 </div>
 <div class="crow" data-company="OpenArt AI" data-section="outreached">
@@ -1590,7 +1593,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="ParakeetAI" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">ParakeetAI</span>
-    <span class="csrc">hiring: <a href="https://si.linkedin.com/jobs/view/head-of-paid-acqusition-at-parakeetai-4462412054" target="_blank">Head of Paid Acqusition</a></span></div><div class="why">ParakeetAI CMO directly manages 200+ UGC creators for its live consumer AI call-assistant product</div>
+    <span class="csrc">hiring: <a href="https://si.linkedin.com/jobs/view/head-of-paid-acqusition-at-parakeetai-4462412054" target="_blank">Head of Paid Acqusition</a></span></div><div class="why">ParakeetAI&#x27;s product category and consumer-vs-B2B motion are not established beyond the thin company_facts string &#x27;A Rea</div>
   <div class="people"><div class="person" data-name="Urban Peklar"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/urbanpeklar/" target="_blank">Urban Peklar</a><span class="ptitle">CMO</span><span class="ploc">Slovenia</span><span class="chip out invite">accepted 2026-09-16, DM1 next</span></div></div>
 </div>
 <div class="crow" data-company="Pearl Abyss" data-section="outreached">
@@ -1616,7 +1619,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="PikPok" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">PikPok</span>
-    <span class="csrc">announced: <a href="https://gamingonphone.com/upcoming-mobile-games/" target="_blank">Into The Dead 3</a></span></div><div class="why">Director of Growth at PikPok</div>
+    <span class="csrc">announced: <a href="https://gamingonphone.com/upcoming-mobile-games/" target="_blank">Into The Dead 3</a></span></div><div class="why">CEO/founder, 162-employee mobile+PC game studio, strategic planning &amp; studio management remit — clear UA budget authorit</div>
   <div class="people"><div class="person" data-name="Mario Wynands"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/mariowynands/" target="_blank">Mario Wynands</a><span class="ptitle">Chief Executive Officer</span><span class="ploc">New Zealand</span><span class="chip out dm">InMail sent 2026-09-10</span></div>
 <div class="person" data-name="Maggie Wang"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/himaggiewang/" target="_blank">Maggie Wang</a><span class="ptitle">Director of Growth</span><span class="ploc">Taiwan</span><span class="chip out dm">InMail sent 2026-09-10</span></div></div>
 </div>
@@ -1641,7 +1644,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Plaud" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Plaud</span>
-    <span class="csrc">hiring: <a href="https://uk.linkedin.com/jobs/view/influencer-relations-manager-tiktok-at-plaud-4452730022" target="_blank">Influencer Specialist, US - San Francisco/ Los Angeles</a></span></div><div class="why">Current full-time Head of Integrated Marketing at eligible consumer AI subscription brand</div>
+    <span class="csrc">hiring: <a href="https://uk.linkedin.com/jobs/view/influencer-relations-manager-tiktok-at-plaud-4452730022" target="_blank">Influencer Specialist, US - San Francisco/ Los Angeles</a></span></div><div class="why">Head of Integrated Marketing, Plaud (335 emp, D2C AI hardware+subscription, live consumer product, mid-size, US-based)</div>
   <div class="people"><div class="person" data-name="Marta Bonzanini"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/martabonzanini/" target="_blank">Marta Bonzanini</a><span class="ptitle">Head of Integrated Marketing</span><span class="ploc">Italy</span><span class="chip out dm">InMail sent 2026-09-14</span></div>
 <div class="person" data-name="Brandon Lutz"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/lutzbrandon/" target="_blank">Brandon Lutz</a><span class="ptitle">Head of Marketing - Europe</span><span class="ploc">UK</span><span class="chip out dm">InMail sent 2026-09-10</span></div></div>
 </div>
@@ -1660,7 +1663,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Playwing" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Playwing</span>
-    <span class="csrc">cold title search</span></div><div class="why">Current in-house senior UA manager buying traffic for exact game publisher</div>
+    <span class="csrc">cold title search</span></div><div class="why">Senior UA Manager, current company-side role at 38-employee F2P PC/console game studio Playwing (Century: Age of Ashes)</div>
   <div class="people"><div class="person" data-name="Kurt Lei"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/kurt-lei-51992b4a" target="_blank">Kurt Lei</a><span class="ptitle">Senior User Acquisition Manager</span><span class="ploc">ES</span><span class="chip out invite">accepted 2026-09-16, DM1 next</span></div></div>
 </div>
 <div class="crow" data-company="Polarsteps" data-section="outreached">
@@ -1678,7 +1681,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Rap Tech Studios Ltd. (Rap Fame app)" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Rap Tech Studios Ltd. (Rap Fame app)</span>
-    <span class="csrc">cold title search</span></div><div class="why">Current full-time UA/Marketing/Growth Manager at Rap Tech, maker of the live Rap Fame consumer music app</div>
+    <span class="csrc">cold title search</span></div><div class="why">Rap Fame is a rap/music social app — not games, fintech, SaaS, health, edtech, D2C, travel or crypto</div>
   <div class="people"><div class="person" data-name="Alexander Grinkevich"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/alexander-grinkevich-3b13ba143" target="_blank">Alexander Grinkevich</a><span class="ptitle">User Acquisition / Marketing / Growth Manager</span><span class="ploc">PL</span><span class="chip out dm">InMail sent 2026-09-16</span></div></div>
 </div>
 <div class="crow" data-company="Rino" data-section="outreached">
@@ -1709,7 +1712,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="SABON" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">SABON</span>
-    <span class="csrc">cold title search</span></div><div class="why">Current company-side brand/communications director influences consumer brand marketing</div>
+    <span class="csrc">cold title search</span></div><div class="why">SABON evidenced as bath/personal-care retail chain (store manager, retail sales roles), not D2C subscription/consumable</div>
   <div class="people"><div class="person" data-name="Marion Bablot"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/marionbablot" target="_blank">Marion Bablot</a><span class="ptitle">Communication and Brand identity Director</span><span class="ploc">FR</span><span class="chip out invite">accepted 2026-09-16, DM1 next</span></div></div>
 </div>
 <div class="crow" data-company="salted beauty" data-section="outreached">
@@ -1762,7 +1765,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="SimpleStudy" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">SimpleStudy</span>
-    <span class="csrc">hiring: <a href="https://uk.linkedin.com/jobs/view/australian-market-lead-at-simplestudy-4451669729" target="_blank">Australian Market Lead</a></span></div><div class="why">Current in-house creative marketing head explicitly leads paid ads and influencers at consumer edtech app</div>
+    <span class="csrc">hiring: <a href="https://uk.linkedin.com/jobs/view/australian-market-lead-at-simplestudy-4451669729" target="_blank">Australian Market Lead</a></span></div><div class="why">Head of Creative Marketing, SimpleStudy consumer edtech app</div>
   <div class="people"><div class="person" data-name="Kasia Mertuszka"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/kasia-mertuszka/" target="_blank">Kasia Mertuszka</a><span class="ptitle">Head of Creative Marketing</span><span class="ploc">United Kingdom</span><span class="chip out dm">InMail sent 2026-09-15</span></div></div>
 </div>
 <div class="crow" data-company="Simply" data-section="outreached">
@@ -1829,7 +1832,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="Spyke Games" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">Spyke Games</span>
-    <span class="csrc">in soft launch: <a href="https://www.pocketgamer.biz/the-latest-and-most-interesting-mobile-games-in-soft-launch-update/" target="_blank">Resort Match</a> &middot; Philippines, Poland, Romania</span></div><div class="why">Current Performance Marketing Specialist at active mobile puzzle publisher Spyke Games</div>
+    <span class="csrc">in soft launch: <a href="https://www.pocketgamer.biz/the-latest-and-most-interesting-mobile-games-in-soft-launch-update/" target="_blank">Resort Match</a> &middot; Philippines, Poland, Romania</span></div><div class="why">Performance Marketing Specialist at mobile F2P studio Spyke Games (102 employees)</div>
   <div class="people"><div class="person" data-name="Özgür Doğa Bulut"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/ozgurdogabulut" target="_blank">Özgür Doğa Bulut</a><span class="ptitle">Performance Marketing Specialist</span><span class="ploc">TR</span><span class="chip out dm">InMail sent 2026-09-15</span></div></div>
 </div>
 <div class="crow" data-company="Starbreeze" data-section="outreached">
@@ -1935,7 +1938,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="THQ Nordic" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">THQ Nordic</span>
-    <span class="csrc">engages industry posts</span></div><div class="why">verified Senior Global PR Manager at THQ Nordic</div>
+    <span class="csrc">engages industry posts</span></div><div class="why">PR Manager is a comms function, not marketing/UA/growth/publishing</div>
   <div class="people"><div class="person" data-name="Jennifer Bigell"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/jennifer-bigell-65491b103" target="_blank">Jennifer Bigell</a><span class="ptitle">Senior Global PR Manager</span><span class="ploc">Germany</span><span class="chip out dm">InMail sent 2026-09-02</span></div></div>
 </div>
 <div class="crow" data-company="tinyBuild GAMES" data-section="outreached">
@@ -1947,7 +1950,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="crow" data-company="TipMaster" data-section="outreached">
   <div class="chead"><button class="cbox" title="toggle: skip"></button>
     <span class="cname">TipMaster</span>
-    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/jeff-cohen-29930455_%F0%9D%97%A7%F0%9D%97%B5%F0%9D%97%B2-%F0%9D%97%AF%F0%9D%97%B2%F0%9D%98%80%F0%9D%98%81-%F0%9D%98%81%F0%9D%97%B5%F0%9D%97%B6%F0%9D%97%BB%F0%9D%97%B4%F0%9D%98%80-%F0%9D%97%9C-%F0%9D%97%BF%F0%9D%97%B2%F0%9D%97%AE-activity-7502274396179320832-tefA" target="_blank">an industry's post</a></span></div><div class="why">no reasoned judgment supported by receipts tied to this identity</div>
+    <span class="csrc">reacted to <a href="https://www.linkedin.com/posts/jeff-cohen-29930455_%F0%9D%97%A7%F0%9D%97%B5%F0%9D%97%B2-%F0%9D%97%AF%F0%9D%97%B2%F0%9D%98%80%F0%9D%98%81-%F0%9D%98%81%F0%9D%97%B5%F0%9D%97%B6%F0%9D%97%BB%F0%9D%97%B4%F0%9D%98%80-%F0%9D%97%9C-%F0%9D%97%BF%F0%9D%97%B2%F0%9D%97%AE-activity-7502274396179320832-tefA" target="_blank">an industry's post</a></span></div><div class="why">TipMaster is a sports-betting tipster/prediction-market platform tied to sportsbooks</div>
   <div class="people"><div class="person" data-name="Polina Shapiro"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/polina-shapiro" target="_blank">Polina Shapiro</a><span class="ptitle">Co-Founder &amp; COO</span><span class="ploc">United States</span><span class="chip out invite">accepted 2026-09-11, DM1 next</span></div></div>
 </div>
 <div class="crow" data-company="TOUBA" data-section="outreached">
@@ -2148,7 +2151,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
     <span class="csrc">announced: <a href="https://gamingonphone.com/upcoming-mobile-games/" target="_blank">Aniimo</a></span></div><div class="why">UA Director at verified mobile F2P publisher FunPlus (883 employees</div>
   <div class="people"><div class="person" data-name="嘉琪 黃"><button class="pbox" title="skip this person only"></button><a href="https://www.linkedin.com/in/嘉琪-黃-4b3791a2/" target="_blank">嘉琪 黃</a><span class="ptitle">UA Director</span><span class="ploc">China</span><span class="chip out dm">InMail sent 2026-09-10</span></div></div>
 </div></div></details>
-<details class="secd skip" id="sec-skipped"><summary><span class="tag">closed</span><span class="ttl">Skipped &middot; nobody here gets contacted</span><span class="cnt">483 companies</span></summary><div class="rowstack"><div class="rows" style="font-size:12px"><div class="pline"><span style="color:#c8cfe8">37Games</span><span class="pt">skipped on review</span></div>
+<details class="secd skip" id="sec-skipped"><summary><span class="tag">closed</span><span class="ttl">Skipped &middot; nobody here gets contacted</span><span class="cnt">484 companies</span></summary><div class="rowstack"><div class="rows" style="font-size:12px"><div class="pline"><span style="color:#c8cfe8">37Games</span><span class="pt">skipped on review</span></div>
 <div class="pline"><span style="color:#c8cfe8">52 Entertainment</span><span class="pt">vendor / agency / off-vertical</span></div>
 <div class="pline"><span style="color:#c8cfe8">8Great Games</span><span class="pt">inactive on LinkedIn</span></div>
 <div class="pline"><span style="color:#c8cfe8">a21.ai</span><span class="pt">vendor / agency / off-vertical</span></div>
@@ -2329,6 +2332,7 @@ summary .cnt{color:#8b93bd;font-weight:600;letter-spacing:0;text-transform:none;
 <div class="pline"><span style="color:#c8cfe8">Imagen</span><span class="pt">vendor / agency / off-vertical</span></div>
 <div class="pline"><span style="color:#c8cfe8">Imba Games</span><span class="pt">skipped on review</span></div>
 <div class="pline"><span style="color:#c8cfe8">Indigo Meerkat UGC</span><span class="pt">vendor / agency / off-vertical</span></div>
+<div class="pline"><span style="color:#c8cfe8">Ingenio</span><span class="pt">skipped on review</span></div>
 <div class="pline"><span style="color:#c8cfe8">InnoGames</span><span class="pt">skipped on review</span></div>
 <div class="pline"><span style="color:#c8cfe8">Inspired Square</span><span class="pt">blacklisted, reason not recorded</span></div>
 <div class="pline"><span style="color:#c8cfe8">Instant Waves</span><span class="pt">vendor / agency / off-vertical</span></div>
@@ -2645,8 +2649,9 @@ document.querySelectorAll('.crow').forEach(function(row){
 if(location.hash){try{var _d=document.querySelector(location.hash);if(_d&&_d.tagName==='DETAILS'){_d.open=true;_d.scrollIntoView()}}catch(e){}}
 document.querySelectorAll('.pbox').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();b.closest('.person').classList.toggle('pskip');tally();})});
 document.querySelectorAll('.gobox').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();b.closest('.person').classList.toggle('pgo');tally();})});
+document.querySelectorAll('.budgetbox').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();b.closest('.person').classList.toggle('pbudget');tally();})});
 function tally(){
-  var n=document.querySelectorAll('.crow.skip').length+document.querySelectorAll('.crow:not(.skip) .person.pskip').length+document.querySelectorAll('.crow:not(.skip) .person.pgo').length;
+  var n=document.querySelectorAll('.crow.skip').length+document.querySelectorAll('.crow:not(.skip) .person.pskip').length+document.querySelectorAll('.crow:not(.skip) .person.pgo').length+document.querySelectorAll('.brow .person.pbudget').length;
   document.getElementById('tally').textContent=n+' change'+(n===1?'':'s');
 }
 // Ivan 2026-09-02 (evening): direct Submit is back - skips park + ledger instantly, Ivan gets the full
@@ -2662,14 +2667,17 @@ function decisions(){
   document.querySelectorAll('.crow[data-section="balkan"]:not(.skip) .person.pgo').forEach(function(p){var r=p.closest('.crow');go.push({name:p.getAttribute('data-name'),company:r.getAttribute('data-company')})});
   var people=[];
   document.querySelectorAll('.crow:not(.skip) .person.pskip').forEach(function(p){var r=p.closest('.crow');people.push({name:p.getAttribute('data-name'),company:r.getAttribute('data-company'),section:r.getAttribute('data-section')})});
-  return {skipped:skipped,seen:seen,skipped_people:people,go_people:go};
+  // budget fold: a tick means "this studio has money" - the row gets the hand waiver and a re-decide
+  var bud=[];
+  document.querySelectorAll('.brow .person.pbudget').forEach(function(p){var r=p.closest('.brow');bud.push({id:p.getAttribute('data-id'),name:p.getAttribute('data-name'),company:r.getAttribute('data-company')})});
+  return {skipped:skipped,seen:seen,skipped_people:people,go_people:go,budget_people:bud};
 }
 document.getElementById('submitbtn').addEventListener('click',function(){
   var d=decisions(); var btn=this; btn.disabled=true; btn.textContent='Sending...';
   fetch(NOTIFY_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
    .then(function(r){return r.json()}).then(function(j){
      if(!j||!j.ok)throw new Error('bad');
-     btn.textContent='Done ✓ '+j.skipped_companies+' skipped · '+(j.parked_people||0)+' people · '+j.approved_rows+' approved'+((j.go_people||0)?' · '+j.go_people+' Balkan go':'');
+     btn.textContent='Done ✓ '+j.skipped_companies+' skipped · '+(j.parked_people||0)+' people · '+j.approved_rows+' approved'+((j.go_people||0)?' · '+j.go_people+' Balkan go':'')+((j.budget_waived||0)?' · '+j.budget_waived+' has budget':'');
      try{localStorage.setItem('arch-leads-submitted-'+'2026-09-17',JSON.stringify(d))}catch(e){}
      document.querySelectorAll('.crow').forEach(function(r){r.style.opacity='.35';r.querySelector('.cbox').disabled=true});
    }).catch(function(){btn.disabled=false;btn.textContent='Failed - use Copy instead'});
@@ -2686,12 +2694,14 @@ document.getElementById('copybtn').addEventListener('click',function(){
   if(pp.length){lines.push('');lines.push('SKIP PERSON ONLY (company stays)');pp.forEach(function(p){lines.push('- '+p.name+' @ '+p.company)})}
   var gp=decisions().go_people;
   if(gp.length){lines.push('');lines.push('GO (Balkan name abroad, outreach in English)');gp.forEach(function(p){lines.push('- '+p.name+' @ '+p.company)})}
+  var bp=decisions().budget_people;
+  if(bp.length){lines.push('');lines.push('HAS BUDGET (small studio, outreach anyway)');bp.forEach(function(p){lines.push('- '+p.name+' @ '+p.company)})}
   if(Object.keys(secs).length===0&&!pp.length)lines.push('No changes - new batch approved as shown.');
   lines.push('');lines.push('Reviewed '+document.querySelectorAll('.crow').length+' companies on the page.');
   var text=lines.join('\n');
   // the same text goes to Ivan on WhatsApp (notify only, nothing written), so a blocked
   // clipboard in Slack's in-app browser never loses a review
-  try{fetch(NOTIFY_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({notify_only:true,text:text,skipped:decisions().skipped,skipped_people:decisions().skipped_people,go_people:decisions().go_people,seen:decisions().seen})}).catch(function(){})}catch(e){}
+  try{fetch(NOTIFY_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({notify_only:true,text:text,skipped:decisions().skipped,skipped_people:decisions().skipped_people,go_people:decisions().go_people,budget_people:decisions().budget_people,seen:decisions().seen})}).catch(function(){})}catch(e){}
   var done=function(){document.getElementById('copybtn').textContent='Copied ✓ · sent to Ivan';setTimeout(function(){document.getElementById('copybtn').textContent='Copy decisions'},2200)};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done)}else{done()}
 });
