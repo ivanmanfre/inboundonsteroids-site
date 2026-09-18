@@ -18,7 +18,7 @@
   // topic map: lane filter + show all
   (function () {
     var grid = document.getElementById('topic-grid');
-    if (!grid) return;
+    if (!grid || !document.querySelector('.show-all')) return;
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.topic'));
     var chips = Array.prototype.slice.call(document.querySelectorAll('button.lane-chip'));
     var showAll = document.querySelector('.show-all');
