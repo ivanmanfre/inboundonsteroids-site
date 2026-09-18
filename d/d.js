@@ -5,6 +5,8 @@
   'use strict';
 
   var SB = 'https://bjbvqvzbzczjbatgmccb.supabase.co';
+  var RES = 'https://resources.inboundonsteroids.com/get/30-post-ideas/';
+  var IMG_BASE = RES + 'img/';
   var ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI';
   var IMG_PREFIX = SB + '/storage/v1/object/public/';
 
@@ -92,8 +94,40 @@
     lmCapture: 'How to give it away',
     lmPost: 'The post that gives it away',
     lmKeyword: 'Comment keyword: ',
-    lmAlts: 'Two more you could build'
+    lmAlts: 'Two more you could build',
+
+    nextKicker: 'Still to come',
+    nextTitle: 'Next in your inbox',
+    nextSub: 'The rest of the week lands one piece at a time.',
+    setKicker: 'The week',
+    setTitle: 'Everything that landed',
+    setSub: 'All five pieces are with you now. Keep this tab, the links stay live.',
+
+    dayIdeas: '10 minutes',
+    whatIdeas: '30 post ideas, each with the reason it fits you and three hooks.',
+    dayVoice: 'Day 2',
+    whatVoice: 'Your voice profile, drawn from the posts you already wrote.',
+    dayWeek: 'Day 3',
+    whatWeek: 'A week of posts in your voice and your brand.',
+    dayProf: 'Day 4',
+    whatProf: 'A profile rewrite. Three headlines and a new About.',
+    dayLm: 'Day 5',
+    whatLm: 'Your lead magnet. The concept, a designed cover and the post that gives it away.'
   };
+
+  /* ---------- the five-day drip, in order ---------- */
+  var DRIP = [
+    { kind: 'ideas', art: 'idea-grid.png', when: S.dayIdeas, what: S.whatIdeas },
+    { kind: 'voice', art: 'voice-wave.png', when: S.dayVoice, what: S.whatVoice },
+    { kind: 'post_week', art: 'week-calendar.png', when: S.dayWeek, what: S.whatWeek },
+    { kind: 'profile_rewrite', art: 'profile-highlight.png', when: S.dayProf, what: S.whatProf },
+    { kind: 'lead_magnet', art: 'cover-stand.png', when: S.dayLm, what: S.whatLm }
+  ];
+
+  function dripIndex(kind) {
+    for (var i = 0; i < DRIP.length; i++) { if (DRIP[i].kind === kind) return i; }
+    return -1;
+  }
 
   /* ---------- small DOM helpers ---------- */
   function el(tag, cls, text) {
@@ -184,12 +218,32 @@
     return h;
   }
 
+  /* Decorative illustration. Hosted on resources.inboundonsteroids.com.
+     If it does not load the holder removes itself, so the page never shows a gap. */
+  function artFigure(cls, file) {
+    if (!has(file)) return null;
+    var fig = el('div', cls);
+    var img = el('img');
+    img.src = IMG_BASE + str(file);
+    img.alt = '';
+    img.setAttribute('aria-hidden', 'true');
+    img.decoding = 'async';
+    img.addEventListener('error', function () { fig.hidden = true; });
+    add(fig, img);
+    return fig;
+  }
+
   function frame(app, opts) {
     app.textContent = '';
     var band = add(app, el('section', 'band'));
     var wrap = add(band, el('div', 'wrap'));
     masthead(wrap);
     var head = add(wrap, el('div', 'head'));
+    var i = dripIndex(opts.kind);
+    if (i >= 0) {
+      var art = artFigure('hero-art', DRIP[i].art);
+      if (art) add(head, art);
+    }
     if (opts.kicker) add(head, el('span', 'kicker-accent', opts.kicker));
     add(head, el('h1', null, opts.title));
     if (has(opts.sub)) add(head, el('p', 'head-sub t', opts.sub));
@@ -232,6 +286,66 @@
     return f;
   }
 
+  /* "Next in your inbox": the days that have not landed yet.
+     On the last piece it turns into a recap of all five. */
+  function nextStrip(app, kind) {
+    var i = dripIndex(kind);
+    if (i < 0) return;
+    var last = i === DRIP.length - 1;
+    var items = last ? DRIP.slice(0) : DRIP.slice(i + 1);
+    if (!items.length) return;
+    var w = section(
+      app,
+      last ? S.setKicker : S.nextKicker,
+      last ? S.setTitle : S.nextTitle,
+      last ? S.setSub : S.nextSub
+    );
+    var strip = add(w, el('ul', 'strip'));
+    items.forEach(function (it) {
+      var card = add(strip, el('li', 'strip-card'));
+      var art = artFigure('strip-art', it.art);
+      if (art) {
+        art.firstChild.loading = 'lazy';
+        add(card, art);
+      }
+      add(card, el('span', 'strip-when', it.when));
+      add(card, el('p', 'strip-what', it.what));
+    });
+  }
+
+  /* LinkedIn replies, rendered by the shared component on resources.inboundonsteroids.com.
+     It reads proof.json next to itself. Empty file means the block stays hidden. */
+  function proofMount(app) {
+    var host = add(app, el('div', 'wrap proof-wrap'));
+    var node = add(host, el('div', 'proof'));
+    node.id = 'proof';
+    node.setAttribute('data-proof-src', RES + 'proof.json');
+    if (!document.getElementById('proof-css')) {
+      var link = document.createElement('link');
+      link.id = 'proof-css';
+      link.rel = 'stylesheet';
+      link.href = RES + 'proof.css';
+      document.head.appendChild(link);
+    }
+    if (!document.getElementById('proof-js')) {
+      var s = document.createElement('script');
+      s.id = 'proof-js';
+      s.src = RES + 'proof.js';
+      s.async = true;
+      document.head.appendChild(s);
+    } else if (global.Proof && typeof global.Proof.mount === 'function') {
+      global.Proof.mount(node);
+    }
+    return node;
+  }
+
+  function tail(app, kind, built, extra) {
+    nextStrip(app, kind);
+    proofMount(app);
+    if (typeof extra === 'function') extra(app);
+    footer(app, built);
+  }
+
   function foldBlock(host, title) {
     var d = add(host, el('details', 'fold'));
     add(d, el('summary', null, title));
@@ -270,6 +384,7 @@
 
   R.ideas = function (app, c) {
     frame(app, {
+      kind: 'ideas',
       kicker: S.ideasKicker,
       title: S.ideasTitle + str(c.first_name),
       sub: S.ideasSub,
@@ -302,7 +417,7 @@
     }
 
     var ideas = arr(c.ideas);
-    if (!ideas.length) { footer(app, c.built_from); return; }
+    if (!ideas.length) { tail(app, 'ideas', c.built_from); return; }
 
     section(app, null, S.ideasAll, S.ideasAllSub);
 
@@ -379,11 +494,12 @@
       }
     });
 
-    footer(app, c.built_from);
+    tail(app, 'ideas', c.built_from);
   };
 
   R.voice = function (app, c) {
     frame(app, {
+      kind: 'voice',
       kicker: S.voiceKicker,
       title: S.voiceTitle + str(c.first_name),
       sub: S.voiceSub,
@@ -477,11 +593,12 @@
       }
     }
 
-    footer(app, c.built_from);
+    tail(app, 'voice', c.built_from);
   };
 
   R.post_week = function (app, c) {
     frame(app, {
+      kind: 'post_week',
       kicker: S.weekKicker,
       title: S.weekTitle + str(c.first_name),
       sub: S.weekSub,
@@ -512,11 +629,12 @@
       });
     }
 
-    footer(app, c.built_from);
+    tail(app, 'post_week', c.built_from);
   };
 
   R.profile_rewrite = function (app, c) {
     frame(app, {
+      kind: 'profile_rewrite',
       kicker: S.profKicker,
       title: S.profTitle,
       sub: S.profSub,
@@ -604,12 +722,13 @@
       });
     }
 
-    footer(app, c.built_from);
+    tail(app, 'profile_rewrite', c.built_from);
   };
 
   R.lead_magnet = function (app, c) {
     var k = c.concept || {};
     frame(app, {
+      kind: 'lead_magnet',
       kicker: S.lmKicker,
       title: str(k.title),
       sub: has(k.promise) ? k.promise : S.lmSub,
@@ -696,11 +815,11 @@
       });
     }
 
-    var slot = add(app, el('div', 'wrap slot panel panel-warm prose'));
-    slot.setAttribute('data-slot', 'call-ask');
-    slot.hidden = true;
-
-    footer(app, c.built_from);
+    tail(app, 'lead_magnet', c.built_from, function (host) {
+      var slot = add(host, el('div', 'wrap slot panel panel-warm prose'));
+      slot.setAttribute('data-slot', 'call-ask');
+      slot.hidden = true;
+    });
   };
 
   /* ---------- states ---------- */
