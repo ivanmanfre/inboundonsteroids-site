@@ -37,6 +37,7 @@
   </div>
   <aside class="ls source-card" aria-label="What the sample is built from">
     <img class="ls-logo" src="assets/ls-logo-ondark.png" alt="Leading Social" width="900" height="133">
+    <span class="ls-eyebrow">Built from your own words</span>
     <div class="source-stats">
       <div><b>51</b><span>YouTube videos</span></div>
       <div><b>85k</b><span>words on camera</span></div>
@@ -70,6 +71,9 @@
     <article class="vcard"><span class="n">06</span><h3>Two registers, kept apart</h3>
       <blockquote><span>We're bringing an intern in for Q4!!</span><cite>Your post, August</cite></blockquote>
       <p>Profit posts are calm, with zero emoji. People posts carry the warmth.</p></article>
+  </div>
+  <div class="kept"><strong>Kept out of your profit posts</strong>
+    <ul><li>emoji and “!!”</li><li>guru words</li><li>$ where you write €</li><li>hashtags and dashes</li></ul>
   </div>
 </section>
 
@@ -414,6 +418,7 @@ Comment BFCM and I'll send the planner.</div>
 <button class="ls-more" type="button" aria-expanded="false" aria-controls="car-caption" data-more="Read the full caption" data-less="Show less">Read the full caption</button></div>
 <a class="ls-btn ghost" href="downloads/leading-social-bfcm-carousel.pdf">Open the PDF <span aria-hidden="true">↗</span></a>
 <a class="ls-btn ghost" href="downloads/leading-social-bfcm-planner.pdf">Open the planner <span aria-hidden="true">↗</span></a>
+      <p class="stage-note">The last slide offers a planner by keyword, so I built the planner too. One page.</p>
     </div>
   </div>
 </section>
@@ -433,7 +438,11 @@ Comment BFCM and I'll send the planner.</div>
       <div class="lm-copy">
         <span class="badge">A · Keyword <kbd>AUDIT</kbd></span>
         <h3>The Ecommerce Profit Audit</h3>
-        <p>Founder types their numbers. Sees true CAC, MER, payback and the red flags from your videos.</p>
+        <p>A three-minute self-service audit. The founder types their numbers and sees what a buyer of the business would see: true CAC, MER, payback and the red flags from your videos.</p>
+        <dl>
+          <dt>Who it is for</dt><dd>Any founder of a €3m to €30m brand, on a phone, with nothing to install.</dd>
+          <dt>Where it stands</dt><dd><b>Working, live just below.</b> It ends on a call with Leading Social.</dd>
+        </dl>
       </div>
     </article>
     <article class="lm">
@@ -441,15 +450,19 @@ Comment BFCM and I'll send the planner.</div>
       <div class="lm-copy">
         <span class="badge">B · Keyword <kbd>PROFIT</kbd></span>
         <h3>The Profit Desk</h3>
-        <p>Three Claude skills working now: contribution margin, CAC payback and the 12 month forecast. Paste figures, get one table back with arithmetic shown.</p>
+        <p>Ten Claude skills for running a DTC brand, one for each job you teach on the channel: creative testing, offers, budget pacing, the second purchase, email flows, the forecast and the weekly review. The founder pastes their own numbers and gets a table back.</p>
+        <dl>
+          <dt>Who it is for</dt><dd>Any DTC founder or marketing lead who already works in Claude.</dd>
+          <dt>Where it stands</dt><dd><b>Three of the ten are working:</b> contribution margin, CAC payback and the 12 month forecast.</dd>
+        </dl>
       </div>
     </article>
   </div>
 
-  <div class=”live” id=”audit”>
-    <div class=”live-head”>
-      <div><h3>The audit, live.</h3></div>
-      <a class=”inline-link” href=”profit-audit/index.html” target=”_blank” rel=”noopener”>Open full screen <span aria-hidden=”true”>↗</span></a>
+  <div class="live" id="audit">
+    <div class="live-head">
+      <div><h3>The audit, live.</h3><p>Press <b>“See it with an example brand”</b> and step through to the result.</p></div>
+      <a class="inline-link" href="profit-audit/index.html" target="_blank" rel="noopener">Open full screen <span aria-hidden="true">↗</span></a>
     </div>
     <div class="frame"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><small>The Ecommerce Profit Audit · Leading Social</small></div>
       <iframe src="profit-audit/index.html" title="The Ecommerce Profit Audit, live"></iframe>
@@ -457,12 +470,62 @@ Comment BFCM and I'll send the planner.</div>
     <p class="print-only note">The audit is interactive. Open profit-audit/index.html from this folder to try it.</p>
   </div>
 
+  <div class="ls peek" id="profit-desk">
+    <div class="peek-top">
+      <div class="peek-copy">
+        <span class="ls-eyebrow orange">Inside The Profit Desk</span>
+        <h3>The practice run: <em>Ballyfen Nutrition</em></h3>
+        <p>A fictional €3m Irish supplement store that ships with the kit. This is what the founder sees on the first run.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile hi"><small>True CAC</small><b>€33.85</b><span>against €27.69 on ads only</span></div>
+        <div class="tile"><small>CAC payback</small><b><i>DAY</i>34</b><span>about, inside your “healthy” band</span></div>
+        <div class="tile"><small>MER</small><b>3.41</b><span>against a dashboard ROAS of 4.17</span></div>
+      </div>
+    </div>
+    <details>
+      <summary><span>Peek at a real skill file <code>cac-payback/SKILL.md</code></span><span class="plus" aria-hidden="true">+</span></summary>
+      <pre tabindex="0"># The Profit Desk, 3 of 10: CAC payback
+
+## What this does
+
+Leighton Penrose, on the number his team checks before telling any brand to raise spend: "Your CAC payback is how long it takes to get your money back after you spend that on ads. You send money today, when does the cash come back in?" And on why it outranks ROAS: "ROAS doesn't tell you when the cash comes in, how much working capital you need, how exposed you are. Payback period answers that instantly."
+
+This skill places your payback on your own cohort. It builds CAC the way he counts it, compares it with the gross profit a customer has produced by day 0, 30, 60, 90, 180 and 365, names the window where the line crosses, and reads the result against the bands he gives on camera.
+
+**The line only this skill produces:** the day window in which one real cohort of your customers repaid a CAC that includes agency, creator, content and tool costs, with the euro gap at every window before it.
+
+[...]
+
+**Refusal 3, no cohort, no payback beyond the first order.** Without item 5 the skill prints the day 0 line only: CAC against gross profit on the first order. It will not assume a repeat rate, a subscription length or a category retention curve.
+
+```
+[NEEDS: cumulative orders per customer at day 30, 60, 90, 180, 365 for one cohort]
+Computable: CAC, first-order gross profit, first-order gap.
+Not computable: payback window, CAC to LTV multiples, cash carried.
+```
+
+[...]
+
+**Step 5, read the band.** His bands, word for word from the CAC payback video:
+
+| payback | his read |
+|---|---|
+| under 30 days | "you're in a really strong position" |
+| 30 to 60 days | "you're healthy. Most e-commerce brands are sitting around here" |
+| 60 to 90 days | "definitely acceptable, but you're going to just need to plan a bit more" |
+| beyond 90 days | "should make you a little bit cautious" |
+| over 120 days | "you're effectively financing the growth" |</pre>
+    </details>
+    <p class="fine">Excerpt. The bands are your words from the CAC payback video.</p>
+  </div>
 </section>
 
 <!-- 6. micro proposal -->
 <section class="sec wrap" id="plan">
-  <span class="kicker">The plan</span>
+  <span class="kicker">What I run for Leading Social</span>
   <h2>October to December, run for you.</h2>
+  <p class="strap">Brands pick their new agency for January and February, so <b>October to December is when the calls get booked</b>.</p>
 
   <div class="cols3">
     <article class="col"><span class="stage-number">01 / Content</span><h3>Four to five posts a week, from your videos.</h3><p><strong>I write, design and publish from your profile.</strong> The source is your videos, plus a five-minute voice note on Fridays about what you saw that week.</p></article>
@@ -470,6 +533,14 @@ Comment BFCM and I'll send the planner.</div>
     <article class="col"><span class="stage-number">03 / Outreach and conversations</span><h3>Warm first, then direct.</h3><p>Warm outreach goes to people who engage with your posts and fit your buyer. Direct outreach goes to founders of <strong>€3m to €30m Shopify brands in Ireland, the UK and the US</strong>. I handle every reply through to the booked call.</p></article>
   </div>
 
+  <div class="managed">
+    <div><h3>In month one, you approve everything.</h3><p>Every post and every first message goes past you before it goes out.</p></div>
+    <ul>
+      <li><i></i><div>Review the content and first messages<small>Everything is visible in the control panel.</small></div></li>
+      <li><i></i><div>A voice note on Fridays<small>Five minutes on what you are seeing in the industry.</small></div></li>
+      <li><i></i><div>Your sales calls<small>You get the conversation and buyer context beforehand.</small></div></li>
+    </ul>
+  </div>
 
   <div class="offer" id="start">
     <article class="plan">
@@ -490,12 +561,15 @@ Comment BFCM and I'll send the planner.</div>
     <article class="expert" id="ivan">
       <img src="assets/ivan.jpg" alt="Ivan Manfredi" width="672" height="900" loading="lazy" decoding="async">
       <div class="expert-copy">
+        <span class="kicker">Who does the work</span>
         <h3>You work directly with me.</h3>
+        <p>I build the strategy, create the content and run the conversations that bring relevant buyers to your calendar. One person, in your Slack.</p>
         <div class="expert-nums"><div><strong>$2M</strong><span>client revenue generated</span></div><div><strong>$50M</strong><span>pipeline built</span></div></div>
-        <p class="expert-cap"><strong>Ivan Manfredi.</strong></p>
+        <p class="expert-cap"><strong>Ivan Manfredi.</strong> I work with up to 10 clients at a time.</p>
       </div>
     </article>
   </div>
+  <p class="onboard"><b>On the onboarding call</b> we connect your LinkedIn (two minutes, no password shared), lock the target list for the outreach, and I show you the first week scheduled.</p>
 </section>
 
 <!-- 7. close -->
