@@ -97,7 +97,7 @@ button{font:inherit;color:inherit}
 .posts3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
 .li-post{font-family:var(--li-font);background:#fff;border:1px solid #dfdeda;border-radius:10px;color:#000000e6;overflow:hidden}
 .li-head{display:flex;align-items:flex-start;gap:10px;padding:14px 16px 0}
-.li-avatar{width:48px;height:48px;border-radius:50%;flex:none;background:#0a0a0b}
+.li-avatar{width:48px;height:48px;border-radius:50%;flex:none;background:#0a0a0b;object-fit:cover}
 .li-who{display:flex;flex-direction:column;min-width:0;line-height:1.3}
 .li-who strong{font-size:14px;font-weight:600}
 .li-who strong i{font-style:normal;font-weight:400;color:#00000099}
@@ -416,3 +416,31 @@ button.lane-chip:hover{border-color:#b8b0a6}
   .flow li{display:flex;align-items:center;gap:14px;padding-right:0}
   .flow li span{margin-top:0;max-width:none}
 }
+
+/* v3: single LinkedIn feed column */
+.feed-col{max-width:555px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.feed-col .li-post{width:100%}
+.wrap-narrow{max-width:555px;margin:22px auto 0}
+.li-doc{margin-top:12px;background:#0A0A0B;border-top:1px solid #e8e8e8;padding:0}
+.li-doc .car-track{border-radius:0;box-shadow:none;aspect-ratio:4/5;background:#0A0A0B}
+.li-doc .car-bar{padding:8px 12px 10px;margin-top:0;background:#0A0A0B}
+.li-doc .car-count{color:#ffffffb3}
+.li-doc .car-btn{width:36px;height:36px}
+/* topics as rows */
+.trows{margin-top:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.trow{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:start;border:1px solid #e2ddd5;border-radius:16px;background:#fff;padding:14px}
+.trow img{width:150px;aspect-ratio:16/9;object-fit:cover;border-radius:10px;background:#0A0A0B}
+.trow h3{font-size:17px;line-height:1.25;letter-spacing:-.03em;margin-top:8px}
+.trow p{font-size:13.5px;line-height:1.5;color:#4e473f;margin-top:6px}
+.trow .topic-src{margin-top:8px;padding-top:0;font-size:12px}
+/* two lead magnets */
+.lms.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lm-copy .ls-btn{margin-top:16px}
+/* icp small list */
+.icp2{margin-top:18px;padding:16px 0 18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.icp2>span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:750;color:var(--red-deep);white-space:nowrap;padding-top:3px}
+.icp2 dl{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 18px}
+.icp2 dt{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:750;color:var(--muted)}
+.icp2 dd{margin:3px 0 0;font-size:14px;line-height:1.4;color:#4e473f}
+@media(max-width:900px){.trows{grid-template-columns:1fr}.icp2 dl{grid-template-columns:1fr 1fr}.lms.two{grid-template-columns:1fr}}
+@media(max-width:760px){.trow{grid-template-columns:110px 1fr;gap:12px}.trow img{width:110px}.icp2{grid-template-columns:1fr;gap:10px}.icp2 dl{grid-template-columns:1fr}}

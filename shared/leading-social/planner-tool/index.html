@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>The Black Friday Profit Planner, by Leading Social</title>
+<link rel="icon" href="icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0B;--surface:#131316;--surface-2:#1C1C20;
+  --ink:#F2EDE3;--ink-strong:#FFFFFF;--muted:rgba(242,237,227,.6);--faint:rgba(242,237,227,.38);
+  --line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.16);
+  --accent:#3399FF;--accent-hover:#1A6FCC;--accent-soft:#7FBEFF;--orange:#F0A04B;--pink:#E8446F;
+  --display:'Lato',-apple-system,Helvetica,sans-serif;
+  --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,sans-serif;
+  --pill:999px;--card:14px;--gutter:clamp(20px,4vw,64px);--maxw:1200px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+[hidden]{display:none!important}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px;border-radius:6px}
+h1 em,h2 em,h3 em{font-style:normal;color:var(--accent)}
+
+/* nav */
+.nav{position:relative;z-index:20;padding-block:20px 16px}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .disc{width:30px;height:30px}
+.brand .word{height:17px;width:auto}
+.nav-right{display:flex;align-items:center;gap:10px}
+.cur{display:flex;border:1px solid var(--line-2);border-radius:var(--pill);padding:3px;background:rgba(19,19,22,.8)}
+.cur button{width:34px;height:30px;border-radius:var(--pill);font:600 14px/1 var(--sans);color:var(--muted);transition:background .2s var(--ease),color .2s}
+.cur button[aria-pressed="true"]{background:var(--ink);color:#0A0A0B}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 15px/1 var(--sans);background:var(--accent);color:#fff;border-radius:var(--pill);padding:16px 24px;text-decoration:none;transition:background .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{background:var(--accent-hover)}
+.btn:active{transform:translateY(1px)}
+.btn .arr{transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+.btn.sm{padding:12px 18px;font-size:14px}
+.btn.ghost{background:transparent;border:1px solid rgba(242,237,227,.26);color:var(--ink)}
+.btn.ghost:hover{border-color:rgba(242,237,227,.6);background:rgba(255,255,255,.03)}
+.btn.big{font:700 15px/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;padding:22px 30px;border-radius:12px;box-shadow:0 18px 40px -18px rgba(51,153,255,.75)}
+.eyebrow{display:flex;align-items:center;gap:10px;font:500 11px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+
+/* intro */
+.intro{padding-block:clamp(20px,4vw,48px) clamp(48px,7vw,96px);position:relative}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,64px);align-items:center}
+h1{font:900 clamp(46px,8vw,112px)/.9 var(--display);text-transform:uppercase;letter-spacing:.01em;color:var(--ink-strong);margin:22px 0 0}
+.lede{font-size:clamp(17px,1.5vw,20px);line-height:1.5;margin:22px 0 0;color:var(--ink);max-width:54ch}
+.lede b{color:var(--accent-soft);font-weight:600}
+.intro-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;align-items:center}
+.tiny{font-size:13px;color:var(--faint);margin:16px 0 0}
+.hero-photo{position:relative;margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.hero-photo::before{content:"";position:absolute;left:50%;top:52%;width:100%;height:110%;transform:translate(-50%,-50%);background:radial-gradient(ellipse at 50% 50%,rgba(51,153,255,.62),rgba(51,153,255,.22) 38%,rgba(51,153,255,0) 68%);filter:blur(18px);pointer-events:none}
+.hero-photo img{position:relative;width:100%;max-width:640px;height:auto;object-fit:contain;-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
+.hero-photo figcaption{position:relative;margin-top:-22px;white-space:nowrap;font:600 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9);background:rgba(10,10,11,.75);border:1px solid var(--line-2);border-radius:var(--pill);padding:9px 14px;backdrop-filter:blur(6px)}
+.rows{margin-top:clamp(36px,5vw,72px);border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:56px minmax(0,1fr) minmax(0,1.3fr);gap:16px;align-items:baseline;padding-block:20px;border-bottom:1px solid var(--line)}
+.row .n{font:500 12px/1 var(--sans);letter-spacing:.14em;color:var(--faint)}
+.row h3{font:700 clamp(21px,2.4vw,30px)/1.05 var(--display);letter-spacing:-.025em;margin:0;color:var(--ink-strong)}
+.row:nth-child(2) h3{color:var(--accent)}.row:nth-child(3) h3{color:var(--orange)}
+.row p{margin:0;color:var(--muted);font-size:16px}
+
+/* form */
+.tool{padding-block:clamp(16px,3vw,40px) clamp(40px,5vw,64px)}
+.steps-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}
+.stepper{display:flex;gap:6px;border:1px solid var(--line-2);border-radius:var(--pill);padding:4px;background:var(--surface);max-width:100%}
+.stepper button{padding:9px 14px;border-radius:var(--pill);font:600 13px/1 var(--sans);color:var(--muted);white-space:nowrap}
+.stepper button .lbl{margin-left:6px}
+.stepper button[aria-current="step"]{background:var(--ink);color:#0A0A0B}
+.stepper button.done{color:var(--accent-soft)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--card);padding:clamp(22px,3.4vw,44px)}
+.panel-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start;margin-bottom:26px}
+.panel h2{font:900 clamp(30px,4.2vw,52px)/.95 var(--display);text-transform:uppercase;letter-spacing:.005em;margin:12px 0 10px;color:var(--ink-strong)}
+.panel .sub{margin:0;color:var(--muted);max-width:60ch}
+.ex{display:flex;flex-direction:column;align-items:flex-end;gap:8px;max-width:270px;text-align:right}
+.ex small{font-size:12px;line-height:1.4;color:var(--faint)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px}
+.f label{display:block;font:600 15px/1.3 var(--sans);color:var(--ink-strong);margin-bottom:8px}
+.inp{display:flex;align-items:center;background:var(--bg);border:1px solid var(--line-2);border-radius:12px;transition:border-color .2s,box-shadow .2s}
+.inp:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(51,153,255,.18)}
+.inp .ad{padding:0 0 0 16px;color:var(--muted);font:700 17px/1 var(--display);min-width:14px}
+.inp .ad.r{padding:0 16px 0 0}
+.inp input{flex:1;min-width:0;width:100%;background:transparent;border:0;outline:0;color:var(--ink-strong);font:700 20px/1 var(--display);padding:16px 14px;letter-spacing:.01em;-moz-appearance:textfield}
+.inp input::-webkit-outer-spin-button,.inp input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.inp input::placeholder{color:rgba(242,237,227,.22);font-weight:400}
+.f .hint{font-size:13.5px;line-height:1.45;color:var(--muted);margin:8px 0 0}
+.f .err{font-size:13.5px;color:#FF7A9B;margin:8px 0 0;font-weight:600}
+.f.bad .inp{border-color:var(--pink)}
+.panel-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+.panel-foot .note{font-size:13px;color:var(--faint);margin:0}
+.panel-foot .acts{display:flex;gap:10px;flex-wrap:wrap}
+
+/* results */
+.res-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end;padding-bottom:32px;border-bottom:1px solid var(--line)}
+.res-head h2{font:900 clamp(36px,5.2vw,72px)/.94 var(--display);text-transform:uppercase;letter-spacing:.005em;margin:16px 0 0;color:var(--ink-strong)}
+.res-head h2 em{display:block}
+.res-head .lens{margin:18px 0 0;color:var(--muted);max-width:58ch}
+.tally{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--card);background:var(--surface)}
+.tally div{padding:20px 16px;border-left:1px solid var(--line);min-width:0}
+.tally div:first-child{border-left:0}
+.tally b{display:block;font:900 clamp(30px,3.6vw,52px)/.9 var(--display);color:var(--ink-strong);white-space:nowrap}
+.tally span{display:block;margin-top:10px;font:500 10.5px/1.3 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.tally .c b{color:var(--accent)}.tally .w b{color:var(--orange)}.tally .fl b{color:#FF7A9B}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--card);padding:clamp(20px,2.4vw,32px);display:flex;flex-direction:column;min-width:0}
+.card.full{grid-column:1/-1}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.sec-t{font:500 11px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0}
+.chip{flex:none;display:inline-block;font:700 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:var(--pill);border:1px solid var(--line-2);color:var(--muted);white-space:nowrap}
+.chip.c{color:var(--accent-soft);border-color:rgba(51,153,255,.5);background:rgba(51,153,255,.1)}
+.chip.w{color:var(--orange);border-color:rgba(240,160,75,.5);background:rgba(240,160,75,.1)}
+.chip.fl{color:#FF7A9B;border-color:rgba(232,68,111,.55);background:rgba(232,68,111,.12)}
+.big{font:900 clamp(38px,4vw,58px)/.9 var(--display);color:var(--ink-strong);margin:18px 0 6px;white-space:nowrap}
+.big small{font:700 .38em/1 var(--display);color:var(--muted);letter-spacing:.02em;margin-left:6px;white-space:normal}
+.big.w{color:var(--orange)}.big.fl{color:#FF7A9B}.big.c{color:var(--accent)}
+.under{font-size:14px;color:var(--muted);margin:0 0 16px}
+.read{margin:0;font-size:15.5px;line-height:1.5;color:var(--ink)}
+.read+.read{margin-top:10px}
+.card .read.push{margin-top:auto;padding-top:14px}
+.math{list-style:none;margin:14px 0 0;padding:0;font-size:14.5px}
+.math li{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.math li span:first-child{color:var(--muted)}
+.math li b{font:900 15px/1.2 var(--display);color:var(--ink-strong);white-space:nowrap}
+.math li.sum{border-top:1px solid var(--line-2)}
+.math li.sum span:first-child{color:var(--ink)}
+.math li.sum b{color:var(--accent)}
+.math li b.w{color:var(--orange)}.math li b.fl{color:#FF7A9B}
+.split{margin-top:16px}
+.split .bar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--surface-2)}
+.split .bar i{display:block;height:100%}
+.split .bar i.n{background:var(--accent)}.split .bar i.r{background:var(--orange)}
+.split .keys{display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-size:14px}
+.split .keys b{font:900 18px/1 var(--display);color:var(--ink-strong);display:block;margin-bottom:4px}
+.split .keys span{color:var(--muted)}
+.split .keys .r{text-align:right}
+.ladder{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+.ladder th{font:500 10.5px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);text-align:right;padding:0 0 8px 10px}
+.ladder th:first-child,.ladder td:first-child{text-align:left;padding-left:0}
+.ladder td{padding:9px 0 9px 10px;border-top:1px solid var(--line);text-align:right;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ladder td b{font:900 15px/1 var(--display);color:var(--ink-strong)}
+.ladder tr.on td{background:rgba(51,153,255,.08)}
+.ladder tr.on td:first-child{color:var(--accent-soft);font-weight:700}
+.ladder .lo{color:var(--orange)}.ladder .ok{color:var(--accent-soft)}.ladder .neg{color:#FF7A9B}
+.ladder .vb{display:inline-block;height:8px;border-radius:4px;background:var(--accent);vertical-align:middle;margin-right:8px}
+.ladder tr.on .vb{background:var(--accent-soft)}
+.scroll-x{overflow-x:auto}
+.tl{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--line)}
+.tl li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);position:relative}
+.tl .when{font:900 16px/1.1 var(--display);text-transform:uppercase;color:var(--ink-strong)}
+.tl .when small{display:block;font:500 12px/1.3 var(--sans);text-transform:none;color:var(--muted);margin-top:4px}
+.tl .what{font-size:15px;color:var(--ink)}
+.tl li.past .when,.tl li.past .what{color:var(--faint)}
+.tl li.now .when{color:var(--accent)}
+.tl li.now::before{content:"";position:absolute;left:-14px;top:0;bottom:0;width:3px;background:var(--accent);border-radius:2px}
+.tl .tag{display:inline-block;font:700 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--accent);border-radius:var(--pill);padding:7px 10px;white-space:nowrap}
+.tl .tag.dim{background:var(--surface-2);color:var(--muted)}
+.bf-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.bf-strip div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+.bf-strip b{display:block;font:900 24px/1 var(--display);color:var(--ink-strong);white-space:nowrap}
+.bf-strip span{display:block;margin-top:6px;font:500 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.checks{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.checks li{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.checks label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.checks input{appearance:none;-webkit-appearance:none;flex:none;width:22px;height:22px;margin:1px 0 0;border:1.5px solid var(--line-2);border-radius:6px;background:var(--surface);display:grid;place-items:center;cursor:pointer}
+.checks input:checked{background:var(--accent);border-color:var(--accent)}
+.checks input:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
+.checks input:focus-visible{outline:2px solid var(--accent-soft);outline-offset:2px}
+.checks b{display:block;font:900 15px/1.15 var(--display);text-transform:uppercase;color:var(--ink-strong)}
+.checks span{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
+.checks li.done b{color:var(--accent-soft)}
+.notes2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.notes2 p{margin:0;font-size:14px;line-height:1.5;color:var(--muted);padding-left:14px;border-left:2px solid var(--accent)}
+.notes{margin-top:22px;font-size:12.5px;line-height:1.55;color:var(--faint);max-width:100ch}
+.res-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.cta{margin-top:28px;background:radial-gradient(circle at 92% 0%,rgba(255,255,255,.28),rgba(255,255,255,0) 44%),var(--accent);color:#fff;border-radius:var(--card);padding:clamp(24px,3.6vw,48px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(18px,3vw,40px);align-items:center}
+.cta .face{width:clamp(88px,10vw,128px);height:clamp(88px,10vw,128px);border-radius:50%;overflow:hidden;background:#0A0A0B;border:4px solid rgba(255,255,255,.85);box-shadow:0 14px 30px -12px rgba(0,0,0,.5);flex:none}
+.cta .face img{width:100%;height:100%;object-fit:cover}
+.cta h3{font:900 clamp(28px,3.8vw,48px)/.95 var(--display);text-transform:uppercase;margin:0;color:#fff}
+.cta h3 em{color:#0A0A0B}
+.cta p{margin:12px 0 0;font-size:16px;max-width:54ch;color:rgba(255,255,255,.95)}
+.btn.dark{background:#0A0A0B;color:#fff;font:900 14px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;padding:20px 26px;white-space:nowrap}
+.btn.dark:hover{background:#1C1C20}
+footer{padding-block:32px 48px;font-size:12.5px;color:var(--faint)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+.fade{animation:fade .45s var(--ease) both}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.print-head{display:none}
+
+@media (max-width:860px){
+  .intro-grid{grid-template-columns:1fr}
+  .hero-photo{order:-1}
+  .hero-photo img{max-width:400px}
+  .hero-photo figcaption{white-space:normal;text-align:center;line-height:1.35}
+  .res-head{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
+  .cta{grid-template-columns:auto minmax(0,1fr)}
+  .cta .btn{grid-column:1/-1;justify-content:center}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .nav .btn{display:none}
+  .row{grid-template-columns:40px minmax(0,1fr)}
+  .row p{grid-column:2}
+  .panel-top{grid-template-columns:1fr}
+  .ex{align-items:flex-start;text-align:left;max-width:none}
+  .fields{grid-template-columns:1fr}
+  .stepper button .lbl{display:none}
+  .steps-head{flex-direction:column;align-items:flex-start}
+  .tally{grid-template-columns:1fr}
+  .tally div{border-left:0;border-top:1px solid var(--line)}
+  .tally div:first-child{border-top:0}
+  .tl li{grid-template-columns:1fr;gap:6px}
+  .tl li.now::before{left:-12px}
+  .tl .tag{justify-self:start}
+  .bf-strip{grid-template-columns:1fr}
+  .checks,.notes2{grid-template-columns:1fr}
+  .cta{grid-template-columns:minmax(0,1fr);text-align:center;justify-items:center}
+  .cta>div{min-width:0;max-width:100%}
+  .cta h3{font-size:clamp(26px,8.5vw,34px);overflow-wrap:anywhere}
+  .cta p{margin-inline:auto}
+  .cta .btn.dark{white-space:normal;text-align:center;width:100%;padding:18px 20px;line-height:1.3}
+  .res-actions .btn{flex:1 1 100%;justify-content:center}
+  .panel-foot .acts .btn{flex:1;justify-content:center}
+  .panel-foot .acts{width:100%}
+  .intro-cta .btn{width:100%}
+}
+
+@media print{
+  @page{size:A4;margin:8mm}
+  :root{--bg:#fff;--surface:#fff;--surface-2:#E9E6DF;--ink:#0A0A0B;--ink-strong:#0A0A0B;--muted:rgba(10,10,11,.62);--faint:rgba(10,10,11,.5);--line:rgba(10,10,11,.14);--line-2:rgba(10,10,11,.22);--accent-soft:#1A6FCC}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#fff}
+  body{font-size:9px;line-height:1.35}
+  .nav,.intro,#form,.res-actions,.cta,footer{display:none!important}
+  .fade{animation:none}
+  .wrap{max-width:none;padding:0}
+  .tool{padding:0}
+  .print-head{display:flex;justify-content:space-between;align-items:center;background:#0A0A0B;color:#F2EDE3;border-radius:6px;padding:7px 12px;margin-bottom:8px;font-size:8px;letter-spacing:.1em;text-transform:uppercase}
+  .print-head img{height:11px}
+  .res-head{grid-template-columns:1.5fr 1fr;padding-bottom:8px;gap:16px;align-items:end}
+  .res-head h2{font-size:22px;margin-top:4px}
+  .res-head h2 em{display:inline}
+  .res-head .lens{margin-top:5px;font-size:8.5px;max-width:none}
+  .eyebrow,.sec-t{font-size:7px}
+  .tally{grid-template-columns:repeat(3,1fr)}
+  .tally div{padding:7px 10px;border-left:1px solid var(--line);border-top:0}
+  .tally div:first-child{border-left:0}
+  .tally b{font-size:20px}.tally span{font-size:6.5px;margin-top:3px}
+  .grid2{grid-template-columns:repeat(2,1fr);gap:7px;margin-top:7px}
+  .card{padding:8px 10px;border-radius:6px;break-inside:avoid}
+  .card.full{grid-column:1/-1}
+  .big{font-size:18px;margin:5px 0 2px}.under{font-size:8px;margin-bottom:5px}
+  .read{font-size:8.5px;line-height:1.35}.read+.read{margin-top:4px}
+  .card .read.push{padding-top:5px}
+  .chip{font-size:6.5px;padding:3px 6px}
+  .chip.c{color:#1A6FCC}.chip.w{color:#B5651D}.chip.fl{color:#C2254F}
+  .big.fl{color:#C2254F}.big.w{color:#B5651D}.big.c{color:#1A6FCC}
+  .math{margin-top:5px;font-size:8px}.math li{padding:3px 0}.math li b{font-size:9px}
+  .math li b.w{color:#B5651D}.math li b.fl{color:#C2254F}
+  .split{margin-top:6px}.split .bar{height:6px}.split .keys{font-size:8px;margin-top:4px}.split .keys b{font-size:10px;margin-bottom:2px}
+  .ladder{font-size:8px;margin-top:4px}.ladder td{padding:3px 0 3px 8px}.ladder td b{font-size:9px}.ladder th{font-size:6.5px;padding-bottom:3px}
+  .ladder .lo{color:#B5651D}.ladder .ok{color:#1A6FCC}.ladder .neg{color:#C2254F}
+  .ladder .vb{height:5px;margin-right:5px}
+  .tl{margin-top:5px}.tl li{padding:4px 0;gap:8px}.tl .when{font-size:9px}.tl .when small{font-size:7px;margin-top:1px}.tl .what{font-size:8px}
+  .tl .tag{font-size:6.5px;padding:3px 6px}.tl li.now::before{left:-10px;width:2px}
+  .bf-strip{gap:6px;margin-top:6px}.bf-strip div{padding:6px 8px;border-radius:5px}.bf-strip b{font-size:13px}.bf-strip span{font-size:6.5px;margin-top:2px}
+  .checks{margin-top:6px;gap:5px;grid-template-columns:repeat(4,1fr)}.checks li{padding:6px 8px;border-radius:5px}
+  .checks input{width:12px;height:12px;border-radius:3px}.checks input:checked::after{width:3px;height:6px;border-width:0 1.5px 1.5px 0}
+  .checks b{font-size:8px}.checks span{font-size:7.5px;margin-top:1px}
+  .notes2{margin-top:6px;gap:8px}.notes2 p{font-size:8px;padding-left:8px}
+  .notes{font-size:6.8px;margin-top:6px;max-width:none}
+  #results{zoom:.96}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="https://www.leadingsocial.com" target="_blank" rel="noopener" aria-label="Leading Social">
+      <img class="disc" src="icon.png" alt="">
+      <img class="word" src="logo-ondark.png" alt="Leading Social">
+    </a>
+    <div class="nav-right">
+      <div class="cur" role="group" aria-label="Currency symbol">
+        <button type="button" data-cur="€" aria-pressed="true">€</button>
+        <button type="button" data-cur="$" aria-pressed="false">$</button>
+        <button type="button" data-cur="£" aria-pressed="false">£</button>
+      </div>
+      <a class="btn sm" href="https://leadingsocial.com" target="_blank" rel="noopener">Book a call <span class="arr">→</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="intro" id="intro">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div>
+        <p class="eyebrow">Black Friday and Cyber Monday 2026 · free · your numbers stay in your browser</p>
+        <h1>The Black Friday <em>Profit</em> Planner</h1>
+        <p class="lede">Six numbers in, and you get the customers you need, your <b>break-even CAC</b>, the most you can spend at your MER floor, what the discount does to every order, and the 12-week timeline with real dates.</p>
+        <div class="intro-cta">
+          <button class="btn big" type="button" id="start">Fill in my numbers <span class="arr">→</span></button>
+          <button class="btn ghost" type="button" id="startEx">See it with an example brand</button>
+        </div>
+        <p class="tiny">Fill this in before anyone touches creative or campaigns. It takes about two minutes.</p>
+      </div>
+      <figure class="hero-photo" aria-label="Leighton Penrose, Co-Owner of Leading Social">
+        <img src="leighton.png" alt="Leighton Penrose">
+        <figcaption>Leighton Penrose · Co-Owner, Leading Social</figcaption>
+      </figure>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="n">01</span><h3>The five numbers</h3><p>Revenue goal, customers, target CAC, break-even point and MER floor. Three of them you type, two the planner works out.</p></div>
+      <div class="row"><span class="n">02</span><h3>The offer check</h3><p>One brand did half a million on a sitewide 25% discount with no contribution margin tracked, and the margins were gone by January. You see the margin per order at every discount from 0 to 30%.</p></div>
+      <div class="row"><span class="n">03</span><h3>The timeline</h3><p>The 12-week plan we run with clients, dated for 2026, with a marker on where you are today and a tracking sheet for the week itself.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tool" id="tool" hidden>
+  <div class="wrap">
+    <div id="form">
+      <div class="steps-head">
+        <p class="eyebrow" id="stepCount">Step 1 of 3</p>
+        <div class="stepper" id="stepper" role="tablist" aria-label="Planner steps"></div>
+      </div>
+      <div class="panel fade" id="panel"></div>
+    </div>
+    <div id="results" hidden></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>The Black Friday Profit Planner, by Leading Social.</span><span>A guide from the numbers you typed. Check it against your accounts before you commit spend.</span></div></footer>
+
+<script>
+(function(){
+'use strict';
+var CUR='€';
+var BF=new Date(2026,10,27), CM=new Date(2026,10,30);
+var V={goal:'',aov:'',ret:'',cogs:'',disc:'',cac:'',mer:''};
+var EX={goal:250000,aov:65,ret:40,cogs:30,disc:20,cac:38,mer:3};
+var step=0, checks=[false,false,false,false];
+
+var STEPS=[
+  {short:'Goal',title:'The goal and <em>the customers</em>',sub:'Net sales for the whole campaign, what an order is worth, and how much of it you expect from people who have bought before.',
+   fields:[
+    {k:'goal',label:'Black Friday revenue goal',ad:'cur',hint:'Net sales for the whole campaign, Black Friday through Cyber Monday.',ph:'250,000'},
+    {k:'aov',label:'Average order value',ad:'cur',hint:'What a typical order comes to before the discount.',ph:'65'},
+    {k:'ret',label:'Share of revenue from returning customers',ad:'%',hint:'Your best guess from last year. The rest has to come from new customers.',ph:'40',max:100}
+   ]},
+  {short:'Offer',title:'The offer <em>against the margin</em>',sub:'What the product costs you as a share of the price, and the sitewide discount you plan to run.',
+   fields:[
+    {k:'cogs',label:'Product cost as a share of the price',ad:'%',hint:'COGS. Landed cost of the goods in the order, as a percentage of the full price.',ph:'30',max:100},
+    {k:'disc',label:'Sitewide discount you plan to run',ad:'%',hint:'The headline offer. Put 0 if you run bundles or gifts instead of a percentage.',ph:'20',max:100,zero:true}
+   ]},
+  {short:'Spend',title:'What you will <em>pay to win</em> a customer',sub:'Count everything that goes into winning the customer, and name the lowest efficiency you will accept.',
+   fields:[
+    {k:'cac',label:'Target CAC',ad:'cur',hint:'Ads, agency fees, creator fees and content, all of it, per new customer.',ph:'38'},
+    {k:'mer',label:'MER floor',ad:'x',hint:'Total revenue divided by total marketing spend. The lowest you will accept during the sale.',ph:'3.0',step:'0.1'}
+   ]}
+];
+
+var $=function(s){return document.querySelector(s)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function num(v){var n=parseFloat(String(v).replace(/[^0-9.\-]/g,''));return isNaN(n)?NaN:n}
+function r0(n){return Math.round(n)}
+function r2(n){return Math.round(n*100)/100}
+function fmt0(n){return (n<0?'-':'')+CUR+Math.abs(r0(n)).toLocaleString('en-IE')}
+function fmt2(n){return (n<0?'-':'')+CUR+Math.abs(r2(n)).toLocaleString('en-IE',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function fmtN(n){return r0(n).toLocaleString('en-IE')}
+function pct(n){return (Math.round(n*10)/10).toLocaleString('en-IE')+'%'}
+function x2(n){return (Math.round(n*100)/100).toLocaleString('en-IE',{minimumFractionDigits:2,maximumFractionDigits:2})+'x'}
+function dfmt(d){return d.toLocaleDateString('en-IE',{weekday:'short',day:'numeric',month:'short'})}
+function dlong(d){return d.toLocaleDateString('en-IE',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
+function midnight(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
+
+/* currency */
+Array.prototype.forEach.call(document.querySelectorAll('.cur button'),function(b){
+  b.addEventListener('click',function(){
+    CUR=b.getAttribute('data-cur');
+    Array.prototype.forEach.call(document.querySelectorAll('.cur button'),function(o){o.setAttribute('aria-pressed',o===b?'true':'false')});
+    if(!$('#tool').hidden){ if($('#results').hidden) renderStep(); else renderResults(); }
+  });
+});
+
+/* intro buttons */
+$('#start').addEventListener('click',function(){openTool(false)});
+$('#startEx').addEventListener('click',function(){openTool(true)});
+function openTool(ex){
+  if(ex){for(var k in EX)V[k]=EX[k]}
+  step=0;
+  $('#intro').hidden=true;$('#tool').hidden=false;$('#results').hidden=true;$('#form').hidden=false;
+  renderStep();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* form */
+function renderStepper(){
+  var h='';
+  STEPS.forEach(function(s,i){
+    h+='<button type="button" role="tab" data-i="'+i+'"'+(i===step?' aria-current="step"':'')+(i<step?' class="done"':'')+'>'+(i+1)+'<span class="lbl">'+esc(s.short)+'</span></button>';
+  });
+  $('#stepper').innerHTML=h;
+  $('#stepCount').textContent='Step '+(step+1)+' of '+STEPS.length;
+  Array.prototype.forEach.call($('#stepper').querySelectorAll('button'),function(b){
+    b.addEventListener('click',function(){var i=+b.getAttribute('data-i');if(i<=step||validate(step)){saveStep();step=i;renderStep()}});
+  });
+}
+function renderStep(){
+  renderStepper();
+  var s=STEPS[step],h='';
+  h+='<div class="panel-top"><div><p class="eyebrow">0'+(step+1)+' · '+esc(s.short)+'</p><h2>'+s.title+'</h2><p class="sub">'+esc(s.sub)+'</p></div>'+
+     '<div class="ex"><button class="btn ghost sm" type="button" id="useEx">Use the example brand</button><small>Ballyfen Nutrition, a fictional '+CUR+'3m Irish supplement store. Every number is made up.</small></div></div>';
+  h+='<div class="fields">';
+  s.fields.forEach(function(f){
+    var ad=f.ad==='cur'?CUR:f.ad, right=f.ad!=='cur';
+    h+='<div class="f" data-k="'+f.k+'"><label for="in-'+f.k+'">'+esc(f.label)+'</label><div class="inp">'+(right?'':'<span class="ad">'+ad+'</span>')+
+       '<input id="in-'+f.k+'" type="number" inputmode="decimal" min="0"'+(f.max?' max="'+f.max+'"':'')+' step="'+(f.step||'any')+'" placeholder="'+f.ph+'" value="'+(V[f.k]===''?'':V[f.k])+'">'+
+       (right?'<span class="ad r">'+ad+'</span>':'')+'</div><p class="hint">'+esc(f.hint)+'</p><p class="err" hidden></p></div>';
+  });
+  h+='</div>';
+  h+='<div class="panel-foot"><p class="note">Nothing you type leaves this page.</p><div class="acts">'+
+     (step>0?'<button class="btn ghost" type="button" id="back">Back</button>':'<button class="btn ghost" type="button" id="toIntro">Start over</button>')+
+     '<button class="btn" type="button" id="next">'+(step<STEPS.length-1?'Next':'Show my plan')+' <span class="arr">→</span></button></div></div>';
+  var p=$('#panel');p.innerHTML=h;p.classList.remove('fade');void p.offsetWidth;p.classList.add('fade');
+  $('#useEx').addEventListener('click',function(){for(var k in EX)V[k]=EX[k];renderStep()});
+  $('#next').addEventListener('click',function(){
+    if(!validate(step))return;
+    saveStep();
+    if(step<STEPS.length-1){step++;renderStep();window.scrollTo({top:0,behavior:'smooth'})}
+    else{renderResults();window.scrollTo({top:0,behavior:'smooth'})}
+  });
+  if($('#back'))$('#back').addEventListener('click',function(){saveStep();step--;renderStep()});
+  if($('#toIntro'))$('#toIntro').addEventListener('click',reset);
+  Array.prototype.forEach.call(p.querySelectorAll('input'),function(inp){
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();$('#next').click()}});
+    inp.addEventListener('input',function(){inp.closest('.f').classList.remove('bad');inp.closest('.f').querySelector('.err').hidden=true});
+  });
+  var first=p.querySelector('input');if(first&&window.innerWidth>860)first.focus({preventScroll:true});
+}
+function saveStep(){
+  Array.prototype.forEach.call($('#panel').querySelectorAll('input'),function(inp){V[inp.id.slice(3)]=inp.value});
+}
+function validate(i){
+  var ok=true;
+  STEPS[i].fields.forEach(function(f){
+    var el=$('#in-'+f.k),wrap=el.closest('.f'),err=wrap.querySelector('.err'),n=num(el.value),msg='';
+    if(el.value===''||isNaN(n))msg='Type a number here.';
+    else if(n<0)msg='This cannot be negative.';
+    else if(n===0&&!f.zero)msg='This needs to be above zero.';
+    else if(f.max&&n>f.max)msg='Use a percentage between 0 and '+f.max+'.';
+    if(msg){ok=false;wrap.classList.add('bad');err.textContent=msg;err.hidden=false}
+  });
+  if(!ok){var b=$('#panel .f.bad input');if(b)b.focus()}
+  return ok;
+}
+function reset(){
+  for(var k in V)V[k]='';
+  step=0;checks=[false,false,false,false];
+  $('#tool').hidden=true;$('#intro').hidden=false;$('#results').hidden=true;$('#results').innerHTML='';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* maths, every difference from the rounded displayed figure */
+function calc(){
+  var goal=num(V.goal),aov=num(V.aov),ret=num(V.ret),cogs=num(V.cogs),disc=num(V.disc),cac=num(V.cac),mer=num(V.mer);
+  var o={goal:r0(goal),aov:r2(aov),ret:ret,cogs:cogs,disc:disc,cac:r2(cac),mer:mer};
+  o.customers=r0(o.goal/o.aov);
+  o.returning=r0(o.customers*ret/100);
+  o.newc=o.customers-o.returning;
+  o.priceAfter=r2(o.aov*(1-disc/100));
+  o.cost=r2(o.aov*cogs/100);
+  o.be=r2(o.priceAfter-o.cost);
+  o.gap=r2(o.cac-o.be);            /* positive = loses money */
+  o.lossTotal=r0(Math.abs(o.gap)*o.newc);
+  o.maxSpend=r0(o.goal/mer);
+  o.implied=r0(o.newc*o.cac);
+  o.spendGap=o.implied-o.maxSpend; /* positive = over the ceiling */
+  o.merAtImplied=o.implied>0?o.goal/o.implied:null;
+  o.cacAtCeiling=o.newc>0?r2(o.maxSpend/o.newc):null;
+  o.merBinds=o.implied>o.maxSpend;
+  o.fullMargin=r2(o.aov-o.cost);
+  var steps=[0,10,15,20,25,30];if(steps.indexOf(disc)<0){steps.push(disc);steps.sort(function(a,b){return a-b})}
+  o.ladder=steps.map(function(d){var p=r2(o.aov*(1-d/100)),c=r2(p-o.cost);return {d:d,price:p,contrib:c,afterCac:r2(c-o.cac)}});
+  var today=midnight(new Date());
+  o.today=today;
+  o.days=Math.round((BF-today)/86400000);
+  o.phases=[
+    {when:'Summer and September',from:new Date(2026,5,1),to:new Date(2026,8,30),what:'Lead gen and list building',range:'to '+dfmt(new Date(2026,8,30))},
+    {when:'October',from:new Date(2026,9,1),to:new Date(2026,9,31),what:'Audience warming, offer testing, creative testing',range:dfmt(new Date(2026,9,1))+' to '+dfmt(new Date(2026,9,31))},
+    {when:'Early November',from:new Date(2026,10,1),to:new Date(2026,10,22),what:'VIP early access and exclusive bundles',range:dfmt(new Date(2026,10,1))+' to '+dfmt(new Date(2026,10,22))},
+    {when:'Black Friday week',from:new Date(2026,10,23),to:CM,what:'The main campaign. Black Friday '+dfmt(BF)+', Cyber Monday '+dfmt(CM)+'.',range:dfmt(new Date(2026,10,23))+' to '+dfmt(CM)},
+    {when:'December',from:new Date(2026,11,1),to:new Date(2026,11,31),what:'Self-purchase messaging',range:dfmt(new Date(2026,11,1))+' to '+dfmt(new Date(2026,11,31))}
+  ];
+  o.phases.forEach(function(p){p.state=today>p.to?'past':(today<p.from?'ahead':'now')});
+  if(today<o.phases[0].from)o.phases[0].state='now';
+  return o;
+}
+
+function renderResults(){
+  var o=calc(),h='';
+  var loses=o.gap>0, over=o.merBinds;
+  var head,lens;
+  if(loses&&over){head='Two things to fix <em>before creative</em>';lens='At this discount every new customer loses money on the first order, and the spend the plan implies runs past your MER floor. Both are arithmetic, so both can be fixed on paper before a euro of spend goes out.';}
+  else if(loses){head='The offer loses money <em>on every new customer</em>';lens='The spend fits under your MER floor, but at this discount the first order from a new customer comes in below the CAC you have set. Move the discount, the CAC, or accept it as a paid-for second purchase.';}
+  else if(over){head='The plan spends past <em>your MER floor</em>';lens='The first order pays for itself, which is the harder part. The spend the plan implies runs past the ceiling your MER floor allows, so one of the two numbers has to move.';}
+  else{head='The plan holds. <em>Now run the timeline</em>';lens='The first order from a new customer covers its CAC and the spend the plan implies sits under your MER floor. What is left is the 12 weeks of work below and tracking the four numbers during the week.';}
+  lens=lens.replace('a euro of','a '+({'€':'euro','$':'dollar','£':'pound'}[CUR])+' of');
+
+  h+='<div class="print-head"><span>The Black Friday Profit Planner · printed '+esc(dfmt(o.today))+' 2026</span><img src="logo-ondark.png" alt="Leading Social"></div>';
+  h+='<div class="res-head"><div><p class="eyebrow">Your Black Friday plan · '+esc(dlong(o.today))+'</p><h2>'+head+'</h2><p class="lens">'+esc(lens)+'</p></div>'+
+     '<div class="tally"><div class="c"><b>'+(o.days>0?o.days:0)+'</b><span>'+(o.days>0?'days to Black Friday':(o.days===0?'Black Friday is today':'days, Black Friday has passed'))+'</span></div>'+
+     '<div><b>'+fmtN(o.customers)+'</b><span>customers needed</span></div>'+
+     '<div class="'+(loses?'fl':'c')+'"><b>'+fmt2(o.be)+'</b><span>your break-even CAC</span></div></div></div>';
+
+  h+='<div class="grid2">';
+  /* customers */
+  var np=o.customers>0?o.newc/o.customers*100:0;
+  h+='<div class="card"><div class="card-top"><p class="sec-t">Customers needed</p><span class="chip">Number 02</span></div>'+
+     '<p class="big">'+fmtN(o.customers)+'<small>customers</small></p><p class="under">'+fmt0(o.goal)+' goal divided by '+fmt2(o.aov)+' per order.</p>'+
+     '<div class="split"><div class="bar"><i class="n" style="width:'+np.toFixed(1)+'%"></i><i class="r" style="width:'+(100-np).toFixed(1)+'%"></i></div>'+
+     '<div class="keys"><div><b>'+fmtN(o.newc)+'</b><span>new customers, '+pct(np)+'</span></div><div class="r"><b>'+fmtN(o.returning)+'</b><span>returning, '+pct(o.ret)+'</span></div></div></div>'+
+     '<ul class="math"><li><span>Returning: '+fmtN(o.customers)+' × '+pct(o.ret)+'</span><b>'+fmtN(o.returning)+'</b></li><li><span>New: '+fmtN(o.customers)+' less '+fmtN(o.returning)+'</span><b>'+fmtN(o.newc)+'</b></li></ul>'+
+     '<p class="read push">'+(o.newc>0?'Every one of the '+fmtN(o.newc)+' new customers has to be bought at your target CAC of '+fmt2(o.cac)+'. The returning '+fmtN(o.returning)+' come from the list, so the summer and September work below is what makes them cheap.':'On these numbers the whole goal comes from returning customers, so the list is the campaign.')+'</p></div>';
+
+  /* break-even */
+  h+='<div class="card"><div class="card-top"><p class="sec-t">Break-even CAC on the first order</p><span class="chip '+(loses?'fl':'c')+'">'+(loses?'First order loses money':'First order pays')+'</span></div>'+
+     '<p class="big '+(loses?'fl':'')+'">'+fmt2(o.be)+'<small>per first order</small></p><p class="under">Gross profit on a first order at a '+pct(o.disc)+' discount. Number 04 on the planner.</p>'+
+     '<ul class="math"><li><span>Order value</span><b>'+fmt2(o.aov)+'</b></li><li><span>After the '+pct(o.disc)+' discount: '+fmt2(o.aov)+' × '+pct(100-o.disc)+'</span><b>'+fmt2(o.priceAfter)+'</b></li><li><span>Less product cost: '+fmt2(o.aov)+' × '+pct(o.cogs)+'</span><b>'+fmt2(o.cost)+'</b></li><li class="sum"><span>Break-even CAC</span><b>'+fmt2(o.be)+'</b></li>'+
+     '<li><span>Your target CAC</span><b>'+fmt2(o.cac)+'</b></li><li class="sum"><span>'+(loses?'Lost on every new customer':'Left per new customer')+'</span><b class="'+(loses?'fl':'')+'">'+fmt2(Math.abs(o.gap))+'</b></li></ul>'+
+     '<p class="read push">'+(loses?
+       'Every new customer loses '+fmt2(o.gap)+' on the first order, '+fmt0(o.lossTotal)+' across all '+fmtN(o.newc)+' of them, before shipping and fees. That is only fine if the second purchase is planned for and measured.':
+       (o.gap===0?'The target CAC lands exactly on break-even. Any shipping or payment fee tips the first order into a loss.':
+       'Each new customer leaves '+fmt2(Math.abs(o.gap))+' after CAC on the first order, before shipping and payment fees. That is the margin a bad ad week eats first.'))+'</p></div>';
+
+  /* spend ceiling */
+  h+='<div class="card"><div class="card-top"><p class="sec-t">Spend ceiling at your MER floor</p><span class="chip '+(over?'w':'c')+'">'+(over?'MER floor binds':'Target CAC binds')+'</span></div>'+
+     '<p class="big '+(over?'w':'')+'">'+fmt0(o.maxSpend)+'<small>most you can spend</small></p><p class="under">'+fmt0(o.goal)+' goal divided by a '+x2(o.mer).replace('.00x','x')+' MER floor. Number 05 on the planner.</p>'+
+     '<ul class="math"><li><span>Spend the plan implies: '+fmtN(o.newc)+' new × '+fmt2(o.cac)+'</span><b>'+fmt0(o.implied)+'</b></li><li><span>Ceiling at the MER floor</span><b>'+fmt0(o.maxSpend)+'</b></li>'+
+     '<li class="sum"><span>'+(over?'Over the ceiling by':'Room under the ceiling')+'</span><b class="'+(over?'w':'')+'">'+fmt0(Math.abs(o.spendGap))+'</b></li>'+
+     (o.merAtImplied!==null?'<li><span>MER at the implied spend</span><b>'+x2(o.merAtImplied)+'</b></li>':'')+
+     (over&&o.cacAtCeiling!==null?'<li><span>CAC that fits the ceiling: '+fmt0(o.maxSpend)+' ÷ '+fmtN(o.newc)+'</span><b>'+fmt2(o.cacAtCeiling)+'</b></li>':'')+'</ul>'+
+     '<p class="read push">'+(over?
+       'The MER floor is the binding number. Buying '+fmtN(o.newc)+' new customers at '+fmt2(o.cac)+' costs '+fmt0(o.implied)+', which is '+fmt0(o.spendGap)+' more than the floor allows and lands MER at '+x2(o.merAtImplied)+'. Either the CAC comes down to '+fmt2(o.cacAtCeiling)+', the returning share goes up, or the floor moves.':
+       (o.implied===0?'With no new customers in the plan there is no acquisition spend to cap. The ceiling is what you have for retention and reactivation.':
+       'The target CAC is the binding number. The plan spends '+fmt0(o.implied)+' on new customers and leaves '+fmt0(Math.abs(o.spendGap))+' under the ceiling, so MER lands at '+x2(o.merAtImplied)+' if the CAC holds. The floor only bites if the CAC drifts up.'))+'</p></div>';
+
+  /* discount ladder */
+  var maxC=Math.max.apply(null,o.ladder.map(function(l){return Math.max(l.contrib,0)}).concat([1]));
+  h+='<div class="card"><div class="card-top"><p class="sec-t">The discount check</p><span class="chip">Planned: '+pct(o.disc)+'</span></div>'+
+     '<p class="read">Contribution per order is the price after discount less product cost. It moves by '+fmt2(r2(o.aov/10))+' for every 10 points of discount on a '+fmt2(o.aov)+' order.</p>'+
+     '<div class="scroll-x"><table class="ladder"><thead><tr><th>Discount</th><th>Price after</th><th>Per order</th><th>After CAC</th></tr></thead><tbody>';
+  o.ladder.forEach(function(l){
+    var w=Math.max(0,l.contrib/maxC*100);
+    h+='<tr'+(l.d===o.disc?' class="on"':'')+'><td>'+pct(l.d)+(l.d===o.disc?' · yours':'')+'</td><td>'+fmt2(l.price)+'</td><td><i class="vb" style="width:'+Math.round(w*0.6)+'px"></i><b>'+fmt2(l.contrib)+'</b></td><td class="'+(l.afterCac<0?'neg':'ok')+'">'+(l.afterCac<0?'-':'+')+fmt2(Math.abs(l.afterCac))+'</td></tr>';
+  });
+  h+='</tbody></table></div>'+
+     '<p class="read push">'+(loses?'The first order stops losing money at any discount where the per-order figure clears '+fmt2(o.cac)+'. '+(function(){var ok=o.ladder.filter(function(l){return l.contrib>=o.cac});return ok.length?'On this table that is '+pct(ok[ok.length-1].d)+' or less.':'No discount on this table gets there, so the CAC or the product cost has to move.'})():'At '+pct(o.disc)+' the order still clears the target CAC. Every extra 5 points costs '+fmt2(r2(o.aov/20))+' per order across all '+fmtN(o.customers)+' orders, '+fmt0(r2(o.aov/20)*o.customers)+' in total.')+'</p></div>';
+
+  /* timeline */
+  h+='<div class="card full"><div class="card-top"><p class="sec-t">The 12-week timeline, dated for 2026</p><span class="chip c">'+(o.days>0?o.days+' days to go':'Black Friday has passed')+'</span></div>'+
+     '<div class="bf-strip"><div><b>'+esc(dfmt(new Date(2026,8,4)))+'</b><span>12 weeks out</span></div><div><b>'+esc(dfmt(BF))+'</b><span>Black Friday</span></div><div><b>'+esc(dfmt(CM))+'</b><span>Cyber Monday</span></div></div>'+
+     '<ul class="tl">';
+  o.phases.forEach(function(p){
+    h+='<li class="'+p.state+'"><div class="when">'+esc(p.when)+'<small>'+esc(p.range)+'</small></div><div class="what">'+esc(p.what)+'</div>'+
+       (p.state==='now'?'<span class="tag">You are here</span>':(p.state==='past'?'<span class="tag dim">Done or missed</span>':'<span class="tag dim">Ahead</span>'))+'</li>';
+  });
+  h+='</ul>'+
+     '<p class="read" style="margin-top:14px">'+esc(timelineNote(o))+'</p></div>';
+
+  /* tracking */
+  var T=[
+    {t:'Net sales',s:'Target '+fmt0(o.goal)+' for the campaign'},
+    {t:'MER',s:'Floor '+x2(o.mer).replace('.00x','x')+'. Spend stays under '+fmt0(o.maxSpend)},
+    {t:'New against returning customers',s:'Target '+fmtN(o.newc)+' new, '+fmtN(o.returning)+' returning'},
+    {t:'New customer acquisition cost',s:'Target '+fmt2(o.cac)+'. Break-even '+fmt2(o.be)}
+  ];
+  h+='<div class="card full"><div class="card-top"><p class="sec-t">What we track during the week</p><span class="chip">Same as any other sales period</span></div><ul class="checks">';
+  T.forEach(function(t,i){
+    h+='<li'+(checks[i]?' class="done"':'')+'><label><input type="checkbox" data-i="'+i+'"'+(checks[i]?' checked':'')+'><span><b>'+esc(t.t)+'</b><span>'+esc(t.s)+'</span></span></label></li>';
+  });
+  h+='</ul><div class="notes2"><p>Throw an eye over ROAS on the platforms, and that\'s about it. It rarely tells the true story.</p><p>For the spend, pull your last five years of data and work from the averages.</p></div></div>';
+  h+='</div>';
+
+  h+='<p class="notes">How this is worked out: customers needed is the goal divided by the average order value, split by the returning share you typed. Break-even CAC is the order value after discount less product cost at your COGS percentage, before shipping and payment fees. The spend ceiling is the goal divided by the MER floor, and the implied spend is new customers times target CAC. Every figure is rounded before the next one is worked out, so the numbers on this page add up as shown. Check it against your accounts before you commit spend.</p>';
+  h+='<div class="res-actions"><button class="btn ghost" type="button" id="editNums">Edit my numbers</button><button class="btn ghost" type="button" id="printPlan">Print my plan</button><button class="btn ghost" type="button" id="startOver">Start over</button></div>';
+
+  h+='<div class="cta"><div class="face"><img src="leighton-face.png" alt="Leighton Penrose"></div><div><h3>Want us to <em>pressure test</em> the plan?</h3><p>Leading Social plans Black Friday for profit with seven and eight-figure brands. Bring these numbers to a call and we will go through them with you.</p></div><a class="btn dark" href="https://leadingsocial.com" target="_blank" rel="noopener">Book a call with Leading Social <span class="arr">→</span></a></div>';
+
+  var r=$('#results');r.innerHTML=h;r.hidden=false;$('#form').hidden=true;
+  r.classList.remove('fade');void r.offsetWidth;r.classList.add('fade');
+  $('#editNums').addEventListener('click',function(){step=0;$('#results').hidden=true;$('#form').hidden=false;renderStep();window.scrollTo({top:0,behavior:'smooth'})});
+  $('#printPlan').addEventListener('click',function(){window.print()});
+  $('#startOver').addEventListener('click',reset);
+  Array.prototype.forEach.call(r.querySelectorAll('.checks input'),function(c){
+    c.addEventListener('change',function(){checks[+c.getAttribute('data-i')]=c.checked;c.closest('li').classList.toggle('done',c.checked)});
+  });
+}
+function timelineNote(o){
+  var now=null;o.phases.forEach(function(p){if(p.state==='now')now=p});
+  if(o.days<0)return 'Black Friday 2026 is behind you. Keep the December self-purchase messaging running and use this plan again for next year.';
+  if(o.days===0)return 'It is Black Friday. Track the four numbers below every day through Cyber Monday.';
+  if(!now)return 'Black Friday is '+o.days+' days away.';
+  var s='You are in the '+now.when+' stage with '+o.days+' days to Black Friday. ';
+  if(now.when==='Summer and September')s+=o.today>=new Date(2026,8,15)?'Late September? Start the October work now: warm the audience, test the offer, test the creative. Every week of list building still done before October makes the returning '+fmtN(o.returning)+' cheaper.':'Use the weeks left for lead gen and list building. The '+fmtN(o.returning)+' returning customers in the plan come from this list.';
+  else if(now.when==='October')s+='Warm the audience, test the offer against the discount table above, and test creative before any of it goes live in November.';
+  else if(now.when==='Early November')s+='VIP early access and exclusive bundles go to the list first. This is where the returning customers are won before the main campaign.';
+  else s+='The main campaign is live. Track the four numbers below every day through Cyber Monday.';
+  return s;
+}
+})();
+</script>
+</body>
+</html>
