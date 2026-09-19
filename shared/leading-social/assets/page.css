@@ -458,3 +458,11 @@ ul.plain{list-style:none;padding:0;margin:10px 0 0}
 ul.plain li{position:relative;padding:7px 0 7px 18px;font-size:15.5px;line-height:1.5;color:#4e473f;border-bottom:1px solid var(--line)}
 ul.plain li:last-child{border-bottom:0}
 ul.plain li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%;background:var(--red)}
+
+/* funnel tags above each post */
+.feed-col .li-wrap{break-inside:avoid;display:inline-block;width:100%;margin:0 0 22px}
+.feed-col .li-wrap .li-post{margin:0;display:block}
+.li-tag{font:500 13.5px/1.35 var(--body);color:#5f5a52;margin:0 0 8px 2px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.li-tag b{font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--ink,#141416);border-radius:999px;padding:4px 10px}
+.li-slot{margin:12px 16px 12px;border:1.5px dashed #c9c5bd;border-radius:8px;padding:34px 16px;text-align:center;color:#77726a;font-size:14px;background:#faf9f6}
+.li-slot span{display:block;font-size:22px;margin-bottom:6px}
