@@ -444,3 +444,5 @@ button.lane-chip:hover{border-color:#b8b0a6}
 .icp2 dd{margin:3px 0 0;font-size:14px;line-height:1.4;color:#4e473f}
 @media(max-width:900px){.trows{grid-template-columns:1fr}.icp2 dl{grid-template-columns:1fr 1fr}.lms.two{grid-template-columns:1fr}}
 @media(max-width:760px){.trow{grid-template-columns:110px 1fr;gap:12px}.trow img{width:110px}.icp2{grid-template-columns:1fr;gap:10px}.icp2 dl{grid-template-columns:1fr}}
+
+.li-photo{display:block;width:100%;height:auto;margin-top:12px}
