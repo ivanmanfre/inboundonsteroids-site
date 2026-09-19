@@ -500,3 +500,8 @@ ul.plain li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
 .lead.lane2{grid-template-columns:1fr}
 .lead.lane2 span{font-size:15.5px;line-height:1.6}
 .lead.lane2 em{margin-top:8px}
+
+.src{background:#fff;border:1px solid #e2ddd5;border-radius:16px;padding:16px 18px}
+.src .lane-h{margin:0}
+.src .lane-h small{text-transform:none;letter-spacing:0;font-size:14.5px}
+.leads .src+.src{margin-top:0}
