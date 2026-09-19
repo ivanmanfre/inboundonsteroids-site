@@ -1,0 +1,24 @@
+LEIGHTON PENROSE / LEADING SOCIAL: SAMPLE + PLAN
+Prepared by Ivan Manfredi, InboundOnSteroids, 18 September 2026
+
+TO VIEW
+Open index.html in any browser. Everything is in this folder and works offline.
+(Fonts load from Google Fonts when you are online. Offline, the page falls back to system fonts.)
+
+WHAT IS IN HERE
+index.html        the page: the posts with the carousel, four topics,
+                  two lead magnets, and the plan
+planner-tool/     The Black Friday Profit Planner, the working tool. Open planner-tool/index.html
+                  to use it full screen. Press "See it with an example brand" to try it.
+downloads/        the carousel as a PDF (the file LinkedIn takes), the Black Friday planner
+                  the carousel promises, and both covers at full size
+assets/           images, styles and scripts the page uses
+
+TO HOST IT
+Upload the whole folder as it is to any static host. All paths are relative, and the page
+asks Google and other crawlers to leave it out of search results.
+
+TO START
+Start next week:           https://buy.stripe.com/eVq00b1M7cvTgRw7XtfEk18
+Book the onboarding call:  https://calendly.com/im-ivanmanfredi/30min
+Questions:                 im@inboundonsteroids.com
