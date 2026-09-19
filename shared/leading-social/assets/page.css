@@ -446,3 +446,15 @@ button.lane-chip:hover{border-color:#b8b0a6}
 @media(max-width:760px){.trow{grid-template-columns:110px 1fr;gap:12px}.trow img{width:110px}.icp2{grid-template-columns:1fr;gap:10px}.icp2 dl{grid-template-columns:1fr}}
 
 .li-photo{display:block;width:100%;height:auto;margin-top:12px}
+
+/* round 5 */
+.feed-col{max-width:1130px;display:block;columns:2;column-gap:20px}
+.feed-col .li-post{break-inside:avoid;margin:0 0 16px;display:inline-block;width:100%}
+.wrap-narrow{max-width:1130px}
+@media(max-width:900px){.feed-col{columns:1;max-width:555px}.wrap-narrow{max-width:555px}}
+.icp3{margin-top:18px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.6;color:#4e473f;max-width:none}
+.icp3 b{color:var(--ink)}
+ul.plain{list-style:none;padding:0;margin:10px 0 0}
+ul.plain li{position:relative;padding:7px 0 7px 18px;font-size:15.5px;line-height:1.5;color:#4e473f;border-bottom:1px solid var(--line)}
+ul.plain li:last-child{border-bottom:0}
+ul.plain li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%;background:var(--red)}
