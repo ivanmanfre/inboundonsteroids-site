@@ -1,15 +1,11 @@
-# Publishes the ARCH weekly client report from the public render bucket to /shared/.
-# No secrets: the bucket allows unauthenticated object GET; this repo is the publish target.
-# Mirrors rise-week-publish.yml. Written 2026-08-30 when the ARCH report cadence
-# moved to Sunday night so Ivan can approve Monday morning. Fires after the n8n build:
-#   Sun 20:00 Europe/Warsaw -> 18:15 / 19:15 / 20:15 UTC (covers CET and CEST)
-# Unchanged content is a no-op; a publish that never reaches HTTP 200 fails the job loudly.
+# Publishes monthly client reports after the renewal/month-end build.
+# Existing workflow identifier and historical report files remain compatible.
 name: arch-week-publish
 on:
   schedule:
-    - cron: '15 18 * * 0'
-    - cron: '15 19 * * 0'
-    - cron: '15 20 * * 0'
+    - cron: '15 18 28-31 * *'
+    - cron: '15 19 28-31 * *'
+    - cron: '15 20 28-31 * *'
   workflow_dispatch: {}
 
 permissions:
@@ -36,17 +32,26 @@ jobs:
           # and dies with "empty ident name" when two publishes race.
           git config user.name 'arch-week-bot'
           git config user.email 'noreply@ivanmanfredi.com'
-          # File Sunday = most recent Sunday on-or-before today. The build runs ON
-          # the file Sunday, so a Sunday cron resolves today and a manual
-          # workflow_dispatch later in the week still resolves a file that exists.
-          DOW=$(date -u +%u)                       # 1=Mon..7=Sun
-          SUB=$(( DOW % 7 ))
-          FILE_SUN=$(date -u -d "-${SUB} days" +%F)
-          WSTART=$(date -u -d "${FILE_SUN} -7 days" +%F)
-          MMDD=$(date -u -d "${WSTART}" +%m%d)
-          SRC="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-week-public/arch/${FILE_SUN}.html"
-          DST="shared/arch-week-${MMDD}.html"
-          echo "file=${FILE_SUN} window-start=${WSTART} -> ${DST}"
+          # Select the latest due report END date in Warsaw. Scheduled runs on
+          # non-month-end candidate days exit without fetching or publishing.
+          REPORT_END=$(python3 - <<'PYDATE'
+          import calendar, datetime, os
+          from zoneinfo import ZoneInfo
+          today = datetime.datetime.now(ZoneInfo('Europe/Warsaw')).date()
+          year, month = today.year, today.month
+          scheduled = os.environ.get('GITHUB_EVENT_NAME') == 'schedule'
+          due = datetime.date(year, month, calendar.monthrange(year, month)[1])
+          if scheduled and today != due:
+              raise SystemExit(0)
+          if today < due:
+              due = datetime.date(year, month, 1) - datetime.timedelta(days=1)
+          print(due.isoformat())
+          PYDATE
+          )
+          [ -n "$REPORT_END" ] || { echo 'not a monthly report date'; exit 0; }
+          SRC="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-week-public/arch/${REPORT_END}.html"
+          DST="shared/arch-month-${REPORT_END}.html"
+          echo "report-end=${REPORT_END} -> ${DST}"
           CODE=$(curl -s -o /tmp/arch-report.html -w '%{http_code}' "$SRC")
           if [ "$CODE" != "200" ]; then
             echo "render not in bucket yet (HTTP $CODE), nothing to publish"; exit 0
@@ -59,11 +64,11 @@ jobs:
           fi
           cp /tmp/arch-report.html "$DST"
           # A STABLE URL that always serves the newest report. The dated files
-          # stay as the per-week archive, but the dated name moves every Sunday,
+          # stay as the per-period archive, but the dated name moves each month,
           # so a bookmarked one silently goes stale. Ivan's link is this one.
           cp /tmp/arch-report.html shared/arch-week.html
           git add "$DST" shared/arch-week.html
-          git commit -m "arch weekly report: window starting ${WSTART}"
+          git commit -m "arch monthly report: period ending ${REPORT_END}"
           for i in 1 2 3 4 5; do
             git push origin main && break
             git pull --rebase origin main
@@ -75,7 +80,7 @@ jobs:
           echo "dispatching Pages deploy (a GITHUB_TOKEN push does not trigger it)"
           gh workflow run deploy.yml --repo "$GITHUB_REPOSITORY" --ref main
           # verify the live bundle, fail loudly if the page never appears
-          LIVE="https://inboundonsteroids.com/shared/arch-week-${MMDD}.html"
+          LIVE="https://inboundonsteroids.com/shared/arch-month-${REPORT_END}.html"
           for i in $(seq 1 20); do
             sleep 20
             L=$(curl -s -o /dev/null -w '%{http_code}' "$LIVE")
