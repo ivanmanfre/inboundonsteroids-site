@@ -505,3 +505,24 @@ ul.plain li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
 .src .lane-h{margin:0}
 .src .lane-h small{text-transform:none;letter-spacing:0;font-size:14.5px}
 .leads .src+.src{margin-top:0}
+
+/* client results (above the offer) */
+.results{margin-top:64px}
+.results h3{font-size:clamp(26px,2.6vw,34px);letter-spacing:-.045em}
+.results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:26px}
+.result{padding:32px;border-radius:24px;background:var(--soft);display:flex;flex-direction:column;min-width:0}
+.result-dtc{background:var(--peach)}
+.result-person{display:flex;align-items:center;gap:16px}
+.result-person img{width:64px;height:64px;object-fit:cover;border-radius:50%;flex:none;filter:grayscale(1)}
+.result-person h4{font-size:21px;line-height:1.25;letter-spacing:-.03em}
+.result-person span{display:block;font-size:13px;line-height:1.5;color:var(--muted);margin-top:3px}
+.result-number{margin-top:30px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.result-number>span{font-size:30px;font-weight:500;letter-spacing:-.045em;color:#8a8175}
+.result-number strong{font-size:72px;line-height:.95;letter-spacing:-.06em;font-weight:750;color:var(--red);font-variant-numeric:tabular-nums}
+.result-number small{font-size:20px;font-weight:650;letter-spacing:-.02em;color:var(--ink)}
+.result-label{font-weight:700;font-size:16.5px;line-height:1.5;margin-top:12px}
+.result-copy{font-size:15px;line-height:1.7;color:#5f574c;margin-top:12px}
+.result-link{margin-top:auto;padding-top:22px;align-self:flex-start;display:inline-flex;gap:10px;font-size:14px;font-weight:650;border-bottom:1px solid #aaa39a;min-height:44px;align-items:flex-end;padding-bottom:6px}
+.result-link:hover{color:var(--red-deep);border-color:var(--red-deep)}
+@media(max-width:760px){.results{margin-top:48px}.results-grid{grid-template-columns:1fr;gap:16px}.result{padding:24px}.result-number strong{font-size:58px}}
+@media print{.result{break-inside:avoid}}
