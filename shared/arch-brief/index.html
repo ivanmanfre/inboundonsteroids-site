@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ARCH Pre-call</title>
+<meta name="theme-color" content="#000F41">
+<style>
+  :root { --navy: #000F41; --lime: #F2FF82; --muted: rgba(255,255,255,.72); }
+  html, body { margin: 0; min-height: 100%; background: var(--navy); color: #fff; font-family: "DM Sans", Arial, Helvetica, sans-serif; }
+  #msg { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 16px; text-align: center; }
+  #msg .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--lime); animation: pulse 1s ease-in-out infinite; }
+  #msg p { margin: 0; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  @keyframes pulse { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+</style>
+</head>
+<body>
+<div id="msg"><span class="dot"></span><p>Loading the pre-call sheet</p></div>
+<script>
+// ARCH pre-call sheet viewer. The sheet itself is built by the booking engine and stored
+// under an unguessable name; this page only fetches that name and renders it, so the
+// visible address stays on this site. Without a valid name it shows nothing.
+(function () {
+  var SRC = 'https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-week-public/arch-precall/';
+  var fail = function (t) {
+    var m = document.getElementById('msg');
+    m.innerHTML = '<p></p>'; m.firstChild.textContent = t;
+  };
+  var b = new URLSearchParams(location.search).get('b') || '';
+  if (!/^[a-z0-9-]{20,120}$/.test(b)) { fail('Sheet not found.'); return; }
+  fetch(SRC + b + '.html', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.text(); })
+    .then(function (html) {
+      if (html.indexOf('</html>') < 0) throw new Error('incomplete');
+      document.open(); document.write(html); document.close();
+    })
+    .catch(function () { fail('Sheet not found.'); });
+})();
+</script>
+</body>
+</html>
