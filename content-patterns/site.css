@@ -22,11 +22,9 @@ a:focus-visible{outline:3px solid var(--red);outline-offset:4px}
 .crumb{margin:34px 0 58px;font-size:13px;font-weight:700;color:var(--secondary)}
 .crumb a{text-decoration:none;border-bottom:1px solid var(--line)}
 .intro{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(210px,.5fr);gap:9vw;align-items:end}
-.eyebrow,.section-label{font-size:12px;line-height:1.3;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 22px}
-.eyebrow::before{content:'';width:13px;height:13px;background:var(--red);flex:none}
+.section-label{font-size:12px;line-height:1.3;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 h1,h2,h3,p{margin-top:0}
-h1{font-size:clamp(48px,7.3vw,104px);font-weight:800;line-height:.99;letter-spacing:-.055em;margin-bottom:25px;text-wrap:balance}
+h1{font-size:clamp(48px,7.3vw,104px);font-weight:800;line-height:.99;letter-spacing:-.035em;margin-bottom:25px;text-wrap:balance}
 .intro p{max-width:650px;font-size:20px;line-height:1.5;margin-bottom:0}
 .intro-note{font-size:14px;line-height:1.55;color:var(--secondary);padding:18px 0;border-top:1px solid var(--ink)}
 .double-rule{height:8px;border-top:4px solid var(--ink);border-bottom:1px solid var(--ink);margin:58px 0 0}
@@ -65,3 +63,5 @@ footer{border-top:4px solid var(--ink);padding:30px 0 55px}
 .foot-note{font-size:12px;color:var(--secondary);margin-top:12px}
 @media(max-width:800px){.shell{width:calc(100% - 48px)}.intro{grid-template-columns:1fr;gap:30px}.intro-note{max-width:48ch}.body-grid{grid-template-columns:1fr;gap:45px;padding:48px 0 80px}.side{display:flex;flex-wrap:wrap;gap:12px 20px;border-bottom:1px solid var(--line);padding-bottom:12px}.side strong{width:100%;margin:0}.side a{margin:0}.double-rule{margin-top:42px}.crumb{margin:26px 0 38px}}
 @media(max-width:480px){body{font-size:16px}.shell{width:calc(100% - 36px)}.mast-inner{min-height:74px}.mark{font-size:17px}.mast-link{font-size:12px}h1{font-size:clamp(34px,11vw,52px)}.intro p{font-size:18px}.record{grid-template-columns:115px 1fr}.record dt,.record dd{font-size:13px}.record dd{padding-left:12px}.source-list li{grid-template-columns:1fr;gap:4px}.callout{padding:20px}.foot-inner{display:block}.foot-links{margin-top:24px}}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
