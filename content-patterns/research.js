@@ -18,8 +18,8 @@
   function updatePauseState() {
     const held = paused || hoverHold || focusHold || reduced.matches || document.hidden || !visible;
     instrument.classList.toggle('is-paused', held);
-    motionToggle.setAttribute('aria-pressed', String(paused));
-    motionToggle.innerHTML = paused ? 'Play motion <span aria-hidden="true">▶</span>' : 'Pause motion <span aria-hidden="true">Ⅱ</span>';
+    motionToggle.disabled = reduced.matches;
+    motionToggle.innerHTML = reduced.matches ? 'Motion off' : paused ? 'Play motion <span aria-hidden="true">▶</span>' : 'Pause motion <span aria-hidden="true">Ⅱ</span>';
   }
 
   function select(tool, byUser = false) {
