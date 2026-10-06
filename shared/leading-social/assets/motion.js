@@ -4,7 +4,7 @@
   headings.forEach(heading => {
     const wrap=document.createElement('div');wrap.className='motion-heading';heading.before(wrap);wrap.append(heading);
   });
-  const art=[...document.querySelectorAll('.trow,.lm-cover,.result')];
+  const art=[...document.querySelectorAll('.lm-cover')];
   art.forEach(el=>el.classList.add('motion-art'));
   const svg=document.getElementById('page-thread'),base=document.getElementById('thread-base'),line=document.getElementById('thread-drawn'),dot=document.getElementById('thread-dot');
   let points=[],length=0,frame=0,current=0,target=0;
@@ -34,11 +34,6 @@
     if(Math.abs(current-target)<.6)current=target;
     line.style.strokeDashoffset=String(length-current);
     const at=line.getPointAtLength(current);dot.setAttribute('cx',at.x);dot.setAttribute('cy',at.y);dot.style.opacity=y>points.at(-1).y?'0':'1';
-    headings.forEach(h=>{
-      const top=h.parentElement.getBoundingClientRect().top;
-      const t=clamp((top-innerHeight*.45)/(innerHeight*.5),0,1);
-      h.style.setProperty('--slide-x',reduced.matches?'0px':`${(t*(innerWidth<=760?22:105)).toFixed(1)}px`);
-    });
     art.forEach((el,n)=>{
       const top=el.getBoundingClientRect().top;
       const t=clamp((top-innerHeight*.55)/(innerHeight*.55),0,1);

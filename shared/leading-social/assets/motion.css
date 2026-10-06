@@ -43,3 +43,20 @@ main{z-index:2}.motion-heading{overflow:clip;padding-block:8px;margin-block:-8px
  .lead span,.lead em,.plan .fine,.footer{font-size:14px;line-height:1.6}
  .motion-heading h2,.motion-heading h3,.trow.motion-art,.result.motion-art{transform:none!important;transition:none}
 }
+
+/* Desktop reading columns and type hierarchy. */
+.motion-heading h2,.motion-heading h3{transform:none!important}
+@media(min-width:761px){
+ .sec.wrap,.sec>.wrap,.feed>.wrap{max-width:1180px}
+ .feed-col{max-width:1130px;margin-inline:auto;column-gap:30px}
+ .li-body{font-size:16px;line-height:24px}
+ .li-who strong{font-size:15px}.li-who span{font-size:13px}
+ .sec h2{font-size:clamp(40px,4vw,54px);line-height:1.1;max-width:26ch}
+ .results h3{font-size:clamp(36px,3.7vw,50px);line-height:1.12}
+ .trow p{font-size:17px;line-height:1.65;max-width:58ch}
+ .lm p,.lm-copy p{max-width:58ch}
+ .lane-h small,.src .lane-h small,.col p,.result-copy,.plan li{font-size:16px;line-height:1.6}
+ .lead span,.lead em,.plan .fine{font-size:14px;line-height:1.6}
+}
+
+@media(min-width:761px) and (max-width:900px){.feed-col{max-width:555px}}
