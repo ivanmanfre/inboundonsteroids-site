@@ -463,6 +463,7 @@ function validate(i){
     else if(n<0)msg='This cannot be negative.';
     else if(n===0&&!f.zero)msg='This needs to be above zero.';
     else if(f.max&&n>f.max)msg='Use a percentage between 0 and '+f.max+'.';
+    if(!msg&&f.k==='disc'&&r2(num(V.aov)*(1-n/100))<=0)msg='The discounted order value must be at least 0.01.';
     if(msg){ok=false;wrap.classList.add('bad');err.textContent=msg;err.hidden=false}
   });
   if(!ok){var b=$('#panel .f.bad input');if(b)b.focus()}
@@ -479,10 +480,10 @@ function reset(){
 function calc(){
   var goal=num(V.goal),aov=num(V.aov),ret=num(V.ret),cogs=num(V.cogs),disc=num(V.disc),cac=num(V.cac),mer=num(V.mer);
   var o={goal:r0(goal),aov:r2(aov),ret:ret,cogs:cogs,disc:disc,cac:r2(cac),mer:mer};
-  o.customers=r0(o.goal/o.aov);
+  o.priceAfter=r2(o.aov*(1-disc/100));
+  o.customers=Math.ceil(o.goal/o.priceAfter);
   o.returning=r0(o.customers*ret/100);
   o.newc=o.customers-o.returning;
-  o.priceAfter=r2(o.aov*(1-disc/100));
   o.cost=r2(o.aov*cogs/100);
   o.be=r2(o.priceAfter-o.cost);
   o.gap=r2(o.cac-o.be);            /* positive = loses money */
@@ -531,7 +532,7 @@ function renderResults(){
   /* customers */
   var np=o.customers>0?o.newc/o.customers*100:0;
   h+='<div class="card"><div class="card-top"><p class="sec-t">Customers needed</p><span class="chip">Number 02</span></div>'+
-     '<p class="big">'+fmtN(o.customers)+'<small>customers</small></p><p class="under">'+fmt0(o.goal)+' goal divided by '+fmt2(o.aov)+' per order.</p>'+
+     '<p class="big">'+fmtN(o.customers)+'<small>customers</small></p><p class="under">'+fmt0(o.goal)+' goal divided by '+fmt2(o.priceAfter)+' per order after the discount, rounded up.</p>'+
      '<div class="split"><div class="bar"><i class="n" style="width:'+np.toFixed(1)+'%"></i><i class="r" style="width:'+(100-np).toFixed(1)+'%"></i></div>'+
      '<div class="keys"><div><b>'+fmtN(o.newc)+'</b><span>new customers, '+pct(np)+'</span></div><div class="r"><b>'+fmtN(o.returning)+'</b><span>returning, '+pct(o.ret)+'</span></div></div></div>'+
      '<ul class="math"><li><span>Returning: '+fmtN(o.customers)+' × '+pct(o.ret)+'</span><b>'+fmtN(o.returning)+'</b></li><li><span>New: '+fmtN(o.customers)+' less '+fmtN(o.returning)+'</span><b>'+fmtN(o.newc)+'</b></li></ul>'+
@@ -596,7 +597,7 @@ function renderResults(){
   h+='</ul><div class="notes2"><p>Throw an eye over ROAS on the platforms, and that\'s about it. It rarely tells the true story.</p><p>For the spend, pull your last five years of data and work from the averages.</p></div></div>';
   h+='</div>';
 
-  h+='<p class="notes">How this is worked out: customers needed is the goal divided by the average order value, split by the returning share you typed. Break-even CAC is the order value after discount less product cost at your COGS percentage, before shipping and payment fees. The spend ceiling is the goal divided by the MER floor, and the implied spend is new customers times target CAC. Every figure is rounded before the next one is worked out, so the numbers on this page add up as shown. Check it against your accounts before you commit spend.</p>';
+  h+='<p class="notes">How this is worked out: customers needed is the goal divided by the order value after the discount, rounded up to a whole order and split by the returning share you typed. Break-even CAC is the order value after discount less product cost at your COGS percentage, before shipping and payment fees. The spend ceiling is the goal divided by the MER floor, and the implied spend is new customers times target CAC. Every figure is rounded before the next one is worked out, so the numbers on this page add up as shown. Check it against your accounts before you commit spend.</p>';
   h+='<div class="res-actions"><button class="btn ghost" type="button" id="editNums">Edit my numbers</button><button class="btn ghost" type="button" id="printPlan">Print my plan</button><button class="btn ghost" type="button" id="startOver">Start over</button></div>';
 
   h+='<div class="cta"><div class="face"><img src="leighton-face.png" alt="Leighton Penrose"></div><div><h3>Want us to <em>pressure test</em> the plan?</h3><p>Leading Social plans Black Friday for profit with seven and eight-figure brands. Bring these numbers to a call and we will go through them with you.</p></div><a class="btn dark" href="https://leadingsocial.com" target="_blank" rel="noopener">Book a call with Leading Social <span class="arr">→</span></a></div>';
