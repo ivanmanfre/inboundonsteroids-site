@@ -1,252 +1,266 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0F0E0D">
 <title>Lemonade: two founders, both feeds, run for them</title>
+<link rel="preload" href="../../assets/fonts/Brico.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/GeistV.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../site.css">
+<link rel="stylesheet" href="page.css">
+<script>document.documentElement.className = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'rm' : 'js';</script>
 <meta name="description" content="Lemonade is a London growth agency with two founders who both publish. The plan runs for the pair of them: both feeds active, lead magnets under the Lemonade brand, and the comments turned into leads on their list. Running since February 2026.">
 <meta property="og:title" content="Lemonade: two founders, both feeds, run for them">
 <meta property="og:description" content="Both feeds active, lead magnets under one brand, comments turned into leads on their list. Running since February 2026.">
 <meta property="og:image" content="assets/david-dinsmore.webp">
 <meta property="og:type" content="website">
 <meta name="robots" content="index,follow">
-<script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/case.css">
-<style>
-  .duo-photo{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-  .duo-photo .fplate.second{margin-top:44px}
-  .duo-photo .fplate figure{aspect-ratio:5/6}
-  .duo-photo .fplate img{height:100%;object-fit:cover}
-  @media(max-width:900px){.duo-photo .fplate.second{margin-top:0}}
-  .voices{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
-  .vcard{border:1px solid var(--line);border-radius:14px;padding:30px 28px;background:var(--bg)}
-  .vcard.a{border-top:4px solid var(--red)}
-  .vcard.b{border-top:4px solid var(--ink)}
-  .vcard .vname{font-family:var(--disp);font-weight:700;font-size:26px;letter-spacing:-.015em}
-  .vcard .vrole{margin-top:4px;font-size:14px;color:var(--muted)}
-  .vcard .vbody{margin-top:16px;color:var(--ink-2);font-size:16px}
-  @media(max-width:900px){.voices{grid-template-columns:1fr}}
-</style>
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script src="/assets/content-pattern-attribution.js" defer></script>
 </head>
-<body>
+<body class="case">
+<div class="room" aria-hidden="true"><div class="pool p1"></div><div class="pool p2"></div><div class="vig"></div></div>
+<div class="grain" aria-hidden="true"></div>
 
-<header class="site">
+<header class="nav" id="nav">
   <div class="wrap">
-    <a class="mark" href="/case-studies/" style="text-decoration:none">INBOUND <span class="on">ON</span> STEROIDS</a>
-    <div class="tag">Case study &middot; Lemonade</div>
+    <a class="mark" href="/#top" aria-label="InboundOnSteroids">inbound<b>on</b>steroids</a>
+    <nav>
+      <a class="t" href="/#for-you">For you</a>
+      <a class="t" href="/#service">The service</a>
+      <a class="t" href="/#proof">Results</a>
+      <a class="t" href="/#offer">Compare the plans</a>
+      <a class="btn" href="https://calendly.com/im-ivanmanfredi/30min"><span class="dsk-i">Book a call with Ivan</span><span class="mob-i">Book a call</span> <i>↗</i></a>
+    </nav>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
+<svg id="thread" aria-hidden="true"><path class="glow" id="tg"/><path id="tl"/><g id="th"><circle r="16" fill="url(#hg)"/><circle r="4.5" fill="#F06A45"/></g>
+  <defs><radialGradient id="hg"><stop offset="0" stop-color="#E5502F" stop-opacity=".75"/><stop offset="1" stop-color="#E5502F" stop-opacity="0"/></radialGradient></defs></svg>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="lc-hero">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="kicker reveal">Two founders. Both posting. Running since February.</div>
-        <h1 class="hero-h1 reveal d1">
-          <span class="big">Both</span>
-          <span class="big"><span class="num swipe">feeds.<svg viewBox="0 0 300 24" aria-hidden="true"><path d="M6 16 C 70 6, 180 4, 294 12"/></svg></span></span>
-        </h1>
-        <p class="hero-sub reveal d2">Lemonade is a London growth agency with <strong>two founders who both publish</strong>. The plan runs for the pair of them: both feeds active, posts as either man to his own account, and <strong>the comments turned into leads on their list</strong>. Running since February 2026.</p>
+    <div class="grid">
+      <div class="txt">
+        <div class="cam">
+          <h1 class="disp seam words" aria-label="Both feeds.">
+            <span class="ln" aria-hidden="true">Both</span>
+            <span class="ln" aria-hidden="true"><span class="swipe">feeds.</span></span>
+          </h1>
+        </div>
+        <p class="lede" data-in style="--d:.45s">Lemonade is a London growth agency with <strong>two founders who both publish</strong>. The plan runs for the pair of them: both feeds active, posts as either man to his own account, and <strong>the comments turned into leads on their list</strong>. Running since February 2026.</p>
       </div>
-      <div class="duo-photo reveal d1">
-        <div class="fplate">
-          <figure><img src="assets/david-dinsmore.webp" alt="David Dinsmore, co-founder of Lemonade" width="500" height="560"></figure>
-          <div class="fcap"><b>David</b> Dinsmore</div>
-        </div>
-        <div class="fplate second">
-          <figure><img src="assets/billy-mackie.webp" alt="Billy Mackie, co-founder of Lemonade" width="500" height="559"></figure>
-          <div class="fcap"><b>Billy</b> Mackie</div>
-        </div>
+      <div class="duo">
+        <figure class="sheet fp" data-in="sheet" style="--d:.2s">
+          <i class="tp abs" style="position:absolute;left:50%;top:38%"></i>
+          <div class="ph"><img src="assets/david-dinsmore.webp" alt="David Dinsmore, co-founder of Lemonade" width="500" height="560" fetchpriority="high"></div>
+          <figcaption><b>David</b> Dinsmore</figcaption>
+        </figure>
+        <figure class="sheet fp second" data-in="sheet" style="--d:.34s">
+          <i class="tp abs" style="position:absolute;left:50%;top:58%"></i>
+          <div class="ph"><img src="assets/billy-mackie.webp" alt="Billy Mackie, co-founder of Lemonade" width="500" height="559" fetchpriority="high"></div>
+          <figcaption><b>Billy</b> Mackie</figcaption>
+        </figure>
       </div>
     </div>
   </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:20px"></i>
 </section>
 
-<!-- MARQUEE -->
-<div class="marq" aria-hidden="true">
-  <div class="marq-track">
-    <div class="marq-chunk"><span>Both feeds active</span><span class="tick">&bull;</span><span>One shared brand</span><span class="tick">&bull;</span><span>Six lead magnet formats</span><span class="tick">&bull;</span><span>Comments into leads</span><span class="tick">&bull;</span></div>
-    <div class="marq-chunk"><span>Both feeds active</span><span class="tick">&bull;</span><span>One shared brand</span><span class="tick">&bull;</span><span>Six lead magnet formats</span><span class="tick">&bull;</span><span>Comments into leads</span><span class="tick">&bull;</span></div>
-  </div>
+<!-- ============ MARQUEE ============ -->
+<div class="lc-marq" aria-hidden="true">
+  <div class="marq"><div class="track">
+    <img src="../../assets/img/logo-lemonade-light.svg" alt="" width="166" height="22"><span>Both feeds active</span><i></i><span>One shared brand</span><i></i><span>Six lead magnet formats</span><i></i><span>Comments into leads</span><i></i>
+    <img src="../../assets/img/logo-lemonade-light.svg" alt="" width="166" height="22"><span>Both feeds active</span><i></i><span>One shared brand</span><i></i><span>Six lead magnet formats</span><i></i><span>Comments into leads</span><i></i>
+  </div></div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:30px"></i>
 </div>
 
-<!-- WHO -->
-<section class="who">
-  <div class="ghost">01</div>
+<!-- ============ THE PROBLEM ============ -->
+<section class="lc-who">
   <div class="wrap">
-    <div class="shead reveal"><div class="lane">The problem</div><div class="sidxn">01 / 05</div></div>
-    <h2 class="lead reveal">The two-founder problem.</h2>
-    <p class="say reveal d1">David and Billy run Lemonade together. Both of them post. Both of them sell. The brand has <strong>one point of view</strong>, but the two of them do not sound remotely alike, and a feed where they blur into one another is a feed nobody believes.</p>
-    <p class="say reveal d1">Keeping two real voices apart, on one shared brand, was the thing that had to be solved before anything else was worth running.</p>
+    <div class="seam"><div class="cam" data-creep><h2 class="disp">The two-founder problem.</h2></div></div>
+    <div class="cols">
+      <p class="body" data-in>David and Billy run Lemonade together. Both of them post. Both of them sell. The brand has <strong>one point of view</strong>, but the two of them do not sound remotely alike, and a feed where they blur into one another is a feed nobody believes.</p>
+      <p class="flow" data-in style="--d:.1s">Keeping two real voices apart, on one shared brand, was the thing that had to be solved before anything else was worth running.</p>
+    </div>
     <div class="voices">
-      <div class="vcard a reveal">
-        <div class="vname">David</div>
-        <div class="vrole">Co-founder &middot; his own voice profile</div>
-        <p class="vbody">Drafts written as David publish to David's account, on David's schedule.</p>
+      <div class="vc" data-in>
+        <img class="av" src="assets/david-dinsmore.webp" alt="" width="64" height="64" loading="lazy">
+        <h3>David</h3>
+        <span class="role">Co-founder · his own voice profile</span>
+        <p>Drafts written as David publish to David’s account, on David’s schedule.</p>
       </div>
-      <div class="vcard b reveal d1">
-        <div class="vname">Billy</div>
-        <div class="vrole">Co-founder &middot; his own voice profile</div>
-        <p class="vbody">Drafts written as Billy publish to Billy's account, on Billy's schedule.</p>
+      <div class="vc" data-in style="--d:.1s">
+        <img class="av" src="assets/billy-mackie.webp" alt="" width="64" height="64" loading="lazy">
+        <h3>Billy</h3>
+        <span class="role">Co-founder · his own voice profile</span>
+        <p>Drafts written as Billy publish to Billy’s account, on Billy’s schedule.</p>
       </div>
     </div>
   </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:40px"></i>
+  <i class="tp" data-x=".02" data-mx=".025" style="margin-top:110px"></i>
 </section>
 
-<!-- THE VOICE STACK -->
-<section class="loop" id="loop">
-  <div class="ghost">02</div>
+<!-- ============ TWO VOICES ============ -->
+<section class="lc-voices" id="loop">
   <div class="wrap">
-    <div class="shead reveal"><div class="lane" style="color:#ff6a4d">Two voices</div><div class="sidxn">02 / 05</div></div>
-    <div class="loop-head">
+    <div class="head">
       <div>
-        <h2 class="lead reveal">Same brand. Two different men.</h2>
-        <p class="say reveal d1">Pick the author on a post and everything under it follows: the argument stays Lemonade's, the voice is his own.</p>
+        <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">Same brand. Two different men.</h2></div></div>
+        <p class="lede" data-in style="--d:.25s">Pick the author on a post and everything under it follows: the argument stays Lemonade’s, the voice is his own.</p>
       </div>
-      <div class="loop-stat reveal d2">
-        <div class="snum count" data-to="2">2</div>
-        <div class="slabel">voices, one shared point of view</div>
+      <div class="stat" data-in style="--d:.15s">
+        <div class="n"><span data-count="2">2</span></div>
+        <p>voices, one shared point of view</p>
       </div>
     </div>
-    <div class="rail"><div class="rail-fill"></div></div>
-    <div class="flow cols-3" id="flow">
-      <div class="fstep"><div class="fn">The brand</div><div class="ft">Lemonade's shared point of view. What the company argues, what it will never say.</div></div>
-      <div class="fstep"><div class="fn">David</div><div class="ft">His own rhythm, his own tells, his own words, on his own account.</div></div>
-      <div class="fstep"><div class="fn">Billy</div><div class="ft">His own rhythm, his own tells, his own words, on his own account.</div></div>
-    </div>
-    <p class="loop-cap reveal">Each post goes out on the right account, in the right voice.</p>
+    <i class="tp" data-x=".02" data-mx=".025"></i>
+    <ol class="rail" data-in>
+      <li><i class="tp abs mk"></i><span class="chip lg"><img src="../../assets/img/logo-lemonade-light.svg" alt="" width="120" height="16"></span><h3>The brand</h3><p>Lemonade’s shared point of view. What the company argues, what it will never say.</p></li>
+      <li><i class="tp abs mk"></i><span class="chip"><img src="assets/david-dinsmore.webp" alt="" width="52" height="52" loading="lazy"></span><h3>David</h3><p>His own rhythm, his own tells, his own words, on his own account.</p></li>
+      <li><i class="tp abs mk"></i><i class="tp abs" data-x=".985" data-m="skip" style="position:absolute;top:-56px"></i><span class="chip"><img src="assets/billy-mackie.webp" alt="" width="52" height="52" loading="lazy"></span><h3>Billy</h3><p>His own rhythm, his own tells, his own words, on his own account.</p></li>
+    </ol>
+    <i class="tp" data-x=".985" data-mx=".025" style="margin-top:40px"></i>
+    <p class="flow cap" data-in>Each post goes out on the right account, in the right voice.</p>
   </div>
+  <i class="tp" data-x=".985" data-mx=".025" style="margin-top:60px"></i>
 </section>
 
-<!-- POSTS -->
-<section>
-  <div class="ghost">03</div>
+<!-- ============ LANE 1: POSTS ============ -->
+<section class="lc-posts">
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
   <div class="wrap">
-    <div class="shead reveal"><div class="lane">Lane 1 &middot; Posts</div><div class="sidxn">03 / 05</div></div>
-    <h2 class="lead reveal">Idea to scheduled post, run for them.</h2>
-    <p class="say reveal d1">Topics arrive on their own and finished posts go out as the right man. <strong>Nothing on their plates.</strong></p>
-    <div class="stack">
-      <div class="srow reveal"><div class="sidx">01</div><div class="sname">Topics arrive</div><div class="sdesc">Every Monday morning the week's industry news is turned into rated suggestions. <strong>Their own client calls</strong> feed in the arguments they already made out loud, and competitor posts are read for what is working.</div></div>
-      <div class="srow reveal"><div class="sidx">02</div><div class="sname">Written as the right man</div><div class="sdesc">The full post is written as David or as Billy, specific to their world, pulling from <strong>their own past calls</strong>.</div></div>
-      <div class="srow reveal"><div class="sidx">03</div><div class="sname">Published</div><div class="sdesc">The post goes out on the right founder's account, at his slot, in his name.</div></div>
+    <div class="grid">
+      <div class="stick">
+        <div class="seam"><h2 class="disp">Idea to scheduled post, run for them.</h2></div>
+        <p class="body" data-in style="--d:.25s">Topics arrive on their own and finished posts go out as the right man. <strong>Nothing on their plates.</strong></p>
+      </div>
+      <ol class="rows">
+        <li data-in="right"><span class="mono">01</span><h3>Topics arrive</h3><p>Every Monday morning the week’s industry news is turned into rated suggestions. <strong>Their own client calls</strong> feed in the arguments they already made out loud, and competitor posts are read for what is working.</p></li>
+        <li data-in="right"><span class="mono">02</span><h3>Written as the right man</h3><p>The full post is written as David or as Billy, specific to their world, pulling from <strong>their own past calls</strong>.</p></li>
+        <li data-in="right"><span class="mono">03</span><h3>Published</h3><p>The post goes out on the right founder’s account, at his slot, in his name.</p></li>
+      </ol>
     </div>
-    <div class="note reveal">
-      <b>The steering rule they use most.</b> One sentence of direction on a topic changes what gets written. Say nothing and the week goes out anyway, as the right man.
+    <div class="steer sheet dark" data-in="sheet">
+      <i class="tp abs" data-x=".985" data-mx=".975" style="position:absolute;top:50%"></i>
+      <b>The steering rule they use most.</b>
+      <p>One sentence of direction on a topic changes what gets written. Say nothing and the week goes out anyway, as the right man.</p>
     </div>
   </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:80px"></i>
 </section>
 
-<!-- LEAD MAGNETS -->
-<section class="lm-sec">
-  <div class="ghost">04</div>
+<!-- ============ LANE 2: LEAD MAGNETS ============ -->
+<section class="lc-lm">
   <div class="wrap">
-    <div class="shead reveal"><div class="lane">Lane 2 &middot; Lead magnets</div><div class="sidxn">04 / 05</div></div>
-    <h2 class="lead reveal"><span class="num swipe">6<svg viewBox="0 0 300 24" aria-hidden="true"><path d="M6 16 C 70 6, 180 4, 294 12"/></svg></span> formats, built end to end.</h2>
-    <p class="say reveal d1">A lead magnet here means the whole thing: the asset itself, the launch post, the email, the page copy, the DM replies and the cover, all delivered together under their brand. Every one exists to earn <strong>an email address worth having</strong>.</p>
+    <div class="seam"><div class="cam" data-creep><h2 class="disp" aria-label="6 formats, built end to end."><span class="swipe"><span data-count="6">6</span></span> formats, built end to end.</h2></div></div>
+    <p class="lede" data-in style="--d:.25s">A lead magnet here means the whole thing: the asset itself, the launch post, the email, the page copy, the DM replies and the cover, all delivered together under their brand. Every one exists to earn <strong>an email address worth having</strong>.</p>
     <div class="trio">
-      <div class="tcard reveal">
-        <div class="ttitle">Calculators, checklists, templates</div>
-        <p class="tbody">Produced as <strong>finished spreadsheets</strong> with working formulas, formatting and Lemonade branding. No manual build.</p>
-      </div>
-      <div class="tcard reveal d1">
-        <div class="ttitle">Guides and swipe files</div>
-        <p class="tbody">Written, then published as a live resource page on <strong>their own domain</strong>, cover and capture form included.</p>
-      </div>
-      <div class="tcard reveal d2">
-        <div class="ttitle">Interactive assessments</div>
-        <p class="tbody">A self-scoring tool a reader actually completes, which is the version that earns an email address worth having.</p>
-      </div>
+      <div class="t" data-in><h3>Calculators, checklists, templates</h3><p>Produced as <strong>finished spreadsheets</strong> with working formulas, formatting and Lemonade branding. No manual build.</p></div>
+      <div class="t" data-in style="--d:.08s"><h3>Guides and swipe files</h3><p>Written, then published as a live resource page on <strong>their own domain</strong>, cover and capture form included.</p></div>
+      <div class="t" data-in style="--d:.16s"><h3>Interactive assessments</h3><p>A self-scoring tool a reader actually completes, which is the version that earns an email address worth having.</p></div>
     </div>
-    <p class="b-cap reveal">When a lead magnet goes live, <b>its launch post goes live with it</b>.</p>
+    <i class="tp" data-x=".985" data-mx=".975" style="margin-top:30px"></i>
+    <p class="flow cap" data-in>When a lead magnet goes live, its launch post goes live with it.</p>
   </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:60px"></i>
+  <i class="tp" data-x=".02" data-mx=".025" style="margin-top:120px"></i>
 </section>
 
-<!-- LEAD CAPTURE -->
-<section class="strip">
-  <div class="ghost">05</div>
+<!-- ============ LANE 3: CAPTURE ============ -->
+<section class="lc-cap">
   <div class="wrap">
-    <div class="shead reveal"><div class="lane">Lane 3 &middot; Capture</div><div class="sidxn">05 / 05</div></div>
-    <h2 class="lead reveal">The comments turn into a list worth selling to.</h2>
-    <p class="say reveal d1">When a post asks readers to comment for the asset, everyone who does gets it. Then the interesting half of the job starts.</p>
-    <div class="trio">
-      <div class="tcard reveal">
-        <div class="ttitle">Everyone gets the asset</div>
-        <p class="tbody">No reader is left waiting on a founder to send a link by hand.</p>
-      </div>
-      <div class="tcard reveal d1">
-        <div class="ttitle">Each one is graded</div>
-        <p class="tbody">Every commenter is graded against their ICP, <strong>with the reasoning written down</strong>, so a wrong call can be seen and corrected.</p>
-      </div>
-      <div class="tcard reveal d2">
-        <div class="ttitle">Only fits reach the list</div>
-        <p class="tbody">The email list stays made of people they would actually want on a call, instead of everyone who ever typed a word.</p>
-      </div>
+    <div class="head">
+      <div class="seam"><div class="cam" data-creep><h2 class="disp">The comments turn into a list worth selling to.</h2></div></div>
+      <p class="lede" data-in style="--d:.25s">When a post asks readers to comment for the asset, everyone who does gets it. Then the interesting half of the job starts.</p>
     </div>
+    <i class="tp" data-x=".02" data-mx=".025"></i>
+    <ol class="sift" data-in>
+      <li><h3>Everyone gets the asset</h3><p>No reader is left waiting on a founder to send a link by hand.</p></li>
+      <li><h3>Each one is graded</h3><p>Every commenter is graded against their ICP, <strong>with the reasoning written down</strong>, so a wrong call can be seen and corrected.</p></li>
+      <li><h3>Only fits reach the list</h3><p>The email list stays made of people they would actually want on a call, instead of everyone who ever typed a word.</p></li>
+    </ol>
   </div>
+  <i class="tp" data-x=".02" data-mx=".025" style="margin-top:80px"></i>
 </section>
 
-<!-- OUTCOME BAND -->
-<section class="outcome2">
+<!-- ============ OUTCOME ============ -->
+<section class="lc-out">
   <div class="wrap">
-    <div class="o2-kick reveal">Since February 2026</div>
-    <div class="o2-big reveal d1"><span class="dim">Two feeds, running for them.</span><br>One list, <span class="hot">growing.</span></div>
-    <p class="o2-sub reveal d2">Both founders publish without touching it. The lead magnets go live under their brand, the comments turn into graded leads, and <strong>the list they sell to keeps growing</strong>. Nothing on their plates.</p>
+    <div class="seam zoom"><div class="cam" data-creep><h2 class="disp"><span class="dim">Two feeds, running for them.</span><br>One list, <span class="swipe">growing.</span></h2></div></div>
+    <p class="lede" data-in style="--d:.25s">Both founders publish without touching it. The lead magnets go live under their brand, the comments turn into graded leads, and <strong>the list they sell to keeps growing</strong>. Nothing on their plates.</p>
   </div>
+  <i class="tp" data-x=".02" data-mx=".025" style="margin-top:80px"></i>
 </section>
 
-<!-- OWN SPLIT -->
-<section class="who">
+<!-- ============ WHAT THEY KEEP ============ -->
+<section class="lc-keep">
   <div class="wrap">
-    <h2 class="lead reveal">What Lemonade keeps.</h2>
-    <div class="split-grid">
-      <div class="scard keep reveal">
-        <div class="stitle">Theirs, for good</div>
-        <p class="sbody">Both accounts, both audiences, the domain the resources sit on and <strong>the email list it all captures</strong>. All of it stays theirs.</p>
+    <div class="seam"><h2 class="disp">What Lemonade keeps.</h2></div>
+    <div class="split">
+      <div class="sheet dark k" data-in="sheet">
+        <i class="tp abs" data-m="skip" style="position:absolute;left:46%;top:30%"></i>
+        <i class="tp abs" data-m="skip" style="position:absolute;left:30%;top:100%"></i>
+        <h3>Theirs, for good</h3>
+        <p>Both accounts, both audiences, the domain the resources sit on and <strong>the email list it all captures</strong>. All of it stays theirs.</p>
       </div>
-      <div class="scard run reveal d1">
-        <div class="stitle">Handled for them</div>
-        <p class="sbody">The topics, the drafting for both men, the lead magnets across six formats, the grading of every commenter. <strong>Run for the pair of them</strong> since February.</p>
+      <div class="r" data-in style="--d:.1s">
+        <h3>Handled for them</h3>
+        <p>The topics, the drafting for both men, the lead magnets across six formats, the grading of every commenter. <strong>Run for the pair of them</strong> since February.</p>
       </div>
     </div>
   </div>
+  <i class="tp" data-x=".02" data-mx=".025" style="margin-top:80px"></i>
 </section>
 
-<!-- CLOSE -->
-<section class="close">
+<!-- ============ CLOSE ============ -->
+<section class="close lc-close">
   <div class="wrap">
-    <h2 class="lead reveal">The same plan, run for you.</h2>
-    <p class="say reveal d1">One founder or two, the plan holds either way. Your name, your brand, your list, and nothing on your plate.</p>
-    <div class="plan reveal d1">
-      <div class="plan-item"><span class="arrow">&rarr;</span><span>Posts published as you, or as each founder</span></div>
-      <div class="plan-item"><span class="arrow">&rarr;</span><span>Lead magnets built end to end, published on your domain</span></div>
-      <div class="plan-item"><span class="arrow">&rarr;</span><span>Commenters graded against your ICP before they hit your list</span></div>
-      <div class="plan-item"><span class="arrow">&rarr;</span><span>A newsletter working the list your assets capture</span></div>
-      <div class="plan-job">Nothing for you to <strong>write, design or schedule</strong>.</div>
-      <div class="plan-price">From <span class="num">$2k a month</span>, fixed.</div>
+    <div class="seam zoom"><div class="cam" data-creep><h2 class="disp" data-fit=".9" data-fit-max="150" aria-label="The same plan, run for you.">
+      <span class="ln" aria-hidden="true"><span class="lt">The same plan,</span></span>
+      <span class="ln" aria-hidden="true"><span class="lt"><span class="swipe">run for you.</span></span></span>
+    </h2></div></div>
+    <p class="body" data-in>One founder or two, the plan holds either way. Your name, your brand, your list, and nothing on your plate.</p>
+    <i class="tp" data-x=".02" data-mx=".025"></i>
+    <div class="plan-l" data-in style="--d:.1s">
+      <ul>
+        <li><span class="ar">→</span>Posts published as you, or as each founder</li>
+        <li><span class="ar">→</span>Lead magnets built end to end, published on your domain</li>
+        <li><span class="ar">→</span>Commenters graded against your ICP before they hit your list</li>
+        <li><span class="ar">→</span>A newsletter working the list your assets capture</li>
+      </ul>
+      <p class="job">Nothing for you to <strong>write, design or schedule</strong>.</p>
+      <p class="price">From <b>$2k a month</b>, fixed.</p>
     </div>
-    <a class="btn reveal d2" href="https://calendly.com/im-ivanmanfredi/30min">Book a call</a>
-    <a class="quiet reveal d2" href="/case-studies/">See the other case studies</a>
+    <div class="ctas" data-in style="--d:.15s"><a class="btn big" id="finalCta" href="https://calendly.com/im-ivanmanfredi/30min">Book a call <i>↗</i></a><a class="link" href="/case-studies/">See the other case studies</a></div>
   </div>
 </section>
 
-<a class="nextcase" href="/case/kyle-hunt/">
+<a class="lc-next" href="/case/kyle-hunt/">
   <div class="wrap">
-    <span class="nc-kick">Next case study</span>
-    <span class="nc-name">Kyle Hunt <span class="arrow">&rarr;</span></span>
+    <span class="mono">Next case study</span>
+    <span class="nm">Kyle Hunt <i>→</i></span>
+    <span class="note">Case study published July 2026. Running since February 2026.</span>
   </div>
 </a>
 
-<footer class="site">
+</main>
+
+<footer>
   <div class="wrap">
-    <div class="mark">INBOUND <span class="on">ON</span> STEROIDS</div>
-    <div class="fnote">Case study published July 2026. Running since February 2026.</div>
+    <a class="mark" href="/#top">inbound<b>on</b>steroids</a>
+    <p>Content + outreach, run for you.</p>
+    <a href="https://ivanmanfredi.com/">Ivan Manfredi ↗</a>
   </div>
 </footer>
 
-<script src="../assets/case.js"></script>
+<script src="../../site.js" defer></script>
 </body>
 </html>
