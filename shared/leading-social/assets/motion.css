@@ -35,3 +35,11 @@ main{z-index:2}.motion-heading{overflow:clip;padding-block:8px;margin-block:-8px
  .outr{margin-top:30px;gap:26px}.results{margin-top:58px}
  .offer{margin-top:42px}.closing{margin-top:54px;padding:54px 20px 48px}
 }
+/* Phone copy stays still and uses a readable body size. */
+@media(max-width:760px){
+ .li-body{font-size:16px;line-height:24px}
+ .li-who strong{font-size:15px}.li-who span{font-size:13px}
+ .lane-h small,.src .lane-h small,.col p,.result-copy,.plan li,.posts-note{font-size:16px;line-height:1.6}
+ .lead span,.lead em,.plan .fine,.footer{font-size:14px;line-height:1.6}
+ .motion-heading h2,.motion-heading h3,.trow.motion-art,.result.motion-art{transform:none!important;transition:none}
+}
