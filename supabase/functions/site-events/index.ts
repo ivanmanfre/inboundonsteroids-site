@@ -1,4 +1,6 @@
 import { validateEvent } from './validation.ts';
+import { identify, isPublicIp } from './identity.ts';
+declare const EdgeRuntime: { waitUntil(p: Promise<unknown>): void };
 const origins = new Set(['https://inboundonsteroids.com','https://www.inboundonsteroids.com']);
 Deno.serve(async req => {
   const origin = req.headers.get('origin') || '';
@@ -26,6 +28,19 @@ Deno.serve(async req => {
     });
     if (!result.ok) { console.error('site-events write failed',result.status);return reply(503,{error:'storage'}); }
     const accepted = await result.json();
+    const rb2bKey = Deno.env.get('RB2B_API_KEY');
+    if (accepted && rb2bKey && event.event_type === 'page_view' && !event.is_test && !bot && isPublicIp(ip)) EdgeRuntime.waitUntil(lookup(ip,hash,event,rb2bKey,key));
     return reply(accepted ? 202 : 429,{accepted});
   } catch (_) { return reply(400,{error:'payload'}); }
 });
+
+async function lookup(ip:string, ipKey:string, event:Record<string, unknown>, rb2bKey:string, key:string) {
+  const rpc = (fn:string, body:unknown) => fetch(Deno.env.get('SUPABASE_URL') + '/rest/v1/rpc/' + fn,{method:'POST',headers:{apikey:key,Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify(body)});
+  try {
+    const claim = await rpc('ios_web_claim_identity',{p_ip_key:ipKey,p_visitor:event.visitor_id,p_session:event.session_id,p_path:event.path});
+    if (!claim.ok || !(await claim.json())) return;
+    let result: Record<string, unknown>;
+    try { result = await identify(ip, rb2bKey); } catch (e) { result = { error: String(e).slice(0, 300) }; }
+    await rpc('ios_web_save_identity',{p_ip_key:ipKey,p_result:result});
+  } catch (e) { console.error('identity lookup failed', String(e)); }
+}
