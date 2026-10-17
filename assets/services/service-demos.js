@@ -2,43 +2,43 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const prospects = {
     maya: {
-      initials: 'MR', name: 'Maya R.', role: 'Founder at a creative agency',
+      initials: 'MR', name: 'Maya Reed', role: 'Founder at a creative agency',
       profile: 'Runs a small creative team serving growing brands.',
-      decision: 'Review for outreach',
-      fit: 'Founder role and agency fit the agreed buyer profile. Check offer and company size.',
-      history: 'Check prior contact and exclusions before approving a draft.',
-      draft: 'Hi Maya, saw you in the discussion about referrals and agency pipeline. I put together a short breakdown of where warm leads get lost. Want me to send it?',
-      draftStatus: 'Draft for review · unsent'
+      decision: 'Check buyer fit',
+      fit: 'Creative agency founder. Check the offer and company size against the brief.',
+      history: 'Check prior contact and exclusions.',
+      draft: 'Hi Maya, saw you in the discussion about referrals. I put together a short breakdown of where agencies lose warm enquiries between a referral and first call. Want it?',
+      draftStatus: 'Draft'
     },
     leo: {
-      initials: 'LM', name: 'Leo M.', role: 'Head of growth at a lead-generation provider',
+      initials: 'LM', name: 'Leo Morris', role: 'Head of growth at a lead-generation provider',
       profile: 'His company sells pipeline and lead-generation services.',
-      decision: 'Hold: agency peer',
-      fit: 'His company sells lead generation, so it falls under this sample campaign’s peer exclusion.',
-      history: 'No outreach while this person is outside the agreed buyer set.',
-      draft: 'No message draft. This person works at a peer agency.',
+      decision: 'Excluded: agency peer',
+      fit: 'His company sells lead generation, which the buyer brief excludes.',
+      history: 'Excluded from this campaign.',
+      draft: 'No draft for a peer agency.',
       draftStatus: 'No draft prepared'
     },
     ava: {
-      initials: 'AC', name: 'Ava C.', role: 'Operations lead at a logistics company',
+      initials: 'AC', name: 'Ava Chen', role: 'Operations lead at a logistics company',
       profile: 'Works in logistics operations.',
-      decision: 'Hold: outside buyer profile',
-      fit: 'The role and company do not match this campaign.',
-      history: 'Leave out of this campaign. There is no reason to prepare a message.',
-      draft: 'No message draft. The role and company do not fit this campaign.',
+      decision: 'Excluded: outside buyer profile',
+      fit: 'Logistics operations falls outside the buyer profile.',
+      history: 'Excluded from this campaign.',
+      draft: 'No draft for this role and company.',
       draftStatus: 'No draft prepared'
     }
   };
   const copy = {
     signal: [
-      ['Start with the discussion.', 'The post supplies the topic. Maya’s reaction says she noticed it; it does not tell us that she has this problem.'],
-      ['Check the business and history.', 'This sample seeks creative-agency founders. Role, company, prior contact and peer exclusions decide whether a message makes sense.'],
-      ['Write with the right context.', 'The draft refers to the public discussion and offers something useful. It stays unsent until reviewed.']
+      ['A reaction to a public discussion.', 'Maya reacted to a post about referrals. That shows interest in the topic, without telling us what her agency needs.'],
+      ['Check the agency and contact history.', 'We check Maya’s role, company, prior contact and exclusions against the buyer brief.'],
+      ['A draft tied to the discussion.', 'The message refers to the public topic and offers a short breakdown.']
     ],
     reader: [
-      ['It starts with the founder.', 'A sales question or observation becomes source material. The founder checks that the claim and any client detail can be published.'],
-      ['Give the reader a useful point.', 'The post carries one idea from the agency’s work and offers a specific worksheet.'],
-      ['The reader asks for more.', 'MAP is an explicit request. The resource can be delivered when the LinkedIn connection path permits.']
+      ['A question from a founder call.', 'The founder asks which sources of new work are repeatable.'],
+      ['A post about referrals.', 'Emma offers a worksheet for founders mapping where new projects come from.'],
+      ['Jordan asks for the worksheet.', 'The MAP comment requests the worksheet. Delivery depends on the available LinkedIn connection path.']
     ]
   };
 
