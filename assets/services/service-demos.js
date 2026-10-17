@@ -1,198 +1,193 @@
 (() => {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const prospectData = {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const prospects = {
     maya: {
-      initials: 'MR', name: 'Maya R.', role: 'Founder at a DTC skincare brand',
-      profile: 'Runs a consumer brand with a direct-to-consumer store.',
+      initials: 'MR', name: 'Maya R.', role: 'Founder at a creative agency',
+      profile: 'Runs a small creative team serving growing brands.',
       decision: 'Review for outreach',
-      topic: 'Engaged with a post about the gap between paid clicks and product-page action.',
-      fit: 'Founder at a DTC brand. Check offer and company size against agreed criteria.',
-      history: 'Check prior contact and exclusions before a draft is approved.',
-      draft: 'Hi Maya, saw you reacted to the product-page discussion. Do you usually compare the ad promise with the first screen before changing creative?'
+      fit: 'Founder role and agency fit the agreed buyer profile. Check offer and company size.',
+      history: 'Check prior contact and exclusions before approving a draft.',
+      draft: 'Hi Maya, saw you in the discussion about referrals and agency pipeline. I put together a short breakdown of where warm leads get lost. Want me to send it?',
+      draftStatus: 'Draft for review · unsent'
     },
     leo: {
-      initials: 'LM', name: 'Leo M.', role: 'Head of growth at a performance agency',
-      profile: 'Works at an agency offering similar DTC growth services.',
+      initials: 'LM', name: 'Leo M.', role: 'Head of growth at a lead-generation provider',
+      profile: 'His company sells pipeline and lead-generation services.',
       decision: 'Hold: agency peer',
-      topic: 'Commented on the product-page discussion.',
-      fit: 'His company sells similar services. Check the agreed peer and competitor exclusions.',
-      history: 'Do not prepare outreach while this profile is outside the agreed buyer set.',
-      draft: 'No message draft. This person works at a peer agency, so the current buyer criteria do not support outreach.'
+      fit: 'His company sells lead generation, so it falls under this sample campaign’s peer exclusion.',
+      history: 'No outreach while this person is outside the agreed buyer set.',
+      draft: 'No message draft. This person works at a peer agency.',
+      draftStatus: 'No draft prepared'
     },
     ava: {
       initials: 'AC', name: 'Ava C.', role: 'Operations lead at a logistics company',
-      profile: 'Runs operations for a logistics business.',
+      profile: 'Works in logistics operations.',
       decision: 'Hold: outside buyer profile',
-      topic: 'Reacted to the product-page discussion. A reaction shows topical interest only.',
-      fit: 'The role and company do not match this DTC agency campaign.',
-      history: 'Leave out of this campaign; there is no reason to draft a message.',
-      draft: 'No message draft. The role and company do not fit this campaign.'
+      fit: 'The role and company do not match this campaign.',
+      history: 'Leave out of this campaign. There is no reason to prepare a message.',
+      draft: 'No message draft. The role and company do not fit this campaign.',
+      draftStatus: 'No draft prepared'
     }
   };
-  const stageCopy = {
+  const copy = {
     signal: [
-      ['Start with a relevant discussion.', 'The source post and interaction give a topic to investigate.'],
-      ['Check the person and history.', 'Role, company, prior contact and exclusions decide whether outreach fits.'],
-      ['Prepare a draft for review.', 'A first message tied to the post and the person’s business.']
+      ['Start with the discussion.', 'The post supplies the topic. Maya’s reaction says she noticed it; it does not tell us that she has this problem.'],
+      ['Check the business and history.', 'This sample seeks creative-agency founders. Role, company, prior contact and peer exclusions decide whether a message makes sense.'],
+      ['Write with the right context.', 'The draft refers to the public discussion and offers something useful. It stays unsent until reviewed.']
     ],
     reader: [
-      ['A useful post gives the reader a choice.', 'The carousel offers a specific product-page checklist.'],
-      ['The reader asks for it.', 'PAGE is an explicit request, not a claim of sales readiness.'],
-      ['Deliver the resource in messages.', 'A named request can lead to a conversation after fit is checked.']
+      ['It starts with the founder.', 'A sales question or observation becomes source material. The founder checks that the claim and any client detail can be published.'],
+      ['Give the reader a useful point.', 'The post carries one idea from the agency’s work and offers a specific worksheet.'],
+      ['The reader asks for more.', 'MAP is an explicit request. The resource can be delivered when the LinkedIn connection path permits.']
     ]
   };
 
-  function activate(root) {
-    root.querySelectorAll('button[disabled]').forEach(button => { button.disabled = false; });
-    root.classList.add('is-ready');
-  }
-
   function setupSequence(root, kind) {
-    const buttons = [...root.querySelectorAll('[data-stage]')];
+    const stages = [...root.querySelectorAll('[data-stage]')];
+    const scenes = [...root.querySelectorAll('[data-scene]')];
     const play = root.querySelector('[data-motion="play"]');
     const pause = root.querySelector('[data-motion="pause"]');
     const replay = root.querySelector('[data-motion="replay"]');
+    const readout = root.querySelector('[data-motion-readout]');
     let stage = 0;
     let timer = null;
     let inView = false;
-    let started = false;
-    let userPaused = false;
-    let flowPositioned = false;
-    let flowFrame = 0;
-    root.dataset.motionState = 'idle';
-    play.setAttribute('aria-pressed', 'false');
-    pause.setAttribute('aria-pressed', 'false');
-    const grid = root.querySelector(kind === 'signal' ? '.sp-lab-grid' : '.sp-reader-grid');
-    const flow = root.querySelector('[data-flow-stage]');
-    const token = flow.querySelector('[data-flow-token]');
-    const path = flow.querySelector('[data-flow-path]');
-    const targets = kind === 'signal'
-      ? ['.sp-lab-sourcehead', '.sp-fit-check', '.sp-li-draft']
-      : ['.sp-li-post-excerpt', '.sp-keyword-comment', '.sp-chat-delivered'];
+    let hasStarted = false;
+    let manuallyPaused = false;
+    let complete = false;
+    let runId = 0;
+    let activeTransition = null;
+    const dwellMs = 4200;
+    let observer;
 
-    function positionFlow(animate = false) {
-      if (!animate) {
-        window.cancelAnimationFrame(flowFrame);
-        root.dataset.flowAnimated = 'false';
-      }
-      const bounds = grid.getBoundingClientRect();
-      const points = targets.map(selector => {
-        const box = root.querySelector(selector).getBoundingClientRect();
-        return { x: Math.max(8, box.right - bounds.left - 76), y: box.top - bounds.top + 12 };
-      });
-      const current = points[stage];
-      if (kind === 'signal') {
-        const rightGutter = bounds.width - 12;
-        path.setAttribute('d', `M ${points[0].x + 33} ${points[0].y + 12} V 8 H ${rightGutter} V ${points[2].y + 12} H ${points[2].x + 33}`);
-      } else {
-        path.setAttribute('d', `M ${points[0].x + 33} ${points[0].y + 12} L ${points[1].x + 33} ${points[1].y + 12} L ${points[2].x + 33} ${points[2].y + 12}`);
-      }
-      token.style.transform = `translate3d(${current.x}px, ${current.y}px, 0)`;
-      token.textContent = kind === 'signal' ? ['TOPIC', 'FIT', 'DRAFT'][stage] : 'PAGE';
-      root.dataset.flowReady = 'true';
-      if (!animate) flowFrame = window.requestAnimationFrame(() => { root.dataset.flowAnimated = 'true'; });
+    function state(value) {
+      root.dataset.motionState = value;
+      play.setAttribute('aria-pressed', String(value === 'playing'));
+      pause.setAttribute('aria-pressed', String(value === 'paused'));
+      readout.textContent = value === 'playing' ? 'Playing sequence' : value === 'complete' ? 'Sequence complete' : value === 'paused' ? 'Sequence paused' : value === 'reduced' ? 'Motion reduced' : 'Sequence ready';
     }
-
+    function clear() {
+      if (timer) window.clearTimeout(timer);
+      timer = null;
+      runId += 1;
+      if (activeTransition) activeTransition.skipTransition();
+      activeTransition = null;
+    }
     function render(index) {
-      const moveToken = flowPositioned && index !== stage;
+      const previousHandoff = scenes[stage].querySelector('[data-handoff]');
       stage = index;
       root.dataset.activeStage = String(index);
-      buttons.forEach(button => {
+      root.querySelector('[data-scene-number]').textContent = `0${index + 1} / 03`;
+      root.querySelector('[data-scene-title]').textContent = copy[kind][index][0];
+      root.querySelector('[data-scene-copy]').textContent = copy[kind][index][1];
+      stages.forEach(button => {
         if (Number(button.dataset.stage) === index) button.setAttribute('aria-current', 'step');
         else button.removeAttribute('aria-current');
       });
-      root.querySelector('[data-field="readout"]').textContent = stageCopy[kind][index][0];
-      root.querySelector('[data-field="readout-detail"]').textContent = stageCopy[kind][index][1];
-      positionFlow(moveToken);
-      flowPositioned = true;
+      scenes.forEach(scene => {
+        const active = Number(scene.dataset.scene) === index;
+        scene.hidden = !active;
+        scene.setAttribute('aria-hidden', String(!active));
+        scene.inert = !active;
+      });
+      if (observer) {
+        observer.unobserve(previousHandoff);
+        observer.observe(scenes[index].querySelector('[data-handoff]'));
+      }
     }
-    function stop(state = 'paused') {
-      if (timer) window.clearTimeout(timer);
-      timer = null;
-      root.dataset.motionState = state;
-      play.setAttribute('aria-pressed', state === 'playing' ? 'true' : 'false');
-      pause.setAttribute('aria-pressed', state === 'paused' ? 'true' : 'false');
+    async function moveTo(index) {
+      if (index === stage) return;
+      if (reducedMotion.matches || !document.startViewTransition) { render(index); return; }
+      const requestedRun = runId;
+      root.dataset.vt = 'true';
+      const transition = document.startViewTransition(() => {
+        if (requestedRun === runId) render(index);
+      });
+      activeTransition = transition;
+      // A newer stage choice deliberately skips this transition. Chromium rejects
+      // ready on that path even though finished is handled below.
+      void transition.ready.catch(() => {});
+      try { await transition.finished; } catch (_) { /* A paused or hidden tab skips the visual transfer. */ }
+      if (activeTransition === transition) activeTransition = null;
+      if (!activeTransition) root.dataset.vt = 'false';
     }
-    function next() {
-      if (document.hidden || !inView) { stop(); return; }
-      if (stage >= 2) { stop('complete'); return; }
-      render(stage + 1);
-      if (stage === 2) stop('complete');
-      else timer = window.setTimeout(next, 1400);
+    function pauseSequence(manual = false) {
+      clear();
+      if (manual) manuallyPaused = true;
+      if (!complete) state('paused');
+    }
+    async function advance() {
+      if (document.hidden || !inView || manuallyPaused) { pauseSequence(); return; }
+      if (stage >= 2) { complete = true; state('complete'); return; }
+      const thisRun = runId;
+      await moveTo(stage + 1);
+      if (thisRun !== runId || root.dataset.motionState !== 'playing') return;
+      if (!inView) { pauseSequence(); return; }
+      if (stage === 2) { complete = true; state('complete'); }
+      else timer = window.setTimeout(advance, dwellMs);
     }
     function start(reset = false) {
-      started = true;
-      userPaused = false;
-      if (reset || stage === 2) render(0);
-      if (reduceMotion.matches) { render(2); stop('complete'); return; }
-      if (document.hidden || !inView) { stop(); return; }
-      stop('playing');
-      root.dataset.motionState = 'playing';
-      play.setAttribute('aria-pressed', 'true');
-      pause.setAttribute('aria-pressed', 'false');
-      timer = window.setTimeout(next, 1400);
+      clear();
+      hasStarted = true;
+      manuallyPaused = false;
+      complete = false;
+      if (reset || stage >= 2) render(0);
+      if (reducedMotion.matches) { render(2); complete = true; state('complete'); return; }
+      if (!inView || document.hidden) { state('paused'); return; }
+      state('playing');
+      timer = window.setTimeout(advance, dwellMs);
     }
-    buttons.forEach(button => button.addEventListener('click', () => {
-      started = true;
-      userPaused = true;
-      stop();
-      render(Number(button.dataset.stage));
+    stages.forEach(button => button.addEventListener('click', () => {
+      clear(); hasStarted = true; manuallyPaused = true; complete = false;
+      state('paused');
+      moveTo(Number(button.dataset.stage));
     }));
     play.addEventListener('click', () => start());
-    pause.addEventListener('click', () => { started = true; userPaused = true; stop(); });
+    pause.addEventListener('click', () => { hasStarted = true; pauseSequence(true); });
     replay.addEventListener('click', () => start(true));
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden && root.dataset.motionState === 'playing') stop();
-      else if (!document.hidden && inView && started && !userPaused && root.dataset.motionState === 'paused' && !reduceMotion.matches) start();
+      if (document.hidden && root.dataset.motionState === 'playing') pauseSequence();
+      else if (!document.hidden && inView && hasStarted && !manuallyPaused && !complete && root.dataset.motionState === 'paused') start();
     });
-    const observer = new IntersectionObserver(entries => {
-      inView = entries[0].isIntersecting;
-      if (!inView && root.dataset.motionState === 'playing') stop();
-      else if (inView && !document.hidden && !reduceMotion.matches) {
-        if (!started) start();
-        else if (!userPaused && root.dataset.motionState === 'paused') start();
+    observer = new IntersectionObserver(entries => {
+      const currentHandoff = scenes[stage].querySelector('[data-handoff]');
+      const entry = entries.find(item => item.target === currentHandoff);
+      if (!entry) return;
+      inView = entry.isIntersecting && entry.intersectionRatio >= 0.75;
+      if (!inView && root.dataset.motionState === 'playing' && !activeTransition) pauseSequence();
+      else if (inView && !document.hidden && !reducedMotion.matches) {
+        if (!hasStarted) start();
+        else if (!manuallyPaused && !complete && root.dataset.motionState === 'paused') start();
       }
-    }, { threshold: 0.2 });
-    observer.observe(root);
-    new ResizeObserver(() => positionFlow(false)).observe(grid);
-    document.fonts.ready.then(() => positionFlow(false));
-    reduceMotion.addEventListener('change', () => {
-      if (reduceMotion.matches && root.dataset.motionState === 'playing') stop();
+    }, { threshold: [0, 0.75] });
+    observer.observe(scenes[0].querySelector('[data-handoff]'));
+    reducedMotion.addEventListener('change', () => {
+      if (reducedMotion.matches && root.dataset.motionState === 'playing') { clear(); state('reduced'); }
     });
+    root.querySelectorAll('button[disabled]').forEach(button => { button.disabled = false; });
+    root.classList.add('is-ready');
     render(0);
-    return { render, stop: () => { userPaused = true; stop(); } };
+    state(reducedMotion.matches ? 'reduced' : 'idle');
+    return { render, pause: () => { complete = false; pauseSequence(true); } };
   }
 
-  const signal = document.querySelector('[data-signal-demo]');
-  if (signal) {
-    const sequence = setupSequence(signal, 'signal');
-    const fields = [...signal.querySelectorAll('[data-field]')];
-    const profileExtra = signal.querySelector('[data-profile-extra]');
-    signal.querySelector('[data-profile-action="message"]').addEventListener('click', () => {
-      const draft = signal.querySelector('.sp-li-draft');
-      draft.scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth', block: 'center' });
-      draft.focus({ preventScroll: true });
-    });
-    signal.querySelector('[data-profile-action="more"]').addEventListener('click', event => {
-      profileExtra.hidden = !profileExtra.hidden;
-      event.currentTarget.setAttribute('aria-expanded', String(!profileExtra.hidden));
-    });
-    signal.querySelectorAll('[data-prospect]').forEach(button => button.addEventListener('click', () => {
-      const record = prospectData[button.dataset.prospect];
+  const outreach = document.querySelector('[data-signal-demo]');
+  if (outreach) {
+    const sequence = setupSequence(outreach, 'signal');
+    outreach.querySelectorAll('[data-prospect]').forEach(button => button.addEventListener('click', () => {
+      const record = prospects[button.dataset.prospect];
       if (!record) return;
-      signal.querySelectorAll('[data-prospect]').forEach(choice => {
-        const selected = choice === button;
-        choice.classList.toggle('is-selected', selected);
-        choice.setAttribute('aria-pressed', String(selected));
-      });
-      fields.forEach(field => {
+      outreach.querySelectorAll('[data-prospect]').forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+      outreach.querySelectorAll('[data-field]').forEach(field => {
         if (record[field.dataset.field]) field.textContent = record[field.dataset.field];
       });
-      sequence.stop();
+      outreach.querySelector('[data-draft-name]').textContent = record.name;
+      outreach.querySelector('[data-draft-initials]').textContent = record.initials;
+      outreach.querySelector('.sp-chat-draft span').textContent = record.draftStatus;
+      outreach.querySelector('.sp-fit-verdict').classList.toggle('is-held', button.dataset.prospect !== 'maya');
+      sequence.pause();
       sequence.render(1);
     }));
-    activate(signal);
-    sequence.render(0);
   }
 
   const carousel = document.querySelector('[data-carousel-demo]');
@@ -202,32 +197,18 @@
     let current = 0;
     function show(index) {
       current = (index + slides.length) % slides.length;
-      slides.forEach((slide, i) => {
-        slide.hidden = i !== current;
-        slide.classList.toggle('is-active', i === current);
-      });
+      slides.forEach((slide, i) => { slide.hidden = i !== current; });
       count.textContent = `${current + 1} / ${slides.length}`;
     }
+    carousel.querySelectorAll('button[disabled]').forEach(button => { button.disabled = false; });
     carousel.querySelector('[data-carousel="prev"]').addEventListener('click', () => show(current - 1));
     carousel.querySelector('[data-carousel="next"]').addEventListener('click', () => show(current + 1));
+    carousel.setAttribute('role', 'region');
+    carousel.setAttribute('aria-roledescription', 'carousel');
+    carousel.classList.add('is-ready');
     show(0);
-    const slideArea = carousel.querySelector('.sp-carousel');
-    slideArea.setAttribute('role', 'region');
-    slideArea.setAttribute('aria-roledescription', 'carousel');
-    activate(slideArea);
   }
 
-  const reader = document.querySelector('[data-reader-demo]');
-  if (reader) {
-    const sequence = setupSequence(reader, 'reader');
-    const checks = [...reader.querySelectorAll('.sp-resource-checks input[type="checkbox"]')];
-    const progress = reader.querySelector('[data-check-progress]');
-    checks.forEach(check => check.addEventListener('change', () => {
-      const selected = checks.filter(item => item.checked).length;
-      progress.textContent = `${selected} of ${checks.length} page checks selected.`;
-    }));
-    progress.textContent = `0 of ${checks.length} page checks selected.`;
-    activate(reader);
-    sequence.render(0);
-  }
+  const inbound = document.querySelector('[data-reader-demo]');
+  if (inbound) setupSequence(inbound, 'reader');
 })();
