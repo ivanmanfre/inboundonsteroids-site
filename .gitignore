@@ -1,1 +1,8 @@
 .DS_Store
+
+# Local service-page research, evidence and mission state
+docs/seo-service-pages-2026-10-17/
+RESUME.md
+
+# Local checker bytecode
+scripts/__pycache__/
