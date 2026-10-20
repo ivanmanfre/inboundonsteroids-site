@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<title>ProSWPPP | Review your LinkedIn follow-up</title>
+<meta name="description" content="Review the LinkedIn process, edit the messages and save your feedback.">
+<link rel="stylesheet" href="./review.css">
+<script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#workspace">Skip to review</a>
+<div class="ambient" aria-hidden="true"></div>
+<header class="mast"><span class="wordmark">inbound<span>on</span>steroids</span><span class="prepared">Prepared for ProSWPPP</span></header>
+<div class="layout">
+<aside class="rail">
+  <div class="client-name">ProSWPPP</div>
+  <h1>LinkedIn<br> follow-up.</h1>
+  <p class="rail-intro">Review the process.<br> Edit what you want to change.</p>
+  <nav class="tabs" role="tablist" aria-label="Review sections" aria-orientation="vertical">
+    <button id="tab-process" role="tab" aria-selected="true" aria-controls="process" data-tab="process">The process<span aria-hidden="true">↗</span></button>
+    <button id="tab-messages" role="tab" aria-selected="false" aria-controls="messages" data-tab="messages" tabindex="-1">Messages &amp; timing<span aria-hidden="true">↗</span></button>
+    <button id="tab-details" role="tab" aria-selected="false" aria-controls="details" data-tab="details" tabindex="-1">Final details<span aria-hidden="true">↗</span></button>
+    <button id="tab-history" role="tab" aria-selected="false" aria-controls="history" data-tab="history" tabindex="-1">Change history<span id="history-count" aria-label="saved changes">0</span></button>
+  </nav>
+  <p class="rail-note">Saved edits are shared with Ivan.<br>Return using the same link.</p>
+</aside>
+<main id="workspace" class="workspace" tabindex="-1">
+  <div class="sheet-head"><span>Process &amp; message review</span><span class="review-label">For review</span></div>
+  <div id="access-notice" class="notice" role="status">Loading the shared review...</div>
+  <form id="review-form" novalidate>
+  <section id="process" class="panel" role="tabpanel" aria-labelledby="tab-process" tabindex="0">
+    <h2>Start with the right leads.</h2>
+    <p class="lead">Use LinkedIn after the email follow-up ends without a reply. Start with a small group already in Pipedrive.</p>
+    <fieldset class="audience"><legend>Lead groups to include</legend>
+      <label class="audience-option"><input type="checkbox" data-field="audience_agc" disabled><span><strong>AGC</strong><span>The contractor has been awarded the project.</span></span></label>
+      <label class="audience-option"><input type="checkbox" data-field="audience_lba" disabled><span><strong>LBA</strong><span>The contractor is the apparent low bidder.</span></span></label>
+    </fieldset>
+    <p class="hint">Suggested order: AGC first, then LBA.</p>
+    <h3 class="flow-title">From lead to conversation</h3>
+    <ol class="flow">
+      <li><span class="step">1</span><div><h4>Check the lead</h4><p>Confirm the person, company, project and who will handle replies. Hold anyone still receiving emails or already talking with your team.</p></div></li>
+      <li><span class="step">2</span><div><h4>Check the connection</h4><p>Review past messages. Skip the invite if already connected. Wait if a request is pending. Otherwise, send one connection request.</p></div></li>
+      <li><span class="step">3</span><div><h4>Send the first message</h4><p>After a new acceptance, aim to send it that day once the checks pass. Account limits or late updates may cause a delay.</p></div></li>
+      <li><span class="step">4</span><div><h4>Follow up if there is no reply</h4><p>Send up to two automatic reminders, then stop. You can change the wording and gaps in the next section.</p></div></li>
+      <li><span class="step">5</span><div><h4>Your team takes the conversation</h4><p>Stop the remaining LinkedIn follow-ups. A draft reply is prepared for your team to review and send through LinkedIn.</p></div></li>
+    </ol>
+    <div class="stop-note"><strong>A reply ends the LinkedIn follow-up.</strong><p>This also applies to a confirmed email reply, a request to stop, or someone on your team taking over.</p></div>
+    <button class="next-button" type="button" data-go="messages">Review the messages <span aria-hidden="true">→</span></button>
+  </section>
+
+  <section id="messages" class="panel" role="tabpanel" aria-labelledby="tab-messages" tabindex="0" hidden>
+    <h2>Make the messages sound right.</h2>
+    <p class="lead">Edit the wording below. The reminder gaps are proposals. Both are counted from the first message.</p>
+    <div class="sequence" aria-label="Proposed sequence"><span>First message</span><i aria-hidden="true"></i><span>Day <b data-day="reminder1_days">3</b></span><i aria-hidden="true"></i><span>Day <b data-day="reminder2_days">7</b></span></div>
+    <article class="message-editor">
+      <div class="message-label"><span class="ordinal">1</span><h3>First message</h3></div>
+      <p class="timing">After connection and lead checks. Same-day target for a new acceptance.</p>
+      <label class="sr-only" for="message1">First message wording</label>
+      <textarea id="message1" class="message-input" data-field="message1" maxlength="2000" required disabled></textarea>
+    </article>
+    <article class="message-editor">
+      <div class="message-label"><span class="ordinal">2</span><h3>Reminder</h3></div>
+      <div class="timing-control"><label for="reminder1_days">Send after</label><input id="reminder1_days" data-field="reminder1_days" type="number" min="1" max="30" step="1" required disabled><span>business days from the first message</span></div>
+      <label class="sr-only" for="message2">Reminder wording</label>
+      <textarea id="message2" class="message-input" data-field="message2" maxlength="2000" required disabled></textarea>
+    </article>
+    <article class="message-editor">
+      <div class="message-label"><span class="ordinal">3</span><h3>Final reminder</h3></div>
+      <div class="timing-control"><label for="reminder2_days">Send after</label><input id="reminder2_days" data-field="reminder2_days" type="number" min="1" max="30" step="1" required disabled><span>business days from the first message</span></div>
+      <label class="sr-only" for="message3">Final reminder wording</label>
+      <textarea id="message3" class="message-input" data-field="message3" maxlength="2000" required disabled></textarea>
+    </article>
+    <p class="hint message-hint">We fill in the name, project and local SWPPP term before sending. The proposed connection request has no note.</p>
+    <button class="next-button" type="button" data-go="details">Add the final details <span aria-hidden="true">→</span></button>
+  </section>
+
+  <section id="details" class="panel" role="tabpanel" aria-labelledby="tab-details" tabindex="0" hidden>
+    <h2>Who sends. Who replies.</h2>
+    <p class="lead">Confirm the people involved and leave any changes you want us to make.</p>
+    <div class="field"><label for="sender">LinkedIn account used to send</label><input id="sender" data-field="sender" type="text" maxlength="120" placeholder="Name of the LinkedIn account" disabled><p class="hint">Leave blank if this still needs to be decided.</p></div>
+    <div class="field"><label for="reply_owner">Who handles replies?</label><input id="reply_owner" data-field="reply_owner" type="text" maxlength="120" placeholder="Name or team" disabled><p class="hint">They review the draft reply, send it in LinkedIn and handle quotes or calls.</p></div>
+    <div class="field"><label for="notes">Anything you want to change?</label><textarea id="notes" data-field="notes" rows="5" maxlength="2000" placeholder="Leave feedback on the process, messages or timing." disabled></textarea></div>
+    <div class="field name-field"><label for="editor">Your name <span>(optional)</span></label><input id="editor" type="text" maxlength="60" placeholder="Shown beside your saved edits" disabled></div>
+    <div class="next-note"><h3>Before we start</h3><p>After your edits, we check the sending account, a small lead list and the reply handoff. We confirm the start with you.</p></div>
+  </section>
+
+  <section id="history" class="panel" role="tabpanel" aria-labelledby="tab-history" tabindex="0" hidden>
+    <h2>Your changes in one place.</h2>
+    <p class="lead">Saved edits appear here. Open an entry to see the previous wording.</p>
+    <div id="history-list" aria-live="polite"><div class="empty-history"><span class="history-mark" aria-hidden="true">↺</span><h3>No edits yet.</h3><p>Changes appear here after they are saved.</p><button class="next-button" type="button" data-go="messages">Review the messages <span aria-hidden="true">→</span></button></div></div>
+  </section>
+  </form>
+  <div id="save-error" class="save-error" role="alert" hidden></div>
+  <div id="conflict-banner" class="conflict-banner" hidden><p>Another saved version is available. Your edits are kept.</p><button id="review-conflict" type="button">Compare changes</button></div>
+  <footer class="save-bar"><div><strong id="save-status" role="status" aria-live="polite">Loading...</strong><span id="save-detail">Connecting to the shared review</span></div><button id="save-button" type="button" disabled>Save changes</button></footer>
+</main>
+</div>
+<p class="page-foot">Saving feedback updates this review. It does not start outreach.</p>
+<dialog id="conflict-dialog" aria-labelledby="conflict-title"><h2 id="conflict-title">Choose the version to keep.</h2><p>Someone else saved changes while you were editing. Compare the changed fields below.</p><div id="conflict-list"></div><div class="dialog-actions"><button id="use-saved" class="secondary" type="button">Use saved version</button><button id="keep-mine" type="button">Keep my edits</button></div><p class="dialog-hint">Keeping your edits saves them over these fields. Other saved fields stay as they are.</p></dialog>
+<noscript><p class="noscript">Enable JavaScript to load and edit the shared review.</p></noscript>
+</body></html>
