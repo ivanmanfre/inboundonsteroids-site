@@ -46,6 +46,18 @@ body.cap .wrap{padding:0;max-width:none}body.cap .main{display:block;margin:0}bo
 @media (max-width:640px){canvas{height:60vh}.legend{position:static;max-width:none;border-radius:0;border-width:1px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:0 10px;font-size:12.5px}
  .legend .gap{display:none}.bar .lab{min-width:0;flex-basis:100%;margin-top:2px}h1{font-size:19px}
  button{padding:6px 9px;font-size:13px;min-height:36px}.chk{font-size:13px;padding:4px 7px}.chk input[type=range]{width:70px}table{font-size:12.5px}}
+</style><style>
+/* consult mode: model + simple controls only */
+.side,.wrap>h2.sec,.wrap>.card{display:none!important}
+.main{grid-template-columns:minmax(0,1fr)!important}
+canvas{height:640px!important}
+@media(max-width:700px){canvas{height:420px!important}}
+.legend .row:has(svg),.legend .gap,#lgHeat{display:none!important}
+.bar:has(#band),.bar:has([data-f]) .lab+button~button[data-f="chin"],label:has(#sHeat),label:has(#ortho),label:has(#sLines),label:has(#sHeights),label:has(#sSkin),label:has(#sBotox),label:has(#sExag){display:none!important}
+.bar:has([data-p]),#massBar{display:none!important}
+header{display:none!important}.wrap{padding-top:8px!important}
+header h1{font-size:19px}
+.bar .note{display:none}
 </style></head><body>
 <header><h1>Jaw corners and chin: width and height, design vs actual</h1>
 <p>From your March 12 2026 CT. <b style="color:var(--des)">Blue</b> = implant design at its planned spot. <b style="color:var(--act)">Orange</b> = the implant as traced in the scan. <b style="color:var(--red)">Red lines</b> = widest points. <b style="color:var(--yel)">Yellow lines</b> = lowest points. Drag to turn, scroll or pinch to zoom.</p></header>
@@ -550,29 +562,18 @@ var CAP=false;
 window.CAPTURE=(view,impl,botox,low)=>{CAP=true;document.body.classList.add('cap');S.face=true;O.face=1;S.bone=false;S.des=false;S.act=false;S.lines=false;S.heights=false;S.delta=false;S.skin=false;S.mass=false;S.exag=false;S.cheek=false;
  if(cmpTimer)stopCompare();prop=impl;propSel=impl;S.botox=!!botox;mLow2=low||0;cmpToday=false;applyFace();focus='cap';[yaw,pitch]=VIEWS[view];ortho=true;fit();render();return window.FACEMOVE};
 measureHeights();measure();heightTable();lastW=cv.clientWidth;fit();applyFace();render();window.READY=true;
-</script><style>
-/* consult mode: model + simple controls only */
-.side,.wrap>h2.sec,.wrap>.card{display:none!important}
-.main{grid-template-columns:minmax(0,1fr)!important}
-canvas{height:640px!important}
-@media(max-width:700px){canvas{height:420px!important}}
-.legend .row:has(svg),.legend .gap,#lgHeat{display:none!important}
-.bar:has(#band),.bar:has([data-f]) .lab+button~button[data-f="chin"],label:has(#sHeat),label:has(#ortho),label:has(#sLines),label:has(#sHeights),label:has(#sSkin),label:has(#sBotox),label:has(#sExag){display:none!important}
-button[data-p="B"],button[data-p="C"],button[data-p="E"],button[data-p="P15"],button[data-p="P45"]{display:none!important}
-header{padding-top:10px}
-header h1{font-size:19px}
-.bar .note{display:none}
-</style>
+</script>
 <script>
 (function(){
   const $=id=>document.getElementById(id);
   const set=(id,v)=>{const e=$(id);if(e&&e.checked!==v)e.click()};
   document.querySelector('header h1').textContent='CT review: bone, placed implants and segmented masseters';
-  document.querySelector('header p').innerHTML='White = bone. <b style="color:var(--act)">Orange</b> = my implants as they sit in the CT. <b style="color:var(--des)">Blue</b> = the original 2022 design (turn on "Design"). Red = masseter. Segmentation estimates, not proof of attachment. Optional muscle lowering and jaw changes are illustrative. Drag to turn, scroll or pinch to zoom. In the front view my right is on the left of the screen.';
+  document.querySelector('header p').innerHTML='White = bone. <b style="color:var(--act)">Orange</b> = my implants as they sit in the CT. <b style="color:var(--des)">Blue</b> = the original 2022 design (turn on "Design"). Red = masseter. Segmentation estimates, not proof of attachment. Drag to turn, scroll or pinch to zoom. In the front view my right is on the left of the screen.';
   const lab={off:'Today',A:'Right only: new right angle (copy of my left)',D:'Both at original design positions (reference)',P30:'Earlier right-only contour trial (+3 mm)'};
   document.querySelectorAll('button[data-p]').forEach(b=>{if(lab[b.dataset.p])b.textContent=lab[b.dataset.p]});
   const r=document.querySelector('.bar:has([data-p]) .lab');if(r)r.textContent='Jaw angle';
-  set('sBotox',false);set('sExag',false);set('sLines',false);set('sHeights',false);set('sHeat',false);set('sDes',false);set('sCheek',true);set('sMass',true);
+  document.querySelector('button[data-p="off"]')?.click();set('sBotox',false);set('sExag',false);set('sLines',false);set('sHeights',false);set('sHeat',false);set('sDes',false);set('sCheek',true);set('sMass',true);
+  document.documentElement.dataset.consultReady='true';
   addEventListener('load',()=>setTimeout(()=>{document.querySelector('button[data-f="all"]')?.click();document.querySelector('button[data-v="front"]')?.click();dispatchEvent(new Event('resize'))},300));
 })();
 </script>
