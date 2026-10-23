@@ -47,17 +47,7 @@ body.cap .wrap{padding:0;max-width:none}body.cap .main{display:block;margin:0}bo
  .legend .gap{display:none}.bar .lab{min-width:0;flex-basis:100%;margin-top:2px}h1{font-size:19px}
  button{padding:6px 9px;font-size:13px;min-height:36px}.chk{font-size:13px;padding:4px 7px}.chk input[type=range]{width:70px}table{font-size:12.5px}}
 </style><style>
-/* consult mode: model + simple controls only */
-.side,.wrap>h2.sec,.wrap>.card{display:none!important}
-.main{grid-template-columns:minmax(0,1fr)!important}
-canvas{height:640px!important}
-@media(max-width:700px){canvas{height:420px!important}.bar button,.bar label{min-height:44px!important}.bar{gap:8px!important}.bar select{min-height:44px!important}}
-.legend .row:has(svg),.legend .gap,#lgHeat{display:none!important}
-.bar:has(#band),.bar:has([data-f]) .lab+button~button[data-f="chin"],label:has(#sHeat),label:has(#ortho),label:has(#sLines),label:has(#sHeights),label:has(#sSkin),label:has(#sBotox),label:has(#sExag){display:none!important}
-.bar:has([data-p]),#massBar{display:none!important}
-header{display:none!important}.wrap{padding-top:8px!important}
-header h1{font-size:19px}
-.bar .note{display:none}
+.side,.wrap>h2.sec,.wrap>.card,header,.bar,.legend{display:none!important}.main{grid-template-columns:minmax(0,1fr)!important}.wrap{padding:6px!important}canvas{height:300px!important}.consult-controls{font:12px/1.3 Arial,sans-serif;color:#dce6f3;margin-bottom:6px}.consult-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px}.consult-controls button{min-height:30px;padding:5px 8px;font-size:11px;border-radius:4px;background:#242c39;border:1px solid #617085;color:#e2ebf7}.consult-controls button[aria-pressed=true]{background:#234f87;border-color:#7cb3fa}.consult-controls button[aria-pressed=false]{color:#a5b0be}.consult-status{min-height:16px;margin:3px 0;color:#c9d6e7;font-size:11px}@media(max-width:700px){canvas{height:260px!important}.consult-controls button{min-height:34px;padding:5px 7px;font-size:10px}}
 </style></head><body>
 <header><h1>Jaw corners and chin: width and height, design vs actual</h1>
 <p>From your March 12 2026 CT. <b style="color:var(--des)">Blue</b> = implant design at its planned spot. <b style="color:var(--act)">Orange</b> = the implant as traced in the scan. <b style="color:var(--red)">Red lines</b> = widest points. <b style="color:var(--yel)">Yellow lines</b> = lowest points. Drag to turn, scroll or pinch to zoom.</p></header>
@@ -565,16 +555,24 @@ measureHeights();measure();heightTable();lastW=cv.clientWidth;fit();applyFace();
 </script>
 <script>
 (function(){
-  const $=id=>document.getElementById(id);
-  const set=(id,v)=>{const e=$(id);if(e&&e.checked!==v)e.click()};
-  document.querySelector('header h1').textContent='CT review: bone, placed implants and segmented masseters';
-  document.querySelector('header p').innerHTML='White = bone. <b style="color:var(--act)">Orange</b> = my implants as they sit in the CT. <b style="color:var(--des)">Blue</b> = the original 2022 design (turn on "Design"). Red = masseter. Segmentation estimates, not proof of attachment. Drag to turn, scroll or pinch to zoom. In the front view my right is on the left of the screen.';
-  const lab={off:'Today',A:'Right only: new right angle (copy of my left)',D:'Both at original design positions (reference)',P30:'Earlier right-only contour trial (+3 mm)'};
-  document.querySelectorAll('button[data-p]').forEach(b=>{if(lab[b.dataset.p])b.textContent=lab[b.dataset.p]});
-  const r=document.querySelector('.bar:has([data-p]) .lab');if(r)r.textContent='Jaw angle';
-  document.querySelector('button[data-p="off"]')?.click();set('sBotox',false);set('sExag',false);set('sLines',false);set('sHeights',false);set('sHeat',false);set('sDes',false);set('sCheek',true);set('sMass',true);
-  document.documentElement.dataset.consultReady='true';
-  addEventListener('load',()=>setTimeout(()=>{document.querySelector('button[data-f="all"]')?.click();document.querySelector('button[data-v="front"]')?.click();dispatchEvent(new Event('resize'))},300));
+ const $=id=>document.getElementById(id),set=(id,v)=>{const el=$(id);if(el&&el.checked!==v)el.click()};
+ document.querySelector('button[data-p="off"]')?.click();for(const id of ['sBotox','sExag','sLines','sHeights','sHeat','sFace','sDelta','sMass'])set(id,false);set('sDes',true);set('sAct',true);set('sCheek',true);S.face=false;S.mass=false;S.lines=false;S.heights=false;S.des=true;S.act=true;S.cheek=true;O.des=.6;O.act=.75;
+ const hidden=new Set(),parts=[['right_jaw','Right jaw'],['left_jaw','Left jaw'],['chin','Chin'],['right_infra','Right rim'],['left_infra','Left rim']],buttons=new Map(),partFor=k=>k.replace(/^(scan|design|halo)_/,'');
+ const originalAlpha=layerAlpha;layerAlpha=function(k){return hidden.has(partFor(k))?0:originalAlpha(k)};
+ const box=document.createElement('div');box.className='consult-controls';const cameras=document.createElement('div'),layers=document.createElement('div'),modes=document.createElement('div'),status=document.createElement('p');[cameras,layers,modes].forEach(el=>el.className='consult-row');status.className='consult-status';status.setAttribute('role','status');status.textContent='Click a colored implant to hide. Drag to rotate. Restore any part below.';box.append(cameras,layers,modes,status);document.querySelector('.main').before(box);
+ function button(host,text,fn){const b=document.createElement('button');b.textContent=text;b.onclick=fn;host.append(b);return b}
+ for(const[k,label]of[['front','Front'],['oR','Right 3/4'],['oL','Left 3/4'],['below','Below']])button(cameras,label,()=>{focus='all';[yaw,pitch]=VIEWS[k];fit();req()});
+ function sync(){for(const[k,b]of buttons)b.setAttribute('aria-pressed',String(!hidden.has(k)));document.documentElement.dataset.hiddenImplants=[...hidden].join(',');req()}
+ function toggle(k){hidden.has(k)?hidden.delete(k):hidden.add(k);status.textContent=parts.find(p=>p[0]===k)[1]+(hidden.has(k)?' hidden. Click its button to restore.':' restored.');sync()}
+ for(const[k,label]of parts){const b=button(layers,label,()=>toggle(k));b.dataset.part=k;buttons.set(k,b)}
+ const overlay=button(modes,'Overlay: on',()=>{S.des=!S.des;overlay.textContent='Overlay: '+(S.des?'on':'off');overlay.setAttribute('aria-pressed',String(S.des));req()});overlay.id='consultOverlay';overlay.setAttribute('aria-pressed','true');
+ const bone=button(modes,'Bone: on',()=>{S.bone=!S.bone;bone.textContent='Bone: '+(S.bone?'on':'off');bone.setAttribute('aria-pressed',String(S.bone));req()});bone.setAttribute('aria-pressed','true');
+ const muscle=button(modes,'Muscle: off',()=>{S.mass=!S.mass;muscle.textContent='Muscle: '+(S.mass?'on':'off');muscle.setAttribute('aria-pressed',String(S.mass));req()});muscle.setAttribute('aria-pressed','false');
+ const restore=button(modes,'Restore all',()=>{hidden.clear();S.act=true;status.textContent='All placed implants restored.';sync()});restore.id='consultRestore';
+ function hit(cx,cy){const r=cv.getBoundingClientRect();viewM();const x=(cx-r.left)/r.width*2-1,y=1-(cy-r.top)/r.height*2,hh=Math.tan(FOV/2),asp=r.width/r.height;let origin,direction;if(ortho){const hw=dist*hh;origin=[0,1,2].map(i=>CAM.eye[i]+x*hw*asp*CAM.s[i]+y*hw*CAM.u[i]);direction=CAM.f.slice()}else{origin=CAM.eye.slice();direction=[0,1,2].map(i=>CAM.f[i]+x*hh*asp*CAM.s[i]+y*hh*CAM.u[i]);const l=Math.hypot(...direction);direction=direction.map(v=>v/l)}let best=Infinity,found=null;
+ for(let f=0;f<iI.length;f+=3){const key=ORDER[iL[iI[f]]];if(!/^(scan|design)_/.test(key)||layerAlpha(key)<.01)continue;const a=iI[f]*3,b=iI[f+1]*3,c=iI[f+2]*3,e1=[iP[b]-iP[a],iP[b+1]-iP[a+1],iP[b+2]-iP[a+2]],e2=[iP[c]-iP[a],iP[c+1]-iP[a+1],iP[c+2]-iP[a+2]],p=[direction[1]*e2[2]-direction[2]*e2[1],direction[2]*e2[0]-direction[0]*e2[2],direction[0]*e2[1]-direction[1]*e2[0]],det=e1[0]*p[0]+e1[1]*p[1]+e1[2]*p[2];if(Math.abs(det)<1e-8)continue;const inv=1/det,t=[origin[0]-iP[a],origin[1]-iP[a+1],origin[2]-iP[a+2]],u=(t[0]*p[0]+t[1]*p[1]+t[2]*p[2])*inv;if(u<0||u>1)continue;const q=[t[1]*e1[2]-t[2]*e1[1],t[2]*e1[0]-t[0]*e1[2],t[0]*e1[1]-t[1]*e1[0]],v=(direction[0]*q[0]+direction[1]*q[1]+direction[2]*q[2])*inv;if(v<0||u+v>1)continue;const d=(e2[0]*q[0]+e2[1]*q[1]+e2[2]*q[2])*inv;if(d>0&&d<best){best=d;found=partFor(key)}}return found}
+ let start=null;cv.addEventListener('pointerdown',e=>start=[e.clientX,e.clientY]);cv.addEventListener('pointerup',e=>{if(start&&Math.hypot(e.clientX-start[0],e.clientY-start[1])<5){const k=hit(e.clientX,e.clientY);if(k)toggle(k)}start=null});
+ window.consultImplants={hidden,toggle,hit,restore:()=>restore.click()};sync();document.documentElement.dataset.consultReady='true';addEventListener('load',()=>setTimeout(()=>{focus='all';[yaw,pitch]=VIEWS.front;fit();req();dispatchEvent(new Event('resize'))},100));
 })();
 </script>
 </body></html>
