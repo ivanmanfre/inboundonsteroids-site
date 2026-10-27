@@ -8,125 +8,110 @@
 <style>
 @font-face{font-family:Brico;src:url('/assets/fonts/Brico.woff2') format('woff2');font-weight:200 800;font-display:swap}
 @font-face{font-family:Geist;src:url('/assets/fonts/GeistV.woff2') format('woff2');font-weight:100 900;font-display:swap}
-:root{color-scheme:dark;--bg:#0F0E0D;--cream:#F3EFE6;--muted:#B8B2A7;--red:#E5502F;--deep:#C8361B;--paper:#FBFAF7;--ink:#16181A;--soft:#605B53;--line:#16181A1c;--ok:#2F7D4F}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse 800px 650px at 15% 0%,#38281C 0,transparent 70%),radial-gradient(ellipse 700px 650px at 100% 55%,#261914 0,transparent 75%),var(--bg);color:var(--cream);font:17px/1.6 Geist,Arial,sans-serif;min-height:100vh}
+:root{color-scheme:dark;--bg:#0F0E0D;--cream:#F3EFE6;--muted:#B8B2A7;--red:#E5502F;--deep:#C8361B;--paper:#FBFAF7;--ink:#16181A;--soft:#605B53;--line:#16181A1c;--ok:#2F7D4F;--okbg:#EAF4ED}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:radial-gradient(ellipse 800px 650px at 15% 0%,#38281C 0,transparent 70%),radial-gradient(ellipse 700px 650px at 100% 55%,#261914 0,transparent 75%),var(--bg);color:var(--cream);font:17px/1.55 Geist,Arial,sans-serif;min-height:100vh}
 a{color:inherit;text-underline-offset:4px;overflow-wrap:anywhere}
-button,.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 16px;border:1px solid #BDB7AC;border-radius:10px;font:600 14.5px/1.3 Geist,Arial,sans-serif;cursor:pointer;text-decoration:none;background:transparent;color:inherit;transition:background .15s,color .15s,transform .1s}
-button:active,.button:active{transform:scale(.98)}button:disabled{opacity:.55;cursor:wait}
+button,.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 16px;border:1px solid #BDB7AC;border-radius:10px;font:600 14.5px/1.3 Geist,Arial,sans-serif;cursor:pointer;text-decoration:none;background:#fff;color:var(--ink);transition:background .15s,color .15s,transform .1s,border-color .15s}
+button:active,.button:active{transform:scale(.97)}button:disabled{opacity:.55;cursor:wait}
 .primary{background:var(--red);border-color:var(--red);color:#fff}.primary:hover{background:var(--deep);border-color:var(--deep)}
-:focus-visible{outline:3px solid var(--red);outline-offset:4px}
-.wrap{max-width:880px;margin:auto;padding:0 28px}
-header{padding:24px 0}.head{display:flex;justify-content:space-between;gap:16px;align-items:center}.mark{font:800 22px/1 Brico,Arial,sans-serif;letter-spacing:-.04em;text-decoration:none}.mark b{color:var(--red)}.for{font-size:14px;color:var(--muted)}
-h1,h2,h3{font-family:Brico,Arial,sans-serif;font-weight:800;letter-spacing:-.035em;margin:0}
-.hero{padding:30px 0 26px}.hero h1{font-size:clamp(40px,6.4vw,70px);line-height:.98;margin-bottom:16px}.hero h1 span{background:linear-gradient(transparent 59%,var(--deep) 59%,var(--deep) 91%,transparent 91%)}.hero p{color:var(--muted);font-size:18px;margin:0;max-width:640px}.hero p strong{color:var(--cream)}
-.panel{color-scheme:light;background:var(--paper);color:var(--ink);border-radius:18px;padding:30px 32px;box-shadow:0 2px 4px #0004,0 22px 55px #0004;margin-bottom:22px}
-.panel>h2{font-size:clamp(26px,3.6vw,34px);line-height:1.08;margin-bottom:6px}.sub{color:var(--soft);margin:0 0 18px;font-size:15.5px}
-/* mock profile */
-.li{border:1px solid #D9D5CC;border-radius:14px;overflow:hidden;background:#fff}
-.li .cover{display:block;width:100%;aspect-ratio:4/1;object-fit:cover}
-.li .body{padding:0 22px 18px}
-.li .avatar{width:104px;height:104px;border-radius:50%;border:4px solid #fff;background:#E9E5DC;margin-top:-56px;display:grid;place-items:center;font-size:12px;color:var(--soft);text-align:center;line-height:1.2}
-.li .name{font:700 22px/1.2 Geist,Arial,sans-serif;margin:10px 0 4px}.li .hl{margin:0 0 6px;font-size:15px;line-height:1.45}.li .loc{font-size:13px;color:#666;margin:0}
-.li .company{font-size:14px;font-weight:600;margin:8px 0 0}
-.li section{border-top:1px solid #ECE9E2;padding:14px 22px}.li h3{font:700 16px/1.2 Geist,Arial,sans-serif;margin-bottom:10px}
-.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.feat figure{margin:0;border:1px solid #E4E0D7;border-radius:8px;overflow:hidden}.feat img{display:block;width:100%;aspect-ratio:1.91/1;object-fit:cover}.feat figcaption{font-size:12.5px;font-weight:600;padding:7px 9px;line-height:1.3}
-/* checklist */
-.sticky{position:sticky;top:0;z-index:5;background:var(--paper);padding:10px 0 12px;margin:-4px 0 6px}
-.count{font-size:14px;color:var(--soft);display:flex;justify-content:space-between}.bar{height:6px;border-radius:9px;background:#E7E3DA;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;width:0;background:var(--deep);transition:width .3s}
-.task{border:1px solid #DDD8CE;border-radius:13px;margin-bottom:10px;background:#fff;transition:background .2s,border-color .2s}
-.task.done{background:#F2F7F3;border-color:#BFD8C7}
-.task summary{list-style:none;display:flex;align-items:center;gap:14px;padding:13px 16px;cursor:pointer;min-height:58px}.task summary::-webkit-details-marker{display:none}
-.task .num{width:28px;height:28px;flex:none;border-radius:50%;background:var(--ink);color:var(--paper);font:800 13px/28px Brico,Arial,sans-serif;text-align:center}.task.done .num{background:var(--ok)}.task.done .num b{display:none}.task.done .num::after{content:"✓"}
-.task summary .tt{flex:1;font-weight:600}.task summary .tt small{display:block;font-weight:400;color:var(--soft);font-size:13.5px}
-.task summary::after{content:"+";font:400 24px/1 Geist,Arial,sans-serif;color:var(--soft)}.task[open] summary::after{content:"−"}
-.task .in{padding:0 18px 18px 58px;font-size:15.5px}.task .in ol{padding-left:20px;margin:4px 0 12px}.task .in li{margin:6px 0}.task .in p{margin:6px 0 10px}
-.copy{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#F3F0E9;border-radius:9px;padding:9px 9px 9px 14px;margin:8px 0}.copy code{font:500 14.5px/1.45 Geist,Arial,sans-serif;overflow-wrap:anywhere;white-space:pre-wrap}.copy.long code{max-height:7.5em;overflow:hidden}.copy button{flex:none;min-height:40px;padding:7px 13px;font-size:13.5px}.copy button:hover,.done-btn:hover{background:var(--ink);color:#fff}
-.copy label{font-size:12px;color:var(--soft);display:block;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.dl{display:flex;gap:12px;align-items:center;margin:8px 0 10px}.dl img{width:150px;border-radius:7px;border:1px solid #E4E0D7}
-.fnote{color:var(--soft);font-size:14px;margin:8px 0 0}.fcard{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.fcard h4{margin:0 0 4px;font-size:15px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}.chips button{min-height:38px;padding:6px 12px;font-size:13.5px;border-radius:99px;font-weight:500}.chips button.got{background:#E8F2EB;border-color:#BFD8C7}
-.done-btn{margin-top:8px;min-height:42px;font-size:14px}
-.connect{margin:6px 0 4px}.status{font-size:14px;color:var(--soft);margin-left:4px}.status.err{color:#A3261A}
-.finish{text-align:center;padding:18px 0 4px}.finish .big{font:800 clamp(28px,5vw,40px)/1.05 Brico,Arial,sans-serif;letter-spacing:-.035em;margin:0 0 8px}
-#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;z-index:10;font-size:14px;box-shadow:0 10px 40px #0008;max-width:90%}#toast:empty{display:none}
-footer{padding:4px 0 40px;color:var(--muted);font-size:13px}
-@media(max-width:640px){.wrap{padding:0 14px}.head{flex-direction:column;align-items:flex-start;gap:8px}.hero{padding-top:18px}.hero p{font-size:16.5px}.panel{padding:22px 16px;border-radius:15px}.task .in{padding:0 14px 16px}.li .body{padding:0 16px 16px}.li section{padding:12px 16px}.li .avatar{width:84px;height:84px;margin-top:-44px}.feat{grid-template-columns:1fr 1fr 1fr;gap:6px}.feat figcaption{font-size:11px;padding:5px 6px}.copy{flex-direction:column;align-items:stretch}.dl{flex-direction:column;align-items:flex-start}.dl img{width:100%}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:980px;margin:auto;padding:0 24px}
+header{padding:20px 0 6px}.head{display:flex;justify-content:space-between;gap:16px;align-items:center}.mark{font:800 21px/1 Brico,Arial,sans-serif;letter-spacing:-.04em;text-decoration:none}.mark b{color:var(--red)}.for{font-size:14px;color:var(--muted)}
+h1,h2{font-family:Brico,Arial,sans-serif;font-weight:800;letter-spacing:-.035em;margin:0}
+/* top progress */
+.top{position:sticky;top:0;z-index:6;background:#0F0E0Dee;backdrop-filter:blur(8px);padding:12px 0 12px;border-bottom:1px solid #ffffff14}
+.segs{display:flex;gap:4px}.seg{flex:1;min-height:0;height:8px;padding:0;border:0;border-radius:9px;background:#ffffff22}.seg.done{background:var(--ok)}.seg.cur{background:var(--red);box-shadow:0 0 0 2px #E5502F55}
+.where{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:14px;color:var(--muted)}.where b{color:var(--cream)}
+.where button{min-height:30px;padding:3px 10px;background:transparent;color:var(--muted);border-color:#ffffff30;font-size:13px}
+/* card */
+.card{color-scheme:light;background:var(--paper);color:var(--ink);border-radius:18px;padding:28px 30px 22px;box-shadow:0 2px 4px #0004,0 22px 55px #0004;margin:18px 0 22px}
+.kick{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--deep);margin:0 0 6px}
+.card h2{font-size:clamp(28px,4vw,40px);line-height:1.04;margin-bottom:6px}.sub{color:var(--soft);margin:0 0 18px;font-size:16px}
+.grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px;align-items:start}.grid.solo{grid-template-columns:1fr}
+.rows{list-style:none;margin:0;padding:0;counter-reset:r}
+.row{display:flex;gap:12px;padding:12px 12px 12px 10px;border:1px solid #E2DED5;border-radius:12px;margin-bottom:8px;background:#fff;transition:background .2s,border-color .2s}
+.row.ok{background:var(--okbg);border-color:#BFD8C7}
+.tick{flex:none;width:30px;height:30px;min-height:0;padding:0;border-radius:50%;border:2px solid #C9C3B8;background:#fff;font-size:15px;color:#fff;margin-top:1px}
+.tick::after{counter-increment:r;content:counter(r);color:var(--soft);font:700 13px Geist,Arial,sans-serif}
+.row.ok .tick{background:var(--ok);border-color:var(--ok)}.row.ok .tick::after{content:"✓";color:#fff;font-size:15px}
+.rt{flex:1;min-width:0}.rt p{margin:3px 0 0;font-size:16px}.rt>.button,.rt>.copy,.rt>.chips,.rt>.connect{margin-top:9px}
+.copy{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#F3F0E9;border-radius:9px;padding:9px 9px 9px 13px}.copy code{font:500 14.5px/1.45 Geist,Arial,sans-serif;overflow-wrap:anywhere;white-space:pre-wrap}.copy.long code{max-height:6.2em;overflow:hidden;-webkit-mask:linear-gradient(#000 60%,transparent)}.copy button{flex:none;min-height:40px;padding:7px 14px;font-size:13.5px}
+.act:hover{background:var(--ink);color:#fff;border-color:var(--ink)}.primary.act:hover{background:var(--deep);border-color:var(--deep)}
+.act.used{border-color:var(--ok);color:var(--ok)}.act.used:hover{color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{min-height:38px;padding:6px 12px;font-size:13.5px;border-radius:99px;font-weight:500}.chip.got{background:var(--okbg);border-color:#9CC7AA;color:var(--ok)}.chip.got::before{content:"✓"}
+.side{position:sticky;top:96px}
+.mine{border:1px dashed #CFC9BD;border-radius:12px;padding:12px;background:#F7F5F0}.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
+.pcover{display:block;width:100%;border-radius:7px}.pname{font-weight:700;margin:0;font-size:17px}.phl{margin:3px 0;font-size:14.5px;line-height:1.4}.ploc{margin:0;color:#666;font-size:13.5px}.pind{margin:8px 0 0;font-size:13px;color:var(--soft)}.ptxt{margin:0;font-size:14px;line-height:1.5}
+.shield{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:5px;background:#666;color:#fff;font-size:11px;vertical-align:2px}
+.fc{background:#fff;border:1px solid #E2DED5;border-radius:9px;overflow:hidden}.fc img{display:block;width:100%;aspect-ratio:1.91/1;object-fit:cover}.fb{padding:9px 11px 11px;font-size:13px;line-height:1.4}.fb b{display:block;font-size:14px;margin:2px 0}.kind{font-size:11.5px;color:#666}.fs{display:block;color:#666;overflow-wrap:anywhere}.fb p{margin:6px 0 0;color:#333}
+.order{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}.fc.sm .fb{padding:5px 6px}.fc.sm b{font-size:11px;line-height:1.25}.fc.sm .fs,.fc.sm .kind{display:none}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.nav .back{background:transparent;border-color:transparent;color:var(--soft)}.nav .next{min-height:50px;padding:10px 22px;font-size:16px}
+.next.ready{background:var(--ok);border-color:var(--ok);animation:pulse 1.4s ease-in-out 2}
+@keyframes pulse{50%{transform:scale(1.04);box-shadow:0 0 0 8px #2F7D4F22}}
+/* start + end */
+.start h1{font-size:clamp(38px,6vw,64px);line-height:.98;margin-bottom:12px}.start h1 span{background:linear-gradient(transparent 59%,var(--deep) 59%,var(--deep) 91%,transparent 91%);color:var(--ink)}
+.li{border:1px solid #D9D5CC;border-radius:14px;overflow:hidden;background:#fff;margin:16px 0}.li .cover{display:block;width:100%;height:auto;aspect-ratio:4/1;object-fit:cover}.li .body{padding:0 20px 16px}.li .avatar{position:relative;width:92px;height:92px;border-radius:50%;border:4px solid #fff;background:#E9E5DC;margin-top:-50px;display:grid;place-items:center;font-size:12px;color:var(--soft)}.li .name{font:700 21px/1.2 Geist,Arial,sans-serif;margin:8px 0 3px}.li .hl{margin:0 0 5px;font-size:15px;line-height:1.45}.li .loc{font-size:13px;color:#666;margin:0}.li .company{font-size:14px;font-weight:600;margin:6px 0 0}
+.li section{border-top:1px solid #ECE9E2;padding:12px 20px}.li h3{font:700 15px/1.2 Geist,Arial,sans-serif;margin:0 0 8px}.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.feat figure{margin:0;border:1px solid #E4E0D7;border-radius:8px;overflow:hidden}.feat img{display:block;width:100%;aspect-ratio:1.91/1;object-fit:cover}.feat figcaption{font-size:12px;font-weight:600;padding:6px 8px;line-height:1.3}
+.slug{display:flex;gap:8px;margin:8px 0 4px}.slug input{flex:1;min-width:0;min-height:48px;border:1px solid #BDB7AC;border-radius:10px;padding:0 13px;font:16px Geist,Arial,sans-serif;color:var(--ink);background:#fff}.slug-ok{font-size:14px;color:var(--soft);min-height:1.4em;margin:0}.slug-ok.good{color:var(--ok);font-weight:600}.slug-ok.err{color:#A3261A}
+.end{text-align:center;padding:10px 0}.end .big{font:800 clamp(34px,6vw,56px)/1 Brico,Arial,sans-serif;letter-spacing:-.035em;margin:6px 0 10px}.end p{color:var(--soft);margin:0 0 18px}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}.confetti i{position:absolute;top:-20px;width:9px;height:14px;border-radius:2px;animation:fall 2.6s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;z-index:30;font-size:14.5px;box-shadow:0 10px 40px #0008;max-width:90%}#toast:empty{display:none}
+.status{font-size:14px;color:var(--soft);margin-left:8px}.status.err{color:#A3261A}
+footer{padding:0 0 36px;color:var(--muted);font-size:13px}
+@media(max-width:760px){.wrap{padding:0 12px}.card{padding:20px 15px 16px;border-radius:15px}.grid{grid-template-columns:1fr}.side{position:static;order:-1}.copy{flex-direction:column;align-items:stretch}.row{padding:11px 10px}.li .body{padding:0 14px 14px}.li section{padding:10px 14px}.feat figcaption{font-size:10.5px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <header><div class="wrap head"><a class="mark" href="https://inboundonsteroids.com" target="_blank" rel="noopener">inbound<b>on</b>steroids</a><span class="for">Para Anna</span></div></header>
+<div class="top" id="top" hidden><div class="wrap"><div class="segs"><button type="button" class="seg" data-go="cover" title="1. Portada" aria-label="Paso 1: Portada"></button><button type="button" class="seg" data-go="photo" title="2. Foto" aria-label="Paso 2: Foto"></button><button type="button" class="seg" data-go="intro" title="3. Cabecera" aria-label="Paso 3: Cabecera"></button><button type="button" class="seg" data-go="about" title="4. Acerca de" aria-label="Paso 4: Acerca de"></button><button type="button" class="seg" data-go="job" title="5. Puesto" aria-label="Paso 5: Puesto"></button><button type="button" class="seg" data-go="f-call" title="6. Destacado 1 de 3" aria-label="Paso 6: Destacado 1 de 3"></button><button type="button" class="seg" data-go="f-plugin" title="7. Destacado 2 de 3" aria-label="Paso 7: Destacado 2 de 3"></button><button type="button" class="seg" data-go="f-kyle" title="8. Destacado 3 de 3" aria-label="Paso 8: Destacado 3 de 3"></button><button type="button" class="seg" data-go="skills" title="9. Aptitudes" aria-label="Paso 9: Aptitudes"></button><button type="button" class="seg" data-go="web" title="10. Web" aria-label="Paso 10: Web"></button><button type="button" class="seg" data-go="verify" title="11. Verificación" aria-label="Paso 11: Verificación"></button><button type="button" class="seg" data-go="follow" title="12. Red" aria-label="Paso 12: Red"></button><button type="button" class="seg" data-go="connect" title="13. Último paso" aria-label="Paso 13: Último paso"></button></div><div class="where"><span id="where"></span><button type="button" id="reset">Empezar de cero</button></div></div></div>
 <main class="wrap">
-<section class="hero">
+<div class="card">
+<section class="step start" data-step="start" hidden>
 <h1>Tu LinkedIn,<br><span>igual al mío.</span></h1>
-<p>Anna, te dejé todo listo para copiar y pegar. Son <strong>12 pasos cortos</strong>, en unos 20 minutos lo tenés. Hacelo desde la compu, que es más fácil.</p>
-</section>
-
-<section class="panel" aria-labelledby="mock">
-<h2 id="mock">Así te tiene que quedar</h2>
-<p class="sub">Misma portada, mismo titular y los mismos destacados que tengo yo.</p>
+<p class="sub">Anna, son 13 pasos, uno por pantalla. En cada uno copiás, pegás y tocás «Siguiente». Mejor desde la compu, unos 20 minutos.</p>
 <div class="li">
-<img class="cover" src="v6/portada-prev.jpg" width="1200" height="300" alt="Portada: Add $15k-$50k/mo of new pipeline in 90 days.">
-<div class="body">
-<div class="avatar">Tu foto</div>
-<p class="name">Anna</p>
-<p class="hl">Agency owners: add $15k-$50k/mo from LinkedIn in 90 days with content + outreach, run for you.</p>
-<p class="loc">Milan, Lombardy, Italy</p>
-<p class="company">Growth Partner · InboundOnSteroids</p>
+<img class="cover" src="v6/portada-prev.jpg" width="1200" height="300" alt="">
+<div class="body"><div class="avatar">Tu foto</div><p class="name">Anna</p><p class="hl">Agency owners: add $15k-$50k/mo from LinkedIn in 90 days with content + outreach, run for you.</p><p class="loc">Milan, Lombardy, Italy</p><p class="company">Growth Partner · InboundOnSteroids</p></div>
+<section><h3>Featured</h3><div class="feat"><figure><img src="v6/destacado-3-llamada-prev.jpg" alt="" loading="lazy"><figcaption>Book a call with Iván</figcaption></figure><figure><img src="v6/destacado-2-plugin-prev.jpg" alt="" loading="lazy"><figcaption>Free Inbound Content Patterns plugin and prompt pack</figcaption></figure><figure><img src="v6/destacado-1-kyle-prev.jpg" alt="" loading="lazy"><figcaption>How we run Kyle’s LinkedIn</figcaption></figure></div></section>
 </div>
-<section><h3>Featured</h3>
-<div class="feat">
-<figure><img src="v6/destacado-1-kyle-prev.jpg" alt="How we run Kyle’s LinkedIn" loading="lazy"><figcaption>How we run Kyle’s LinkedIn</figcaption></figure>
-<figure><img src="v6/destacado-2-plugin-prev.jpg" alt="Free plugin and prompt pack" loading="lazy"><figcaption>Free Inbound Content Patterns plugin and prompt pack</figcaption></figure>
-<figure><img src="v6/destacado-3-llamada-prev.jpg" alt="Book a call" loading="lazy"><figcaption>Book a call with Iván</figcaption></figure>
-</div></section>
-</div>
+<p style="margin:18px 0 0"><b>Antes de arrancar:</b> pegá acá el link de tu perfil. Así cada botón te abre la ventana justa para editar.</p>
+<div class="slug"><input id="slug" type="url" inputmode="url" autocomplete="off" placeholder="linkedin.com/in/tu-nombre"><a class="button" href="https://www.linkedin.com/in/me/" target="_blank" rel="noopener">¿Cuál es? ↗</a></div>
+<p class="slug-ok" id="slug-ok" role="status">Si no sabés cuál es: tocá «¿Cuál es?», se abre tu perfil, copiá la dirección de arriba y pegala acá.</p>
+<div class="nav"><span></span><button type="button" class="primary next" id="go">Empezar →</button></div>
 </section>
-
-<section class="panel" aria-labelledby="todo">
-<h2 id="todo">Paso a paso</h2>
-<p class="sub">Tocá cada paso, copiá lo que hay adentro y apretá «Listo». Se va guardando solo.</p>
-<div class="sticky"><div class="count"><span id="count">0 de 12 listos</span><button type="button" id="reset" style="min-height:28px;padding:0 6px;border:0;font-size:13px;color:var(--soft)">Reiniciar</button></div><div class="bar"><i id="bar"></i></div></div>
-
-<details class="task" data-task="cover"><summary><span class="num"><b>1</b></span><span class="tt">Portada<small>La misma que la mía</small></span></summary><div class="in">
-<div class="dl"><img src="v6/portada-prev.jpg" alt=""><a class="button" href="v6/portada.png" download="anna-portada.png">Descargar portada</a></div>
-<ol><li>En tu perfil, tocá el lápiz arriba a la derecha de la portada.</li><li>Subí la imagen que bajaste y guardá.</li></ol>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="photo"><summary><span class="num"><b>2</b></span><span class="tt">Foto de perfil<small>Una tuya, de frente y con buena luz</small></span></summary><div class="in">
-<p>Tocá el círculo de la foto y subí una donde se te vea bien la cara, con fondo simple. Si no tenés una buena, sacate una contra una pared lisa con luz de ventana.</p>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="headline"><summary><span class="num"><b>3</b></span><span class="tt">Titular<small>El mismo que el mío</small></span></summary><div class="in">
-<ol><li>Tocá el lápiz de la primera sección (al lado de tu nombre).</li><li>En «Titular», borrá lo que haya y pegá esto:</li></ol>
-<div class="copy"><code id="c-headline">Agency owners: add $15k-$50k/mo from LinkedIn in 90 days with content + outreach, run for you.</code><button type="button" data-copy="c-headline">Copiar</button></div>
-<p>En esa misma pantalla, en «Sector», poné el mismo que yo:</p>
-<div class="copy"><code id="c-ind">IT Services and IT Consulting</code><button type="button" data-copy="c-ind">Copiar</button></div>
-<p>No guardes todavía, seguí con el paso 4 que es en la misma pantalla.</p>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="location"><summary><span class="num"><b>4</b></span><span class="tt">Ubicación<small>Milán, como la mía</small></span></summary><div class="in">
-<ol><li>En esa misma pantalla, bajá hasta «Ubicación».</li><li>País: <strong>Italia</strong>. Ciudad: escribí <strong>Milan</strong> y elegí «Milan, Lombardy, Italy».</li><li>Ahora sí, guardá.</li></ol>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="about"><summary><span class="num"><b>5</b></span><span class="tt">Acerca de<small>El texto largo de presentación</small></span></summary><div class="in">
-<ol><li>Buscá «Acerca de» en tu perfil y tocá el lápiz. Si no aparece: «Añadir sección» → «Principal» → «Acerca de».</li><li>Pegá esto entero:</li></ol>
-<div class="copy long"><code id="c-about">Agency owner doing 6 or 7 figures a year?
+<section class="step" data-step="cover" hidden>
+<p class="kick">Paso 1 de 13 · Portada</p>
+<h2>La portada</h2><p class="sub">La misma imagen que tengo yo arriba del perfil.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="cover-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Bajá la portada.</p><a class="button act" href="v6/portada.png" download="anna-portada.png">Descargar portada ↓</a></div></li><li class="row" data-k="cover-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí tu perfil.</p><a class="button act open" data-path="/" href="#" target="_blank" rel="noopener">Abrir mi perfil ↗</a></div></li><li class="row" data-k="cover-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Tocá el lápiz arriba a la derecha de la portada, subí la imagen que bajaste y guardá.</p></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><img class="pcover" src="v6/portada-prev.jpg" alt=""></div></aside></div>
+</section><section class="step" data-step="photo" hidden>
+<p class="kick">Paso 2 de 13 · Foto</p>
+<h2>Tu foto</h2><p class="sub">Una tuya, de frente y con buena luz.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="photo-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí tu perfil y tocá el círculo de la foto.</p><a class="button act open" data-path="/" href="#" target="_blank" rel="noopener">Abrir mi perfil ↗</a></div></li><li class="row" data-k="photo-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Subí una donde se te vea bien la cara, con fondo liso. Si no tenés, sacate una contra una pared con luz de ventana.</p></div></li><li class="row" data-k="photo-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Guardá.</p></div></li></ol><aside class="side"><div class="mine"><span class="tag">Tip</span><p class="ptxt">Cara centrada, que ocupe más o menos la mitad del círculo. Nada de fotos de grupo ni recortes de una fiesta.</p></div></aside></div>
+</section><section class="step" data-step="intro" hidden>
+<p class="kick">Paso 3 de 13 · Cabecera</p>
+<h2>Titular, sector y ubicación</h2><p class="sub">Todo esto va en la misma ventana. Guardás una sola vez al final.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="intro-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí la ventana de edición de tu cabecera.</p><a class="button act open" data-path="/edit/intro/" href="#" target="_blank" rel="noopener">Abrir la ventana ↗</a></div></li><li class="row" data-k="intro-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Titular:</b> borrá lo que haya y pegá esto.</p><div class="copy"><code>Agency owners: add $15k-$50k/mo from LinkedIn in 90 days with content + outreach, run for you.</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="intro-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Sector:</b> bajá un poco, borrá el que tengas y pegá esto. Elegí la opción que aparece.</p><div class="copy"><code>IT Services and IT Consulting</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="intro-3"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Ubicación:</b> país Italia, y en ciudad escribí Milan y elegí «Milan, Lombardy, Italy».</p><div class="copy"><code>Milan</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="intro-4"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Tocá «Guardar».</p></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><p class="pname">Iván Manfredi</p><p class="phl">Agency owners: add $15k-$50k/mo from LinkedIn in 90 days with content + outreach, run for you.</p><p class="ploc">Milan, Lombardy, Italy</p><p class="pind">Sector: IT Services and IT Consulting</p></div></aside></div>
+</section><section class="step" data-step="about" hidden>
+<p class="kick">Paso 4 de 13 · Acerca de</p>
+<h2>El «Acerca de»</h2><p class="sub">El texto largo de presentación, más las 3 aptitudes que van debajo.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="about-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí la ventana del «Acerca de».</p><a class="button act open" data-path="/edit/forms/summary/new/" href="#" target="_blank" rel="noopener">Abrir la ventana ↗</a></div></li><li class="row" data-k="about-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Borrá lo que haya y pegá el texto entero.</p><div class="copy long"><code>Agency owner doing 6 or 7 figures a year?
 Want to add $15k-$60k/mo of revenue from LinkedIn, all run for you? Read this 👇
 
-Because you're on my profile, a few things I'd bet are true:
+Because you&#x27;re on my profile, a few things I&#x27;d bet are true:
 
 1. You know LinkedIn can get you clients, you just never get around to the content or the outreach
-2. You tried a ghostwriter, and the posts didn't sound like you
+2. You tried a ghostwriter, and the posts didn&#x27;t sound like you
 3. You tried a lead-gen agency, and months of retainer bought zero pipeline
-4. You don't want to hire and manage a $3k-$6k/mo content person
-5. You'd rather own the audience and pipeline than rent an agency forever
+4. You don&#x27;t want to hire and manage a $3k-$6k/mo content person
+5. You&#x27;d rather own the audience and pipeline than rent an agency forever
 
 I get it.
 
 We set this up for our own agency work first, to post daily and drive inbound without it eating the week. Then every operator we talked to wanted the same thing.
 
-So here's what we package. One idea becomes posts, carousels, and lead magnets, and your feed stays active while you run the agency.
+So here&#x27;s what we package. One idea becomes posts, carousels, and lead magnets, and your feed stays active while you run the agency.
 
 The posts pull readers in, and a lead magnet inside them turns the ones who engage into named leads in your inbox.
 
@@ -136,104 +121,114 @@ EFFECTS OBSERVED IN AGENCY OWNERS:
 
 A feed that sells your agency, leads in the inbox, an audience you own. Measured in booked calls.
 
-Want to see what your feed could look like? DM me and I'll show you, free.
+Want to see what your feed could look like? DM me and I&#x27;ll show you, free.
 
-Or book the free fit call at inboundonsteroids.com</code><button type="button" data-copy="c-about">Copiar todo</button></div>
-<p>Abajo del texto, en esa misma ventana, está «Aptitudes principales». Poné estas 3, en este orden, y guardá:</p>
-<div class="chips"><button type="button">Lead Generation</button><button type="button">LinkedIn Marketing</button><button type="button">Copywriting</button></div>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="job"><summary><span class="num"><b>6</b></span><span class="tt">Tu puesto<small>Growth Partner en InboundOnSteroids</small></span></summary><div class="in">
-<ol><li>En «Experiencia», tocá <strong>+</strong> → «Añadir puesto».</li><li>Completá así:</li></ol>
-<div class="copy"><span><label>Cargo</label><code id="c-title">Growth Partner</code></span><button type="button" data-copy="c-title">Copiar</button></div>
-<div class="copy"><span><label>Empresa</label><code id="c-company">InboundOnSteroids</code></span><button type="button" data-copy="c-company">Copiar</button></div>
-<p>Cuando escribas la empresa, elegí la que aparece con el logo (<a href="https://www.linkedin.com/company/inboundonsteroids/" target="_blank" rel="noopener">esta</a>). Tipo de empleo: <strong>Jornada completa</strong>. Fecha de inicio: <strong>octubre 2026</strong>, con «Actualmente trabajo aquí» marcado. Ubicación: <strong>Milan, Lombardy, Italy</strong>, modalidad <strong>En remoto</strong>.</p>
-<div class="copy"><span><label>Descripción</label><code id="c-desc">We make LinkedIn a revenue line for agency founders: content + outreach, run for you, 24/7.</code></span><button type="button" data-copy="c-desc">Copiar</button></div>
-<p>Más abajo, en «Aptitudes» del puesto, agregá estas 2 (como en el mío) y guardá:</p>
-<div class="chips"><button type="button">LinkedIn Marketing</button><button type="button">Content Marketing</button></div>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="featured"><summary><span class="num"><b>7</b></span><span class="tt">Destacados<small>Los 3 que tengo yo: caso de Kyle, plugin y llamada</small></span></summary><div class="in">
-<p>Primero bajá las 3 imágenes de abajo. Después, para cada tarjeta, en este orden:</p>
-<ol><li>En tu perfil: «Añadir sección» → «Recomendado» → «Añadir destacados». Si ya tenés la sección «Destacados», tocá el <strong>+</strong> de esa sección.</li>
-<li>Elegí «Añadir un enlace».</li>
-<li><strong>Enlace:</strong> pegá el link de la tarjeta y tocá «Añadir». LinkedIn carga una vista previa sola.</li>
-<li><strong>Título:</strong> borrá el que puso LinkedIn y pegá el de la tarjeta.</li>
-<li><strong>Descripción:</strong> dejala vacía, yo no tengo.</li>
-<li><strong>Miniatura:</strong> tocá el lápiz arriba de la imagen de la vista previa («Editar miniatura» o «Subir»), elegí la imagen que bajaste de esa tarjeta y que se vea entera.</li>
-<li>«Guardar».</li></ol>
-<div class="fcard"><h4>1 · Caso de Kyle</h4>
-<div class="dl"><img src="v6/destacado-1-kyle-prev.jpg" alt=""><a class="button" href="v6/destacado-1-kyle.png" download="destacado-1-kyle.png">Descargar imagen</a></div>
-<div class="copy"><span><label>Enlace</label><code id="f1u">https://inboundonsteroids.com/case/kyle-hunt/</code></span><button type="button" data-copy="f1u">Copiar</button></div>
-<div class="copy"><span><label>Título</label><code id="f1t">How we run Kyle’s LinkedIn</code></span><button type="button" data-copy="f1t">Copiar</button></div>
-<p class="fnote">Descripción: vacía. Miniatura: la imagen de arriba. Debajo del título aparece solo <strong>inboundonsteroids.com</strong>.</p></div>
-<div class="fcard"><h4>2 · Plugin gratis</h4>
-<div class="dl"><img src="v6/destacado-2-plugin-prev.jpg" alt=""><a class="button" href="v6/destacado-2-plugin.png" download="destacado-2-plugin.png">Descargar imagen</a></div>
-<div class="copy"><span><label>Enlace</label><code id="f2u">https://resources.ivanmanfredi.com/content-brain-guide/</code></span><button type="button" data-copy="f2u">Copiar</button></div>
-<div class="copy"><span><label>Título</label><code id="f2t">Free Inbound Content Patterns plugin and prompt pack</code></span><button type="button" data-copy="f2t">Copiar</button></div>
-<p class="fnote">Descripción: vacía. Miniatura: la imagen de arriba. Debajo del título aparece solo <strong>resources.ivanmanfredi.com</strong>.</p></div>
-<div class="fcard"><h4>3 · Reservar llamada</h4>
-<div class="dl"><img src="v6/destacado-3-llamada-prev.jpg" alt=""><a class="button" href="v6/destacado-3-llamada.png" download="destacado-3-llamada.png">Descargar imagen</a></div>
-<div class="copy"><span><label>Enlace</label><code id="f3u">https://calendly.com/im-ivanmanfredi/30min</code></span><button type="button" data-copy="f3u">Copiar</button></div>
-<div class="copy"><span><label>Título</label><code id="f3t">Book a call with Iván</code></span><button type="button" data-copy="f3t">Copiar</button></div>
-<p class="fnote">Descripción: vacía. Miniatura: la imagen de arriba. Debajo del título aparece solo <strong>Calendly</strong>.</p></div>
-<p style="margin-top:14px"><strong>Al final, revisá el orden:</strong> tiene que quedar Kyle → plugin → llamada, igual que en el mío. Si quedó distinto, tocá el lápiz de «Destacados» y arrastrá cada tarjeta desde las rayitas (≡) hasta que quede así.</p>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="skills"><summary><span class="num"><b>8</b></span><span class="tt">Aptitudes<small>Las 8 de marketing que tengo yo</small></span></summary><div class="in">
-<p>En «Aptitudes», tocá <strong>+</strong>, pegá cada una y elegí la sugerencia de LinkedIn. Tocá un chip para copiarlo:</p>
-<div class="chips" id="skills"><button type="button">Personal Branding</button><button type="button">Copywriting</button><button type="button">Lead Generation</button><button type="button">Content Marketing</button><button type="button">LinkedIn Marketing</button><button type="button">B2B Marketing</button><button type="button">Sales Pipeline Development</button><button type="button">Email Marketing</button></div>
-<p>Cargalas en este orden, que es el mío. Si tenés otras aptitudes que no son de marketing, sacalas o mandalas al fondo.</p>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-
-<details class="task" data-task="web"><summary><span class="num"><b>9</b></span><span class="tt">Web en contacto<small>ivanmanfredi.com, la misma que la mía</small></span></summary><div class="in">
-<p>Arriba, en «Información de contacto» → lápiz → «Sitio web», agregá:</p>
-<div class="copy"><code id="c-web">https://ivanmanfredi.com</code><button type="button" data-copy="c-web">Copiar</button></div>
-<p>Tipo: «Empresa». Guardá.</p>
-<p>Si tenés Premium, también activá el botón del perfil: lápiz de la primera sección → «Botón personalizado» → «Visitar mi sitio web» → el mismo link. Si no tenés Premium, salteá esto.</p>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="verify"><summary><span class="num"><b>10</b></span><span class="tt">Verificá tu perfil<small>El escudito gris al lado del nombre, como el mío</small></span></summary><div class="in">
-<ol><li>En tu perfil, al lado de tu nombre, tocá «Añadir insignia de verificación». Si no lo ves: arriba «Yo» → «Ajustes y privacidad» → «Verificaciones».</li><li>Elegí verificar con tu documento (pasaporte o DNI) y seguí los pasos desde el celu, son 2 minutos.</li><li>Si no te deja con tu documento, salteá este paso.</li></ol>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="follow"><summary><span class="num"><b>11</b></span><span class="tt">Seguí la empresa y agregame<small>Dos clics</small></span></summary><div class="in">
-<ol><li>Entrá a <a href="https://www.linkedin.com/company/inboundonsteroids/" target="_blank" rel="noopener">InboundOnSteroids ↗</a> y tocá «Seguir».</li><li>Entrá a <a href="https://www.linkedin.com/in/iv%C3%A1n-manfredi-120841202/" target="_blank" rel="noopener">mi perfil ↗</a> y tocá «Conectar».</li></ol>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<details class="task" data-task="connect"><summary><span class="num"><b>12</b></span><span class="tt">Conectá tu LinkedIn a Unipile<small>Así arrancamos con los mensajes</small></span></summary><div class="in">
-<ol><li>Tocá el botón, se abre otra pestaña.</li><li>Elegí LinkedIn y entrá con tu mail y contraseña. Si te pide un código, ponelo ahí.</li><li>Cuando diga que está conectado, volvé acá.</li></ol>
-<div class="connect"><button type="button" class="primary" id="connect">Conectar mi LinkedIn ↗</button><span class="status" id="connect-status" role="status" aria-live="polite"></span></div>
-<button type="button" class="done-btn">Listo ✓</button></div></details>
-
-<div class="finish" id="finish" hidden><p class="big">¡Listo! 🙌</p><p>Mandame el link de tu perfil por WhatsApp y lo miro.</p></div>
+Or book the free fit call at inboundonsteroids.com</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="about-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abajo, en «Aptitudes» de esa misma ventana, agregá estas 3 en este orden. Tocá cada una para copiarla.</p><div class="chips"><button type="button" class="chip">Lead Generation</button><button type="button" class="chip">LinkedIn Marketing</button><button type="button" class="chip">Copywriting</button></div></div></li><li class="row" data-k="about-3"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Tocá «Guardar».</p></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><p class="ptxt">Agency owner doing 6 or 7 figures a year?<br>Want to add $15k-$60k/mo of revenue from LinkedIn, all run for you? Read this 👇</p><p class="pind">Top skills: Lead Generation • LinkedIn Marketing • Copywriting</p></div></aside></div>
+</section><section class="step" data-step="job" hidden>
+<p class="kick">Paso 5 de 13 · Puesto</p>
+<h2>Tu puesto en InboundOnSteroids</h2><p class="sub">Growth Partner, con la misma descripción y aptitudes que el mío.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="job-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí la ventana para añadir un puesto.</p><a class="button act open" data-path="/edit/forms/position/new/" href="#" target="_blank" rel="noopener">Abrir la ventana ↗</a></div></li><li class="row" data-k="job-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Cargo:</b></p><div class="copy"><code>Growth Partner</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="job-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Tipo de empleo:</b> Jornada completa.</p></div></li><li class="row" data-k="job-3"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Empresa:</b> pegá esto y elegí la que aparece con el logo.</p><div class="copy"><code>InboundOnSteroids</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="job-4"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Marcá «Actualmente trabajo aquí». <b>Inicio:</b> octubre 2026.</p></div></li><li class="row" data-k="job-5"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Ubicación:</b> Milan, Lombardy, Italy. <b>Modalidad:</b> En remoto.</p></div></li><li class="row" data-k="job-6"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Descripción:</b></p><div class="copy"><code>We make LinkedIn a revenue line for agency founders: content + outreach, run for you, 24/7.</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="job-7"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Aptitudes:</b> agregá estas 5. Tocá cada una para copiarla.</p><div class="chips"><button type="button" class="chip">Personal Branding</button><button type="button" class="chip">Copywriting</button><button type="button" class="chip">Lead Generation</button><button type="button" class="chip">Content Marketing</button><button type="button" class="chip">LinkedIn Marketing</button></div></div></li><li class="row" data-k="job-8"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Tocá «Guardar». Si te pregunta si querés avisar a tu red, poné que no.</p></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><p class="pname">Founder</p><p class="ploc">InboundOnSteroids · Full-time</p><p class="ptxt">We make LinkedIn a revenue line for agency founders: content + outreach, run for you, 24/7.</p><p class="pind">Aptitudes: Personal Branding • Copywriting • Lead Generation • Content Marketing • LinkedIn Marketing</p></div></aside></div>
+</section><section class="step" data-step="f-call" hidden>
+<p class="kick">Paso 6 de 13 · Destacado 1 de 3</p>
+<h2>Destacado 1: Reservar llamada</h2><p class="sub">Imagen, enlace, título y descripción, igual que el mío.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="f-call-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Bajá la imagen de esta tarjeta.</p><a class="button act" href="v6/destacado-3-llamada.png" download="destacado-llamada.png">Descargar imagen ↓</a></div></li><li class="row" data-k="f-call-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí tus destacados y tocá el <b>+</b> → «Añadir un enlace». Si te dice que no tenés la sección: en tu perfil, «Añadir sección» → «Recomendado» → «Añadir destacados» → «Añadir un enlace».</p><a class="button act open" data-path="/details/featured/" href="#" target="_blank" rel="noopener">Abrir destacados ↗</a></div></li><li class="row" data-k="f-call-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Enlace:</b> pegalo y tocá «Añadir».</p><div class="copy"><code>https://calendly.com/im-ivanmanfredi/30min</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="f-call-3"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Título:</b> borrá el que puso LinkedIn y pegá este.</p><div class="copy"><code>Book a call with Iván</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="f-call-4"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Descripción:</b> borrá lo que haya y pegá esta.</p><div class="copy"><code>We will talk through your challenges, see if it&#x27;s a fit for you, and point you at the right next step.</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="f-call-5"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Miniatura:</b> tocá el lápiz sobre la imagen de la vista previa y subí la que bajaste.</p></div></li><li class="row" data-k="f-call-6"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Tocá «Guardar».</p></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><div class="fc"><img src="v6/destacado-3-llamada-prev.jpg" alt=""><div class="fb"><span class="kind">Link</span><b>Book a call with Iván</b><span class="fs">Calendly</span><p>We will talk through your challenges, see if it&#x27;s a fit for you, and point you at the right next step.</p></div></div></div></aside></div>
+</section><section class="step" data-step="f-plugin" hidden>
+<p class="kick">Paso 7 de 13 · Destacado 2 de 3</p>
+<h2>Destacado 2: Plugin gratis</h2><p class="sub">Imagen, enlace, título y descripción, igual que el mío.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="f-plugin-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Bajá la imagen de esta tarjeta.</p><a class="button act" href="v6/destacado-2-plugin.png" download="destacado-plugin.png">Descargar imagen ↓</a></div></li><li class="row" data-k="f-plugin-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí tus destacados y tocá el <b>+</b> → «Añadir un enlace».</p><a class="button act open" data-path="/details/featured/" href="#" target="_blank" rel="noopener">Abrir destacados ↗</a></div></li><li class="row" data-k="f-plugin-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Enlace:</b> pegalo y tocá «Añadir».</p><div class="copy"><code>https://resources.ivanmanfredi.com/content-brain-guide/</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="f-plugin-3"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Título:</b> borrá el que puso LinkedIn y pegá este.</p><div class="copy"><code>Free Inbound Content Patterns plugin and prompt pack</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="f-plugin-4"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Descripción:</b> borrá lo que haya y pegá esta.</p><div class="copy"><code>Use niche research and original post examples while working through your next draft in ChatGPT. Includes the free plugin setup and prompt pack.</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="f-plugin-5"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Miniatura:</b> tocá el lápiz sobre la imagen de la vista previa y subí la que bajaste.</p></div></li><li class="row" data-k="f-plugin-6"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Tocá «Guardar».</p></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><div class="fc"><img src="v6/destacado-2-plugin-prev.jpg" alt=""><div class="fb"><span class="kind">Link</span><b>Free Inbound Content Patterns plugin and prompt pack</b><span class="fs">https://resources.ivanmanfredi.com/content-brain-guide/</span><p>Use niche research and original post examples while working through your next draft in ChatGPT. Includes the free plugin setup and prompt pack.</p></div></div></div></aside></div>
+</section><section class="step" data-step="f-kyle" hidden>
+<p class="kick">Paso 8 de 13 · Destacado 3 de 3</p>
+<h2>Destacado 3: Caso de Kyle</h2><p class="sub">Imagen, enlace, título y descripción, igual que el mío.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="f-kyle-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Bajá la imagen de esta tarjeta.</p><a class="button act" href="v6/destacado-1-kyle.png" download="destacado-kyle.png">Descargar imagen ↓</a></div></li><li class="row" data-k="f-kyle-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí tus destacados y tocá el <b>+</b> → «Añadir un enlace».</p><a class="button act open" data-path="/details/featured/" href="#" target="_blank" rel="noopener">Abrir destacados ↗</a></div></li><li class="row" data-k="f-kyle-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Enlace:</b> pegalo y tocá «Añadir».</p><div class="copy"><code>https://inboundonsteroids.com/case/kyle-hunt/</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="f-kyle-3"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Título:</b> borrá el que puso LinkedIn y pegá este.</p><div class="copy"><code>How we run Kyle’s LinkedIn</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="f-kyle-4"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Descripción:</b> borrá lo que haya y pegá esta.</p><div class="copy"><code>Kyle Hunt is an agency ops coach. We took over his whole LinkedIn and across the 90 days we ran it his business went from $30k to $80k a month. His feed is public if you want to see what actually went out.</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="f-kyle-5"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p><b>Miniatura:</b> tocá el lápiz sobre la imagen de la vista previa y subí la que bajaste.</p></div></li><li class="row" data-k="f-kyle-6"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Tocá «Guardar».</p></div></li><li class="row" data-k="f-kyle-7"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Ahora el orden: tiene que quedar <b>llamada → plugin → Kyle</b>, como en el mío. Abrí la pantalla de ordenar y arrastrá desde las rayitas (≡). Guardá.</p><a class="button act open" data-path="/details/featured/reorder/" href="#" target="_blank" rel="noopener">Ordenar destacados ↗</a></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><div class="fc"><img src="v6/destacado-1-kyle-prev.jpg" alt=""><div class="fb"><span class="kind">Link</span><b>How we run Kyle’s LinkedIn</b><span class="fs">https://inboundonsteroids.com/case/kyle-hunt/</span><p>Kyle Hunt is an agency ops coach. We took over his whole LinkedIn and across the 90 days we ran it his business went from $30k to $80k a month. His feed is public if you want to see what actually went out.</p></div></div><div class="order"><div class="fc sm"><img src="v6/destacado-3-llamada-prev.jpg" alt=""><div class="fb"><span class="kind">Link</span><b>Book a call with Iván</b><span class="fs">Calendly</span></div></div><div class="fc sm"><img src="v6/destacado-2-plugin-prev.jpg" alt=""><div class="fb"><span class="kind">Link</span><b>Free Inbound Content Patterns plugin and prompt pack</b><span class="fs">https://resources.ivanmanfredi.com/content-brain-guide/</span></div></div><div class="fc sm"><img src="v6/destacado-1-kyle-prev.jpg" alt=""><div class="fb"><span class="kind">Link</span><b>How we run Kyle’s LinkedIn</b><span class="fs">https://inboundonsteroids.com/case/kyle-hunt/</span></div></div></div></div></aside></div>
+</section><section class="step" data-step="skills" hidden>
+<p class="kick">Paso 9 de 13 · Aptitudes</p>
+<h2>Las aptitudes</h2><p class="sub">Las 8 de marketing que tengo yo, en este orden.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="skills-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí tus aptitudes.</p><a class="button act open" data-path="/details/skills/" href="#" target="_blank" rel="noopener">Abrir aptitudes ↗</a></div></li><li class="row" data-k="skills-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Tocá <b>+</b> y agregá las que te falten. Las 5 del paso del puesto ya están. Tocá cada una para copiarla.</p><div class="chips"><button type="button" class="chip">Personal Branding</button><button type="button" class="chip">Copywriting</button><button type="button" class="chip">Lead Generation</button><button type="button" class="chip">Content Marketing</button><button type="button" class="chip">LinkedIn Marketing</button><button type="button" class="chip">B2B Marketing</button><button type="button" class="chip">Sales Pipeline Development</button><button type="button" class="chip">Email Marketing</button></div></div></li><li class="row" data-k="skills-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Si tenés otras que no son de marketing, borralas o dejalas al fondo.</p></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><p class="ptxt">Personal Branding<br>Copywriting<br>Lead Generation<br>Content Marketing<br>LinkedIn Marketing<br>B2B Marketing<br>Sales Pipeline Development<br>Email Marketing</p></div></aside></div>
+</section><section class="step" data-step="web" hidden>
+<p class="kick">Paso 10 de 13 · Web</p>
+<h2>La web en tu contacto</h2><p class="sub">La misma que la mía: ivanmanfredi.com.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="web-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí tu «Información de contacto» y tocá el lápiz.</p><a class="button act open" data-path="/overlay/contact-info/" href="#" target="_blank" rel="noopener">Abrir contacto ↗</a></div></li><li class="row" data-k="web-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>En «Sitio web» pegá esto. Tipo: «Empresa». Guardá.</p><div class="copy"><code>https://ivanmanfredi.com</code><button type="button" class="act" data-copy>Copiar</button></div></div></li><li class="row" data-k="web-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Solo si tenés Premium: en la ventana de la cabecera, «Botón personalizado» → «Visitar mi sitio web» → el mismo link. Si no tenés Premium, marcalo y seguí.</p><a class="button act open" data-path="/edit/intro/" href="#" target="_blank" rel="noopener">Abrir cabecera ↗</a></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><p class="ptxt">Sitio web: ivanmanfredi.com<br>Botón en el perfil: «Visit my website»</p></div></aside></div>
+</section><section class="step" data-step="verify" hidden>
+<p class="kick">Paso 11 de 13 · Verificación</p>
+<h2>El escudito de verificado</h2><p class="sub">Es gratis y lo ves al lado de mi nombre.</p>
+<div class="grid"><ol class="rows"><li class="row" data-k="verify-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Abrí tu perfil. Al lado de tu nombre tocá «Añadir insignia de verificación».</p><a class="button act open" data-path="/" href="#" target="_blank" rel="noopener">Abrir mi perfil ↗</a></div></li><li class="row" data-k="verify-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Elegí verificar con tu documento (pasaporte o DNI) y seguí los pasos en el celu. Son 2 minutos.</p></div></li><li class="row" data-k="verify-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Si no te deja con tu documento, marcalo y seguí.</p></div></li></ol><aside class="side"><div class="mine"><span class="tag">Así está en el mío</span><p class="pname">Iván Manfredi <span class="shield">✓</span></p></div></aside></div>
+</section><section class="step" data-step="follow" hidden>
+<p class="kick">Paso 12 de 13 · Red</p>
+<h2>Seguí la empresa y agregame</h2><p class="sub">Dos clics.</p>
+<div class="grid solo"><ol class="rows"><li class="row" data-k="follow-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Seguí la página de InboundOnSteroids.</p><a class="button act open" data-path="https://www.linkedin.com/company/inboundonsteroids/" href="#" target="_blank" rel="noopener">Abrir la empresa ↗</a></div></li><li class="row" data-k="follow-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Mandame solicitud desde mi perfil.</p><a class="button act open" data-path="https://www.linkedin.com/in/iv%C3%A1n-manfredi-120841202/" href="#" target="_blank" rel="noopener">Abrir mi perfil (Iván) ↗</a></div></li></ol></div>
+</section><section class="step" data-step="connect" hidden>
+<p class="kick">Paso 13 de 13 · Último paso</p>
+<h2>Conectá tu LinkedIn</h2><p class="sub">Así arrancamos con los mensajes desde tu cuenta.</p>
+<div class="grid solo"><ol class="rows"><li class="row" data-k="connect-0"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Tocá el botón, se abre otra pestaña.</p><div class="connect"><button type="button" class="primary act" id="connect">Conectar mi LinkedIn ↗</button><span class="status" id="connect-status" role="status" aria-live="polite"></span></div></div></li><li class="row" data-k="connect-1"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Elegí LinkedIn y entrá con tu mail y contraseña. Si te pide un código, ponelo ahí.</p></div></li><li class="row" data-k="connect-2"><button type="button" class="tick" aria-label="Marcar como hecho"></button><div class="rt"><p>Cuando diga que está conectado, volvé acá.</p></div></li></ol></div>
 </section>
+<section class="step end" data-step="end" hidden>
+<p class="kick">Terminaste</p>
+<p class="big">¡Listo, Anna! 🙌</p>
+<p>Tu perfil ya está igual al mío. Avisame por WhatsApp y lo miro.</p>
+<a class="button primary" id="wa" href="#" target="_blank" rel="noopener">Avisarle a Iván por WhatsApp ↗</a>
+<div class="nav"><button type="button" class="back" data-back>← Volver</button><span></span></div>
+</section>
+<div class="nav" id="stepnav" hidden><button type="button" class="back" id="back">← Atrás</button><button type="button" class="primary next" id="next">Siguiente →</button></div>
+</div>
 </main>
-<footer class="wrap">Tu avance se guarda en este navegador.</footer>
+<footer><div class="wrap">Para Anna · Se guarda solo en este navegador.</div></footer>
 <div id="toast" role="status" aria-live="polite"></div>
 <script>
 (()=>{
-const KEY='anna-linkedin-guide-v3',MINT='https://n8n.ivanmanfredi.com/webhook/unipile-connect-link?k=455385254bc432d723be275a';
+const KEY='anna-linkedin-guide-v9',MINT='https://n8n.ivanmanfredi.com/webhook/unipile-connect-link?k=455385254bc432d723be275a';
+const ORDER=["start", "cover", "photo", "intro", "about", "job", "f-call", "f-plugin", "f-kyle", "skills", "web", "verify", "follow", "connect", "end"];
 let st={};try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch{}
+st.rows=st.rows||{};st.chips=st.chips||{};st.done=st.done||{};
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch{}};
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-let tt;const toast=t=>{$('#toast').textContent=t;clearTimeout(tt);tt=setTimeout(()=>$('#toast').textContent='',3000)};
-const tasks=$$('.task');
-async function copyText(t,el){try{await navigator.clipboard.writeText(t);toast('Copiado ✓')}catch{if(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}toast('Seleccionado, copialo con ⌘C')}}
-function render(){let n=0;tasks.forEach(t=>{const d=!!st[t.dataset.task];n+=d;t.classList.toggle('done',d);t.querySelector('.done-btn').textContent=d?'Desmarcar':'Listo ✓'});
-  $('#count').textContent=`${n} de ${tasks.length} listos`;$('#bar').style.width=(n/tasks.length*100)+'%';$('#finish').hidden=n<tasks.length}
-tasks.forEach(t=>t.querySelector('.done-btn').addEventListener('click',()=>{const k=t.dataset.task;st[k]=!st[k];save();render();
-  if(st[k]){t.open=false;const nx=tasks.find(x=>!st[x.dataset.task]);if(nx){nx.open=true;setTimeout(()=>nx.scrollIntoView({block:'start',behavior:'smooth'}),60)}}}));
-$$('[data-copy]').forEach(b=>b.addEventListener('click',()=>{const el=document.getElementById(b.dataset.copy);copyText(el.textContent,el)}));
-$$('.chips button').forEach(b=>b.addEventListener('click',()=>{copyText(b.textContent);b.classList.add('got')}));
-$('#reset').addEventListener('click',()=>{if(confirm('¿Empezar de cero?')){st={};save();render()}});
+const $=s=>document.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+let tt;const toast=t=>{$('#toast').textContent=t;clearTimeout(tt);tt=setTimeout(()=>$('#toast').textContent='',2600)};
+const base=()=>st.slug?'https://www.linkedin.com/in/'+st.slug:'https://www.linkedin.com/in/me';
+function hrefFor(p){if(/^https?:/.test(p))return p;if(p==='/')return base()+'/';if(!st.slug&&p!=='/edit/intro/')return 'https://www.linkedin.com/in/me/';return base()+p}
+function parseSlug(v){const m=String(v).match(/linkedin\.com\/in\/([^/?#\s]+)/i);if(!m)return null;let s=m[1];if(s==='me')return null;try{s=encodeURIComponent(decodeURIComponent(s))}catch{}return s}
+async function copyText(t){try{await navigator.clipboard.writeText(t);toast('Copiado ✓ Ahora pegalo en LinkedIn')}catch{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch{}ta.remove();toast(ok?'Copiado ✓':'No pude copiar, seleccionalo a mano')}}
+const steps=$$('section.step');
+function stepDone(id){const sec=$(`[data-step="${id}"]`);const rows=$$('.row',sec);return !!st.done[id]||(rows.length>0&&rows.every(r=>st.rows[r.dataset.k]))}
+function paint(){
+  $$('.row').forEach(r=>r.classList.toggle('ok',!!st.rows[r.dataset.k]));
+  $$('.chip').forEach(c=>c.classList.toggle('got',!!st.chips[c.closest('.row').dataset.k+'|'+c.textContent]));
+  $$('.open').forEach(a=>a.href=hrefFor(a.dataset.path));
+  $$('.seg').forEach(b=>{b.classList.toggle('done',stepDone(b.dataset.go));b.classList.toggle('cur',b.dataset.go===st.cur)});
+  const i=ORDER.indexOf(st.cur),real=ORDER.length-2;
+  $('#top').hidden=st.cur==='start';$('#stepnav').hidden=st.cur==='start'||st.cur==='end';
+  const nd=ORDER.slice(1,-1).filter(stepDone).length;
+  $('#where').innerHTML=st.cur==='start'||st.cur==='end'?`<b>${nd} de ${real}</b> listos`:`Paso <b>${i} de ${real}</b> · ${nd} listos`;
+  const cur=$(`[data-step="${st.cur}"]`);const rows=$$('.row',cur);const all=rows.length&&rows.every(r=>st.rows[r.dataset.k]);
+  const nx=$('#next');nx.classList.toggle('ready',!!all);nx.textContent=i===real?(all?'¡Terminé! →':'Terminar →'):(all?'¡Hecho! Siguiente →':'Siguiente →');
+  const prof=st.slug?'https://www.linkedin.com/in/'+decodeURIComponent(st.slug)+'/':'';
+  $('#wa').href='https://wa.me/?text='+encodeURIComponent('¡Listo Iván! Ya dejé mi LinkedIn igual al tuyo'+(prof?': '+prof:'.'));
+}
+function show(id,focus=true){st.cur=id;save();steps.forEach(s=>s.hidden=s.dataset.step!==id);paint();if(focus){window.scrollTo({top:0,behavior:'smooth'})}if(id==='end')confetti()}
+function tick(row,on=true){st.rows[row.dataset.k]=on;save();paint();
+  const cur=$(`[data-step="${st.cur}"]`);if(on&&$$('.row',cur).every(r=>st.rows[r.dataset.k]))toast('Paso listo ✓ Tocá «Siguiente»')}
+$$('.tick').forEach(b=>b.addEventListener('click',()=>{const r=b.closest('.row');tick(r,!st.rows[r.dataset.k])}));
+$$('[data-copy]').forEach(b=>b.addEventListener('click',()=>{copyText(b.parentElement.querySelector('code').textContent);b.classList.add('used');b.textContent='Copiado ✓';tick(b.closest('.row'))}));
+$$('a.act').forEach(a=>a.addEventListener('click',()=>{a.classList.add('used');tick(a.closest('.row'))}));
+$$('.chip').forEach(c=>c.addEventListener('click',()=>{const r=c.closest('.row');copyText(c.textContent);st.chips[r.dataset.k+'|'+c.textContent]=true;save();
+  const all=$$('.chip',r).every(x=>st.chips[r.dataset.k+'|'+x.textContent]);if(all)tick(r);else paint()}));
+$('#next').addEventListener('click',()=>{const cur=$(`[data-step="${st.cur}"]`);$$('.row',cur).forEach(r=>st.rows[r.dataset.k]=true);st.done[st.cur]=true;save();show(ORDER[ORDER.indexOf(st.cur)+1])});
+$('#back').addEventListener('click',()=>show(ORDER[Math.max(0,ORDER.indexOf(st.cur)-1)]));
+$$('[data-back]').forEach(b=>b.addEventListener('click',()=>show(ORDER[ORDER.length-2])));
+$$('.seg').forEach(b=>b.addEventListener('click',()=>show(b.dataset.go)));
+$('#reset').addEventListener('click',()=>{if(confirm('¿Empezar de cero? Se borran las tildes.')){const slug=st.slug;st={rows:{},chips:{},done:{},slug};save();show('start')}});
+const inp=$('#slug'),ok=$('#slug-ok');if(st.slug)inp.value='https://www.linkedin.com/in/'+decodeURIComponent(st.slug)+'/';
+function readSlug(){const s=parseSlug(inp.value);if(s){st.slug=s;save();ok.className='slug-ok good';ok.textContent='Perfecto, ya sé cuál es tu perfil ✓';paint();return true}
+  if(inp.value.trim()){ok.className='slug-ok err';ok.textContent='Ese link no parece de un perfil. Tiene que tener /in/ en el medio.'}return false}
+inp.addEventListener('input',readSlug);
+$('#go').addEventListener('click',()=>{readSlug();const nx=ORDER.slice(1,-1).find(id=>!stepDone(id))||ORDER[1];show(nx)});
 $('#connect').addEventListener('click',async()=>{const b=$('#connect'),s=$('#connect-status');b.disabled=true;s.className='status';s.textContent='Abriendo…';
   const w=window.open('about:blank','_blank');
   try{const r=await fetch(MINT,{cache:'no-store'});const d=await r.json();if(!r.ok||!d.url)throw 0;
-    if(w&&!w.closed){w.opener=null;w.location.href=d.url;s.textContent='Se abrió en otra pestaña.'}else location.href=d.url}
+    if(w&&!w.closed){w.opener=null;w.location.href=d.url;s.textContent='Se abrió en otra pestaña.'}else location.href=d.url;tick(b.closest('.row'))}
   catch{if(w)w.close();s.className='status err';s.textContent='No abrió, probá de nuevo en un minuto.'}finally{b.disabled=false}});
-render();const first=tasks.find(x=>!st[x.dataset.task]);if(first)first.open=true;
+function confetti(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const c=document.createElement('div');c.className='confetti';
+  const cols=['#E5502F','#2F7D4F','#F3EFE6','#C8361B','#E9C46A'];for(let i=0;i<70;i++){const p=document.createElement('i');p.style.left=Math.random()*100+'vw';p.style.background=cols[i%5];p.style.animationDelay=Math.random()*.8+'s';p.style.animationDuration=2+Math.random()*1.5+'s';c.appendChild(p)}
+  document.body.appendChild(c);setTimeout(()=>c.remove(),4200)}
+show(ORDER.includes(st.cur)?st.cur:'start',false);
 })();
 </script>
 </body></html>
