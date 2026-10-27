@@ -43,7 +43,7 @@ h1,h2,h3{font-family:Brico,Arial,sans-serif;font-weight:800;letter-spacing:-.035
 .copy{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#F3F0E9;border-radius:9px;padding:9px 9px 9px 14px;margin:8px 0}.copy code{font:500 14.5px/1.45 Geist,Arial,sans-serif;overflow-wrap:anywhere;white-space:pre-wrap}.copy.long code{max-height:7.5em;overflow:hidden}.copy button{flex:none;min-height:40px;padding:7px 13px;font-size:13.5px}.copy button:hover,.done-btn:hover{background:var(--ink);color:#fff}
 .copy label{font-size:12px;color:var(--soft);display:block;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 .dl{display:flex;gap:12px;align-items:center;margin:8px 0 10px}.dl img{width:150px;border-radius:7px;border:1px solid #E4E0D7}
-.fcard{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.fcard h4{margin:0 0 4px;font-size:15px}
+.fnote{color:var(--soft);font-size:14px;margin:8px 0 0}.fcard{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.fcard h4{margin:0 0 4px;font-size:15px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}.chips button{min-height:38px;padding:6px 12px;font-size:13.5px;border-radius:99px;font-weight:500}.chips button.got{background:#E8F2EB;border-color:#BFD8C7}
 .done-btn{margin-top:8px;min-height:42px;font-size:14px}
 .connect{margin:6px 0 4px}.status{font-size:14px;color:var(--soft);margin-left:4px}.status.err{color:#A3261A}
@@ -148,19 +148,30 @@ Or book the free fit call at inboundonsteroids.com</code><button type="button" d
 <button type="button" class="done-btn">Listo ✓</button></div></details>
 
 <details class="task" data-task="featured"><summary><span class="num"><b>7</b></span><span class="tt">Destacados<small>Los 3 que tengo yo: caso de Kyle, plugin y llamada</small></span></summary><div class="in">
-<p>Para cada uno: «Añadir sección» → «Recomendado» → «Destacados» → <strong>+</strong> → «Añadir un enlace». Pegá el link, cambiá el título por el de abajo y en «Miniatura» subí la imagen que bajaste. Hacelos en este orden.</p>
+<p>Primero bajá las 3 imágenes de abajo. Después, para cada tarjeta, en este orden:</p>
+<ol><li>En tu perfil: «Añadir sección» → «Recomendado» → «Añadir destacados». Si ya tenés la sección «Destacados», tocá el <strong>+</strong> de esa sección.</li>
+<li>Elegí «Añadir un enlace».</li>
+<li><strong>Enlace:</strong> pegá el link de la tarjeta y tocá «Añadir». LinkedIn carga una vista previa sola.</li>
+<li><strong>Título:</strong> borrá el que puso LinkedIn y pegá el de la tarjeta.</li>
+<li><strong>Descripción:</strong> dejala vacía, yo no tengo.</li>
+<li><strong>Miniatura:</strong> tocá el lápiz arriba de la imagen de la vista previa («Editar miniatura» o «Subir»), elegí la imagen que bajaste de esa tarjeta y que se vea entera.</li>
+<li>«Guardar».</li></ol>
 <div class="fcard"><h4>1 · Caso de Kyle</h4>
 <div class="dl"><img src="v6/destacado-1-kyle-prev.jpg" alt=""><a class="button" href="v6/destacado-1-kyle.png" download="destacado-1-kyle.png">Descargar imagen</a></div>
-<div class="copy"><span><label>Link</label><code id="f1u">https://inboundonsteroids.com/case/kyle-hunt/</code></span><button type="button" data-copy="f1u">Copiar</button></div>
-<div class="copy"><span><label>Título</label><code id="f1t">How we run Kyle’s LinkedIn</code></span><button type="button" data-copy="f1t">Copiar</button></div></div>
+<div class="copy"><span><label>Enlace</label><code id="f1u">https://inboundonsteroids.com/case/kyle-hunt/</code></span><button type="button" data-copy="f1u">Copiar</button></div>
+<div class="copy"><span><label>Título</label><code id="f1t">How we run Kyle’s LinkedIn</code></span><button type="button" data-copy="f1t">Copiar</button></div>
+<p class="fnote">Descripción: vacía. Miniatura: la imagen de arriba. Debajo del título aparece solo <strong>inboundonsteroids.com</strong>.</p></div>
 <div class="fcard"><h4>2 · Plugin gratis</h4>
 <div class="dl"><img src="v6/destacado-2-plugin-prev.jpg" alt=""><a class="button" href="v6/destacado-2-plugin.png" download="destacado-2-plugin.png">Descargar imagen</a></div>
-<div class="copy"><span><label>Link</label><code id="f2u">https://resources.ivanmanfredi.com/content-brain-guide/</code></span><button type="button" data-copy="f2u">Copiar</button></div>
-<div class="copy"><span><label>Título</label><code id="f2t">Free Inbound Content Patterns plugin and prompt pack</code></span><button type="button" data-copy="f2t">Copiar</button></div></div>
+<div class="copy"><span><label>Enlace</label><code id="f2u">https://resources.ivanmanfredi.com/content-brain-guide/</code></span><button type="button" data-copy="f2u">Copiar</button></div>
+<div class="copy"><span><label>Título</label><code id="f2t">Free Inbound Content Patterns plugin and prompt pack</code></span><button type="button" data-copy="f2t">Copiar</button></div>
+<p class="fnote">Descripción: vacía. Miniatura: la imagen de arriba. Debajo del título aparece solo <strong>resources.ivanmanfredi.com</strong>.</p></div>
 <div class="fcard"><h4>3 · Reservar llamada</h4>
 <div class="dl"><img src="v6/destacado-3-llamada-prev.jpg" alt=""><a class="button" href="v6/destacado-3-llamada.png" download="destacado-3-llamada.png">Descargar imagen</a></div>
-<div class="copy"><span><label>Link</label><code id="f3u">https://calendly.com/im-ivanmanfredi/30min</code></span><button type="button" data-copy="f3u">Copiar</button></div>
-<div class="copy"><span><label>Título</label><code id="f3t">Book a call with Iván</code></span><button type="button" data-copy="f3t">Copiar</button></div></div>
+<div class="copy"><span><label>Enlace</label><code id="f3u">https://calendly.com/im-ivanmanfredi/30min</code></span><button type="button" data-copy="f3u">Copiar</button></div>
+<div class="copy"><span><label>Título</label><code id="f3t">Book a call with Iván</code></span><button type="button" data-copy="f3t">Copiar</button></div>
+<p class="fnote">Descripción: vacía. Miniatura: la imagen de arriba. Debajo del título aparece solo <strong>Calendly</strong>.</p></div>
+<p style="margin-top:14px"><strong>Al final, revisá el orden:</strong> tiene que quedar Kyle → plugin → llamada, igual que en el mío. Si quedó distinto, tocá el lápiz de «Destacados» y arrastrá cada tarjeta desde las rayitas (≡) hasta que quede así.</p>
 <button type="button" class="done-btn">Listo ✓</button></div></details>
 
 <details class="task" data-task="skills"><summary><span class="num"><b>8</b></span><span class="tt">Aptitudes<small>Las 8 de marketing que tengo yo</small></span></summary><div class="in">
