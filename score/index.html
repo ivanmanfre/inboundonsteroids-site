@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0F0E0D">
+<title>What's your Revenue Line Score?</title>
+<link rel="preload" href="/assets/fonts/Brico.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/GeistV.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/score/score.css">
+<script>document.documentElement.className = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'rm' : 'js';</script>
+<meta name="description" content="Paste your LinkedIn. We read your profile, your posts from the last 90 days and who engages with them, then score how close it is to a revenue line.">
+<link rel="canonical" href="https://inboundonsteroids.com/score/">
+<meta property="og:title" content="What's your Revenue Line Score?">
+<meta property="og:description" content="Paste your LinkedIn. We read your profile, your posts and who engages with them, then score it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://inboundonsteroids.com/score/">
+<meta property="og:image" content="https://inboundonsteroids.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script src="/assets/site-tracking.js" defer></script>
+</head>
+<body class="score land">
+<div class="room" aria-hidden="true"><div class="pool p1"></div><div class="pool p2"></div><div class="vig"></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="InboundOnSteroids">inbound<b>on</b>steroids</a>
+    <nav>
+      <a class="btn" href="https://calendly.com/im-ivanmanfredi/30min"><span class="dsk-i">Book a call with Ivan</span><span class="mob-i">Book a call</span> <i>↗</i></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ FOLD: the question, one sentence, the link field ============ -->
+<section class="s-hero">
+  <div class="wrap">
+    <div class="grid">
+      <div class="lead">
+        <h1 class="disp rv" aria-label="What's your Revenue Line Score?">
+          <span class="ln" aria-hidden="true">What's your</span>
+          <span class="ln" aria-hidden="true"><span class="swipe">Revenue Line</span></span>
+          <span class="ln" aria-hidden="true">Score?</span>
+        </h1>
+        <p class="lede rv" style="--d:.12s">Paste your LinkedIn. We read your profile, your posts from the last 90 days and who engages with them, then score how close it is to a revenue line.</p>
+
+        <div class="steps">
+          <form id="step1" class="rv" style="--d:.22s" novalidate>
+            <label for="li" class="mono" style="position:absolute;left:-9999px">Your LinkedIn profile link</label>
+            <div class="urlbar">
+              <input id="li" name="linkedin_url" class="field" type="url" inputmode="url" autocomplete="url" spellcheck="false"
+                placeholder="linkedin.com/in/your-name" aria-describedby="li-err">
+              <button class="btn big" type="submit">Get my score <i>→</i></button>
+            </div>
+            <p class="err" id="li-err" role="alert" aria-live="polite"></p>
+            <p class="hint">Free. No LinkedIn login. Your result gets its own link you can share.</p>
+          </form>
+
+          <form id="step2" class="details sheet" hidden novalidate>
+            <div class="who"><span class="in">in</span><b id="li-show"></b><button type="button" id="change">Change</button></div>
+            <h2>Where should we send it?</h2>
+            <div class="two">
+              <label class="f">Email
+                <input class="field l" id="email" name="email" type="email" autocomplete="email" spellcheck="false" placeholder="you@company.com" aria-describedby="email-err">
+                <p class="err" id="email-err" role="alert"></p>
+              </label>
+              <label class="f">Website <span>(optional)</span>
+                <input class="field l" id="website" name="website" type="url" inputmode="url" autocomplete="url" spellcheck="false" placeholder="yourcompany.com">
+              </label>
+            </div>
+
+            <fieldset class="q" data-q="revenue">
+              <legend>Monthly revenue</legend>
+              <div class="opts">
+                <input type="radio" name="revenue" id="rv1" value="under_10k"><label for="rv1">Under $10k</label>
+                <input type="radio" name="revenue" id="rv2" value="10k_30k"><label for="rv2">$10k to $30k</label>
+                <input type="radio" name="revenue" id="rv3" value="30k_100k"><label for="rv3">$30k to $100k</label>
+                <input type="radio" name="revenue" id="rv4" value="over_100k"><label for="rv4">Over $100k</label>
+              </div>
+            </fieldset>
+            <fieldset class="q" data-q="team">
+              <legend>Team size</legend>
+              <div class="opts">
+                <input type="radio" name="team" id="tm1" value="solo"><label for="tm1">Just me</label>
+                <input type="radio" name="team" id="tm2" value="2_5"><label for="tm2">2 to 5</label>
+                <input type="radio" name="team" id="tm3" value="6_20"><label for="tm3">6 to 20</label>
+                <input type="radio" name="team" id="tm4" value="over_20"><label for="tm4">More than 20</label>
+              </div>
+            </fieldset>
+            <fieldset class="q" data-q="source">
+              <legend>How new clients find you today</legend>
+              <div class="opts">
+                <input type="radio" name="source" id="sc1" value="referrals"><label for="sc1">Referrals</label>
+                <input type="radio" name="source" id="sc2" value="outbound"><label for="sc2">Outbound</label>
+                <input type="radio" name="source" id="sc3" value="content"><label for="sc3">Content</label>
+                <input type="radio" name="source" id="sc4" value="ads"><label for="sc4">Ads</label>
+                <input type="radio" name="source" id="sc5" value="mixed"><label for="sc5">A mix</label>
+              </div>
+            </fieldset>
+            <fieldset class="q" data-q="goal">
+              <legend>Your main goal for the next 12 months</legend>
+              <div class="opts">
+                <input type="radio" name="goal" id="gl1" value="more_calls"><label for="gl1">More sales calls</label>
+                <input type="radio" name="goal" id="gl2" value="steadier_pipeline"><label for="gl2">A steadier pipeline</label>
+                <input type="radio" name="goal" id="gl3" value="less_founder_time"><label for="gl3">Less of my time on sales</label>
+                <input type="radio" name="goal" id="gl4" value="grow_team"><label for="gl4">Grow the team</label>
+              </div>
+            </fieldset>
+            <p class="err" id="q-err" role="alert"></p>
+
+            <label class="consent"><input type="checkbox" id="consent" name="consent_nurture"> <span>Also send me practical LinkedIn notes now and then. Optional, and you can leave any time.</span></label>
+            <div class="go">
+              <button class="btn" type="submit" id="go">Score my LinkedIn <i>→</i></button>
+              <p>We only use your email to send you your result.</p>
+            </div>
+            <p class="err" id="send-err" role="alert"></p>
+          </form>
+        </div>
+      </div>
+
+      <aside class="preview sheet rv sheetin" style="--d:.3s" id="preview" aria-label="What your result looks like"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE READ ============ -->
+<section class="band" id="reads">
+  <div class="wrap">
+    <h2 class="disp rv">We read what a buyer sees.</h2>
+    <div class="reads">
+      <div class="rv"><div class="n">90<small>days</small></div><p><b>Your posts.</b> Everything you posted in the last 90 days, up to 100 posts, with originals and reposts counted apart.</p></div>
+      <div class="rv" style="--d:.06s"><div class="n">5<small>posts</small></div><p><b>Who engages.</b> The people who reacted to or commented on your last 5 posts, up to 100 of each per post, checked one by one against who buys from you.</p></div>
+      <div class="rv" style="--d:.12s"><div class="n">5<small>rivals</small></div><p><b>Your competitors.</b> Up to 5 of them, and the buyers who engaged with their posts in the last 14 days.</p></div>
+      <div class="rv" style="--d:.18s"><div class="n">3<small>peers</small></div><p><b>Your niche.</b> 3 people who do work like yours, measured the same way, so you can see where you stand.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREE PILLARS ============ -->
+<section class="band" id="pillars">
+  <div class="wrap">
+    <h2 class="disp rv">Three things decide it.</h2>
+    <div class="pillars3">
+      <article class="sheet rv sheetin">
+        <h3>Profile</h3>
+        <p>When a buyer clicks your name, do they see who you help, proof and a way to book?</p>
+        <ul><li>Headline, About and banner</li><li>Featured and proof</li><li>A booking link on your profile or site</li></ul>
+      </article>
+      <article class="sheet rv sheetin" style="--d:.08s">
+        <h3>Posts</h3>
+        <p>Do your posts reach the people who buy from you?</p>
+        <ul><li>How often you post, and how much is your own</li><li>Topics your buyers care about</li><li>How many of your engagers look like buyers</li></ul>
+      </article>
+      <article class="sheet rv sheetin" style="--d:.16s">
+        <h3>Pipeline</h3>
+        <p>Does the attention turn into conversations?</p>
+        <ul><li>A free resource buyers can ask for</li><li>Posts that ask the reader to act</li><li>Buyers you could reach this week</li></ul>
+      </article>
+    </div>
+
+    <div class="proof">
+      <a class="kyle sheet rv sheetin" href="/case/kyle-hunt/">
+        <img src="/assets/img/av-kyle.webp" alt="Kyle Hunt" width="72" height="72" loading="lazy">
+        <div><b>$30k to $80k a month</b><span>Kyle Hunt, across the 90 days we ran his LinkedIn</span></div>
+      </a>
+      <div class="rv" style="--d:.1s">
+        <p class="flow">Profile, posts and pipeline are the three things we run for clients. This is what that looked like for Kyle.</p>
+        <a class="link" href="/case/kyle-hunt/">Read Kyle's case ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IVAN'S NOTE ============ -->
+<section class="band" id="why">
+  <div class="wrap note-ivan">
+    <figure class="sheet rv sheetin"><img src="/ivan-portrait-400.webp" alt="Ivan Manfredi" width="400" height="536" loading="lazy"><figcaption>Ivan Manfredi</figcaption></figure>
+    <div>
+      <h2 class="disp rv">Why I built it.</h2>
+      <p class="body rv" style="--d:.08s">The last LinkedIn scorecard I filled in asked me 17 questions about myself and sent back the same PDF everyone gets. I wanted one that actually looks at you.</p>
+      <p class="body rv" style="--d:.14s">Every number on your result comes from your real profile and posts, and every fix points at the thing it's about. If your score is low, that's the useful part: it shows where buyers drop off.</p>
+    </div>
+  </div>
+</section>
+
+<section class="again">
+  <div class="wrap">
+    <h2 class="disp rv">See your score.</h2>
+    <div class="ctas rv" style="--d:.1s">
+      <a class="btn big" href="#top" id="to-top">Paste your LinkedIn <i>↑</i></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="mark" href="/">inbound<b>on</b>steroids</a>
+    <p>Content + outreach, run for you.</p>
+    <a href="https://ivanmanfredi.com/">Ivan Manfredi ↗</a>
+  </div>
+</footer>
+
+<!-- A real finished run to show next to the form (filled in after calibration). null shows an empty result card. -->
+<script type="application/json" id="example-run">null</script>
+<script src="/score/score.js" defer></script>
+</body>
+</html>
