@@ -254,3 +254,8 @@ main{position:relative;z-index:2;overflow-x:clip}
  .res-cover{transform:none!important}
 }
 .out .res-cover{outline:1px solid #ffffff33}
+.arch-ref{display:block;margin:30px 0 18px;text-decoration:none;border:1px solid #ffffff33;background:#0b0b0b;transition:border-color .2s}
+.arch-ref:hover{border-color:var(--lime)}
+.arch-ref img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top}
+.arch-ref span{display:block;padding:14px 16px;font-size:15px;line-height:1.45}
+.arch-ref b{display:block;font:12px AKGMono,monospace;text-transform:uppercase;color:var(--lime);margin-bottom:4px;font-weight:400}
