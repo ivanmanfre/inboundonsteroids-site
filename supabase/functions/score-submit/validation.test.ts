@@ -27,8 +27,15 @@ Deno.test('normalizeLinkedinUrl: accented slug pasted in every form gives one sl
   const slug = 'iván-manfredi-120841202';
   const url = 'https://www.linkedin.com/in/iv%C3%A1n-manfredi-120841202/';
   for (const raw of ['https://www.linkedin.com/in/iv%C3%A1n-manfredi-120841202/', 'linkedin.com/in/iván-manfredi-120841202',
-    'https://www.linkedin.com/in/IV%C3%81N-manfredi-120841202?x=1', 'https://www.linkedin.com/in/iván-manfredi-120841202/'])
+    'https://www.linkedin.com/in/IV%C3%81N-manfredi-120841202?x=1', 'https://www.linkedin.com/in/iva\u0301n-manfredi-120841202/']) // last one is decomposed (a + combining acute)
     eq(normalizeLinkedinUrl(raw), [slug, url], raw);
+});
+
+Deno.test('normalizeLinkedinUrl: a ;params suffix on the last path segment is dropped like urlparse', () => {
+  eq(normalizeLinkedinUrl('https://www.linkedin.com/in/x;a=b'), ['x', 'https://www.linkedin.com/in/x/']);
+  eq(normalizeLinkedinUrl('linkedin.com/in/x;a=b?y=1'), ['x', 'https://www.linkedin.com/in/x/']);
+  eq(normalizeLinkedinUrl('https://www.linkedin.com/in/x;a=b/recent'), ['x;a=b', 'https://www.linkedin.com/in/x%3Ba%3Db/']); // not the last segment: kept, as in Python
+  eq(normalizeLinkedinUrl('https://www.linkedin.com/in/;a=b'), null);
 });
 
 Deno.test('normalizeLinkedinUrl: python quote parity for reserved marks, malformed escapes do not throw', () => {
@@ -88,8 +95,13 @@ Deno.test('extra answer keys are dropped, not stored', () => {
   eq(Object.keys(r.value.answers).sort(), ['goal', 'revenue', 'source', 'team']);
 });
 
-Deno.test('website: optional http(s) url, 200 chars max', () => {
-  for (const w of ['javascript:alert(1)', 'acme.com', 'ftp://x.com', 'https://' + 'a'.repeat(200) + '.com', 5, 'https://']) eq(err({ ...good(), website: w }), 'website', String(w));
+Deno.test('website: optional http(s) url, 200 chars max, otherwise dropped', () => {
+  // An unusable optional website is dropped, never a reason to refuse the submission.
+  for (const w of ['javascript:alert(1)', 'acme.com', 'ftp://x.com', 'https://' + 'a'.repeat(200) + '.com', 5, 'https://', {}, []]) {
+    const r = validateSubmission({ ...good(), website: w });
+    if ('error' in r) throw Error('website rejected the submit: ' + String(w));
+    eq(r.value.website, null, String(w));
+  }
   for (const w of [undefined, null, '', '  ']) eq(err({ ...good(), website: w }), null, String(w));
   eq(err({ ...good(), website: 'http://acme.com' }), null);
 });

@@ -37,7 +37,11 @@ export function normalizeLinkedinUrl(raw: unknown): [string, string] | null {
   const hostPort = m[2].slice(m[2].lastIndexOf('@') + 1);
   const host = hostPort.replace(/:\d*$/, '').toLowerCase();
   if (!HOST_RX.test(host)) return null;
-  const parts = m[3].split('/').filter(p => p);
+  // urlparse splits `;params` off the last path segment only
+  let path = m[3];
+  const semi = path.indexOf(';', path.lastIndexOf('/') + 1);
+  if (semi >= 0) path = path.slice(0, semi);
+  const parts = path.split('/').filter(p => p);
   if (parts.length < 2 || parts[0].toLowerCase() !== 'in') return null;
   const slug = unquote(parts[1]).normalize('NFC').trim().toLowerCase();
   if (!slug || !SLUG_RX.test(slug)) return null;
@@ -55,7 +59,7 @@ export type Submission = {
   slug: string; url: string; email: string; website: string | null;
   answers: Record<keyof typeof ENUMS, string>; consent: boolean; session: string | null;
 };
-export type Validated = { value: Submission } | { error: 'linkedin_url' | 'email' | 'answers' | 'website' };
+export type Validated = { value: Submission } | { error: 'linkedin_url' | 'email' | 'answers' };
 
 export function validateSubmission(input: unknown): Validated {
   const v = (input && typeof input === 'object' && !Array.isArray(input) ? input : {}) as Record<string, unknown>;
@@ -70,15 +74,12 @@ export function validateSubmission(input: unknown): Validated {
     if (typeof x !== 'string' || !(ENUMS[k] as readonly string[]).includes(x)) return { error: 'answers' };
     answers[k] = x;
   }
+  // The website is optional context: anything unusable is dropped, never a reason to refuse the submission.
   let website: string | null = null;
-  if (v.website !== undefined && v.website !== null) {
-    if (typeof v.website !== 'string') return { error: 'website' };
+  if (typeof v.website === 'string') {
     const w = v.website.trim();
-    if (w) {
-      let ok = w.length <= 200;
-      if (ok) { try { const u = new URL(w); ok = (u.protocol === 'http:' || u.protocol === 'https:') && !!u.hostname; } catch (_) { ok = false; } }
-      if (!ok) return { error: 'website' };
-      website = w;
+    if (w && w.length <= 200) {
+      try { const u = new URL(w); if ((u.protocol === 'http:' || u.protocol === 'https:') && u.hostname) website = w; } catch (_) { /* dropped */ }
     }
   }
   const session = typeof v.session_id === 'string' && UUID_RX.test(v.session_id) ? v.session_id : null;
