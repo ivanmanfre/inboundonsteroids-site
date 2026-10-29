@@ -149,7 +149,7 @@ test('landing: a real example run fills the card when one is published', async (
   await page.route(/\/score\/$/, async (route) => {
     const html = await readFile(join(ROOT, 'score/index.html'), 'utf8');
     const example = { name: 'Maya Okafor', headline: 'Founder at Fernhill Studio', photo: 'https://media.licdn.com/x.jpg', overall: 47, tier: 'side', pillars: { profile: 58, posts: 52, pipeline: 31 } };
-    route.fulfill({ status: 200, contentType: 'text/html', body: html.replace('<script type="application/json" id="example-run">null</script>', `<script type="application/json" id="example-run">${JSON.stringify(example)}</script>`) });
+    route.fulfill({ status: 200, contentType: 'text/html', body: html.replace(/<script type="application\/json" id="example-run">[\s\S]*?<\/script>/, `<script type="application/json" id="example-run">${JSON.stringify(example)}</script>`) });
   });
   await page.goto(base + '/score/');
   await page.waitForFunction(() => document.querySelector('#preview .rn span')?.textContent === '47');
