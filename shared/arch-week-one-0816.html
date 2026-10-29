@@ -1,0 +1,335 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARCH. week one, seven posts</title>
+<style>
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;
+src:url('assets/fonts/dm-sans-latin.woff2') format('woff2');}
+:root{--navy:#000F41;--lime:#F2FF82;--cobalt:#3562FF;--ink:#000F41}
+*{box-sizing:border-box}
+body{margin:0;font-family:"DM Sans",-apple-system,system-ui,sans-serif;background:var(--navy);color:#fff;-webkit-text-size-adjust:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:20px 16px 120px}
+svg.wm{width:96px;height:25px;display:block;margin:0 0 14px}
+h1{font-size:22px;line-height:1.15;margin:0 0 6px;text-transform:uppercase;letter-spacing:.01em}
+.sub{color:#c8cfe8;font-size:14px;line-height:1.5;margin:0 0 18px;max-width:70ch}
+h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);margin:30px 2px 10px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px;align-items:start}
+.p{background:#fff;color:var(--ink);border-radius:14px;padding:12px 13px 11px}
+.p.on{outline:3px solid var(--lime)}
+.ph{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.sl{background:var(--ink);color:var(--lime);border-radius:999px;padding:2px 9px;font-size:11px;font-weight:700}
+.tg{border-radius:999px;padding:2px 8px;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.tg.primary{background:var(--cobalt);color:#fff}
+.tg.bench{background:#eceffb;color:#40497a}
+.wc{margin-left:auto;font-size:11px;color:#8b93bd}
+.p h3{margin:0 0 7px;font-size:15px;line-height:1.25}
+.pb{white-space:pre-wrap;font-size:13.5px;line-height:1.5;border-left:3px solid #e7eaf6;padding-left:10px;overflow-wrap:anywhere;max-height:290px;overflow:auto}
+.ch{display:flex;gap:6px;margin-top:10px}
+.cb{flex:1;border:2px solid #d5daf0;background:#fff;color:#40497a;border-radius:9px;padding:8px 4px;font:inherit;font-size:12.5px;font-weight:700;cursor:pointer}
+.cb.ok.on{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.cb.ed.on{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.cb.kl.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nt{width:100%;margin-top:7px;min-height:34px;border-radius:9px;border:1px solid #d5daf0;background:#f5f7fd;color:var(--ink);font:inherit;font-size:13px;padding:7px 9px}
+.ask{background:var(--lime);color:var(--ink);border-radius:10px;padding:9px 10px;margin-top:8px}
+.ask label{display:block;font-size:12px;font-weight:700;margin-bottom:5px}
+.ask textarea{width:100%;min-height:48px;border-radius:8px;border:1px solid rgba(0,15,65,.2);background:rgba(0,15,65,.06);font:inherit;font-size:13px;padding:7px 9px;color:var(--ink)}
+
+.qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px;align-items:start}
+.q{background:#0a1a5c;border:1px solid #24357e;border-radius:14px;padding:13px}
+.q.wide{grid-column:1/-1}
+.qt{font-size:15px;font-weight:700;margin:0 0 5px}
+.qn{font-size:13.5px;color:#c2c9e6;line-height:1.5;margin:0 0 9px}
+.opts{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+.opt{border:2px solid #24357e;background:var(--navy);color:#dfe4f7;border-radius:9px;padding:9px 11px;font:inherit;font-size:13.5px;text-align:left;cursor:pointer}
+.opt.on{background:var(--lime);color:var(--ink);border-color:var(--lime);font-weight:700}
+.q textarea{width:100%;min-height:58px;border-radius:10px;border:1px solid #24357e;background:var(--navy);color:#fff;font:inherit;font-size:14px;padding:9px 11px}
+
+.slides{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:4px 0 11px}
+.sld{position:relative;display:block;border-radius:7px;overflow:hidden;border:1px solid #24357e;background:#000}
+.sld img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+.sld span{position:absolute;left:4px;top:3px;background:rgba(0,15,65,.85);color:var(--lime);font-size:10px;font-weight:700;padding:1px 5px;border-radius:4px}
+.mark{background:var(--lime);color:var(--ink);padding:0 4px;border-radius:3px;font-weight:700}
+@media(max-width:640px){.slides{grid-template-columns:repeat(4,1fr)}}
+
+.bar{position:fixed;bottom:0;left:0;right:0;background:var(--lime);color:var(--ink);padding:10px 14px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:5}
+.bar strong{font-size:14px}
+.blbtn{border:2px solid var(--ink);background:var(--ink);color:var(--lime);border-radius:999px;padding:10px 19px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
+.out textarea{width:100%;min-height:150px;font-size:13px;white-space:pre;display:none;border-radius:12px;border:1px solid #24357e;background:#0a1a5c;color:#fff;font-family:inherit;padding:11px}
+</style></head><body><div class="wrap">
+
+<svg class="wm" xmlns="http://www.w3.org/2000/svg" viewBox="701.000 473.691 518.398 134.375">
+<!-- ARCH. wordmark master - extracted verbatim from ARCH-Visual-identity-guidelines.pdf page 1 (vector, no redraw). Color via #F2FF82. -->
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 781.710938 604.332031 L 805.027344 604.332031 L 752.898438 474 L 701 604.332031 L 724.472656 604.332031 L 730.035156 589.742188 L 775.820312 589.757812 Z M 737.140625 571.394531 C 742.398438 556.796875 747.648438 542.195312 752.910156 527.59375 C 758.183594 542.207031 763.457031 556.820312 768.730469 571.433594 C 758.203125 571.425781 747.671875 571.410156 737.140625 571.394531 Z M 737.140625 571.394531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 891.851562 604.332031 L 917.578125 604.332031 L 882.1875 549.363281 C 882.1875 549.363281 906.378906 544.375 910.023438 522.378906 C 910.023438 522.378906 919.394531 480.035156 867.453125 477.519531 L 823.765625 477.519531 L 823.765625 498.875 L 844.414062 530.304688 L 844.414062 530.441406 L 823.765625 530.441406 L 823.765625 604.332031 L 845.609375 604.332031 L 845.609375 551.59375 L 858.105469 551.59375 L 858.117188 551.617188 L 858.140625 551.617188 Z M 849.785156 498.875 L 868.402344 498.875 C 891.070312 500.597656 888.847656 514.660156 888.847656 514.660156 C 889.085938 529.675781 869.882812 530.167969 869.882812 530.167969 Z M 849.785156 498.875 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 845.609375 551.59375 L 845.609375 604.332031 L 845.683594 604.332031 L 845.683594 551.617188 L 858.117188 551.617188 L 858.105469 551.59375 Z M 845.609375 551.59375 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1032.863281 509.28125 L 1048.28125 494.386719 C 1048.28125 494.386719 1031.785156 475.757812 1002.527344 475.695312 C 1002.527344 475.695312 967.269531 473.691406 947.484375 503.203125 C 947.484375 503.203125 922.816406 540.652344 947.484375 578.421875 C 947.484375 578.421875 964.621094 606.121094 1001.46875 606.121094 C 1001.46875 606.121094 1027.335938 608.066406 1048.28125 587.707031 L 1032.734375 572.589844 C 1032.734375 572.589844 1021.753906 584.90625 1002.953125 584.960938 C 1002.953125 584.960938 960.96875 586.1875 958.925781 542.15625 C 958.925781 542.15625 956.222656 495.847656 1005.234375 497.132812 C 1005.230469 497.132812 1020.605469 497.25 1032.863281 509.28125 Z M 1032.863281 509.28125 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1150.6875 477.519531 L 1150.6875 530.160156 L 1096.546875 530.160156 L 1096.546875 477.519531 L 1074.679688 477.519531 L 1074.679688 604.332031 L 1096.546875 604.332031 L 1096.546875 551.332031 L 1150.6875 551.332031 L 1150.6875 604.332031 L 1172.46875 604.332031 L 1172.46875 477.519531 Z M 1150.6875 477.519531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1207.65625 605.519531 C 1214.144531 605.519531 1219.398438 600.40625 1219.398438 594.101562 C 1219.398438 587.796875 1214.144531 582.6875 1207.65625 582.6875 C 1201.171875 582.6875 1195.914062 587.796875 1195.914062 594.101562 C 1195.914062 600.40625 1201.171875 605.519531 1207.65625 605.519531 Z M 1207.65625 605.519531 "/>
+</svg>
+<h1>Week one, seven posts</h1>
+<p class="sub">Rebuilt after your note that the drafts read generic. Every fact was re-checked against primary sources and four errors were found and fixed. Nothing is scheduled until you say yes. Lengths vary on purpose, from 82 to 341 words.</p>
+
+<h2>The seven</h2>
+<div class="grid">
+<article class="p" id="c01">
+<div class="ph"><span class="sl">01</span><span class="tg primary">primary</span><span class="wc">354w</span></div>
+<h3>Two CPIs, one name, two different denominators</h3>
+<div class="pb">Two CPIs on the same slide, and the same word on both of them.
+
+One is a paid network&#x27;s number. It counts the installs it can attribute to its own click, inside its own window. It also counts people who never clicked. TikTok&#x27;s default gives a click seven days and a view one day. Google App campaigns count an engaged view, where somebody watched enough of the video and converted later. Meta took the view out of its default for new ad sets after ATT, so there it&#x27;s click only until you change it.
+
+The other one is your creator line. A video sits in a feed with a link under it, so a click is the only thing there is to attribute. A player watches it, remembers the name, opens the store two days later and installs. Nobody clicked. That install lands in your organic row with no cost against it.
+
+Same word on both numbers, different populations underneath.
+
+Then there&#x27;s the player who had the game before, deleted it, saw the video and came back. In AppsFlyer that&#x27;s a reinstall inside your re-attribution window, and it isn&#x27;t counted as a new install. Re-attribution needs a retargeting media source, and a creator UA link isn&#x27;t one. Adjust is the same, one install per device unless its redownload rules fire. So the person the video brought back sits outside the number you divide creator spend by.
+
+Measuring a creator campaign on CPI is fine by me, and we&#x27;re graded on it too, out of an MMP the client owns and on windows their settings decide. What I&#x27;d argue with is putting the two numbers beside each other as if they came off the same instrument.
+
+So what does yours actually say? Open your MMP, take the last period a creator line was live, and look at three things:
+
+- What your re-attribution window is set to
+- Whether view-through is on for the paid source you&#x27;re comparing against
+- How many installs in that period were logged as reinstalls
+
+Two of those are settings somebody picked once. The third one is just a count.</div>
+<div class="ch">
+<button class="cb ok" data-group="01" data-value="Approve">Approve</button>
+<button class="cb ed" data-group="01" data-value="Approve with edits">With edits</button>
+<button class="cb kl" data-group="01" data-value="Kill">Kill</button>
+</div>
+<textarea class="nt" id="n01" placeholder="Edit note, optional"></textarea>
+
+</article><article class="p" id="c02">
+<div class="ph"><span class="sl">02</span><span class="tg primary">primary</span><span class="wc">209w</span></div>
+<h3>Ten cuts off one shoot, still one person</h3>
+<div class="pb">An editor can get ten cuts out of one shoot by Friday.
+
+Hook swaps, a new endcard, a six second version, a static pulled off one frame. Real work, and cheap. We ask for it constantly.
+
+On the creator&#x27;s own feed those cuts land in front of the people who follow that creator. Run the same asset as a Spark Ad and the targeting is yours, so the audience behind the face becomes whatever you bought.
+
+[DAVORIN: one time a brand wanted to put spend behind a creator video the usage rights didn&#x27;t cover. What did they want to do with it, and how did it end? One line is enough.]
+
+What no edit adds is another person. Another account, another set of people who trust it enough to install something. For that you book somebody, and the booking carries a date on their calendar.
+
+We ran Match Masters across 1,500 influencers. That count caps how many genuinely different variants the campaign could carry. The edit list doesn&#x27;t touch it.
+
+So check the last creator contract you signed. Where may that video run, in which ad account, in which market, for how long? If the paperwork doesn&#x27;t say, some of those cuts are not yours to put spend behind.</div>
+<div class="ch">
+<button class="cb ok" data-group="02" data-value="Approve">Approve</button>
+<button class="cb ed" data-group="02" data-value="Approve with edits">With edits</button>
+<button class="cb kl" data-group="02" data-value="Kill">Kill</button>
+</div>
+<textarea class="nt" id="n02" placeholder="Edit note, optional"></textarea>
+<div class="ask"><label>Answer the bracket in this post</label><textarea id="q02" placeholder="one time a brand wanted to put spend behind a creator video the usage rights didn&#x27;t cover. What did they want "></textarea></div>
+</article><article class="p" id="c03">
+<div class="ph"><span class="sl">03</span><span class="tg primary">primary</span><span class="wc">322w</span></div>
+<h3>Roblox guided its own bookings down, and said why</h3>
+<div class="pb">On 30 July Roblox told its shareholders that Q2 bookings grew 8 percent. Low end of its own guidance.
+
+Then it guided Q3 bookings down 14 to 18 percent. It also stopped giving a full year number, a quarter earlier than planned.
+
+Its first reason is a mix shift. Players moved off the high monetising viral games of 2025, onto newer and evergreen ones that earn less per hour.
+
+The second reason is the one worth reading twice. That mix shift, the letter says, was compounded by changes to the Recommended For You algorithm. The company started deploying them in April, to optimise for long term retention. The system now judges a player over 28 days instead of 7. It reads play through rate and first play bounce rate in that window, together with spend days and Robux spent per user.
+
+The letter is direct about the trade. Highly retentive games get shown to more players, and near term monetisation pays for it. On younger players in Q2 that ran bigger than the company expected. For Q3 it points at foundational changes across safety and discovery, so the age check rollout sits in that number too.
+
+[DAVORIN: did we have anything running on a Roblox experience in Q2, and did a client bring RFY up? One line, even if the answer is no.]
+
+Sponsored tiles are on sale through their ads manager, and Roblox has publicly tested putting sponsored experiences inside the Recommended For You sort itself. The ranking around them is the part no budget buys, and it&#x27;s a 28 day read on how long somebody stays and what they spend.
+
+I read that letter from the booking side. We put a game in front of players, and what happens to them after that is a ranking we can&#x27;t book.
+
+How much of your plan there assumes a sort order you don&#x27;t set?
+
+Read the letter before you plan a quarter.</div>
+<div class="ch">
+<button class="cb ok" data-group="03" data-value="Approve">Approve</button>
+<button class="cb ed" data-group="03" data-value="Approve with edits">With edits</button>
+<button class="cb kl" data-group="03" data-value="Kill">Kill</button>
+</div>
+<textarea class="nt" id="n03" placeholder="Edit note, optional"></textarea>
+<div class="ask"><label>Answer the bracket in this post</label><textarea id="q03" placeholder="did we have anything running on a Roblox experience in Q2, and did a client bring RFY up? One line, even if th"></textarea></div>
+</article><article class="p" id="c04">
+<div class="ph"><span class="sl">04</span><span class="tg primary">primary</span><span class="wc">192w</span></div>
+<h3>Your schedule is other people&#x27;s calendars</h3>
+<div class="pb">Your schedule is other people&#x27;s calendars.
+
+Somebody moves a launch date in a spreadsheet, and every creator who&#x27;s booked still has the old one.
+
+A booked campaign is a list of agreements with named people, and each agreement carries a date that person agreed to. Changing it means asking each of them. One person at a time. I don&#x27;t know a faster version of that.
+
+Take the size of our Wargaming campaign, 550 influencers across 30 countries. Move one date over that list, in as many time zones as it covers, and count the messages.
+
+[DAVORIN: name one campaign where the date actually moved, and how many creators were booked on it. One example is enough.]
+
+The part I&#x27;m tired of is the version of this conversation where a slip is an admin problem. Admin for who? It&#x27;s a week of somebody&#x27;s working life, and it&#x27;s the same week that person owes the next campaign.
+
+So how many live agreements would a two week slip touch on your side? If you know a quicker way to do it, tell me 🤞
+
+Also, the spreadsheet is the only place that date has moved.</div>
+<div class="ch">
+<button class="cb ok" data-group="04" data-value="Approve">Approve</button>
+<button class="cb ed" data-group="04" data-value="Approve with edits">With edits</button>
+<button class="cb kl" data-group="04" data-value="Kill">Kill</button>
+</div>
+<textarea class="nt" id="n04" placeholder="Edit note, optional"></textarea>
+<div class="ask"><label>Answer the bracket in this post</label><textarea id="q04" placeholder="name one campaign where the date actually moved, and how many creators were booked on it. One example is enoug"></textarea></div>
+</article><article class="p" id="c05">
+<div class="ph"><span class="sl">05</span><span class="tg primary">primary</span><span class="wc">84w</span></div>
+<h3>Take the uplift off the target</h3>
+<div class="pb">Paid creators make organic installs as well. Everybody agrees with that one!
+
+Then the ROAS target stays exactly where it was.
+
+Our playbook has a division for it. Pick a market with low organic volume, run the push there, and count the installs you did not buy. A thousand paid and a hundred and fifty on top puts your K at 1.15, and a 12 percent D7 target is really 10.4.
+
+Whose number is the target you&#x27;re working to, and did anybody divide it?</div>
+<div class="ch">
+<button class="cb ok" data-group="05" data-value="Approve">Approve</button>
+<button class="cb ed" data-group="05" data-value="Approve with edits">With edits</button>
+<button class="cb kl" data-group="05" data-value="Kill">Kill</button>
+</div>
+<textarea class="nt" id="n05" placeholder="Edit note, optional"></textarea>
+
+</article><article class="p" id="c06">
+<div class="ph"><span class="sl">06</span><span class="tg bench">bench</span><span class="wc">215w</span></div>
+<h3>Gross or net, and net of which rate</h3>
+<div class="pb">A purchase that leaves a US app through an external link costs the developer nothing at the store today. It&#x27;s been zero since the contempt ruling in the Epic case in April 2025.
+
+On 13 August Apple filed a proposal to put a number back on it. 15 percent on those external link purchases, 10 percent for the partner programmes and for subscription renewals, 5 percent for apps in the Small Business Program. Epic points at Apple&#x27;s own filing, which concedes that a costs-only rate would be zero. The court has decided nothing.
+
+I read the filing because a ROI target only means something once you know which side of the store cut it sits on.
+
+Nobody pays a flat 30 anyway. There&#x27;s the standard rate, 15 for a developer under a million dollars in proceeds in the Small Business Program, 15 on a subscription after the first year, and the EU sits on its own terms again. Apple&#x27;s own subscription page then puts &quot;minus applicable taxes&quot; after all of it.
+
+So when a target arrives, the boring question goes first. Gross or net, and net of which rate?
+
+We ask that one before a campaign starts, in the same list as the ROI targets. The answer moves your break-even without anybody touching a creative.</div>
+<div class="ch">
+<button class="cb ok" data-group="06" data-value="Approve">Approve</button>
+<button class="cb ed" data-group="06" data-value="Approve with edits">With edits</button>
+<button class="cb kl" data-group="06" data-value="Kill">Kill</button>
+</div>
+<textarea class="nt" id="n06" placeholder="Edit note, optional"></textarea>
+
+</article><article class="p" id="c07">
+<div class="ph"><span class="sl">07</span><span class="tg bench">bench</span><span class="wc">212w</span></div>
+<h3>A campaign underperformed. Which half?</h3>
+<div class="pb">A campaign underperformed. Which half of it?
+
+There are two conversion steps hiding under that word and they break for different reasons. Store page to install, then install to payer.
+
+If people arrive at the store page and don&#x27;t install, the listing, the audience the video sat in front of and what the creative promised are where I&#x27;d look. That half is ours to move.
+
+Install to payer is where I&#x27;d like to tell you the rest is yours. Onboarding, the price, the offer, what the first session asks of somebody.
+
+It doesn&#x27;t hold. Creative sets what a player expects before they ever open the game, and an over-promising video buys you a clean CPI and a cohort that never pays. That shows up in the second rate, on your side of the line I just drew, and the cause was ours.
+
+So here&#x27;s the uncomfortable part, and I&#x27;ll say it because an agency drawing this line is also drawing itself a shield. Weak creative can look exactly like a product problem from a dashboard, and the split I just gave you can&#x27;t tell you which one you&#x27;re holding. Retention between those two steps gets closer to it than either rate does.
+
+I don&#x27;t have a clean way to settle that one.</div>
+<div class="ch">
+<button class="cb ok" data-group="07" data-value="Approve">Approve</button>
+<button class="cb ed" data-group="07" data-value="Approve with edits">With edits</button>
+<button class="cb kl" data-group="07" data-value="Kill">Kill</button>
+</div>
+<textarea class="nt" id="n07" placeholder="Edit note, optional"></textarea>
+
+</article>
+</div>
+
+<h2>Four things only you can settle</h2>
+<div class="qs">
+
+<div class="q wide"><p class="qt">1. The Wargaming carousel, scheduled Tuesday 25 August</p>
+<p class="qn">Two slides describe how the special campaigns worked. We cannot find those mechanics in any ARCH document, and the draft carries a note asking you to confirm them with no answer on record. Slides 3 and 4 are the ones in question, marked below. The numbers on slide 6 are fine: 550, 1,500 and 30 match your report and your site exactly.</p>
+<div class="slides"><a class="sld" href="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-01.png" target="_blank" rel="noopener"><img loading="lazy" src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-01.png" alt="Slide 1"><span>1</span></a><a class="sld" href="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-02.png" target="_blank" rel="noopener"><img loading="lazy" src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-02.png" alt="Slide 2"><span>2</span></a><a class="sld" href="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-03.png" target="_blank" rel="noopener"><img loading="lazy" src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-03.png" alt="Slide 3"><span>3</span></a><a class="sld" href="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-04.png" target="_blank" rel="noopener"><img loading="lazy" src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-04.png" alt="Slide 4"><span>4</span></a><a class="sld" href="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-05.png" target="_blank" rel="noopener"><img loading="lazy" src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-05.png" alt="Slide 5"><span>5</span></a><a class="sld" href="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-06.png" target="_blank" rel="noopener"><img loading="lazy" src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-06.png" alt="Slide 6"><span>6</span></a><a class="sld" href="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-07.png" target="_blank" rel="noopener"><img loading="lazy" src="https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/ig-slides/arch/wargaming-special-campaigns/v10-s7conclusion-2026-08-15/slide-07.png" alt="Slide 7"><span>7</span></a></div>
+<p class="qn">Tap a slide to open it full size. <span class="mark">Slides 3 and 4</span> are the two we need you to rule on.</p>
+<div class="opts">
+<button class="opt" data-group="q0" data-value="Mechanics are right, ship it">Mechanics are right, ship it</button>
+<button class="opt" data-group="q0" data-value="Not right, see note">Not right, see my note</button>
+<button class="opt" data-group="q0" data-value="Hold it">Hold it, I will explain properly</button>
+</div>
+<textarea id="a0" placeholder="If they are wrong, what actually happened in those two campaigns?"></textarea></div>
+
+<div class="q"><p class="qt">2. Which activation numbers are right</p>
+<p class="qn">Your report says 2,500 activations for Candivore, the website says 2,000. Same split on SuperPlay, 1,500 against 1,900. Influencer counts agree on both. No activation figure ships until this is settled.</p>
+<textarea id="a1" placeholder="Correct figures for Candivore and SuperPlay."></textarea></div>
+
+<div class="q"><p class="qt">3. What year do we cite the report as</p>
+<p class="qn">No year is printed in it and the file was created October 2024.</p>
+<textarea id="a2" placeholder="Cite it as 20XX, or with no year."></textarea></div>
+
+<div class="q"><p class="qt">4. Post 02 and a post already on your board</p>
+<p class="qn">"Creative volume is a supply problem" is already on your board and post 02 covers nearby ground.</p>
+<div class="opts">
+<button class="opt" data-group="q3" data-value="Retire the older one, ship post 02">Retire the older one, ship 02</button>
+<button class="opt" data-group="q3" data-value="Keep the older one, park post 02">Keep the older one, park 02</button>
+</div>
+<textarea id="a3" placeholder="Optional note."></textarea></div>
+
+</div>
+
+<h2>Anything else</h2>
+<textarea id="free" style="width:100%;min-height:70px;border-radius:12px;border:1px solid #24357e;background:#0a1a5c;color:#fff;font:inherit;font-size:14px;padding:10px 12px" placeholder="Anything at all."></textarea>
+
+<div class="out"><textarea id="blk" readonly></textarea></div>
+</div>
+
+<div class="bar"><strong id="tal">0 of 8 answered</strong><button class="blbtn" id="cp">Copy my answers</button></div>
+
+<script>
+var POSTS=["01", "02", "03", "04", "05", "06", "07"];
+var picks={};
+function val(id){var e=document.getElementById(id);return e?e.value.trim():'';}
+function setPick(g,v){
+  if(picks[g]===v){delete picks[g];}else{picks[g]=v;}
+  document.querySelectorAll('[data-group="'+g+'"]').forEach(function(b){
+    var on=picks[g]===b.getAttribute('data-value');
+    b.classList.toggle('on',on);
+    if(b.classList.contains('cb')){b.closest('.p').classList.toggle('on',!!picks[g]);}
+  });
+  tally();
+}
+document.querySelectorAll('button.cb,button.opt').forEach(function(b){
+  b.addEventListener('click',function(){setPick(b.getAttribute('data-group'),b.getAttribute('data-value'));});
+});
+function tally(){
+  var n=0;POSTS.forEach(function(p){if(picks[p])n++;});
+  if(picks['q0'])n++;
+  document.getElementById('tal').textContent=n+' of 8 answered';
+}
+function build(){
+  var L=['ARCH week one, Davorin answers',''];
+  POSTS.forEach(function(p){
+    L.push('Post '+p+': '+(picks[p]||'no answer yet'));
+    var nt=val('n'+p); if(nt)L.push('   note: '+nt);
+    var bx=document.getElementById('q'+p); if(bx&&bx.value.trim())L.push('   bracket answer: '+bx.value.trim());
+  });
+  L.push('');
+  L.push('1. Wargaming carousel mechanics (slides 3 and 4): '+(picks['q0']||'no answer yet'));
+  L.push('   note: '+(val('a0')||'-'));
+  L.push('2. Activation counts: '+(val('a1')||'-'));
+  L.push('3. Report year: '+(val('a2')||'-'));
+  L.push('4. Creative volume post vs post 02: '+(picks['q3']||'no answer yet')+' '+(val('a3')||''));
+  L.push('');
+  L.push('Anything else: '+(val('free')||'-'));
+  return L.join('\n');
+}
+document.getElementById('cp').addEventListener('click',function(){
+  var t=build(), ta=document.getElementById('blk');
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){
+      document.getElementById('cp').textContent='Copied';
+      setTimeout(function(){document.getElementById('cp').textContent='Copy my answers';},1800);
+    }).catch(show);
+  }else{show();}
+  function show(){ta.value=t;ta.style.display='block';ta.select();document.getElementById('cp').textContent='Copy the box above';}
+});
+tally();
+</script>
+</body></html>
