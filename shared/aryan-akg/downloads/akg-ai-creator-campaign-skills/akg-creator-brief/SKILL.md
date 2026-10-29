@@ -16,7 +16,7 @@ If a fact or term is missing, leave a labelled **To confirm** field. Never inven
 ## Build the brief
 
 1. Open with the audience problem and one clear viewing outcome. State why this creator's audience might care, using supplied evidence only.
-2. Write a 20–30 second demonstration sequence: starting task, on-screen action, visible result and CTA. For a complex B2B tool, narrow the sequence to one recognisable job rather than trying to explain the whole platform.
+2. Write a 20-30 second demonstration sequence: starting task, on-screen action, visible result and CTA. For a complex B2B tool, narrow the sequence to one recognisable job rather than trying to explain the whole platform.
 3. Give the creator room to choose language and filming style. Separate **Must show or say** from **Creative options**. Make each mandatory element attributable to a user-supplied requirement.
 4. List deliverables and operational details: format and length, draft date, review turnaround, live date, links or tags, disclosure, files to deliver, reporting date, rights and payment terms. Mark unknown terms **To confirm**.
 5. Pair the goal with a measurement plan. Specify the source for views, clicks, sign-ups or other outcomes, the window, and who collects it. Do not promise results.

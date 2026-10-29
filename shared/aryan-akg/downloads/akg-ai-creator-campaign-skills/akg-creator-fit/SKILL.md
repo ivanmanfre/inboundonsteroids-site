@@ -29,6 +29,6 @@ Work with what the user has. Mark missing items **Unknown**; do not infer geogra
 - **Decision:** Shortlist, hold for evidence, or pass, with a one-sentence reason. Never label a creator "approved" on the user's behalf.
 - **Evidence table:** Product demo, audience/geo, content relevance, sponsor history, economics/rights and measurement; for each, show Observed / Supplied / Unknown, the finding and its source.
 - **Next questions:** The few facts that could change the decision, especially audience geography and quoted sponsorship cost when absent.
-- **Creator angle:** One plausible 20–30 second demonstration idea, labelled a concept until the product and creator validate it.
+- **Creator angle:** One plausible 20-30 second demonstration idea, labelled a concept until the product and creator validate it.
 
 Do not calculate CPM, CPA or expected conversions without matching costs and denominators. Do not treat an example of similar content as proof of campaign performance.
