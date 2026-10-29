@@ -46,8 +46,11 @@
     if (!el) return;
     el.hidden = !markup;
     if (cache[id] === markup) return;
+    const rebuilt = !!cache[id];
     cache[id] = markup;
     el.innerHTML = markup || '';
+    // a section the visitor has already seen is rebuilt in place (narrative landed, Tier 2 arrived): no replayed entries
+    if (rebuilt) el.querySelectorAll('.rv, .bar, .share-bar, .scale, .plan90, .gap').forEach((x) => x.classList.add('on'));
     el.querySelectorAll('[data-ring][data-key]').forEach((ring) => {
       const key = ring.dataset.key, v = parseFloat(ring.dataset.ring);
       if (key in rings) {
@@ -60,9 +63,25 @@
   }
   const ring = (key, value, cls = '', sub = '') => R.ringHTML(value, cls, sub).replace('<div class="ring', `<div data-key="${key}" class="ring`);
 
+  /* ---------- reaching score-status keeps failing: say so, keep retrying ---------- */
+  const TROUBLE = 'Having trouble reaching your result. Retrying...';
+  function trouble(on) {
+    let note = $('#trouble');
+    if (on && !note) {
+      note = document.createElement('p');
+      note.id = 'trouble'; note.className = 'trouble no-print'; note.setAttribute('role', 'status');
+      note.textContent = TROUBLE;
+      document.body.appendChild(note);
+    }
+    if (note) note.hidden = !on || !last;
+    // nothing on screen yet: the note is the page, never a blank room
+    if (!last) put('state', on ? `<div class="wrap"><h1 class="disp rv">One moment.</h1><p class="body rv" style="--d:.1s">${esc(TROUBLE)}</p></div>` : '');
+  }
+
   /* ---------- states ---------- */
   function state(kind) {
     done = true;
+    const note = $('#trouble'); if (note) note.hidden = true;
     $('#reveal').hidden = true; $('#result').hidden = true;
     const book = `<a class="btn big" href="${esc(bookHref())}">Book a call anyway <i>↗</i></a>`;
     const markup = kind === 'failed'
@@ -233,7 +252,7 @@
     const named = Array.isArray(ctx.research.buyers_named) ? ctx.research.buyers_named : [];
     const people = named.slice(0, 3).map((p, i) => `<div class="person sheet rv sheetin" style="--d:${i * 0.06}s">${personLink(p.name, p.url)}${p.headline ? `<q>${esc(p.headline)}</q>` : ''}</div>`).join('');
     return `<div class="wrap"><div class="top"><div><h2 class="disp rv">${title}</h2><p class="lede rv" style="--d:.06s">${esc(lede)}</p><p class="scope rv">From ${esc(f.scope)}.</p></div>` +
-      `<div class="rv">${share != null ? `<div class="big-n">${share}%</div><div class="share-bar" role="img" aria-label="${share}% look like buyers"><i style="--w:${share / 100}"></i></div>` : ''}</div></div>` +
+      `<div class="rv">${share != null ? `<div class="big-n">${share}%</div><div class="share-bar${ctx.hot.has('buyer_share') ? ' hot' : ''}" role="img" aria-label="${share}% look like buyers"><i style="--w:${share / 100}"></i></div>` : ''}</div></div>` +
       (people ? `<div class="people">${people}</div>` : '') + `</div>`;
   }
 
@@ -301,6 +320,7 @@
 
   /* ---------- one render pass ---------- */
   function render(data) {
+    if (!last && cache.state) put('state', '');
     last = data;
     const status = data.status;
     if (status === 'failed') { if (!OG && !PRINT) state('failed'); else done = true; return; }
@@ -312,6 +332,7 @@
       if (OG || PRINT) return;
       $('#reveal').hidden = false;
       if (log.parentElement.id !== 'log-live') $('#log-live').appendChild(log);
+      log.hidden = false;
       R.observe($('#reveal'));
       drawLog(data);
       const qEl = $('#queue');
@@ -345,6 +366,7 @@
         reveal.hidden = true; reveal.classList.remove('out');
         $('#result').hidden = false;
         $('#log-home .wrap').appendChild(log);
+        log.hidden = false;
         if (!PRINT) scrollTo({ top: 0 });
       };
       if (!reveal.hidden && !R.still()) { reveal.classList.add('out'); setTimeout(show, 300); } else show();
@@ -383,18 +405,20 @@
     let res = null;
     try { res = await fetch(R.STATUS + '?t=' + encodeURIComponent(token), { cache: 'no-store' }); } catch (_) { res = null; }
     if (res && (res.status === 404 || res.status === 400)) { if (!OG && !PRINT) state('missing'); return; }
-    if (res && res.ok) {
+    let data = null;
+    if (res && res.ok) { try { data = await res.json(); } catch (_) { data = null; } }
+    if (data && typeof data === 'object') {
+      if (failures >= 3) trouble(false);
       failures = 0;
-      let data = null;
-      try { data = await res.json(); } catch (_) { data = null; }
-      if (data && typeof data === 'object') {
-        try { render(data); } catch (e) { console.warn('score render', e); }
-        if (['complete', 'failed'].includes(data.status)) done = true;
-      }
-    } else failures++;
+      try { render(data); } catch (e) { console.warn('score render', e); }
+      if (['complete', 'failed'].includes(data.status)) done = true;
+    } else {
+      failures++;
+      if (failures >= 3 && !OG && !PRINT && !done) trouble(true);
+    }
     if (done) return;
     const wait = OG || PRINT ? 1000 : Date.now() - start > 180000 ? 10000 : 2000;
-    setTimeout(poll, failures ? Math.min(wait * (failures + 1), 15000) : wait);
+    setTimeout(poll, failures ? Math.min(wait * (1 + failures * 0.5), 15000) : wait);
   }
 
   // elapsed clock in the reveal

@@ -42,14 +42,17 @@ after(async () => { await browser?.close(); server?.close(); });
 const AVATAR = `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9A27E"/><stop offset="1" stop-color="#6E4B35"/></linearGradient></defs><rect width="200" height="200" fill="url(#g)"/><circle cx="100" cy="82" r="38" fill="#F1DCC6"/><ellipse cx="100" cy="190" rx="70" ry="60" fill="#2B2724"/></svg>`;
 const CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'content-type', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS' };
 
-async function open(path, { width = 1440, height = 900, fixtures = FIXTURES, submit, reducedMotion = 'no-preference', storage } = {}) {
+async function open(path, { width = 1440, height = 900, fixtures = FIXTURES, submit, reducedMotion = 'no-preference', storage, status } = {}) {
   const context = await browser.newContext({ viewport: { width, height }, reducedMotion });
   const page = await context.newPage();
   const errors = [];
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
   page.on('pageerror', (e) => errors.push(String(e)));
+  const calls = { status: 0 };
   await page.route('**/functions/v1/score-status*', (route) => {
+    calls.status++;
     const t = new URL(route.request().url()).searchParams.get('t');
+    if (status) { const r = status(t, calls.status); if (r) return route.fulfill({ headers: CORS, contentType: 'application/json', ...r }); }
     const body = fixtures[t];
     route.fulfill(body ? { status: 200, headers: CORS, contentType: 'application/json', body: JSON.stringify(body) }
       : { status: 404, headers: CORS, contentType: 'application/json', body: '{"error":"not_found"}' });
@@ -63,7 +66,7 @@ async function open(path, { width = 1440, height = 900, fixtures = FIXTURES, sub
   await page.route('https://media.licdn.com/**', (route) => route.fulfill({ status: 200, contentType: 'image/svg+xml', body: AVATAR }));
   if (storage) await page.addInitScript((s) => { for (const [k, v] of Object.entries(s)) localStorage.setItem(k, v); }, storage);
   await page.goto(base + path, { waitUntil: 'load' });
-  return { page, errors, context };
+  return { page, errors, context, calls };
 }
 const settle = (page, ms = 1400) => page.waitForTimeout(ms);
 async function noOverflow(page) {
@@ -240,6 +243,73 @@ test('failed and unknown tokens: plain message, never a stuck spinner', async ()
   const expected404 = (e) => /status of 404/.test(e);
   assert.deepEqual([...errors, ...g.errors, ...n.errors.filter((e) => !expected404(e))], []);
   await Promise.all([g.context.close(), n.context.close(), context.close()]);
+});
+
+test('hostile text from a profile is shown as text, never run or turned into elements', async () => {
+  const { page, errors, context } = await open('/score/r/?t=' + TOKENS.xss);
+  let dialogs = 0;
+  page.on('dialog', (d) => { dialogs++; d.dismiss(); });
+  await page.waitForSelector('#result:not([hidden]) #competitors .dmn');
+  await revealAll(page);
+  const found = await page.evaluate(() => ({
+    pwned: window.__pwned === 1,
+    imgX: document.querySelectorAll('img[src="x"]').length,
+    injected: document.querySelectorAll('#injected').length,
+    scripts: [...document.scripts].filter((x) => x.textContent.includes('__pwned')).length,
+    jsLinks: document.querySelectorAll('a[href^="javascript:"], img[src^="javascript:"]').length,
+  }));
+  assert.deepEqual(found, { pwned: false, imgX: 0, injected: 0, scripts: 0, jsLinks: 0 });
+  assert.match(await page.textContent('#hero .subj b'), /<img src=x onerror=/);
+  assert.match(await page.textContent('#hero .gap'), /<script>window.__pwned=1<\/script>/);
+  assert.equal(dialogs, 0);
+  assert.deepEqual(errors, []);
+  await context.close();
+});
+
+test('polling stops once the run is complete', async () => {
+  const { page, context, calls } = await open('/score/r/?t=' + TOKENS.complete);
+  await page.waitForSelector('#result:not([hidden]) #p-pipeline');
+  const after = calls.status;
+  await page.waitForTimeout(5000);
+  assert.equal(calls.status, after, 'no score-status request after complete');
+  assert.equal(after, 1);
+  await context.close();
+});
+
+test('score-status keeps failing: a plain retrying message, then the run once it answers', async () => {
+  let healthy = false;
+  const { page, context, calls } = await open('/score/r/?t=' + TOKENS.flaky, {
+    status: (t) => (t === TOKENS.flaky ? (healthy ? { status: 200, body: JSON.stringify(FIXTURES[TOKENS.running]) } : { status: 503, body: '{"error":"storage"}' }) : null),
+  });
+  await page.waitForSelector('#state:not([hidden])', { timeout: 15000 });
+  assert.match(await page.textContent('#state'), /Having trouble reaching your result\. Retrying\.\.\./);
+  assert.ok(calls.status >= 3);
+  assert.equal(await page.isHidden('#log'), true, 'no stray empty log track');
+  healthy = true;
+  await page.waitForSelector('#reveal:not([hidden]) #log li:not(.wait)', { timeout: 15000 });
+  assert.equal(await page.isHidden('#state'), true);
+  await context.close();
+});
+
+test('a section rebuilt by a later poll keeps its entries shown (no replayed fade)', async () => {
+  let n = 0;
+  const { page, context } = await open('/score/r/?t=' + TOKENS.tier1, {
+    status: (t) => (t === TOKENS.tier1 ? { status: 200, body: JSON.stringify(++n < 3 ? FIXTURES[TOKENS.tier1] : FIXTURES[TOKENS.complete]) } : null),
+  });
+  await page.waitForSelector('#result:not([hidden]) #hero .gap.on');
+  // record, at the moment the rebuilt hero is inserted, whether its entries already carry .on
+  await page.evaluate(() => {
+    window.__rebuilt = [];
+    new MutationObserver(() => {
+      const els = [...document.querySelectorAll('#hero .rv, #hero .gap, #hero .scale')];
+      window.__rebuilt.push(els.filter((e) => !e.classList.contains('on')).length);
+    }).observe(document.querySelector('#hero'), { childList: true });
+  });
+  await page.waitForFunction(() => /Only 1 of 9/.test(document.querySelector('#hero .gap')?.textContent || ''), null, { timeout: 15000 });
+  const offAtInsert = await page.evaluate(() => window.__rebuilt);
+  assert.ok(offAtInsert.length >= 1);
+  assert.deepEqual(offAtInsert.filter((n) => n > 0), [], 'rebuilt entries start hidden and fade in again');
+  await context.close();
 });
 
 test('print mode: ready at tier1, everything visible, no placeholders', async () => {

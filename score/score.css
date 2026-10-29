@@ -270,8 +270,11 @@ button.btn:disabled { opacity: .6; cursor: progress; transform: none; }
 .still { margin-top: 30px; padding: 26px 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); color: var(--tx2); font-size: 18px; }
 .big-n { font: 800 clamp(64px, 8vw, 132px)/.86 "IMDisplay", sans-serif; letter-spacing: -.045em; }
 .share-bar { margin-top: 26px; height: 16px; border-radius: 16px; background: rgba(243,239,230,.12); overflow: hidden; position: relative; }
-.share-bar i { position: absolute; inset: 0; background: var(--red); border-radius: inherit; transform-origin: 0 50%; transform: scaleX(var(--w)); transition: transform .7s var(--expo) .2s; }
+.share-bar i { position: absolute; inset: 0; background: var(--tx); border-radius: inherit; transform-origin: 0 50%; transform: scaleX(var(--w)); transition: transform .7s var(--expo) .2s; }
+.share-bar.hot i { background: var(--red); }
 .js .share-bar:not(.on) i { transform: scaleX(0); }
+.trouble { position: fixed; z-index: 70; left: 50%; bottom: 24px; transform: translateX(-50%); max-width: calc(100% - 40px); padding: 12px 18px; border-radius: 12px;
+  background: var(--sheet); color: var(--ink); font-size: 15.5px; font-weight: 550; box-shadow: var(--shadow-soft); }
 .people { margin-top: clamp(34px, 4vw, 56px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
 .person { padding: 22px 22px 20px; border-radius: 14px; }
 .person a.nm, .person b.nm { font-weight: 650; font-size: 17px; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid rgba(22,24,26,.18); }
@@ -392,6 +395,7 @@ html.og #og-card { display: grid; position: fixed; left: 0; top: 0; width: 1200p
   .js .rv, .js .log li { opacity: 1 !important; transform: none !important; transition: none !important; }
   .bar i, .share-bar i, .scale .pin, .gap::before, .plan90::before, .log .thread { transition: none !important; }
   .dots i { animation: none; }
+  .kyle, .kyle:hover, .q label, .q input:checked + label { transform: none !important; transition: none !important; }
 }
 html.rm .rv, html.rm .log li { opacity: 1; transform: none; }
 

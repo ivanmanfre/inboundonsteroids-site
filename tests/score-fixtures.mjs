@@ -13,6 +13,8 @@ export const TOKENS = {
   bare: 'bareBareBareBareBareBare01',
   unscored: 'unscoredUnscoredUnscored01',
   failed: 'failedFailedFailedFailed01',
+  xss: 'xssXssXssXssXssXssXssXss01',
+  flaky: 'flakyFlakyFlakyFlakyFlak01',
   queued: 'queuedQueuedQueuedQueued01',
 };
 
@@ -167,3 +169,18 @@ export const FIXTURES = {
   })(),
   [TOKENS.failed]: { status: 'failed', progress: [], scores: null, report: null, pdf_url: null, created_at: created },
 };
+
+// Hostile text in every place a stranger's words reach the page: the scored profile, an engager, the model's own copy.
+const EVIL_NAME = '<img src=x onerror="window.__pwned=1">';
+const EVIL_TEXT = '<script>window.__pwned=1</script><b id="injected">bold</b>';
+FIXTURES[TOKENS.xss] = (() => {
+  const base = FIXTURES[TOKENS.complete];
+  const report = structuredClone(base.report);
+  report.subject = { ...report.subject, name: EVIL_NAME, headline: EVIL_TEXT, photo_url: 'javascript:window.__pwned=1' };
+  report.research.buyers_named[0] = { name: EVIL_NAME, headline: EVIL_TEXT, url: 'javascript:window.__pwned=1' };
+  report.research.competitor_engagers.notes[0].note = EVIL_TEXT;
+  report.narrative.headline = EVIL_TEXT;
+  report.narrative.pillars.profile[0].text = EVIL_TEXT;
+  report.audit[0].quote = EVIL_TEXT;
+  return { ...base, report, progress: [...base.progress, { key: 'x', text: EVIL_TEXT, at: base.created_at }] };
+})();

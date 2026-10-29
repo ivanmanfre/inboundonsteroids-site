@@ -187,7 +187,7 @@
     $('#change').addEventListener('click', () => swap(step2, step1, li));
     $('#to-top').addEventListener('click', (e) => {
       e.preventDefault();
-      scrollTo({ top: 0, behavior: RLS.still() ? 'auto' : 'smooth' });
+      scrollTo({ top: 0, behavior: RLS.still() ? 'instant' : 'smooth' });
       setTimeout(() => (step1.hidden ? $('#email') : li).focus({ preventScroll: true }), RLS.still() ? 0 : 500);
     });
 
