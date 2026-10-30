@@ -1,7 +1,7 @@
 /* Case studies: results at a glance, under the hero. */
 .cs-glance { position: relative; z-index: 2; padding: 0 0 clamp(48px, 7vw, 96px); }
 .cs-glance .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
-.cs-glance .chip { font: 500 12px/1 "IMMono", ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--tx); border: 1px solid var(--hair); border-radius: 999px; padding: 9px 14px; }
+.cs-glance .chip { font: 500 13px/1 "IMMono", ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--tx); border: 1px solid var(--hair); border-radius: 999px; padding: 9px 14px; }
 .cs-glance .chip.on { background: var(--red); border-color: var(--red); }
 .cs-glance .g { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 16px; overflow: hidden; }
 .cs-glance .g > div { background: rgba(15, 14, 13, .82); padding: 26px 24px 28px; }
@@ -9,7 +9,7 @@
 .cs-glance .g b small { font-size: .5em; letter-spacing: -.01em; color: var(--tx2); margin-left: 4px; }
 .cs-glance .g span { display: block; margin-top: 14px; font-size: 15px; line-height: 1.45; color: var(--tx2); }
 .cs-glance .g span strong { color: var(--tx); font-weight: 600; }
-.cs-glance .src { margin-top: 14px; font: 12px/1.5 "IMMono", ui-monospace, monospace; color: var(--tx3); }
-@media (max-width: 560px) { .cs-glance .g { grid-template-columns: 1fr 1fr; } .cs-glance .g > div { padding: 20px 16px 22px; } .cs-glance .g span { font-size: 13.5px; } }
-.cs-glance .lbl { font: 500 12px/1 "IMMono", ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--tx2); margin: 6px 0 14px; }
+.cs-glance .src { margin-top: 14px; font: 13px/1.5 "IMMono", ui-monospace, monospace; color: var(--tx3); }
+@media (max-width: 560px) { .cs-glance .g { grid-template-columns: 1fr 1fr; } .cs-glance .g > div:last-child:nth-child(odd) { grid-column: 1 / -1; } .cs-glance .g > div { padding: 20px 16px 22px; } .cs-glance .g span { font-size: 13.5px; } }
+.cs-glance .lbl { font: 500 13px/1 "IMMono", ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--tx2); margin: 6px 0 14px; }
 .cs-glance .g b.brand { font-size: clamp(26px, 2.6vw, 38px); line-height: 1.02; letter-spacing: -.02em; }
