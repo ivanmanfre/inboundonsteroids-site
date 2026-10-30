@@ -27,3 +27,9 @@
 .k-ag b { display: block; font: 800 24px/1.05 "IMDisplay", sans-serif; letter-spacing: -.02em; }
 .k-ag span { display: block; margin-top: 8px; font-size: 14.5px; line-height: 1.45; color: var(--tx2); }
 @media (max-width: 560px) { .k-bar span { font-size: 15px; } .k-bar b { font-size: 22px; } }
+
+/* Pre-call brief shot */
+.cs-brief { position: relative; z-index: 2; padding: clamp(60px, 8vw, 120px) 0 0; }
+.cs-brief .lede { max-width: 44em; margin-top: 18px; }
+.cs-brief .brief-shot { margin-top: 40px; max-width: 980px; }
+.cs-brief .brief-shot img { width: 100%; height: auto; display: block; }
