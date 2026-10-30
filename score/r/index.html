@@ -33,6 +33,7 @@
 <header class="nav no-print" id="nav">
   <div class="wrap">
     <a class="mark" href="/" aria-label="InboundOnSteroids">inbound<b>on</b>steroids</a>
+    <nav class="secnav" id="secnav" aria-label="Sections of your result" hidden></nav>
     <nav>
       <a class="btn" id="nav-book" href="https://calendly.com/im-ivanmanfredi/30min"><span class="dsk-i">Book a call with Ivan</span><span class="mob-i">Book a call</span> <i>↗</i></a>
     </nav>
@@ -43,14 +44,15 @@
   <!-- not found / failed -->
   <section class="r-state" id="state" hidden></section>
 
-  <!-- the live research reveal (queued, running) -->
+  <!-- the live research reveal (queued, running). The person who submitted (sessionStorage) gets the stage + the guess -->
   <section class="reveal" id="reveal" hidden>
     <div class="wrap grid">
-      <div>
+      <div class="rcopy">
         <h1 class="disp rv">Reading your LinkedIn.</h1>
         <p class="lede rv" style="--d:.1s">Each line here is something we just found on the profile. It fills in as we read.</p>
         <span class="mono clock rv" style="--d:.16s" id="clock" aria-hidden="true">0:00</span>
         <p class="queue" id="queue" hidden></p>
+        <div id="guess" hidden></div>
       </div>
       <div id="log-live"></div>
     </div>
@@ -58,19 +60,29 @@
 
   <!-- the result (tier1, complete) -->
   <div id="result" hidden aria-live="off">
-    <section class="r-hero" id="hero"></section>
+    <section class="r-hero" id="hero">
+      <div class="wrap">
+        <div id="hero-subj"></div>
+        <div class="hgrid">
+          <div class="hscore" id="hero-score"></div>
+          <div class="hmain"><div id="hero-copy"></div><div id="sim" hidden></div></div>
+        </div>
+      </div>
+    </section>
     <section class="stood" id="stood" hidden></section>
     <div id="pillars"></div>
     <section class="t2" id="engagers" hidden></section>
     <section class="t2" id="competitors" hidden></section>
     <section class="t2" id="peers" hidden></section>
-    <section class="t2" id="plan" hidden></section>
+    <section class="t2 plan-band" id="plan" hidden></section>
     <section class="book" id="book"></section>
-    <section class="loglist" id="log-home"><div class="wrap"><h2>How we got here.</h2></div></section>
+    <section class="loglist" id="log-home"><div class="wrap"><details id="log-det"><summary><h2>How we got here.</h2><span>Every step of the read, in order</span></summary></details></div></section>
   </div>
 
   <ol class="log" id="log" aria-live="polite" hidden><i class="thread" aria-hidden="true"></i></ol>
 </main>
+
+<div class="mbar no-print" id="mbar" hidden></div>
 
 <footer class="no-print">
   <div class="wrap">

@@ -63,62 +63,69 @@
 
           <form id="step2" class="details sheet" hidden novalidate>
             <div class="who"><span class="in">in</span><b id="li-show"></b><button type="button" id="change">Change</button></div>
-            <h2>Where should we send it?</h2>
-            <div class="two">
-              <label class="f">Email
-                <input class="field l" id="email" name="email" type="email" autocomplete="email" spellcheck="false" placeholder="you@company.com" aria-describedby="email-err">
-                <p class="err" id="email-err" role="alert"></p>
-              </label>
-              <label class="f">Website <span>(optional)</span>
-                <input class="field l" id="website" name="website" type="url" inputmode="url" autocomplete="url" spellcheck="false" placeholder="yourcompany.com">
-              </label>
+            <div class="qbar">
+              <button type="button" class="back" id="back" hidden><i aria-hidden="true">←</i> Back</button>
+              <ol class="pips" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+              <span class="count" id="qcount">1 of 6</span>
             </div>
-
-            <fieldset class="q" data-q="revenue">
-              <legend>Monthly revenue</legend>
+            <div class="qstage">
+            <fieldset class="q qs" data-q="revenue" data-step="0" tabindex="-1">
+              <legend>What is your monthly revenue?</legend>
               <div class="opts">
-                <input type="radio" name="revenue" id="rv1" value="under_10k"><label for="rv1">Under $10k</label>
-                <input type="radio" name="revenue" id="rv2" value="10k_30k"><label for="rv2">$10k to $30k</label>
-                <input type="radio" name="revenue" id="rv3" value="30k_100k"><label for="rv3">$30k to $100k</label>
-                <input type="radio" name="revenue" id="rv4" value="over_100k"><label for="rv4">Over $100k</label>
+                <input type="radio" name="revenue" id="rv1" value="under_10k"><label for="rv1"><kbd aria-hidden="true">1</kbd>Under $10k</label>
+                <input type="radio" name="revenue" id="rv2" value="10k_30k"><label for="rv2"><kbd aria-hidden="true">2</kbd>$10k to $30k</label>
+                <input type="radio" name="revenue" id="rv3" value="30k_100k"><label for="rv3"><kbd aria-hidden="true">3</kbd>$30k to $100k</label>
+                <input type="radio" name="revenue" id="rv4" value="over_100k"><label for="rv4"><kbd aria-hidden="true">4</kbd>Over $100k</label>
               </div>
             </fieldset>
-            <fieldset class="q" data-q="team">
-              <legend>Team size</legend>
+            <fieldset class="q qs" data-q="team" data-step="1" tabindex="-1" hidden>
+              <legend>How big is your team?</legend>
               <div class="opts">
-                <input type="radio" name="team" id="tm1" value="solo"><label for="tm1">Just me</label>
-                <input type="radio" name="team" id="tm2" value="2_5"><label for="tm2">2 to 5</label>
-                <input type="radio" name="team" id="tm3" value="6_20"><label for="tm3">6 to 20</label>
-                <input type="radio" name="team" id="tm4" value="over_20"><label for="tm4">More than 20</label>
+                <input type="radio" name="team" id="tm1" value="solo"><label for="tm1"><kbd aria-hidden="true">1</kbd>Just me</label>
+                <input type="radio" name="team" id="tm2" value="2_5"><label for="tm2"><kbd aria-hidden="true">2</kbd>2 to 5</label>
+                <input type="radio" name="team" id="tm3" value="6_20"><label for="tm3"><kbd aria-hidden="true">3</kbd>6 to 20</label>
+                <input type="radio" name="team" id="tm4" value="over_20"><label for="tm4"><kbd aria-hidden="true">4</kbd>More than 20</label>
               </div>
             </fieldset>
-            <fieldset class="q" data-q="source">
-              <legend>How new clients find you today</legend>
-              <div class="opts">
-                <input type="radio" name="source" id="sc1" value="referrals"><label for="sc1">Referrals</label>
-                <input type="radio" name="source" id="sc2" value="outbound"><label for="sc2">Outbound</label>
-                <input type="radio" name="source" id="sc3" value="content"><label for="sc3">Content</label>
-                <input type="radio" name="source" id="sc4" value="ads"><label for="sc4">Ads</label>
-                <input type="radio" name="source" id="sc5" value="mixed"><label for="sc5">A mix</label>
+            <fieldset class="q qs" data-q="source" data-step="2" tabindex="-1" hidden>
+              <legend>How do new clients find you today?</legend>
+              <div class="opts five">
+                <input type="radio" name="source" id="sc1" value="referrals"><label for="sc1"><kbd aria-hidden="true">1</kbd>Referrals</label>
+                <input type="radio" name="source" id="sc2" value="outbound"><label for="sc2"><kbd aria-hidden="true">2</kbd>Outbound</label>
+                <input type="radio" name="source" id="sc3" value="content"><label for="sc3"><kbd aria-hidden="true">3</kbd>Content</label>
+                <input type="radio" name="source" id="sc4" value="ads"><label for="sc4"><kbd aria-hidden="true">4</kbd>Ads</label>
+                <input type="radio" name="source" id="sc5" value="mixed"><label for="sc5"><kbd aria-hidden="true">5</kbd>A mix</label>
               </div>
             </fieldset>
-            <fieldset class="q" data-q="goal">
-              <legend>Your main goal for the next 12 months</legend>
+            <fieldset class="q qs" data-q="goal" data-step="3" tabindex="-1" hidden>
+              <legend>What is your main goal for the next 12 months?</legend>
               <div class="opts">
-                <input type="radio" name="goal" id="gl1" value="more_calls"><label for="gl1">More sales calls</label>
-                <input type="radio" name="goal" id="gl2" value="steadier_pipeline"><label for="gl2">A steadier pipeline</label>
-                <input type="radio" name="goal" id="gl3" value="less_founder_time"><label for="gl3">Less of my time on sales</label>
-                <input type="radio" name="goal" id="gl4" value="grow_team"><label for="gl4">Grow the team</label>
+                <input type="radio" name="goal" id="gl1" value="more_calls"><label for="gl1"><kbd aria-hidden="true">1</kbd>More sales calls</label>
+                <input type="radio" name="goal" id="gl2" value="steadier_pipeline"><label for="gl2"><kbd aria-hidden="true">2</kbd>A steadier pipeline</label>
+                <input type="radio" name="goal" id="gl3" value="less_founder_time"><label for="gl3"><kbd aria-hidden="true">3</kbd>Less of my time on sales</label>
+                <input type="radio" name="goal" id="gl4" value="grow_team"><label for="gl4"><kbd aria-hidden="true">4</kbd>Grow the team</label>
               </div>
             </fieldset>
+            <div class="qs solo" data-step="4" hidden>
+              <label class="qt" for="website">Your website <span>(optional)</span></label>
+              <input class="field l" id="website" name="website" type="url" inputmode="url" autocomplete="url" spellcheck="false" placeholder="yourcompany.com">
+              <p class="sub">We look there for a booking link a buyer could use.</p>
+              <div class="nextrow"><button class="btn" type="button" data-next>Next <i>→</i></button><button class="skip" type="button" data-next>Skip</button></div>
+            </div>
+            <div class="qs solo" data-step="5" hidden>
+              <label class="qt" for="email">Where should we send it?</label>
+              <input class="field l" id="email" name="email" type="email" autocomplete="email" spellcheck="false" placeholder="you@company.com" aria-describedby="email-err">
+              <p class="err" id="email-err" role="alert"></p>
+              <label class="consent"><input type="checkbox" id="consent" name="consent_nurture"> <span>Also send me practical LinkedIn notes now and then. Optional, and you can leave any time.</span></label>
+              <div class="go">
+                <button class="btn" type="submit" id="go">Score my LinkedIn <i>→</i></button>
+                <p>We only use your email to send you your result.</p>
+              </div>
+              <p class="err" id="send-err" role="alert"></p>
+            </div>
+            </div>
+            <p class="ack" id="ack" aria-live="polite"></p>
             <p class="err" id="q-err" role="alert"></p>
-
-            <label class="consent"><input type="checkbox" id="consent" name="consent_nurture"> <span>Also send me practical LinkedIn notes now and then. Optional, and you can leave any time.</span></label>
-            <div class="go">
-              <button class="btn" type="submit" id="go">Score my LinkedIn <i>→</i></button>
-              <p>We only use your email to send you your result.</p>
-            </div>
-            <p class="err" id="send-err" role="alert"></p>
           </form>
         </div>
       </div>
@@ -207,8 +214,10 @@
   </div>
 </footer>
 
-<!-- A real finished run shown next to the form: Ivan's own profile, calibration round 3 2026-10-30 (scores as stored on score_runs). -->
-<script type="application/json" id="example-run">{"name": "Iván Manfredi", "headline": "Agency owners: add $15k-$50k/mo from LinkedIn in 90 days with content + outreach, run for you.", "photo": "https://inboundonsteroids.com/assets/ivan-portrait.jpg", "overall": 77, "tier": "revenue", "pillars": {"profile": 84, "posts": 67, "pipeline": 80}}</script>
+<!-- Iván's own finished run, replayed by the card next to the form: his real progress lines (run of 2026-10-29, minus the
+     interim Tier 1 score and the lines that name third parties) and the scores as stored on score_runs. Only his run
+     ever goes here: every other scored profile is a real prospect. -->
+<script type="application/json" id="example-run">{"name": "Iván Manfredi", "headline": "Agency owners: add $15k-$50k/mo from LinkedIn in 90 days with content + outreach, run for you.", "photo": "https://inboundonsteroids.com/assets/ivan-portrait.jpg", "overall": 77, "tier": "revenue", "pillars": {"profile": 84, "posts": 67, "pipeline": 80}, "progress": ["Found Iván Manfredi: 2,374 followers", "Read 48 posts from the past 90 days: 45 originals, 3 reposts", "Your last original post: today", "Your business: InboundOnSteroids (ivanmanfredi.com)", "Who buys from you: Founders, owners and CEOs of marketing, creative, dev and B2B service agencies seeking LinkedIn-driven revenue via done-for-you content and outreach", "A booking link is pinned in your Featured", "Wrote 10 fixes across your profile, posts and pipeline", "Checked 4 people who engaged with your last 5 posts: 1 looks like a buyer", "Scored 77/100 after the deeper read: profile 84, posts 67, pipeline 80"]}</script>
 <script src="/score/score.js" defer></script>
 </body>
 </html>
