@@ -400,6 +400,62 @@ button.btn:disabled { opacity: .6; cursor: progress; transform: none; }
 .lm-box p.lt { color: rgba(0,0,0,.6); }
 .lm-feat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
 .lm-feat i { height: 62px; border-radius: 8px; background: linear-gradient(160deg, #F1EFEB, #E2DED7); }
+/* the full profile card: drawn the way LinkedIn lays out a profile (page grey, white cards, blue actions) */
+.li-mock.full { background: #F4F2EE; padding-bottom: 8px; overflow: hidden; }
+.li-mock.full .lm-top { background: #fff; margin: 0 0 8px; border-bottom: 1px solid rgba(0,0,0,.08); }
+.lm-banner.has-img { padding: 0; min-height: 0; aspect-ratio: 4 / 1; background: #A0B4B7; overflow: hidden; }
+.lm-bimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.li-mock.full .lm-id { padding: 0 20px 16px; }
+.lm-avw { position: relative; width: max-content; }
+.li-mock.full .lm-av { width: clamp(96px, 8.4vw, 128px); height: clamp(96px, 8.4vw, 128px); margin-top: calc(clamp(96px, 8.4vw, 128px) / -1.7); }
+.lm-avw.otw::after, .lm-avw.hiring::after { content: ""; position: absolute; inset: 0; margin-top: calc(clamp(96px, 8.4vw, 128px) / -1.7); border-radius: 50%; border: 5px solid #57A350; border-left-color: transparent; border-top-color: transparent; transform: rotate(10deg); }
+.lm-avw.hiring::after { border-right-color: #7B5CBE; border-bottom-color: #7B5CBE; }
+.lm-cols { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; }
+.lm-main { min-width: 0; }
+.li-mock.full h4 { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 8px; font-size: clamp(20px, 1.7vw, 24px); }
+.lm-ver { width: 18px; height: 18px; flex: none; }
+.lm-prem { display: inline-grid; place-items: center; width: 17px; height: 17px; border-radius: 3px; background: #C37D16; color: #fff; font: 700 11px/1 -apple-system, "Segoe UI", sans-serif; }
+.li-mock.full .lm-hl { font-size: 14.5px; }
+.lm-loc { margin-top: 6px; font-size: 13.5px; color: rgba(0,0,0,.6); }
+.lm-loc .lk, .lm-site { color: #0A66C2; font-weight: 600; }
+.lm-site { margin-top: 4px; font-size: 13.5px; overflow-wrap: anywhere; }
+.li-mock.full .lm-meta { margin-top: 4px; font-size: 13.5px; color: #0A66C2; font-weight: 600; }
+.lm-orgs { list-style: none; margin-top: 12px; display: grid; gap: 8px; max-width: 170px; }
+.lm-orgs li { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; line-height: 1.25; color: rgba(0,0,0,.9); }
+.lm-logo { width: 32px; height: 32px; flex: none; border-radius: 4px; object-fit: contain; background: #EEF3F8; }
+.lm-btns { position: relative; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; padding-right: 36px; }
+.lm-btns .b { display: inline-flex; align-items: center; gap: 5px; height: 32px; padding: 0 16px; border-radius: 16px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.lm-btns .b svg { width: 13px; height: 13px; }
+.lm-btns .p { background: #0A66C2; color: #fff; }
+.lm-btns .o { box-shadow: inset 0 0 0 1px #0A66C2; color: #0A66C2; }
+.lm-btns .g { box-shadow: inset 0 0 0 1px rgba(0,0,0,.6); color: rgba(0,0,0,.75); }
+.lm-btns .pn-pin { top: 2px; right: 0; }
+.li-mock.full .lm-box { margin: 0 0 8px; background: #fff; border: 0; border-top: 1px solid rgba(0,0,0,.08); border-bottom: 1px solid rgba(0,0,0,.08); border-radius: 0; padding: 16px 48px 16px 20px; }
+.li-mock.full .lm-box h5 { display: flex; align-items: baseline; gap: 8px; font-size: 18px; }
+.lm-count { font-size: 13px; font-weight: 400; color: rgba(0,0,0,.6); }
+.li-mock.full .lm-box p.clip { -webkit-line-clamp: 3; font-size: 14px; }
+.lm-more { display: block; text-align: right; margin-top: 2px; font-size: 14px; color: rgba(0,0,0,.6); }
+.lm-skills { margin-top: 12px; padding: 12px 14px; border: 1px solid rgba(0,0,0,.1); border-radius: 8px; font-size: 13.5px; line-height: 1.45; }
+.lm-skills b { display: block; font-weight: 600; margin-bottom: 2px; }
+.lm-skills span { color: rgba(0,0,0,.75); }
+.lm-cards { display: grid; grid-auto-flow: column; grid-auto-columns: calc(50% - 5px); gap: 10px; overflow: hidden; margin-right: -28px; }
+.lm-card { border: 1px solid rgba(0,0,0,.12); border-radius: 8px; overflow: hidden; background: #fff; padding-bottom: 10px; }
+.lm-card .ph { aspect-ratio: 1.91 / 1; background: linear-gradient(160deg, #F1EFEB, #E2DED7); overflow: hidden; }
+.lm-cimg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lm-card em { display: block; margin: 8px 12px 2px; font-style: normal; font-size: 12px; color: rgba(0,0,0,.6); }
+.lm-card b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin: 0 12px; font-size: 13.5px; font-weight: 600; line-height: 1.35; }
+.lm-card small { display: block; margin: 2px 12px 0; font-size: 12px; color: rgba(0,0,0,.6); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lm-exp { list-style: none; display: grid; gap: 14px; }
+.lm-exp li { display: flex; gap: 10px; }
+.lm-exp .lm-logo { width: 40px; height: 40px; }
+.lm-exp b { display: block; font-size: 14px; font-weight: 600; }
+.lm-exp span, .lm-exp small { display: block; font-size: 13px; color: rgba(0,0,0,.75); }
+.lm-exp small { color: rgba(0,0,0,.55); }
+@media (max-width: 560px) {
+  .lm-cols { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .lm-orgs { max-width: none; }
+  .lm-btns .b { padding: 0 12px; font-size: 13px; }
+}
 .pn-pin { position: absolute; right: 10px; top: 10px; z-index: 2; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--tx); font: 700 13px/28px "IMSans", sans-serif;
   text-align: center; text-decoration: none; box-shadow: 0 0 0 3px #fff, 0 6px 14px rgba(0,0,0,.28); transition: transform .3s cubic-bezier(.25,1,.5,1); }
 .pn-pin:hover, .pn-pin:focus-visible { transform: scale(1.12); }

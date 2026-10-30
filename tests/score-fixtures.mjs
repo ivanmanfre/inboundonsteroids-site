@@ -26,6 +26,18 @@ const subject = {
   headline: 'Founder at Fernhill Studio | Paid social for skincare brands doing $1M+ a year',
   photo_url: 'https://media.licdn.com/dms/image/test/maya-okafor.jpg',
   linkedin_url: 'https://www.linkedin.com/in/maya-okafor/',
+  // display only: drawn into the profile mock (report.subject.card)
+  card: {
+    verified: true, premium: false, creator: true, open_to_work: false, hiring: false,
+    photo: 'https://media.licdn.com/dms/image/test/maya-okafor.jpg', banner: 'https://media.licdn.com/dms/image/test/maya-banner.jpg',
+    location: 'Bristol, England, United Kingdom', followers: 3412, connections: 1290,
+    company: 'Fernhill Studio', company_logo: '', school: 'University of Bristol', school_logo: '',
+    action: { label: 'Visit my website', url: 'https://fernhillstudio.com/?utm_source=li' },
+    about: 'Paid social for skincare brands.\n\n\nWe run the ads and the creative.', top_skills: ['Paid Social', 'Meta Ads'], services: [],
+    featured: [{ title: 'How we scaled Glow Lab', subtitle: 'fernhillstudio.com', image: '' }, { title: 'Book a call', subtitle: 'Calendly', image: '' }],
+    experience: [{ position: 'Founder', company: 'Fernhill Studio', logo: '', duration: '3 yrs', start: 'Jan 2023', end: 'Present', type: 'Full-time' }],
+    totals: { experience: 2 },
+  },
 };
 
 const measured = [
@@ -185,6 +197,9 @@ FIXTURES[TOKENS.xss] = (() => {
   const base = FIXTURES[TOKENS.complete];
   const report = structuredClone(base.report);
   report.subject = { ...report.subject, name: EVIL_NAME, headline: EVIL_TEXT, photo_url: 'javascript:window.__pwned=1' };
+  report.subject.card = { ...report.subject.card, banner: 'javascript:window.__pwned=1', location: EVIL_TEXT, about: EVIL_TEXT, company: EVIL_NAME,
+    action: { label: EVIL_TEXT, url: 'javascript:window.__pwned=1' }, featured: [{ title: EVIL_TEXT, subtitle: EVIL_NAME, image: 'javascript:window.__pwned=1' }],
+    experience: [{ position: EVIL_TEXT, company: EVIL_NAME, logo: 'x' }], top_skills: [EVIL_NAME] };
   report.research.buyers_named[0] = { name: EVIL_NAME, headline: EVIL_TEXT, url: 'javascript:window.__pwned=1' };
   report.research.competitor_engagers.notes[0].note = EVIL_TEXT;
   report.narrative.headline = EVIL_TEXT;

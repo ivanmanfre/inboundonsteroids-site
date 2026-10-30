@@ -381,6 +381,7 @@ test('hostile text from a profile is shown as text, never run or turned into ele
   assert.deepEqual(found, { pwned: false, imgX: 0, injected: 0, scripts: 0, jsLinks: 0 });
   assert.match(await page.textContent('#hero .subj b'), /<img src=x onerror=/);
   assert.match(await page.textContent('#hero .gap'), /<script>window.__pwned=1<\/script>/);
+  assert.match(await page.textContent('.li-mock .lm-box p.clip'), /<script>window.__pwned=1<\/script>/);
   assert.equal(dialogs, 0);
   assert.deepEqual(errors, []);
   await context.close();
@@ -611,3 +612,31 @@ for (const width of WIDTHS) {
     }
   });
 }
+
+test('profile mock: drawn from the profile card the way LinkedIn shows it', async () => {
+  const { page, errors, context } = await open('/score/r/?t=' + TOKENS.complete);
+  await page.waitForSelector('#result:not([hidden]) .li-mock.full');
+  const m = await page.evaluate(() => {
+    const q = (s) => document.querySelector('.li-mock ' + s);
+    return {
+      banner: q('.lm-bimg') && q('.lm-bimg').getAttribute('src'),
+      verified: !!q('.lm-ver'), premium: !!q('.lm-prem'),
+      loc: q('.lm-loc') && q('.lm-loc').textContent, site: q('.lm-site') && q('.lm-site').textContent,
+      meta: q('.lm-meta') && q('.lm-meta').textContent, orgs: [...document.querySelectorAll('.li-mock .lm-orgs li')].map((x) => x.textContent),
+      btns: [...document.querySelectorAll('.li-mock .lm-btns .b')].map((x) => x.textContent.trim()),
+      about: q('.lm-box p.clip') && q('.lm-box p.clip').textContent, skills: q('.lm-skills span') && q('.lm-skills span').textContent,
+      cards: [...document.querySelectorAll('.li-mock .lm-card b')].map((x) => x.textContent),
+      exp: [...document.querySelectorAll('.li-mock .lm-exp b')].map((x) => x.textContent),
+    };
+  });
+  assert.deepEqual(m, {
+    banner: 'https://media.licdn.com/dms/image/test/maya-banner.jpg', verified: true, premium: false,
+    loc: 'Bristol, England, United Kingdom · Contact info', site: 'fernhillstudio.com',
+    meta: '3,412 followers · 500+ connections', orgs: ['Fernhill Studio', 'University of Bristol'],
+    btns: ['+ Follow', 'Message', 'Visit my website'],
+    about: 'Paid social for skincare brands.\nWe run the ads and the creative.', skills: 'Paid Social • Meta Ads',
+    cards: ['How we scaled Glow Lab', 'Book a call'], exp: ['Founder'],
+  });
+  assert.deepEqual(errors, []);
+  await context.close();
+});
