@@ -461,6 +461,15 @@
   }
 
   /* ---------- the profile: one annotated mock of their LinkedIn, numbered pins, the findings beside it ---------- */
+  /* the profile mock is taller than most screens: it scrolls to its own bottom, then holds there */
+  function stickArt() {
+    const art = document.querySelector('.pf-art');
+    if (!art) return;
+    const fit = () => { art.style.top = Math.min(100, innerHeight - art.offsetHeight - 24) + 'px'; };
+    fit();
+    art.querySelectorAll('img').forEach((im) => { if (!im.complete) im.addEventListener('load', fit, { once: true }); });
+    if (!stickArt.on) { stickArt.on = true; addEventListener('resize', () => { const a = document.querySelector('.pf-art'); if (a) a.style.top = Math.min(100, innerHeight - a.offsetHeight - 24) + 'px'; }, { passive: true }); }
+  }
   function profileMarkup(ctx, pending) {
     const { scores, by, narrative, report, subject, date } = ctx;
     const audit = (report.audit || []).filter((a) => a && a.area && a.fix && AREA_LABEL[a.area]);
@@ -483,28 +492,58 @@
     const inMock = new Set(['followers', ...(byArea.booking ? ['booking_path'] : []), ...(byArea.featured || by.featured_count ? ['featured_count'] : [])]);
     facts.forEach((f) => { const a = FACT_AREA[f.id]; if (a && num[a]) groups[a].facts.push(f); else if (!inMock.has(f.id) || !f.readable) rest.push(f); });
 
-    // the mock, built only from what we read
+    // the mock, built only from what we read: the profile card when the run carries one, else the audit quotes
     const slug = (() => { try { return decodeURIComponent(new URL(subject.linkedin_url).pathname.replace(/\/$/, '')); } catch (_) { return ''; } })();
-    const photo = R.safeUrl(subject.photo_url);
+    const card = subject.card && typeof subject.card === 'object' ? subject.card : {};
+    const photo = R.safeUrl(card.photo) || R.safeUrl(subject.photo_url);
     const pin = (a) => (num[a] ? `<a class="pn-pin" href="#pf-${a}" aria-label="Finding ${num[a]}: ${esc(AREA_LABEL[a])}">${num[a]}</a>` : '');
+    const img = (u, cls) => (R.safeUrl(u) ? `<img class="${cls}" src="${esc(R.safeUrl(u))}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : '');
+    const n = (v) => (R.num(v) ? v : null);
     const ban = byArea.banner;
-    const bannerText = ban ? (ban.quote ? `<span class="bq">${esc(ban.quote)}</span>` : `<span class="bt">${esc(ban.today || '')}</span>`) : '';
-    const fol = by.followers && by.followers.readable ? `<p class="lm-meta">${esc(by.followers.display)}</p>` : '';
+    const bannerImg = R.safeUrl(card.banner);
+    const bannerText = bannerImg ? '' : ban ? (ban.quote ? `<span class="bq">${esc(ban.quote)}</span>` : `<span class="bt">${esc(ban.today || '')}</span>`) : '';
+    const shield = card.verified ? '<svg class="lm-ver" viewBox="0 0 16 16" role="img" aria-label="Verified"><path d="M8 1.2 2.6 3.3v4.1c0 3.3 2.3 6.2 5.4 7.4 3.1-1.2 5.4-4.1 5.4-7.4V3.3L8 1.2z" fill="#56687A"/><path d="m5.3 8 1.9 1.9 3.6-3.7" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' : '';
+    const prem = card.premium ? '<span class="lm-prem" role="img" aria-label="Premium">in</span>' : '';
+    const fol = n(card.followers) != null ? `${card.followers.toLocaleString('en-US')} followers` : (by.followers && by.followers.readable ? by.followers.display : '');
+    const con = n(card.connections) != null ? (card.connections > 500 ? '500+ connections' : `${card.connections} connections`) : '';
+    const meta = [fol, con].filter(Boolean).join(' · ');
+    const orgs = [[card.company, card.company_logo], [card.school, card.school_logo]].filter(([t]) => t)
+      .map(([t, l]) => `<li>${img(l, 'lm-logo') || '<span class="lm-logo"></span>'}<span>${esc(t)}</span></li>`).join('');
+    const act = card.action && R.safeUrl(card.action.url) ? card.action : null;
     const bk = byArea.booking;
-    const bookRow = bk ? `<p class="lm-link">${bk.quote ? `<span class="lk">${esc(bk.quote)}</span>` : `<span class="lt">${esc((by.booking_path && by.booking_path.readable && by.booking_path.display) || bk.today || '')}</span>`}${pin('booking')}</p>` : '';
+    const site = act ? `<p class="lm-site">${esc((() => { try { return new URL(act.url).hostname.replace(/^www\./, ''); } catch (_) { return ''; } })())}</p>` : '';
+    const buttons = Object.keys(card).length ? `<div class="lm-btns"><span class="b p">${card.creator ? '+ Follow' : '+ Connect'}</span><span class="b o">Message</span>` +
+      (act ? `<span class="b g">${esc(act.label || 'Visit my website')} <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>` : '<span class="b g">More</span>') +
+      `${pin('booking')}</div>` : '';
+    const bookRow = !buttons && bk ? `<p class="lm-link">${bk.quote ? `<span class="lk">${esc(bk.quote)}</span>` : `<span class="lt">${esc((by.booking_path && by.booking_path.readable && by.booking_path.display) || bk.today || '')}</span>`}${pin('booking')}</p>` : '';
     const ab = byArea.about;
-    const about = ab ? `<section class="lm-box"><h5>About</h5><p class="${ab.quote ? 'clip' : 'lt'}">${esc(ab.quote || ab.today || '')}</p>${pin('about')}</section>` : '';
+    const aboutText = String(card.about || (ab && ab.quote) || '').replace(/\n[\s\u00a0]*\n+/g, '\n').trim();
+    const skills = (card.top_skills || []).filter(Boolean);
+    const about = aboutText || ab ? `<section class="lm-box"><h5>About</h5>` +
+      (aboutText ? `<p class="clip">${esc(aboutText)}</p><span class="lm-more">…see more</span>` : `<p class="lt">${esc(ab.today || '')}</p>`) +
+      (skills.length ? `<div class="lm-skills"><b>Top skills</b><span>${skills.map(esc).join(' • ')}</span></div>` : '') +
+      `${pin('about')}</section>` : '';
     const fc = by.featured_count;
-    const fn = fc && fc.readable ? Math.min(4, parseInt(firstNum(fc.display), 10) || 0) : 0;
-    const feat = byArea.featured || fc ? `<section class="lm-box"><h5>Featured</h5>` +
-      (fc && !fc.readable ? '<p class="lt">We couldn\'t read this</p>' : fn ? `<div class="lm-feat">${'<i></i>'.repeat(fn)}</div>` : `<p class="lt">${esc((byArea.featured && byArea.featured.today) || (fc && fc.display) || '')}</p>`) +
-      `${pin('featured')}</section>` : '';
-    const mock = `<figure class="li-mock sheet rv sheetin" aria-label="Your LinkedIn profile as we read it">` +
+    const slides = (card.featured || []).filter((f) => f && (f.title || f.image));
+    const fnum = fc && fc.readable ? Math.min(4, parseInt(firstNum(fc.display), 10) || 0) : 0;
+    const featBody = slides.length
+      ? `<div class="lm-cards">${slides.map((f) => `<div class="lm-card"><div class="ph">${img(f.image, 'lm-cimg')}</div><em>Link</em><b>${esc(f.title || '')}</b>${f.subtitle ? `<small>${esc(f.subtitle)}</small>` : ''}</div>`).join('')}</div>`
+      : fc && !fc.readable ? '<p class="lt">We couldn\'t read this</p>' : fnum ? `<div class="lm-feat">${'<i></i>'.repeat(fnum)}</div>` : `<p class="lt">${esc((byArea.featured && byArea.featured.today) || (fc && fc.display) || '')}</p>`;
+    const feat = slides.length || byArea.featured || fc ? `<section class="lm-box"><h5>Featured${slides.length > 2 ? `<span class="lm-count">${slides.length} items</span>` : ''}</h5>${featBody}${pin('featured')}</section>` : '';
+    const jobs = (card.experience || []).filter((e) => e && e.position).slice(0, 2);
+    const exp = jobs.length ? `<section class="lm-box"><h5>Experience</h5><ul class="lm-exp">${jobs.map((e) =>
+      `<li>${img(e.logo, 'lm-logo') || '<span class="lm-logo"></span>'}<div><b>${esc(e.position)}</b><span>${esc([e.company, e.type].filter(Boolean).join(' · '))}</span>` +
+      `<small>${esc([[e.start, e.end].filter(Boolean).join(' - '), e.duration].filter(Boolean).join(' · '))}</small></div></li>`).join('')}</ul></section>` : '';
+    const mock = `<figure class="li-mock sheet rv sheetin${Object.keys(card).length ? ' full' : ''}" aria-label="Your LinkedIn profile as we read it">` +
       `<div class="chrome"><i></i><i></i><i></i><span>linkedin.com${esc(slug)}</span><time>${esc(date ? 'captured ' + date : '')}</time></div>` +
-      `<div class="lm-banner">${bannerText}${pin('banner')}</div>` +
-      `<div class="lm-id">${photo ? `<img class="lm-av" src="${esc(photo)}" alt="" referrerpolicy="no-referrer">` : `<span class="lm-av">${esc(R.initials(subject.name))}</span>`}` +
-      `<h4>${esc(subject.name || '')}</h4><p class="lm-hl">${esc((byArea.headline && byArea.headline.quote) || subject.headline || '')}${pin('headline')}</p>${fol}${bookRow}</div>` +
-      about + feat + '</figure>';
+      `<div class="lm-top"><div class="lm-banner${bannerImg ? ' has-img' : ''}">${bannerImg ? img(bannerImg, 'lm-bimg') : ''}${bannerText}${pin('banner')}</div>` +
+      `<div class="lm-id"><div class="lm-avw${card.open_to_work ? ' otw' : card.hiring ? ' hiring' : ''}">${photo ? `<img class="lm-av" src="${esc(photo)}" alt="" referrerpolicy="no-referrer">` : `<span class="lm-av">${esc(R.initials(subject.name))}</span>`}</div>` +
+      `<div class="lm-cols"><div class="lm-main"><h4>${esc(subject.name || '')}${shield}${prem}</h4>` +
+      `<p class="lm-hl">${esc((byArea.headline && byArea.headline.quote) || subject.headline || '')}${pin('headline')}</p>` +
+      (card.location ? `<p class="lm-loc">${esc(card.location)} · <span class="lk">Contact info</span></p>` : '') + site +
+      (meta ? `<p class="lm-meta">${esc(meta)}</p>` : '') + `</div>${orgs ? `<ul class="lm-orgs">${orgs}</ul>` : ''}</div>` +
+      `${buttons}${bookRow}</div></div>` +
+      about + feat + exp + '</figure>';
 
     const factLine = (f) => `<p class="fl">${meter(ctx.norm[f.id])}<span>${esc(f.readable ? f.display : f.label + ": we couldn't read this")}</span></p>`;
     const findings = pinned.map((a) => {
@@ -811,6 +850,7 @@
     put('sim', simMarkup(ctx));
     put('stood', narrative && narrative.about_them && narrative.about_them.text ? `<div class="wrap"><p class="flow rv">${esc(narrative.about_them.text)}</p></div>` : '');
     put('pillars', profileMarkup(ctx, pending) + postsMarkup(ctx, pending) + pipelineMarkup(ctx, pending));
+    stickArt();
     put('engagers', engagersMarkup(ctx, running));
     put('competitors', competitorsMarkup(ctx, running));
     put('peers', peersMarkup(ctx, running));
