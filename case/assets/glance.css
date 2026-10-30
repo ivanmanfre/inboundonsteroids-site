@@ -33,3 +33,15 @@
 .cs-brief .lede { max-width: 44em; margin-top: 18px; }
 .cs-brief .brief-shot { margin-top: 40px; max-width: 980px; }
 .cs-brief .brief-shot img { width: 100%; height: auto; display: block; }
+
+/* Signal-based outreach */
+.cs-sig { position: relative; z-index: 2; padding: clamp(60px, 8vw, 120px) 0 0; }
+.cs-sig .lede { max-width: 42em; margin-top: 18px; }
+.sig { list-style: none; margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 16px; overflow: hidden; max-width: 1180px; }
+.sig li { background: rgba(15,14,13,.82); padding: 24px 24px 26px; }
+.sig b { display: block; font: 800 24px/1.08 "IMDisplay", sans-serif; letter-spacing: -.02em; }
+.sig span { display: block; margin-top: 10px; font-size: 15.5px; line-height: 1.5; color: var(--tx2); }
+.sig-ex { margin-top: 26px; max-width: 760px; background: var(--sheet); color: var(--ink); border-radius: 14px; padding: 22px 26px; box-shadow: var(--shadow-soft); }
+.sig-ex .mono { display: block; font: 500 12px/1 "IMMono", ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; color: #6b675f; }
+.sig-ex p { margin-top: 12px; font-size: 18px; line-height: 1.5; }
+.cs-sig .bcap { margin-top: 16px; }
