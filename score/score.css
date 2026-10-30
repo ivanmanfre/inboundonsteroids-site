@@ -108,8 +108,7 @@ button.btn:disabled { opacity: .6; cursor: progress; transform: none; }
 .nextrow .skip { font: 600 16px "IMSans"; color: #4a4e53; background: none; border: 0; border-bottom: 1.5px solid rgba(22,24,26,.2); padding: 0 0 2px; cursor: pointer; }
 .ack { margin-top: 18px; min-height: 1.45em; font-size: 15px; line-height: 1.45; color: #4a4e53; }
 .ack:not(:empty)::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 10px; border-radius: 50%; background: var(--ink); vertical-align: .08em; }
-.consent { display: flex; gap: 12px; align-items: flex-start; margin-top: 20px; font-size: 15px; line-height: 1.45; color: #4a4e53; cursor: pointer; }
-.consent input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--ink); flex: none; }
+.consent { margin-top: 16px; font-size: 14px; line-height: 1.45; color: #5f6368; }
 .details .go { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 22px; }
 .details .go .btn { background: var(--ink); color: var(--tx); }
 .details .go .btn i { background: var(--tx); color: var(--ink); }

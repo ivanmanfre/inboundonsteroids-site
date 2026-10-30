@@ -148,11 +148,11 @@ test('landing: link check, then one question at a time by keyboard, and a submit
   await page.click('#go');
   assert.match(await page.textContent('#email-err'), /Check your email/);
   await page.fill('#email', 'maya@fernhillstudio.com');
-  assert.equal(await page.isChecked('#consent'), false, 'the nurture box starts unticked');
+  assert.match(await page.textContent('#consent-note'), /unsubscribe/, 'the list notice sits by the email field');
   await Promise.all([page.waitForURL(/\/score\/r\/\?t=/), page.click('#go')]);
   assert.deepEqual(sent, {
     linkedin_url: 'https://www.linkedin.com/in/maya-okafor/', email: 'maya@fernhillstudio.com', website: 'https://fernhillstudio.com',
-    answers: { revenue: '30k_100k', team: '2_5', source: 'referrals', goal: 'more_calls' }, consent_nurture: false,
+    answers: { revenue: '30k_100k', team: '2_5', source: 'referrals', goal: 'more_calls' }, consent_nurture: true,
     session_id: '3f1c2b4a-1111-4222-8333-944455566677',
   });
   assert.deepEqual(Object.keys(sent).sort(), ['answers', 'consent_nurture', 'email', 'linkedin_url', 'session_id', 'website']);
@@ -173,7 +173,6 @@ test('landing: skipping the website sends no website key; server refusals show p
   await page.click('[data-step="4"] .skip');
   await page.waitForFunction(() => document.querySelector('#qcount').textContent === '6 of 6');
   await page.fill('#email', 'maya@fernhillstudio.com');
-  await page.click('#consent');
   await page.click('#go');
   await page.waitForFunction(() => document.querySelector('#send-err').textContent.length > 0);
   assert.match(await page.textContent('#send-err'), /last hour/);

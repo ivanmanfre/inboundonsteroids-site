@@ -382,7 +382,7 @@
       if (website && !/^https?:\/\//i.test(website)) website = 'https://' + website;
       let session = null;
       try { session = (JSON.parse(localStorage.getItem('ios_tracking_v1')) || {}).session_id || null; } catch (_) { session = null; }
-      const body = { linkedin_url: picked.url, email, answers, consent_nurture: $('#consent').checked };
+      const body = { linkedin_url: picked.url, email, answers, consent_nurture: true };
       if (website) body.website = website;
       if (session) body.session_id = session;
 
