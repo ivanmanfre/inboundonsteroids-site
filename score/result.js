@@ -411,7 +411,6 @@
   // in place (the rubric's WEAK_BELOW, 0.9) gets a tick; a gap shows how much of that input scores, as a small pie
   const meter = (v) => (R.num(v) ? (v >= 0.9 ? '<span class="mk ok" role="img" aria-label="In place"></span>'
     : `<span class="mk no" style="--v:${Math.max(0, Math.min(1, v))}" role="img" aria-label="To fix"></span>`) : '');
-  const minNorm = (ctx, ids) => { const vs = (ids || []).map((i) => ctx.norm[i]).filter(R.num); return vs.length ? Math.min(...vs) : null; };
   const fixLine = (fix) => (fix ? `<p class="fix"><i aria-hidden="true">→</i><span><b>${esc(fix)}</b></span></p>` : '');
 
   /* ---------- hero ---------- */
@@ -515,10 +514,10 @@
       // what the audit saw, when the mock could not quote it and no written finding says it already
       const today = !au.quote && au.today && !g.items.length ? `<p class="today">${esc(au.today)}</p>` : '';
       const fixes = g.items.map((it) => fixLine(it.fix)).join('') + fixLine(au.fix);
-      return `<li class="pf-f rv" id="pf-${a}"><span class="pn" aria-hidden="true">${num[a]}</span><div><h3>${esc(au.label || AREA_LABEL[a])}${meter(minNorm(ctx, [AREA_INPUT[a]]))}</h3>` +
+      return `<li class="pf-f rv" id="pf-${a}"><span class="pn" aria-hidden="true">${num[a]}</span><div><h3>${esc(au.label || AREA_LABEL[a])}</h3>` +
         `${text}${g.facts.map(factLine).join('')}${today}${fixes}${ptsButton(ids)}</div></li>`;
     }).join('');
-    const looseHTML = loose.map((it) => `<li class="pf-f loose rv"><span class="pn" aria-hidden="true"></span><div><h3>${esc(((it.fact_ids || []).map((id) => by[id]).find(Boolean) || {}).label || 'Also')}${meter(minNorm(ctx, it.fact_ids))}</h3>` +
+    const looseHTML = loose.map((it) => `<li class="pf-f loose rv"><span class="pn" aria-hidden="true"></span><div><h3>${esc(((it.fact_ids || []).map((id) => by[id]).find(Boolean) || {}).label || 'Also')}</h3>` +
       `<p class="ft">${esc(it.text)}</p>${fixLine(it.fix)}${ptsButton(it.fact_ids)}</div></li>`).join('');
     const writing = pending && !items.length ? writingLine() : '';
     const more = rest.length ? `<div class="also rv"><p class="also-h">Also measured</p><div class="also-g">${rest.map((f) => alsoTile(f, ctx)).join('')}</div></div>` : '';
@@ -553,7 +552,7 @@
     let cards = items.map((it, i) => {
       const vs = vizIds(ctx, it.fact_ids).map((id) => viz(ctx.by[id], ctx.hot.has(id), { say: false })).filter(Boolean);
       return `<article class="pc rv" style="--d:${i * 0.06}s">${vs.length ? `<div class="pc-viz${vs.length > 1 ? ' two' : ''}">${vs.join('')}</div>` : ''}` +
-        `<div class="pc-tx"><p class="ft">${meter(minNorm(ctx, it.fact_ids))}<span>${esc(it.text)}</span></p>${fixLine(it.fix)}${ptsButton(it.fact_ids)}</div></article>`;
+        `<div class="pc-tx"><p class="ft"><span>${esc(it.text)}</span></p>${fixLine(it.fix)}${ptsButton(it.fact_ids)}</div></article>`;
     }).join('');
     const facts = (ctx.report.facts || []).filter((f) => f.pillar === 'posts' && !QUOTED.has(f.id) && !OWN.has(f.id) && !cited.has(f.id));
     let more = '';
@@ -577,7 +576,7 @@
     items.forEach((it) => {
       const id = vizIds(ctx, it.fact_ids)[0];
       const v = id ? viz(ctx.by[id], ctx.hot.has(id), { say: false }) : '';
-      const tx = `<p class="ft">${meter(minNorm(ctx, it.fact_ids))}<span>${esc(it.text)}</span></p>${fixLine(it.fix)}${ptsButton(it.fact_ids)}`;
+      const tx = `<p class="ft"><span>${esc(it.text)}</span></p>${fixLine(it.fix)}${ptsButton(it.fact_ids)}`;
       if (v) withViz.push(`<div class="pl rv"><div class="pl-viz">${v}</div><div class="pl-tx">${tx}</div></div>`);
       else plain.push(`<div class="plc rv">${tx}</div>`);
     });
