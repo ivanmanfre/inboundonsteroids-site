@@ -11,3 +11,5 @@
 .cs-glance .g span strong { color: var(--tx); font-weight: 600; }
 .cs-glance .src { margin-top: 14px; font: 12px/1.5 "IMMono", ui-monospace, monospace; color: var(--tx3); }
 @media (max-width: 560px) { .cs-glance .g { grid-template-columns: 1fr 1fr; } .cs-glance .g > div { padding: 20px 16px 22px; } .cs-glance .g span { font-size: 13.5px; } }
+.cs-glance .lbl { font: 500 12px/1 "IMMono", ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--tx2); margin: 6px 0 14px; }
+.cs-glance .g b.brand { font-size: clamp(26px, 2.6vw, 38px); line-height: 1.02; letter-spacing: -.02em; }
