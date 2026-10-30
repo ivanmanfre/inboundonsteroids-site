@@ -1,7 +1,8 @@
 /* Revenue Line Score result page (/score/r/?t=<token>).
    Polls score-status every 2 s (10 s after 3 min), streams progress lines as the live reveal, renders the report at
-   status tier1 and keeps filling it in (narrative, Tier 2) until complete. ?print=1 and ?og=1 are the renderer modes:
-   everything visible without interaction, data-ready="1" on <html> once the report (or #og-card) has rendered. */
+   status tier1 and keeps filling it in (narrative, Tier 2) until complete. A run that failed after Tier 1 still shows
+   its report. ?print=1 is the PDF renderer mode: everything visible without interaction, data-ready="1" on <html> once
+   the report has rendered. */
 (() => {
   const R = window.RLS;
   const html = document.documentElement;
@@ -9,7 +10,7 @@
   const esc = R.esc;
   const q = new URLSearchParams(location.search);
   const token = q.get('t') || '';
-  const PRINT = q.get('print') === '1', OG = q.get('og') === '1';
+  const PRINT = q.get('print') === '1';
   const QUOTED = new Set(['buyers_named', 'peer_benchmark']);
   const OWN = new Set(['buyer_share', 'competitor_buyers']);
   const TOKEN_RX = /^[A-Za-z0-9_-]{22,40}$/;
@@ -84,10 +85,16 @@
     const note = $('#trouble'); if (note) note.hidden = true;
     $('#reveal').hidden = true; $('#result').hidden = true;
     const book = `<a class="btn big" href="${esc(bookHref())}">Book a call anyway <i>↗</i></a>`;
-    const markup = kind === 'failed'
+    // score_public carries no fail_reason: the profile line in progress means the profile was read, so a later
+    // failure is ours, never a private profile
+    const markup = kind === 'unreadable'
       ? `<div class="wrap"><h1 class="disp rv">We couldn't read that profile.</h1>
          <p class="body rv" style="--d:.1s">It may be private, or the link may point somewhere else. Check the link and try again, or talk it through with me on a call.</p>
          <div class="ctas rv" style="--d:.16s">${book}<a class="link" href="/score/">Try another link</a></div></div>`
+      : kind === 'unfinished'
+      ? `<div class="wrap"><h1 class="disp rv">We couldn't finish this one.</h1>
+         <p class="body rv" style="--d:.1s">Book a call and I'll go through it with you.</p>
+         <div class="ctas rv" style="--d:.16s"><a class="btn big" href="${esc(bookHref())}">Book a call <i>↗</i></a><a class="link" href="/score/">Start a new score</a></div></div>`
       : `<div class="wrap"><h1 class="disp rv">We can't find this result.</h1>
          <p class="body rv" style="--d:.1s">The link may be cut short. Check that you copied all of it, or start a new score.</p>
          <div class="ctas rv" style="--d:.16s"><a class="btn big" href="/score/">Start a new score <i>→</i></a></div></div>`;
@@ -181,6 +188,8 @@
     const before = scores.tier1_overall;
     const moved = R.num(before) && overall != null && before !== overall
       ? `<p class="moved rv">After reading who engages with you, the score went from ${before} to ${overall}.</p>` : '';
+    const partial = data.status === 'failed'
+      ? '<p class="partial rv">The deeper read did not finish this time. Everything below is what we could read.</p>' : '';
     const x = overall == null ? null : Math.max(0.5, Math.min(99.5, overall));
     const here = scores.tier;
     const segs = [['hobby', 0, R.FLOORS.side], ['side', R.FLOORS.side, R.FLOORS.revenue], ['revenue', R.FLOORS.revenue, 100]];
@@ -197,7 +206,7 @@
       `<div class="subj rv">${av}<div><b>${esc(subject.name || 'This profile')}</b>${subject.headline ? `<span>${esc(subject.headline)}</span>` : ''}</div></div>` +
       `<div class="grid">${ring('overall', overall, '', 'out of 100')}<div>` +
       `<h1 class="disp rv" style="--d:.08s">${overall == null ? 'Not enough to score yet.' : esc(tier) + '.'}</h1>` +
-      (gap ? `<p class="gap rv" style="--d:.16s">${esc(gap)}</p>` : '') + moved + `</div></div>` +
+      (gap ? `<p class="gap rv" style="--d:.16s">${esc(gap)}</p>` : '') + moved + partial + `</div></div>` +
       (overall != null ? scale : '') + actions + `</div>`;
   }
 
@@ -309,27 +318,23 @@
       `<figure class="sheet rv sheetin"><img src="/ivan-portrait-400.webp" alt="Ivan Manfredi" width="400" height="536"><figcaption><b>Ivan Manfredi</b><span>I make LinkedIn a revenue line for agency founders.</span></figcaption></figure></div>`;
   }
 
-  function ogMarkup(ctx) {
-    const { scores, subject } = ctx;
-    const overall = R.num(scores.overall) ? scores.overall : null;
-    const photo = R.safeUrl(subject.photo_url);
-    return ring('og', overall) + `<div><div class="who">${photo ? `<img src="${esc(photo)}" alt="" referrerpolicy="no-referrer">` : `<span class="av">${esc(R.initials(subject.name))}</span>`}<b>${esc(subject.name || '')}</b></div>` +
-      `<div class="t">${overall == null ? 'Not scored yet.' : esc(R.TIERS[scores.tier] || '') + '.'}</div>` +
-      `<p class="q">What's your <span>Revenue Line Score</span>?</p><p class="site">inboundonsteroids.com/score</p></div>`;
-  }
-
   /* ---------- one render pass ---------- */
   function render(data) {
     if (!last && cache.state) put('state', '');
     last = data;
     const status = data.status;
-    if (status === 'failed') { if (!OG && !PRINT) state('failed'); else done = true; return; }
     const report = data.report && typeof data.report === 'object' ? data.report : null;
     const scores = (report && report.scores) || data.scores;
-    const hasReport = ['tier1', 'complete'].includes(status) && report && scores && scores.pillars;
+    // a run that failed after Tier 1 was written keeps its report: shown, with a note in the hero
+    const hasReport = ['tier1', 'complete', 'failed'].includes(status) && report && scores && scores.pillars;
+    if (status === 'failed' && !hasReport) {
+      const read = (data.progress || []).some((p) => p && p.key === 'profile');
+      if (!PRINT) state(read ? 'unfinished' : 'unreadable'); else done = true;
+      return;
+    }
 
     if (!hasReport) {
-      if (OG || PRINT) return;
+      if (PRINT) return;
       $('#reveal').hidden = false;
       if (log.parentElement.id !== 'log-live') $('#log-live').appendChild(log);
       log.hidden = false;
@@ -352,12 +357,11 @@
     const subject = report.subject && typeof report.subject === 'object' ? report.subject : {};
     const research = report.research && typeof report.research === 'object' ? report.research : {};
     const narrated = (data.progress || []).some((p) => p && p.key === 'narrative');
-    const ctx = { report, scores, by, narrative, subject, research, date: day(data.created_at) };
+    // evidence is dated by when the profile was read (a cached subject can be up to 7 days old), else the run
+    const ctx = { report, scores, by, narrative, subject, research, date: day(subject.captured_at) || day(data.created_at) };
     ctx.weak = weakest(scores, by);
     ctx.hot = new Set(narrative && Array.isArray(narrative.headline_fact_ids) && narrative.headline ? narrative.headline_fact_ids : (ctx.weak ? [ctx.weak] : []));
     if (subject.name) document.title = `${subject.name}: Revenue Line Score`;
-
-    if (OG) { put('og-card', ogMarkup(ctx)); $('#og-card').hidden = false; markReady($('#og-card')); return; }
 
     if (!shownResult) {
       shownResult = true;
@@ -371,7 +375,7 @@
       };
       if (!reveal.hidden && !R.still()) { reveal.classList.add('out'); setTimeout(show, 300); } else show();
     }
-    const running = status !== 'complete';
+    const running = !['complete', 'failed'].includes(status);
     put('hero', heroMarkup(data, ctx));
     put('stood', narrative && narrative.about_them && narrative.about_them.text ? `<div class="wrap"><p class="flow rv">${esc(narrative.about_them.text)}</p></div>` : '');
     put('pillars', R.PILLARS.map((p) => pillarMarkup(p, ctx, running && !narrative && !narrated)).join(''));
@@ -404,7 +408,7 @@
   async function poll() {
     let res = null;
     try { res = await fetch(R.STATUS + '?t=' + encodeURIComponent(token), { cache: 'no-store' }); } catch (_) { res = null; }
-    if (res && (res.status === 404 || res.status === 400)) { if (!OG && !PRINT) state('missing'); return; }
+    if (res && (res.status === 404 || res.status === 400)) { if (!PRINT) state('missing'); return; }
     let data = null;
     if (res && res.ok) { try { data = await res.json(); } catch (_) { data = null; } }
     if (data && typeof data === 'object') {
@@ -414,10 +418,10 @@
       if (['complete', 'failed'].includes(data.status)) done = true;
     } else {
       failures++;
-      if (failures >= 3 && !OG && !PRINT && !done) trouble(true);
+      if (failures >= 3 && !PRINT && !done) trouble(true);
     }
     if (done) return;
-    const wait = OG || PRINT ? 1000 : Date.now() - start > 180000 ? 10000 : 2000;
+    const wait = PRINT ? 1000 : Date.now() - start > 180000 ? 10000 : 2000;
     setTimeout(poll, failures ? Math.min(wait * (1 + failures * 0.5), 15000) : wait);
   }
 
@@ -430,6 +434,6 @@
     $('#clock').textContent = clockText(ms);
   }, 1000);
 
-  if (!TOKEN_RX.test(token)) { if (!OG && !PRINT) state('missing'); }
+  if (!TOKEN_RX.test(token)) { if (!PRINT) state('missing'); }
   else poll();
 })();

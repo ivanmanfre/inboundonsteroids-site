@@ -38,7 +38,8 @@
   const decorate = link => {
     const url = new URL(link.href, location.href);
     if (url.hostname !== 'calendly.com' || url.pathname !== '/im-ivanmanfredi/30min') return false;
-    for (const k of keys) if (selected[k]) url.searchParams.set(k, selected[k]);
+    // a param the link already carries wins (the score result page's utm_source=score&utm_content=<token>)
+    for (const k of keys) if (selected[k] && !url.searchParams.get(k)) url.searchParams.set(k, selected[k]);
     if (!privateMode) {
       const original = clean(url.searchParams.get('utm_content'));
       url.searchParams.set('utm_content', (original ? original + '|' : '') + 'ios:' + state.session_id);

@@ -16,6 +16,9 @@ export const TOKENS = {
   xss: 'xssXssXssXssXssXssXssXss01',
   flaky: 'flakyFlakyFlakyFlakyFlak01',
   queued: 'queuedQueuedQueuedQueued01',
+  failedLate: 'failedLateFailedLateFail01',
+  failedReport: 'failedReportFailedReport01',
+  cached: 'cachedCachedCachedCached01',
 };
 
 const subject = {
@@ -183,4 +186,15 @@ FIXTURES[TOKENS.xss] = (() => {
   report.narrative.pillars.profile[0].text = EVIL_TEXT;
   report.audit[0].quote = EVIL_TEXT;
   return { ...base, report, progress: [...base.progress, { key: 'x', text: EVIL_TEXT, at: base.created_at }] };
+})();
+
+// A run that read the profile, then failed on its last attempt before any report: not a private profile.
+FIXTURES[TOKENS.failedLate] = { status: 'failed', progress: progressTier1.slice(0, 2), scores: null, report: null, pdf_url: null, created_at: created };
+// A run that wrote Tier 1, then failed in Tier 2 on its last attempt: the report is real and is shown.
+FIXTURES[TOKENS.failedReport] = { ...structuredClone(FIXTURES[TOKENS.tier1]), status: 'failed' };
+// A run on a subject read 4 days earlier (the 7-day cache): evidence is dated by the read, not the run.
+FIXTURES[TOKENS.cached] = (() => {
+  const f = structuredClone(FIXTURES[TOKENS.tier1]);
+  f.report.subject = { ...f.report.subject, captured_at: '2026-10-25T09:12:00+00:00' };
+  return f;
 })();

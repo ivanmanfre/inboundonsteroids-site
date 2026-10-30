@@ -232,6 +232,7 @@ test('failed and unknown tokens: plain message, never a stuck spinner', async ()
   const { page, errors, context } = await open('/score/r/?t=' + TOKENS.failed);
   await page.waitForSelector('#state:not([hidden])');
   assert.match(await page.textContent('#state h1'), /couldn't read that profile/);
+  assert.match(await page.textContent('#state'), /It may be private/);
   assert.match(await page.getAttribute('#state a:has-text("Book a call anyway")', 'href'), /calendly\.com\/im-ivanmanfredi\/30min/);
   assert.equal(await page.isHidden('#reveal'), true);
   const g = await open('/score/r/?t=nope');
@@ -243,6 +244,53 @@ test('failed and unknown tokens: plain message, never a stuck spinner', async ()
   const expected404 = (e) => /status of 404/.test(e);
   assert.deepEqual([...errors, ...g.errors, ...n.errors.filter((e) => !expected404(e))], []);
   await Promise.all([g.context.close(), n.context.close(), context.close()]);
+});
+
+test('a failure after the profile was read is not blamed on a private profile', async () => {
+  const { page, errors, context } = await open('/score/r/?t=' + TOKENS.failedLate);
+  await page.waitForSelector('#state:not([hidden])');
+  assert.equal((await page.textContent('#state h1')).trim(), "We couldn't finish this one.");
+  assert.match(await page.textContent('#state'), /Book a call and I'll go through it with you\./);
+  assert.doesNotMatch(await page.textContent('#state'), /private/);
+  assert.match(await page.getAttribute('#state a.btn', 'href'), /calendly\.com\/im-ivanmanfredi\/30min\?utm_source=score&utm_content=failedLate/);
+  assert.deepEqual(errors, []);
+  await context.close();
+});
+
+test('failed with a report: the report is shown with a quiet note, never the failure screen', async () => {
+  const { page, errors, context, calls } = await open('/score/r/?t=' + TOKENS.failedReport);
+  await page.waitForSelector('#result:not([hidden]) #p-pipeline');
+  assert.equal(await page.isHidden('#state'), true);
+  await page.waitForFunction(() => document.querySelector('#hero .rn span').textContent === '49');
+  assert.match(await page.textContent('#hero .partial'), /deeper read did not finish/);
+  assert.equal(await page.locator('.still').count(), 0, 'no "still reading" on a run that stopped');
+  assert.equal(await page.locator('.writing').count(), 0);
+  assert.equal(await page.locator('#log li.wait').count(), 0);
+  await page.waitForTimeout(2500);
+  assert.equal(calls.status, 1, 'polling stops on failed');
+  assert.deepEqual(errors, []);
+  await context.close();
+});
+
+test('evidence is dated by when the profile was read (cached subject), not when the run was made', async () => {
+  const { page, errors, context } = await open('/score/r/?t=' + TOKENS.cached);
+  await page.waitForSelector('#result:not([hidden]) #p-profile');
+  const text = await page.textContent('#p-profile');
+  assert.match(text, /captured 25 Oct 2026/i);
+  assert.doesNotMatch(text, /captured 29 Oct 2026/i);
+  assert.deepEqual(errors, []);
+  await context.close();
+});
+
+test('pre-launch: /score/ and /score/r/ are noindex, no canonical, not in the sitemap', async () => {
+  const land = await readFile(join(ROOT, 'score/index.html'), 'utf8');
+  const result = await readFile(join(ROOT, 'score/r/index.html'), 'utf8');
+  const sitemap = await readFile(join(ROOT, 'sitemap.xml'), 'utf8');
+  assert.match(land, /<meta name="robots" content="noindex,nofollow">/);
+  assert.doesNotMatch(land, /rel="canonical"/);
+  assert.doesNotMatch(land, /content="index,follow"/);
+  assert.match(result, /<meta name="robots" content="noindex,nofollow">/);
+  assert.doesNotMatch(sitemap, /\/score\//);
 });
 
 test('hostile text from a profile is shown as text, never run or turned into elements', async () => {
@@ -329,15 +377,12 @@ test('print mode: ready at tier1, everything visible, no placeholders', async ()
   await Promise.all([c.context.close(), context.close()]);
 });
 
-test('og mode: only the 1200x627 score card, then ready', async () => {
+test('no share-image mode: ?og=1 is the ordinary result page', async () => {
   const { page, errors, context } = await open(`/score/r/?t=${TOKENS.complete}&og=1`, { width: 1200, height: 627 });
-  // same wait as score_render.render_og: wait_for_selector('[data-ready="1"]') with the default "visible" state
-  await page.waitForSelector('[data-ready="1"]', { timeout: 15000 });
-  const box = await page.locator('#og-card').boundingBox();
-  assert.deepEqual([box.width, box.height], [1200, 627]);
-  assert.equal(await page.isHidden('main'), true);
-  assert.equal(await page.textContent('#og-card .rn span'), '47');
-  if (SHOTS) await page.locator('#og-card').screenshot({ path: join(SHOTS, 'og-card.png') });
+  await page.waitForSelector('#result:not([hidden]) #p-pipeline');
+  assert.equal(await page.locator('#og-card').count(), 0);
+  assert.equal(await page.evaluate(() => document.documentElement.classList.contains('og')), false);
+  assert.equal(await page.isVisible('main'), true);
   assert.deepEqual(errors, []);
   await context.close();
 });

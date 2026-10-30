@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="/score/score.css">
 <script>(function () {
   var q = new URLSearchParams(location.search), h = document.documentElement;
-  var still = matchMedia('(prefers-reduced-motion: reduce)').matches || q.get('print') === '1' || q.get('og') === '1';
-  h.className = (still ? 'rm' : 'js') + (q.get('print') === '1' ? ' print' : '') + (q.get('og') === '1' ? ' og' : '');
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches || q.get('print') === '1';
+  h.className = (still ? 'rm' : 'js') + (q.get('print') === '1' ? ' print' : '');
 })();</script>
 <meta name="description" content="A LinkedIn score researched from the real profile, posts and engagers: profile, posts and pipeline.">
 <meta property="og:title" content="What's your Revenue Line Score?">
@@ -79,8 +79,6 @@
     <a href="https://ivanmanfredi.com/">Ivan Manfredi ↗</a>
   </div>
 </footer>
-
-<div id="og-card" aria-hidden="true"></div>
 
 <script src="/score/score.js" defer></script>
 <script src="/score/result.js" defer></script>
