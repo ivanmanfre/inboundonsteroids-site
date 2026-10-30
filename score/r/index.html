@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0F0E0D">
+<title>Revenue Line Score</title>
+<link rel="preload" href="/assets/fonts/Brico.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/GeistV.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/score/score.css">
+<script>(function () {
+  var q = new URLSearchParams(location.search), h = document.documentElement;
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches || q.get('print') === '1';
+  h.className = (still ? 'rm' : 'js') + (q.get('print') === '1' ? ' print' : '');
+})();</script>
+<meta name="description" content="A LinkedIn score researched from the real profile, posts and engagers: profile, posts and pipeline.">
+<meta property="og:title" content="What's your Revenue Line Score?">
+<meta property="og:description" content="Paste your LinkedIn. We read your profile, your posts and who engages with them, then score it.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://inboundonsteroids.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script src="/assets/site-tracking.js" defer></script>
+</head>
+<body class="score rpage">
+<div class="room" aria-hidden="true"><div class="pool p1"></div><div class="pool p2"></div><div class="vig"></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav no-print" id="nav">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="InboundOnSteroids">inbound<b>on</b>steroids</a>
+    <nav>
+      <a class="btn" id="nav-book" href="https://calendly.com/im-ivanmanfredi/30min"><span class="dsk-i">Book a call with Ivan</span><span class="mob-i">Book a call</span> <i>↗</i></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- not found / failed -->
+  <section class="r-state" id="state" hidden></section>
+
+  <!-- the live research reveal (queued, running) -->
+  <section class="reveal" id="reveal" hidden>
+    <div class="wrap grid">
+      <div>
+        <h1 class="disp rv">Reading your LinkedIn.</h1>
+        <p class="lede rv" style="--d:.1s">Each line here is something we just found on the profile. It fills in as we read.</p>
+        <span class="mono clock rv" style="--d:.16s" id="clock" aria-hidden="true">0:00</span>
+        <p class="queue" id="queue" hidden></p>
+      </div>
+      <div id="log-live"></div>
+    </div>
+  </section>
+
+  <!-- the result (tier1, complete) -->
+  <div id="result" hidden aria-live="off">
+    <section class="r-hero" id="hero"></section>
+    <section class="stood" id="stood" hidden></section>
+    <div id="pillars"></div>
+    <section class="t2" id="engagers" hidden></section>
+    <section class="t2" id="competitors" hidden></section>
+    <section class="t2" id="peers" hidden></section>
+    <section class="t2" id="plan" hidden></section>
+    <section class="book" id="book"></section>
+    <section class="loglist" id="log-home"><div class="wrap"><h2>How we got here.</h2></div></section>
+  </div>
+
+  <ol class="log" id="log" aria-live="polite" hidden><i class="thread" aria-hidden="true"></i></ol>
+</main>
+
+<footer class="no-print">
+  <div class="wrap">
+    <a class="mark" href="/">inbound<b>on</b>steroids</a>
+    <p><a href="/score/">Score another profile</a></p>
+    <a href="https://ivanmanfredi.com/">Ivan Manfredi ↗</a>
+  </div>
+</footer>
+
+<script src="/score/score.js" defer></script>
+<script src="/score/result.js" defer></script>
+</body>
+</html>

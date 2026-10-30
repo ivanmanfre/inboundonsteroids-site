@@ -4,9 +4,9 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 import { webcrypto } from 'node:crypto';
 const source = () => readFileSync(new URL('../assets/site-tracking.js', import.meta.url), 'utf8');
-function page(url, storage = new Map(), privacy = false, brokenStorage = false) {
+function page(url, storage = new Map(), privacy = false, brokenStorage = false, href = 'https://calendly.com/im-ivanmanfredi/30min') {
   const events = [], listeners = {};
-  const link = { href: 'https://calendly.com/im-ivanmanfredi/30min', textContent: 'Book', closest: () => link };
+  const link = { href, textContent: 'Book', closest: () => link };
   const store = { getItem: k => { if(brokenStorage) throw Error(); return storage.get(k)||null; }, setItem: (k,v) => { if(brokenStorage) throw Error(); storage.set(k,v); } };
   const document = { referrer: '', querySelectorAll: () => [link], addEventListener: (k,fn) => listeners[k]=fn };
   vm.runInNewContext(source(), { window: { location: new URL(url) }, location: new URL(url), document, localStorage:store, navigator:{ doNotTrack: privacy?'1':null, sendBeacon:(_u,b)=>{events.push(JSON.parse(b));return true;} }, crypto:webcrypto, URL, URLSearchParams, Date, JSON, fetch:()=>Promise.resolve(), console });
@@ -50,4 +50,20 @@ test('canonical index path accepted and shared local storage damage recovers', (
   const storage=new Map([['ios_tracking_v1','{"expires":9999999999999}']]);
   const p=page('https://inboundonsteroids.com/case/kyle-hunt/index.html',storage);
   assert.equal(p.events[0].path,'/case/kyle-hunt/');
+});
+test('utm params already on a link are kept (score result links), missing ones are filled', () => {
+  const token = 'completeCompleteComplete01';
+  const href = `https://calendly.com/im-ivanmanfredi/30min?utm_source=score&utm_content=${token}&email=a%40b.co`;
+  const p = page('https://inboundonsteroids.com/score/r/?t=x&utm_source=linkedin&utm_medium=social&utm_content=post42', new Map(), false, false, href);
+  const check = () => {
+    const params = new URL(p.link.href).searchParams;
+    assert.equal(params.get('utm_source'), 'score');
+    assert.equal(params.get('utm_medium'), 'social');
+    assert.match(params.get('utm_content'), new RegExp(`^${token}\\|ios:[a-f0-9-]{36}$`));
+    assert.equal(params.get('email'), 'a@b.co');
+  };
+  check();
+  p.click(); p.click(); p.auxclick();
+  check();
+  assert.equal(p.events.filter(e => e.event_type === 'booking_click').length, 3);
 });

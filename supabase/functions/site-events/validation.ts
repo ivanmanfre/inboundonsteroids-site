@@ -1,5 +1,5 @@
 const uuid = /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
-const paths = new Set(['/', '/case-studies/', '/case/kyle-hunt/', '/case/rise-dtc/', '/case/lemonade/']);
+const paths = new Set(['/', '/case-studies/', '/case/kyle-hunt/', '/case/rise-dtc/', '/case/lemonade/', '/score/', '/score/r/']);
 const touchKeys = new Set(['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'referrer_host']);
 const plain = (v: unknown) => typeof v === 'string' && v.length <= 160 && !/[\u0000-\u001f@]/.test(v);
 const touch = (v: unknown) => !!v && typeof v === 'object' && !Array.isArray(v) && Object.entries(v).every(([k,x])=>touchKeys.has(k)&&plain(x));
