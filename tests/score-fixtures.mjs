@@ -96,14 +96,15 @@ const narrative = {
   ],
   about_them: { fact_id: 'median_engagement_original', text: 'Your posts get 23 reactions, comments and reposts each, a real audience that is ready for a next step.' },
 };
-const pillarScores = (overall, p1, p2, p3) => ({
-  overall, tier: overall == null ? null : overall >= 75 ? 'revenue' : overall >= 45 ? 'side' : 'hobby',
-  pillars: {
-    profile: { score: p1, inputs: ['banner_set', 'booking_path', 'followers', 'headline_clear'], missing: ['featured_count'], normalised: { banner_set: 1, booking_path: 0.5, followers: 0.6, headline_clear: 1, banner_states_offer: 0, about_opens_on_buyer: 0, proof_visible: 0 } },
-    posts: { score: p2, inputs: ['posts_per_week_90d', 'original_share_90d'], missing: [], normalised: { posts_per_week_90d: 0.43, original_share_90d: 0.64, days_since_original: 0.89, median_engagement_original: 0.57, format_mix: 1, topic_fit: 0.44 } },
-    pipeline: { score: p3, inputs: ['booking_path', 'cta_share'], missing: [], normalised: p3 == null ? {} : { booking_path: 0.5, lead_magnet_seen: 0, cta_share: 0.11 } },
-  },
-});
+// Scores as score_rubric.score() computes them from the facts above (normalised holds only the scored inputs, the
+// same keys as inputs). The page smoke test recomputes every fixture with the page's mirror of the rubric.
+const PROFILE = { score: 52, inputs: ['banner_set', 'booking_path', 'followers', 'headline_clear', 'banner_states_offer', 'about_opens_on_buyer', 'proof_visible'], missing: ['featured_count'],
+  normalised: { banner_set: 1, booking_path: 0.5, followers: 0.6412, headline_clear: 1, banner_states_offer: 0, about_opens_on_buyer: 0, proof_visible: 0 } };
+const POSTS1 = { score: 62, inputs: ['posts_per_week_90d', 'original_share_90d', 'days_since_original', 'median_engagement_original', 'format_mix', 'topic_fit'], missing: [],
+  normalised: { posts_per_week_90d: 0.42, original_share_90d: 0.7333, days_since_original: 0.8429, median_engagement_original: 0.5733, format_mix: 1, topic_fit: 0.4444 } };
+const POSTS2 = { score: 58, inputs: [...POSTS1.inputs, 'buyer_share'], missing: [], normalised: { ...POSTS1.normalised, buyer_share: 0.4439 } };
+const PIPE1 = { score: 17, inputs: ['booking_path', 'lead_magnet_seen', 'cta_share'], missing: [], normalised: { booking_path: 0.5, lead_magnet_seen: 0, cta_share: 0.1111 } };
+const PIPE2 = { score: 32, inputs: [...PIPE1.inputs, 'competitor_buyers'], missing: [], normalised: { ...PIPE1.normalised, competitor_buyers: 1 } };
 const progressTier1 = [
   ['profile', 'Found Maya Okafor: 3,412 followers', 6],
   ['posts', 'Read 14 posts from the past 90 days: 9 originals, 5 reposts', 14],
@@ -111,7 +112,7 @@ const progressTier1 = [
   ['business', 'Your business: Fernhill Studio (fernhillstudio.com)', 22],
   ['buyers', 'Who buys from you: founders and growth leads at skincare and beauty brands selling online', 31],
   ['booking', 'A booking link is only on your website', 58],
-  ['scores', 'Scored 49/100: profile 58, posts 55, pipeline 34', 59],
+  ['scores', 'Scored 44/100: profile 52, posts 62, pipeline 17', 59],
 ].map(([key, text, s]) => ({ key, text, at: at(s) }));
 const progressDone = [
   ...progressTier1,
@@ -119,11 +120,11 @@ const progressDone = [
   { key: 'engagers', text: 'Checked 214 people who engaged with your last 5 posts: 19 look like buyers', at: at(171) },
   { key: 'competitors', text: 'Read your competitors\' posts: 11 people who fit your buyer engaged with Brightline Social, Cobalt Creative and Arrow Media in the last 14 days', at: at(212) },
   { key: 'peers', text: 'Measured 3 peers in your niche: Jonas Reed, Ana Silva and Ben Carter', at: at(240) },
-  { key: 'scores_tier2', text: 'Scored 47/100 after the deeper read: profile 58, posts 52, pipeline 31', at: at(251) },
+  { key: 'scores_tier2', text: 'Scored 47/100 after the deeper read: profile 52, posts 58, pipeline 32', at: at(251) },
 ];
 
-const tier1Scores = pillarScores(49, 58, 55, 34);
-const completeScores = { ...pillarScores(47, 58, 52, 31), tier1_overall: 49 };
+const tier1Scores = { overall: 44, tier: 'hobby', pillars: { profile: PROFILE, posts: POSTS1, pipeline: PIPE1 } };
+const completeScores = { overall: 47, tier: 'side', pillars: { profile: PROFILE, posts: POSTS2, pipeline: PIPE2 }, tier1_overall: 44 };
 const facts1 = [...measured, ...judged];
 
 export const FIXTURES = {
@@ -158,7 +159,11 @@ export const FIXTURES = {
     },
   },
   [TOKENS.bare]: (() => {
-    const s = { ...pillarScores(44, 58, 55, null) };
+    // booking path unread: the pipeline keeps too few inputs to score, profile scores without it
+    const s = { overall: 57, tier: 'side', pillars: {
+      profile: { score: 52, inputs: PROFILE.inputs.filter((i) => i !== 'booking_path'), missing: ['featured_count', 'booking_path'],
+        normalised: Object.fromEntries(Object.entries(PROFILE.normalised).filter(([k]) => k !== 'booking_path')) },
+      posts: POSTS1, pipeline: { score: null, inputs: [], missing: ['booking_path', 'lead_magnet_seen', 'cta_share'], normalised: {} } } };
     return {
       status: 'complete', created_at: created, pdf_url: null, scores: s,
       progress: [...progressTier1, { key: 'narrative', text: 'Your scores and evidence are ready; the written findings could not be finished this time', at: at(120) }],
@@ -198,3 +203,17 @@ FIXTURES[TOKENS.cached] = (() => {
   f.report.subject = { ...f.report.subject, captured_at: '2026-10-25T09:12:00+00:00' };
   return f;
 })();
+
+// Iván's own finished run (token ozUp0kOn...), scores exactly as score-status returned them on 2026-10-30. His run is
+// the public example on the landing page; no prospect data lives in this file.
+export const IVAN_SCORES = {
+  tier: 'revenue', overall: 77, tier1_overall: 75,
+  pillars: {
+    posts: { score: 67, inputs: ['posts_per_week_90d', 'original_share_90d', 'days_since_original', 'median_engagement_original', 'format_mix', 'topic_fit'], missing: ['buyer_share'],
+      normalised: { topic_fit: 0.6667, format_mix: 1, original_share_90d: 1, posts_per_week_90d: 0.873, days_since_original: 1, median_engagement_original: 0.04 } },
+    profile: { score: 84, inputs: ['banner_set', 'featured_count', 'booking_path', 'followers', 'headline_clear', 'banner_states_offer', 'about_opens_on_buyer', 'proof_visible'], missing: [],
+      normalised: { followers: 0.5374, banner_set: 1, booking_path: 1, proof_visible: 1, featured_count: 1, headline_clear: 1, banner_states_offer: 0, about_opens_on_buyer: 1 } },
+    pipeline: { score: 80, inputs: ['booking_path', 'lead_magnet_seen', 'cta_share', 'competitor_buyers'], missing: [],
+      normalised: { cta_share: 0.1333, booking_path: 1, lead_magnet_seen: 1, competitor_buyers: 1 } },
+  },
+};
