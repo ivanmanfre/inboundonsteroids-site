@@ -1,0 +1,320 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARCH. style ballot: which of these sounds like you</title>
+<style>
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;
+src:url('assets/fonts/dm-sans-latin.woff2') format('woff2');}
+:root{--navy:#000F41;--lime:#F2FF82;--cobalt:#3562FF;--ink:#000F41;--gray:#666}
+*{box-sizing:border-box}
+body{margin:0;font-family:"DM Sans",-apple-system,system-ui,sans-serif;background:var(--navy);color:#fff;-webkit-text-size-adjust:100%}
+header{padding:22px 20px 6px;max-width:820px;margin:0 auto}
+svg.wm{width:112px;height:29px;display:block;margin:0 0 18px}
+h1{font-size:25px;line-height:1.12;margin:0 0 10px;letter-spacing:.01em;text-transform:uppercase}
+h2{font-size:14px;letter-spacing:.07em;text-transform:uppercase;color:var(--lime);margin:34px 2px 6px}
+.wrap{max-width:820px;margin:0 auto;padding:0 14px 150px}
+p.lede{color:#c8cfe8;font-size:15px;line-height:1.6;margin:0 0 12px}
+p.lede strong{color:#fff}
+.time{display:inline-block;background:#0a1a5c;border:1px solid #24357e;border-radius:999px;padding:6px 13px;font-size:12.5px;color:#c8cfe8;margin:2px 0 8px}
+.ask{background:var(--lime);color:var(--ink);border-radius:20px;padding:18px 18px 16px;margin:14px 0 6px}
+.ask h3{margin:0 0 8px;font-size:17px;text-transform:uppercase;letter-spacing:.03em}
+.ask p{margin:0 0 10px;font-size:15px;line-height:1.55}
+.ask .alt{background:rgba(0,15,65,.08);border-radius:14px;padding:11px 13px;font-size:14.5px;line-height:1.5;margin:0 0 12px}
+.asktoggle{display:flex;gap:11px;align-items:flex-start;background:var(--ink);color:var(--lime);border:0;border-radius:14px;padding:13px 14px;font:inherit;font-size:14.5px;line-height:1.4;text-align:left;width:100%;cursor:pointer}
+.asktoggle .bx{width:22px;height:22px;min-width:22px;border:2px solid var(--lime);border-radius:6px;position:relative;margin-top:1px}
+.asktoggle.on .bx:after{content:"\2713";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--ink)}
+.asktoggle.on .bx{background:var(--lime)}
+.secnote{color:#9aa6d6;font-size:13.5px;line-height:1.5;margin:2px 2px 10px}
+.why{color:#c8cfe8;font-size:14.5px;line-height:1.6;margin:14px 2px 6px;border-left:3px solid var(--cobalt);padding-left:12px}
+.why b{color:#fff}
+.tcard{background:#0a1a5c;border:1px solid #24357e;border-radius:18px;padding:14px 14px 6px;margin:6px 0 8px}
+.tkick{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700}
+.tcard h3{margin:5px 0 6px;font-size:18px;line-height:1.25}
+.tcard p{margin:0 0 12px;color:#c8cfe8;font-size:14px;line-height:1.5}
+.post{background:#fff;color:var(--ink);border-radius:18px;padding:15px 16px 14px;margin:10px 0}
+.post.on{outline:4px solid var(--lime)}
+.phead{margin:0 0 11px}
+.slabel{display:inline-block;background:var(--ink);color:var(--lime);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-right:8px}
+.sdesc{font-size:13.5px;color:#40497a;line-height:1.45;display:inline}
+.pbody{white-space:pre-wrap;font-size:15.5px;line-height:1.55;border-left:3px solid #e7eaf6;padding:2px 0 2px 13px;overflow-wrap:anywhere}
+.pick{margin-top:13px;width:100%;border:2px solid var(--cobalt);background:#fff;color:var(--cobalt);border-radius:999px;padding:12px 14px;font:inherit;font-size:14.5px;font-weight:700;cursor:pointer}
+.post.on .pick{background:var(--cobalt);color:#fff}
+.flag{background:#fff8e1;color:#6b5300;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.5;margin:10px 0}
+.flag b{color:#4a3900}
+.q{background:#0a1a5c;border:1px solid #24357e;border-radius:18px;padding:14px;margin:9px 0}
+.q .qt{font-size:15.5px;font-weight:700;margin:0 0 4px}
+.q .qn{font-size:13.5px;color:#9aa6d6;line-height:1.5;margin:0 0 9px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{border:2px solid #24357e;background:#000F41;color:#dfe4f7;border-radius:12px;padding:12px 14px;font:inherit;font-size:14.5px;text-align:left;cursor:pointer;line-height:1.35}
+.opt.on{background:var(--lime);color:var(--ink);border-color:var(--lime);font-weight:700}
+textarea{width:100%;min-height:88px;border-radius:14px;border:1px solid #24357e;background:#0a1a5c;color:#fff;font:inherit;font-size:15px;padding:12px 13px;line-height:1.5}
+textarea::placeholder{color:#7f8cc0}
+.bar{position:fixed;bottom:0;left:0;right:0;background:var(--lime);color:var(--ink);padding:11px 14px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:5}
+.bar strong{font-size:14px}
+.blbtn{border:2px solid var(--ink);background:var(--ink);color:var(--lime);border-radius:999px;padding:11px 20px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:inherit}
+.out{max-width:820px;margin:0 auto;padding:0 14px}
+.out textarea{min-height:150px;font-size:13.5px;white-space:pre;display:none}
+@media(max-width:560px){h1{font-size:22px}.pbody{font-size:15px}}
+</style></head><body>
+<header><svg class="wm" xmlns="http://www.w3.org/2000/svg" viewBox="701.000 473.691 518.398 134.375">
+<!-- ARCH. wordmark master - extracted verbatim from ARCH-Visual-identity-guidelines.pdf page 1 (vector, no redraw). Color via #F2FF82. -->
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 781.710938 604.332031 L 805.027344 604.332031 L 752.898438 474 L 701 604.332031 L 724.472656 604.332031 L 730.035156 589.742188 L 775.820312 589.757812 Z M 737.140625 571.394531 C 742.398438 556.796875 747.648438 542.195312 752.910156 527.59375 C 758.183594 542.207031 763.457031 556.820312 768.730469 571.433594 C 758.203125 571.425781 747.671875 571.410156 737.140625 571.394531 Z M 737.140625 571.394531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 891.851562 604.332031 L 917.578125 604.332031 L 882.1875 549.363281 C 882.1875 549.363281 906.378906 544.375 910.023438 522.378906 C 910.023438 522.378906 919.394531 480.035156 867.453125 477.519531 L 823.765625 477.519531 L 823.765625 498.875 L 844.414062 530.304688 L 844.414062 530.441406 L 823.765625 530.441406 L 823.765625 604.332031 L 845.609375 604.332031 L 845.609375 551.59375 L 858.105469 551.59375 L 858.117188 551.617188 L 858.140625 551.617188 Z M 849.785156 498.875 L 868.402344 498.875 C 891.070312 500.597656 888.847656 514.660156 888.847656 514.660156 C 889.085938 529.675781 869.882812 530.167969 869.882812 530.167969 Z M 849.785156 498.875 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 845.609375 551.59375 L 845.609375 604.332031 L 845.683594 604.332031 L 845.683594 551.617188 L 858.117188 551.617188 L 858.105469 551.59375 Z M 845.609375 551.59375 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1032.863281 509.28125 L 1048.28125 494.386719 C 1048.28125 494.386719 1031.785156 475.757812 1002.527344 475.695312 C 1002.527344 475.695312 967.269531 473.691406 947.484375 503.203125 C 947.484375 503.203125 922.816406 540.652344 947.484375 578.421875 C 947.484375 578.421875 964.621094 606.121094 1001.46875 606.121094 C 1001.46875 606.121094 1027.335938 608.066406 1048.28125 587.707031 L 1032.734375 572.589844 C 1032.734375 572.589844 1021.753906 584.90625 1002.953125 584.960938 C 1002.953125 584.960938 960.96875 586.1875 958.925781 542.15625 C 958.925781 542.15625 956.222656 495.847656 1005.234375 497.132812 C 1005.230469 497.132812 1020.605469 497.25 1032.863281 509.28125 Z M 1032.863281 509.28125 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1150.6875 477.519531 L 1150.6875 530.160156 L 1096.546875 530.160156 L 1096.546875 477.519531 L 1074.679688 477.519531 L 1074.679688 604.332031 L 1096.546875 604.332031 L 1096.546875 551.332031 L 1150.6875 551.332031 L 1150.6875 604.332031 L 1172.46875 604.332031 L 1172.46875 477.519531 Z M 1150.6875 477.519531 "/>
+  <path fill="#F2FF82" fill-rule="nonzero" d="M 1207.65625 605.519531 C 1214.144531 605.519531 1219.398438 600.40625 1219.398438 594.101562 C 1219.398438 587.796875 1214.144531 582.6875 1207.65625 582.6875 C 1201.171875 582.6875 1195.914062 587.796875 1195.914062 594.101562 C 1195.914062 600.40625 1201.171875 605.519531 1207.65625 605.519531 Z M 1207.65625 605.519531 "/>
+</svg>
+<h1>Which of these sounds like you</h1>
+<p class="lede"><strong>Six posts, two topics, three styles each.</strong> Pick one per topic, answer five one-tap questions, hit copy at the bottom and paste the block back to us.</p>
+<span class="time">About five minutes on a phone</span>
+</header>
+<div class="wrap">
+
+<div class="ask">
+<h3>First, the one thing worth more than everything below</h3>
+<p><strong>Write us 5 sloppy lines on any topic you like, or send a voice note.</strong> Unedited, no thinking about it. Whatever you would say to a UA lead across a table.</p>
+<div class="alt"><b>Lower effort version, same value:</b> forward us one thing you already wrote that is longer than a DM. An email, a Slack message, a long comment under someone's post. It does not need to be about work.</div>
+<button class="asktoggle" id="rawbtn" type="button"><span class="bx"></span><span>Tap here if you will send one of those. It goes in the copy block so we know to wait for it.</span></button>
+</div>
+<p class="why"><b>Why we are asking.</b> We measured 460 of your own messages, so we know how you build a sentence. Post-level voice is the gap. You have published 8 posts, all announcements, 7 to 42 words, and none of them argues a point. Six drafts and five taps get us closer than more analysis can. Five rough lines from you would beat both.</p>
+
+
+<h2>Topic 1</h2>
+<div class="tcard"><div class="tkick">Same subject, three styles</div>
+<h3>The store fee has not been one number for years</h3><p>A mechanism topic: rates, arithmetic, what a net target actually sits on. Read the three, then tap the button under the one that sounds most like you. Tap it again to clear it.</p></div>
+
+<div class="flag"><b>Worth knowing before you read these three:</b> they are dated goods. They rest on an Apple court filing from August 13 that a judge has not ruled on. If the ruling lands before we publish, all three need a re-cut. Judge the style here, and we will handle the facts.</div>
+<div class="post" data-topic="t1" data-style="A">
+<div class="phead"><span class="slabel">Style A</span><span class="sdesc">Closest to how you write in messages. Medium length, one concession, ends on a real question.</span></div>
+<div class="pbody">Apple put a new fee in front of a US court on August 13.
+
+The proposal is 15% on purchases made through an external website link-out. 10% for subscription renewals and partner-program apps. 5% for apps in the Small Business Program.
+
+Boundary first, because this one gets misread everywhere. It is a filing in the Epic case. Epic rejected it. The judge has not ruled. Since April 2025 that same court has barred Apple from taking anything on a link-out, so today this path is still free.
+
+Now look at what it does to &quot;the 30% store fee&quot;.
+
+Small Business Program is 15%, for developers under $1M in prior-year proceeds. In the EU, under Apple&#x27;s alternative business terms, the reduced rate is 13%. So the one number people subtract has been three numbers for a while, and Apple has now put a fourth in front of a judge.
+
+I understand the rounding. It keeps a conversation moving and it is close enough most of the time - that totally makes sense.
+
+It stops being close enough when the target is the thing being rounded. A net ROI target sits on top of whichever rate actually applies to that app.
+
+We ask this on every kickoff: are the targets gross or net? The question needs a second half now. Net of which rate?
+
+Do you know which rate is assumed inside the targets you are working to?</div>
+<button class="pick" data-group="t1" data-value="Style A">Pick Style A for this topic</button>
+</div>
+<div class="post" data-topic="t1" data-style="B">
+<div class="phead"><span class="slabel">Style B</span><span class="sdesc">Agency voice first. The mechanism explained in plain words, the caveat sitting right next to the number.</span></div>
+<div class="pbody">One question from our kickoff list. Are your targets gross or net of store fees?
+
+The usual answer is &quot;net of the 30%&quot;. Fair enough. That is the number the industry says out loud.
+
+It has not been a single number for years.
+
+Apple&#x27;s Small Business Program charges 15% to developers under $1M in prior-year proceeds. In the EU, under Apple&#x27;s alternative business terms, the reduced rate is 13%. And on August 13 Apple asked a US court to approve a fourth rate: 15% on purchases made through an external website link-out, 10% for subscription renewals and partner-program apps, 5% for apps already in the Small Business Program.
+
+That fourth one comes with a boundary attached, and the boundary is load-bearing. It is a court filing, Epic rejected it, and a judge still has to rule. Since April 2025 that court has barred Apple from taking anything on a link-out. As of today nothing has changed.
+
+The consequence for a UA plan is small and annoying. A target expressed net of store fees is only as stable as the rate sitting under it. That rate is now a live legal question.
+
+So the kickoff question needs a second half. Gross or net, and net of which rate.
+
+Which rate is assumed inside the model you are working to?</div>
+<button class="pick" data-group="t1" data-value="Style B">Pick Style B for this topic</button>
+</div>
+<div class="post" data-topic="t1" data-style="C">
+<div class="phead"><span class="slabel">Style C</span><span class="sdesc">Feed-native and short. Hard first line, more white space, fewest words of the three.</span></div>
+<div class="pbody">&quot;The 30% store fee&quot; has not been one rate for years.
+
+Standard: 30%.
+Small Business Program: 15%, under $1M in prior-year proceeds.
+EU alternative business terms: 13%.
+
+On August 13 Apple asked a US court to approve a fourth. 15% on purchases made through an external website link-out, 10% for subscription renewals and partner-program apps, 5% for Small Business Program apps.
+
+Read the boundary before you quote that anywhere. Epic rejected it. The judge has not ruled. Since April 2025 that court has barred Apple from taking anything on a link-out, so today the path is still free.
+
+For a UA person the fee itself is the small part. A net ROI target quoted this quarter can be describing different economics next quarter, with the campaign performing exactly the same.
+
+Gross or net was always the right question. It needs a second half now. Net of which rate.
+
+Which one is assumed in yours?</div>
+<button class="pick" data-group="t1" data-value="Style C">Pick Style C for this topic</button>
+</div>
+
+<h2>Topic 2</h2>
+<div class="tcard"><div class="tkick">Same subject, three styles</div>
+<h3>Creator numbers and paid numbers in the same weekly report</h3><p>A judgement topic: two rows measured under different rules, sitting side by side. Same three styles as topic 1, so your two picks separate the style from the subject.</p></div>
+
+<div class="flag"><b>The [DAVORIN: ...] line inside each of these three:</b> where we do not know a fact about how ARCH actually works, we ask you instead of inventing it. Those brackets are a question for you. They are not a typo, and they never ship in a published post.</div>
+<div class="post" data-topic="t2" data-style="A">
+<div class="phead"><span class="slabel">Style A</span><span class="sdesc">Closest to how you write in messages. Medium length, one concession, ends on a real question.</span></div>
+<div class="pbody">Someone posted a number in r/PPC this year that I keep coming back to.
+
+A TikTok Spark Ads campaign reported 121 clicks. The App Store showed 5 downloads.
+
+The explanation in the replies is the useful part. &quot;Clicks (all)&quot; counts taps on the caption, taps on the profile, taps into the comments. It was never 121 people heading to the store.
+
+Now put that row in a weekly report, directly under a Meta row.
+
+I understand why reports look like that. One table, one row per channel, ten minutes of a client&#x27;s attention - that totally makes sense.
+
+But the two rows were not built the same way. Click-through attribution credits a channel when someone clicks and then converts. View-through credits it when someone watches and converts later without clicking. Some platforms and formats have no view-through at all, so their number is click-through only.
+
+The creator campaign in a comparison like that might genuinely have been bad. My point is only that the table cannot tell you which one you are looking at.
+
+The fix is boring. Agree before the campaign which model each line is measured on, and put it on the report next to the number.
+
+[DAVORIN: do we already label the attribution model per row on our client reports? I did not want to claim a practice I cannot check.]
+
+Does your weekly report say it? 😃</div>
+<button class="pick" data-group="t2" data-value="Style A">Pick Style A for this topic</button>
+</div>
+<div class="post" data-topic="t2" data-style="B">
+<div class="phead"><span class="slabel">Style B</span><span class="sdesc">Agency voice first. The mechanism explained in plain words, the caveat sitting right next to the number.</span></div>
+<div class="pbody">Creator numbers get compared to paid-channel numbers in the same weekly report. We ask for that comparison and clients are right to want it. It only works if both numbers were produced under the same rules.
+
+Often they are not.
+
+Click-through attribution credits a channel when a user clicks and then converts inside a window. View-through credits a channel when a user watches an ad and converts later without clicking at all. Some platforms and formats effectively have no view-through, so everything they report is click-through only.
+
+Put a click-through-only line beside a view-through-enabled line and the second one carries an advantage that has nothing to do with the campaign. The difference you are reading contains a measurement gap of unknown size.
+
+A concrete version of the same problem, from a public r/PPC thread this year: a TikTok Spark Ads campaign reported 121 clicks against 5 App Store downloads. &quot;Clicks (all)&quot; counts taps on the caption, the profile and the comments, so it was never 121 people heading to the store.
+
+And on iOS in 2026 the honest position is that attribution is triangulated from several partial signals. Any single platform number is a partial account of what happened.
+
+So the discipline is to name the model. State which attribution model each row is measured on, on the report itself, and agree the comparison rules before the campaign starts, while nobody is defending a result.
+
+[DAVORIN: do our reports already state this per row? I have not claimed it as our practice because I cannot verify it.]
+
+What model is on the row we are being compared to?</div>
+<button class="pick" data-group="t2" data-value="Style B">Pick Style B for this topic</button>
+</div>
+<div class="post" data-topic="t2" data-style="C">
+<div class="phead"><span class="slabel">Style C</span><span class="sdesc">Feed-native and short. Hard first line, more white space, fewest words of the three.</span></div>
+<div class="pbody">A TikTok Spark Ads campaign reported 121 clicks and produced 5 App Store downloads.
+
+Public r/PPC thread, this year. The explanation in the replies is the part to keep: &quot;Clicks (all)&quot; counts taps on the caption, the profile and the comments. It was never 121 people going to the store.
+
+Now put that row under a Meta row in the same weekly report.
+
+Two different measurements, one column.
+
+Click-through credits the channel when someone clicks and then converts. View-through credits it when someone only watches and converts later. Some platforms and formats have no view-through at all.
+
+On iOS in 2026 you are triangulating partial signals anyway. Nobody is holding the full picture.
+
+The creator campaign might still have been bad. The report just cannot tell you.
+
+Name the model on the row. One line, agreed before the campaign, while nobody has a result to defend.
+
+[DAVORIN: do we do this today on client reports? I will not claim it until you confirm.]
+
+Does yours say it?</div>
+<button class="pick" data-group="t2" data-value="Style C">Pick Style C for this topic</button>
+</div>
+
+<h2>Overall</h2>
+<div class="q"><p class="qt">If we had to run one style from here on, which one</p>
+<p class="qn">Mixing is a real answer and we would rather have it. "B structure with C humor" is a valid reply, so is "A, but cut a third of it". Say it in the notes box below and we will build to that.</p>
+<div class="opts">
+<button class="opt" data-group="overall" data-value="Style A">Style A</button>
+<button class="opt" data-group="overall" data-value="Style B">Style B</button>
+<button class="opt" data-group="overall" data-value="Style C">Style C</button>
+<button class="opt" data-group="overall" data-value="A mix, see notes">A mix, see notes</button>
+</div></div>
+
+<h2>Five quick questions</h2>
+
+<div class="q"><p class="qt">Length register</p>
+<div class="opts">
+<button class="opt" data-group="length" data-value="Shorter and punchier">Shorter and punchier</button>
+<button class="opt" data-group="length" data-value="About right">About right</button>
+<button class="opt" data-group="length" data-value="Longer, with more mechanism">Longer, with more mechanism</button>
+</div></div>
+
+<div class="q"><p class="qt">Humor</p>
+<div class="opts">
+<button class="opt" data-group="humor" data-value="None, keep it straight">None, keep it straight</button>
+<button class="opt" data-group="humor" data-value="Dry aside occasionally">Dry aside occasionally</button>
+<button class="opt" data-group="humor" data-value="More of it">More of it</button>
+</div></div>
+
+<div class="q"><p class="qt">English polish</p>
+<p class="qn">Your own phrasing is part of the voice. Typos we fix either way.</p>
+<div class="opts">
+<button class="opt" data-group="english" data-value="Polish it to native business English">Polish it to native business English</button>
+<button class="opt" data-group="english" data-value="Leave my natural phrasing as it comes">Leave my natural phrasing as it comes</button>
+</div></div>
+
+<div class="q"><p class="qt">Numbers or story first</p>
+<div class="opts">
+<button class="opt" data-group="numbers" data-value="Lead with the number">Lead with the number</button>
+<button class="opt" data-group="numbers" data-value="Lead with the situation">Lead with the situation</button>
+<button class="opt" data-group="numbers" data-value="Depends on the post">Depends on the post</button>
+</div></div>
+
+<div class="q"><p class="qt">Warmth markers</p>
+<p class="qn">In your own messages you use exclamations and emoji regularly. Every draft this lane has produced so far is completely flat. We do not know which one is right for your feed.</p>
+<div class="opts">
+<button class="opt" data-group="warmth" data-value="None, keep posts flat">None, keep posts flat</button>
+<button class="opt" data-group="warmth" data-value="An occasional greeting, sign-off or emoji, like in your messages">An occasional greeting, sign-off or emoji, like in your messages</button>
+<button class="opt" data-group="warmth" data-value="More of it">More of it</button>
+</div></div>
+
+<h2>Anything else</h2>
+<div class="q"><p class="qn">Mixes, lines you hated, a topic you would never post about, a fact we got wrong. Anything here comes back with your answers.</p>
+<textarea id="notes" placeholder="B structure with C humor. Cut the last question. Nobody in gaming says ..."></textarea></div>
+
+<div class="out"><textarea id="fallback" readonly></textarea></div>
+</div>
+<div class="bar"><strong id="tally">0 of 8 answered</strong><button class="blbtn" id="copybtn">Copy my answers</button></div>
+<script>
+var picks={};
+function setPick(group,value,el){
+  if(picks[group]===value){delete picks[group];}else{picks[group]=value;}
+  document.querySelectorAll('[data-group="'+group+'"]').forEach(function(b){
+    var on=picks[group]===b.getAttribute('data-value');
+    b.classList.toggle('on',on);
+    if(b.classList.contains('pick')){b.closest('.post').classList.toggle('on',on);}
+  });
+  tally();
+}
+document.querySelectorAll('button.pick,button.opt').forEach(function(b){
+  b.addEventListener('click',function(){setPick(b.getAttribute('data-group'),b.getAttribute('data-value'),b);});
+});
+var raw=false;
+document.getElementById('rawbtn').addEventListener('click',function(){
+  raw=!raw;this.classList.toggle('on',raw);tally();
+});
+var GROUPS=[['t1','Topic 1 pick'],['t2','Topic 2 pick'],['overall','Overall'],
+  ['length','Length register'],['humor','Humor'],['english','English polish'],
+  ['numbers','Numbers or story'],['warmth','Warmth markers']];
+function tally(){
+  var n=0;GROUPS.forEach(function(g){if(picks[g[0]])n++;});
+  document.getElementById('tally').textContent=n+' of 8 answered';
+}
+function block(){
+  var lines=['ARCH style ballot - Davorin ('+new Date().toISOString().slice(0,10)+')',''];
+  GROUPS.forEach(function(g){lines.push(g[1]+': '+(picks[g[0]]||'-'));});
+  var n=document.getElementById('notes').value.trim();
+  lines.push('');
+  lines.push('Raw sample: '+(raw?'yes, sending 5 lines or a voice note':'not sending one'));
+  lines.push('Notes: '+(n?n:'-'));
+  return lines.join('\n');
+}
+document.getElementById('copybtn').addEventListener('click',function(){
+  var btn=this,txt=block();
+  function ok(){btn.textContent='Copied \u2713';setTimeout(function(){btn.textContent='Copy my answers';},1800);}
+  function fail(){var f=document.getElementById('fallback');f.style.display='block';f.value=txt;f.focus();f.select();
+    btn.textContent='Copy the box above';setTimeout(function(){btn.textContent='Copy my answers';},2600);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fail);}
+  else{fail();}
+});
+tally();
+</script>
+</body></html>
