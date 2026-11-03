@@ -7,259 +7,182 @@
 <title>ProSWPPP Bid Invites and LinkedIn</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: one reading column, two plans (bid invites, LinkedIn) each shown as rules + the actual messages in order, ending on a short "need from you" list. */
 :root{
   --bg:#F4F7F9; --card:#FFFFFF; --ink:#16334A; --muted:#5A7182; --line:#D8E3EA;
   --blue:#126B9C; --blue-soft:#E6F1F8; --green:#23704F; --green-soft:#E4F2EA;
-  --amber:#8F560C; --amber-soft:#FAF0E0; --bubble:#F7FAFC; --ph:#0E5E8C; --ph-bg:#DDEEF8;
+  --bubble:#F7FAFC; --ph:#0E5E8C; --ph-bg:#DDEEF8; --edit:#FFF6DC;
   --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
   --body:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0F1A22; --card:#16242F; --ink:#E3EDF3; --muted:#9AB0BF; --line:#2A3C49;
   --blue:#5DB2E3; --blue-soft:#183447; --green:#6CCB9D; --green-soft:#173427;
-  --amber:#E5B061; --amber-soft:#3A2C15; --bubble:#1B2C38; --ph:#9FD3F2; --ph-bg:#1E3D52; color-scheme:dark}}
+  --bubble:#1B2C38; --ph:#9FD3F2; --ph-bg:#1E3D52; --edit:#3A3215; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0F1A22; --card:#16242F; --ink:#E3EDF3; --muted:#9AB0BF; --line:#2A3C49;
   --blue:#5DB2E3; --blue-soft:#183447; --green:#6CCB9D; --green-soft:#173427;
-  --amber:#E5B061; --amber-soft:#3A2C15; --bubble:#1B2C38; --ph:#9FD3F2; --ph-bg:#1E3D52; color-scheme:dark}
+  --bubble:#1B2C38; --ph:#9FD3F2; --ph-bg:#1E3D52; --edit:#3A3215; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font:16.5px/1.6 var(--body)}
-.wrap{max-width:960px;margin:0 auto;padding-block:36px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.1;margin:0}
-h1{font-size:clamp(32px,5vw,44px);font-weight:800}
-h2{font-size:30px;font-weight:800}
-h3{font-size:20px;font-weight:700}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.55 var(--body)}
+.wrap{max-width:760px;margin:0 auto;padding:32px 16px 120px;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,6vw,40px);font-weight:800}
+h2{font-size:28px;font-weight:800}
+h3{font-size:17px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
 p{margin:0}
-.eyebrow{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
-.lede{color:var(--muted);font-size:18px;max-width:62ch}
-.head{display:flex;flex-direction:column;gap:10px}
-.connect{background:var(--blue);color:#fff;border-radius:14px;padding:18px 22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
-.connect p{max-width:56ch;color:#fff}
-.connect strong{font-family:var(--display);font-size:22px;display:block}
-.btn{display:inline-block;background:#fff;color:#0F5A84;font-weight:700;text-decoration:none;border-radius:999px;padding:11px 22px}
-.btn:focus-visible{outline:3px solid #FFD38A;outline-offset:2px}
-.section{display:flex;flex-direction:column;gap:16px;padding-top:18px;border-top:2px solid var(--line)}
-.section > .intro{display:flex;flex-direction:column;gap:8px}
-.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
-.rule{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
-.rule h3{font-size:17px;color:var(--blue);margin-bottom:6px}
-.rule ul{margin:0;padding-left:18px} .rule li{margin:4px 0}
-.steps{display:flex;flex-direction:column;gap:12px}
-.step{display:grid;grid-template-columns:150px 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.step .when{font-family:var(--display);font-weight:700;font-size:17px;color:var(--blue);line-height:1.25}
-.step .when small{display:block;font-family:var(--body);font-weight:500;font-size:13.5px;color:var(--muted);margin-top:4px}
-.step .msg{min-width:0;display:flex;flex-direction:column;gap:8px}
-.bubble{background:var(--bubble);border:1px solid var(--line);border-radius:14px 14px 14px 4px;padding:10px 14px;max-width:60ch}
-.email{background:var(--bubble);border:1px solid var(--line);border-radius:8px;padding:12px 14px;max-width:62ch}
-.email .subj{font-size:13.5px;color:var(--muted);margin-bottom:6px}
-.note{font-size:14px;color:var(--muted)}
-.ph{font-family:var(--mono);font-size:.86em;color:var(--ph);background:var(--ph-bg);border-radius:5px;padding:1px 5px;white-space:nowrap}
-.lane{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:14px}
-.lane-head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
-.tag{font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--blue-soft);color:var(--blue)}
-.tag.warm{background:var(--amber-soft);color:var(--amber)}
-.who{color:var(--muted)}
-.lane .step{border:0;background:transparent;padding:0;border-top:1px dashed var(--line);padding-top:12px;border-radius:0}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
-.col{border-radius:12px;padding:14px 16px;min-width:0}
-.col h3{font-size:16px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
-.col ul{margin:0;padding-left:18px} .col li{margin:5px 0}
-.ok{background:var(--green-soft)} .ok h3{color:var(--green)}
-.need{background:var(--amber-soft)} .need h3{color:var(--amber)}
-.tablewrap{overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:520px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
-th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:var(--display);font-size:15px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
-td code{font-family:var(--mono);font-size:13.5px}
-a{color:var(--blue)}
-@media (max-width:640px){.step{grid-template-columns:1fr;gap:8px}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.muted{color:var(--muted)}
+.tip{background:var(--blue-soft);border-radius:12px;padding:12px 16px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.chips li{background:var(--green-soft);color:var(--green);border-radius:999px;padding:5px 12px;font-size:14.5px;font-weight:600}
+.step{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start}
+.when{font-family:var(--display);font-weight:700;font-size:16px;line-height:1.2;padding-top:10px}
+.when small{display:block;font-family:var(--body);font-weight:500;font-size:13px;color:var(--muted)}
+.bubble{background:var(--bubble);border:1px solid var(--line);border-radius:14px;padding:11px 14px;outline:none;cursor:text;transition:background .15s}
+.bubble:hover{border-color:var(--blue)}
+.bubble:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.bubble.changed{background:var(--edit)}
+.subj{font-size:13px;color:var(--muted);margin-bottom:4px}
+.ph{background:var(--ph-bg);color:var(--ph);border-radius:6px;padding:0 5px;font-weight:600;white-space:nowrap}
+.q{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.q label{display:flex;gap:6px;align-items:center;background:var(--bubble);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;font-weight:600}
+textarea{width:100%;min-height:80px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;background:var(--bubble);color:var(--ink)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{font:700 17px var(--display);letter-spacing:.03em;border:0;border-radius:12px;padding:12px 22px;cursor:pointer;background:var(--blue);color:#fff}
+button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line);font-size:15px;padding:10px 16px}
+#status{font-weight:600;color:var(--green);min-height:1.2em}
+@media (max-width:520px){.step{grid-template-columns:1fr;gap:4px}.when{padding-top:0}}
 </style>
 </head>
 <body>
-
-
-<div class="wrap">
-  <header class="head">
-    <div class="eyebrow">ProSWPPP · plan from our Nov 2 call</div>
-    <h1>Bid invite follow-ups and LinkedIn</h1>
-    <p class="lede">Derek, this is how both will run, with every message written out. Edit anything that doesn't sound like you and I'll swap it in. Nothing goes out until you OK it.</p>
+<main class="wrap">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <h1>Bid invites + LinkedIn</h1>
+    <p class="tip">Tap any message to edit it. When you're done, hit <b>Copy my changes</b> and paste it to Ivan in Slack.</p>
   </header>
 
-  <div class="connect" role="region" aria-label="Connect LinkedIn">
-    <p><strong>Connecting your LinkedIn</strong>When you're ready, tell me and I'll send you a fresh secure link. Those links expire fast, so I make one right when you need it.</p>
-  </div>
-
-  <!-- BID INVITES -->
-  <section class="section" aria-labelledby="bid">
-    <div class="intro">
-      <div class="eyebrow">Part 1</div>
-      <h2 id="bid">Bid invite follow-ups</h2>
-      <p class="lede">For the jobs GCs invited us to bid on BuildingConnected, ConstructConnect, iSqFt and the others. Most of these are customers, so the emails stay short and sound like you wrote them.</p>
-    </div>
-
-    <div class="rules">
-      <div class="rule"><h3>How you upload</h3><ul>
-        <li>Two buttons on the import page: <b>CMD upload</b> and <b>Bid invites upload</b></li>
-        <li>One CSV per platform tab, September onward</li>
-        <li>Add a <b>Platform</b> column: BC, CC, ISQFT or Other</li>
-      </ul></div>
-      <div class="rule"><h3>When emails go out</h3><ul>
-        <li>Nothing before the bid date</li>
-        <li>First email right after upload if the bid date has passed, otherwise 2 business days after the bid</li>
-        <li>Early morning or late afternoon in their time zone, so it lands on top of the inbox</li>
-      </ul></div>
-      <div class="rule"><h3>Customers</h3><ul>
-        <li>If the company is a customer in Pipedrive, they get one email only</li>
-        <li>After that, follow-up is yours from the Pipedrive activity</li>
-        <li>Everyone else gets up to 3 emails over about 6 weeks</li>
-      </ul></div>
-      <div class="rule"><h3>No pile-ups</h3><ul>
-        <li>Several bids for the same contact = one email that names the projects</li>
-        <li>Nobody gets two emails from us within 3 days, across every sequence</li>
-        <li>Sent from the customer's owner in Pipedrive, or rotated across the team mailboxes</li>
-      </ul></div>
-      <div class="rule"><h3>When they reply</h3><ul>
-        <li>They come out of every sequence right away</li>
-        <li>The lead turns manual and you get a reply drafted, ready to copy and paste</li>
-      </ul></div>
-      <div class="rule"><h3>Project names</h3><ul>
-        <li>Short name, scope words dropped, SWPPP at the end</li>
-        <li>"UTMB CLC Parking Lot, All Trades" becomes <b>UTMB CLC Parking Lot SWPPP</b></li>
-        <li>Send me your rules and I'll add them</li>
-      </ul></div>
-    </div>
-
-    <h3>The emails</h3>
-    <div class="steps">
-      <div class="step">
-        <div class="when">Email 1<small>After the bid date. Everyone, customers included.</small></div>
-        <div class="msg">
-          <div class="email"><div class="subj">Subject: <span class="ph">{project short name}</span></div>Hey <span class="ph">{first name}</span>, did y'all win <span class="ph">{project short name}</span>? You should have a bid from us on the SWPPP. Let us know when you need it.</div>
-          <p class="note">Several bids for one contact:</p>
-          <div class="email"><div class="subj">Subject: Your recent bids</div>Hey <span class="ph">{first name}</span>, did y'all win any of these? <span class="ph">{Zavala SWPPP}</span>, <span class="ph">{Fort Bend SWPPP}</span>, <span class="ph">{Wharton SWPPP}</span>. You should have SWPPP bids from us on each one. Let us know when you need us.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="when">Email 2<small>About 4 weeks after the bid. Not customers.</small></div>
-        <div class="msg"><div class="email">Hey <span class="ph">{first name}</span>, checking back on <span class="ph">{project short name}</span>. If it went your way, we can have the SWPPP ready before you mobilize.</div></div>
-      </div>
-      <div class="step">
-        <div class="when">Email 3<small>About 6 weeks after the bid. Not customers.</small></div>
-        <div class="msg"><div class="email">Hey <span class="ph">{first name}</span>, last note on <span class="ph">{project short name}</span>. If you won it, happy to get the SWPPP going. If it went another way, no worries.</div></div>
+  <section style="display:flex;flex-direction:column;gap:14px" aria-labelledby="bid">
+    <h2 id="bid">1. Bid invites</h2>
+    <ul class="chips">
+      <li>Nothing before the bid date</li>
+      <li>Customers get 1 email</li>
+      <li>Max 1 email per company a day</li>
+      <li>Nobody twice in 3 days</li>
+      <li>Reply = out of everything</li>
+    </ul>
+    <div class="card">
+      <div class="step"><div class="when">Email 1<small>after the bid</small></div><div class="bubble" contenteditable="true" data-id="Bid email 1">Hey <span class="ph">{first name}</span>, did y'all win <span class="ph">{project}</span>? You should have a bid from us on the SWPPP. Let us know when you need it.</div></div>
+      <div class="step"><div class="when">Email 1<small>3+ bids</small></div><div class="bubble" contenteditable="true" data-id="Bid email 1, several bids">Hey <span class="ph">{first name}</span>, did y'all win any of these? <span class="ph">{project 1}</span>, <span class="ph">{project 2}</span>, <span class="ph">{project 3}</span>. You should have SWPPP bids from us on each one. Let us know when you need us.</div></div>
+      <div class="step"><div class="when">Email 2<small>~4 weeks</small></div><div class="bubble" contenteditable="true" data-id="Bid email 2">Hey <span class="ph">{first name}</span>, checking back on <span class="ph">{project}</span>. If it went your way, we can have the SWPPP ready before you mobilize.</div></div>
+      <div class="step"><div class="when">Email 3<small>~6 weeks</small></div><div class="bubble" contenteditable="true" data-id="Bid email 3">Hey <span class="ph">{first name}</span>, last one on <span class="ph">{project}</span>. If you won it, let's get the SWPPP going. If not, we'll get 'em on the next one.</div></div>
+      <div class="q" role="radiogroup" aria-label="How many bid emails">
+        <b>How many emails?</b>
+        <label><input type="radio" name="count" value="3 emails"> 3</label>
+        <label><input type="radio" name="count" value="2 emails (drop email 3)"> 2</label>
+        <label><input type="radio" name="count" value="1 email only"> Just 1</label>
       </div>
     </div>
-
-    <h3>CSV columns</h3>
-    <div class="tablewrap"><table>
-      <thead><tr><th>Column</th><th>What goes in it</th></tr></thead>
-      <tbody>
-        <tr><td><code>Company</code></td><td>The GC that invited us</td></tr>
-        <tr><td><code>Contact Name</code></td><td>Estimator or PM on the invite</td></tr>
-        <tr><td><code>Primary Email</code></td><td>Their email</td></tr>
-        <tr><td><code>Phone</code></td><td>If you have it</td></tr>
-        <tr><td><code>Bid Date</code></td><td>The bid date on the invite</td></tr>
-        <tr><td><code>Project Title</code></td><td>As it shows on the platform</td></tr>
-        <tr><td><code>Quick Link</code></td><td>Link to the invite</td></tr>
-        <tr><td><code>Platform</code></td><td>BC, CC, ISQFT or Other</td></tr>
-      </tbody>
-    </table></div>
   </section>
 
-  <!-- LINKEDIN -->
-  <section class="section" aria-labelledby="li">
-    <div class="intro">
-      <div class="eyebrow">Part 2</div>
-      <h2 id="li">LinkedIn: elephant hunting</h2>
-      <p class="lede">This runs on its own, from your LinkedIn and Sales Navigator. It stays separate from Pipedrive and the email sequences, so AGC, LBA and bid invites keep getting email and calls only. We aim at the people who decide who does the SWPPP, in four groups.</p>
+  <section style="display:flex;flex-direction:column;gap:14px" aria-labelledby="li">
+    <h2 id="li">2. LinkedIn</h2>
+    <p class="muted">From your LinkedIn, on its own. Directors of precon and chief estimators at 200+ person GCs. Invite with no note, 5 a day to start. Replies get emailed to you.</p>
+
+    <div class="card">
+      <h3>A. New in the seat (last 6 months)</h3>
+      <div class="step"><div class="when">Message 1<small>they accept</small></div><div class="bubble" contenteditable="true" data-id="LinkedIn A, message 1">Hey <span class="ph">{first name}</span>, appreciate the connection. Congrats on the new seat at <span class="ph">{company}</span>. Who got stuck with the SWPPPs over there?</div></div>
+      <div class="step"><div class="when">Message 2<small>3 days later</small></div><div class="bubble" contenteditable="true" data-id="LinkedIn A, message 2">Hey <span class="ph">{first name}</span>, new guy always gets handed the sub list and the stormwater binder nobody wants. Happy to take the binder off your hands.</div></div>
+      <div class="step"><div class="when">Message 3<small>7 days later</small></div><div class="bubble" contenteditable="true" data-id="LinkedIn A, message 3">Hey <span class="ph">{first name}</span>, last one, I promise 😄 If a SWPPP ever lands on your desk, I'm the guy who actually picks up the phone.</div></div>
     </div>
 
-    <div class="rules">
-      <div class="rule"><h3>Who</h3><ul>
-        <li>Directors of Preconstruction first, then Chief Estimators, then Senior PMs</li>
-        <li>Construction companies with 200+ staff, in the states we work</li>
-        <li>People active on LinkedIn in the last 30 days go first</li>
-      </ul></div>
-      <div class="rule"><h3>How each person gets it</h3><ul>
-        <li>Connection request with no note</li>
-        <li>First message the day they accept</li>
-        <li>Not accepted after 14 days: one InMail from your Sales Navigator credits</li>
-      </ul></div>
-      <div class="rule"><h3>Pace</h3><ul>
-        <li>Week 1: 5 invites a day. Week 2: 10. Then 15</li>
-        <li>Weekdays 8am to 5pm Central</li>
-        <li>About 250 to 300 people in the first month, then we look at the results</li>
-      </ul></div>
-      <div class="rule"><h3>When they reply</h3><ul>
-        <li>Their messages stop right away</li>
-        <li>You get the reply by email with a suggested answer</li>
-        <li>Reminder after 1 business day if it's still open, again after 3</li>
-      </ul></div>
+    <div class="card">
+      <h3>B. Your old contacts who moved</h3>
+      <div class="step"><div class="when">Message 1<small>they accept</small></div><div class="bubble" contenteditable="true" data-id="LinkedIn B, message 1">Hey <span class="ph">{first name}</span>, saw you jumped to <span class="ph">{new company}</span>. Congrats man. Doing SWPPPs at <span class="ph">{old company}</span> hasn't been the same without you. Who's handling stormwater over there?</div></div>
+      <div class="step"><div class="when">Message 2<small>4 days later</small></div><div class="bubble" contenteditable="true" data-id="LinkedIn B, message 2">Hey <span class="ph">{first name}</span>, if <span class="ph">{new company}</span> has anything coming up, send it my way. Same turnaround as the old days, just a new letterhead.</div></div>
     </div>
 
-    <article class="lane">
-      <div class="lane-head"><h3>A. New in the seat</h3><span class="tag">Main group</span></div>
-      <p class="who">Started the role in the last 3 to 6 months. New people rebuild their sub list.</p>
-      <div class="step"><div class="when">Message 1<small>Day they accept</small></div><div class="msg"><div class="bubble">Hey <span class="ph">{first name}</span>, appreciate the connection. Congrats on the new role at <span class="ph">{company}</span>. Who's handling the SWPPPs over there these days?</div></div></div>
-      <div class="step"><div class="when">Message 2<small>3 business days later</small></div><div class="msg"><div class="bubble">Hey <span class="ph">{first name}</span>, first few months in a new seat usually means rebuilding the sub list. Worth having a SWPPP guy on it who actually picks up the phone?</div></div></div>
-      <div class="step"><div class="when">Message 3<small>7 business days after message 1</small></div><div class="msg"><div class="bubble">Hey <span class="ph">{first name}</span>, I'll stop sliding into your DMs about stormwater after this one 😄 If a SWPPP ever lands on your desk, send it my way.</div></div></div>
-    </article>
+    <div class="card">
+      <h3>C. Whoever replaced them</h3>
+      <div class="step"><div class="when">Message 1<small>they accept</small></div><div class="bubble" contenteditable="true" data-id="LinkedIn C, message 1">Hey <span class="ph">{first name}</span>, appreciate the connection. We've done <span class="ph">{company}</span>'s SWPPPs for a while, so I figured I should say hi to the new precon boss.</div></div>
+      <div class="step"><div class="when">Message 2<small>4 days later</small></div><div class="bubble" contenteditable="true" data-id="LinkedIn C, message 2">Hey <span class="ph">{first name}</span>, anything on your desk that needs a SWPPP? Happy to bid it. Way cheaper than a stop-work order.</div></div>
+    </div>
 
-    <article class="lane">
-      <div class="lane-head"><h3>B. Your old contacts who moved</h3><span class="tag warm">Warmest</span></div>
-      <p class="who">From your old customer list: the Randys who left for another company. They already know you.</p>
-      <div class="step"><div class="when">Message 1<small>Day they accept</small></div><div class="msg"><div class="bubble">Hey <span class="ph">{first name}</span>, saw you made the move to <span class="ph">{new company}</span>. Congrats man. We miss doing your SWPPPs from the <span class="ph">{old company}</span> days. Who's handling stormwater over there?</div></div></div>
-      <div class="step"><div class="when">Message 2<small>4 business days later</small></div><div class="msg"><div class="bubble">Hey <span class="ph">{first name}</span>, if y'all have anything coming up at <span class="ph">{new company}</span> that needs a SWPPP, send it over and we'll take care of you like old times.</div></div></div>
-    </article>
+    <div class="card">
+      <h3>D. People posting about stormwater or permits</h3>
+      <div class="step"><div class="when">Message 1<small>they accept</small></div><div class="bubble" contenteditable="true" data-id="LinkedIn D, message 1">Hey <span class="ph">{first name}</span>, saw your post about <span class="ph">{topic}</span>. <span class="ph">{one line about it}</span> Always nice to find another stormwater nerd.</div></div>
+      <p class="muted" style="font-size:15px">Each one is written for their post, and you see it before it goes. Then they get A's messages 2 and 3.</p>
+    </div>
 
-    <article class="lane">
-      <div class="lane-head"><h3>C. Whoever replaced them</h3><span class="tag warm">Warm</span></div>
-      <p class="who">The Steves: the new precon or estimating lead at a company that used to send us everything.</p>
-      <div class="step"><div class="when">Message 1<small>Day they accept</small></div><div class="msg"><div class="bubble">Hey <span class="ph">{first name}</span>, appreciate the connection. We've done the SWPPPs for <span class="ph">{company}</span> for a while, most recently <span class="ph">{last project}</span>. Wanted to say hi since you're the new go-to for precon.</div><p class="note">The last project is only named when Pipedrive or Trello shows it. Otherwise that part is left out.</p></div></div>
-      <div class="step"><div class="when">Message 2<small>4 business days later</small></div><div class="msg"><div class="bubble">Hey <span class="ph">{first name}</span>, anything coming up at <span class="ph">{company}</span> that needs a SWPPP? Happy to bid it.</div></div></div>
-    </article>
-
-    <article class="lane">
-      <div class="lane-head"><h3>D. Talking about stormwater</h3><span class="tag">Signal</span></div>
-      <p class="who">People posting or commenting about SWPPPs, stormwater or permits. They reply more, so they go first.</p>
-      <div class="step"><div class="when">Message 1<small>Day they accept</small></div><div class="msg"><div class="bubble">Hey <span class="ph">{first name}</span>, appreciate the connection. Saw your post about <span class="ph">{topic}</span>, <span class="ph">{one line about it}</span>. We write SWPPPs for GCs in <span class="ph">{state}</span>, so that one hit home.</div><p class="note">The line about their post is written for each person and checked before it goes.</p></div></div>
-      <div class="step"><div class="when">Messages 2 and 3<small>Same as group A</small></div><div class="msg"><p class="note">Same follow-ups and timing as group A.</p></div></div>
-    </article>
-
-    <article class="lane">
-      <div class="lane-head"><h3>InMail</h3><span class="tag">Sales Navigator</span></div>
-      <p class="who">For group A and B people who haven't accepted after 14 days.</p>
-      <div class="step"><div class="when">InMail<small>Day 14</small></div><div class="msg"><div class="email"><div class="subj">Subject: SWPPPs at <span class="ph">{company}</span></div>Hey <span class="ph">{first name}</span>, congrats on the new role. I'm Derek, I run ProSWPPP. We write the SWPPPs for GCs in <span class="ph">{state}</span>. If you're putting your sub list together, I'd love to be on it. Worth a 10 minute call?</div></div></div>
-    </article>
-  </section>
-
-  <section class="section" aria-labelledby="need">
-    <div class="intro"><div class="eyebrow">Next</div><h2 id="need">What I need from you</h2></div>
-    <div class="cols">
-      <div class="col need"><h3>Bid invites</h3><ul>
-        <li>Your edits on the 3 emails above</li>
-        <li>Your rules for short project names</li>
-        <li>One CSV per platform with the Platform column</li>
-        <li>The October CMD list</li>
-      </ul></div>
-      <div class="col need"><h3>LinkedIn</h3><ul>
-        <li>Tell me when you're ready to connect your LinkedIn, I'll send a fresh link</li>
-        <li>Your edits on the messages</li>
-        <li>Your old customer list: name, company, email, LinkedIn if you have it</li>
-        <li>States and company size to target</li>
-      </ul></div>
-      <div class="col ok"><h3>Then I</h3><ul>
-        <li>Load the bid CSVs and show you 10 real emails before any send</li>
-        <li>Start bid follow-ups on about 10 recent bids, then the rest</li>
-        <li>Start LinkedIn at 5 a day once you're connected</li>
-      </ul></div>
+    <div class="card">
+      <h3>InMail, if they don't accept in 2 weeks</h3>
+      <div class="step"><div class="when">InMail<small>day 14</small></div><div class="bubble" contenteditable="true" data-id="LinkedIn InMail"><div class="subj">Subject: SWPPPs at <span class="ph">{company}</span></div>Hey <span class="ph">{first name}</span>, congrats on the new role. I'm Derek, I run ProSWPPP. We write SWPPPs for GCs in <span class="ph">{state}</span> and we actually answer the phone. Worth 10 minutes?</div></div>
     </div>
   </section>
+
+  <section class="card" aria-labelledby="need">
+    <h2 id="need" style="font-size:24px">Send Ivan</h2>
+    <ul style="margin:0;padding-left:20px">
+      <li>Your bid CSVs (one per platform, with a Platform column: BC, CC, ISQFT or Other)</li>
+      <li>The October CMD list</li>
+      <li>Old customer list for LinkedIn, plus states and company size</li>
+    </ul>
+    <textarea id="notes" placeholder="Anything else? Write it here and it goes with your changes."></textarea>
+  </section>
+</main>
+
+<div class="bar">
+  <button id="copy" type="button">Copy my changes</button>
+  <button id="reset" class="ghost" type="button">Undo my edits</button>
+  <span id="status" role="status" aria-live="polite"></span>
 </div>
 
+<script>
+(function(){
+  var KEY='proswppp-plan-edits-v2';
+  var store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){store={};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+  var bubbles=[].slice.call(document.querySelectorAll('.bubble[contenteditable]'));
+  bubbles.forEach(function(b){
+    b.dataset.orig=b.innerHTML;
+    b.dataset.origText=b.innerText.trim();
+    var id=b.dataset.id;
+    if(store[id]){b.innerHTML=store[id];}
+    mark(b);
+    b.addEventListener('input',function(){store[id]=b.innerHTML;save();mark(b);});
+  });
+  function mark(b){b.classList.toggle('changed',b.innerText.trim()!==b.dataset.origText);}
+  var notes=document.getElementById('notes');
+  if(store.__notes)notes.value=store.__notes;
+  notes.addEventListener('input',function(){store.__notes=notes.value;save();});
+  var radios=[].slice.call(document.querySelectorAll('input[name=count]'));
+  radios.forEach(function(r){if(store.__count===r.value)r.checked=true;r.addEventListener('change',function(){store.__count=r.value;save();});});
+  var status=document.getElementById('status');
+  function buildText(){
+    var lines=['Derek\'s changes:'];
+    var changed=bubbles.filter(function(b){return b.innerText.trim()!==b.dataset.origText;});
+    if(!changed.length)lines.push('Messages look good as they are.');
+    changed.forEach(function(b){lines.push('');lines.push(b.dataset.id+':');lines.push(b.innerText.trim().replace(/\s+\n/g,'\n'));});
+    var c=radios.filter(function(r){return r.checked;})[0];
+    if(c){lines.push('');lines.push('Bid follow-ups: '+c.value);}
+    if(notes.value.trim()){lines.push('');lines.push('Notes: '+notes.value.trim());}
+    return lines.join('\n');
+  }
+  document.getElementById('copy').addEventListener('click',function(){
+    var t=buildText();
+    function done(){status.textContent='Copied. Paste it to Ivan in Slack.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fallback);}else{fallback();}
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){status.textContent='Could not copy, select the text and copy it.';}document.body.removeChild(ta);}
+  });
+  document.getElementById('reset').addEventListener('click',function(){
+    bubbles.forEach(function(b){b.innerHTML=b.dataset.orig;mark(b);});
+    radios.forEach(function(r){r.checked=false;});
+    notes.value='';store={};save();status.textContent='Back to the original.';
+  });
+})();
+</script>
 </body>
 </html>
