@@ -61,7 +61,7 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
 <main class="wrap">
   <header style="display:flex;flex-direction:column;gap:10px">
     <h1>Bid invites + LinkedIn</h1>
-    <p class="tip">Tap any message to edit it. When you're done, hit <b>Copy my changes</b> and paste it to Ivan in Slack.</p>
+    <p class="tip">Tap any message to edit it. Your changes save automatically and Ivan sees them.</p>
   </header>
 
   <section style="display:flex;flex-direction:column;gap:14px" aria-labelledby="bid">
@@ -129,58 +129,53 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
       <li>The October CMD list</li>
       <li>Old customer list for LinkedIn, plus states and company size</li>
     </ul>
-    <textarea id="notes" placeholder="Anything else? Write it here and it goes with your changes."></textarea>
+    <textarea id="notes" placeholder="Anything else? Write it here, it saves automatically."></textarea>
   </section>
 </main>
 
 <div class="bar">
-  <button id="copy" type="button">Copy my changes</button>
+  <span id="status" role="status" aria-live="polite">Changes save automatically</span>
   <button id="reset" class="ghost" type="button">Undo my edits</button>
-  <span id="status" role="status" aria-live="polite"></span>
 </div>
 
 <script>
 (function(){
-  var KEY='proswppp-plan-edits-v2';
-  var store={};
-  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){store={};}
-  function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
-  var bubbles=[].slice.call(document.querySelectorAll('.bubble[contenteditable]'));
-  bubbles.forEach(function(b){
-    b.dataset.orig=b.innerHTML;
-    b.dataset.origText=b.innerText.trim();
-    var id=b.dataset.id;
-    if(store[id]){b.innerHTML=store[id];}
-    mark(b);
-    b.addEventListener('input',function(){store[id]=b.innerHTML;save();mark(b);});
-  });
-  function mark(b){b.classList.toggle('changed',b.innerText.trim()!==b.dataset.origText);}
-  var notes=document.getElementById('notes');
-  if(store.__notes)notes.value=store.__notes;
-  notes.addEventListener('input',function(){store.__notes=notes.value;save();});
-  var radios=[].slice.call(document.querySelectorAll('input[name=count]'));
-  radios.forEach(function(r){if(store.__count===r.value)r.checked=true;r.addEventListener('change',function(){store.__count=r.value;save();});});
+  var SB="https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/shared_page_edits";
+  var ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI";
+  var SLUG="proswppp-plan-37386b43";
+  var H={"apikey":ANON,"Authorization":"Bearer "+ANON,"Content-Type":"application/json"};
   var status=document.getElementById('status');
-  function buildText(){
-    var lines=['Derek\'s changes:'];
-    var changed=bubbles.filter(function(b){return b.innerText.trim()!==b.dataset.origText;});
-    if(!changed.length)lines.push('Messages look good as they are.');
-    changed.forEach(function(b){lines.push('');lines.push(b.dataset.id+':');lines.push(b.innerText.trim().replace(/\s+\n/g,'\n'));});
-    var c=radios.filter(function(r){return r.checked;})[0];
-    if(c){lines.push('');lines.push('Bid follow-ups: '+c.value);}
-    if(notes.value.trim()){lines.push('');lines.push('Notes: '+notes.value.trim());}
-    return lines.join('\n');
+  var bubbles=[].slice.call(document.querySelectorAll('.bubble[contenteditable]'));
+  var notes=document.getElementById('notes');
+  var radios=[].slice.call(document.querySelectorAll('input[name=count]'));
+  function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function render(t){return esc(t).replace(/\{[^{}\n]{1,40}\}/g,function(m){return '<span class="ph">'+m+'</span>';}).replace(/\n/g,'<br>');}
+  function text(b){return b.innerText.replace(/\u00a0/g,' ').trim();}
+  bubbles.forEach(function(b){b.dataset.orig=b.innerHTML;b.dataset.origText=text(b);});
+  function mark(b){b.classList.toggle('changed',text(b)!==b.dataset.origText);}
+  function say(t){status.textContent=t;}
+  var timers={};
+  function put(key,body){
+    return fetch(SB,{method:'POST',headers:Object.assign({},H,{'Prefer':'resolution=merge-duplicates'}),
+      body:JSON.stringify({page_slug:SLUG,item_key:key,body:body})}).then(function(r){return r.ok;}).catch(function(){return false;});
   }
-  document.getElementById('copy').addEventListener('click',function(){
-    var t=buildText();
-    function done(){status.textContent='Copied. Paste it to Ivan in Slack.';}
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fallback);}else{fallback();}
-    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){status.textContent='Could not copy, select the text and copy it.';}document.body.removeChild(ta);}
-  });
+  function save(key,body){
+    say('Saving...');
+    clearTimeout(timers[key]);
+    timers[key]=setTimeout(function(){put(key,body).then(function(ok){say(ok?'Saved \u2713':'Not saved, check your connection');});},700);
+  }
+  fetch(SB+'?page_slug=eq.'+encodeURIComponent(SLUG)+'&select=item_key,body',{headers:H}).then(function(r){return r.ok?r.json():[];}).then(function(rows){
+    var m={};(rows||[]).forEach(function(r){m[r.item_key]=r.body;});
+    bubbles.forEach(function(b){var v=m[b.dataset.id];if(v&&v!==b.dataset.origText){b.innerHTML=render(v);}mark(b);});
+    if(m.__notes)notes.value=m.__notes;
+    radios.forEach(function(r){if(m.__count===r.value)r.checked=true;});
+  }).catch(function(){});
+  bubbles.forEach(function(b){b.addEventListener('input',function(){mark(b);save(b.dataset.id,text(b));});});
+  notes.addEventListener('input',function(){save('__notes',notes.value);});
+  radios.forEach(function(r){r.addEventListener('change',function(){save('__count',r.value);});});
   document.getElementById('reset').addEventListener('click',function(){
-    bubbles.forEach(function(b){b.innerHTML=b.dataset.orig;mark(b);});
-    radios.forEach(function(r){r.checked=false;});
-    notes.value='';store={};save();status.textContent='Back to the original.';
+    bubbles.forEach(function(b){if(text(b)!==b.dataset.origText){b.innerHTML=b.dataset.orig;mark(b);put(b.dataset.id,b.dataset.origText);}});
+    say('Back to the original \u2713');
   });
 })();
 </script>
