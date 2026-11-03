@@ -122,15 +122,7 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
     </div>
   </section>
 
-  <section class="card" aria-labelledby="need">
-    <h2 id="need" style="font-size:24px">Send Ivan</h2>
-    <ul style="margin:0;padding-left:20px">
-      <li>Your bid CSVs (one per platform, with a Platform column: BC, CC, ISQFT or Other)</li>
-      <li>The October CMD list</li>
-      <li>Old customer list for LinkedIn, plus states and company size</li>
-    </ul>
-    <textarea id="notes" placeholder="Anything else? Write it here, it saves automatically."></textarea>
-  </section>
+  
 </main>
 
 <div class="bar">
@@ -167,11 +159,11 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
   fetch(SB+'?page_slug=eq.'+encodeURIComponent(SLUG)+'&select=item_key,body',{headers:H}).then(function(r){return r.ok?r.json():[];}).then(function(rows){
     var m={};(rows||[]).forEach(function(r){m[r.item_key]=r.body;});
     bubbles.forEach(function(b){var v=m[b.dataset.id];if(v&&v!==b.dataset.origText){b.innerHTML=render(v);}mark(b);});
-    if(m.__notes)notes.value=m.__notes;
+    if(notes&&m.__notes)notes.value=m.__notes;
     radios.forEach(function(r){if(m.__count===r.value)r.checked=true;});
   }).catch(function(){});
   bubbles.forEach(function(b){b.addEventListener('input',function(){mark(b);save(b.dataset.id,text(b));});});
-  notes.addEventListener('input',function(){save('__notes',notes.value);});
+  if(notes)notes.addEventListener('input',function(){save('__notes',notes.value);});
   radios.forEach(function(r){r.addEventListener('change',function(){save('__count',r.value);});});
   document.getElementById('reset').addEventListener('click',function(){
     bubbles.forEach(function(b){if(text(b)!==b.dataset.origText){b.innerHTML=b.dataset.orig;mark(b);put(b.dataset.id,b.dataset.origText);}});
