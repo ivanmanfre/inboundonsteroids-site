@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0F0E0D">
+<title>Proof: real threads, real booked calls</title>
+<link rel="preload" href="../assets/fonts/Brico.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/GeistV.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="page.css">
+<link rel="stylesheet" href="../case/assets/glance.css">
+<script>document.documentElement.className = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'rm' : 'js';</script>
+<meta name="description" content="Real LinkedIn threads from the accounts we run: the signal, the first message, the reply and the booked call.">
+<meta property="og:title" content="Real threads, real booked calls">
+<meta property="og:description" content="The signal, the first message, the reply and the booked call, from the accounts we run.">
+<meta property="og:image" content="https://inboundonsteroids.com/assets/og.png">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script src="/assets/content-pattern-attribution.js" defer></script>
+<script src="/assets/site-tracking.js" defer></script>
+</head>
+<body>
+<div class="room" aria-hidden="true"><div class="pool p1"></div><div class="pool p2"></div><div class="vig"></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="mark" href="/#top" aria-label="InboundOnSteroids">inbound<b>on</b>steroids</a>
+    <nav>
+      <a class="t" href="/#service">The service</a>
+      <a class="t" href="#threads">The threads</a>
+      <a class="t" href="/#offer">Compare the plans</a>
+      <a class="btn" href="https://calendly.com/im-ivanmanfredi/30min"><span class="dsk-i">Book a call with Ivan</span><span class="mob-i">Book a call</span> <i>↗</i></a>
+    </nav>
+  </div>
+</header>
+
+<svg id="thread" aria-hidden="true"><path class="glow" id="tg"/><path id="tl"/><g id="th"><circle r="16" fill="url(#hg)"/><circle r="4.5" fill="#F06A45"/></g>
+  <defs><radialGradient id="hg"><stop offset="0" stop-color="#E5502F" stop-opacity=".75"/><stop offset="1" stop-color="#E5502F" stop-opacity="0"/></radialGradient></defs></svg>
+
+<main id="top">
+
+<!-- ============ HERO (landing shape) ============ -->
+<section class="hero" data-stage>
+  <div class="wrap">
+    <div class="stage">
+      <div class="cam">
+        <h1 class="disp seam words" data-fit=".6" data-fit-max="138" aria-label="Each call started with a signal.">
+          <span class="ln" aria-hidden="true"><span class="lt">Each call</span></span>
+          <span class="ln" aria-hidden="true"><span class="lt">started with</span></span>
+          <span class="ln" aria-hidden="true"><span class="lt last"><span class="swipe">a signal.</span></span></span>
+        </h1>
+        <div class="cut" data-cut data-headx=".498" data-ratio="1.2064" data-headw=".478"><img src="../assets/img/ivan-smile-g-1100.webp" srcset="../assets/img/ivan-smile-g-640.webp 640w, ../assets/img/ivan-smile-g-1100.webp 1100w" sizes="(max-width: 860px) 60vw, 40vw" alt="" fetchpriority="high"></div>
+        <div class="tag" data-tag><i></i><span>Ivan Manfredi</span></div>
+      </div>
+      <div class="copy" data-copy>
+        <p class="lede" data-in style="--d:.35s">These are real LinkedIn threads from accounts we run, for Davorin at ARCH, Mattan at RISE DTC and me. For each one you see what the person engaged with first, what we sent, what they said back and the call.</p>
+        <div class="ctas" data-in style="--d:.5s">
+          <a class="btn big" href="https://calendly.com/im-ivanmanfredi/30min">Book a call with Ivan <i>↗</i></a>
+          <a class="link" href="#threads">Read the threads ↓</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <i class="tp" data-x="-.02" data-mx="-.04"></i>
+</section>
+
+<!-- ============ AT A GLANCE ============ -->
+<section class="cs-glance pf-glance" aria-label="Booked calls">
+  <div class="wrap">
+    <p class="lbl" data-in>Booked calls with</p>
+    <div class="g" data-in style="--d:.1s"><div><b class="brand">Pixel Federation</b><span>Strategic Partnerships<br><em>ARCH</em></span></div><div><b class="brand">ZiMAD</b><span>Chief Business Development Officer<br><em>ARCH</em></span></div><div><b class="brand">Plus500</b><span>CEO, Plus500 Canada<br><em>ARCH</em></span></div><div><b class="brand">Funcell Games</b><span>CEO<br><em>ARCH</em></span></div><div><b class="brand">Good Candy</b><span>Co-founder<br><em>RISE DTC</em></span></div><div><b class="brand">Quip</b><span>Co-founder, Quip Protein Soda<br><em>RISE DTC</em></span></div><div><b class="brand">Panther Vision</b><span>VP Sales and Marketing<br><em>RISE DTC</em></span></div><div><b class="brand">Maison Monravel</b><span>Co-founder and CEO<br><em>RISE DTC</em></span></div><div><b class="brand">AKG Media</b><span>Founder<br><em>Ivan</em></span></div><div><b class="brand">Botpresso</b><span>Founder<br><em>Ivan</em></span></div></div>
+  </div>
+</section>
+
+<!-- ============ HOW IT RUNS ============ -->
+<section class="cs-loop">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">We start from what they did.</h2></div></div>
+        <p class="lede" data-in style="--d:.2s">Nobody here came off a bought list. Each person engaged with a post in their own market first, and the first message says where we saw them.</p>
+      </div>
+    </div>
+    <ol class="lanes four" data-in>
+      <li><b>Signal</b><span>A like or comment on a post by someone their buyers follow</span></li>
+      <li><b>Fit check</b><span>Owner or decision maker, the right size, the right market</span></li>
+      <li><b>Message</b><span>Sent from the founder's own account, in their voice</span></li>
+      <li><b>Call</b><span>Every reply handled through to a time on their calendar</span></li>
+    </ol>
+  </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:60px"></i>
+</section>
+
+<!-- ============ THE THREADS ============ -->
+<section class="pf-threads" id="threads">
+  <div class="wrap">
+    <div class="seam"><div class="cam" data-creep><h2 class="disp">Six threads, start to call.</h2></div></div>
+    <p class="lede" data-in style="--d:.2s">Copied from the LinkedIn inboxes. Names and emails removed, long messages shortened.</p>
+    
+<article class="chain ">
+  <div class="meta" data-in>
+    <p class="seat">Davorin Smit · ARCH</p>
+    <h3 class="disp">Funcell Games</h3>
+    <p class="role">CEO</p>
+    <div class="signal"><span class="mono">The signal</span><p>Engaged with Raf Mertens&#x27;s posts</p></div>
+    <ol class="steps"><li><span class="mono">Nov 3</span><span>Invite with a note</span></li><li><span class="mono">Nov 3</span><span>He replies and asks how</span></li><li><span class="mono">Nov 3</span><span>Call booked</span></li></ol>
+  </div>
+  <div class="art">
+    <div class="sheet prof" data-in="sheet">
+      <div class="ph mini"><img class="pav" src="assets/davorin-av.jpg" width="112" height="112" alt="Davorin Smit" loading="lazy"><div><div class="pn">Davorin Smit</div><div class="pf"><b>LinkedIn</b> messages</div></div></div>
+      <div class="posts"><article class="post"><div class="top"><img src="assets/davorin-av.jpg" width="112" height="112" alt="" loading="lazy"><div><b>Davorin Smit</b><span>ARCH · Nov 3</span></div><em>in</em></div><p>Hey <span class="rd" aria-label="removed">xxxxxxx</span>, Davorin here :) I saw you around Raf Mertens&#x27;s posts. We&#x27;re in the same corner of gaming UA, so I figured I should say Hi.</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EFG%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>CEO</b><span>Funcell Games · Nov 3</span></div><em>in</em></div><p>&quot;Hi Davorin, it’s great to connect with you. Looking forward to staying in touch.&quot; Would also love to know how can you help us grow our title “Pawn to Don”</p></article><article class="post"><div class="top"><img src="assets/davorin-av.jpg" width="112" height="112" alt="" loading="lazy"><div><b>Davorin Smit</b><span>ARCH · Nov 3</span></div><em>in</em></div><p>Great to connect too :)<br><br>We find creators whose audience fits the game, arrange the paid promotions, negotiate the rates and manage the campaign for you. The goal is bringing in players, so we measure attributed installs and what each install costs.<br><br>We’re mostly focused on the US and EU. Which markets are you pushing Pawn to Don in?</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EFG%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>CEO</b><span>Funcell Games · Nov 3</span></div><em>in</em></div><p>US and EU mainly</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EFG%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>CEO</b><span>Funcell Games · Nov 3</span></div><em>in</em></div><p>So how do we start</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EFG%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>CEO</b><span>Funcell Games · Nov 3</span></div><em>in</em></div><p>Done Tuesday 8am uk</p></article></div>
+    </div>
+  </div>
+</article>
+<article class="chain flip">
+  <div class="meta" data-in>
+    <p class="seat">Mattan Danino · RISE DTC</p>
+    <h3 class="disp">Quip Protein Soda</h3>
+    <p class="role">Co-founder</p>
+    <div class="signal"><span class="mono">The signal</span><p>Engaged with Darren Viscount&#x27;s posts</p></div>
+    <ol class="steps"><li><span class="mono">Sep 16</span><span>Invite with a note</span></li><li><span class="mono">Sep 16</span><span>He says yes</span></li><li><span class="mono">Sep 17</span><span>Call booked</span></li></ol>
+  </div>
+  <div class="art">
+    <div class="sheet prof" data-in="sheet">
+      <div class="ph mini"><img class="pav" src="assets/mattan-av.webp" width="112" height="112" alt="Mattan Danino" loading="lazy"><div><div class="pn">Mattan Danino</div><div class="pf"><b>LinkedIn</b> messages</div></div></div>
+      <div class="posts"><article class="post"><div class="top"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Mattan Danino</b><span>RISE DTC · Sep 16</span></div><em>in</em></div><p>Hey <span class="rd" aria-label="removed">xxxxx</span>, saw you around Darren Viscount&#x27;s posts. We grow DTC brands at RISE and only get paid on the growth we create, would love to connect.</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EQP%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>Co-founder</b><span>Quip Protein Soda · Sep 16</span></div><em>in</em></div><p>yes.  let me know or send an invite to <span class="rd" aria-label="removed">xxxxxxxxxxxxxxxx</span></p></article><article class="post"><div class="top"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Mattan Danino</b><span>RISE DTC · Sep 16</span></div><em>in</em></div><p>Sure thing -- you can pick a time to chat here: meetings.hubspot.com/mattan5</p></article></div>
+    </div>
+  </div>
+</article>
+<article class="chain ">
+  <div class="meta" data-in>
+    <p class="seat">Davorin Smit · ARCH</p>
+    <h3 class="disp">Plus500 Canada</h3>
+    <p class="role">CEO</p>
+    <div class="signal"><span class="mono">The signal</span><p>Engaged with a post by David Zruia</p></div>
+    <ol class="steps"><li><span class="mono">Oct 28</span><span>Blank invite, no note</span></li><li><span class="mono">Oct 28</span><span>He asks about Canada</span></li><li><span class="mono">Oct 28</span><span>Call booked</span></li></ol>
+  </div>
+  <div class="art">
+    <div class="sheet prof" data-in="sheet">
+      <div class="ph mini"><img class="pav" src="assets/davorin-av.jpg" width="112" height="112" alt="Davorin Smit" loading="lazy"><div><div class="pn">Davorin Smit</div><div class="pf"><b>LinkedIn</b> messages</div></div></div>
+      <div class="posts"><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EP5%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>CEO</b><span>Plus500 Canada · Oct 28</span></div><em>in</em></div><p>Hi Davorin, pleasure to connect.</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EP5%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>CEO</b><span>Plus500 Canada · Oct 28</span></div><em>in</em></div><p>Are you active in Canada?</p></article><article class="post"><div class="top"><img src="assets/davorin-av.jpg" width="112" height="112" alt="" loading="lazy"><div><b>Davorin Smit</b><span>ARCH · Oct 28</span></div><em>in</em></div><p>Likewise <span class="rd" aria-label="removed">xxxxx</span>! Yes, we&#x27;re active in Canada and work with Canadian creators.<br><br>Here’s our deck with some info: madebyarch.com/deck<br><br>Are you open to a intro chat? Next Monday 10.30 or Tuesday 8.30am ET</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EP5%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>CEO</b><span>Plus500 Canada · Oct 28</span></div><em>in</em></div><p>Thanks Davorin, and yes, I&#x27;d love to chat. Can you send me an invite for Monday 10:30 ET? My email is <span class="rd" aria-label="removed">xxxxxxxxxxxxxxxxxx</span>. Thx.</p></article><article class="post"><div class="top"><img src="assets/davorin-av.jpg" width="112" height="112" alt="" loading="lazy"><div><b>Davorin Smit</b><span>ARCH · Oct 28</span></div><em>in</em></div><p>Sent. Talk soon <span class="rd" aria-label="removed">xxxxx</span> :)</p></article></div>
+    </div>
+  </div>
+</article>
+<article class="chain flip">
+  <div class="meta" data-in>
+    <p class="seat">Mattan Danino · RISE DTC</p>
+    <h3 class="disp">The Heart Company</h3>
+    <p class="role">Founder and CEO</p>
+    <div class="signal"><span class="mono">The signal</span><p>Engaged with Rich Gersten&#x27;s posts</p></div>
+    <ol class="steps"><li><span class="mono">Sep 10</span><span>Invite with a note</span></li><li><span class="mono">Sep 10</span><span>She asks to meet</span></li><li><span class="mono">Sep 11</span><span>Call booked, then held</span></li></ol>
+  </div>
+  <div class="art">
+    <div class="sheet prof" data-in="sheet">
+      <div class="ph mini"><img class="pav" src="assets/mattan-av.webp" width="112" height="112" alt="Mattan Danino" loading="lazy"><div><div class="pn">Mattan Danino</div><div class="pf"><b>LinkedIn</b> messages</div></div></div>
+      <div class="posts"><article class="post"><div class="top"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Mattan Danino</b><span>RISE DTC · Sep 10</span></div><em>in</em></div><p>Hey <span class="rd" aria-label="removed">xxxxxxxx</span>, saw you around Rich Gersten&#x27;s posts. We grow DTC brands at RISE, would love to connect.</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EHC%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>Founder and CEO</b><span>The Heart Company · Sep 10</span></div><em>in</em></div><p>Hi Mattan, Happy to connect. Would love to learn more about RISE. Shall we plan an e-meeting?</p></article><article class="post"><div class="top"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Mattan Danino</b><span>RISE DTC · Sep 10</span></div><em>in</em></div><p>Awesome -- let’s chat<br><br>Book me here: meetings.hubspot.com/mattan5</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EHC%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>Founder and CEO</b><span>The Heart Company · Sep 11</span></div><em>in</em></div><p>Me too. I booked it for next Thursday.✅</p></article></div>
+    </div>
+  </div>
+</article>
+<article class="chain ">
+  <div class="meta" data-in>
+    <p class="seat">Mattan Danino · RISE DTC</p>
+    <h3 class="disp">urture</h3>
+    <p class="role">Founder</p>
+    <div class="signal"><span class="mono">The signal</span><p>Engaged with Eoin Comerford&#x27;s posts</p></div>
+    <ol class="steps"><li><span class="mono">Nov 2</span><span>Invite with a note</span></li><li><span class="mono">Nov 3</span><span>He replies with context</span></li><li><span class="mono">Nov 4</span><span>Call booked</span></li></ol>
+  </div>
+  <div class="art">
+    <div class="sheet prof" data-in="sheet">
+      <div class="ph mini"><img class="pav" src="assets/mattan-av.webp" width="112" height="112" alt="Mattan Danino" loading="lazy"><div><div class="pn">Mattan Danino</div><div class="pf"><b>LinkedIn</b> messages</div></div></div>
+      <div class="posts"><article class="post"><div class="top"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Mattan Danino</b><span>RISE DTC · Nov 2</span></div><em>in</em></div><p>Hey <span class="rd" aria-label="removed">xxxx</span>, saw you around Eoin Comerford&#x27;s posts. We grow e-commerce brands at RISE and our fee is tied to the growth we create, would love to connect.</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EUR%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>Founder</b><span>urture · Nov 3</span></div><em>in</em></div><p>Yes would lile to talk. Most of our business is being grown in B2B bulk sales but want to start to grow our D2C</p></article><article class="post"><div class="top"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Mattan Danino</b><span>RISE DTC · Nov 3</span></div><em>in</em></div><p>Hey <span class="rd" aria-label="removed">xxxx</span>, would love to chat<br><br>We’ve worked with a bunch of apparel brands over the years, a few of them mostly wholesale<br><br>I have a spot this Thursday at 1pm ET. If that works, what&#x27;s the best email to send the invite to?</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EUR%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>Founder</b><span>urture · Nov 4</span></div><em>in</em></div><p>That should work.<br><span class="rd" aria-label="removed">xxxxxxxxxxxxxx</span></p></article><article class="post"><div class="top"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Mattan Danino</b><span>RISE DTC · Nov 4</span></div><em>in</em></div><p>Perfect, just sent you the invite. Talk soon!</p></article></div>
+    </div>
+  </div>
+</article>
+<article class="chain flip">
+  <div class="meta" data-in>
+    <p class="seat">Ivan Manfredi · my own account</p>
+    <h3 class="disp">AKG Media</h3>
+    <p class="role">Founder</p>
+    <div class="signal"><span class="mono">The signal</span><p>Engaged with Suhit Amin&#x27;s content</p></div>
+    <ol class="steps"><li><span class="mono">Oct 23</span><span>Invite, then one idea for his posts</span></li><li><span class="mono">Oct 23</span><span>He says send it</span></li><li><span class="mono">Oct 27</span><span>Call booked</span></li></ol>
+  </div>
+  <div class="art">
+    <div class="sheet prof" data-in="sheet">
+      <div class="ph mini"><img class="pav" src="assets/ivan-av.webp" width="112" height="112" alt="Ivan Manfredi" loading="lazy"><div><div class="pn">Ivan Manfredi</div><div class="pf"><b>LinkedIn</b> messages</div></div></div>
+      <div class="posts"><article class="post"><div class="top"><img src="assets/ivan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Ivan Manfredi</b><span>InboundOnSteroids · Oct 23</span></div><em>in</em></div><p>Hey <span class="rd" aria-label="removed">xxxxx</span>, saw you around Suhit Amin&#x27;s content 😂 figured I&#x27;d say hi.</p></article><article class="post"><div class="top"><img src="assets/ivan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Ivan Manfredi</b><span>InboundOnSteroids · Oct 23</span></div><em>in</em></div><p>Happy Friday <span class="rd" aria-label="removed">xxxxx</span> 🙂<br><br>Hope you don&#x27;t mind, went through your profile before reaching out, one quick idea that could benefit your LinkedIn inbound.<br><br>- Your post lists seven creator-fit questions. Turn them into a scorecard AI marketing leads can run on a shortlist.<br><br>… May I send you your complete plan?</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EAK%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>Founder</b><span>AKG Media · Oct 23</span></div><em>in</em></div><p>feel free</p></article><article class="post"><div class="top"><img src="assets/ivan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Ivan Manfredi</b><span>InboundOnSteroids · Oct 23</span></div><em>in</em></div><p>Here u go: inboundonsteroids.com/scan/<span class="rd" aria-label="removed">xxxxxxxxxx</span><br><br>Have a look, and if it sounds like we could give you a hand I&#x27;ll demo how it works live :)</p></article><article class="post"><div class="top"><img src="assets/ivan-av.webp" width="112" height="112" alt="" loading="lazy"><div><b>Ivan Manfredi</b><span>InboundOnSteroids · Oct 26</span></div><em>in</em></div><p>Hey <span class="rd" aria-label="removed">xxxxx</span> did u have a chance to take a look?</p></article><article class="post them"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20112%20112%22%3E%3Crect%20width%3D%22112%22%20height%3D%22112%22%20fill%3D%22%23d7d2c8%22/%3E%3Ctext%20x%3D%2256%22%20y%3D%2268%22%20font-size%3D%2234%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20fill%3D%22%23555%22%3EAK%3C/text%3E%3C/svg%3E" width="112" height="112" alt="" loading="lazy"><div><b>Founder</b><span>AKG Media · Oct 27</span></div><em>in</em></div><p>just booked</p></article></div>
+    </div>
+  </div>
+</article>
+  </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
+</section>
+
+<!-- ============ MID CTA ============ -->
+<section class="cs-band">
+  <div class="wrap">
+    <p class="flow" data-in>Want threads like these in your inbox?</p>
+    <div class="ctas" data-in style="--d:.1s"><a class="btn" href="https://calendly.com/im-ivanmanfredi/30min">Book a call <i>↗</i></a></div>
+  </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
+</section>
+
+<!-- ============ INBOX ============ -->
+<section class="pf-inbox">
+  <div class="wrap">
+    <div class="seam"><div class="cam" data-creep><h2 class="disp">Not every reply is a yes.</h2></div></div>
+    <p class="lede" data-in style="--d:.2s">First replies from the same accounts, the good and the bad.</p>
+    <ul class="replies" data-in><li class="yes"><span class="mono">Booked</span><p>If we are only spending against growth, I have an unlimited budget, but I won&#x27;t pay an agency a retainer</p><small>VP Sales and Marketing · Panther Vision</small></li><li class="yes"><span class="mono">Booked</span><p>Do you have any materials i can review? Very timely as we are actively looking for a meta ads expert/creative strategist.</p><small>Co-founder · Good Candy</small></li><li class="yes"><span class="mono">Booked</span><p>sure, pls do, but I cant promise you anything</p><small>Strategic Partnerships · Pixel Federation</small></li><li class="mid"><span class="mono">Sent to a colleague</span><p>Please, reach out to our CMO</p><small>CEO and Co-founder · Global Work AI</small></li><li class="mid"><span class="mono">Not yet</span><p>Online only like $2k. I have a friend who works in marketing and he also only works with brands over $10k/month so I assume I’m not. But if you wanted to tell me about your business or try me in 6 months.</p><small>Founder · DTC brand</small></li><li class="no"><span class="mono">No</span><p>Thanks Matt. We don’t work with external agencies for ads. Its all in-house.</p><small>CEO · e-commerce brand</small></li><li class="no"><span class="mono">No</span><p>Yes we are but we have an internal team that manages this</p><small>Director, Performance Marketing · game publisher</small></li><li class="no"><span class="mono">No</span><p>No thanks. All the best!</p><small>GM, Growth and Strategy · coffee brand</small></li></ul>
+  </div>
+  <i class="tp" data-x=".02" data-mx=".975" style="margin-top:50px"></i>
+</section>
+
+<!-- ============ CASE STUDIES ============ -->
+<section class="pf-cases">
+  <div class="wrap">
+    <div class="seam"><div class="cam" data-creep><h2 class="disp">The full stories.</h2></div></div>
+    <div class="cases" data-in>
+      <a href="/case/arch/"><span class="mono">Outbound</span><b>ARCH</b><span>Davorin Smit, influencer marketing for games and apps</span><i>→</i></a>
+      <a href="/case/rise-dtc/"><span class="mono">Content + outreach</span><b>RISE DTC</b><span>Mattan Danino, growth for DTC brands</span><i>→</i></a>
+      <a href="/case/kyle-hunt/"><span class="mono">Inbound</span><b>Kyle Hunt</b><span>Agency operations coach</span><i>→</i></a>
+    </div>
+  </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section class="close cs-close">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">We can run this for you.</h2></div></div>
+        <p class="body" data-in>We find the people showing interest in your market, write the messages in your voice and take every reply through to a call.</p>
+        <div class="ctas" data-in style="--d:.1s"><span class="tp-end"></span><a class="btn big" id="finalCta" href="https://calendly.com/im-ivanmanfredi/30min">Book a call <i>↗</i></a></div>
+      </div>
+      <div class="sheet offerplan" data-in="sheet" style="--d:.15s">
+        <ul>
+          <li><i>→</i><span>Prospects found from real signals in your market</span></li>
+          <li><i>→</i><span>Invites and DMs written in your voice</span></li>
+          <li><i>→</i><span>Custom resources for the right prospects</span></li>
+          <li><i>→</i><span>Every reply handled through to a booked call</span></li>
+        </ul>
+        <p class="job">Nothing for you to <strong>source, write or chase</strong>.</p>
+        <p class="price">Content + outreach from <b>$3k a month</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-next">
+  <div class="wrap">
+    <p class="note">Threads from August to November 2026. These are booked calls, not signed clients.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="mark" href="/#top">inbound<b>on</b>steroids</a>
+    <p>Content + outreach, run for you.</p>
+    <a href="https://ivanmanfredi.com/">Ivan Manfredi ↗</a>
+  </div>
+</footer>
+
+<script src="../site.js" defer></script>
+</body>
+</html>
