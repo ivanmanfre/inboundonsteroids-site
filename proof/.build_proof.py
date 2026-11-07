@@ -32,60 +32,51 @@ SEATS = {
 }
 
 CHAINS = [
-    dict(seat='arch', company='Funcell Games', role='CEO', ini='FG', outcome='Call booked',
+    dict(seat='arch', company='Game studio', role='CEO', ini='GS', outcome='Call booked',
          signal="Engaged with Raf Mertens's posts",
-         dates=[('Nov 3', 'Invite with a note'), ('Nov 3', 'He replies and asks how'), ('Nov 3', 'Call booked')],
+         dates=[('Nov 3', 'Invite with a note'), ('Nov 3', 'Asks how it works'), ('Nov 3', 'Call booked')],
          msgs=[('us', 'Nov 3', f"Hey {R(7)}, Davorin here :) I saw you around Raf Mertens's posts. We're in the same corner of gaming UA, so I figured I should say Hi."),
-               ('them', 'Nov 3', '"Hi Davorin, it’s great to connect with you. Looking forward to staying in touch." Would also love to know how can you help us grow our title “Pawn to Don”'),
-               ('us', 'Nov 3', 'Great to connect too :)\n\nWe find creators whose audience fits the game, arrange the paid promotions, negotiate the rates and manage the campaign for you. The goal is bringing in players, so we measure attributed installs and what each install costs.\n\nWe’re mostly focused on the US and EU. Which markets are you pushing Pawn to Don in?'),
+               ('them', 'Nov 3', '"Hi Davorin, it’s great to connect with you. Looking forward to staying in touch." Would also love to know how can you help us grow our title “' + R(10) + '”'),
+               ('us', 'Nov 3', 'Great to connect too :)\n\nWe find creators whose audience fits the game, arrange the paid promotions, negotiate the rates and manage the campaign for you. The goal is bringing in players, so we measure attributed installs and what each install costs.\n\nWe’re mostly focused on the US and EU. Which markets are you pushing ' + R(10) + ' in?'),
                ('them', 'Nov 3', 'US and EU mainly'),
                ('them', 'Nov 3', 'So how do we start'),
                ('them', 'Nov 3', 'Done Tuesday 8am uk')]),
-    dict(seat='rise', company='Quip Protein Soda', role='Co-founder', ini='QP', outcome='Call booked',
+    dict(seat='rise', company='Beverage brand', role='Co-founder', ini='BB', outcome='Call booked',
          signal="Engaged with Darren Viscount's posts",
-         dates=[('Sep 16', 'Invite with a note'), ('Sep 16', 'He says yes'), ('Sep 17', 'Call booked')],
+         dates=[('Sep 16', 'Invite with a note'), ('Sep 16', 'Says yes'), ('Sep 17', 'Call booked')],
          msgs=[('us', 'Sep 16', "Hey " + R(5) + ", saw you around Darren Viscount's posts. We grow DTC brands at RISE and only get paid on the growth we create, would love to connect."),
                ('them', 'Sep 16', 'yes.  let me know or send an invite to ' + R(16)),
                ('us', 'Sep 16', 'Sure thing -- you can pick a time to chat here: meetings.hubspot.com/mattan5')]),
-    dict(seat='arch', company='Plus500 Canada', role='CEO', ini='P5', outcome='Call booked',
+    dict(seat='arch', company='Trading platform, Canada', role='CEO', ini='TP', outcome='Call booked',
          signal="Engaged with a post by David Zruia",
-         dates=[('Oct 28', 'Blank invite, no note'), ('Oct 28', 'He asks about Canada'), ('Oct 28', 'Call booked')],
+         dates=[('Oct 28', 'Blank invite, no note'), ('Oct 28', 'Asks about Canada'), ('Oct 28', 'Call booked')],
          msgs=[('them', 'Oct 28', 'Hi Davorin, pleasure to connect.'),
                ('them', 'Oct 28', 'Are you active in Canada?'),
                ('us', 'Oct 28', f"Likewise {R(5)}! Yes, we're active in Canada and work with Canadian creators.\n\nHere’s our deck with some info: madebyarch.com/deck\n\nAre you open to a intro chat? Next Monday 10.30 or Tuesday 8.30am ET"),
                ('them', 'Oct 28', f"Thanks Davorin, and yes, I'd love to chat. Can you send me an invite for Monday 10:30 ET? My email is {R(18)}. Thx."),
                ('us', 'Oct 28', f'Sent. Talk soon {R(5)} :)')]),
-    dict(seat='rise', company='The Heart Company', role='Founder and CEO', ini='HC', outcome='Call held',
+    dict(seat='rise', company='DTC brand', role='Founder and CEO', ini='DB', outcome='Call held',
          signal="Engaged with Rich Gersten's posts",
-         dates=[('Sep 10', 'Invite with a note'), ('Sep 10', 'She asks to meet'), ('Sep 11', 'Call booked, then held')],
+         dates=[('Sep 10', 'Invite with a note'), ('Sep 10', 'Asks to meet'), ('Sep 11', 'Call booked, then held')],
          msgs=[('us', 'Sep 10', f"Hey {R(8)}, saw you around Rich Gersten's posts. We grow DTC brands at RISE, would love to connect."),
                ('them', 'Sep 10', 'Hi Mattan, Happy to connect. Would love to learn more about RISE. Shall we plan an e-meeting?'),
                ('us', 'Sep 10', 'Awesome -- let’s chat\n\nBook me here: meetings.hubspot.com/mattan5'),
                ('them', 'Sep 11', 'Me too. I booked it for next Thursday.✅')]),
-    dict(seat='rise', company='urture', role='Founder', ini='UR', outcome='Call booked',
+    dict(seat='rise', company='Apparel brand', role='Founder', ini='AB', outcome='Call booked',
          signal="Engaged with Eoin Comerford's posts",
-         dates=[('Nov 2', 'Invite with a note'), ('Nov 3', 'He replies with context'), ('Nov 4', 'Call booked')],
+         dates=[('Nov 2', 'Invite with a note'), ('Nov 3', 'Replies with context'), ('Nov 4', 'Call booked')],
          msgs=[('us', 'Nov 2', f"Hey {R(4)}, saw you around Eoin Comerford's posts. We grow e-commerce brands at RISE and our fee is tied to the growth we create, would love to connect."),
                ('them', 'Nov 3', 'Yes would lile to talk. Most of our business is being grown in B2B bulk sales but want to start to grow our D2C'),
                ('us', 'Nov 3', f"Hey {R(4)}, would love to chat\n\nWe’ve worked with a bunch of apparel brands over the years, a few of them mostly wholesale\n\nI have a spot this Thursday at 1pm ET. If that works, what's the best email to send the invite to?"),
                ('them', 'Nov 4', 'That should work.\n' + R(14)),
                ('us', 'Nov 4', 'Perfect, just sent you the invite. Talk soon!')]),
-    dict(seat='ivan', company='AKG Media', role='Founder', ini='AK', outcome='Call booked',
-         signal="Engaged with Suhit Amin's content",
-         dates=[('Oct 23', 'Invite, then one idea for his posts'), ('Oct 23', 'He says send it'), ('Oct 27', 'Call booked')],
-         msgs=[('us', 'Oct 23', f"Hey {R(5)}, saw you around Suhit Amin's content \U0001F602 figured I'd say hi."),
-               ('us', 'Oct 23', f"Happy Friday {R(5)} \U0001F642\n\nHope you don't mind, went through your profile before reaching out, one quick idea that could benefit your LinkedIn inbound.\n\n- Your post lists seven creator-fit questions. Turn them into a scorecard AI marketing leads can run on a shortlist.\n\n… May I send you your complete plan?"),
-               ('them', 'Oct 23', 'feel free'),
-               ('us', 'Oct 23', f"Here u go: inboundonsteroids.com/scan/{R(10)}\n\nHave a look, and if it sounds like we could give you a hand I'll demo how it works live :)"),
-               ('us', 'Oct 26', f'Hey {R(5)} did u have a chance to take a look?'),
-               ('them', 'Oct 27', 'just booked')]),
 ]
 
 INBOX = [
-    ('Booked', "If we are only spending against growth, I have an unlimited budget, but I won't pay an agency a retainer", 'VP Sales and Marketing · Panther Vision'),
-    ('Booked', 'Do you have any materials i can review? Very timely as we are actively looking for a meta ads expert/creative strategist.', 'Co-founder · Good Candy'),
-    ('Booked', 'sure, pls do, but I cant promise you anything', 'Strategic Partnerships · Pixel Federation'),
-    ('Sent to a colleague', 'Please, reach out to our CMO', 'CEO and Co-founder · Global Work AI'),
+    ('Booked', "If we are only spending against growth, I have an unlimited budget, but I won't pay an agency a retainer", 'VP Sales and Marketing · consumer products brand'),
+    ('Booked', 'Do you have any materials i can review? Very timely as we are actively looking for a meta ads expert/creative strategist.', 'Co-founder · candy brand'),
+    ('Booked', 'sure, pls do, but I cant promise you anything', 'Strategic Partnerships · game studio'),
+    ('Sent to a colleague', 'Please, reach out to our CMO', 'CEO and Co-founder · software company'),
     ('Not yet', 'Online only like $2k. I have a friend who works in marketing and he also only works with brands over $10k/month so I assume I’m not. But if you wanted to tell me about your business or try me in 6 months.', 'Founder · DTC brand'),
     ('No', 'Thanks Matt. We don’t work with external agencies for ads. Its all in-house.', 'CEO · e-commerce brand'),
     ('No', 'Yes we are but we have an internal team that manages this', 'Director, Performance Marketing · game publisher'),
@@ -94,10 +85,9 @@ INBOX = [
 
 BRANDS = [
     ('Pixel Federation', 'Strategic Partnerships', 'ARCH'), ('ZiMAD', 'Chief Business Development Officer', 'ARCH'),
-    ('Plus500', 'CEO, Plus500 Canada', 'ARCH'), ('Funcell Games', 'CEO', 'ARCH'),
-    ('Good Candy', 'Co-founder', 'RISE DTC'), ('Quip', 'Co-founder, Quip Protein Soda', 'RISE DTC'),
+    ('Plus500', 'Country CEO', 'ARCH'), ('Funcell Games', 'CEO', 'ARCH'),
+    ('Good Candy', 'Co-founder', 'RISE DTC'), ('Quip', 'Co-founder', 'RISE DTC'),
     ('Panther Vision', 'VP Sales and Marketing', 'RISE DTC'), ('Maison Monravel', 'Co-founder and CEO', 'RISE DTC'),
-    ('AKG Media', 'Founder', 'Ivan'), ('Botpresso', 'Founder', 'Ivan'),
 ]
 
 
@@ -118,7 +108,7 @@ def chain_html(c, i):
     <p class="seat">{html.escape(s['who'])}</p>
     <h3 class="disp">{html.escape(c['company'])}</h3>
     <p class="role">{html.escape(c['role'])}</p>
-    <div class="signal"><span class="mono">The signal</span><p>{html.escape(c['signal'])}</p></div>
+    <div class="signal"><span class="mono">Where we saw them</span><p>{html.escape(c['signal'])}</p></div>
     <ol class="steps">{dates}</ol>
   </div>
   <div class="art">
@@ -140,16 +130,16 @@ def build():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0F0E0D">
-<title>Proof: real threads, real booked calls</title>
+<title>The DMs behind the calls | InboundOnSteroids</title>
 <link rel="preload" href="../assets/fonts/Brico.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/GeistV.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="page.css">
 <link rel="stylesheet" href="../case/assets/glance.css">
 <script>document.documentElement.className = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'rm' : 'js';</script>
-<meta name="description" content="Real LinkedIn threads from the accounts we run: the signal, the first message, the reply and the booked call.">
-<meta property="og:title" content="Real threads, real booked calls">
-<meta property="og:description" content="The signal, the first message, the reply and the booked call, from the accounts we run.">
+<meta name="description" content="Five LinkedIn threads from two agency accounts I run, from the first message to the booked call.">
+<meta property="og:title" content="The DMs behind the calls">
+<meta property="og:description" content="Five LinkedIn threads from two agency accounts I run, from the first message to the booked call.">
 <meta property="og:image" content="https://inboundonsteroids.com/assets/og.png">
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
@@ -183,19 +173,18 @@ def build():
   <div class="wrap">
     <div class="stage">
       <div class="cam">
-        <h1 class="disp seam words" data-fit=".6" data-fit-max="138" aria-label="Each call started with a signal.">
-          <span class="ln" aria-hidden="true"><span class="lt">Each call</span></span>
-          <span class="ln" aria-hidden="true"><span class="lt">started with</span></span>
-          <span class="ln" aria-hidden="true"><span class="lt last"><span class="swipe">a signal.</span></span></span>
+        <h1 class="disp seam words" data-fit=".6" data-fit-max="138" aria-label="The DMs behind the calls.">
+          <span class="ln" aria-hidden="true"><span class="lt">The DMs</span></span>
+          <span class="ln" aria-hidden="true"><span class="lt">behind</span></span>
+          <span class="ln" aria-hidden="true"><span class="lt last"><span class="swipe">the calls.</span></span></span>
         </h1>
         <div class="cut" data-cut data-headx=".498" data-ratio="1.2064" data-headw=".478"><img src="../assets/img/ivan-smile-g-1100.webp" srcset="../assets/img/ivan-smile-g-640.webp 640w, ../assets/img/ivan-smile-g-1100.webp 1100w" sizes="(max-width: 860px) 60vw, 40vw" alt="" fetchpriority="high"></div>
         <div class="tag" data-tag><i></i><span>Ivan Manfredi</span></div>
       </div>
       <div class="copy" data-copy>
-        <p class="lede" data-in style="--d:.35s">These are real LinkedIn threads from accounts we run, for Davorin at ARCH, Mattan at RISE DTC and me. For each one you see what the person engaged with first, what we sent, what they said back and the call.</p>
+        <p class="lede" data-in style="--d:.35s">Davorin runs ARCH, an influencer agency for game studios and apps. Mattan runs RISE DTC, a growth agency for DTC brands. I run LinkedIn outreach for both, and these are five of their threads, copied from the inbox.</p>
         <div class="ctas" data-in style="--d:.5s">
-          <a class="btn big" href="https://calendly.com/im-ivanmanfredi/30min">Book a call with Ivan <i>↗</i></a>
-          <a class="link" href="#threads">Read the threads ↓</a>
+          <a class="btn big" href="#threads">Read the threads <i>↓</i></a>
         </div>
       </div>
     </div>
@@ -216,15 +205,15 @@ def build():
   <div class="wrap">
     <div class="head">
       <div>
-        <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">We start from what they did.</h2></div></div>
-        <p class="lede" data-in style="--d:.2s">Nobody here came off a bought list. Each person engaged with a post in their own market first, and the first message says where we saw them.</p>
+        <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">Where each thread starts.</h2></div></div>
+        <p class="lede" data-in style="--d:.2s">Each person liked or commented on a post in their market before we wrote to them, and most first messages say where we saw them.</p>
       </div>
     </div>
     <ol class="lanes four" data-in>
-      <li><b>Signal</b><span>A like or comment on a post by someone their buyers follow</span></li>
-      <li><b>Fit check</b><span>Owner or decision maker, the right size, the right market</span></li>
-      <li><b>Message</b><span>Sent from the founder's own account, in their voice</span></li>
-      <li><b>Call</b><span>Every reply handled through to a time on their calendar</span></li>
+      <li><b>They engage</b><span>A like or comment on a post by someone in their market</span></li>
+      <li><b>We check fit</b><span>A decision maker at a company the agency wants as a client</span></li>
+      <li><b>We write</b><span>From the agency owner's account, in their voice</span></li>
+      <li><b>They book</b><span>We answer the replies until a call is on the calendar</span></li>
     </ol>
   </div>
   <i class="tp" data-x=".985" data-mx=".975" style="margin-top:60px"></i>
@@ -233,18 +222,9 @@ def build():
 <!-- ============ THE THREADS ============ -->
 <section class="pf-threads" id="threads">
   <div class="wrap">
-    <div class="seam"><div class="cam" data-creep><h2 class="disp">Six threads, start to call.</h2></div></div>
-    <p class="lede" data-in style="--d:.2s">Copied from the LinkedIn inboxes. Names and emails removed, long messages shortened.</p>
+    <div class="seam"><div class="cam" data-creep><h2 class="disp">Five threads, first message to booked call.</h2></div></div>
+    <p class="lede" data-in style="--d:.2s">Copied as sent. Names, emails and one game title are blacked out.</p>
     {chains}
-  </div>
-  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
-</section>
-
-<!-- ============ MID CTA ============ -->
-<section class="cs-band">
-  <div class="wrap">
-    <p class="flow" data-in>Want threads like these in your inbox?</p>
-    <div class="ctas" data-in style="--d:.1s"><a class="btn" href="https://calendly.com/im-ivanmanfredi/30min">Book a call <i>↗</i></a></div>
   </div>
   <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
 </section>
@@ -253,7 +233,7 @@ def build():
 <section class="pf-inbox">
   <div class="wrap">
     <div class="seam"><div class="cam" data-creep><h2 class="disp">Not every reply is a yes.</h2></div></div>
-    <p class="lede" data-in style="--d:.2s">First replies from the same accounts, the good and the bad.</p>
+    <p class="lede" data-in style="--d:.2s">First replies to the same two accounts, including the noes.</p>
     <ul class="replies" data-in>{inbox}</ul>
   </div>
   <i class="tp" data-x=".02" data-mx=".975" style="margin-top:50px"></i>
@@ -277,19 +257,17 @@ def build():
   <div class="wrap">
     <div class="grid">
       <div>
-        <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">We can run this for you.</h2></div></div>
-        <p class="body" data-in>We find the people showing interest in your market, write the messages in your voice and take every reply through to a call.</p>
-        <div class="ctas" data-in style="--d:.1s"><span class="tp-end"></span><a class="btn big" id="finalCta" href="https://calendly.com/im-ivanmanfredi/30min">Book a call <i>↗</i></a></div>
+        <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">I can set this up for your agency.</h2></div></div>
+        <p class="body" data-in>Same setup as Davorin and Mattan, run from your account.</p>
+        <div class="ctas" data-in style="--d:.1s"><span class="tp-end"></span><a class="btn big" id="finalCta" href="https://calendly.com/im-ivanmanfredi/30min">Book a call with Ivan <i>↗</i></a></div>
       </div>
       <div class="sheet offerplan" data-in="sheet" style="--d:.15s">
         <ul>
-          <li><i>→</i><span>Prospects found from real signals in your market</span></li>
-          <li><i>→</i><span>Invites and DMs written in your voice</span></li>
-          <li><i>→</i><span>Custom resources for the right prospects</span></li>
-          <li><i>→</i><span>Every reply handled through to a booked call</span></li>
+          <li><i>→</i><span>People found from the posts they engage with</span></li>
+          <li><i>→</i><span>Invites and DMs written as you</span></li>
+          <li><i>→</i><span>Custom resources for the best-fit prospects</span></li>
+          <li><i>→</i><span>Replies handled until a call is booked</span></li>
         </ul>
-        <p class="job">Nothing for you to <strong>source, write or chase</strong>.</p>
-        <p class="price">Content + outreach from <b>$3k a month</b>.</p>
       </div>
     </div>
   </div>
@@ -297,7 +275,7 @@ def build():
 
 <section class="cs-next">
   <div class="wrap">
-    <p class="note">Threads from August to November 2026. These are booked calls, not signed clients.</p>
+    <p class="note">Threads from September to November 2026. Each one ended in a booked call.</p>
   </div>
 </section>
 

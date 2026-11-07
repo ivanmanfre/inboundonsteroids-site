@@ -201,7 +201,7 @@ strong { font-weight: 600; color: var(--tx); }
 /* ================= PROOF PAGE LAYER ================= */
 .pf-glance { padding-top: clamp(40px, 6vw, 80px); }
 .pf-glance .lbl { font: 500 14px/1.5 "IMMono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--tx2); margin-bottom: 18px; }
-.pf-glance .g { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.pf-glance .g { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 1100px) { .pf-glance .g { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .pf-glance .g b { font-size: clamp(30px, 3vw, 44px); }
 .pf-glance .g em { font-style: normal; color: var(--tx3); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; font-family: "IMMono", ui-monospace, monospace; }
