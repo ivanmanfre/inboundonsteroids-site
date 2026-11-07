@@ -198,63 +198,155 @@ strong { font-weight: 600; color: var(--tx); }
   .offerplan .price b { font-size: 42px; }
 }
 
-/* ================= PROOF PAGE LAYER ================= */
-.pf-glance { padding-top: clamp(40px, 6vw, 80px); }
-.pf-glance .lbl { font: 500 14px/1.5 "IMMono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--tx2); margin-bottom: 18px; }
-.pf-glance .g { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-@media (max-width: 1100px) { .pf-glance .g { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.pf-glance .g b { font-size: clamp(30px, 3vw, 44px); }
-.pf-glance .g em { font-style: normal; color: var(--tx3); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; font-family: "IMMono", ui-monospace, monospace; }
-.lanes.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
-.pf-threads { padding: clamp(110px, 14vw, 220px) 0 clamp(40px, 5vw, 80px); }
-.pf-threads > .wrap > .lede { margin-top: 26px; color: var(--tx2); }
-.chain { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: clamp(30px, 5.5vw, 100px); align-items: start; margin-top: clamp(80px, 10vw, 150px); }
-.chain.flip .meta { order: 2; }
-.chain.flip .prof { margin-left: 0; margin-right: auto; }
-.chain .meta { position: sticky; top: 110px; }
-.chain .seat { font: 500 14px/1.5 "IMMono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--tx2); }
-.chain h3.disp { margin-top: 14px; font-size: clamp(44px, 5vw, 80px); line-height: .92; }
-.chain .role { margin-top: 12px; font-size: clamp(18px, 1.4vw, 21px); color: var(--tx2); }
-.chain .signal { margin-top: 30px; padding: 18px 0 20px 18px; border-left: 2px solid var(--red); }
-.chain .signal .mono { color: var(--redt); font-size: 13px; }
-.chain .signal p { margin-top: 6px; font-size: clamp(20px, 1.6vw, 24px); line-height: 1.3; font-weight: 550; letter-spacing: -.01em; color: var(--tx); }
-.chain .steps { list-style: none; margin-top: 26px; border-top: 1px solid var(--hair); }
-.chain .steps li { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 14px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--hair); font-size: 17px; color: var(--tx2); }
-.chain .steps li:last-child span:last-child { color: var(--tx); font-weight: 600; }
-.chain .steps .mono { font-size: 13px; color: var(--tx3); }
-.prof .ph.mini { display: flex; align-items: center; gap: 14px; padding: 18px 24px; }
-.prof .ph.mini .pav { width: 52px; height: 52px; margin-top: 0; border: 0; }
-.prof .ph.mini .pn { margin-top: 0; font-size: 18px; }
-.prof .ph.mini .pf { margin-top: 2px; }
-.post.them { background: #F3F1EC; }
-.post p .rd, .rd { display: inline-block; vertical-align: -.12em; height: 1em; background: #16181A; color: transparent; border-radius: 3px; line-height: 1; overflow: hidden; user-select: none; font-size: .9em; letter-spacing: -.1em; }
+/* ================= PROOF PAGE LAYER =================
+   Everything below is scoped to body.proof (this page only). Shared files (site.css, site.js, glance.css) stay untouched. */
 
-.pf-inbox { padding: clamp(110px, 14vw, 220px) 0 clamp(40px, 5vw, 80px); }
-.pf-inbox > .wrap > .lede { margin-top: 26px; color: var(--tx2); }
-.replies { list-style: none; margin-top: clamp(50px, 6vw, 90px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 16px; overflow: hidden; }
-.replies li { background: rgba(15, 14, 13, .86); padding: 26px 26px 28px; }
-.replies .mono { font-size: 12.5px; }
-.replies li.yes .mono { color: var(--redt); }
-.replies li.no .mono { color: var(--tx3); }
-.replies p { margin-top: 12px; font-size: clamp(18px, 1.4vw, 21px); line-height: 1.42; color: var(--tx); }
-.replies p::before { content: "\201C"; } .replies p::after { content: "\201D"; }
-.replies small { display: block; margin-top: 12px; font-size: 14px; color: var(--tx2); }
+/* ---------- Hero: the entry plays once layout is ready, like the landing, instead of waiting for the scroll observer ---------- */
+html.ready body.proof .hero [data-in] { opacity: 1; transform: none; filter: blur(0); }
+/* two display lines leave room above the stage; centre it in the first screen (as the case-study heroes do) so the face is not cut at the fold */
+@media (min-width: 861px) { body.proof .hero { justify-content: center; } }
+@media (max-width: 560px) { body.proof .hero .copy { padding-top: 18px; } body.proof .hero .copy .lede { margin-bottom: 24px; } }
+/* nav text links: 44px hit area without moving them */
+body.proof .nav nav a.t { padding: 10px 0; }
 
-.pf-cases { padding: clamp(110px, 14vw, 200px) 0 clamp(40px, 5vw, 80px); }
-.cases { margin-top: clamp(40px, 5vw, 70px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.cases a { position: relative; display: block; padding: 28px 28px 30px; border: 1px solid var(--hair); border-radius: 16px; text-decoration: none; color: var(--tx); background: rgba(26, 24, 22, .6); transition: border-color .3s, transform .35s var(--back); }
-.cases a:hover { border-color: rgba(243,239,230,.4); transform: translateY(-3px); }
-.cases a b { display: block; margin-top: 14px; font: 800 clamp(34px, 3.2vw, 50px)/.95 "IMDisplay", sans-serif; letter-spacing: -.035em; }
-.cases a > span:not(.mono) { display: block; margin-top: 12px; font-size: 16px; line-height: 1.45; color: var(--tx2); max-width: 22em; }
-.cases a i { position: absolute; top: 26px; right: 26px; font-style: normal; color: var(--tx2); }
-.cs-next .note { color: var(--tx3); font-size: 14px; }
+/* ---------- Rhythm: this page has short sections, so the room between them is tighter than the case-study layer ---------- */
+body.proof .cs-loop,
+body.proof .pf-threads,
+body.proof .pf-inbox,
+body.proof .pf-cases { padding: clamp(84px, 9vw, 136px) 0 clamp(20px, 2.4vw, 40px); }
+body.proof .cs-close { padding-top: clamp(96px, 10vw, 156px); }
+body.proof .pf-glance { padding-top: clamp(40px, 6vw, 80px); }
 
+/* ---------- Glance ---------- */
+body.proof .pf-glance .lbl { font: 500 14px/1.5 "IMMono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--tx2); margin-bottom: 18px; }
+body.proof .pf-glance .g { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1100px) { body.proof .pf-glance .g { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+body.proof .pf-glance .g b { font-size: clamp(30px, 3vw, 44px); }
+body.proof .pf-glance .g em { font-style: normal; color: var(--tx3); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; font-family: "IMMono", ui-monospace, monospace; }
+
+/* ---------- Lanes: four across on desktop only (the mobile rail stays one column) ---------- */
+@media (min-width: 861px) { body.proof .lanes.four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* ---------- Threads head ---------- */
+body.proof .pf-threads .pf-thead .lede { margin-top: 26px; color: var(--tx2); }
+body.proof .pf-nw { white-space: nowrap; }
+
+/* ---------- Thread index: the five outcomes in one glance, each row jumps to its thread ---------- */
+body.proof .pf-index { list-style: none; margin-top: clamp(40px, 4.6vw, 64px); border-top: 1px solid var(--hair); }
+body.proof .pf-index li { border-bottom: 1px solid var(--hair); }
+body.proof .pf-index a { display: grid; grid-template-columns: 40px minmax(0, 2.1fr) minmax(0, .8fr) minmax(0, 1.1fr) minmax(0, 1.5fr) 24px; gap: 0 clamp(14px, 2vw, 28px); align-items: center;
+  min-height: 72px; padding: 14px 4px; color: var(--tx); text-decoration: none; transition: background .25s, padding .35s var(--expo); }
+body.proof .pf-index a:hover { background: rgba(243,239,230,.035); padding-left: 12px; }
+body.proof .pf-index img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1px rgba(243,239,230,.14); }
+body.proof .pf-index .who { display: flex; align-items: baseline; gap: 12px; min-width: 0; }
+body.proof .pf-index .who b { font: 800 clamp(22px, 1.9vw, 28px)/1.05 "IMDisplay", sans-serif; letter-spacing: -.025em; }
+body.proof .pf-index .who span { font-size: 16px; color: var(--tx2); white-space: nowrap; }
+body.proof .pf-index .org, body.proof .pf-index .when { font-size: 13px; color: var(--tx2); white-space: nowrap; }
+body.proof .pf-index .when i { font-style: normal; color: var(--tx3); }
+body.proof .pf-index .out { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; line-height: 1.25; }
+body.proof .pf-index .out::before { content: ""; flex: none; width: 8px; height: 8px; background: var(--red); box-shadow: 0 0 0 4px rgba(200,54,27,.18); }
+body.proof .pf-index .go { font-style: normal; color: var(--tx3); text-align: right; transition: transform .35s var(--back), color .25s; }
+body.proof .pf-index a:hover .go { color: var(--tx); transform: translateY(3px); }
+
+/* ---------- Threads: one consistent side. Meta on the left (sticky), the LinkedIn sheet on the right at one width ---------- */
+body.proof .chain { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(30px, 5vw, 90px); align-items: start;
+  margin-top: clamp(56px, 6.4vw, 96px); scroll-margin-top: 96px; }
+body.proof .pf-index + .chain { margin-top: clamp(64px, 7.4vw, 112px); }
+body.proof .chain .meta { position: sticky; top: 112px; padding-top: 26px; border-top: 1px solid var(--hair); }
+body.proof .chain .seat { display: flex; align-items: center; gap: 12px; font: 600 17px/1.3 "IMSans", sans-serif; color: var(--tx); letter-spacing: -.005em; }
+body.proof .chain .seat img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1px rgba(243,239,230,.16); }
+body.proof .chain h3.disp { margin-top: 28px; font-size: clamp(34px, 3.2vw, 48px); line-height: .95; letter-spacing: -.03em; }
+body.proof .chain .role { margin-top: 10px; font-size: clamp(18px, 1.4vw, 21px); color: var(--tx2); }
+body.proof .chain .signal { margin-top: 28px; padding: 16px 0 18px 18px; border-left: 2px solid var(--red); }
+body.proof .chain .signal .mono { color: var(--redt); font-size: 13px; }
+body.proof .chain .signal p { margin-top: 6px; font-size: clamp(19px, 1.5vw, 22px); line-height: 1.3; font-weight: 550; letter-spacing: -.01em; color: var(--tx); }
+body.proof .chain .steps { list-style: none; margin-top: 24px; border-top: 1px solid var(--hair); }
+body.proof .chain .steps li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--hair); font-size: 17px; color: var(--tx2); }
+body.proof .chain .steps li:last-child span:last-child { color: var(--tx); font-weight: 600; }
+body.proof .chain .steps .mono { font-size: 13px; color: var(--tx3); }
+body.proof .chain .art { min-width: 0; }
+body.proof .chain .prof { max-width: 680px; margin: 0 0 0 auto; }
+body.proof .prof .ph.mini { display: flex; align-items: center; gap: 14px; padding: 18px 24px; }
+body.proof .prof .ph.mini .pav { width: 52px; height: 52px; margin-top: 0; border: 0; }
+body.proof .prof .ph.mini .pn { margin-top: 0; font-size: 18px; }
+body.proof .prof .ph.mini .pf { margin-top: 2px; }
+body.proof .post.them { background: #F3F1EC; }
+body.proof .post p { overflow-wrap: anywhere; }
+body.proof .rd { display: inline-block; vertical-align: -.12em; height: 1em; background: #16181A; color: transparent; border-radius: 3px; line-height: 1; overflow: hidden; user-select: none; font-size: .9em; letter-spacing: -.1em; }
+
+/* ballot candidate B (not shipped): meta as a header row, the sheet centred under it */
+body.proof.pf-vb .chain { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+body.proof.pf-vb .chain .meta { position: static; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1.1fr); column-gap: clamp(24px, 3vw, 48px); align-items: start; }
+body.proof.pf-vb .chain .meta > .seat, body.proof.pf-vb .chain .meta > h3, body.proof.pf-vb .chain .meta > .role { grid-column: 1; }
+body.proof.pf-vb .chain .meta > .signal { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; }
+body.proof.pf-vb .chain .meta > .steps { grid-column: 3; grid-row: 1 / span 3; margin-top: 0; }
+body.proof.pf-vb .chain .prof { margin: 0 auto; max-width: 760px; }
+
+/* ---------- Inbox ---------- */
+body.proof .pf-inbox > .wrap > .lede { margin-top: 26px; color: var(--tx2); }
+body.proof .replies { list-style: none; margin-top: clamp(44px, 5vw, 72px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 16px; overflow: hidden; }
+body.proof .replies li { background: rgba(15, 14, 13, .86); padding: 26px 26px 28px; }
+body.proof .replies .mono { font-size: 12.5px; }
+body.proof .replies li.yes .mono { color: var(--redt); }
+body.proof .replies li.no .mono { color: var(--tx3); }
+body.proof .replies p { margin-top: 12px; font-size: clamp(18px, 1.4vw, 21px); line-height: 1.42; color: var(--tx); }
+body.proof .replies p::before { content: "\201C"; } body.proof .replies p::after { content: "\201D"; }
+body.proof .replies small { display: block; margin-top: 12px; font-size: 14px; color: var(--tx2); }
+
+/* ---------- Case studies ---------- */
+body.proof .cases { margin-top: clamp(40px, 4.6vw, 64px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+body.proof .cases a { position: relative; display: block; padding: 28px 28px 30px; border: 1px solid var(--hair); border-radius: 16px; text-decoration: none; color: var(--tx); background: rgba(26, 24, 22, .6); transition: border-color .3s, transform .35s var(--back); }
+body.proof .cases a:hover { border-color: rgba(243,239,230,.4); transform: translateY(-3px); }
+body.proof .cases a b { display: block; margin-top: 14px; font: 800 clamp(34px, 3.2vw, 50px)/.95 "IMDisplay", sans-serif; letter-spacing: -.035em; }
+body.proof .cases a > span:not(.mono) { display: block; margin-top: 12px; font-size: 16px; line-height: 1.45; color: var(--tx2); max-width: 22em; }
+body.proof .cases a i { position: absolute; top: 26px; right: 26px; font-style: normal; color: var(--tx2); }
+
+/* ---------- Close: the line on top, then the ask and the plan side by side, both from the same top edge ---------- */
+body.proof .pf-close { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); grid-template-areas: "h h" "b s" "c s"; column-gap: clamp(30px, 5vw, 90px); align-items: start; }
+body.proof .pf-ch { grid-area: h; }
+body.proof .pf-ch .disp { max-width: 12.5em; }
+body.proof .pf-cb { grid-area: b; margin-top: clamp(36px, 4vw, 56px); }
+body.proof .pf-cc { grid-area: c; margin-top: 40px; }
+body.proof .pf-cs { grid-area: s; margin-top: clamp(36px, 4vw, 56px); }
+body.proof .cs-next .note { margin-top: 26px; color: var(--tx3); font-size: 14px; }
+
+/* ---------- Tap targets: wordmarks and footer link get a 44px hit area ---------- */
+body.proof .nav .mark, body.proof footer .mark, body.proof footer a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* ---------- Tablet and phone ---------- */
+@media (max-width: 1100px) {
+  body.proof .pf-index a { grid-template-columns: 40px minmax(0, 1fr) auto auto minmax(0, .9fr) 20px; }
+  body.proof .pf-index .who { flex-direction: column; gap: 4px; }
+}
 @media (max-width: 860px) {
-  .chain { grid-template-columns: minmax(0, 1fr); gap: 26px; }
-  .chain.flip .meta { order: 0; }
-  .chain .meta { position: static; }
-  .chain .prof, .chain.flip .prof { margin: 0; max-width: none; }
-  .replies { grid-template-columns: minmax(0, 1fr); }
-  .cases { grid-template-columns: minmax(0, 1fr); }
+  body.proof .chain { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  body.proof .chain .meta { position: static; }
+  body.proof .chain .prof, body.proof.pf-vb .chain .prof { margin: 0; max-width: none; }
+  body.proof .chain h3.disp { margin-top: 22px; }
+  body.proof .pf-index a { grid-template-columns: 36px auto auto minmax(0, 1fr) 18px; grid-template-rows: auto auto; gap: 6px 12px; padding: 14px 0; min-height: 64px; }
+  body.proof .pf-index a:hover { padding-left: 0; }
+  body.proof .pf-index img { width: 36px; height: 36px; grid-row: 1 / 3; grid-column: 1; align-self: center; }
+  body.proof .pf-index .who { grid-column: 2 / 5; grid-row: 1; flex-direction: row; gap: 10px; }
+  body.proof .pf-index .who b { font-size: 22px; }
+  body.proof .pf-index .who span { font-size: 15px; white-space: normal; }
+  body.proof .pf-index .org { grid-column: 2; grid-row: 2; font-size: 12px; }
+  body.proof .pf-index .when { grid-column: 3; grid-row: 2; font-size: 12px; }
+  body.proof .pf-index .out { grid-column: 4; grid-row: 2; font-size: 14px; gap: 8px; }
+  body.proof .pf-index .out::before { width: 6px; height: 6px; box-shadow: 0 0 0 3px rgba(200,54,27,.18); }
+  body.proof .pf-index .go { grid-column: 5; grid-row: 1 / 3; }
+  body.proof .replies { grid-template-columns: minmax(0, 1fr); }
+  body.proof .cases { grid-template-columns: minmax(0, 1fr); }
+  body.proof .pf-close { grid-template-columns: minmax(0, 1fr); grid-template-areas: "h" "b" "s" "c"; }
+  body.proof .pf-cs { margin-top: 28px; }
+  body.proof .pf-cc { margin-top: 32px; }
+}
+@media (max-width: 560px) {
+  body.proof .pf-index a { grid-template-columns: 36px auto minmax(0, 1fr) 18px; grid-template-rows: auto auto auto; row-gap: 4px; }
+  body.proof .pf-index img { grid-row: 1 / 4; }
+  body.proof .pf-index .who { grid-column: 2 / 4; flex-wrap: wrap; row-gap: 2px; }
+  body.proof .pf-index .org { grid-column: 2; grid-row: 2; }
+  body.proof .pf-index .when { grid-column: 3; grid-row: 2; }
+  body.proof .pf-index .out { grid-column: 2 / 4; grid-row: 3; }
+  body.proof .pf-index .go { grid-column: 4; grid-row: 1 / 4; }
 }

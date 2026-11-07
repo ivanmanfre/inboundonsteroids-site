@@ -91,9 +91,22 @@ BRANDS = [
 ]
 
 
+def index_html():
+    # compact scan row per thread, built only from strings already on the page (descriptor, role, seat, dates, last step)
+    rows = []
+    for i, c in enumerate(CHAINS):
+        s = SEATS[c['seat']]
+        d0, d1, last = c['dates'][0][0], c['dates'][-1][0], c['dates'][-1][1]
+        rows.append(f'<li><a href="#t{i + 1}"><img src="{s["av"]}" width="112" height="112" alt="" loading="lazy">'
+                    f'<span class="who"><b>{html.escape(c["company"])}</b><span>{html.escape(c["role"])}</span></span>'
+                    f'<span class="org mono">{html.escape(s["org"])}</span>'
+                    f'<span class="when mono">{d0} <i aria-hidden="true">→</i> {d1}</span>'
+                    f'<span class="out">{html.escape(last)}</span><i class="go" aria-hidden="true">↓</i></a></li>')
+    return f'<ol class="pf-index" data-in style="--d:.25s">{"".join(rows)}</ol>'
+
+
 def chain_html(c, i):
     s = SEATS[c['seat']]
-    side = 'flip' if i % 2 else ''
     posts = []
     for who, d, txt in c['msgs']:
         if who == 'us':
@@ -103,9 +116,9 @@ def chain_html(c, i):
         posts.append(f'<article class="post{" them" if who == "them" else ""}"><div class="top"><img src="{av}" width="112" height="112" alt="" loading="lazy"><div><b>{html.escape(nm)}</b><span>{html.escape(sub)}</span></div><em>in</em></div><p>{esc(txt)}</p></article>')
     dates = ''.join(f'<li><span class="mono">{d}</span><span>{html.escape(t)}</span></li>' for d, t in c['dates'])
     return f'''
-<article class="chain {side}">
+<article class="chain" id="t{i + 1}">
   <div class="meta" data-in>
-    <p class="seat">{html.escape(s['who'])}</p>
+    <p class="seat"><img src="{s['av']}" width="112" height="112" alt="" loading="lazy"><span>{html.escape(s['who'])}</span></p>
     <h3 class="disp">{html.escape(c['company'])}</h3>
     <p class="role">{html.escape(c['role'])}</p>
     <div class="signal"><span class="mono">Where we saw them</span><p>{html.escape(c['signal'])}</p></div>
@@ -122,6 +135,7 @@ def chain_html(c, i):
 
 def build():
     chains = ''.join(chain_html(c, i) for i, c in enumerate(CHAINS))
+    index = index_html()
     brands = ''.join(f'<div><b class="brand">{html.escape(b)}</b><span>{html.escape(r)}<br><em>{html.escape(a)}</em></span></div>' for b, r, a in BRANDS)
     inbox = ''.join(f'<li class="{ "yes" if t=="Booked" else ("mid" if t in ("Not yet","Sent to a colleague") else "no") }"><span class="mono">{html.escape(t)}</span><p>{html.escape(q)}</p><small>{html.escape(w)}</small></li>' for t, q, w in INBOX)
     page = f'''<!doctype html>
@@ -147,7 +161,7 @@ def build():
 <script src="/assets/content-pattern-attribution.js" defer></script>
 <script src="/assets/site-tracking.js" defer></script>
 </head>
-<body>
+<body class="proof">
 <div class="room" aria-hidden="true"><div class="pool p1"></div><div class="pool p2"></div><div class="vig"></div></div>
 <div class="grain" aria-hidden="true"></div>
 
@@ -173,10 +187,9 @@ def build():
   <div class="wrap">
     <div class="stage">
       <div class="cam">
-        <h1 class="disp seam words" data-fit=".6" data-fit-max="138" aria-label="The DMs behind the calls.">
+        <h1 class="disp seam words" data-fit=".78" data-fit-max="178" aria-label="The DMs behind the calls.">
           <span class="ln" aria-hidden="true"><span class="lt">The DMs</span></span>
-          <span class="ln" aria-hidden="true"><span class="lt">behind</span></span>
-          <span class="ln" aria-hidden="true"><span class="lt last"><span class="swipe">the calls.</span></span></span>
+          <span class="ln" aria-hidden="true"><span class="lt">behind<span class="dsk"> </span><span class="mbr"></span><span class="last"><span class="swipe">the calls.</span></span></span></span>
         </h1>
         <div class="cut" data-cut data-headx=".498" data-ratio="1.2064" data-headw=".478"><img src="../assets/img/ivan-smile-g-1100.webp" srcset="../assets/img/ivan-smile-g-640.webp 640w, ../assets/img/ivan-smile-g-1100.webp 1100w" sizes="(max-width: 860px) 60vw, 40vw" alt="" fetchpriority="high"></div>
         <div class="tag" data-tag><i></i><span>Ivan Manfredi</span></div>
@@ -216,17 +229,20 @@ def build():
       <li><b>They book</b><span>We answer the replies until a call is on the calendar</span></li>
     </ol>
   </div>
-  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:60px"></i>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:24px"></i>
 </section>
 
 <!-- ============ THE THREADS ============ -->
 <section class="pf-threads" id="threads">
   <div class="wrap">
-    <div class="seam"><div class="cam" data-creep><h2 class="disp">Five threads, first message to booked call.</h2></div></div>
-    <p class="lede" data-in style="--d:.2s">Copied as sent. Names, emails and one game title are blacked out.</p>
+    <div class="pf-thead">
+      <div class="seam"><div class="cam" data-creep><h2 class="disp">Five threads, <span class="pf-nw">first message</span> to <span class="pf-nw">booked call.</span></h2></div></div>
+      <p class="lede" data-in style="--d:.2s">Copied as sent. Names, emails and one game title are blacked out.</p>
+    </div>
+    {index}
     {chains}
   </div>
-  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:24px"></i>
 </section>
 
 <!-- ============ INBOX ============ -->
@@ -236,7 +252,7 @@ def build():
     <p class="lede" data-in style="--d:.2s">First replies to the same two accounts, including the noes.</p>
     <ul class="replies" data-in>{inbox}</ul>
   </div>
-  <i class="tp" data-x=".02" data-mx=".975" style="margin-top:50px"></i>
+  <i class="tp" data-x=".02" data-mx=".975" style="margin-top:24px"></i>
 </section>
 
 <!-- ============ CASE STUDIES ============ -->
@@ -249,19 +265,17 @@ def build():
       <a href="/case/kyle-hunt/"><span class="mono">Inbound</span><b>Kyle Hunt</b><span>Agency operations coach</span><i>→</i></a>
     </div>
   </div>
-  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:24px"></i>
 </section>
 
 <!-- ============ CLOSE ============ -->
 <section class="close cs-close">
   <div class="wrap">
-    <div class="grid">
-      <div>
-        <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">I can set this up for your agency.</h2></div></div>
-        <p class="body" data-in>Same setup as Davorin and Mattan, run from your account.</p>
-        <div class="ctas" data-in style="--d:.1s"><span class="tp-end"></span><a class="btn big" id="finalCta" href="https://calendly.com/im-ivanmanfredi/30min">Book a call with Ivan <i>↗</i></a></div>
-      </div>
-      <div class="sheet offerplan" data-in="sheet" style="--d:.15s">
+    <div class="grid pf-close">
+      <div class="seam zoom pf-ch"><div class="cam" data-creep><h2 class="disp">I can set this up for your agency.</h2></div></div>
+      <p class="body pf-cb" data-in>Same setup as Davorin and Mattan, run from your account.</p>
+      <div class="ctas pf-cc" data-in style="--d:.1s"><span class="tp-end"></span><a class="btn big" id="finalCta" href="https://calendly.com/im-ivanmanfredi/30min">Book a call with Ivan <i>↗</i></a></div>
+      <div class="sheet offerplan pf-cs" data-in="sheet" style="--d:.15s">
         <ul>
           <li><i>→</i><span>People found from the posts they engage with</span></li>
           <li><i>→</i><span>Invites and DMs written as you</span></li>

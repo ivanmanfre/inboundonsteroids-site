@@ -21,7 +21,7 @@
 <script src="/assets/content-pattern-attribution.js" defer></script>
 <script src="/assets/site-tracking.js" defer></script>
 </head>
-<body>
+<body class="proof">
 <div class="room" aria-hidden="true"><div class="pool p1"></div><div class="pool p2"></div><div class="vig"></div></div>
 <div class="grain" aria-hidden="true"></div>
 
@@ -47,10 +47,9 @@
   <div class="wrap">
     <div class="stage">
       <div class="cam">
-        <h1 class="disp seam words" data-fit=".6" data-fit-max="138" aria-label="The DMs behind the calls.">
+        <h1 class="disp seam words" data-fit=".78" data-fit-max="178" aria-label="The DMs behind the calls.">
           <span class="ln" aria-hidden="true"><span class="lt">The DMs</span></span>
-          <span class="ln" aria-hidden="true"><span class="lt">behind</span></span>
-          <span class="ln" aria-hidden="true"><span class="lt last"><span class="swipe">the calls.</span></span></span>
+          <span class="ln" aria-hidden="true"><span class="lt">behind<span class="dsk"> </span><span class="mbr"></span><span class="last"><span class="swipe">the calls.</span></span></span></span>
         </h1>
         <div class="cut" data-cut data-headx=".498" data-ratio="1.2064" data-headw=".478"><img src="../assets/img/ivan-smile-g-1100.webp" srcset="../assets/img/ivan-smile-g-640.webp 640w, ../assets/img/ivan-smile-g-1100.webp 1100w" sizes="(max-width: 860px) 60vw, 40vw" alt="" fetchpriority="high"></div>
         <div class="tag" data-tag><i></i><span>Ivan Manfredi</span></div>
@@ -90,18 +89,21 @@
       <li><b>They book</b><span>We answer the replies until a call is on the calendar</span></li>
     </ol>
   </div>
-  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:60px"></i>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:24px"></i>
 </section>
 
 <!-- ============ THE THREADS ============ -->
 <section class="pf-threads" id="threads">
   <div class="wrap">
-    <div class="seam"><div class="cam" data-creep><h2 class="disp">Five threads, first message to booked call.</h2></div></div>
-    <p class="lede" data-in style="--d:.2s">Copied as sent. Names, emails and one game title are blacked out.</p>
+    <div class="pf-thead">
+      <div class="seam"><div class="cam" data-creep><h2 class="disp">Five threads, <span class="pf-nw">first message</span> to <span class="pf-nw">booked call.</span></h2></div></div>
+      <p class="lede" data-in style="--d:.2s">Copied as sent. Names, emails and one game title are blacked out.</p>
+    </div>
+    <ol class="pf-index" data-in style="--d:.25s"><li><a href="#t1"><img src="assets/davorin-av.jpg" width="112" height="112" alt="" loading="lazy"><span class="who"><b>Game studio</b><span>CEO</span></span><span class="org mono">ARCH</span><span class="when mono">Nov 3 <i aria-hidden="true">→</i> Nov 3</span><span class="out">Call booked</span><i class="go" aria-hidden="true">↓</i></a></li><li><a href="#t2"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><span class="who"><b>Beverage brand</b><span>Co-founder</span></span><span class="org mono">RISE DTC</span><span class="when mono">Sep 16 <i aria-hidden="true">→</i> Sep 17</span><span class="out">Call booked</span><i class="go" aria-hidden="true">↓</i></a></li><li><a href="#t3"><img src="assets/davorin-av.jpg" width="112" height="112" alt="" loading="lazy"><span class="who"><b>Trading platform, Canada</b><span>CEO</span></span><span class="org mono">ARCH</span><span class="when mono">Oct 28 <i aria-hidden="true">→</i> Oct 28</span><span class="out">Call booked</span><i class="go" aria-hidden="true">↓</i></a></li><li><a href="#t4"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><span class="who"><b>DTC brand</b><span>Founder and CEO</span></span><span class="org mono">RISE DTC</span><span class="when mono">Sep 10 <i aria-hidden="true">→</i> Sep 11</span><span class="out">Call booked, then held</span><i class="go" aria-hidden="true">↓</i></a></li><li><a href="#t5"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><span class="who"><b>Apparel brand</b><span>Founder</span></span><span class="org mono">RISE DTC</span><span class="when mono">Nov 2 <i aria-hidden="true">→</i> Nov 4</span><span class="out">Call booked</span><i class="go" aria-hidden="true">↓</i></a></li></ol>
     
-<article class="chain ">
+<article class="chain" id="t1">
   <div class="meta" data-in>
-    <p class="seat">Davorin Smit · ARCH</p>
+    <p class="seat"><img src="assets/davorin-av.jpg" width="112" height="112" alt="" loading="lazy"><span>Davorin Smit · ARCH</span></p>
     <h3 class="disp">Game studio</h3>
     <p class="role">CEO</p>
     <div class="signal"><span class="mono">Where we saw them</span><p>Engaged with Raf Mertens&#x27;s posts</p></div>
@@ -114,9 +116,9 @@
     </div>
   </div>
 </article>
-<article class="chain flip">
+<article class="chain" id="t2">
   <div class="meta" data-in>
-    <p class="seat">Mattan Danino · RISE DTC</p>
+    <p class="seat"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><span>Mattan Danino · RISE DTC</span></p>
     <h3 class="disp">Beverage brand</h3>
     <p class="role">Co-founder</p>
     <div class="signal"><span class="mono">Where we saw them</span><p>Engaged with Darren Viscount&#x27;s posts</p></div>
@@ -129,9 +131,9 @@
     </div>
   </div>
 </article>
-<article class="chain ">
+<article class="chain" id="t3">
   <div class="meta" data-in>
-    <p class="seat">Davorin Smit · ARCH</p>
+    <p class="seat"><img src="assets/davorin-av.jpg" width="112" height="112" alt="" loading="lazy"><span>Davorin Smit · ARCH</span></p>
     <h3 class="disp">Trading platform, Canada</h3>
     <p class="role">CEO</p>
     <div class="signal"><span class="mono">Where we saw them</span><p>Engaged with a post by David Zruia</p></div>
@@ -144,9 +146,9 @@
     </div>
   </div>
 </article>
-<article class="chain flip">
+<article class="chain" id="t4">
   <div class="meta" data-in>
-    <p class="seat">Mattan Danino · RISE DTC</p>
+    <p class="seat"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><span>Mattan Danino · RISE DTC</span></p>
     <h3 class="disp">DTC brand</h3>
     <p class="role">Founder and CEO</p>
     <div class="signal"><span class="mono">Where we saw them</span><p>Engaged with Rich Gersten&#x27;s posts</p></div>
@@ -159,9 +161,9 @@
     </div>
   </div>
 </article>
-<article class="chain ">
+<article class="chain" id="t5">
   <div class="meta" data-in>
-    <p class="seat">Mattan Danino · RISE DTC</p>
+    <p class="seat"><img src="assets/mattan-av.webp" width="112" height="112" alt="" loading="lazy"><span>Mattan Danino · RISE DTC</span></p>
     <h3 class="disp">Apparel brand</h3>
     <p class="role">Founder</p>
     <div class="signal"><span class="mono">Where we saw them</span><p>Engaged with Eoin Comerford&#x27;s posts</p></div>
@@ -175,7 +177,7 @@
   </div>
 </article>
   </div>
-  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:24px"></i>
 </section>
 
 <!-- ============ INBOX ============ -->
@@ -185,7 +187,7 @@
     <p class="lede" data-in style="--d:.2s">First replies to the same two accounts, including the noes.</p>
     <ul class="replies" data-in><li class="yes"><span class="mono">Booked</span><p>If we are only spending against growth, I have an unlimited budget, but I won&#x27;t pay an agency a retainer</p><small>VP Sales and Marketing · consumer products brand</small></li><li class="yes"><span class="mono">Booked</span><p>Do you have any materials i can review? Very timely as we are actively looking for a meta ads expert/creative strategist.</p><small>Co-founder · candy brand</small></li><li class="yes"><span class="mono">Booked</span><p>sure, pls do, but I cant promise you anything</p><small>Strategic Partnerships · game studio</small></li><li class="mid"><span class="mono">Sent to a colleague</span><p>Please, reach out to our CMO</p><small>CEO and Co-founder · software company</small></li><li class="mid"><span class="mono">Not yet</span><p>Online only like $2k. I have a friend who works in marketing and he also only works with brands over $10k/month so I assume I’m not. But if you wanted to tell me about your business or try me in 6 months.</p><small>Founder · DTC brand</small></li><li class="no"><span class="mono">No</span><p>Thanks Matt. We don’t work with external agencies for ads. Its all in-house.</p><small>CEO · e-commerce brand</small></li><li class="no"><span class="mono">No</span><p>Yes we are but we have an internal team that manages this</p><small>Director, Performance Marketing · game publisher</small></li><li class="no"><span class="mono">No</span><p>No thanks. All the best!</p><small>GM, Growth and Strategy · coffee brand</small></li></ul>
   </div>
-  <i class="tp" data-x=".02" data-mx=".975" style="margin-top:50px"></i>
+  <i class="tp" data-x=".02" data-mx=".975" style="margin-top:24px"></i>
 </section>
 
 <!-- ============ CASE STUDIES ============ -->
@@ -198,19 +200,17 @@
       <a href="/case/kyle-hunt/"><span class="mono">Inbound</span><b>Kyle Hunt</b><span>Agency operations coach</span><i>→</i></a>
     </div>
   </div>
-  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:50px"></i>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:24px"></i>
 </section>
 
 <!-- ============ CLOSE ============ -->
 <section class="close cs-close">
   <div class="wrap">
-    <div class="grid">
-      <div>
-        <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">I can set this up for your agency.</h2></div></div>
-        <p class="body" data-in>Same setup as Davorin and Mattan, run from your account.</p>
-        <div class="ctas" data-in style="--d:.1s"><span class="tp-end"></span><a class="btn big" id="finalCta" href="https://calendly.com/im-ivanmanfredi/30min">Book a call with Ivan <i>↗</i></a></div>
-      </div>
-      <div class="sheet offerplan" data-in="sheet" style="--d:.15s">
+    <div class="grid pf-close">
+      <div class="seam zoom pf-ch"><div class="cam" data-creep><h2 class="disp">I can set this up for your agency.</h2></div></div>
+      <p class="body pf-cb" data-in>Same setup as Davorin and Mattan, run from your account.</p>
+      <div class="ctas pf-cc" data-in style="--d:.1s"><span class="tp-end"></span><a class="btn big" id="finalCta" href="https://calendly.com/im-ivanmanfredi/30min">Book a call with Ivan <i>↗</i></a></div>
+      <div class="sheet offerplan pf-cs" data-in="sheet" style="--d:.15s">
         <ul>
           <li><i>→</i><span>People found from the posts they engage with</span></li>
           <li><i>→</i><span>Invites and DMs written as you</span></li>
