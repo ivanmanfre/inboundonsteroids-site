@@ -206,6 +206,8 @@ strong { font-weight: 600; color: var(--tx); }
 html.ready body.proof .hero [data-in] { opacity: 1; transform: none; filter: blur(0); }
 /* two display lines leave room above the stage; centre it in the first screen (as the case-study heroes do) so the face is not cut at the fold */
 @media (min-width: 861px) { body.proof .hero { justify-content: center; } }
+/* tablet: keep the desktop two-line break so line two runs the measure (the stacked phone break measures as a full-width block there) */
+@media (min-width: 561px) and (max-width: 860px) { body.proof .hero .mbr { display: none; } body.proof .hero .dsk { display: inline; } }
 @media (max-width: 560px) { body.proof .hero .copy { padding-top: 18px; } body.proof .hero .copy .lede { margin-bottom: 24px; } }
 /* nav text links: 44px hit area without moving them */
 body.proof .nav nav a.t { padding: 10px 0; }
@@ -303,7 +305,7 @@ body.proof .cases a > span:not(.mono) { display: block; margin-top: 12px; font-s
 body.proof .cases a i { position: absolute; top: 26px; right: 26px; font-style: normal; color: var(--tx2); }
 
 /* ---------- Close: the line on top, then the ask and the plan side by side, both from the same top edge ---------- */
-body.proof .pf-close { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); grid-template-areas: "h h" "b s" "c s"; column-gap: clamp(30px, 5vw, 90px); align-items: start; }
+body.proof .pf-close { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); grid-template-areas: "h h" "b s" "c s"; grid-template-rows: auto auto 1fr; column-gap: clamp(30px, 5vw, 90px); align-items: start; }
 body.proof .pf-ch { grid-area: h; }
 body.proof .pf-ch .disp { max-width: 12.5em; }
 body.proof .pf-cb { grid-area: b; margin-top: clamp(36px, 4vw, 56px); }
@@ -316,7 +318,7 @@ body.proof .nav .mark, body.proof footer .mark, body.proof footer a { display: i
 
 /* ---------- Tablet and phone ---------- */
 @media (max-width: 1100px) {
-  body.proof .pf-index a { grid-template-columns: 40px minmax(0, 1fr) auto auto minmax(0, .9fr) 20px; }
+  body.proof .pf-index a { grid-template-columns: 40px minmax(0, 1fr) 84px 148px 216px 20px; }
   body.proof .pf-index .who { flex-direction: column; gap: 4px; }
 }
 @media (max-width: 860px) {
@@ -324,7 +326,7 @@ body.proof .nav .mark, body.proof footer .mark, body.proof footer a { display: i
   body.proof .chain .meta { position: static; }
   body.proof .chain .prof, body.proof.pf-vb .chain .prof { margin: 0; max-width: none; }
   body.proof .chain h3.disp { margin-top: 22px; }
-  body.proof .pf-index a { grid-template-columns: 36px auto auto minmax(0, 1fr) 18px; grid-template-rows: auto auto; gap: 6px 12px; padding: 14px 0; min-height: 64px; }
+  body.proof .pf-index a { grid-template-columns: 36px 76px 136px minmax(0, 1fr) 18px; grid-template-rows: auto auto; gap: 6px 12px; padding: 14px 0; min-height: 64px; }
   body.proof .pf-index a:hover { padding-left: 0; }
   body.proof .pf-index img { width: 36px; height: 36px; grid-row: 1 / 3; grid-column: 1; align-self: center; }
   body.proof .pf-index .who { grid-column: 2 / 5; grid-row: 1; flex-direction: row; gap: 10px; }
@@ -337,16 +339,19 @@ body.proof .nav .mark, body.proof footer .mark, body.proof footer a { display: i
   body.proof .pf-index .go { grid-column: 5; grid-row: 1 / 3; }
   body.proof .replies { grid-template-columns: minmax(0, 1fr); }
   body.proof .cases { grid-template-columns: minmax(0, 1fr); }
-  body.proof .pf-close { grid-template-columns: minmax(0, 1fr); grid-template-areas: "h" "b" "s" "c"; }
+  body.proof .pf-close { grid-template-columns: minmax(0, 1fr); grid-template-areas: "h" "b" "s" "c"; grid-template-rows: none; }
   body.proof .pf-cs { margin-top: 28px; }
   body.proof .pf-cc { margin-top: 32px; }
 }
 @media (max-width: 560px) {
-  body.proof .pf-index a { grid-template-columns: 36px auto minmax(0, 1fr) 18px; grid-template-rows: auto auto auto; row-gap: 4px; }
+  body.proof .pf-index a { grid-template-columns: 36px 72px minmax(0, 1fr) 18px; grid-template-rows: auto auto auto; row-gap: 4px; }
   body.proof .pf-index img { grid-row: 1 / 4; }
   body.proof .pf-index .who { grid-column: 2 / 4; flex-wrap: wrap; row-gap: 2px; }
   body.proof .pf-index .org { grid-column: 2; grid-row: 2; }
   body.proof .pf-index .when { grid-column: 3; grid-row: 2; }
   body.proof .pf-index .out { grid-column: 2 / 4; grid-row: 3; }
   body.proof .pf-index .go { grid-column: 4; grid-row: 1 / 4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.proof .pf-index a, body.proof .pf-index .go { transition: none; }
 }
