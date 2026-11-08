@@ -309,7 +309,7 @@ body.proof .cases a > span:not(.mono) { display: block; margin-top: 12px; font-s
 body.proof .cases a i { position: absolute; top: 26px; right: 26px; font-style: normal; color: var(--tx2); }
 
 /* ---------- Close: the line on top, then the ask and the plan side by side, both from the same top edge ---------- */
-body.proof .pf-close { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); grid-template-areas: "h h" "b s" "c s"; grid-template-rows: auto auto 1fr; column-gap: clamp(30px, 5vw, 90px); align-items: start; }
+body.proof .pf-close { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); grid-template-areas: "h h" "b s" "c s"; grid-template-rows: auto auto 1fr; column-gap: clamp(30px, 5vw, 90px); row-gap: 0; align-items: start; }
 body.proof .pf-ch { grid-area: h; }
 body.proof .pf-ch .disp { max-width: 12.5em; }
 body.proof .pf-cb { grid-area: b; margin-top: clamp(36px, 4vw, 56px); }
@@ -368,3 +368,7 @@ body.proof .nav .mark, body.proof footer .mark, body.proof footer a { display: i
 @media (prefers-reduced-motion: reduce) {
   body.proof .pf-index a, body.proof .pf-index .go { transition: none; }
 }
+
+/* ---------- JS off: no fit/placeCuts, so size the h1 by viewport and drop the decorative cutout ---------- */
+html:not(.js):not(.rm) body.proof .hero .disp { font-size: clamp(48px, 12vw, 150px) !important; }
+html:not(.js):not(.rm) body.proof .hero [data-cut], html:not(.js):not(.rm) body.proof .hero [data-tag] { display: none; }
