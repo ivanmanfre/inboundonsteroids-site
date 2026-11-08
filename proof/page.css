@@ -224,7 +224,11 @@ body.proof .pf-glance { padding-top: clamp(40px, 6vw, 80px); }
 body.proof .pf-glance .lbl { font: 500 14px/1.5 "IMMono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--tx2); margin-bottom: 18px; }
 body.proof .pf-glance .g { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 1100px) { body.proof .pf-glance .g { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-body.proof .pf-glance .g b { font-size: clamp(30px, 3vw, 44px); }
+/* fix pass: the brand wall sat in heavy display type at up to 44px and competed with the hero line; set it a step below the case-study wall */
+body.proof .pf-glance .g b { font-size: clamp(22px, 2vw, 30px); line-height: 1.05; letter-spacing: -.02em; }
+body.proof .pf-glance .g > div { padding: 22px 22px 24px; }
+body.proof .pf-glance .g span { margin-top: 10px; }
+@media (max-width: 560px) { body.proof .pf-glance .g > div { padding: 16px 14px 18px; } body.proof .pf-glance .g b { font-size: 21px; } body.proof .pf-glance .g span { margin-top: 8px; } }
 body.proof .pf-glance .g em { font-style: normal; color: var(--tx3); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; font-family: "IMMono", ui-monospace, monospace; }
 
 /* ---------- Lanes: four across on desktop only (the mobile rail stays one column) ---------- */
@@ -351,6 +355,15 @@ body.proof .nav .mark, body.proof footer .mark, body.proof footer a { display: i
   body.proof .pf-index .when { grid-column: 3; grid-row: 2; }
   body.proof .pf-index .out { grid-column: 2 / 4; grid-row: 3; }
   body.proof .pf-index .go { grid-column: 4; grid-row: 1 / 4; }
+}
+/* fix pass: on the phone the four steps sit in a 2 x 2 grid (about half the height of the one-column rail) */
+@media (max-width: 560px) {
+  body.proof .lanes.four { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 18px; padding: 0; }
+  body.proof .lanes.four::before { display: none; }
+  body.proof .lanes.four li { padding-top: 26px; }
+  body.proof .lanes.four li::before { left: 0; top: 0; }
+  body.proof .lanes.four b { font-size: 22px; }
+  body.proof .lanes.four span { font-size: 16px; line-height: 1.4; }
 }
 @media (prefers-reduced-motion: reduce) {
   body.proof .pf-index a, body.proof .pf-index .go { transition: none; }
