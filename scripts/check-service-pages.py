@@ -27,6 +27,7 @@ SITEMAP_ALLOWED = {
     "https://inboundonsteroids.com/case/kyle-hunt/",
     "https://inboundonsteroids.com/case/rise-dtc/",
     "https://inboundonsteroids.com/case/lemonade/",
+    "https://inboundonsteroids.com/ai-outbound-systems-for-agencies/",
     *("https://inboundonsteroids.com" + route for route in ROUTES),
 }
 PRIVATE_PATHS = (
