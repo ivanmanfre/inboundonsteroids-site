@@ -68,7 +68,7 @@
 .blog-page .bl-ch-t { font: 500 13px/1.3 "IMMono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--tx); padding-bottom: 2px; }
 
 .bl-article h2 { font-size: clamp(28px,2.6vw,38px); line-height: 1.06; letter-spacing: -.03em; max-width: 19em; margin: clamp(64px,7vw,92px) 0 0; scroll-margin-top: 24px; text-wrap: pretty; }
-.bl-ch-head + h2 { margin-top: 0; }
+.bl-ch-head + h2, .bl-ch-head + h3 { margin-top: 0; }
 .bl-article h3 { font-size: clamp(21px,1.8vw,24px); line-height: 1.15; letter-spacing: -.02em; margin: 44px 0 0; scroll-margin-top: 24px; }
 .bl-col p { color: var(--tx2); font-size: 18px; line-height: 1.62; margin-top: 14px; }
 .bl-article h2 + p, .bl-article h3 + p { margin-top: 12px; }
@@ -177,6 +177,9 @@
 .bl-vs thead td { width: 24%; }
 .bl-vs thead th:nth-child(2) { color: var(--tx); }
 .bl-ch > .bl-table-calc { max-width: var(--bl-measure); }
+.bl-fit thead th:first-child { width: 40%; }
+.bl-fit tbody th { font-weight: 600; }
+.bl-fit td:nth-child(2) { color: var(--tx); font-weight: 600; }
 .bl-table-calc th[scope="row"] { width: 34%; font: 500 11px/1.35 "IMMono", monospace; letter-spacing: .07em; text-transform: uppercase; color: var(--tx2); white-space: normal; }
 .bl-table-calc thead th[scope="col"], .bl-table-calc td { text-align: right; font: 500 14px/1.3 "IMMono", monospace; color: var(--tx); letter-spacing: 0; text-transform: none; font-variant-numeric: tabular-nums; }
 
@@ -184,6 +187,10 @@
 .bl-facts { list-style: none; margin-top: 26px; border-top: 1px solid var(--hair); }
 .bl-facts li { display: grid; grid-template-columns: var(--bl-name) minmax(0,1fr); gap: 4px 16px; padding: 13px 0; border-bottom: 1px solid var(--hair); color: var(--tx2); font-size: 16px; line-height: 1.55; }
 .bl-facts strong { color: var(--tx); font-weight: 650; font-size: 15px; }
+.bl-includes { margin-top: 18px; }
+.bl-includes li { padding-left: 14px; padding-right: 14px; }
+.bl-includes li.own { box-shadow: inset 2px 0 0 var(--red); background: rgba(229,80,47,.06); }
+.bl-includes li.own span { color: var(--tx); }
 .bl-facts strong small { display: block; font: 500 11px/1.4 "IMMono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--tx2); }
 
 /* ---------- Tile grids: four ways to pay, three checks, the comparisons ---------- */
@@ -273,13 +280,13 @@
   .bl-offscale li { grid-template-columns: minmax(0,1fr); gap: 2px; }
   .bl-stack .row { grid-template-columns: minmax(0,1fr) auto; grid-template-areas: "n v" "t t" "d d"; }
   /* the two text tables become stacked records */
-  .bl-table-prices table, .bl-vs table { min-width: 0; }
-  .bl-table-prices thead, .bl-vs thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .bl-table-prices tr, .bl-vs tr { display: block; padding: 14px 16px; border-bottom: 1px solid var(--hair); }
-  .bl-table-prices tbody tr:last-child, .bl-vs tbody tr:last-child { border-bottom: 0; }
-  .bl-table-prices th, .bl-table-prices td, .bl-vs th, .bl-vs td { display: block; width: auto; padding: 0; border: 0; }
-  .bl-table-prices td, .bl-vs td { display: grid; grid-template-columns: 76px minmax(0,1fr); gap: 10px; margin-top: 7px; }
-  .bl-table-prices td::before, .bl-vs td::before { content: attr(data-label); font: 500 10.5px/1.9 "IMMono", monospace; letter-spacing: .07em; text-transform: uppercase; color: var(--tx2); }
+  .bl-table-prices table, .bl-vs table, .bl-fit table { min-width: 0; }
+  .bl-table-prices thead, .bl-vs thead, .bl-fit thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .bl-table-prices tr, .bl-vs tr, .bl-fit tr { display: block; padding: 14px 16px; border-bottom: 1px solid var(--hair); }
+  .bl-table-prices tbody tr:last-child, .bl-vs tbody tr:last-child, .bl-fit tbody tr:last-child { border-bottom: 0; }
+  .bl-table-prices th, .bl-table-prices td, .bl-vs th, .bl-vs td, .bl-fit th, .bl-fit td { display: block; width: auto; padding: 0; border: 0; }
+  .bl-table-prices td, .bl-vs td, .bl-fit td { display: grid; grid-template-columns: 76px minmax(0,1fr); gap: 10px; margin-top: 7px; }
+  .bl-table-prices td::before, .bl-vs td::before, .bl-fit td::before { content: attr(data-label); font: 500 10.5px/1.9 "IMMono", monospace; letter-spacing: .07em; text-transform: uppercase; color: var(--tx2); }
   .bl-vs td { grid-template-columns: 86px minmax(0,1fr); }
   .bl-table .bl-own th { box-shadow: none; }
   .bl-table .bl-own { box-shadow: inset 2px 0 0 var(--red); background: rgba(229,80,47,.07); }
