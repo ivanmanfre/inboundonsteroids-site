@@ -289,3 +289,22 @@
   .bl-author { grid-template-columns: 56px minmax(0,1fr); gap: 14px; }
   .bl-author img { width: 56px; height: 56px; }
 }
+
+/* ---------- Agency comparison table (best agencies article) ---------- */
+.bl-best table { min-width: 700px; table-layout: fixed; }
+.bl-best thead th { white-space: normal; }
+.bl-best thead th:nth-child(1) { width: 21%; }
+.bl-best thead th:nth-child(2) { width: 20%; }
+.bl-best thead th:nth-child(3) { width: 22%; }
+.bl-best thead th:nth-child(5) { width: 13%; }
+.bl-best tbody th a { color: var(--tx); text-decoration: none; }
+.bl-best tbody th a:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) {
+  .bl-best table { min-width: 0; table-layout: auto; }
+  .bl-best thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .bl-best tr { display: block; padding: 14px 16px; border-bottom: 1px solid var(--hair); }
+  .bl-best tbody tr:last-child { border-bottom: 0; }
+  .bl-best th, .bl-best td { display: block; width: auto; padding: 0; border: 0; }
+  .bl-best td { display: grid; grid-template-columns: 80px minmax(0,1fr); gap: 10px; margin-top: 8px; }
+  .bl-best td::before { content: attr(data-label); font: 500 11.5px/1.75 "IMMono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--bl-dim); }
+}

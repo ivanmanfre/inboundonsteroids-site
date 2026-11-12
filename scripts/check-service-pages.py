@@ -30,6 +30,7 @@ SITEMAP_ALLOWED = {
     "https://inboundonsteroids.com/ai-outbound-systems-for-agencies/",
     "https://inboundonsteroids.com/blog/",
     "https://inboundonsteroids.com/blog/linkedin-outreach-agency-pricing/",
+    "https://inboundonsteroids.com/blog/best-linkedin-lead-generation-agencies-for-marketing-agencies/",
     *("https://inboundonsteroids.com" + route for route in ROUTES),
 }
 PRIVATE_PATHS = (
