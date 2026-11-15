@@ -236,7 +236,7 @@ Finding our rhythm.</div>
 </div>
 </div>
 <script>
-const SB="https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/shared_page_edits";
+const SB="https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/rpc/";
 const ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI";
 const SLUG="rise-personal-posts-0807";
 const KEYS=['c1', 'p3', 'p1', 'p2', 'lg1', 'nb1'];
@@ -254,8 +254,8 @@ async function doSave(k){
   const body=textOf(document.getElementById('body-'+k));
   let ok=false;
   try{
-    const r=await fetch(SB,{method:'POST',headers:{...H,'Prefer':'resolution=merge-duplicates'},
-      body:JSON.stringify({page_slug:SLUG,item_key:k,body})});
+    const r=await fetch(SB+'shared_page_edits_save',{method:'POST',headers:H,
+      body:JSON.stringify({p_slug:SLUG,p_item_key:k,p_body:body})});
     ok=r.ok;
   }catch(e){ ok=false; }
   return ok;
@@ -276,7 +276,7 @@ async function saveNow(k){
 }
 async function hydrate(){
   try{
-    const r=await fetch(SB+'?page_slug=eq.'+SLUG+'&select=item_key,body',{headers:H});
+    const r=await fetch(SB+'shared_page_edits_load',{method:'POST',headers:H,body:JSON.stringify({p_slug:SLUG})});
     for(const row of await r.json()){
       const el=document.getElementById('body-'+row.item_key);
       if(el && row.body) el.innerText=row.body;

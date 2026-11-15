@@ -136,7 +136,7 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
 
 <script>
 (function(){
-  var SB="https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/shared_page_edits";
+  var SB="https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/rpc/";
   var ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI";
   var SLUG="proswppp-plan-37386b43";
   var H={"apikey":ANON,"Authorization":"Bearer "+ANON,"Content-Type":"application/json"};
@@ -152,15 +152,15 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
   function say(t){status.textContent=t;}
   var timers={};
   function put(key,body){
-    return fetch(SB,{method:'POST',headers:Object.assign({},H,{'Prefer':'resolution=merge-duplicates'}),
-      body:JSON.stringify({page_slug:SLUG,item_key:key,body:body})}).then(function(r){return r.ok;}).catch(function(){return false;});
+    return fetch(SB+'shared_page_edits_save',{method:'POST',headers:H,
+      body:JSON.stringify({p_slug:SLUG,p_item_key:key,p_body:body})}).then(function(r){return r.ok;}).catch(function(){return false;});
   }
   function save(key,body){
     say('Saving...');
     clearTimeout(timers[key]);
     timers[key]=setTimeout(function(){put(key,body).then(function(ok){say(ok?'Saved \u2713':'Not saved, check your connection');});},700);
   }
-  fetch(SB+'?page_slug=eq.'+encodeURIComponent(SLUG)+'&select=item_key,body',{headers:H}).then(function(r){return r.ok?r.json():[];}).then(function(rows){
+  fetch(SB+'shared_page_edits_load',{method:'POST',headers:H,body:JSON.stringify({p_slug:SLUG})}).then(function(r){return r.ok?r.json():[];}).then(function(rows){
     var m={};(rows||[]).forEach(function(r){m[r.item_key]=r.body;});
     bubbles.forEach(function(b){var v=m[b.dataset.id];if(v&&v!==b.dataset.origText){b.innerHTML=render(v);}mark(b);});
     if(notes&&m.__notes)notes.value=m.__notes;
