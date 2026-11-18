@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SwishDM pre-call brief</title>
+<meta name="theme-color" content="#FAF7F0">
+<style>
+  :root { --navy: #FAF7F0; --lime: #FC5B06; --muted: #524C49; }
+  html, body { margin: 0; min-height: 100%; background: var(--navy); color: #010D68; font-family: Lato, Arial, Helvetica, sans-serif; }
+  #msg { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 16px; text-align: center; }
+  #msg .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--lime); animation: pulse 1s ease-in-out infinite; }
+  #msg p { margin: 0; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  @keyframes pulse { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+</style>
+</head>
+<body>
+<div id="msg"><span class="dot"></span><p>Loading the brief</p></div>
+<script>
+// SwishDM pre-call brief viewer. The sheet itself is built by the booking engine and stored
+// under an unguessable name; this page only fetches that name and renders it, so the
+// visible address stays on this site. Without a valid name it shows nothing.
+(function () {
+  var SRC = 'https://bjbvqvzbzczjbatgmccb.supabase.co/storage/v1/object/public/client-week-public/swishdm-precall/';
+  var fail = function (t) {
+    var m = document.getElementById('msg');
+    m.innerHTML = '<p></p>'; m.firstChild.textContent = t;
+  };
+  var b = new URLSearchParams(location.search).get('b') || '';
+  if (!/^[a-z0-9-]{20,120}$/.test(b)) { fail('Brief not found.'); return; }
+  fetch(SRC + b + '.html', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.text(); })
+    .then(function (html) {
+      if (html.indexOf('</html>') < 0) throw new Error('incomplete');
+      document.open(); document.write(html); document.close();
+    })
+    .catch(function () { fail('Brief not found.'); });
+})();
+</script>
+</body>
+</html>
