@@ -1,0 +1,152 @@
+/* Analogy scenes (rain, shop window, shop assistant). Every class is az- prefixed so nothing collides with site.css. */
+.az-band { margin-top: clamp(90px, 11vw, 170px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(30px, 6vw, 110px); align-items: center; }
+.az-band .disp { font-size: clamp(44.65px, 6.17vw, 100.02px); }
+.az-band .body:first-of-type { margin-top: 30px; color: var(--tx); font-size: clamp(19px, 1.49vw, 22.08px); }
+.az-art { position: relative; }
+
+.az-stage { position: relative; width: 100%; aspect-ratio: 4/3; border-radius: 22px; background: radial-gradient(90% 80% at 28% 0%, #2A2520, #1A1816 62%, #151311); box-shadow: var(--shadow), inset 0 1px 0 rgba(243,239,230,.07); overflow: hidden; isolation: isolate; container-type: inline-size; color: var(--tx); font-family: "IMSans", system-ui, sans-serif; opacity: 0; transition: opacity .8s ease; }
+.az-stage.az-on { opacity: 1; }
+.az-stage::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 30; border-radius: inherit; background: radial-gradient(130% 110% at 50% 38%, transparent 58%, rgba(0,0,0,.42)); }
+.az-stage .az-mono { font-family: "IMMono", ui-monospace, monospace; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.az-cap { position: absolute; left: 4.5%; right: 4.5%; bottom: 4%; z-index: 32; font-weight: 520; font-size: max(14px, 2.25cqw); line-height: 1.3; color: var(--tx); text-shadow: 0 1px 12px rgba(0,0,0,.7); min-height: 1.3em; }
+.az-paper { background: var(--sheet); color: var(--ink); border-radius: 12px; box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(0,0,0,.28), 0 22px 44px -18px rgba(0,0,0,.65); }
+.az-abs { position: absolute; left: 0; top: 0; }
+.az-bub { position: absolute; padding: 1.5cqw 2cqw; font-size: max(12px, 2cqw); line-height: 1.32; font-weight: 500; border-radius: 14px 14px 14px 4px; z-index: 12; }
+.az-bub small { display: block; font-family: "IMMono", monospace; font-size: max(9px, 1.3cqw); letter-spacing: .06em; text-transform: uppercase; color: #7b776f; margin-bottom: .4cqw; }
+.az-bub.az-r { border-radius: 14px 14px 4px 14px; }
+
+/* figures */
+.az-fig { aspect-ratio: 2/5; z-index: 8; }
+.az-fig svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.az-fig .lg rect { fill: #2B2723; }
+.az-fig .bd { fill: var(--c); }
+.az-fig .arm rect { fill: var(--c2, var(--c)); }
+.az-fig .hd { fill: #D9D0C2; }
+.az-fig .sh { fill: rgba(0,0,0,.4); }
+.az-fig .apron { display: none; }
+.az-fig.az-staff .apron { display: inline; }
+.az-fig .lg, .az-fig .arm { transform-box: fill-box; transform-origin: 50% 6%; transition: transform .45s var(--back); }
+.az-fig.az-walk .lg.l { animation: azLeg .5s ease-in-out infinite alternate; }
+.az-fig.az-walk .lg.r { animation: azLeg .5s ease-in-out infinite alternate-reverse; }
+.az-fig.az-walk .a1 { animation: azArm .5s ease-in-out infinite alternate-reverse; }
+.az-fig.az-walk svg { animation: azBob .25s ease-in-out infinite alternate; }
+@keyframes azLeg { from { transform: rotate(17deg); } to { transform: rotate(-17deg); } }
+@keyframes azArm { from { transform: rotate(10deg); } to { transform: rotate(-10deg); } }
+@keyframes azBob { to { transform: translateY(-2.2%); } }
+.az-fig.az-reach .a2 { transform: rotate(-150deg); }
+.az-fig.az-nod .hd { animation: azNod .35s ease-in-out 2 alternate; transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes azNod { to { transform: translateY(8%); } }
+.az-fig.az-fidget svg { animation: azFid 1.1s ease-in-out infinite alternate; }
+@keyframes azFid { to { transform: translateX(5%) rotate(2deg); } }
+.az-fig.az-halo::before { content: ""; position: absolute; left: -40%; right: -40%; bottom: -3%; height: 9%; border-radius: 50%; background: radial-gradient(closest-side, rgba(243,239,230,.38), transparent); }
+
+/* rain */
+.az-rain .az-table { position: absolute; left: 0; right: 0; bottom: 0; height: 20%; background: linear-gradient(#211D19, #161412); border-top: 1px solid rgba(243,239,230,.14); }
+.az-rain .az-month { position: absolute; left: 4.5%; top: 5.5%; color: var(--tx2); font-size: max(10px, 1.6cqw); z-index: 3; }
+.az-rain .az-rail { position: absolute; left: 5%; right: 5%; top: 12%; height: .7cqw; border-radius: 99px; background: linear-gradient(#5C554D, #3A352F); transform: scaleX(0); transform-origin: 0 50%; z-index: 6; }
+.az-rain .az-tap { width: 12cqw; z-index: 7; opacity: 0; }
+.az-rain .az-tap svg { display: block; width: 100%; overflow: visible; }
+.az-rain .az-tap .handle { transform-box: fill-box; transform-origin: 50% 80%; }
+.az-rain .az-stream { position: absolute; width: 1.1cqw; margin-left: -.55cqw; border-radius: 0 0 99px 99px; background: linear-gradient(90deg, rgba(243,239,230,.35), rgba(243,239,230,.92) 50%, rgba(243,239,230,.35)); transform-origin: 50% 0; transform: scaleY(0); z-index: 5; }
+.az-rain .az-cloud { width: 34%; z-index: 8; filter: drop-shadow(0 18px 28px rgba(0,0,0,.45)); }
+.az-rain .az-cloud svg { display: block; width: 100%; overflow: visible; }
+.az-rain .az-glasses { position: absolute; left: 7%; right: 7%; bottom: 20%; height: 48%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5%; z-index: 3; }
+.az-rain .az-gl { position: relative; }
+.az-rain .az-gl svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.az-rain .wv { animation: azWave 2.6s linear infinite; }
+@keyframes azWave { to { transform: translateX(-50px); } }
+.az-rain .az-wk { position: absolute; left: 0; right: 0; top: calc(100% + 2.2cqw); text-align: center; font-size: max(10px, 1.45cqw); color: var(--tx3); transition: color .5s; }
+.az-rain .az-wk.az-lit { color: var(--tx); }
+.az-rain .az-drop { width: 2px; height: 3.6cqw; border-radius: 2px; background: linear-gradient(rgba(243,239,230,0), rgba(243,239,230,.85)); z-index: 6; }
+.az-rain .az-splash { width: 3.4cqw; height: 1.1cqw; border: 1.5px solid rgba(243,239,230,.7); border-radius: 50%; z-index: 6; }
+.az-rain .az-thread { position: absolute; height: 2px; background: var(--red); box-shadow: 0 0 14px rgba(200,54,27,.7); transform: scaleX(0); transform-origin: 0 50%; z-index: 6; }
+
+/* shop window */
+.az-win .az-sky { position: absolute; inset: 0; background: radial-gradient(60% 50% at 80% 0%, rgba(243,239,230,.05), transparent 70%); }
+.az-win .az-pave { position: absolute; left: 0; right: 0; bottom: 0; height: 22%; background: linear-gradient(#1C1916, #121010); border-top: 1px solid rgba(243,239,230,.12); }
+.az-win .az-lamp { position: absolute; left: 3.5%; bottom: 22%; height: 60%; width: 1.2cqw; border-radius: 2px 2px 0 0; background: linear-gradient(90deg, #3A352F, #26221E); }
+.az-win .az-lamp::before { content: ""; position: absolute; left: -1.6cqw; top: -1.2cqw; width: 4.4cqw; height: 2cqw; border-radius: 2cqw 2cqw 4px 4px; background: #3A352F; }
+.az-win .az-lamp::after { content: ""; position: absolute; left: -7cqw; top: 0; width: 15cqw; height: 15cqw; border-radius: 50%; background: radial-gradient(closest-side, rgba(243,222,190,.18), transparent); }
+.az-win .az-shop { position: absolute; left: 13%; right: 11%; top: 22%; bottom: 22%; }
+.az-win .az-sign { position: absolute; left: 10%; right: 10%; top: 0; height: 13%; border-radius: 6px; background: #141210; border: 1px solid var(--hair); display: grid; place-items: center; font-family: "IMDisplay", sans-serif; font-weight: 800; font-size: 2.5cqw; letter-spacing: -.02em; color: #4A443D; transition: color .8s, text-shadow .8s, border-color .8s; }
+.az-win .az-sign.az-lit { color: var(--tx); text-shadow: 0 0 18px rgba(214,132,74,.7); border-color: rgba(214,132,74,.4); }
+.az-win .az-awn { position: absolute; left: -3%; right: -3%; top: 14%; height: 13%; z-index: 2; filter: drop-shadow(0 8px 10px rgba(0,0,0,.55)); }
+.az-win .az-awn svg { display: block; width: 100%; height: 100%; }
+.az-win .az-facade { position: absolute; left: 0; right: 0; top: 22%; bottom: 0; background: linear-gradient(#26221E, #1F1B18); border: 1px solid rgba(243,239,230,.08); border-bottom: none; border-radius: 3px 3px 0 0; }
+.az-win .az-glass { position: absolute; left: 5%; width: 57%; top: 13%; bottom: 12%; border-radius: 4px; background: #121010; border: .5cqw solid #3A352F; overflow: hidden; transition: background .9s, box-shadow .9s; }
+.az-win .az-glass::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 30%, rgba(243,239,230,.07) 38%, transparent 46%, transparent 60%, rgba(243,239,230,.04) 64%, transparent 68%); pointer-events: none; }
+.az-win .az-prof { position: absolute; left: 8%; right: 8%; top: 8%; bottom: 8%; border-radius: 5px; padding: 4.5% 5.5%; transition: opacity .9s, filter .9s; }
+.az-win .az-ph { display: flex; align-items: center; gap: 5%; }
+.az-win .az-av { flex: none; width: 17%; aspect-ratio: 1; border-radius: 50%; background: #D9D0C2; position: relative; overflow: hidden; }
+.az-win .az-av::before { content: ""; position: absolute; left: 32%; top: 18%; width: 36%; height: 36%; border-radius: 50%; background: #A39E93; }
+.az-win .az-av::after { content: ""; position: absolute; left: 16%; top: 60%; width: 68%; height: 60%; border-radius: 50% 50% 0 0; background: #A39E93; }
+.az-win .az-ls { flex: 1; display: grid; gap: .9cqw; }
+.az-win .az-ls i { display: block; height: 1.1cqw; border-radius: 3px; background: #DAD5CB; }
+.az-win .az-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2cqw; margin-top: 2cqw; }
+.az-win .az-tile { position: relative; aspect-ratio: 4/5; }
+.az-win .az-old { position: absolute; inset: 0; border-radius: 4px; border: 1.5px dashed #CFC9BE; }
+.az-win .az-tile:first-child .az-old { border: none; background: #E4DFD5; display: grid; place-items: end start; padding: 8%; font-family: "IMMono", monospace; font-size: max(7px, 1.1cqw); color: #8a857c; }
+.az-win .az-nw { position: absolute; inset: 0; border-radius: 4px; overflow: hidden; background: #1A1816; opacity: 0; transform: translateY(30%) rotate(-6deg); box-shadow: 0 6px 14px -6px rgba(0,0,0,.5); }
+.az-win .az-nw img { width: 100%; height: 100%; object-fit: cover; }
+.az-win .az-glass:not(.az-lit) .az-prof { opacity: .3; filter: grayscale(1) brightness(.8); }
+.az-win .az-glass.az-lit { background: #2E2721; box-shadow: inset 0 0 70px rgba(214,132,74,.4), 0 0 60px -8px rgba(214,132,74,.4); }
+.az-win .az-door { position: absolute; right: 6%; width: 24%; top: 13%; bottom: 0; background: linear-gradient(#5A3A22, #3B2717); border: .5cqw solid #3A352F; border-bottom: none; border-radius: 3px 3px 0 0; overflow: hidden; }
+.az-win .az-door .az-in { position: absolute; inset: 0; background: radial-gradient(80% 60% at 50% 30%, rgba(232,170,110,.55), rgba(90,55,30,.6)); }
+.az-win .az-leaf { position: absolute; inset: 0; background: linear-gradient(#2A2521, #211D1A); transform-origin: 0 50%; border-right: 1px solid rgba(243,239,230,.1); }
+.az-win .az-leaf::before { content: ""; position: absolute; left: 14%; right: 14%; top: 9%; height: 45%; border-radius: 3px; background: #121010; border: 1px solid rgba(243,239,230,.12); transition: background .9s; }
+.az-win .az-leaf::after { content: ""; position: absolute; right: 12%; top: 60%; width: 9%; aspect-ratio: 1; border-radius: 50%; background: #A39E93; }
+.az-win .az-door.az-lit .az-leaf::before { background: rgba(214,132,74,.45); }
+.az-win .az-bell { position: absolute; left: 50%; top: -1px; margin-left: -1.5cqw; width: 3cqw; transform-origin: 50% 0; z-index: 3; }
+.az-win .az-pool { position: absolute; left: 14%; width: 46%; bottom: 2%; height: 22%; background: radial-gradient(closest-side, rgba(214,132,74,.42), transparent); opacity: 0; z-index: 1; }
+.az-win .az-dm, .az-win .az-reply, .az-win .az-chip { opacity: 0; }
+.az-win .az-dm { left: 4%; top: 4%; max-width: 52%; }
+.az-win .az-reply { right: 4%; top: 4%; max-width: 44%; }
+.az-win .az-chip { position: absolute; right: 4%; top: 17%; z-index: 13; background: var(--red); color: var(--tx); border-radius: 999px; padding: .8cqw 1.7cqw; font-weight: 600; font-size: max(11px, 1.7cqw); box-shadow: 0 10px 24px -6px rgba(200,54,27,.6); }
+.az-shopf .az-pick { position: absolute; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: .6cqw 1cqw; max-width: 30cqw; padding: .9cqw 1.3cqw; border-radius: 10px; font-size: max(10px, 1.45cqw); line-height: 1.25; z-index: 12; }
+.az-shopf .az-pick i { flex: none; width: 2.4cqw; height: 2.4cqw; border-radius: 50%; }
+.az-shopf .az-pick span { flex: 1; min-width: 0; }
+.az-shopf .az-pick b { font-weight: 650; }
+.az-shopf .az-pick em { grid-column: 2; justify-self: start; font-style: normal; }
+.az-shopf .az-pick em:empty { display: none; }
+.az-shopf .az-pick em.az-sent { background: var(--ink); color: var(--tx); border-radius: 999px; padding: .4cqw 1cqw; font-family: "IMMono", monospace; font-size: max(8px, 1.1cqw); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.az-shopf .az-bub { max-width: 34cqw; }
+.az-win .az-think { position: absolute; padding: .7cqw 1.3cqw; border-radius: 999px; font-size: max(11px, 1.7cqw); font-weight: 600; z-index: 12; }
+
+/* shop assistant */
+.az-shopf .az-unit { position: absolute; left: 4%; right: 4%; top: 6%; height: 52%; border-radius: 10px; background: linear-gradient(#28231E, #1F1B17); border: 1px solid var(--hair); box-shadow: inset 0 -30px 50px -30px rgba(0,0,0,.6); }
+.az-shopf .az-row { position: absolute; left: 3%; right: 3%; height: 24%; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 1%; }
+.az-shopf .az-row::after { content: ""; position: absolute; left: -1.5%; right: -1.5%; bottom: -.9cqw; height: .9cqw; border-radius: 2px; background: linear-gradient(#4A433B, #2E2925); box-shadow: 0 6px 10px -4px rgba(0,0,0,.6); }
+.az-shopf .az-pr { position: relative; flex: none; border-radius: 3px; transition: opacity .3s; }
+.az-shopf .az-pr::after { content: ""; position: absolute; left: 14%; right: 14%; top: 38%; height: 16%; border-radius: 1px; background: rgba(243,239,230,.55); }
+.az-shopf .az-pr.az-jar { border-radius: 30% 30% 4px 4px; }
+.az-shopf .az-pr.az-bt { border-radius: 40% 40% 3px 3px; }
+.az-shopf .az-pr.az-gone { opacity: 0; }
+.az-shopf .az-floorf { position: absolute; left: 0; right: 0; top: 60%; bottom: 0; background: linear-gradient(#1E1A17, #131110); border-top: 1px solid rgba(243,239,230,.08); }
+.az-shopf .az-item { z-index: 9; border-radius: 3px; box-shadow: 0 0 22px rgba(243,239,230,.55); }
+.az-shopf .az-item::after { content: ""; position: absolute; left: 14%; right: 14%; top: 38%; height: 16%; background: rgba(243,239,230,.6); }
+
+@media (max-width: 860px) {
+  .az-band { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .az-stage { aspect-ratio: 1/1; border-radius: 18px; }
+  .az-cap { font-size: max(13.5px, 3.6cqw); }
+  .az-bub { font-size: max(12px, 3.2cqw); padding: 2.2cqw 2.8cqw; }
+  .az-bub small { font-size: max(9px, 2.1cqw); }
+  .az-rain .az-glasses { left: 5%; right: 5%; bottom: 21%; height: 46%; gap: 4%; }
+  .az-rain .az-cloud { width: 40%; }
+  .az-rain .az-tap { width: 13cqw; }
+  .az-rain .az-rail { top: 22%; }
+  .az-rain .az-month { font-size: max(10px, 2.6cqw); }
+  .az-rain .az-wk { font-size: max(9px, 2.4cqw); }
+  .az-win .az-shop { left: 11%; right: 5%; top: 30%; }
+  .az-win .az-sign { font-size: 3.6cqw; }
+  .az-win .az-chip { top: 23%; font-size: max(11px, 3cqw); padding: 1.2cqw 2.4cqw; }
+  .az-win .az-think { font-size: max(11px, 3cqw); }
+  .az-shopf .az-pick { max-width: 40cqw; font-size: max(10px, 2.5cqw); padding: 1.4cqw 1.8cqw; gap: 1.4cqw; }
+  .az-shopf .az-pick i { width: 3.6cqw; height: 3.6cqw; }
+  .az-shopf .az-pick em.az-sent { font-size: max(8px, 1.9cqw); }
+  .az-shopf .az-bub { max-width: 60cqw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .az-stage { opacity: 1; transition: none; }
+  .az-stage *, .az-stage *::before, .az-stage *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+}
