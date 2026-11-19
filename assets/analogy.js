@@ -1,5 +1,5 @@
 /* Analogy scenes for the homepage: rain (#az-rain), shop window (#az-win), shop assistant (#az-shop).
-   Each plays once when it scrolls into view, pauses while off screen, and has a Replay button.
+   Each plays once when it scrolls into view and pauses while off screen.
    Reduced motion: the end state renders at once. */
 (() => {
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -108,25 +108,25 @@
     });
     const cloudTo = (i, d) => move(cl, cx(i), cy0, d, INOUT);
     cap(st, 'Referrals arrive like weather.');
-    await wait(300, tok); await cloudTo(0, 1300);
-    setL(0, .5, 1900); wk[0].classList.add('az-lit'); cap(st, 'Week 1 gets a downpour.'); await rainOn(0, 1900, 3);
-    await wait(200, tok); cap(st, 'Week 2 gets nothing.'); await cloudTo(1, 1100); await wait(500, tok);
-    await cloudTo(2, 900); setL(2, .3, 1300); wk[2].classList.add('az-lit'); cap(st, 'Week 3, a shower.'); await rainOn(2, 1300, 2);
+    await wait(300, tok); await cloudTo(0, 1000);
+    setL(0, .5, 1300); wk[0].classList.add('az-lit'); cap(st, 'Week 1 gets a downpour.'); await rainOn(0, 1300, 3);
+    await wait(200, tok); cap(st, 'Week 2 gets nothing.'); await cloudTo(1, 900); await wait(400, tok);
+    await cloudTo(2, 800); setL(2, .3, 1000); wk[2].classList.add('az-lit'); cap(st, 'Week 3, a shower.'); await rainOn(2, 1000, 2);
     await wait(200, tok); await cloudTo(3, 800); cap(st, 'Week 4, dry again.'); await wait(300, tok);
-    await move(cl, W + cw, cy0, 1200, 'cubic-bezier(.5,0,.8,.5)');
-    cap(st, 'Two good weeks, two dry ones. You never know which.'); await wait(1600, tok);
+    await move(cl, W + cw, cy0, 900, 'cubic-bezier(.5,0,.8,.5)');
+    cap(st, 'Two good weeks, two dry ones. You never know which.'); await wait(1100, tok);
     cap(st, 'So we turn on a tap that runs every week.');
-    await A(rail, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: 900, easing: INOUT });
+    await A(rail, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: 600, easing: INOUT });
     const tap = el('az-tap az-abs', st, TAP), rr = rel(st, rail); put(tap, geo[0].x, rr.t - 2, 'translate(-67%,0)'); // fix: fades in over week 1, never off stage
     await A(tap, [{ opacity: 0 }, { opacity: 1 }], { duration: 300 });
     const handle = $('.handle', tap);
     for (let i = 0; i < 4; i++) {
-      if (i) await move(tap, geo[i].x, rr.t - 2, 700, INOUT);
+      if (i) await move(tap, geo[i].x, rr.t - 2, 500, INOUT);
       const tb = tap.getBoundingClientRect(), R = st.getBoundingClientRect(), sx = geo[i].x, sy = tb.top - R.top + tb.width * (82 / 80);
       await A(handle, [{ transform: 'rotate(0)' }, { transform: 'rotate(-38deg)' }], { duration: 300, easing: BACK });
       const target = Math.min(.92, L[i] + .4), s = el('az-stream', st); Object.assign(s.style, { left: sx + 'px', top: sy + 'px', height: Math.max(4, geo[i].surf(target) - sy) + 'px' });
       await A(s, [{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }], { duration: 260, easing: 'cubic-bezier(.5,0,1,.6)' });
-      wk[i].classList.add('az-lit'); await setL(i, target, 900);
+      wk[i].classList.add('az-lit'); await setL(i, target, 700);
       A(handle, [{ transform: 'rotate(-38deg)' }, { transform: 'rotate(0)' }], { duration: 260 });
       await A(s, [{ transform: 'scaleY(1)', transformOrigin: '50% 100%', opacity: 1 }, { transform: 'scaleY(0)', transformOrigin: '50% 100%', opacity: .6 }], { duration: 240, easing: 'ease-in' }); s.remove();
     }
@@ -140,8 +140,8 @@
   /* ---------- shop window ---------- */
   scene('az-win', async (st, tok) => {
     $$('.az-fig,.az-think', st).forEach(e => e.remove());
-    const dm = $('.az-dm', st), rp = $('.az-reply', st), chip = $('.az-chip', st), gl = $('.az-glass', st), sign = $('.az-sign', st), door = $('.az-door', st), leaf = $('.az-leaf', st), bell = $('.az-bell', st), pool = $('.az-pool', st), nws = $$('.az-nw', st);
-    [dm, rp, chip].forEach(e => { e.style.opacity = 0; }); gl.classList.remove('az-lit'); sign.classList.remove('az-lit'); door.classList.remove('az-lit'); pool.style.opacity = 0;
+    const dm = $('.az-dm', st), rp = $('.az-reply', st), gl = $('.az-glass', st), sign = $('.az-sign', st), door = $('.az-door', st), leaf = $('.az-leaf', st), bell = $('.az-bell', st), pool = $('.az-pool', st), nws = $$('.az-nw', st);
+    [dm, rp].forEach(e => { e.style.opacity = 0; }); gl.classList.remove('az-lit'); sign.classList.remove('az-lit'); door.classList.remove('az-lit'); pool.style.opacity = 0;
     nws.forEach(n => { n.style.opacity = 0; n.style.transform = 'translateY(30%) rotate(-6deg)'; }); leaf.style.transform = 'none';
     const W = st.clientWidth, H = st.clientHeight, street = H * .9, g = rel(st, gl), dr = rel(st, door);
     const dmTxt = n => `<small>LinkedIn · now</small>Hey ${n}, may I send you a short review of your store?`;
@@ -166,15 +166,14 @@
     A(bell, [{ transform: 'rotate(0)' }, { transform: 'rotate(22deg)' }, { transform: 'rotate(-16deg)' }, { transform: 'rotate(10deg)' }, { transform: 'rotate(-5deg)' }, { transform: 'rotate(0)' }], { duration: 1100, easing: 'ease-out' });
     await wait(300, tok); await A(p, [{ opacity: 1 }, { opacity: 0 }], { duration: 400 });
     A(leaf, [{ transform: 'perspective(500px) rotateY(-72deg)' }, { transform: 'perspective(500px) rotateY(0)' }], { duration: 600, easing: EXPO });
-    fade(dm, 0, 300); await wait(200, tok); show(rp, 'translateY(-14px) scale(.94)', 600); cap(st, 'And Sam replies.'); await wait(1200, tok);
-    await show(chip, 'scale(.5)', 600);
+    fade(dm, 0, 300); await wait(200, tok); show(rp, 'translateY(-14px) scale(.94)', 600); cap(st, 'And Sam replies.');
   }, st => { const s = $('.az-awn svg', st); let h = ''; for (let i = 0; i < 10; i++) { const c = i % 2 ? '#6B5A48' : '#D9D0C2'; h += `<rect x="${i * 20}" y="3" width="20" height="18" fill="${c}"/><path d="M${i * 20} 20 a10 9 0 0 0 20 0 z" fill="${c}"/>`; } s.innerHTML = '<rect x="0" y="0" width="200" height="4" fill="#3A352F"/>' + h; });
 
   /* ---------- shop assistant ---------- */
   const PCOL = ['#3A342E', '#4A433B', '#5C544A', '#6E655A', '#8A6F4E', '#A39E93', '#56504A', '#7D6A52', '#2E2925'];
   scene('az-shop', async (st, tok) => {
     $$('.az-fig,.az-item,.az-bub,.az-pick', st).forEach(e => e.remove()); $$('.az-pr', st).forEach(p => p.classList.remove('az-gone'));
-    const W = st.clientWidth, H = st.clientHeight, small = W < 520, floor = H * .9, fh = H * (small ? .33 : .36);
+    const W = st.clientWidth, H = st.clientHeight, small = W < 520, floor = H * (small ? .845 : .9), fh = H * (small ? .33 : .36);
     const xs = small ? [.12, .31, .5, .69, .88] : [.1, .26, .42, .58, .74, .9];
     const cols = ['#857B6F', '#6E665C', '#958C80', '#5C554D', '#A39E93', '#7D7468'];
     // pickers are spread out so their tags never overlap
@@ -187,7 +186,7 @@
     const cs = xs.map((x, i) => { const c = person(st, pickC.includes(i) ? pickTone[pickC.indexOf(i)] : cols[i], fh); put(c, x * W + rnd(-4, 4), floor - H * .03 + rnd(-3, 3), 'translate(-50%,-100%)'); return c; });
     cs.forEach((c, i) => { if (!pickC.includes(i)) c.classList.add('az-fidget'); c.style.animationDelay = (-i * .3) + 's'; });
     // the shop assistant (apron) walks in the foreground lane, slightly bigger
-    const lane = floor + H * .065, as = person(st, '#C8361B', fh * 1.1); as.style.zIndex = 10; put(as, W + 60, lane, 'translate(-50%,-100%)');
+    const lane = floor + H * (small ? .01 : .035), as = person(st, '#C8361B', fh * 1.1); as.style.zIndex = 10; put(as, W + 60, lane, 'translate(-50%,-100%)');
     as.classList.add('az-staff');
     cap(st, 'A shop full of people. Most are just looking.'); await wait(1700, tok);
     cap(st, 'A few pick something up. On LinkedIn, that’s a like or a comment.');
@@ -201,7 +200,8 @@
       await A(it, [{ transform: T(r.x, r.y, 'translate(-50%,-50%)') }, { transform: T((r.x + hx) / 2, Math.min(r.y, hy) - H * .04, 'translate(-50%,-50%) rotate(-10deg)'), offset: .5 }, { transform: T(hx, hy, 'translate(-50%,-50%) rotate(8deg) scale(.85)') }], { duration: 650, easing: 'cubic-bezier(.4,0,.3,1)' });
       c.classList.remove('az-reach'); c.classList.add('az-halo');
       const ch = el('az-pick az-paper az-abs', st); ch.innerHTML = `<i style="background:${pickTone[chips.length]}"></i><span><b>${sg.who}</b> ${sg.what}</span><em></em>`;
-      const cw = ch.getBoundingClientRect().width; put(ch, clamp(cr.x, cw / 2 + W * .02, W - cw / 2 - W * .02), cr.t - H * (small && chips.length === 1 ? .2 : .05), 'translate(-50%,-100%)'); // phone: middle tag sits higher so the three never overlap
+      const cw = ch.getBoundingClientRect().width; const tx = small ? cr.x : W * [1 / 6, .5, 5 / 6][chips.length]; // desktop: three even columns, never overlapping
+      put(ch, clamp(tx, cw / 2 + W * .02, W - cw / 2 - W * .02), cr.t - H * (small && chips.length === 1 ? .27 : .05), 'translate(-50%,-100%)'); // phone: middle tag sits higher so the three never overlap
       show(ch, 'scale(.6) translateY(8px)', 420); chips.push(ch);
       await A(it, [{ transform: T(hx, hy, 'translate(-50%,-50%) rotate(8deg) scale(.85)') }, { transform: T(cr.l + cr.w * .9, cr.t + cr.h * .62, 'translate(-50%,-50%) rotate(0deg) scale(.8)') }], { duration: 450, easing: EXPO });
       await wait(450, tok);
@@ -213,12 +213,11 @@
       const b = el('az-bub az-r az-paper az-abs', st); b.textContent = SIG[k].say;
       const ar = rel(st, as), bw = b.getBoundingClientRect().width;
       put(b, clamp(ar.x, bw / 2 + W * .03, W - bw / 2 - W * .03), ar.t - 8, 'translate(-50%,-100%)');
-      chips.forEach(x => fade(x, .25, 200));
+      chips.forEach(x => fade(x, 0, 200));
       await show(b, 'scale(.7) translateY(10px)', 420); c.classList.add('az-nod'); await wait(2100, tok); await fade(b, 0, 220); b.remove(); c.classList.remove('az-nod');
       chips.forEach(x => fade(x, 1, 200));
     }
     await wait(300, tok); cap(st, 'They hear from you first, with a review made for their business.');
-    for (const ch of chips) { const e = $('em', ch); await wait(420, tok); e.textContent = 'Review sent'; e.classList.add('az-sent'); A(e, [{ opacity: 0, transform: 'scale(.6)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: BACK }); }
   }, st => {
     $$('.az-row', st).forEach((row, r) => { const n = 9 + (r % 2); for (let i = 0; i < n; i++) { const p = el('az-pr', row), kind = (i * 7 + r * 3) % 5; p.style.width = [5.2, 3.6, 2.6, 4.4, 3.2][kind] + 'cqw'; p.style.height = [6.4, 7.6, 9, 5.4, 7][kind] + 'cqw'; p.style.background = PCOL[(i * 5 + r * 2) % PCOL.length]; if (kind === 1) p.classList.add('az-jar'); if (kind === 2) p.classList.add('az-bt'); } });
   });
@@ -226,13 +225,14 @@
   const lk = document.getElementById('lk');
   if (lk && !RM) {
     const ms = $$('.lk-msg', lk), ty = $('.lk-typing', lk), body = $('.lk-body', lk), me = ms[0].querySelector('.lk-h b').textContent;
+    let vis = false; new IntersectionObserver(([e]) => { vis = e.isIntersecting; }).observe(lk);
+    const sleep = ms => new Promise(r => { let left = ms, last = performance.now(); const t = () => { const n = performance.now(); if (vis) left -= n - last; last = n; if (left <= 0) r(); else setTimeout(t, 40); }; t(); });
     new IntersectionObserver((es, o) => es.forEach(async e => {
-      if (!e.isIntersecting) return; o.disconnect();
-      const sleep = t => new Promise(r => setTimeout(r, t));
+      if (!e.isIntersecting) return; o.disconnect(); vis = true;
       await sleep(500);
       for (const m of ms) {
         const them = m.querySelector('.lk-h b').textContent !== me;
-        if (them) { body.insertBefore(ty, m); ty.classList.add('on'); await sleep(1000); ty.classList.remove('on'); }
+        if (them) { ty.style.top = m.offsetTop + 'px'; ty.classList.add('on'); await sleep(1000); ty.classList.remove('on'); }
         m.classList.add('on'); await sleep(them ? 700 : 900);
       }
     }), { threshold: .4 }).observe(lk);

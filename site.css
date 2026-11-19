@@ -390,7 +390,7 @@ section { position: relative; }
 /* ================= FAQ ================= */
 .faq { padding: clamp(110px, 13vw, 200px) 0 clamp(60px, 6vw, 100px); }
 .faq .grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(30px, 6vw, 110px); align-items: start; }
-.faq .disp { position: sticky; top: 130px; }
+.faq .grid > .seam { position: sticky; top: 130px; }
 details { border-top: 1px solid var(--hair); }
 details:last-child { border-bottom: 1px solid var(--hair); }
 summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0;
@@ -422,7 +422,7 @@ footer a { font-size: 16px; text-decoration: none; color: var(--tx2); }
   .mark { font-size: 19px; }
   .hero { padding-top: 96px; }
   .pain .grid, .pain .after, .step .grid, .step.flip .grid, .change .cols, .who-first, .builds .head, .about .below, .plans, .alts .row, .res, .faq .grid { grid-template-columns: minmax(0, 1fr); }
-  .pain .stick, .faq .disp { position: static; }
+  .pain .stick, .faq .grid > .seam { position: static; }
   .pain .after .flow, .pain .after .ctas { grid-column: 1; }
   .step.flip .text { order: 0; }
   .step .art { margin-top: 30px; }
@@ -479,7 +479,7 @@ footer a { font-size: 16px; text-decoration: none; color: var(--tx2); }
 .lk-top b { display: block; font-size: 15px; font-weight: 600; line-height: 1.3; }
 .lk-top span { display: block; font-size: 13px; color: rgba(0,0,0,.6); line-height: 1.3; }
 .lk-top i { margin-left: auto; font-style: normal; color: rgba(0,0,0,.6); letter-spacing: 2px; }
-.lk-body { padding: 6px 16px 10px; min-height: 420px; }
+.lk-body { position: relative; padding: 6px 16px 10px; min-height: 420px; }
 .lk-day { text-align: center; font-size: 12px; color: rgba(0,0,0,.6); text-transform: uppercase; letter-spacing: .04em; margin: 8px 0 4px; }
 .lk-msg { display: flex; gap: 10px; padding: 8px 0; }
 .lk-msg > div { min-width: 0; flex: 1; }
@@ -490,7 +490,7 @@ footer a { font-size: 16px; text-decoration: none; color: var(--tx2); }
 .lk-card { display: block; margin-top: 8px; max-width: 340px; border: 1px solid #e0dfdc; border-radius: 8px; overflow: hidden; text-decoration: none; color: inherit; }
 .lk-prev { aspect-ratio: 1.91/1; background: linear-gradient(135deg, #1A1816, #2A2520); display: grid; place-items: center; padding: 6%; }
 .lk-doc { width: 74%; height: 100%; background: #FBFAF7; border-radius: 4px; padding: 7% 8%; display: flex; flex-direction: column; gap: 5%; box-shadow: 0 6px 18px rgba(0,0,0,.4); }
-.lk-doc .lk-k { font-family: ui-monospace, Menlo, monospace; font-size: 8px; letter-spacing: .08em; text-transform: uppercase; color: #8a857c; }
+.lk-doc .lk-k { font-family: ui-monospace, Menlo, monospace; font-size: 8px; letter-spacing: .08em; text-transform: uppercase; color: #6f6a62; }
 .lk-doc b { font-size: 13px; font-weight: 700; letter-spacing: -.01em; color: #16181A; line-height: 1.1; }
 .lk-score { display: flex; align-items: center; gap: 6px; }
 .lk-score em { font-style: normal; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 3px solid #C8361B; font-size: 10px; font-weight: 700; color: #16181A; }
@@ -499,7 +499,7 @@ footer a { font-size: 16px; text-decoration: none; color: var(--tx2); }
 .lk-meta { padding: 8px 12px 10px; border-top: 1px solid #ebeae7; }
 .lk-meta b { display: block; font-size: 14px; font-weight: 600; line-height: 1.3; }
 .lk-meta span { display: block; font-size: 12px; color: rgba(0,0,0,.6); margin-top: 2px; }
-.lk-typing { display: none; gap: 4px; padding: 10px 0 6px 42px; }
+.lk-typing { display: none; position: absolute; left: 16px; gap: 4px; padding: 18px 0 0 42px; }
 .lk-typing.on { display: flex; }
 .lk-typing i { width: 6px; height: 6px; border-radius: 50%; background: #9a9a9a; animation: dot 1s infinite; }
 .lk-typing i:nth-child(2) { animation-delay: .15s; } .lk-typing i:nth-child(3) { animation-delay: .3s; }
@@ -508,3 +508,15 @@ footer a { font-size: 16px; text-decoration: none; color: var(--tx2); }
 .js .lk-msg.on { opacity: 1; transform: none; }
 .rm .lk-msg { opacity: 1 !important; transform: none !important; }
 @media (max-width: 860px) { .lk { margin-left: 0; } .lk-body { min-height: 0; } }
+
+/* review round 1: keyboard focus, tap areas, lead-magnet cards on phones */
+:focus-visible { outline: 2px solid var(--tx); outline-offset: 3px; border-radius: 4px; }
+.stack .lm .meta a:focus-visible, .alt.me .link:focus-visible { outline-color: var(--ink); }
+.js [data-in]:focus-within { opacity: 1; transform: none; filter: none; }
+.stack .lm:focus-within { z-index: 4; filter: none; }
+.stack .lm .meta a, .link { position: relative; }
+.stack .lm .meta a::after, .link::after { content: ""; position: absolute; left: -6px; right: -6px; top: 50%; height: 44px; transform: translateY(-50%); }
+@media (max-width: 860px) {
+  .stack { aspect-ratio: auto; display: grid; gap: 16px; }
+  .stack .lm, .stack .a, .stack .b, .stack:hover .a, .stack:hover .b, .stack.swap .a, .stack.swap .b { position: relative; inset: auto; width: 100%; transform: none; filter: none; }
+}

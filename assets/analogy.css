@@ -1,6 +1,5 @@
 /* Analogy scenes (rain, shop window, shop assistant). Every class is az- prefixed so nothing collides with site.css. */
 .az-band { margin-top: clamp(90px, 11vw, 170px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(30px, 6vw, 110px); align-items: center; }
-.az-band .disp { font-size: clamp(44.65px, 6.17vw, 100.02px); }
 .az-band .body:first-of-type { margin-top: 30px; color: var(--tx); font-size: clamp(19px, 1.49vw, 22.08px); }
 .az-art { position: relative; }
 
@@ -12,7 +11,7 @@
 .az-paper { background: var(--sheet); color: var(--ink); border-radius: 12px; box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(0,0,0,.28), 0 22px 44px -18px rgba(0,0,0,.65); }
 .az-abs { position: absolute; left: 0; top: 0; }
 .az-bub { position: absolute; padding: 1.5cqw 2cqw; font-size: max(12px, 2cqw); line-height: 1.32; font-weight: 500; border-radius: 14px 14px 14px 4px; z-index: 12; }
-.az-bub small { display: block; font-family: "IMMono", monospace; font-size: max(9px, 1.3cqw); letter-spacing: .06em; text-transform: uppercase; color: #7b776f; margin-bottom: .4cqw; }
+.az-bub small { display: block; font-family: "IMMono", monospace; font-size: max(11px, 1.3cqw); letter-spacing: .06em; text-transform: uppercase; color: #605C54; margin-bottom: .4cqw; }
 .az-bub.az-r { border-radius: 14px 14px 4px 14px; }
 
 /* figures */
@@ -55,7 +54,7 @@
 .az-rain .az-gl svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .az-rain .wv { animation: azWave 2.6s linear infinite; }
 @keyframes azWave { to { transform: translateX(-50px); } }
-.az-rain .az-wk { position: absolute; left: 0; right: 0; top: calc(100% + 2.2cqw); text-align: center; font-size: max(10px, 1.45cqw); color: var(--tx3); transition: color .5s; }
+.az-rain .az-wk { position: absolute; left: 0; right: 0; top: calc(100% + 2.2cqw); text-align: center; font-size: max(11px, 1.45cqw); color: #A39E93; transition: color .5s; }
 .az-rain .az-wk.az-lit { color: var(--tx); }
 .az-rain .az-drop { width: 2px; height: 3.6cqw; border-radius: 2px; background: linear-gradient(rgba(243,239,230,0), rgba(243,239,230,.85)); z-index: 6; }
 .az-rain .az-splash { width: 3.4cqw; height: 1.1cqw; border: 1.5px solid rgba(243,239,230,.7); border-radius: 50%; z-index: 6; }
@@ -102,7 +101,7 @@
 .az-win .az-dm { left: 4%; top: 4%; max-width: 52%; }
 .az-win .az-reply { right: 4%; top: 4%; max-width: 44%; }
 .az-win .az-chip { position: absolute; right: 4%; top: 17%; z-index: 13; background: var(--red); color: var(--tx); border-radius: 999px; padding: .8cqw 1.7cqw; font-weight: 600; font-size: max(11px, 1.7cqw); box-shadow: 0 10px 24px -6px rgba(200,54,27,.6); }
-.az-shopf .az-pick { position: absolute; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: .6cqw 1cqw; max-width: 30cqw; padding: .9cqw 1.3cqw; border-radius: 10px; font-size: max(10px, 1.45cqw); line-height: 1.25; z-index: 12; }
+.az-shopf .az-pick { position: absolute; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: .6cqw 1cqw; max-width: 30cqw; padding: .9cqw 1.3cqw; border-radius: 10px; line-height: 1.25; z-index: 12; font-size: max(12px, 1.45cqw); }
 .az-shopf .az-pick i { flex: none; width: 2.4cqw; height: 2.4cqw; border-radius: 50%; }
 .az-shopf .az-pick span { flex: 1; min-width: 0; }
 .az-shopf .az-pick b { font-weight: 650; }
@@ -130,18 +129,18 @@
   .az-stage { aspect-ratio: 1/1; border-radius: 18px; }
   .az-cap { font-size: max(13.5px, 3.6cqw); }
   .az-bub { font-size: max(12px, 3.2cqw); padding: 2.2cqw 2.8cqw; }
-  .az-bub small { font-size: max(9px, 2.1cqw); }
+  .az-bub small { font-size: max(11px, 2.1cqw); }
   .az-rain .az-glasses { left: 5%; right: 5%; bottom: 21%; height: 46%; gap: 4%; }
   .az-rain .az-cloud { width: 40%; }
   .az-rain .az-tap { width: 13cqw; }
   .az-rain .az-rail { top: 22%; }
   .az-rain .az-month { font-size: max(10px, 2.6cqw); }
-  .az-rain .az-wk { font-size: max(9px, 2.4cqw); }
+  .az-rain .az-wk { font-size: max(11px, 2.4cqw); }
   .az-win .az-shop { left: 11%; right: 5%; top: 30%; }
   .az-win .az-sign { font-size: 3.6cqw; }
   .az-win .az-chip { top: 23%; font-size: max(11px, 3cqw); padding: 1.2cqw 2.4cqw; }
   .az-win .az-think { font-size: max(11px, 3cqw); }
-  .az-shopf .az-pick { max-width: 40cqw; font-size: max(10px, 2.5cqw); padding: 1.4cqw 1.8cqw; gap: 1.4cqw; }
+  .az-shopf .az-pick { max-width: 40cqw; font-size: max(12px, 2.5cqw); padding: 1.4cqw 1.8cqw; gap: 1.4cqw; }
   .az-shopf .az-pick i { width: 3.6cqw; height: 3.6cqw; }
   .az-shopf .az-pick em.az-sent { font-size: max(8px, 1.9cqw); }
   .az-shopf .az-bub { max-width: 60cqw; }
