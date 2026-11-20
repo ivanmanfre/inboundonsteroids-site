@@ -178,8 +178,8 @@
     creeps.forEach((el) => {
       const r = el.parentElement.getBoundingClientRect();
       const p = clamp(1 - (r.top + r.height / 2) / vh, -.3, 1.3);
-      const s = 1 + .04 * clamp(p, 0, 1.3);
-      const x = p > .62 ? -(p - .62) * (mobile() ? 40 : 110) : 0;
+      const s = 1 + .015 * clamp(p, 0, 1.3);
+      const x = 0;
       el.style.transform = `translate3d(${x.toFixed(1)}px,0,0) scale(${s.toFixed(4)})`;
     });
   }
@@ -193,7 +193,7 @@
     if (!RM) { creep(); tgtL = targetLen(); }
     placeSvg();
     const dl = tgtL - curL;
-    if (Math.abs(dl) > .5) { curL += dl * .14; paintThread(); ticking = true; requestAnimationFrame(frame); }
+    if (Math.abs(dl) > .5) { curL = tgtL; paintThread(); }
   }
   const kick = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
   addEventListener('scroll', kick, { passive: true });
@@ -203,7 +203,7 @@
     if (!e.isIntersecting) return;
     e.target.classList.add('on'); io.unobserve(e.target);
     e.target.dispatchEvent(new CustomEvent('enter'));
-  }), { rootMargin: '0px 0px -12% 0px', threshold: .01 });
+  }), { rootMargin: '0px 0px 60% 0px', threshold: 0 });
   $$('[data-in], .seam:not(.words)').forEach((el) => io.observe(el));
 
   /* ---------- layout pass (fonts first, so the type does not jump) ---------- */

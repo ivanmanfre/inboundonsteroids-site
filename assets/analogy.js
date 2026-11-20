@@ -7,12 +7,13 @@
   const rnd = (a, b) => a + Math.random() * (b - a);
   const EXPO = 'cubic-bezier(.16,1,.3,1)', BACK = 'cubic-bezier(.34,1.45,.64,1)', INOUT = 'cubic-bezier(.65,0,.35,1)', WALK = 'cubic-bezier(.4,0,.6,1)';
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const SP = 3; // test: scenes play 3x faster so a skimming reader sees the ending
 
   // time only runs while the stage is on screen
   function wait(ms, tok) {
     if (RM) return Promise.resolve().then(() => { if (tok.dead) throw 'stop'; });
     return new Promise((res, rej) => {
-      let left = ms, last = performance.now();
+      let left = ms / SP, last = performance.now();
       const tick = () => {
         if (tok.dead) return rej('stop');
         const now = performance.now(); if (!tok.st._hidden) left -= now - last; last = now;
@@ -22,7 +23,7 @@
     });
   }
   function A(el, kf, o = {}) {
-    const a = el.animate(kf, Object.assign({ fill: 'forwards', easing: EXPO }, o, { duration: RM ? 1 : (o.duration || 400), delay: RM ? 0 : (o.delay || 0) }));
+    const a = el.animate(kf, Object.assign({ fill: 'forwards', easing: EXPO }, o, { duration: RM ? 1 : (o.duration || 400) / SP, delay: RM ? 0 : (o.delay || 0) / SP }));
     const st = el.closest('.az-stage'); if (st && st._hidden) a.pause();
     return a.finished.then(() => {}, () => new Promise(() => {}));
   }
@@ -62,7 +63,7 @@
     };
     const rp = $('.az-replay', sec); if (rp) rp.onclick = start;
     if (RM) { st.classList.add('az-on'); requestAnimationFrame(start); }
-    else new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { o.disconnect(); st.classList.add('az-on'); start(); } }), { threshold: .45 }).observe(st);
+    else new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { o.disconnect(); st.classList.add('az-on'); start(); } }), { threshold: .15 }).observe(st);
     // pause everything while off screen
     new IntersectionObserver(es => es.forEach(e => {
       const hid = !RM && !e.isIntersecting; if (hid === st._hidden) return; st._hidden = hid;
@@ -95,7 +96,7 @@
     const rail = $('.az-rail', st); rail.style.transform = 'scaleX(0)';
     const drop = (x, y0, y1) => { const d = el('az-drop az-abs', st); put(d, x, y0, 'translate(-50%,-100%)'); move(d, x, y1, RM ? 1 : (y1 - y0) / 0.9, 'cubic-bezier(.55,0,1,.45)').then(() => { d.remove(); const s = el('az-splash az-abs', st); put(s, x, y1, 'translate(-50%,-50%)'); A(s, [{ opacity: 1, transform: T(x, y1, 'translate(-50%,-50%) scale(.3)') }, { opacity: 0, transform: T(x, y1, 'translate(-50%,-50%) scale(1.4)') }], { duration: 500, easing: 'ease-out' }).then(() => s.remove()); }); };
     const rainOn = (i, ms, density) => new Promise(res => {
-      if (RM) return res(); let left = ms, last = performance.now();
+      if (RM) return res(); let left = ms / SP, last = performance.now();
       const tick = () => {
         if (tok.dead) return res(); const now = performance.now();
         if (st._hidden) { last = now; return setTimeout(tick, 80); }
@@ -225,16 +226,17 @@
   const lk = document.getElementById('lk');
   if (lk && !RM) {
     const ms = $$('.lk-msg', lk), ty = $('.lk-typing', lk), body = $('.lk-body', lk), me = ms[0].querySelector('.lk-h b').textContent;
+    ms.slice(0, 4).forEach(m => m.classList.add('on')); // test: the start of the thread is there on arrival
     let vis = false; new IntersectionObserver(([e]) => { vis = e.isIntersecting; }).observe(lk);
     const sleep = ms => new Promise(r => { let left = ms, last = performance.now(); const t = () => { const n = performance.now(); if (vis) left -= n - last; last = n; if (left <= 0) r(); else setTimeout(t, 40); }; t(); });
     new IntersectionObserver((es, o) => es.forEach(async e => {
       if (!e.isIntersecting) return; o.disconnect(); vis = true;
-      await sleep(500);
-      for (const m of ms) {
+      await sleep(150);
+      for (const m of ms.slice(4)) {
         const them = m.querySelector('.lk-h b').textContent !== me;
-        if (them) { ty.style.top = m.offsetTop + 'px'; ty.classList.add('on'); await sleep(1000); ty.classList.remove('on'); }
-        m.classList.add('on'); await sleep(them ? 700 : 900);
+        if (them) { ty.style.top = m.offsetTop + 'px'; ty.classList.add('on'); await sleep(700); ty.classList.remove('on'); }
+        m.classList.add('on'); await sleep(them ? 400 : 500);
       }
-    }), { threshold: .4 }).observe(lk);
+    }), { threshold: .15 }).observe(lk);
   }
 })();

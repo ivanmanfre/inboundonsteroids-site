@@ -12,10 +12,10 @@
 <link rel="stylesheet" href="site.css">
 <link rel="stylesheet" href="assets/analogy.css">
 <script>document.documentElement.className = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'rm' : 'js';</script>
-<meta name="description" content="Full LinkedIn content, lead magnets and personalised outreach, run for agency owners. Explore the work, client results and pricing.">
+<meta name="description" content="LinkedIn outreach for agency owners, from $2,000 a month, with content as an add-on. See the work, client results and pricing.">
 <link rel="canonical" href="https://inboundonsteroids.com/">
 <meta property="og:title" content="InboundOnSteroids | LinkedIn, run as a revenue line">
-<meta property="og:description" content="Full LinkedIn content and outreach, run for agency owners.">
+<meta property="og:description" content="LinkedIn outreach and content, run for agency owners.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://inboundonsteroids.com/">
 <meta property="og:image" content="https://inboundonsteroids.com/assets/og.png">
@@ -24,6 +24,113 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <script src="/assets/content-pattern-attribution.js" defer></script>
 <script src="/assets/site-tracking.js" defer></script>
+
+<style id="home-2026-11-20">
+/* ---- prospect cards ---- */
+.prospects{padding:clamp(90px,11vw,170px) 0 clamp(40px,5vw,80px)}
+.prospects .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(30px,5vw,90px);align-items:start}
+.prospects .disp{font-size:clamp(44px,5.6vw,92px)}
+.prospects .text .body{margin-top:28px}
+.prospects .ledger{margin-top:34px;display:flex;gap:28px;flex-wrap:wrap}
+.prospects .ledger div{min-width:0}
+.prospects .ledger b{display:block;font:800 clamp(38px,3.4vw,54px)/1 "IMDisplay";letter-spacing:-.03em}
+.prospects .ledger span{font-size:15px;color:var(--tx2)}
+.prospects .ledger .ok b{color:var(--tx)} .prospects .ledger .no b{color:var(--tx3)}
+.pcards{display:grid;gap:18px}
+.pc{padding:clamp(22px,2.4vw,34px);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.pc-top{display:flex;align-items:center;gap:14px}
+.pc-av{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:18px;color:#fff;background:#3d5a4c}
+.pc-top .who-n{min-width:0;flex:1}
+.pc-top b{display:block;font-size:19px;color:var(--ink)}
+.pc-top small{display:block;font-size:15px;color:#5d6166;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pill{flex:none;font:600 12px/1 "IMMono",monospace;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
+.pill.ok{background:#e4efe7;color:#21613a}.pill.no{background:#efe9e4;color:#7a5a45}
+.pc-why{margin-top:18px;padding:12px 14px;border-radius:10px;background:#f1eee8;font-size:15.5px;line-height:1.45;color:#33373b}
+.pc-why span{display:block;font:600 11.5px/1.2 "IMMono",monospace;letter-spacing:.07em;text-transform:uppercase;color:#8a8e93;margin-bottom:4px}
+.pc ul{list-style:none;margin-top:16px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 18px}
+.pc li{font-size:15px;line-height:1.35;color:#33373b;display:flex;gap:8px}
+.pc li::before{content:"✓";flex:none;font-weight:700;color:#21613a}
+.pc-res{margin-top:16px;display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.pc-res i{flex:none;width:34px;height:42px;border-radius:4px;background:linear-gradient(180deg,#C8361B 0 28%,#f4f1ec 28%);box-shadow:0 0 0 1px rgba(0,0,0,.08) inset}
+.pc-res b{display:block;font-size:15px;color:var(--ink)} .pc-res small{font-size:13.5px;color:#6b7075}
+.pc.skip{padding:16px clamp(18px,2vw,26px);opacity:.92}
+.pc.skip .pc-av{width:40px;height:40px;font-size:15px;background:#8a8378}
+.pc.skip p{margin-top:10px;font-size:15px;line-height:1.45;color:#4a4e53}
+.prospects .foot{margin-top:18px}
+/* ---- how we start ---- */
+.start{padding:clamp(90px,11vw,170px) 0 clamp(40px,5vw,80px)}
+.start .disp{font-size:clamp(44px,5.6vw,92px)}
+.start ol.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.start ol{list-style:none;margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(16px,2vw,30px)}
+.start li{border-top:1px solid var(--hair);padding-top:22px;min-width:0}
+.start li .n{font:800 clamp(40px,3.6vw,58px)/1 "IMDisplay";letter-spacing:-.04em;color:var(--redt)}
+.start li h3{margin-top:14px;font-size:20px;font-weight:600;line-height:1.25}
+.start li p{margin-top:8px;font-size:16.5px;line-height:1.5;color:var(--tx2)}
+.start li .you{display:inline-block;margin-top:12px;font:600 11.5px/1 "IMMono",monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--tx);border:1px solid var(--hair);padding:6px 8px;border-radius:999px}
+.acct{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;max-width:1080px;padding:26px 28px;border:1px solid var(--hair);border-radius:16px;background:rgba(255,255,255,.02)}
+.acct b{font:800 28px/1.05 "IMDisplay";letter-spacing:-.03em}
+.acct p{font-size:18px;line-height:1.5;color:var(--tx2)} .acct p+p{margin-top:8px}
+/* ---- pricing ---- */
+.plans.v2{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.plans.v2 .plan .sum + ul{margin-top:28px}
+.acc-strip{margin-top:clamp(20px,2.6vw,40px);padding:clamp(22px,2.4vw,34px) clamp(28px,3vw,46px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center}
+.acc-strip h3{font-size:20px;font-weight:600;color:#5d6166}.acc-strip p{margin-top:8px;font-size:18px;line-height:1.45;max-width:40em}
+.acc-strip .pr{display:flex;align-items:baseline;gap:10px;white-space:nowrap}.acc-strip .pr b{font:800 clamp(46px,4.4vw,70px)/.85 "IMDisplay";letter-spacing:-.045em}.acc-strip .pr span{font-size:17px;color:#6b7075}
+.plans.v2{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
+.plans.v2 .plan.sm .pr b{font-size:clamp(46px,4.4vw,70px)}
+.plans.v2 .plan.sm .sum{font-size:18px}
+.plans.v2 .opt{display:inline-block;margin-left:8px;font:600 11.5px/1 "IMMono",monospace;letter-spacing:.07em;text-transform:uppercase;color:#7a5a45;background:#efe9e4;padding:5px 8px;border-radius:999px;vertical-align:middle}
+.totals{margin-top:36px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--hair);border-radius:16px;overflow:hidden;max-width:1080px}
+.totals div{padding:18px 20px;border-left:1px solid var(--hair);min-width:0}
+.totals div:first-child{border-left:0}
+.totals span{display:block;font-size:15px;color:var(--tx2)}
+.totals b{display:block;margin-top:4px;font:800 34px/1 "IMDisplay";letter-spacing:-.03em}
+.totals-note{margin-top:12px}
+/* ---- alternatives, 4 columns ---- */
+.alts .row.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.alts .row.four .alt.me .pr{font-size:clamp(40px,3.4vw,56px);white-space:nowrap}
+.alt .checked{margin-top:12px;font-size:14px;color:var(--tx3)}
+@media (max-width:1100px){.start ol.four{grid-template-columns:repeat(2,minmax(0,1fr))}.start ol{grid-template-columns:repeat(3,minmax(0,1fr))}.alts .row.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){
+ .acc-strip{grid-template-columns:minmax(0,1fr)}
+ .prospects .grid,.plans.v2{grid-template-columns:minmax(0,1fr)}
+ .start ol,.start ol.four{grid-template-columns:minmax(0,1fr)}
+ .acct{grid-template-columns:minmax(0,1fr)}
+ .totals{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .totals div:nth-child(3){border-left:0}.totals div:nth-child(n+3){border-top:1px solid var(--hair)}
+ .alts .row.four{grid-template-columns:minmax(0,1fr)}
+ .pc ul{grid-template-columns:minmax(0,1fr)}
+ .pc-top small{white-space:normal}
+}
+
+/* ---- calmer scroll (test): reveals finish before you reach them, nothing slides sideways ---- */
+.js [data-in]{--dx:0px!important;--dy:18px;--s0:1;--b0:0px;--ease:var(--expo);transition:opacity .3s ease-out,transform .4s var(--expo);transition-delay:calc(var(--d,0s) * .4)}
+.js [data-in="sheet"]{--dy:22px;--s0:.99;--b0:0px;--ease:var(--expo);transition-duration:.3s,.45s}
+.js .seam,.js .seam.zoom{transform:translate3d(0,14px,0);transition:opacity .3s ease-out,transform .45s var(--expo)}
+.js .seam.on{transform:none}
+.js .seam .w{transform:translate3d(0,.15em,0);filter:none;transition-duration:.35s!important}
+
+/* text is readable the moment it arrives; only cards and images fade */
+.js p[data-in],.js span[data-in],.js .ctas[data-in],.js .out-links[data-in],.js .yourpart[data-in],.js .faq [data-in],.js .start li[data-in],.js .res[data-in],.js .seam,.js .seam .w{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+.js [data-in]{--dy:12px}
+.js [data-in="sheet"]{--dy:14px}
+@media (max-width:860px){#thread{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* results headline spans: own letter-spacing */
+.res .big.calls span{letter-spacing:-.035em}
+/* how we start: cream numerals, red only on the trust step */
+.start li .n{color:var(--tx)} .start li:nth-child(3) .n{color:var(--redt)}
+/* 360px: price unit wraps */
+@media (max-width:420px){.acc-strip .pr{flex-wrap:wrap;white-space:normal}.acc-strip .pr span{flex-basis:100%}}
+
+.az-shopf .az-pick{max-width:31cqw!important}
+@media (min-width:1100px){.results .disp{white-space:nowrap}}
+/* phone tap targets: every link at least 44px tall */
+@media (max-width:860px){
+ a.link{display:inline-block;padding-top:14px;margin-top:-14px}
+ .stack .lm .meta a,footer a,a.mark{display:inline-block;padding:13px 0;margin:-13px 0}
+}
+</style>
 </head>
 <body>
 <div class="room" aria-hidden="true"><div class="pool p1"></div><div class="pool p2"></div><div class="vig"></div></div>
@@ -179,7 +286,7 @@
       <div class="text">
         <div class="seam"><h3 class="disp">Make your expertise visible.</h3></div>
         <p class="body" data-in>Your profile is your shop window. When we message a buyer, the first thing they do is look at it.</p>
-        <p class="body" data-in style="--d:.06s">We fill it with posts and carousels from your calls, opinions and client experience, and take care of the writing, visuals and publishing.</p>
+        <p class="body" data-in style="--d:.06s">We write posts and carousels from your calls and your team’s knowledge, plus topics already picking up on Reddit and X, and publish them for you.</p>
         <span class="mono" data-in style="--d:.1s">Full content, built around what you sell</span>
       </div>
       <div class="art">
@@ -266,6 +373,45 @@
   </div>
 </section>
 
+
+<!-- PREVIEW: who we message -->
+<section class="prospects">
+  <i class="tp" data-x=".985" data-mx=".975" style="position:absolute;top:0"></i>
+  <div class="wrap">
+    <div class="grid">
+      <div class="text">
+        <div class="seam"><h3 class="disp">See who we message, and why.</h3></div>
+        <p class="body" data-in>You review the first list before we message anyone. Each person comes with the reason they’re on it.</p>
+              </div>
+      <div class="art">
+        <p class="note" style="margin-bottom:12px">Example cards. Names, companies and numbers are invented.</p>
+        <div class="pcards">
+          <article class="sheet pc" data-in="sheet">
+            <div class="pc-top"><span class="pc-av" aria-hidden="true">PS</span><div class="who-n"><b>Priya Shah</b><small>Co-founder · Fernleaf Tea</small></div><span class="pill ok">Approved</span></div>
+            <div class="pc-why"><span>Why now</span>Commented on a post about repeat orders, 2 days ago</div>
+            <ul>
+              <li>Co-founder, makes the buying decision</li>
+              <li>Store sells about $90k a month</li>
+              <li>Ships to the UK and US, where you work</li>
+              <li>Not in your clients, deals or other campaigns</li>
+            </ul>
+            <div class="pc-res"><i aria-hidden="true"></i><div><b>Store review: three repeat-order fixes</b><small>Made for Fernleaf, sent after she accepts</small></div></div>
+          </article>
+          <article class="sheet pc skip" data-in="sheet" style="--d:.1s">
+            <div class="pc-top"><span class="pc-av" aria-hidden="true">MR</span><div class="who-n"><b>Marco Ruiz</b><small>Founder · Pixelcart Studio</small></div><span class="pill no">Skipped</span></div>
+            <p>Runs a Shopify agency. He sells the same service as you, so he isn’t a buyer.</p>
+          </article>
+          <article class="sheet pc skip" data-in="sheet" style="--d:.16s">
+            <div class="pc-top"><span class="pc-av" aria-hidden="true">AB</span><div class="who-n"><b>Ana Brook</b><small>Head of Marketing · Brightmoss</small></div><span class="pill no">Skipped</span></div>
+            <p>Already talking to your sales team. She’s on your exclusion list.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="position:absolute;bottom:0"></i>
+</section>
+
 <!-- step 4: conversations -->
 <section class="step flip">
   <i class="tp" data-x=".54" data-mx=".025" style="position:relative;top:40px"></i>
@@ -279,6 +425,7 @@
       </div>
       <div class="art">
         <i class="tp abs" data-m="skip" style="position:absolute;left:44%;top:50%"></i>
+        <p class="note" style="margin:0 0 10px">Example conversation. Names are invented.</p>
         <div class="sheet lk" data-in="sheet" id="lk">
           <div class="lk-top"><img class="lk-av" src="assets/img/av-dana.webp" alt="" width="40" height="40"><div><b>Dana Whitfield</b><span>Founder at Loomwell Skincare</span></div><i aria-hidden="true">···</i></div>
           <div class="lk-body">
@@ -343,6 +490,43 @@
 </section>
 
 <!-- ============ ABOUT ============ -->
+<section class="results" id="proof">
+  <div class="wrap">
+    <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">Kyle, Mattan and Davorin’s results.</h2></div></div>
+    <i class="tp" data-x=".985" data-mx=".975" style="margin-top:30px"></i>
+    <div class="res" data-in>
+      <div class="big" aria-label="$30k to $80k a month"><span class="from">$30k →</span> <span class="swipe">$<span data-count="80" data-from="30">80</span>k<small>/mo</small></span></div>
+      <div class="txt">
+        <div class="p"><img src="assets/img/av-kyle.webp" alt="" width="56" height="56"><div><b>Kyle Hunt</b><span>Agency operations coach · Content</span></div></div>
+        <p class="what">Monthly revenue across the first 90 days.</p>
+        <p class="how">We turned Kyle’s agency operations expertise into posts, practical guides and newsletters while his coaching business grew.</p>
+        <a class="link" href="/case/kyle-hunt/">Read Kyle’s case ↗</a>
+      </div>
+    </div>
+    <div class="res" data-in>
+      <div class="big calls" aria-label="Booked calls with DTC founders"><span style="font-size:.42em;line-height:1.02;display:block">Booked calls with DTC founders</span></div>
+      <div class="txt">
+        <div class="p"><img src="assets/img/av-mattan.webp" alt="" width="56" height="56"><div><b>Mattan Danino</b><span>RISE DTC · Outreach and content</span></div></div>
+        <p class="what">At Good Candy, Quip Protein Soda and Panther Vision, among others.</p>
+        <p class="how">We ran prospecting and sales conversations from Mattan’s profile. He took the sales calls.</p>
+        <a class="link" href="/case/rise-dtc/">Read the RISE DTC case ↗</a>
+      </div>
+    </div>
+    <div class="res" data-in>
+      <div class="big calls" aria-label="Booked calls with game and app teams"><span style="font-size:.42em;line-height:1.02;display:block">Booked calls with game and app teams</span></div>
+      <div class="txt">
+        <div class="p"><img src="case/arch/assets/davorin-av.jpg" alt="" width="56" height="56" style="border-radius:50%;object-fit:cover"><div><b>Davorin Smit</b><span>ARCH · Outreach</span></div></div>
+        <p class="what">At Pixel Federation, ZiMAD and Iterative Games, and with the CEO of Plus500 Canada.</p>
+        <p class="how">We run Davorin’s outreach to mobile game and app studios. Pixel Federation booked after reading a creator audit of their own game.</p>
+        <a class="link" href="/case/arch/">Read the ARCH case ↗</a>
+      </div>
+    </div>
+    <p class="note">Individual results. Your offer, audience and sales process affect the outcome.</p>
+    <i class="tp" data-x=".985" data-mx=".975" style="margin-top:30px"></i>
+  </div>
+  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:90px"></i>
+</section>
+
 <section class="about" data-stage>
   <div class="wrap">
     <div class="stage">
@@ -371,113 +555,78 @@
   <div class="wrap">
     <div class="head">
       <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">Your LinkedIn. Handled from here.</h2></div></div>
-      <p class="body" data-in style="--d:.2s">One service runs your content, outreach and conversations. Add team accounts when you want to reach more buyers.</p>
+      <p class="body" data-in style="--d:.2s">Every plan starts with outreach. Add content and team accounts as you grow.</p>
     </div>
     <i class="tp" data-x=".02" data-mx=".025" style="margin-top:40px"></i>
-    <div class="plans">
-      <i class="tp abs" data-m="skip" style="position:absolute;left:50%;top:40%"></i>
-      <article class="sheet dark plan" data-in="sheet">
-        <h3>Full service · Content, outreach and conversations</h3>
-        <div class="pr"><b>$3,000+</b><span>/month</span></div>
-        <p class="sum">Your LinkedIn run for you, from the first post to the booked call.</p>
+    <div class="plans v2">
+      <article class="sheet plan" data-in="sheet">
+        <h3>Outreach · Your first account</h3>
+        <div class="pr"><b>$2,000</b><span>/month</span></div>
+        <p class="sum">We find the buyers and send each one something made for their business. When someone wants to talk, we handle the booking.</p>
         <a class="btn" href="https://calendly.com/im-ivanmanfredi/30min">Book a call with Ivan <i>↗</i></a>
         <ul>
-          <li><b>Full content</b><span>Research, writing, branded visuals and publishing.</span></li>
-          <li><b>Lead magnets when suitable</b><span>Built around your offer and content strategy, with email capture.</span></li>
-          <li><b>Warm outreach and prospecting</b><span>Buyers engaging with you, and people engaging with relevant businesses and topics.</span></li>
-          <li><b>Conversations handled through to booking</b><span>We manage the conversation and booking. You lead the sales call.</span></li>
-          <li><b>Call context before you meet</b><span>Know who you’re speaking to and what the conversation covered.</span></li>
+                    <li><b>A resource made for your buyers</b><span>A review, audit or guide that gives them a reason to reply.</span></li>
+          <li><b>Outreach to active buyers</b><span>People engaging with posts about the problems you solve.</span></li>
+          <li><b>Conversations handled through to booking</b><span>We run the replies and booking. You lead the sales call.</span></li>
+          <li><b>Call context before you meet</b><span>Who you’re speaking to and what the conversation covered.</span></li>
         </ul>
       </article>
-      <article class="sheet plan" data-in="sheet" style="--d:.12s">
-        <h3>Extra team accounts · More reach from your team</h3>
-        <div class="pr"><b>+$1,000</b><span>/month per account</span></div>
-        <p class="sum">Run outreach from a co-founder’s or sales rep’s profile as well.</p>
-        <a class="btn" href="https://calendly.com/im-ivanmanfredi/30min">Book a call with Ivan <i>↗</i></a>
+      <article class="sheet dark plan" data-in="sheet" style="--d:.12s">
+        <h3>Content</h3>
+        <div class="pr"><b>+$1,000</b><span>/month</span></div>
+        <p class="sum">Posts and lead magnets on your profile, so the buyers we message see your thinking.</p>
         <ul>
-          <li><b>Outreach from their profile</b><span>Messages based on the person and what they care about.</span></li>
-          <li><b>A wider pool of buyers</b><span>Each account reaches new people, so your accounts don’t split the same leads.</span></li>
-          <li><b>Same conversation handling</b><span>Replies managed through to booking, like your own account.</span></li>
-          <li><b>Real team profiles</b><span>Accounts belong to people on your team.</span></li>
+          <li><b>Posts in your own words</b><span>Written from your calls and your team’s knowledge.</span></li>
+          <li><b>Lead magnets and newsletters</b><span>Guides and tools under your brand, with email capture.</span></li>
+          <li><b>Warm outreach</b><span>Buyers who engage with your posts get a message.</span></li>
+          <li><b>Your client board</b><span>Review posts and follow the numbers.</span></li>
         </ul>
       </article>
     </div>
-    <i class="tp" data-x=".985" data-mx=".975" style="margin-top:30px"></i>
-    <div class="yourpart" data-in><b>Your part</b><p>Share your expertise, review as agreed and take the sales calls. Your audience, email list and content stay yours.</p></div>
+    <div class="sheet acc-strip" data-in="sheet">
+      <div><h3>Extra team accounts</h3><p>Outreach from a co-founder’s or sales rep’s profile. Each account reaches different people.</p></div>
+      <div class="pr"><b>+$1,000</b><span>/month per account</span></div>
+    </div>
+        
+    <i class="tp" data-x=".02" data-mx=".025" style="margin-top:30px"></i>
+    <div class="yourpart" data-in><b>Your part</b><p>Approve the first list and take the sales calls. Your contacts and content stay yours.</p></div>
   </div>
+</section>
+<!-- PREVIEW: how we start -->
+<section class="start">
+  <i class="tp" data-x=".02" data-mx=".025" style="position:absolute;top:0"></i>
+  <div class="wrap">
+    <div class="seam"><h2 class="disp">How we start.</h2></div>
+    <ol class="four">
+      <li data-in><span class="n">01</span><h3>Kickoff call</h3><p>We agree who your buyers are and what we’ll send them. You share the clients and lists we should leave out.</p></li>
+      <li data-in style="--d:.06s"><span class="n">02</span><h3>The resource</h3><p>A review, audit or guide made for your buyers.</p></li>
+      <li data-in style="--d:.12s"><span class="n">03</span><h3>First list</h3><p>You see each prospect with the reason they’re on it, and approve.</p></li>
+      <li data-in style="--d:.18s"><span class="n">04</span><h3>Outreach runs</h3><p>Invites go out from your profile. Booked calls land in your calendar.</p></li>
+    </ol>
+    </div>
+  </div>
+  <i class="tp" data-x=".02" data-mx=".025" style="position:absolute;bottom:0"></i>
 </section>
 
-<section class="alts">
-  <div class="wrap">
-    <div class="seam"><h2 class="disp">Who will do the work?</h2></div>
-    <i class="tp" data-x=".985" data-mx=".975" style="margin-top:20px"></i>
-    <div class="row">
-      <div class="alt" data-in>
-        <h3>Do it yourself</h3>
-        <p>You write, publish, find buyers and manage the conversations. Tools cost extra. So does your time.</p>
-        <div class="est">
-          <label for="hrs"><span>Your estimate</span><span><output id="hrsO">7</output> hours/week</span></label>
-          <input type="range" id="hrs" min="1" max="20" value="7">
-          <div class="tot"><span id="hrsT">28</span><small>hours over 4 weeks</small></div>
-        </div>
-      </div>
-      <div class="alt" data-in style="--d:.08s">
-        <h3>Hire an agency</h3>
-        <p>Check what happens after a post goes live: who finds the buyers, manages the conversations and books the calls?</p>
-        <p class="note">Scope and client involvement vary by provider.</p>
-      </div>
-      <div class="sheet alt me" data-in="sheet" style="--d:.16s">
-        <i class="tp abs" data-m="skip" style="position:absolute;left:50%;top:50%"></i>
-        <h3>Work with us</h3>
-        <div class="pr">From $3k<small>/month</small></div>
-        <p>We run the agreed content and outreach. You share the context and handle sales calls.</p>
-        <a class="link" href="#offer">See pricing ↑</a>
-      </div>
-    </div>
-  </div>
-  <i class="tp" data-x=".985" data-mx=".975" style="margin-top:60px"></i>
-</section>
+
+
 
 <!-- ============ RESULTS ============ -->
-<section class="results" id="proof">
-  <div class="wrap">
-    <div class="seam zoom"><div class="cam" data-creep><h2 class="disp">Kyle and Mattan’s results.</h2></div></div>
-    <i class="tp" data-x=".985" data-mx=".975" style="margin-top:30px"></i>
-    <div class="res" data-in>
-      <div class="big" aria-label="$30k to $80k a month"><span class="from">$30k →</span> <span class="swipe">$<span data-count="80" data-from="30">80</span>k<small>/mo</small></span></div>
-      <div class="txt">
-        <div class="p"><img src="assets/img/av-kyle.webp" alt="" width="56" height="56"><div><b>Kyle Hunt</b><span>Agency operations coach · Inbound</span></div></div>
-        <p class="what">Monthly revenue across the first 90 days.</p>
-        <p class="how">We turned Kyle’s agency operations expertise into posts, practical guides and newsletters while his coaching business grew.</p>
-        <a class="link" href="/case/kyle-hunt/">Read Kyle’s case ↗</a>
-      </div>
-    </div>
-    <div class="res" data-in>
-      <div class="big calls" aria-label="Booked calls with DTC founders"><span style="font-size:.42em;line-height:1.02;display:block;max-width:12ch">Booked calls with DTC founders</span></div>
-      <div class="txt">
-        <div class="p"><img src="assets/img/av-mattan.webp" alt="" width="56" height="56"><div><b>Mattan Danino</b><span>RISE DTC · Full service</span></div></div>
-        <p class="what">At Good Candy, Quip Protein Soda and Panther Vision, among others.</p>
-        <p class="how">We ran prospecting and sales conversations from Mattan’s profile. He took the sales calls.</p>
-        <a class="link" href="/case/rise-dtc/">Read the RISE DTC case ↗</a>
-      </div>
-    </div>
-    <p class="note">Individual results. Your offer, audience and sales process affect the outcome.</p>
-    <i class="tp" data-x=".985" data-mx=".975" style="margin-top:30px"></i>
-  </div>
-  <i class="tp" data-x=".02" data-mx=".025" style="margin-top:90px"></i>
-</section>
+
 
 <!-- ============ FAQ ============ -->
 <section class="faq">
   <div class="wrap">
     <div class="grid">
       <div class="seam"><h2 class="disp">Before we speak.</h2></div>
-      <div data-in>
+      <div data-in class="">
         <details><summary>Who is this for?<i></i></summary><p>Agency founders with an established offer and client work to draw from. We check fit on the first call.</p></details>
-        <details><summary>Do I need an audience?<i></i></summary><p>No. An existing audience helps inbound start sooner, and outreach reaches buyers beyond your followers.</p></details>
-        <details><summary>How much of my time does it take?<i></i></summary><p>An intake, source material and the reviews we agree on. We handle the ongoing delivery; you handle sales calls and closing.</p></details>
-        <details><summary>Will the content sound like me?<i></i></summary><p>We use your calls and past work as source material, then tune the first drafts with you, including the opinions and wording you would actually use.</p></details>
-        <details><summary>How do we get started?<i></i></summary><p>First we review your offer and source material. Then we agree the content direction, tune the first drafts and set the publishing process. We confirm your launch date during onboarding.</p></details>
+        <details><summary>We already use HeyReach or Valley. What changes?<i></i></summary><p>Those tools send messages for you. On top of that, we check each person against your offer and handle the replies until there’s a call.</p></details>
+        <details><summary>Can my LinkedIn account get restricted?<i></i></summary><p>LinkedIn can restrict accounts that send too much. We send about 200 invites a week, and you see exactly what will run before you connect yours.</p></details>
+        <details><summary>Will the messages sound like AI?<i></i></summary><p>Each message points at something specific about the person, and you approve the first ones.</p></details>
+        <details><summary>We already run outreach. Will people hear from us twice?<i></i></summary><p>Before we send, we check the list against the clients, open deals and outreach lists you share with us.</p></details>
+        <details><summary>When do we see results?<i></i></summary><p>Outreach starts once you approve the first list. We can’t promise a date for your first call.</p></details>
+        <details><summary>Is it a subscription or pay per result?<i></i></summary><p>A monthly fee for running outreach from your profile. There’s no per-meeting charge.</p></details>
         <details><summary>Are results guaranteed?<i></i></summary><p>No. The pipeline figure is an aim. Results depend on your offer, audience and sales process.</p></details>
         <details><summary>What happens if we stop?<i></i></summary><p>Your audience, list and content stay yours. Ongoing delivery ends. We agree the commercial and handover terms before starting.</p></details>
       </div>
