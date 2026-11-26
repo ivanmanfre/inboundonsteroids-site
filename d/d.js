@@ -7,7 +7,7 @@
   var SB = 'https://bjbvqvzbzczjbatgmccb.supabase.co';
   var RES = 'https://resources.inboundonsteroids.com/get/30-post-ideas/';
   var IMG_BASE = RES + 'img/';
-  var ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI';
+  var ANON = 'sb_publishable_Q-kfisfhqxXV5xiIhCduMQ_QSIflf4h';
   var IMG_PREFIX = SB + '/storage/v1/object/public/';
 
   /* ---------- every UI string on these pages ---------- */
