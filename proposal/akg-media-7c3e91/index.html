@@ -85,7 +85,7 @@ section{position:relative;padding:clamp(44px,4.6vw,68px) 0 0}
 .tabs button{font:600 14px/1 "IMSans",sans-serif;padding:10px 15px;border-radius:999px;border:1px solid var(--hair);background:transparent;color:var(--tx2);cursor:pointer;transition:background .25s,color .25s}
 .tabs button:hover{color:var(--tx)}
 .tabs button[aria-selected="true"]{background:var(--tx);color:var(--ink);border-color:var(--tx)}
-.tabs .tag{margin-left:auto}
+.tabs .tag{margin-left:auto}.tabs{justify-content:flex-end}
 .tag{font-family:"IMMono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);white-space:nowrap}
 .frame{border-radius:14px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 90px -40px rgba(0,0,0,.95)}
 .fbar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#141414;border-bottom:1px solid #232323}
@@ -266,7 +266,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
  <div class="wrap">
   <a class="mark" href="#top" aria-label="InboundOnSteroids">inbound<b>on</b>steroids</a>
   <nav>
-   <a class="t" href="#see">Preview</a>
+   <a class="t" href="#see">The board</a>
    <a class="t" href="#how">How it works</a>
    <a class="t" href="#run">Running cost</a>
    <a class="btn" href="https://buy.stripe.com/3cI14f8av9jH44K0v1fEk1e"><span class="dsk">Start the build</span><span class="mob">Start</span> <i>↗</i></a>
@@ -294,12 +294,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 <section id="see">
  <div class="wrap">
-  <header class="head"><h2 class="disp seam">What you use, what they see</h2><p data-in>One audit per lead. Your team runs them from the board, and each lead gets its own page in AKG's branding. Click around.</p></header>
-  <div class="tabs" role="tablist" data-in>
-   <button type="button" role="tab" aria-selected="true" data-v="vb">1 · Your board</button>
-   <button type="button" role="tab" aria-selected="false" data-v="vp">2 · A lead's audit page</button>
-   <span class="tag">Clickable mockup · sample numbers</span>
-  </div>
+  <header class="head"><h2 class="disp seam">Your control board</h2><p data-in>One audit per lead. Your team adds leads here, and each one gets its own audit page in AKG's branding on your domain.</p></header>
+  <div class="tabs" data-in><span class="tag">Clickable mockup · try adding a lead</span></div>
   <div class="frame" data-in style="--d:.06s">
    <div class="fbar"><i></i><i></i><i></i><span id="furl">audits.akgmedia.co.uk/board</span></div>
    <div class="view akg is-on" id="vb">
@@ -324,60 +320,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       <table class="leads">
        <thead><tr><th>Lead</th><th class="h1">Benchmarked against</th><th class="h2">Platforms</th><th>Status</th><th class="h2">Updated</th><th></th></tr></thead>
        <tbody id="lb">
-        <tr><td><div class="lead"><span class="ini">G</span><div><b>Granola</b><small>granola.ai</small></div></div></td><td class="h1 vs">Otter, Fireflies, Fathom</td><td class="h2 pf">YT IG TT</td><td><span class="pill live">Live</span></td><td class="h2 upd">2h ago</td><td><button type="button" class="go" data-open>Open ↗</button></td></tr>
-        <tr><td><div class="lead"><span class="ini p">H</span><div><b>HeyGen</b><small>heygen.com</small></div></div></td><td class="h1 vs">Synthesia, Colossyan, D-ID</td><td class="h2 pf">YT IG TT</td><td><span class="pill rev">Needs your OK</span></td><td class="h2 upd">25 min ago</td><td><button type="button" class="go">Review</button></td></tr>
+        <tr><td><div class="lead"><span class="ini">G</span><div><b>Granola</b><small>granola.ai</small></div></div></td><td class="h1 vs">Otter, Fireflies, Fathom</td><td class="h2 pf">YT IG TT</td><td><span class="pill live">Live</span></td><td class="h2 upd">2h ago</td><td><span class="go">Open ↗</span></td></tr>
+        <tr><td><div class="lead"><span class="ini p">H</span><div><b>HeyGen</b><small>heygen.com</small></div></div></td><td class="h1 vs">Synthesia, Colossyan, D-ID</td><td class="h2 pf">YT IG TT</td><td><span class="pill rev">Needs your OK</span></td><td class="h2 upd">25 min ago</td><td><span class="go">Review</span></td></tr>
         <tr><td><div class="lead"><span class="ini v">W</span><div><b>Wispr Flow</b><small>wisprflow.ai</small></div></div></td><td class="h1 vs">Superwhisper, Willow, Aqua Voice</td><td class="h2 pf">YT IG TT</td><td><span class="pill run2">Reading posts</span><div class="prog"><i></i></div></td><td class="h2 upd">now</td><td><span class="go dim">…</span></td></tr>
         <tr><td><div class="lead"><span class="ini w">E</span><div><b>ElevenLabs</b><small>elevenlabs.io</small></div></div></td><td class="h1 vs">Play.ht, Murf, Resemble</td><td class="h2 pf">YT IG TT</td><td><span class="pill q">Queued</span></td><td class="h2 upd">now</td><td><span class="go dim">…</span></td></tr>
-        <tr><td><div class="lead"><span class="ini">D</span><div><b>Descript</b><small>descript.com</small></div></div></td><td class="h1 vs">CapCut, Riverside, Veed</td><td class="h2 pf">YT IG TT</td><td><span class="pill live">Live · sent</span></td><td class="h2 upd">Mon</td><td><button type="button" class="go" data-open>Open ↗</button></td></tr>
+        <tr><td><div class="lead"><span class="ini">D</span><div><b>Descript</b><small>descript.com</small></div></div></td><td class="h1 vs">CapCut, Riverside, Veed</td><td class="h2 pf">YT IG TT</td><td><span class="pill live">Live · sent</span></td><td class="h2 upd">Mon</td><td><span class="go">Open ↗</span></td></tr>
        </tbody>
       </table>
       <p class="bnote">Each row is one lead with its own audit. Competitors are only there as the benchmark inside that lead's page.</p>
      </div>
     </div>
-   </div>
-   <div class="view akg doc" id="vp">
-    <div class="dh">
-     <button type="button" class="back" data-back>← Back to the board</button>
-     <div class="rw"><img src="/shared/aryan-akg/assets/akg-logo.svg" alt="AKG"><span class="mn">Creator audit</span></div>
-     <p class="pre mn">Prepared for Granola by AKG Media</p>
-     <h5>Granola.</h5>
-     <h6>Creator + competitor audit</h6>
-     <div class="meta"><div><span class="mn">Window</span><b>Last 12 months</b></div><div><span class="mn">Platforms</span><b>YouTube, Instagram, TikTok</b></div><div><span class="mn">Benchmarked against</span><b>Otter, Fireflies, Fathom</b></div></div>
-    </div>
-    <div class="ds"><p class="k mn">01 · Where you stand <em>you / rivals' average</em></p>
-     <div class="kpis">
-      <div><b>21 <em>/ 64</em></b><small>creators who posted about you</small></div>
-      <div><b>1.9M <em>/ 6.2M</em></b><small>views on those creator posts</small></div>
-      <div><b>5 <em>/ 27</em></b><small>posts marked as paid partnerships</small></div>
-     </div>
-    </div>
-    <div class="ds"><p class="k mn">02 · Creator views by platform</p>
-     <div class="chart">
-      <div class="hd mn"><span>Millions of views, last 12 months</span><span class="lgd"><span><i style="background:#e9faca"></i>Granola</span><span><i style="background:#ffbfed"></i>Rivals' avg</span></span></div>
-      <div class="grp">
-       <div class="g"><i class="a" style="height:43%"><span>1.2</span></i><i class="b" style="height:75%"><span>2.1</span></i></div>
-       <div class="g"><i class="a" style="height:21%"><span>0.6</span></i><i class="b" style="height:46%"><span>1.3</span></i></div>
-       <div class="g"><i class="a" style="height:4%"><span>0.1</span></i><i class="b" style="height:100%"><span>2.8</span></i></div>
-      </div>
-      <div class="gl mn"><span>YouTube</span><span>Instagram</span><span>TikTok</span></div>
-     </div>
-    </div>
-    <div class="ds"><p class="k mn">03 · What's missing</p>
-     <ol class="gaps">
-      <li><span>01</span><div><b>No TikTok program</b><p>TikTok brought your rivals 2.8M creator views this year. You had 2 TikTok creators.</p></div></li>
-      <li><span>02</span><div><b>Long gaps between posts</b><p>Rivals get a creator post every 9 days on average. Your last one went up 7 weeks ago.</p></div></li>
-      <li><span>03</span><div><b>Nothing to track</b><p>Fireflies puts a promo code in 6 of 10 creator videos. None of yours carry a code or a tracked link.</p></div></li>
-     </ol>
-    </div>
-    <div class="ds"><p class="k mn">04 · Creators already close <em>covered a rival, never you</em></p>
-     <div class="crs">
-      <div class="cr"><span class="av">P</span><b>Productivity YouTuber</b><small>412K subscribers</small><em>Covered Otter · Mar</em></div>
-      <div class="cr"><span class="av">A</span><b>AI tools TikToker</b><small>186K followers</small><em>Covered Fathom · twice</em></div>
-      <div class="cr"><span class="av">F</span><b>Founder vlogger</b><small>95K subscribers</small><em>Covered Fireflies · Aug</em></div>
-     </div>
-     <p class="more">+ 11 more, each linked to the post</p>
-    </div>
-    <div class="df"><p>Want the full creator list? <span>Let's talk.</span></p><b>Book a call with AKG</b><small class="mn">Every number on this page links to the post it came from</small></div>
    </div>
   </div>
   <div class="shows">
@@ -508,11 +460,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   var t;addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(function(){var h=innerHeight;els.forEach(function(el){if(!el.classList.contains('on')&&el.getBoundingClientRect().top<h)show(el)})},120)},{passive:true});
  }
 
- var furl=d.getElementById('furl'),tabs=d.querySelectorAll('.tabs button');
- function view(id){d.querySelectorAll('.view').forEach(function(v){v.classList.toggle('is-on',v.id===id);v.scrollTop=0});tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.v===id)});furl.textContent=id==='vp'?'audits.akgmedia.co.uk/granola':'audits.akgmedia.co.uk/board'}
- tabs.forEach(function(t){t.addEventListener('click',function(){view(t.dataset.v)})});
- d.getElementById('vb').addEventListener('click',function(e){if(e.target.closest('[data-open]'))view('vp')});
- d.querySelector('[data-back]').addEventListener('click',function(){view('vb')});
  var nf=d.getElementById('nf'),lb=d.getElementById('lb'),lc=d.getElementById('lc'),n=5;
  nf.addEventListener('submit',function(e){e.preventDefault();var inp=d.getElementById('nb'),name=(inp.value||'Perplexity').trim().slice(0,28);
   var tr=d.createElement('tr');tr.className='new-row';
