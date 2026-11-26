@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#0F0E0D">
 <title>AKG Creator Audits</title>
-<meta name="description" content="Proposal for AKG Media: an automated creator and competitor audit system for YouTube, Instagram and TikTok, built on AKG's accounts and published on AKG's domain.">
+<meta name="description" content="Proposal for AKG Media: an automated creator and competitor audit system for YouTube, Instagram and TikTok, run from AKG's own control board and published on AKG's domain.">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <style>
 @font-face{font-family:"IMDisplay";src:url("https://inboundonsteroids.com/assets/fonts/Brico.woff2") format("woff2");font-weight:800;font-display:swap}
@@ -76,12 +76,54 @@ section{position:relative;padding:clamp(44px,4.6vw,68px) 0 0}
 .facts b{display:block;font:800 clamp(22px,2.2vw,32px)/1 "IMDisplay",sans-serif;letter-spacing:-.03em;margin-top:6px}
 .facts span.s{display:block;font-size:13px;color:var(--tx2);margin-top:5px;line-height:1.35}
 
-.shows{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:14px;overflow:hidden}
-.shows article{background:rgba(20,18,16,.92);padding:18px}
-.shows h3{font:700 16.5px/1.25 "IMSans",sans-serif;letter-spacing:-.01em;margin:8px 0 6px}
-.shows p{color:var(--tx2);font-size:14.5px;line-height:1.45}
-.eg{margin-top:14px;padding:11px 14px;border-left:3px solid var(--red);background:rgba(243,239,230,.04);border-radius:0 8px 8px 0;font-size:14.5px;color:var(--tx);max-width:60em}
-.eg small{font-family:"IMMono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);margin-right:8px}
+/* mockups */
+.mocks{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,2vw,22px);align-items:start}
+.win{background:#F3EFE6;color:#16181A;border-radius:12px;overflow:hidden;box-shadow:0 2px 0 rgba(255,255,255,.25) inset,0 30px 70px -30px rgba(0,0,0,.9),0 0 0 1px rgba(243,239,230,.18)}
+.bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#E4DED2;border-bottom:1px solid #D3CCBE}
+.bar i{width:9px;height:9px;border-radius:50%;background:#C9C1B2}
+.bar span{margin-left:8px;flex:1;font:500 11px/1 "IMMono",monospace;color:#6B675F;background:#F3EFE6;border-radius:6px;padding:5px 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wb{padding:14px 16px 16px;font-size:12.5px;line-height:1.4}
+.wh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.wh b{font:800 15px/1.1 "IMDisplay",sans-serif;letter-spacing:-.02em}
+.wh em{font:500 9.5px/1 "IMMono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#8A8478;font-style:normal}
+.add{display:grid;grid-template-columns:1fr 1fr 1.25fr auto;gap:6px;margin-bottom:12px}
+.add span{border:1px solid #D3CCBE;background:#fff;border-radius:7px;padding:7px 8px;color:#16181A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.add span.ph{color:#A39E93}
+.add b{background:#C8361B;color:#fff;border-radius:7px;padding:7px 10px;font-weight:600;white-space:nowrap}
+.rows{border-top:1px solid #DDD6C8}
+.r{display:grid;grid-template-columns:1fr 1.5fr auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #E4DED2}
+.r b{font-weight:650}
+.r small{display:block;color:#8A8478;font-size:11px}
+.st{font:600 10.5px/1 "IMSans",sans-serif;padding:5px 8px;border-radius:99px;white-space:nowrap;justify-self:end}
+.st.live{background:#E3EEDF;color:#2F6B2A}
+.st.chk{background:#F6E7C8;color:#8A5A0B}
+.st.run{background:#EADFD9;color:#9A3A22}
+.prog{height:4px;border-radius:9px;background:#E4DED2;margin-top:5px;overflow:hidden}
+.prog i{display:block;height:100%;width:62%;background:#C8361B}
+.ft{margin-top:10px;color:#8A8478;font-size:11px}
+.au h4{font:800 17px/1.1 "IMDisplay",sans-serif;letter-spacing:-.02em;margin:2px 0 3px}
+.au .sub2{color:#8A8478;font-size:11px;margin-bottom:10px}
+.kp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:10px}
+.kp div{background:#fff;border:1px solid #E0D9CB;border-radius:8px;padding:8px}
+.kp b{display:block;font:800 18px/1 "IMDisplay",sans-serif;letter-spacing:-.02em}
+.kp small{display:block;color:#8A8478;font-size:10.5px;margin-top:3px;line-height:1.25}
+.kp em{font-style:normal;color:#C8361B;font-weight:600}
+.bars{margin-bottom:10px}
+.bars p{font:500 9.5px/1 "IMMono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#8A8478;margin-bottom:6px}
+.bl{display:grid;grid-template-columns:28px 1fr;gap:6px;align-items:center;margin:4px 0;font-size:10.5px;color:#6B675F}
+.bl div{display:flex;flex-direction:column;gap:2px}
+.bl i{display:block;height:6px;border-radius:3px;background:#C9C1B2}
+.bl i.u{background:#C8361B}
+.gap{border-left:3px solid #C8361B;background:#fff;border-radius:0 8px 8px 0;padding:8px 10px;font-size:12px}
+.gap small{display:block;font:500 9.5px/1 "IMMono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#8A8478;margin-bottom:4px}
+.cap{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:13px;color:var(--tx2)}
+.cap b{color:var(--tx);font-weight:600}
+.tag{font-family:"IMMono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);white-space:nowrap}
+
+.shows{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:14px;overflow:hidden;margin-top:22px}
+.shows article{background:rgba(20,18,16,.92);padding:16px 18px}
+.shows h3{font:700 15.5px/1.25 "IMSans",sans-serif;letter-spacing:-.01em;margin:7px 0 5px}
+.shows p{color:var(--tx2);font-size:14px;line-height:1.45}
 
 .steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
 .steps li{border-top:2px solid var(--hair);padding-top:12px}
@@ -127,6 +169,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--hair);padding:16px
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--tx3)}
 
 @media(max-width:1000px){
+ .mocks{grid-template-columns:1fr}
  .shows{grid-template-columns:repeat(2,minmax(0,1fr))}
  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
  .split,.price{grid-template-columns:1fr}
@@ -139,6 +182,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
  .facts div:nth-child(3){padding-left:0;border-left:0}
  .facts div:nth-child(n+3){margin-top:12px;border-top:1px solid var(--hair)}
+ .add{grid-template-columns:1fr 1fr}
+ .add span:nth-child(3){grid-column:1/2}
+ .r{grid-template-columns:1fr auto}.r .cm{display:none}
  .shows,.steps,.time{grid-template-columns:1fr}
  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
  .tbl thead{display:none}
@@ -162,7 +208,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
  <div class="wrap">
   <a class="mark" href="#top" aria-label="InboundOnSteroids">inbound<b>on</b>steroids</a>
   <nav>
-   <a class="t" href="#shows">The audit</a>
+   <a class="t" href="#see">Preview</a>
    <a class="t" href="#how">How it works</a>
    <a class="t" href="#run">Running cost</a>
    <a class="btn" href="https://buy.stripe.com/3cI14f8av9jH44K0v1fEk1e"><span class="dsk">Start the build</span><span class="mob">Start</span> <i>↗</i></a>
@@ -178,67 +224,106 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
  <div class="wrap">
   <p class="mono" data-in>Proposal for Aryan · AKG Media · 26 Nov 2026</p>
   <h1 class="disp seam">A creator audit for every brand on your <span class="swipe">Dream 100</span></h1>
-  <p class="lede" data-in style="--d:.35s">Add a brand to a sheet. The system finds their creator campaigns on YouTube, Instagram and TikTok, compares them with 2-3 competitors, writes what they're missing and publishes it as a branded page on your domain. <span>It runs on AKG's accounts, and you own all of it.</span></p>
+  <p class="lede" data-in style="--d:.35s">Type a brand into your control board. The system finds their creator campaigns on YouTube, Instagram and TikTok, compares them with 2-3 competitors, writes what they're missing and publishes it as a branded page on your domain. <span>It runs on AKG's accounts, and you own all of it.</span></p>
   <div class="facts" data-in style="--d:.5s">
    <div><span class="mono">One-off</span><b>$6,500</b><span class="s">No monthly fee to me</span></div>
-   <div><span class="mono">Live</span><b>2 weeks</b><span class="s">First audits in week one</span></div>
+   <div><span class="mono">Live</span><b>1-2 weeks</b><span class="s">First audits in week one</span></div>
    <div><span class="mono">Supervised</span><b>+2 weeks</b><span class="s">I check every audit</span></div>
    <div><span class="mono">Platforms</span><b>YT · IG · TT</b><span class="s">YouTube, Instagram, TikTok</span></div>
   </div>
  </div>
 </section>
 
-<section id="shows">
+<section id="see">
  <div class="wrap">
-  <header class="head"><h2 class="disp seam">What the brand sees</h2><p data-in>One page per brand in AKG's branding, e.g. audits.yourdomain.com/heygen</p></header>
-  <div class="shows">
-   <article data-in><span class="mono">Their campaigns</span><h3>Every creator who posted about them</h3><p>Last 12 months: who, where, views, engagement, creator size, and whether the post was marked as paid.</p></article>
-   <article data-in style="--d:.06s"><span class="mono">Vs competitors</span><h3>Same numbers for 2-3 rivals</h3><p>Creator count, views, platform mix and posting rhythm side by side. You pick them, or the system suggests three.</p></article>
-   <article data-in style="--d:.12s"><span class="mono">What's missing</span><h3>3-5 gaps, each backed by a number</h3><p>Written for a marketing lead to read in two minutes.</p></article>
-   <article data-in style="--d:.18s"><span class="mono">Already close</span><h3>Creators who post for their rivals</h3><p>Channels that covered a competitor and never covered them. Where AKG's pitch starts.</p></article>
+  <header class="head"><h2 class="disp seam">What you use, what they see</h2><p data-in>Your team works from the board. Each brand gets its own page, e.g. audits.yourdomain.com/granola</p></header>
+  <div class="mocks">
+   <figure data-in>
+    <div class="win" aria-label="Mockup of the AKG control board">
+     <div class="bar"><i></i><i></i><i></i><span>audits.yourdomain.com/board</span></div>
+     <div class="wb">
+      <div class="wh"><b>AKG · Creator audits</b><em>Team login</em></div>
+      <div class="add"><span>Granola</span><span>granola.ai</span><span class="ph">Competitors (optional)</span><b>Run audit</b></div>
+      <div class="rows">
+       <div class="r"><div><b>HeyGen</b><small>Done in 18 min</small></div><div class="cm"><small>vs Synthesia, Colossyan, D-ID</small></div><span class="st live">Live · Open ↗</span></div>
+       <div class="r"><div><b>Wispr Flow</b><small>Waiting for your OK</small></div><div class="cm"><small>vs Superwhisper, Willow, Aqua Voice</small></div><span class="st chk">Check before send</span></div>
+       <div class="r"><div><b>Granola</b><small>Reading 1,840 posts</small><div class="prog"><i></i></div></div><div class="cm"><small>vs Otter, Fireflies, Fathom</small></div><span class="st run">Running</span></div>
+      </div>
+      <p class="ft">Every audit, its status and its link in one list. Slack pings you when one is ready.</p>
+     </div>
+    </div>
+    <figcaption class="cap"><b>Your control board</b><span class="tag">Mockup</span></figcaption>
+   </figure>
+   <figure data-in style="--d:.08s">
+    <div class="win" aria-label="Mockup of a published audit page">
+     <div class="bar"><i></i><i></i><i></i><span>audits.yourdomain.com/granola</span></div>
+     <div class="wb au">
+      <div class="wh"><em>AKG Media · Creator audit</em><em>Last 12 months</em></div>
+      <h4>Granola vs Otter, Fireflies, Fathom</h4>
+      <p class="sub2">YouTube, Instagram and TikTok. Every number links to its post.</p>
+      <div class="kp">
+       <div><b>21 <em>/ 64</em></b><small>creators: you / rivals' average</small></div>
+       <div><b>1.9M <em>/ 6.2M</em></b><small>creator views</small></div>
+       <div><b>5 <em>/ 27</em></b><small>posts marked as paid</small></div>
+      </div>
+      <div class="bars"><p>Creator views by platform · <span style="color:#C8361B">you</span> vs rivals</p>
+       <div class="bl"><span>YT</span><div><i class="u" style="width:62%"></i><i style="width:48%"></i></div></div>
+       <div class="bl"><span>IG</span><div><i class="u" style="width:30%"></i><i style="width:41%"></i></div></div>
+       <div class="bl"><span>TT</span><div><i class="u" style="width:6%"></i><i style="width:78%"></i></div></div>
+      </div>
+      <div class="gap"><small>Gap 1 of 4</small>TikTok carried most of your rivals' creator views. You have 2 TikTok creators, and 14 creators who covered Otter or Fathom never covered you.</div>
+     </div>
+    </div>
+    <figcaption class="cap"><b>The page the brand gets</b><span class="tag">Mockup · sample numbers</span></figcaption>
+   </figure>
   </div>
-  <p class="eg" data-in><small>Example line</small>"Your two closest competitors ran 11 TikTok creators this year. You ran none, and TikTok carried 60% of their creator views."</p>
+  <div class="shows">
+   <article data-in><span class="mono">Their campaigns</span><h3>Every creator who posted about them</h3><p>Who, where, views, engagement, creator size, and whether it was marked as paid.</p></article>
+   <article data-in style="--d:.06s"><span class="mono">Vs competitors</span><h3>Same numbers for 2-3 rivals</h3><p>You pick them, or the system suggests three.</p></article>
+   <article data-in style="--d:.12s"><span class="mono">What's missing</span><h3>3-5 gaps, each backed by a number</h3><p>Readable by a marketing lead in two minutes.</p></article>
+   <article data-in style="--d:.18s"><span class="mono">Already close</span><h3>Creators who post for their rivals</h3><p>Where AKG's pitch starts.</p></article>
+  </div>
  </div>
 </section>
 
 <section id="how">
  <div class="wrap">
-  <header class="head"><h2 class="disp seam">How one audit gets made</h2><p data-in>The approach I run for client audits today, set up on your accounts.</p></header>
+  <header class="head"><h2 class="disp seam">How one audit gets made</h2><p data-in>The approach I run for client audits today, set up for AKG.</p></header>
   <ol class="steps">
-   <li data-in><h3>Add the brand</h3><p>A row in a Google Sheet: name and website, competitors optional.</p></li>
+   <li data-in><h3>Add the brand</h3><p>On the board: name and website, competitors optional. Behind a team login.</p></li>
    <li data-in style="--d:.05s"><h3>Find the campaigns</h3><p>YouTube via Google's official API, with views, channel size and the paid flag. Instagram and TikTok via Apify: tags, mentions, hashtags, paid-partnership labels.</p></li>
    <li data-in style="--d:.1s"><h3>Read every post</h3><p>Claude sorts each one: paid and disclosed, likely paid (promo code or tracking link), or organic.</p></li>
    <li data-in style="--d:.15s"><h3>Compare and write</h3><p>Same pass for each competitor, then the comparison and the gaps. Every number links to its post.</p></li>
-   <li data-in style="--d:.2s"><h3>Check and publish</h3><p>Claims without a source get rejected. Page goes live on your subdomain, link back in the sheet, Slack ping.</p></li>
+   <li data-in style="--d:.2s"><h3>Check and publish</h3><p>Claims without a source get rejected. The page goes live on your subdomain, the link shows on the board, Slack pings.</p></li>
   </ol>
-  <p class="callout" data-in>For the first two weeks I read every audit before it reaches a brand. After that it runs on its own.</p>
+  <p class="callout" data-in>I build and tune it on my own accounts first, so sources get added or cut before anything is yours. Once the audits are right, it moves to AKG's accounts.</p>
  </div>
 </section>
 
 <section id="run">
  <div class="wrap">
-  <header class="head"><h2 class="disp seam">Accounts and running cost</h2><p data-in>All in AKG's name, paid straight to each provider. I set them up with you.</p></header>
+  <header class="head"><h2 class="disp seam">Accounts and running cost</h2><p data-in>All in AKG's name, paid straight to each provider. Set up at go-live, with a 15-minute checklist from me.</p></header>
   <div class="split">
    <table class="tbl" data-in>
     <thead><tr><th>Service</th><th>Job</th><th>Cost</th></tr></thead>
     <tbody>
-     <tr><td>YouTube Data API</td><td>Videos, views, channels, paid flag</td><td class="c">Free, 10,000 units/day (a search costs 100)</td></tr>
-     <tr><td>Apify</td><td>Instagram and TikTok posts</td><td class="c">~$29/mo plan, counted as usage credit</td></tr>
-     <tr><td>Claude API</td><td>Reads, compares, writes, checks</td><td class="c">Pay per use</td></tr>
-     <tr><td>n8n Cloud</td><td>Runs the steps</td><td class="c">€24/mo, 2,500 runs</td></tr>
-     <tr><td>Cloudflare Pages</td><td>Hosts the pages on your subdomain</td><td class="c">Free</td></tr>
+     <tr><td>YouTube Data API</td><td>Videos, views, channels, paid flag</td><td class="c">Free. 10,000 units a day covers 2-4 audits; Google raises it on request</td></tr>
+     <tr><td>Apify</td><td>Instagram and TikTok posts</td><td class="c">$19/mo plan, counted as usage credit. ~$2.30 per 1,000 Instagram results, from $1.70 per 1,000 TikTok</td></tr>
+     <tr><td>Claude API</td><td>Reads, compares, writes, checks</td><td class="c">Pay per use. Haiku sorts ($0.10/$0.50 per M tokens), Opus writes ($4/$20)</td></tr>
+     <tr><td>n8n Cloud</td><td>Runs the steps, stores the audit list</td><td class="c">€24/mo (€20 billed yearly), 2,500 runs</td></tr>
+     <tr><td>Cloudflare</td><td>Board login, pages on your subdomain</td><td class="c">Free (login free up to 50 people)</td></tr>
     </tbody>
    </table>
    <div data-in style="--d:.1s">
     <ul class="sum">
-     <li>Instagram + TikTok, ~2,400 posts <b>$3-9</b></li>
-     <li>Claude, ~2,500 posts read <b>$2-3</b></li>
+     <li>Instagram + TikTok, ~2,400 posts + creator profiles <b>$5-9</b></li>
+     <li>Claude, ~2,800 posts read, then write and check <b>$2-3</b></li>
      <li>YouTube <b>$0</b></li>
-     <li class="tot">Per audit <b>$5-12</b></li>
-     <li>30 audits a month <b>~$180-390</b></li>
-     <li>100 audits a month <b>~$530-1,230</b></li>
+     <li class="tot">Per audit <b>$7-12</b></li>
+     <li>30 audits a month, with n8n <b>~$240-390</b></li>
+     <li>100 audits a month, with n8n <b>~$730-1,230</b></li>
     </ul>
-    <p class="small">One audit = the brand + 3 competitors on 3 platforms. Estimated from current price lists; I send the measured cost after the first 5 audits.</p>
+    <p class="small">One audit = the brand + 3 competitors on 3 platforms. Estimated from current price lists. The build runs on my accounts, so you get the measured cost per audit before you pay for any of it.</p>
    </div>
   </div>
  </div>
@@ -246,11 +331,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 <section id="price">
  <div class="wrap">
-  <header class="head"><h2 class="disp seam">Timeline and investment</h2><p data-in>The clock starts when payment clears and the accounts are set up.</p></header>
+  <header class="head"><h2 class="disp seam">Timeline and investment</h2><p data-in>The clock starts when payment clears.</p></header>
   <div class="time">
-   <div data-in><span class="mono">Week 1</span><h3>Data and first audits</h3><p>HeyGen, Granola and Wispr Flow audits sent to you.</p></div>
-   <div class="live" data-in style="--d:.05s"><span class="mono">Week 2</span><h3>Pages go live</h3><p>AKG-branded template, subdomain, sheet trigger, Slack.</p></div>
-   <div data-in style="--d:.1s"><span class="mono">Weeks 3-4</span><h3>Supervised running</h3><p>I check every audit and fix what's off.</p></div>
+   <div data-in><span class="mono">Week 1</span><h3>Built on my side</h3><p>HeyGen, Granola and Wispr Flow audits sent to you. Sources tuned until they're right.</p></div>
+   <div class="live" data-in style="--d:.05s"><span class="mono">Week 1-2</span><h3>Live on yours</h3><p>Board, AKG-branded pages, your subdomain and Slack, moved to AKG's accounts.</p></div>
+   <div data-in style="--d:.1s"><span class="mono">Next 2 weeks</span><h3>Supervised running</h3><p>I check every audit and fix what's off.</p></div>
    <div data-in style="--d:.15s"><span class="mono">Handover</span><h3>Yours to run</h3><p>Walkthrough video, runbook, 30 days of bug fixes.</p></div>
   </div>
   <div class="price" style="margin-top:34px">
@@ -258,8 +343,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
    <div data-in style="--d:.06s">
     <p class="sub">Included</p>
     <ul class="inc">
-     <li>The full system on AKG's accounts</li>
-     <li>Page template in AKG's branding, 2 rounds of changes</li>
+     <li>The full system, moved onto AKG's accounts</li>
+     <li>Control board and page template in AKG's branding, 2 rounds of changes</li>
      <li>First audits on HeyGen, Granola and Wispr Flow</li>
      <li>2 weeks supervised, runbook, 30 days of fixes</li>
     </ul>
@@ -271,7 +356,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
      <li>Paid creator databases, private data</li>
      <li>Sending the outreach</li>
     </ul>
-    <p class="small">From you at kick-off: the accounts above with a card on file, DNS access, your brand kit, and one audit or deck your team likes.</p>
+    <p class="small">From you at kick-off: your brand kit, the first brands you'll target, and one audit or deck your team likes. Before go-live: the accounts above with a card on file, and DNS access for the subdomain.</p>
    </div>
   </div>
  </div>
