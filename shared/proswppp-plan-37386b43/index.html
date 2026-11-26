@@ -159,7 +159,13 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
   var radios=[].slice.call(document.querySelectorAll('input[name=count]'));
   function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function render(t){return esc(t).replace(/\{[^{}\n]{1,40}\}/g,function(m){return '<span class="ph">'+m+'</span>';}).replace(/\n/g,'<br>');}
-  function text(b){return b.innerText.replace(/\u00a0/g,' ').trim();}
+  function text(b){
+    // Chrome omits line breaks from innerText inside a closed details element.
+    var closed=b.closest('details:not([open])');
+    if(closed)closed.open=true;
+    try{return b.innerText.replace(/\u00a0/g,' ').trim();}
+    finally{if(closed)closed.open=false;}
+  }
   bubbles.forEach(function(b){b.dataset.orig=b.innerHTML;b.dataset.origText=text(b);});
   function mark(b){b.classList.toggle('changed',text(b)!==b.dataset.origText);}
   function say(t){status.textContent=t;}
@@ -190,7 +196,7 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
   if(notes)notes.addEventListener('input',function(){save('__notes',notes.value);});
   radios.forEach(function(r){r.addEventListener('change',function(){showBidPath();save('__count',r.value);});});
   document.getElementById('reset').addEventListener('click',function(){
-    bubbles.forEach(function(b){if(text(b)!==b.dataset.origText){b.innerHTML=b.dataset.orig;mark(b);put(b.dataset.id,b.dataset.origText);}});
+    bubbles.forEach(function(b){if(text(b)!==b.dataset.origText){clearTimeout(timers[b.dataset.id]);b.innerHTML=b.dataset.orig;mark(b);put(b.dataset.id,b.dataset.origText);}});
     say('Back to the original \u2713');
   });
 })();
