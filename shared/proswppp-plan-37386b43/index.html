@@ -57,6 +57,11 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
 @media (max-width:520px){.step{grid-template-columns:1fr;gap:4px}.when{padding-top:0}}
 .connect{align-self:flex-start;display:inline-block;font:700 17px var(--display);letter-spacing:.03em;border-radius:12px;padding:12px 22px;background:var(--blue);color:#fff;text-decoration:none}
 .connect:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.bid-paths{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.bid-paths>div{padding:12px 16px}.bid-paths>div:first-child{background:var(--green-soft);border-inline-start:4px solid var(--green)}
+.bid-paths dt{font-weight:700}.bid-paths dd{margin:3px 0 0;display:flex;align-items:baseline;gap:4px 9px;flex-wrap:wrap}
+.bid-paths .next::before{content:"→" / "";margin-right:9px;color:var(--muted)}
+@media(max-width:520px){.bid-paths dd{flex-direction:column}.bid-paths .next::before{content:"↓" / ""}}
 </style>
 </head>
 <body>
@@ -68,21 +73,27 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
 
   <section style="display:flex;flex-direction:column;gap:14px" aria-labelledby="bid">
     <h2 id="bid">1. Bid invites</h2>
+    <dl class="bid-paths" aria-label="Bid follow-up by customer type">
+      <div><dt>Existing customer</dt><dd><strong>1 email after the bid</strong><span class="next">Your team follows up personally</span></dd></div>
+      <div><dt>Non-customer</dt><dd><span>Email 1 after the bid</span><span class="next" id="bid-step-two">Email 2 around week 4</span><span class="next" id="bid-step-three">Email 3 around week 6</span></dd></div>
+    </dl>
     <ul class="chips">
       <li>Nothing before the bid date</li>
-      <li>Customers get 1 email</li>
       <li>Max 1 email per company a day</li>
       <li>Nobody twice in 3 days</li>
       <li>Reply = out of everything</li>
     </ul>
     <div class="card">
-      <div class="step"><div class="when">Email 1<small>after the bid</small></div><div class="bubble" contenteditable="true" data-id="Bid email 1, v2"><span class="ph">{first name}</span>, did y'all win this <span class="ph">{project}</span> over in <span class="ph">{city}</span>?<br><br>You should have a bid from us on the <span class="ph">{state term}</span>.<br><br>If everything looks good on it, just let us know how quick you need it.<br><br>We appreciate it.<br><br>Regards,<br><span class="ph">{sender name}</span><br>Pro SWPPP, LLC<br>www.ProSWPPP.com</div></div>
+      <h3>Email 1 for everyone</h3>
+      <p class="muted">Each contact gets one of these two versions, depending on how many bids they have.</p>
+      <div class="step"><div class="when">Email 1<small>single bid</small></div><div class="bubble" contenteditable="true" data-id="Bid email 1, v2"><span class="ph">{first name}</span>, did y'all win this <span class="ph">{project}</span> over in <span class="ph">{city}</span>?<br><br>You should have a bid from us on the <span class="ph">{state term}</span>.<br><br>If everything looks good on it, just let us know how quick you need it.<br><br>We appreciate it.<br><br>Regards,<br><span class="ph">{sender name}</span><br>Pro SWPPP, LLC<br>www.ProSWPPP.com</div></div>
       <div class="step"><div class="when">Email 1<small>several bids</small></div><div class="bubble" contenteditable="true" data-id="Bid email 1, several bids, v2"><span class="ph">{first name}</span>, did y'all win any of these?<br><br><span class="ph">{project 1}</span>, <span class="ph">{project 2}</span>, <span class="ph">{project 3}</span>.<br><br>You should have a bid from us on each one.<br><br>If everything looks good on them, just let us know how quick you need them.<br><br>We appreciate it.<br><br>Regards,<br><span class="ph">{sender name}</span><br>Pro SWPPP, LLC<br>www.ProSWPPP.com</div></div>
-      <div class="step"><div class="when">Email 2<small>~4 weeks</small></div><div class="bubble" contenteditable="true" data-id="Bid email 2, v2"><span class="ph">{first name}</span>, checking back on this <span class="ph">{project}</span> over in <span class="ph">{city}</span>.<br><br>If it went your way, we can have the <span class="ph">{state term}</span> ready before you mobilize.<br><br>Regards,<br><span class="ph">{sender name}</span><br>Pro SWPPP, LLC<br>www.ProSWPPP.com</div></div>
-      <div class="step"><div class="when">Email 3<small>~6 weeks</small></div><div class="bubble" contenteditable="true" data-id="Bid email 3, v2"><span class="ph">{first name}</span>, last one on this <span class="ph">{project}</span>.<br><br>If you won it, let's get the <span class="ph">{state term}</span> going. If not, we'll get 'em on the next one.<br><br>Regards,<br><span class="ph">{sender name}</span><br>Pro SWPPP, LLC<br>www.ProSWPPP.com</div></div>
+      <h3>Optional follow-ups for non-customers only</h3>
+      <div class="step"><div class="when">Email 2<small>~4 weeks after the bid</small></div><div class="bubble" contenteditable="true" data-id="Bid email 2, v2"><span class="ph">{first name}</span>, checking back on this <span class="ph">{project}</span> over in <span class="ph">{city}</span>.<br><br>If it went your way, we can have the <span class="ph">{state term}</span> ready before you mobilize.<br><br>Regards,<br><span class="ph">{sender name}</span><br>Pro SWPPP, LLC<br>www.ProSWPPP.com</div></div>
+      <div class="step"><div class="when">Email 3<small>~6 weeks after the bid</small></div><div class="bubble" contenteditable="true" data-id="Bid email 3, v2"><span class="ph">{first name}</span>, last one on this <span class="ph">{project}</span>.<br><br>If you won it, let's get the <span class="ph">{state term}</span> going. If not, we'll get 'em on the next one.<br><br>Regards,<br><span class="ph">{sender name}</span><br>Pro SWPPP, LLC<br>www.ProSWPPP.com</div></div>
       <p class="muted" style="font-size:15px">Built from your rewrite of Email 1. <span class="ph">{state term}</span> is the state's own name from your list: CBMPP in Alabama, ES&amp;PC Plan in Georgia, SWPPP in Texas. <span class="ph">{city}</span> and the state come from the end of the project name ("7-Eleven - Florence, SC") or from a City and a State column on the bid sheet. A row with neither skips the city and says SWPPP. The subject is the project name plus the state term, like "UTMB CLC Parking Lot SWPPP". Each sender signs with their own name.</p>
-      <div class="q" role="radiogroup" aria-label="How many bid emails">
-        <b>How many emails?</b>
+      <div class="q" role="radiogroup" aria-label="How many emails for non-customers?">
+        <b>How many emails for non-customers?</b>
         <label><input type="radio" name="count" value="3 emails"> 3</label>
         <label><input type="radio" name="count" value="2 emails (drop email 3)"> 2</label>
         <label><input type="radio" name="count" value="1 email only"> Just 1</label>
@@ -150,6 +161,12 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
   bubbles.forEach(function(b){b.dataset.orig=b.innerHTML;b.dataset.origText=text(b);});
   function mark(b){b.classList.toggle('changed',text(b)!==b.dataset.origText);}
   function say(t){status.textContent=t;}
+  function showBidPath(){
+    var selected=radios.find(function(r){return r.checked;});
+    var count=selected?parseInt(selected.value,10):3;
+    document.getElementById('bid-step-two').hidden=count<2;
+    document.getElementById('bid-step-three').hidden=count<3;
+  }
   var timers={};
   function put(key,body){
     return fetch(SB+'shared_page_edits_save',{method:'POST',headers:H,
@@ -165,10 +182,11 @@ button.ghost{background:transparent;color:var(--muted);border:1px solid var(--li
     bubbles.forEach(function(b){var v=m[b.dataset.id];if(v&&v!==b.dataset.origText){b.innerHTML=render(v);}mark(b);});
     if(notes&&m.__notes)notes.value=m.__notes;
     radios.forEach(function(r){if(m.__count===r.value)r.checked=true;});
+    showBidPath();
   }).catch(function(){});
   bubbles.forEach(function(b){b.addEventListener('input',function(){mark(b);save(b.dataset.id,text(b));});});
   if(notes)notes.addEventListener('input',function(){save('__notes',notes.value);});
-  radios.forEach(function(r){r.addEventListener('change',function(){save('__count',r.value);});});
+  radios.forEach(function(r){r.addEventListener('change',function(){showBidPath();save('__count',r.value);});});
   document.getElementById('reset').addEventListener('click',function(){
     bubbles.forEach(function(b){if(text(b)!==b.dataset.origText){b.innerHTML=b.dataset.orig;mark(b);put(b.dataset.id,b.dataset.origText);}});
     say('Back to the original \u2713');
