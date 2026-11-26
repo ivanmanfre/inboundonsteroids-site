@@ -76,49 +76,103 @@ section{position:relative;padding:clamp(44px,4.6vw,68px) 0 0}
 .facts b{display:block;font:800 clamp(22px,2.2vw,32px)/1 "IMDisplay",sans-serif;letter-spacing:-.03em;margin-top:6px}
 .facts span.s{display:block;font-size:13px;color:var(--tx2);margin-top:5px;line-height:1.35}
 
-/* mockups */
-.mocks{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,2vw,22px);align-items:start}
-.win{background:#F3EFE6;color:#16181A;border-radius:12px;overflow:hidden;box-shadow:0 2px 0 rgba(255,255,255,.25) inset,0 30px 70px -30px rgba(0,0,0,.9),0 0 0 1px rgba(243,239,230,.18)}
-.bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#E4DED2;border-bottom:1px solid #D3CCBE}
-.bar i{width:9px;height:9px;border-radius:50%;background:#C9C1B2}
-.bar span{margin-left:8px;flex:1;font:500 11px/1 "IMMono",monospace;color:#6B675F;background:#F3EFE6;border-radius:6px;padding:5px 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.wb{padding:14px 16px 16px;font-size:12.5px;line-height:1.4}
-.wh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
-.wh b{font:800 15px/1.1 "IMDisplay",sans-serif;letter-spacing:-.02em}
-.wh em{font:500 9.5px/1 "IMMono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#8A8478;font-style:normal}
-.add{display:grid;grid-template-columns:1fr 1fr 1.25fr auto;gap:6px;margin-bottom:12px}
-.add span{border:1px solid #D3CCBE;background:#fff;border-radius:7px;padding:7px 8px;color:#16181A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.add span.ph{color:#A39E93}
-.add b{background:#C8361B;color:#fff;border-radius:7px;padding:7px 10px;font-weight:600;white-space:nowrap}
-.rows{border-top:1px solid #DDD6C8}
-.r{display:grid;grid-template-columns:1fr 1.5fr auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #E4DED2}
-.r b{font-weight:650}
-.r small{display:block;color:#8A8478;font-size:11px}
-.st{font:600 10.5px/1 "IMSans",sans-serif;padding:5px 8px;border-radius:99px;white-space:nowrap;justify-self:end}
-.st.live{background:#E3EEDF;color:#2F6B2A}
-.st.chk{background:#F6E7C8;color:#8A5A0B}
-.st.run{background:#EADFD9;color:#9A3A22}
-.prog{height:4px;border-radius:9px;background:#E4DED2;margin-top:5px;overflow:hidden}
-.prog i{display:block;height:100%;width:62%;background:#C8361B}
-.ft{margin-top:10px;color:#8A8478;font-size:11px}
-.au h4{font:800 17px/1.1 "IMDisplay",sans-serif;letter-spacing:-.02em;margin:2px 0 3px}
-.au .sub2{color:#8A8478;font-size:11px;margin-bottom:10px}
-.kp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:10px}
-.kp div{background:#fff;border:1px solid #E0D9CB;border-radius:8px;padding:8px}
-.kp b{display:block;font:800 18px/1 "IMDisplay",sans-serif;letter-spacing:-.02em}
-.kp small{display:block;color:#8A8478;font-size:10.5px;margin-top:3px;line-height:1.25}
-.kp em{font-style:normal;color:#C8361B;font-weight:600}
-.bars{margin-bottom:10px}
-.bars p{font:500 9.5px/1 "IMMono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#8A8478;margin-bottom:6px}
-.bl{display:grid;grid-template-columns:28px 1fr;gap:6px;align-items:center;margin:4px 0;font-size:10.5px;color:#6B675F}
-.bl div{display:flex;flex-direction:column;gap:2px}
-.bl i{display:block;height:6px;border-radius:3px;background:#C9C1B2}
-.bl i.u{background:#C8361B}
-.gap{border-left:3px solid #C8361B;background:#fff;border-radius:0 8px 8px 0;padding:8px 10px;font-size:12px}
-.gap small{display:block;font:500 9.5px/1 "IMMono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#8A8478;margin-bottom:4px}
-.cap{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:13px;color:var(--tx2)}
-.cap b{color:var(--tx);font-weight:600}
+/* AKG prototype */
+@font-face{font-family:AKGDisplay;src:url(/shared/aryan-akg/assets/v4/fonts/RaleGrotesk-Medium.otf);font-weight:500;font-display:swap}
+@font-face{font-family:AKG;src:url(/shared/aryan-akg/assets/v4/fonts/RaleGroteskBase-Regular.ttf);font-weight:400;font-display:swap}
+@font-face{font-family:AKG;src:url(/shared/aryan-akg/assets/v4/fonts/RaleGroteskBase-SemiBold.ttf);font-weight:600;font-display:swap}
+@font-face{font-family:AKGMono;src:url(/shared/aryan-akg/assets/v4/fonts/ApercuMonoPro-Regular.ttf);font-display:swap}
+.tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.tabs button{font:600 14px/1 "IMSans",sans-serif;padding:10px 15px;border-radius:999px;border:1px solid var(--hair);background:transparent;color:var(--tx2);cursor:pointer;transition:background .25s,color .25s}
+.tabs button:hover{color:var(--tx)}
+.tabs button[aria-selected="true"]{background:var(--tx);color:var(--ink);border-color:var(--tx)}
+.tabs .tag{margin-left:auto}
 .tag{font-family:"IMMono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);white-space:nowrap}
+.frame{border-radius:14px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 90px -40px rgba(0,0,0,.95)}
+.fbar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#141414;border-bottom:1px solid #232323}
+.fbar i{width:10px;height:10px;border-radius:50%;background:#3a3a3a}
+.fbar span{margin-left:10px;flex:0 1 380px;font:12px/1 AKGMono,monospace;color:#9a9a9a;background:#080808;border:1px solid #262626;border-radius:7px;padding:7px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.view{height:clamp(500px,44vw,590px);overflow:auto;display:none;overscroll-behavior:contain}
+.view.is-on{display:block}
+.akg{font:14px/1.45 AKG,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.akg .mn{font-family:AKGMono,monospace;text-transform:uppercase;letter-spacing:.03em}
+/* board */
+.app{display:grid;grid-template-columns:172px minmax(0,1fr);min-height:100%;background:#000;color:#fff}
+.side{background:#0a0a0a;border-right:1px solid #1d1d1d;padding:18px 12px;display:flex;flex-direction:column;gap:3px}
+.lg{display:flex;align-items:center;gap:8px;margin:0 6px 24px}.lg img{height:16px;width:53px;flex:none}.lg span{font-weight:600;font-size:15px}
+.side a{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;color:#8f8f8f;font-size:13.5px;text-decoration:none}
+.side a.act{background:#1a1a1a;color:#fff}.side a small{font:11px AKGMono,monospace;color:#e9faca}
+.me{margin-top:auto;display:flex;align-items:center;gap:9px;font-size:12.5px;color:#bdbdbd;padding:0 6px}.me img{width:28px;height:28px;border-radius:50%}
+.mainp{padding:22px 24px 26px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:16px}
+.top h5{font:500 34px/.9 AKGDisplay,Arial,sans-serif;text-transform:uppercase;letter-spacing:-.02em;margin:0}
+.top p{font-size:11.5px;color:#8f8f8f;margin-top:8px}
+.top .sync{font-size:11px;color:#e9faca}
+.new{display:grid;grid-template-columns:1fr 1fr 1.4fr auto auto;gap:8px;padding:10px;border:1px solid #262626;border-radius:12px;background:#0a0a0a;margin-bottom:20px;align-items:center}
+.new input{background:#000;border:1px solid #2c2c2c;border-radius:8px;color:#fff;padding:9px 10px;font:13.5px AKG,Arial,sans-serif;min-width:0;width:100%}
+.new input::placeholder{color:#6d6d6d}
+.plat{display:flex;gap:4px}.plat b{font:400 10.5px/1 AKGMono,monospace;padding:7px 7px;border-radius:6px;background:#e9faca;color:#000}
+.run{background:#3900f4;color:#fff;border:0;border-radius:8px;padding:10px 14px;font:600 13.5px AKG,Arial,sans-serif;cursor:pointer;white-space:nowrap}
+.run:hover{background:#4a17ff}
+.leads{width:100%;border-collapse:collapse}
+.leads th{font:400 10.5px AKGMono,monospace;text-transform:uppercase;letter-spacing:.03em;color:#6f6f6f;text-align:left;padding:0 12px 9px 0;border-bottom:1px solid #222;white-space:nowrap}
+.leads td{padding:11px 12px 11px 0;border-bottom:1px solid #191919;vertical-align:middle}
+.leads tr.new-row td{animation:flash 1.6s ease-out}
+@keyframes flash{from{background:rgba(233,250,202,.14)}to{background:transparent}}
+.lead{display:flex;gap:10px;align-items:center}
+.ini{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font:600 13px AKG,Arial,sans-serif;color:#000;background:#e9faca}
+.ini.p{background:#ffbfed}.ini.v{background:#3900f4;color:#fff}.ini.w{background:#fff}
+.lead b{display:block;font-weight:600;white-space:nowrap}.lead small{color:#7d7d7d;font-size:12px}
+.vs{color:#a8a8a8;font-size:12.5px}.vs small{display:block;font:10px AKGMono,monospace;text-transform:uppercase;color:#5f5f5f;margin-bottom:2px}
+.pf{font:10.5px AKGMono,monospace;color:#8a8a8a;white-space:nowrap}
+.pill{font:600 11.5px/1 AKG,Arial,sans-serif;padding:6px 9px;border-radius:99px;white-space:nowrap;display:inline-block}
+.pill.live{background:#e9faca;color:#000}.pill.rev{background:#ffbfed;color:#000}.pill.run2{background:#3900f4;color:#fff}.pill.q{border:1px solid #333;color:#9a9a9a}
+.prog{height:3px;background:#222;border-radius:3px;margin-top:6px;width:96px;overflow:hidden}.prog i{display:block;height:100%;width:62%;background:#e9faca;animation:pg 6s ease-in-out infinite alternate}
+@keyframes pg{from{width:38%}to{width:84%}}
+.upd{color:#7d7d7d;font-size:12px;white-space:nowrap}
+.go{font:600 12.5px AKG,Arial,sans-serif;color:#fff;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#555;white-space:nowrap}
+.go:hover{text-decoration-color:#e9faca}.go.dim{color:#666;text-decoration:none;cursor:default}
+.bnote{margin-top:14px;font-size:12px;color:#7d7d7d}
+/* lead page */
+.doc{background:#fff;color:#000}
+.dh{background:#000;color:#fff;padding:22px 28px 26px}
+.dh .rw{display:flex;justify-content:space-between;align-items:center}.dh .rw img{height:20px;width:66px}.dh .rw span{font-size:11.5px}
+.dh .pre{font-size:11.5px;color:#e9faca;margin:28px 0 12px}
+.dh h5{font:500 clamp(56px,7.4vw,96px)/.84 AKGDisplay,Arial,sans-serif;text-transform:uppercase;letter-spacing:-.035em;margin:0}
+.dh h6{font:500 clamp(22px,2.7vw,36px)/1 AKGDisplay,Arial,sans-serif;text-transform:uppercase;letter-spacing:-.02em;color:#e9faca;margin:8px 0 0}
+.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;border-top:1px solid #2e2e2e;margin-top:24px;padding-top:12px}
+.meta span{display:block;font-size:10.5px;color:#7d7d7d}.meta b{font-weight:600;font-size:13.5px}
+.ds{padding:24px 28px;border-bottom:1px solid #ececec}
+.ds .k{font-size:11px;color:#3900f4;margin-bottom:12px;display:flex;justify-content:space-between;gap:10px}.ds .k em{font-style:normal;color:#9a9a9a}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.kpis div{border:1px solid #e4e4e4;border-radius:12px;padding:14px 14px 12px}
+.kpis b{font:500 36px/1 AKGDisplay,Arial,sans-serif;letter-spacing:-.02em}.kpis b em{font-style:normal;color:#a3a3a3;font-size:20px}
+.kpis small{display:block;font-size:12.5px;color:#555;margin-top:7px;line-height:1.35}
+.chart{background:#3900f4;border-radius:14px;padding:18px 20px 14px;color:#fff}
+.chart .hd{display:flex;justify-content:space-between;gap:10px;font-size:11px;margin-bottom:30px;flex-wrap:wrap}
+.lgd{display:flex;gap:14px}.lgd i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:0}
+.grp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;height:150px;align-items:end;border-bottom:1px solid rgba(255,255,255,.3)}
+.g{display:flex;gap:6px;align-items:end;justify-content:center;height:100%}
+.g i{display:block;width:min(34px,30%);border-radius:5px 5px 0 0;position:relative}
+.g i span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font:10.5px AKGMono,monospace;padding-bottom:4px;white-space:nowrap}
+.g .a{background:#e9faca}.g .b{background:#ffbfed}
+.gl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;text-align:center;font-size:11px;margin-top:8px;color:#d9d2ff}
+.gaps{list-style:none;margin:0;padding:0}
+.gaps li{display:grid;grid-template-columns:38px minmax(0,1fr);gap:4px;padding:12px 0;border-top:1px solid #ececec}
+.gaps li:first-child{border-top:0;padding-top:2px}
+.gaps li>span{font:12px AKGMono,monospace;color:#3900f4;padding-top:3px}
+.gaps b{display:block;font:500 19px/1.1 AKGDisplay,Arial,sans-serif;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:4px}
+.gaps p{color:#444;font-size:13.5px}
+.crs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.cr{border:1px solid #e4e4e4;border-radius:12px;padding:12px}
+.cr .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:600;background:#000;color:#e9faca;margin-bottom:10px}
+.cr b{display:block;font-weight:600;font-size:13.5px}.cr small{display:block;color:#666;font-size:12px}
+.cr em{display:inline-block;font-style:normal;font-size:11px;background:#ffbfed;border-radius:99px;padding:4px 8px;margin-top:8px}
+.more{margin-top:10px;font-size:12.5px;color:#3900f4;font-weight:600}
+.df{background:#000;color:#fff;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.df p{font:500 22px/1 AKGDisplay,Arial,sans-serif;text-transform:uppercase}.df p span{color:#e9faca}
+.df b{background:#3900f4;color:#fff;border-radius:8px;padding:11px 15px;font-weight:600;font-size:13.5px}
+.df small{display:block;width:100%;font-size:10.5px;color:#6f6f6f}
+.back{font:600 12px AKG,Arial,sans-serif;color:#e9faca;background:none;border:0;cursor:pointer;padding:0;margin-bottom:14px}
 
 .shows{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:14px;overflow:hidden;margin-top:22px}
 .shows article{background:rgba(20,18,16,.92);padding:16px 18px}
@@ -169,7 +223,9 @@ footer{position:relative;z-index:2;border-top:1px solid var(--hair);padding:16px
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--tx3)}
 
 @media(max-width:1000px){
- .mocks{grid-template-columns:1fr}
+ .app{grid-template-columns:1fr}.side{display:none}
+ .new{grid-template-columns:1fr 1fr}.new .plat{display:none}
+ .h1{display:none}
  .shows{grid-template-columns:repeat(2,minmax(0,1fr))}
  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
  .split,.price{grid-template-columns:1fr}
@@ -182,9 +238,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
  .facts div:nth-child(3){padding-left:0;border-left:0}
  .facts div:nth-child(n+3){margin-top:12px;border-top:1px solid var(--hair)}
- .add{grid-template-columns:1fr 1fr}
- .add span:nth-child(3){grid-column:1/2}
- .r{grid-template-columns:1fr auto}.r .cm{display:none}
+ .h2{display:none}.mainp{padding:16px 14px}.top h5{font-size:28px}.top .sync{display:none}
+ .new input:nth-child(2),.new input:nth-child(3){display:none}.new{grid-template-columns:1fr auto}
+ .tabs .tag{margin-left:0;width:100%}
+ .dh,.ds{padding-left:16px;padding-right:16px}.meta,.crs{grid-template-columns:1fr}
+ .kpis{grid-template-columns:1fr 1fr 1fr;gap:6px}.kpis div{padding:10px}.kpis b{font-size:24px}.kpis b em{display:block;font-size:14px}
  .shows,.steps,.time{grid-template-columns:1fr}
  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
  .tbl thead{display:none}
@@ -236,46 +294,91 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 <section id="see">
  <div class="wrap">
-  <header class="head"><h2 class="disp seam">What you use, what they see</h2><p data-in>Your team works from the board. Each brand gets its own page, e.g. audits.yourdomain.com/granola</p></header>
-  <div class="mocks">
-   <figure data-in>
-    <div class="win" aria-label="Mockup of the AKG control board">
-     <div class="bar"><i></i><i></i><i></i><span>audits.yourdomain.com/board</span></div>
-     <div class="wb">
-      <div class="wh"><b>AKG · Creator audits</b><em>Team login</em></div>
-      <div class="add"><span>Granola</span><span>granola.ai</span><span class="ph">Competitors (optional)</span><b>Run audit</b></div>
-      <div class="rows">
-       <div class="r"><div><b>HeyGen</b><small>Done in 18 min</small></div><div class="cm"><small>vs Synthesia, Colossyan, D-ID</small></div><span class="st live">Live · Open ↗</span></div>
-       <div class="r"><div><b>Wispr Flow</b><small>Waiting for your OK</small></div><div class="cm"><small>vs Superwhisper, Willow, Aqua Voice</small></div><span class="st chk">Check before send</span></div>
-       <div class="r"><div><b>Granola</b><small>Reading 1,840 posts</small><div class="prog"><i></i></div></div><div class="cm"><small>vs Otter, Fireflies, Fathom</small></div><span class="st run">Running</span></div>
-      </div>
-      <p class="ft">Every audit, its status and its link in one list. Slack pings you when one is ready.</p>
+  <header class="head"><h2 class="disp seam">What you use, what they see</h2><p data-in>One audit per lead. Your team runs them from the board, and each lead gets its own page in AKG's branding. Click around.</p></header>
+  <div class="tabs" role="tablist" data-in>
+   <button type="button" role="tab" aria-selected="true" data-v="vb">1 · Your board</button>
+   <button type="button" role="tab" aria-selected="false" data-v="vp">2 · A lead's audit page</button>
+   <span class="tag">Clickable mockup · sample numbers</span>
+  </div>
+  <div class="frame" data-in style="--d:.06s">
+   <div class="fbar"><i></i><i></i><i></i><span id="furl">audits.akgmedia.co.uk/board</span></div>
+   <div class="view akg is-on" id="vb">
+    <div class="app">
+     <aside class="side">
+      <div class="lg"><img src="/shared/aryan-akg/assets/akg-logo.svg" alt="AKG"><span>Media</span></div>
+      <a class="act" href="#vb" onclick="return false">Leads <small id="lc">5</small></a>
+      <a href="#vb" onclick="return false">Audits</a>
+      <a href="#vb" onclick="return false">Creators</a>
+      <a href="#vb" onclick="return false">Settings</a>
+      <div class="me"><img src="/shared/aryan-akg/assets/aryan.png" alt="">Aryan G.</div>
+     </aside>
+     <div class="mainp">
+      <div class="top"><div><h5>Leads</h5><p class="mn">One lead, one audit, one page</p></div><span class="mn sync">● Slack connected</span></div>
+      <form class="new" id="nf">
+       <input id="nb" placeholder="Lead brand" aria-label="Lead brand">
+       <input placeholder="Website" aria-label="Website">
+       <input placeholder="Competitors (optional)" aria-label="Competitors">
+       <div class="plat" aria-label="Platforms"><b>YT</b><b>IG</b><b>TT</b></div>
+       <button class="run" type="submit">Run audit</button>
+      </form>
+      <table class="leads">
+       <thead><tr><th>Lead</th><th class="h1">Benchmarked against</th><th class="h2">Platforms</th><th>Status</th><th class="h2">Updated</th><th></th></tr></thead>
+       <tbody id="lb">
+        <tr><td><div class="lead"><span class="ini">G</span><div><b>Granola</b><small>granola.ai</small></div></div></td><td class="h1 vs">Otter, Fireflies, Fathom</td><td class="h2 pf">YT IG TT</td><td><span class="pill live">Live</span></td><td class="h2 upd">2h ago</td><td><button type="button" class="go" data-open>Open ↗</button></td></tr>
+        <tr><td><div class="lead"><span class="ini p">H</span><div><b>HeyGen</b><small>heygen.com</small></div></div></td><td class="h1 vs">Synthesia, Colossyan, D-ID</td><td class="h2 pf">YT IG TT</td><td><span class="pill rev">Needs your OK</span></td><td class="h2 upd">25 min ago</td><td><button type="button" class="go">Review</button></td></tr>
+        <tr><td><div class="lead"><span class="ini v">W</span><div><b>Wispr Flow</b><small>wisprflow.ai</small></div></div></td><td class="h1 vs">Superwhisper, Willow, Aqua Voice</td><td class="h2 pf">YT IG TT</td><td><span class="pill run2">Reading posts</span><div class="prog"><i></i></div></td><td class="h2 upd">now</td><td><span class="go dim">…</span></td></tr>
+        <tr><td><div class="lead"><span class="ini w">E</span><div><b>ElevenLabs</b><small>elevenlabs.io</small></div></div></td><td class="h1 vs">Play.ht, Murf, Resemble</td><td class="h2 pf">YT IG TT</td><td><span class="pill q">Queued</span></td><td class="h2 upd">now</td><td><span class="go dim">…</span></td></tr>
+        <tr><td><div class="lead"><span class="ini">D</span><div><b>Descript</b><small>descript.com</small></div></div></td><td class="h1 vs">CapCut, Riverside, Veed</td><td class="h2 pf">YT IG TT</td><td><span class="pill live">Live · sent</span></td><td class="h2 upd">Mon</td><td><button type="button" class="go" data-open>Open ↗</button></td></tr>
+       </tbody>
+      </table>
+      <p class="bnote">Each row is one lead with its own audit. Competitors are only there as the benchmark inside that lead's page.</p>
      </div>
     </div>
-    <figcaption class="cap"><b>Your control board</b><span class="tag">Mockup</span></figcaption>
-   </figure>
-   <figure data-in style="--d:.08s">
-    <div class="win" aria-label="Mockup of a published audit page">
-     <div class="bar"><i></i><i></i><i></i><span>audits.yourdomain.com/granola</span></div>
-     <div class="wb au">
-      <div class="wh"><em>AKG Media · Creator audit</em><em>Last 12 months</em></div>
-      <h4>Granola vs Otter, Fireflies, Fathom</h4>
-      <p class="sub2">YouTube, Instagram and TikTok. Every number links to its post.</p>
-      <div class="kp">
-       <div><b>21 <em>/ 64</em></b><small>creators: you / rivals' average</small></div>
-       <div><b>1.9M <em>/ 6.2M</em></b><small>creator views</small></div>
-       <div><b>5 <em>/ 27</em></b><small>posts marked as paid</small></div>
-      </div>
-      <div class="bars"><p>Creator views by platform · <span style="color:#C8361B">you</span> vs rivals</p>
-       <div class="bl"><span>YT</span><div><i class="u" style="width:62%"></i><i style="width:48%"></i></div></div>
-       <div class="bl"><span>IG</span><div><i class="u" style="width:30%"></i><i style="width:41%"></i></div></div>
-       <div class="bl"><span>TT</span><div><i class="u" style="width:6%"></i><i style="width:78%"></i></div></div>
-      </div>
-      <div class="gap"><small>Gap 1 of 4</small>TikTok carried most of your rivals' creator views. You have 2 TikTok creators, and 14 creators who covered Otter or Fathom never covered you.</div>
+   </div>
+   <div class="view akg doc" id="vp">
+    <div class="dh">
+     <button type="button" class="back" data-back>← Back to the board</button>
+     <div class="rw"><img src="/shared/aryan-akg/assets/akg-logo.svg" alt="AKG"><span class="mn">Creator audit</span></div>
+     <p class="pre mn">Prepared for Granola by AKG Media</p>
+     <h5>Granola.</h5>
+     <h6>Creator + competitor audit</h6>
+     <div class="meta"><div><span class="mn">Window</span><b>Last 12 months</b></div><div><span class="mn">Platforms</span><b>YouTube, Instagram, TikTok</b></div><div><span class="mn">Benchmarked against</span><b>Otter, Fireflies, Fathom</b></div></div>
+    </div>
+    <div class="ds"><p class="k mn">01 · Where you stand <em>you / rivals' average</em></p>
+     <div class="kpis">
+      <div><b>21 <em>/ 64</em></b><small>creators who posted about you</small></div>
+      <div><b>1.9M <em>/ 6.2M</em></b><small>views on those creator posts</small></div>
+      <div><b>5 <em>/ 27</em></b><small>posts marked as paid partnerships</small></div>
      </div>
     </div>
-    <figcaption class="cap"><b>The page the brand gets</b><span class="tag">Mockup · sample numbers</span></figcaption>
-   </figure>
+    <div class="ds"><p class="k mn">02 · Creator views by platform</p>
+     <div class="chart">
+      <div class="hd mn"><span>Millions of views, last 12 months</span><span class="lgd"><span><i style="background:#e9faca"></i>Granola</span><span><i style="background:#ffbfed"></i>Rivals' avg</span></span></div>
+      <div class="grp">
+       <div class="g"><i class="a" style="height:43%"><span>1.2</span></i><i class="b" style="height:75%"><span>2.1</span></i></div>
+       <div class="g"><i class="a" style="height:21%"><span>0.6</span></i><i class="b" style="height:46%"><span>1.3</span></i></div>
+       <div class="g"><i class="a" style="height:4%"><span>0.1</span></i><i class="b" style="height:100%"><span>2.8</span></i></div>
+      </div>
+      <div class="gl mn"><span>YouTube</span><span>Instagram</span><span>TikTok</span></div>
+     </div>
+    </div>
+    <div class="ds"><p class="k mn">03 · What's missing</p>
+     <ol class="gaps">
+      <li><span>01</span><div><b>No TikTok program</b><p>TikTok brought your rivals 2.8M creator views this year. You had 2 TikTok creators.</p></div></li>
+      <li><span>02</span><div><b>Long gaps between posts</b><p>Rivals get a creator post every 9 days on average. Your last one went up 7 weeks ago.</p></div></li>
+      <li><span>03</span><div><b>Nothing to track</b><p>Fireflies puts a promo code in 6 of 10 creator videos. None of yours carry a code or a tracked link.</p></div></li>
+     </ol>
+    </div>
+    <div class="ds"><p class="k mn">04 · Creators already close <em>covered a rival, never you</em></p>
+     <div class="crs">
+      <div class="cr"><span class="av">P</span><b>Productivity YouTuber</b><small>412K subscribers</small><em>Covered Otter · Mar</em></div>
+      <div class="cr"><span class="av">A</span><b>AI tools TikToker</b><small>186K followers</small><em>Covered Fathom · twice</em></div>
+      <div class="cr"><span class="av">F</span><b>Founder vlogger</b><small>95K subscribers</small><em>Covered Fireflies · Aug</em></div>
+     </div>
+     <p class="more">+ 11 more, each linked to the post</p>
+    </div>
+    <div class="df"><p>Want the full creator list? <span>Let's talk.</span></p><b>Book a call with AKG</b><small class="mn">Every number on this page links to the post it came from</small></div>
+   </div>
   </div>
   <div class="shows">
    <article data-in><span class="mono">Their campaigns</span><h3>Every creator who posted about them</h3><p>Who, where, views, engagement, creator size, and whether it was marked as paid.</p></article>
@@ -404,6 +507,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   els.forEach(function(el){io.observe(el)});
   var t;addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(function(){var h=innerHeight;els.forEach(function(el){if(!el.classList.contains('on')&&el.getBoundingClientRect().top<h)show(el)})},120)},{passive:true});
  }
+
+ var furl=d.getElementById('furl'),tabs=d.querySelectorAll('.tabs button');
+ function view(id){d.querySelectorAll('.view').forEach(function(v){v.classList.toggle('is-on',v.id===id);v.scrollTop=0});tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.v===id)});furl.textContent=id==='vp'?'audits.akgmedia.co.uk/granola':'audits.akgmedia.co.uk/board'}
+ tabs.forEach(function(t){t.addEventListener('click',function(){view(t.dataset.v)})});
+ d.getElementById('vb').addEventListener('click',function(e){if(e.target.closest('[data-open]'))view('vp')});
+ d.querySelector('[data-back]').addEventListener('click',function(){view('vb')});
+ var nf=d.getElementById('nf'),lb=d.getElementById('lb'),lc=d.getElementById('lc'),n=5;
+ nf.addEventListener('submit',function(e){e.preventDefault();var inp=d.getElementById('nb'),name=(inp.value||'Perplexity').trim().slice(0,28);
+  var tr=d.createElement('tr');tr.className='new-row';
+  tr.innerHTML='<td><div class="lead"><span class="ini v"></span><div><b></b><small>finding competitors…</small></div></div></td><td class="h1 vs">Suggesting 3…</td><td class="h2 pf">YT IG TT</td><td><span class="pill q">Queued</span></td><td class="h2 upd">now</td><td><span class="go dim">…</span></td>';
+  tr.querySelector('.ini').textContent=name.charAt(0).toUpperCase();tr.querySelector('b').textContent=name;
+  lb.insertBefore(tr,lb.firstChild);lc.textContent=++n;inp.value='';
+  setTimeout(function(){var p=tr.querySelector('.pill');p.className='pill run2';p.textContent='Finding campaigns';},1400)});
  var nav=d.getElementById('nav');
  function navs(){nav.classList.toggle('solid',scrollY>30)}
  addEventListener('scroll',navs,{passive:true});navs();
