@@ -323,7 +323,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         <tr><td><div class="lead"><span class="ini">D</span><div><b>Descript</b><small>descript.com</small></div></div></td><td class="h1 vs">CapCut, Riverside, Veed</td><td class="h2 pf">YT IG TT</td><td><span class="pill live">Live · sent</span></td><td class="h2 upd">Mon</td><td><span class="go">Open ↗</span></td></tr>
        </tbody>
       </table>
-      <p class="bnote">One row per lead, each with its own audit page. Competitors are the benchmark inside it.</p>
+      <p class="bnote">One row per lead. Each lead gets its own audit page.</p>
      </div>
     </div>
    </div>
@@ -333,14 +333,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
    <ul class="inc">
     <li>Every creator post about the brand in the last 90 days, on YouTube, Instagram and TikTok</li>
     <li>For each post: creator, follower count, platform, date, views, engagement and a link</li>
-    <li>A label on each post: paid and disclosed, likely paid (promo code or tracking link), or organic</li>
-    <li>What the content itself does: format, hook, how the brand is shown, and which of those got the most views</li>
+    <li>Whether each post is paid, likely paid (promo code or tracking link) or organic</li>
+    <li>What the content does: format, hook, how the brand is shown, and what got the most views</li>
     <li>Totals: creators, posts, views, and how much of it is paid</li>
     <li>The same numbers for 2-3 competitors, side by side</li>
     <li>3-5 gaps, each backed by a number</li>
     <li>Creators already posting for their competitors, with handle and views</li>
-    <li>A page in AKG's branding on your subdomain with a PDF copy, every number linked to its post</li>
-    <li>Checked by QA agents before it goes out: every number matched to its post, claims without a source cut, anything unclear held for your OK</li>
+    <li>A page in AKG's branding on your subdomain, plus a PDF, every number linked to its post</li>
+    <li>Checked by QA agents before it goes out: numbers matched to their posts, unsourced claims cut, anything unclear held for your OK</li>
    </ul>
   </div>
  </div>
@@ -350,13 +350,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
  <div class="wrap">
   <header class="head"><h2 class="disp seam">How one audit gets made</h2></header>
   <ol class="steps">
-   <li data-in><h3>Add the brand</h3><p>On the board: name and website, competitors optional. Behind a team login.</p></li>
-   <li data-in style="--d:.05s"><h3>Find the campaigns</h3><p>YouTube via Google's official API, with views, channel size and the paid flag. Instagram and TikTok via Apify: tags, mentions, hashtags, paid-partnership labels.</p></li>
-   <li data-in style="--d:.1s"><h3>Read every post</h3><p>Claude sorts each one: paid and disclosed, likely paid (promo code or tracking link), or organic. The top videos get transcribed and read for format, hook and how the brand shows up.</p></li>
-   <li data-in style="--d:.15s"><h3>Compare and write</h3><p>Same pass for each competitor, then the comparison and the gaps. Every number links to its post.</p></li>
-   <li data-in style="--d:.2s"><h3>Check and publish</h3><p>QA agents check every number against its post and reject claims without a source. The page goes live on your subdomain, the link shows on the board, Slack pings.</p></li>
+   <li data-in><h3>Add the brand</h3><p>Type the name and website on the board. Competitors are optional.</p></li>
+   <li data-in style="--d:.05s"><h3>Find the campaigns</h3><p>YouTube through Google's official API. Instagram and TikTok through Apify: tags, mentions, hashtags and paid-partnership labels.</p></li>
+   <li data-in style="--d:.1s"><h3>Read every post</h3><p>Claude labels each post paid, likely paid or organic, and reads the top videos for format, hook and how the brand shows up.</p></li>
+   <li data-in style="--d:.15s"><h3>Compare and write</h3><p>The same for each competitor, then the side-by-side and the gaps.</p></li>
+   <li data-in style="--d:.2s"><h3>Check and publish</h3><p>QA agents check every number against its post. The page goes live on your subdomain and Slack pings you with the link.</p></li>
   </ol>
-  <p class="callout" data-in>I build and tune it on my own accounts first, so sources get added or cut before anything is yours. Once the audits are right, it moves to AKG's accounts.</p>
+  <p class="callout" data-in>I build and test it on my own accounts first. Once the audits are right, it moves to AKG's accounts.</p>
  </div>
 </section>
 
@@ -367,23 +367,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
    <table class="tbl" data-in>
     <thead><tr><th>Service</th><th>Job</th><th>Cost</th></tr></thead>
     <tbody>
-     <tr><td>YouTube Data API</td><td>Videos, views, channels, paid flag</td><td class="c">Free. 10,000 units a day covers 2-4 audits; Google raises it on request</td></tr>
-     <tr><td>Apify</td><td>Instagram and TikTok posts, video transcripts</td><td class="c">$19/mo plan, counted as usage credit. ~$2.30 per 1,000 Instagram results, from $1.70 per 1,000 TikTok</td></tr>
-     <tr><td>Claude API</td><td>Reads, compares, writes, checks</td><td class="c">Pay per use. Haiku sorts ($0.10/$0.50 per M tokens), Opus writes ($4/$20)</td></tr>
-     <tr><td>n8n Cloud</td><td>Runs the steps, stores the audit list</td><td class="c">Starter €24/mo (€20 billed yearly), 2,500 runs. Pro €50/mo billed yearly past ~60 audits a month</td></tr>
-     <tr><td>Railway</td><td>Control board, audit pages, database, post images and PDFs, on your subdomain</td><td class="c">~$5-15/mo, billed by usage</td></tr>
+     <tr><td>YouTube Data API</td><td>Videos, views, channels, paid flag</td><td class="c">Free. Covers 2-4 audits a day, and Google raises the limit for free on request</td></tr>
+     <tr><td>Apify</td><td>Instagram and TikTok posts, video transcripts</td><td class="c">$19/mo, which counts toward usage, then pay per post</td></tr>
+     <tr><td>Claude API</td><td>Reads, compares, writes, checks</td><td class="c">Pay per use</td></tr>
+     <tr><td>n8n Cloud</td><td>Runs the steps, stores the audit list</td><td class="c">€24/mo up to ~60 audits a month, ~€50/mo above that</td></tr>
+     <tr><td>Railway</td><td>Hosts the board and audit pages on your subdomain</td><td class="c">~$5-15/mo</td></tr>
     </tbody>
    </table>
    <div data-in style="--d:.1s">
     <ul class="sum">
-     <li>Instagram + TikTok, ~1,600 posts, creator profiles, top-video transcripts <b>$3.50-6</b></li>
-     <li>Claude, ~2,000 posts sorted, top videos read, then write and check <b>$1-1.50</b></li>
+     <li>Instagram and TikTok data <b>$3.50-6</b></li>
+     <li>Claude reading and writing <b>$1-1.50</b></li>
      <li>YouTube <b>$0</b></li>
      <li class="tot">Per audit <b>$5-8</b></li>
      <li>30 audits a month, with n8n and Railway <b>~$180-280</b></li>
      <li>100 audits a month, with n8n and Railway <b>~$570-870</b></li>
     </ul>
-    <p class="small">One audit = the brand + 3 competitors on 3 platforms, up to 200 posts per brand per platform. A competitor scanned in the last 30 days is reused, so repeat audits cost less. Estimated from current price lists.</p>
+    <p class="small">One audit covers the brand and 3 competitors on all 3 platforms. A competitor scanned in the last 30 days is reused, so repeat audits cost less. Estimates from current price lists.</p>
    </div>
   </div>
  </div>
@@ -394,7 +394,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   <header class="head"><h2 class="disp seam">Timeline and investment</h2></header>
   <div class="time">
    <div data-in><span class="mono">Week 1</span><h3>Built on my side</h3><p>HeyGen, Granola and Wispr Flow audits sent to you. Sources tuned until they're right.</p></div>
-   <div class="live" data-in style="--d:.05s"><span class="mono">Week 1-2</span><h3>Live on yours</h3><p>Board, AKG-branded pages, your subdomain and Slack, moved to AKG's accounts.</p></div>
+   <div class="live" data-in style="--d:.05s"><span class="mono">Week 1-2</span><h3>Live on yours</h3><p>Board, pages, subdomain and Slack, all on AKG's accounts.</p></div>
    <div data-in style="--d:.1s"><span class="mono">Next 2 weeks</span><h3>Supervised running</h3><p>I check every audit and fix what's off.</p></div>
    <div data-in style="--d:.15s"><span class="mono">Handover</span><h3>Yours to run</h3><p>Walkthrough video, runbook, 30 days of bug fixes.</p></div>
   </div>
